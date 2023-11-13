@@ -70,7 +70,7 @@ public class EnemyDBSpawner : SpawnerRoot
         {
             int selectedID = 0;
 
-            if (GameSessionInfoHandler.LevelProgress == 0)
+            if (GameSessionInfoHandler.LevelProgress == 0 || GameSessionInfoHandler.MaxLevel == 1)
                 print("Выбран выборщик веса по умолчанию для первого уровня.");
             else
             {

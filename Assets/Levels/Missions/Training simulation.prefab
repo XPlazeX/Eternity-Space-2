@@ -163,8 +163,8 @@ MonoBehaviour:
   _bonusSpawnReload: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 5
-  _startLevelWeight: 3
-  _finalLevelWeight: 5
+  _startLevelWeight: 2
+  _finalLevelWeight: 4
   _missionWeightFinalMultiplier: 1.3
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
