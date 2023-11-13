@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c4e165b3b2bd84ab4cb3804a1c8082, type: 3}
+  m_Name: TrainingHorror
+  m_EditorClassIdentifier: 
+  _enemyPacks:
+  - _weight: 1
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 1b2061d7827aa434f9e9ff34ce96b155,
+      type: 3}
+  - _weight: 1
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 59f52402e9f786e4895f6808a6bd94be,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: f2eac2c53c92b9e439f1b25c740d133b,
+      type: 3}
+  - _weight: 3
+    _count: 3
+    _enemy: {fileID: 9069206062416828823, guid: 200e91b429f7949469d0c47e24efa41b,
+      type: 3}
+  - _weight: 2
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 863b27f8f1351a34697347bdd713f0d6,
+      type: 3}
+  - _weight: 2
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 9697c0271c6a9e04186d6275772f64a8,
+      type: 3}
+  - _weight: 2
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: d63a0a8d4938a6a47b5d5f86252d16a8,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 6843e5987d603b34183b5654c46ba70a,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 21461c18c0a1e1645b90c319c8069f74,
+      type: 3}
+  - _weight: 2
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 42def67dcefb24b4a852d6d8b8650d90,
+      type: 3}
+  - _weight: 2
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 2778273146870dd4db4ac51a8c052c6a,
+      type: 3}
+  - _weight: 4
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: 9d76cf870cc65464f98a546b794cc229,
+      type: 3}

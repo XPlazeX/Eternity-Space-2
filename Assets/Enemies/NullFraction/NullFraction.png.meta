@@ -1,0 +1,1004 @@
+fileFormatVersion: 2
+guid: 5647c23507ed6914c98f9ef8e6a3beb9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7689152475724246374
+    second: NullFraction_0
+  - first:
+      213: -7718474760007431097
+    second: NullFraction_1
+  - first:
+      213: 2439931506805082585
+    second: NullFraction_2
+  - first:
+      213: 3452731619282310349
+    second: NullFraction_3
+  - first:
+      213: 834671384760081876
+    second: NullFraction_4
+  - first:
+      213: 1491204095983485572
+    second: NullFraction_5
+  - first:
+      213: 2362788792262922497
+    second: NullFraction_6
+  - first:
+      213: 995122490102436986
+    second: NullFraction_7
+  - first:
+      213: 5344689481675721605
+    second: NullFraction_8
+  - first:
+      213: -7324485577299069695
+    second: NullFraction_9
+  - first:
+      213: 1086577287841810589
+    second: NullFraction_10
+  - first:
+      213: -8799421878852491133
+    second: NullFraction_11
+  - first:
+      213: -6024846733372180903
+    second: NullFraction_12
+  - first:
+      213: 1482140266634828585
+    second: NullFraction_13
+  - first:
+      213: 8504375518663093723
+    second: NullFraction_14
+  - first:
+      213: 5066538566776305976
+    second: NullFraction_15
+  - first:
+      213: -9098084520977224270
+    second: NullFraction_16
+  - first:
+      213: -4474363685574341771
+    second: NullFraction_17
+  - first:
+      213: -5385527784593399644
+    second: NullFraction_18
+  - first:
+      213: 5567969453546886308
+    second: NullFraction_19
+  - first:
+      213: 7772601343164588336
+    second: NullFraction_20
+  - first:
+      213: -2259657237597678234
+    second: NullFraction_21
+  - first:
+      213: -9114237054452156000
+    second: NullFraction_22
+  - first:
+      213: 1076730757182702524
+    second: NullFraction_23
+  - first:
+      213: -8702813319654131960
+    second: NullFraction_24
+  - first:
+      213: 207168800262733218
+    second: NullFraction_25
+  - first:
+      213: 7052594498536061855
+    second: NullFraction_26
+  - first:
+      213: 7671034189671414752
+    second: NullFraction_27
+  - first:
+      213: -8440514852262809222
+    second: NullFraction_28
+  - first:
+      213: 6845980905111809277
+    second: NullFraction_29
+  - first:
+      213: -5109833299113993947
+    second: NullFraction_30
+  - first:
+      213: -7641522866563017212
+    second: NullFraction_31
+  - first:
+      213: -3838367721878242876
+    second: NullFraction_32
+  - first:
+      213: 7224534801080263624
+    second: NullFraction_33
+  - first:
+      213: -3040816621225169645
+    second: NullFraction_34
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NullFraction_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 125
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9214acef84aa4590800000000000000
+      internalID: -7689152475724246374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 123
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c40f9991872e490800000000000000
+      internalID: -7718474760007431097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 123
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9866337c06cd120800000000000000
+      internalID: 2439931506805082585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 122
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4d4184d119aef20800000000000000
+      internalID: 3452731619282310349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 126
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dddec0c339559b00800000000000000
+      internalID: 834671384760081876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_5
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 41
+        width: 47
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48204bc7932d1b410800000000000000
+      internalID: 1491204095983485572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 101
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1011b1253ef4ac020800000000000000
+      internalID: 2362788792262922497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_7
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 110
+        width: 15
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a74de82e1a26fcd00800000000000000
+      internalID: 995122490102436986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 88
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58b4c0624c62c2a40800000000000000
+      internalID: 5344689481675721605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_9
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 103
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105fd9a9c233a5a90800000000000000
+      internalID: -7324485577299069695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_10
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 100
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9881de494c441f00800000000000000
+      internalID: 1086577287841810589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_11
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 101
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388623a2c6c22e580800000000000000
+      internalID: -8799421878852491133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 88
+        width: 6
+        height: 11
+      alignment: 9
+      pivot: {x: 0.4898866, y: 0.6323811}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956bd2721d1736ca0800000000000000
+      internalID: -6024846733372180903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_13
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 88
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b521448be919410800000000000000
+      internalID: 1482140266634828585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 67
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd2172e97c950670800000000000000
+      internalID: 8504375518663093723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_15
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 84
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.4865799, y: 0.6651782}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839b4899bf5ff4640800000000000000
+      internalID: 5066538566776305976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_16
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 48
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd2ca6f45c1db180800000000000000
+      internalID: -9098084520977224270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b0f652fedd7e1c0800000000000000
+      internalID: -4474363685574341771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_18
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 63
+        width: 8
+        height: 14
+      alignment: 9
+      pivot: {x: 0.311409, y: 0.6847425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0605f7303c245b0800000000000000
+      internalID: -5385527784593399644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_19
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 68
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a453e6b7b6654d40800000000000000
+      internalID: 5567969453546886308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_20
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 74
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031ac089db3dddb60800000000000000
+      internalID: 7772601343164588336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_21
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 60
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66599dee6b514a0e0800000000000000
+      internalID: -2259657237597678234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 50
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a93da230b9b38180800000000000000
+      internalID: -9114237054452156000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_23
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 39
+        width: 24
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3cc9c3be051fe00800000000000000
+      internalID: 1076730757182702524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 42
+        width: 11
+        height: 15
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.7179682}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8073a7f2565693780800000000000000
+      internalID: -8702813319654131960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_25
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 3
+        width: 35
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad343c1de200e200800000000000000
+      internalID: 207168800262733218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_26
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 22
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bbd168459dfd160800000000000000
+      internalID: 7052594498536061855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_27
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 40
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebbd3fd3fcf47a60800000000000000
+      internalID: 7671034189671414752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_28
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 37
+        width: 21
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71777d26744dda80800000000000000
+      internalID: -8440514852262809222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.740023}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfceb449c5fc10f50800000000000000
+      internalID: 6845980905111809277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_30
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 3
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52919d000b93619b0800000000000000
+      internalID: -5109833299113993947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_31
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 5
+        width: 45
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4069c7b707bd3f590800000000000000
+      internalID: -7641522866563017212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_32
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 6
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c93f1cb4e06bbac0800000000000000
+      internalID: -3838367721878242876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_33
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 6
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c326d5df14b24460800000000000000
+      internalID: 7224534801080263624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NullFraction_34
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 3
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d25c8d469dcc5d0800000000000000
+      internalID: -3040816621225169645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

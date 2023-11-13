@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3320400683765108884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4208724032265482503}
+  - component: {fileID: 7618632098723766292}
+  - component: {fileID: 8860844421902757977}
+  - component: {fileID: 3965740972246234391}
+  - component: {fileID: 2878921848988310477}
+  m_Layer: 0
+  m_Name: TrainingController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4208724032265482503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320400683765108884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7618632098723766292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320400683765108884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4035e971ae16642a54565d7369a169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trainingLocalizationFilename: Training
+  _tipCount: 11
+  _controllableText: {fileID: 6677556567886882618, guid: bf7d0160a226e944bb3b7f71624548e8,
+    type: 3}
+  _textPosition: {x: 0, y: 1, z: 0}
+  _spawnObjects:
+  - gameObject: {fileID: 3805544117901422509, guid: d9fecfb4fc236f4439fed00522960956,
+      type: 3}
+    spawnPosition: {x: -4.5, y: 5, z: 0}
+    spawnAngles: 0
+  - gameObject: {fileID: 3805544117901422509, guid: d9fecfb4fc236f4439fed00522960956,
+      type: 3}
+    spawnPosition: {x: 4.5, y: 5, z: 0}
+    spawnAngles: 0
+--- !u!114 &8860844421902757977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320400683765108884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c3696c89474454786fef539f9e2c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _conditionList:
+  - _targetWave: 0
+    _byPercentage: 0
+    _targetPercentage: 0
+  - _targetWave: 4
+    _byPercentage: 0
+    _targetPercentage: 0
+  - _targetWave: 8
+    _byPercentage: 0
+    _targetPercentage: 0
+  - _targetWave: 11
+    _byPercentage: 0
+    _targetPercentage: 0
+  _dialogueFilenames:
+  - Training_Intro
+  - Training_Med
+  - Training_Protest
+  - Training_Final
+--- !u!114 &3965740972246234391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320400683765108884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11866ac1621c3b04a8afee13a97caf95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _conditionList:
+  - _targetWave: 3
+    _byPercentage: 0
+    _targetPercentage: 0
+  - _targetWave: 4
+    _byPercentage: 0
+    _targetPercentage: 0
+  _enemyPacksList:
+  - _enemyPackObject: {fileID: 11400000, guid: 331ca27adfadb3745a71e1f89c74d35a, type: 2}
+  - _enemyPackObject: {fileID: 11400000, guid: 95791305ecd76c043b498610f7295812, type: 2}
+--- !u!114 &2878921848988310477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320400683765108884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479719f5a7999a0418b40f43fc8a10ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _conditionList:
+  - _targetWave: 4
+    _byPercentage: 0
+    _targetPercentage: 0
+  - _targetWave: 8
+    _byPercentage: 0
+    _targetPercentage: 0
+  - _targetWave: 11
+    _byPercentage: 0
+    _targetPercentage: 0
+  _spawnObjects:
+  - gameObject: {fileID: 2993780487381222007, guid: 775c9f83c9c918e488ce1eefff099ab9,
+      type: 3}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnAngles: 0
+  - gameObject: {fileID: 3990426208589283306, guid: 59f0c1305a0646c4f9c6f5026617c5fc,
+      type: 3}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnAngles: 0
+  - gameObject: {fileID: 9069206062416828815, guid: 362c2c5f83d15a24597cce39fbba85b6,
+      type: 3}
+    spawnPosition: {x: 0, y: 25, z: 0}
+    spawnAngles: 0

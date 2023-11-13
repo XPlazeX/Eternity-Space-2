@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a11e40f46b7b52f4aab386c78e3143f4
+  m_SerializeEntries:
+  - m_GUID: a56286becb9c8244badb0a5c92f77c99
+    m_Address: Assets/MainMenu/Dialogues/Dialogue Window.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_Address: Assets/MainMenu/Dialogues/Characters 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: c2b6b4e53a4ef2b4f87831648f7c06b9
+    m_Address: Assets/MainMenu/Dialogues/Voice/Noise-1.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: c77108aaeba0e564895a208e92ac4faf
+    m_Address: Assets/MainMenu/Dialogues/Voice/Bas-1.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: aca969aa9faddf145bf3021d7a236217
+    m_Address: Assets/MainMenu/Dialogues/Voice/Taro.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 4674090cb4ec73b4a985b48a8dad5ff3
+    m_Address: Assets/MainMenu/Dialogues/Voice/TaroHelmet.wav
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 78f65360dfdf15748901baac740d3318
+    m_Address: Assets/Player/Characters/Tuna-1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: a3639adf41bde684da1ebca1794ed41f
+    m_Address: Assets/Player/Characters/DreamShip.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: cad811fcd89befe4f810ae5c171b2a93
+    m_Address: Assets/MainMenu/Lab/LabWeapons.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 297fd81472740e846bb9eacacfc1b676
+    m_Address: Assets/MainMenu/Lab/LabShips.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3034c2d77e0b80941aaa4135057d96fe
+    m_Address: Assets/Levels/Missions/Null-0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: fdd1685e38b18ec44a64024fe4d75aec
+    m_Address: Assets/Levels/Missions/Cryodream mission.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a0e71c30b0a7d447a928ac1edd08bf9
+    m_Address: Assets/Levels/Missions/Training simulation.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4e132205cb847204aa70da45d674d3f8
+    m_Address: Assets/Levels/Missions/Null-1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 27ad567d2bb3fcb4c81c46f42cbf0209
+    m_Address: Assets/Levels/Missions/Null-B1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b41865feb39301847890cc5ebc123183
+    m_Address: Assets/Levels/Missions/Null-2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9500f3373a3d01f4e8743a41c4bbec42
+    m_Address: Assets/Levels/Missions/Null-3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 567c7b31ded1e3344ac6e179c42c821d
+    m_Address: Assets/Player/Characters/Finwhale-1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd5eb8bcfa23cac4980e8e8b82e835dc
+    m_Address: Assets/Player/Characters/Orca-1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a614abb0f483aec4195392450e385c53
+    m_Address: Assets/Levels/Missions/Null-Boss.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71efaa12e746e1647b3ee4192bd10435
+    m_Address: Assets/MainMenu/Dialogues/Voice/Robot-Danger.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 84c6e6182dc05c14fa3cb4e3fb5665d6
+    m_Address: Assets/MainMenu/Dialogues/Voice/Robot-med.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c4bc8bc1e428b9249a7ce0ef8fb7e3f2
+    m_Address: Assets/MainMenu/Dialogues/Voice/Woman-high.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 01a3dad1900cd9a4c84a478a6d6f1e60
+    m_Address: Assets/MainMenu/Dialogues/Voice/People-high.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd6e4513715359b43b618a1721c678ae
+    m_Address: Assets/MainMenu/Dialogues/Voice/Woman-cool.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a8a2a8332444304409c8734276c4d7e8
+    m_Address: Assets/MainMenu/Dialogues/Voice/Contagion.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e7fb8f060c220cd47b82cde0194bd61b
+    m_Address: Assets/MainMenu/Dialogues/Voice/Freq-med.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bb38a6272d07b864ca5076a38dfffaba
+    m_Address: Assets/MainMenu/Dialogues/Voice/People-cool.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff085f67c71496242ab2bd0e4cdcb667
+    m_Address: Assets/MainMenu/Dialogues/Voice/Freq-high.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6e42ed7a3098e0f4d8d6a72f24b01590
+    m_Address: Assets/MainMenu/Dialogues/Voice/Woman-maniac.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2d5003da9f84a9b498e57d5bb91aa46a
+    m_Address: Assets/MainMenu/Dialogues/Voice/People-other.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1552d21baab7c7b41abe6613b9c8caa1
+    m_Address: Assets/MainMenu/Dialogues/Voice/Woman-common.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fee5dbbc7787fbb418a4678ec5472ebc
+    m_Address: Assets/MainMenu/Dialogues/Voice/Freq-low.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 70aa506395b5333418d6debbebb77313
+    m_Address: Assets/Levels/Missions/Null-I1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cf8c1eb1da423be4ba0de71e8c4cd7c9
+    m_Address: Assets/_Development/RU-Changelog.txt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9597cbea534b94d46a7b12ca5e07e507, type: 2}
+    - {fileID: 11400000, guid: 4a4049de8266fdc4ab579c9ebe19fa0f, type: 2}

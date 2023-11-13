@@ -1,0 +1,1404 @@
+fileFormatVersion: 2
+guid: cf39df522ebc03549b705fb5945a8ffc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BonusEnemies_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 21
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 593721158be3db545a6a44db6f67484a
+      internalID: 10372614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 109
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f13c38d38b38946bece43ad512e2eb
+      internalID: 189527188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 108
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462101b23fa81814bacd96dfed294dd0
+      internalID: 2139800206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 108
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f97c533bbe9304eb81f0e47f3b2fdb
+      internalID: -563814000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_4
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 108
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6173c57672e929e4a92634df05530cea
+      internalID: 1297072419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 117
+        width: 5
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e6cf3495dcf62478517713c3c6c857
+      internalID: 1863572790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_6
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 111
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf38fbd5164a0b34c9c6630d87d30515
+      internalID: -493051414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_7
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 112
+        width: 10
+        height: 19
+      alignment: 9
+      pivot: {x: 0.74987566, y: 0.6620981}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38bf934939defd345b055d36f5a140c4
+      internalID: -1689395070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 108
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20018cece7ec75444811839e1c651c83
+      internalID: 1324250769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_9
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 113
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22311f6f9177f5e44900a037cc672ec0
+      internalID: 1582694011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_10
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 119
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2c702e69785b744acce0a11f89ec94
+      internalID: 2036647544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_11
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 109
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1597973512e1948bc317f94d7fa980
+      internalID: 1723562924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_12
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 116
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60eab3fa2ab4ab4bad15a9b82b02b69
+      internalID: 335177615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_13
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 102
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2254a6bf27345e4691b8db27383aa3a
+      internalID: -1443176672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_14
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 109
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bac0749f352ed443935c879a1320015
+      internalID: 1813270858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_15
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 111
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9d16795140358458bcafbd5cd94a85
+      internalID: 423595750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_16
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 112
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0638288fff46244d951700ab6f09c7d
+      internalID: 1846182457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_17
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 113
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1b359bdf488ab44ab4538f82f34c04
+      internalID: -1761523548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_18
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 112
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87bd31c9f8944c4bbf73efaf2efe0ba
+      internalID: -1900068611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_19
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 112
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea0a41515dce144b815bdbb75fd1711
+      internalID: 27049735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_20
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 114
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527a727ffe4abfe40a8839723d480d8d
+      internalID: -539379635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_21
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 108
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0b082abb5362544aca194d701def70
+      internalID: 1940439811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_22
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 105
+        width: 19
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5540595, y: 0.67494994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52fc371b768b30943a1c375f75d068cb
+      internalID: -1396721954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_23
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 114
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d76c33eb473f2a4aaa911f6394411aa
+      internalID: -1333053761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_24
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 107
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd985bffc3277d40a2b2e060fa685bf
+      internalID: -732965645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_25
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 101
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e37a849906354e40b688596ead48a12
+      internalID: 1967773467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_26
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 118
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23e9c6f23fa9b146a06a8101a46a207
+      internalID: 74823851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_27
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 104
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0bb2c2743996204d899ce09b5a1ed23
+      internalID: -1976912367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_28
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 103
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819bbed0fe5f53444becc315df86291e
+      internalID: -428841170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 26
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456d78580c3909a439f983e9d322c6b8
+      internalID: -2092602810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_30
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 80
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1841a49cf1b5738469b6e695c24d3196
+      internalID: -693674656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_31
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 20
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.68}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9866abddc57e39a40b983ac5cf981e9f
+      internalID: -657586275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_32
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 65
+        width: 25
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.58}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea4caaaa56d1394687d29d4239d49a7
+      internalID: 406680309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_33
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 64
+        width: 21
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.63}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccdff4b1ff2c3d445b4cfac0cfb168e3
+      internalID: -677254090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_34
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 68
+        width: 28
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b176ad2eadda24b844ec0fad7281e7
+      internalID: -1708308465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_35
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 59
+        width: 30
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82e3c159b7e48974a9c8853eadabb379
+      internalID: 108597043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_36
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 64
+        width: 17
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d868cc43cba6145a15bbf755d1cc05
+      internalID: 1053342949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_37
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 62
+        width: 19
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2075bfcc2bbfd3940807546176663590
+      internalID: 125586191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_38
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 84
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d803df5d880d8d4ba7552bdbf9b394a
+      internalID: -1359964802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_39
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 58
+        width: 29
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fabbacb6f0d30f428663cfd3a938a70
+      internalID: -1057162422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_40
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 70
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c06252a1b778dc49b13fe33aa4b07b1
+      internalID: -2009611930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_41
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 35
+        width: 33
+        height: 66
+      alignment: 9
+      pivot: {x: 0.36, y: 0.82}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d40348a01a14b45812bfa6f66221b1
+      internalID: 1576092101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_42
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 60
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a975ef2d54f56a8499d8055f50dd3520
+      internalID: 151361551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_43
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 71
+        width: 7
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2baec32c6abb2c64ab971119f3ad6966
+      internalID: 175198577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_44
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 88
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed962c93702b3ef4ca7af044313eab2c
+      internalID: 686179710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_45
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 62
+        width: 41
+        height: 37
+      alignment: 9
+      pivot: {x: 0.295, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661a4044b54ed554e9cc10654909851d
+      internalID: -1289705929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_46
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 65
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a91f94cb2f4ef941a5e32a4d7b71a0c
+      internalID: 939129438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_47
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 72
+        width: 34
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0.345}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e10b118cd3d9e40918e54fb409cf0c
+      internalID: -1641439414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_48
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 60
+        width: 11
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b292870f73ebd64eb7e86a60f466de7
+      internalID: -388317682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 51
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff091205db67ff4aab85e8e8f342503
+      internalID: 139350431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_50
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 13
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b62e68a72212948b06dbc0c5253b86
+      internalID: -160395719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 14
+        width: 61
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d98a1692044d8247bb14d66c623e160
+      internalID: -1125466462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_52
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 3
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e41fb058a8d6b42bc3c34e62c4c27b
+      internalID: -896670559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_53
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 17
+        width: 88
+        height: 34
+      alignment: 9
+      pivot: {x: 0.23875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7aaa44633a8c8e4c9eed2cfee1eed19
+      internalID: 17924488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_54
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 0
+        width: 55
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0.68}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ac0d928b14dd5458f892c2f3019aee
+      internalID: 1408797961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_55
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 6
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08eb71098feebd44b91d7baaf57ebd73
+      internalID: -420680840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BonusEnemies_47: -1641439414
+      BonusEnemies_26: 74823851
+      BonusEnemies_34: -1708308465
+      BonusEnemies_6: -493051414
+      BonusEnemies_10: 2036647544
+      BonusEnemies_9: 1582694011
+      BonusEnemies_44: 686179710
+      BonusEnemies_33: -677254090
+      BonusEnemies_15: 423595750
+      BonusEnemies_3: -563814000
+      BonusEnemies_39: -1057162422
+      BonusEnemies_13: -1443176672
+      BonusEnemies_0: 10372614
+      BonusEnemies_50: -160395719
+      BonusEnemies_17: -1761523548
+      BonusEnemies_54: 1408797961
+      BonusEnemies_31: -657586275
+      BonusEnemies_51: -1125466462
+      BonusEnemies_27: -1976912367
+      BonusEnemies_46: 939129438
+      BonusEnemies_48: -388317682
+      BonusEnemies_40: -2009611930
+      BonusEnemies_14: 1813270858
+      BonusEnemies_4: 1297072419
+      BonusEnemies_8: 1324250769
+      BonusEnemies_29: -2092602810
+      BonusEnemies_28: -428841170
+      BonusEnemies_43: 175198577
+      BonusEnemies_30: -693674656
+      BonusEnemies_21: 1940439811
+      BonusEnemies_36: 1053342949
+      BonusEnemies_42: 151361551
+      BonusEnemies_41: 1576092101
+      BonusEnemies_38: -1359964802
+      BonusEnemies_7: -1689395070
+      BonusEnemies_11: 1723562924
+      BonusEnemies_22: -1396721954
+      BonusEnemies_16: 1846182457
+      BonusEnemies_19: 27049735
+      BonusEnemies_49: 139350431
+      BonusEnemies_32: 406680309
+      BonusEnemies_37: 125586191
+      BonusEnemies_52: -896670559
+      BonusEnemies_24: -732965645
+      BonusEnemies_20: -539379635
+      BonusEnemies_2: 2139800206
+      BonusEnemies_53: 17924488
+      BonusEnemies_5: 1863572790
+      BonusEnemies_35: 108597043
+      BonusEnemies_23: -1333053761
+      BonusEnemies_1: 189527188
+      BonusEnemies_55: -420680840
+      BonusEnemies_18: -1900068611
+      BonusEnemies_45: -1289705929
+      BonusEnemies_12: 335177615
+      BonusEnemies_25: 1967773467
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

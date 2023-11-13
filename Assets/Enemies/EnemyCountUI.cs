@@ -1,0 +1,11 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class EnemyCountUI : MonoBehaviour
+{
+    [SerializeField] private Text _textLabel;
+    [SerializeField] private Text _bonusTextLabel;
+
+    public void SetCount(int val) => _textLabel.text = val.ToString();
+    public void SetBonusCount(int val) => _bonusTextLabel.text = "+" + val.ToString();
+}

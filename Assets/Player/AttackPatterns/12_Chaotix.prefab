@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &264919266580051436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264919266580051434}
+  - component: {fileID: 5939414018872027977}
+  m_Layer: 0
+  m_Name: 12_Chaotix
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264919266580051434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264919266580051436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.101841174, y: -0.08663902, z: -0.08328282}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5939414018872027977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264919266580051436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f79a4ae67b85444b0ce238b7069d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 954640225, guid: d2c3478e7f693d341af2f4dfbf2de9bc, type: 3}
+  _rarity: 3
+  _firstStatValue: 2+
+  _secondStatValue: "<0.6 \u0441"
+  _bulletSample: {fileID: 6149396609532520741, guid: 3f6e10630584fbd4a81f29543ff5446d, type: 3}
+  _firerate: 0.75
+  _spread: 7
+  _spreadBulletSpeed: 0.5
+  _soundWork: {fileID: 8300000, guid: c374d22f85a798e49bbf862c07faa572, type: 3}
+  _volume: 0.66
+  _startPitch: 1
+  _pitchSpread: 0.27
+  _topFirerate: 0.33
+  _firerateGrowth: -0.07
+  _bulletsPerFire: 1

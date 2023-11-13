@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - PlayerBarrel
+  - Enemy
+  - Level core
+  - Canvas
+  - Sensor
+  - DeviceCharge
+  - PassiveUI
+  - Barter
+  - ModuleChoice
+  - SceneTransitionScreen
+  - SceneCore
+  - CharacterCore
+  - UICore
+  - Bus
+  - Angar
+  - Fog
+  - BG-UCM
+  - BG-DCM
+  - Angar Core Handler
+  - Dust
+  - WeaponCharge
+  - BG-Background
+  - Lab
+  - AudioCore
+  - BG-Station
+  - BetweenScenes
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Explosion1
+  - Explosion2
+  - 
+  - Player
+  - Enemies
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: SmallExplosions
+    uniqueID: 2267587005
+    locked: 0
+  - name: Mist
+    uniqueID: 765259765
+    locked: 0

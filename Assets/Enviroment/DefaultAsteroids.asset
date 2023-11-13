@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af574a01cb13603449fa6f133b0153cc, type: 3}
+  m_Name: DefaultAsteroids
+  m_EditorClassIdentifier: 
+  _environmentObjects:
+  - _sample: {fileID: 3018917793387868234, guid: 38a229ba9bfb7a74e870425ee93d6105,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: 34752ff46a9ce9b46ac454d78b8218ef,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: 6bb9c95246d39664681ac9511284a2d5,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: c8beeadcd751502498f0141530f4644f,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: 9a2aa3a8e505d9f4dbe4d9a614832500,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: 88adf4c59c496784885f40b3a09e788e,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: 43994c8acdac74543b5d08402ddb045a,
+      type: 3}
+    _chance: 500
+  - _sample: {fileID: 3018917793387868234, guid: 60caf4b0b2f1d2449b1b1625b467453b,
+      type: 3}
+    _chance: 250
+  - _sample: {fileID: 3018917793387868234, guid: 57a5133b37d6a0840bb1e33a100d31e3,
+      type: 3}
+    _chance: 250
+  - _sample: {fileID: 3018917793387868234, guid: 487bc8f118c6e0248a1423d892b1b19a,
+      type: 3}
+    _chance: 250
+  - _sample: {fileID: 3018917793387868234, guid: 630239c5fba0bcf429cca55262603e42,
+      type: 3}
+    _chance: 200
+  - _sample: {fileID: 3018917793387868234, guid: 683868f7273d95b46ab67dd6fb052ed9,
+      type: 3}
+    _chance: 200
+  - _sample: {fileID: 3018917793387868234, guid: 0b4c32bfa27f7b7478860781d006ae39,
+      type: 3}
+    _chance: 100
+  - _sample: {fileID: 3018917793387868234, guid: 8421ec006a0c49f468d716f9718f830c,
+      type: 3}
+    _chance: 100
+  - _sample: {fileID: 3018917793387868234, guid: a176f01255d814f429ca248fd19ec91e,
+      type: 3}
+    _chance: 6
+  - _sample: {fileID: 3018917793387868234, guid: 8a752502a717d084488202dae37f12bd,
+      type: 3}
+    _chance: 50
+  - _sample: {fileID: 3018917793387868234, guid: 5b12a3ee98f2ccb4db1a7a2388c70d1d,
+      type: 3}
+    _chance: 30
+  - _sample: {fileID: 3018917793387868234, guid: 4fde10feea2f4e94db1eca4c41cb9d91,
+      type: 3}
+    _chance: 30
+  - _sample: {fileID: 666111989, guid: 3d343b705767fe44bb09310729e24b3e, type: 3}
+    _chance: 30
+  - _sample: {fileID: 666111989, guid: 2d1c5f42055a9074288ec890975662c7, type: 3}
+    _chance: 30
+  - _sample: {fileID: 666111989, guid: 1796667d34f80994e97d1237c2429d19, type: 3}
+    _chance: 15
+  - _sample: {fileID: 666111989, guid: 1c0fcc7763ab28440a8c8dbe5d958c2f, type: 3}
+    _chance: 15
+  - _sample: {fileID: 666111989, guid: 321f93a4c455c0342b6285a3726b70a9, type: 3}
+    _chance: 10
+  - _sample: {fileID: 666111989, guid: 9f38d3bbae4da27468c874a34264808f, type: 3}
+    _chance: 10
+  - _sample: {fileID: 666111989, guid: f187911ad2ade79469ba3692ae73c0fb, type: 3}
+    _chance: 2
+  - _sample: {fileID: 666111989, guid: dad822986bc419a43a9dbfaa0b220d8c, type: 3}
+    _chance: 2
+  - _sample: {fileID: 1526322061428859487, guid: cd00c32736b0d764592a0002a7741d64,
+      type: 3}
+    _chance: 1
+  - _sample: {fileID: -368271745789324966, guid: eced95fd11703fb4286ccd80ea4e33c9,
+      type: 3}
+    _chance: 1
+  - _sample: {fileID: -2506622068710875293, guid: 1fa9c3c02c0a84844ba29f7072592541,
+      type: 3}
+    _chance: 0.1
+  - _sample: {fileID: 5450146073535504596, guid: d5ca88df61edae04e97d8c13e2c8d7ce,
+      type: 3}
+    _chance: 0.01

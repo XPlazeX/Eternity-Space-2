@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee4ddcb0936c0e4eaeaa05c898744f9, type: 3}
+  m_Name: DreamShip
+  m_EditorClassIdentifier: 
+  _playerShip: {fileID: 1260780666538092923, guid: 10f177e227a195a4cbee27088f8acf7a,
+    type: 3}
+  _hitPoints: 400
+  _armorPoints: 0
+  _armorCap: 0
+  _handingModules: []

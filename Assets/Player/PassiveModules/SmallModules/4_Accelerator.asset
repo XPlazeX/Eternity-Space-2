@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14471dbe60ecf6d4488a8268cfabe7b4, type: 3}
+  m_Name: 4_Accelerator
+  m_EditorClassIdentifier: 
+  _module: {fileID: 1554671533882739457, guid: dbf96d4752e1a5945a549a575bf26496, type: 3}
+  _icon: {fileID: 1802297219522750923, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
+  _localizationID: 3

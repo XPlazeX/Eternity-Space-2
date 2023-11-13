@@ -1,0 +1,1047 @@
+fileFormatVersion: 2
+guid: b1c2d0e43d5f05348b9c6600f228a9cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9187385814554643734
+    second: DragonSystems_0
+  - first:
+      213: 932453482203286323
+    second: DragonSystems_1
+  - first:
+      213: -358271231837445061
+    second: DragonSystems_2
+  - first:
+      213: -130877182161600870
+    second: DragonSystems_3
+  - first:
+      213: 2476209041798370338
+    second: DragonSystems_4
+  - first:
+      213: 3331071521720492163
+    second: DragonSystems_5
+  - first:
+      213: -5165927375208024381
+    second: DragonSystems_6
+  - first:
+      213: -8523188886518522347
+    second: DragonSystems_7
+  - first:
+      213: -3054171158008196421
+    second: DragonSystems_8
+  - first:
+      213: -724990981520823647
+    second: DragonSystems_9
+  - first:
+      213: -7261014684837982043
+    second: DragonSystems_10
+  - first:
+      213: -3663424640145795952
+    second: DragonSystems_11
+  - first:
+      213: -7071369930074244291
+    second: DragonSystems_12
+  - first:
+      213: 7256834225365553424
+    second: DragonSystems_13
+  - first:
+      213: 1004099896764448371
+    second: DragonSystems_14
+  - first:
+      213: -5247390849645241802
+    second: DragonSystems_15
+  - first:
+      213: 64462833836934195
+    second: DragonSystems_16
+  - first:
+      213: 3128480460157771570
+    second: DragonSystems_17
+  - first:
+      213: 916051428185968491
+    second: DragonSystems_18
+  - first:
+      213: -9218941966657816136
+    second: DragonSystems_19
+  - first:
+      213: -8601700487290816096
+    second: DragonSystems_20
+  - first:
+      213: -2455730720240803854
+    second: DragonSystems_21
+  - first:
+      213: -2338504691940437173
+    second: DragonSystems_22
+  - first:
+      213: -6232965473226847872
+    second: DragonSystems_23
+  - first:
+      213: -6695971922881868363
+    second: DragonSystems_24
+  - first:
+      213: -2375906062737179917
+    second: DragonSystems_25
+  - first:
+      213: -3419124774353266168
+    second: DragonSystems_26
+  - first:
+      213: 6903478480879193170
+    second: DragonSystems_27
+  - first:
+      213: 600254341089378594
+    second: DragonSystems_28
+  - first:
+      213: -610082579566324277
+    second: DragonSystems_29
+  - first:
+      213: 1537462746352244536
+    second: DragonSystems_30
+  - first:
+      213: 6539453313987859585
+    second: DragonSystems_31
+  - first:
+      213: -9044941616243452535
+    second: DragonSystems_32
+  - first:
+      213: -712699607135464952
+    second: DragonSystems_33
+  - first:
+      213: -6821507547480513494
+    second: DragonSystems_34
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DragonSystems_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 139
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2f10d4749df7080800000000000000
+      internalID: -9187385814554643734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 143
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b8d40708db0fc00800000000000000
+      internalID: 932453482203286323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 142
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34661d763a270bf0800000000000000
+      internalID: -358271231837445061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 136
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ebd0075e70f2ef0800000000000000
+      internalID: -130877182161600870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 139
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224900601034d5220800000000000000
+      internalID: 2476209041798370338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 131
+        width: 8
+        height: 28
+      alignment: 9
+      pivot: {x: 0.6185894, y: 0.8937383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380e19576e75a3e20800000000000000
+      internalID: 3331071521720492163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 150
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c672492c60fe48b0800000000000000
+      internalID: -5165927375208024381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_7
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 137
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e91819ddc87b980800000000000000
+      internalID: -8523188886518522347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 121
+        width: 11
+        height: 39
+      alignment: 9
+      pivot: {x: 0.67278636, y: 0.8335262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb29da373876d95d0800000000000000
+      internalID: -3054171158008196421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_9
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 123
+        width: 26
+        height: 37
+      alignment: 9
+      pivot: {x: 0.7486461, y: 0.63660246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aae6112b8050f5f0800000000000000
+      internalID: -724990981520823647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a056595d91bb3b90800000000000000
+      internalID: -7261014684837982043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_11
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 122
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09452be03b6e82dc0800000000000000
+      internalID: -3663424640145795952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_12
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 118
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30754888}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3bbb8aa3827ddd90800000000000000
+      internalID: -7071369930074244291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_13
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 115
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0119fc4974475b460800000000000000
+      internalID: 7256834225365553424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 115
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37eb6a149874fed00800000000000000
+      internalID: 1004099896764448371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 128
+        width: 7
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26807657}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63a9249f2d58d27b0800000000000000
+      internalID: -5247390849645241802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 113
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334c0181b9405e000800000000000000
+      internalID: 64462833836934195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_17
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 118
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f547237689a6b20800000000000000
+      internalID: 3128480460157771570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_18
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 97
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f8305abe776bc00800000000000000
+      internalID: 916051428185968491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b97b68102dbf0080800000000000000
+      internalID: -9218941966657816136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_20
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 83
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9f9b60bfe90a880800000000000000
+      internalID: -8601700487290816096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_21
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 91
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff5804cbed7bedd0800000000000000
+      internalID: -2455730720240803854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_22
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 82
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b435e436f56fb8fd0800000000000000
+      internalID: -2338504691940437173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_23
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 92
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0890a0ffcee0089a0800000000000000
+      internalID: -6232965473226847872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 82
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bd03ae43012313a0800000000000000
+      internalID: -6695971922881868363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_25
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 52
+        width: 47
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa7ad62606170fd0800000000000000
+      internalID: -2375906062737179917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_26
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 59
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a9fed0224dc80d0800000000000000
+      internalID: -3419124774353266168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_27
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 33
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c8b572a151ecf50800000000000000
+      internalID: 6903478480879193170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_28
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 34
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221c4879428845800800000000000000
+      internalID: 600254341089378594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_29
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 32
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc59b41502d8887f0800000000000000
+      internalID: -610082579566324277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 43
+        height: 31
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.06828814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837d8b3d83a265510800000000000000
+      internalID: 1537462746352244536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_31
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1845f7d342ec0ca50800000000000000
+      internalID: 6539453313987859585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_32
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98559ada589e97280800000000000000
+      internalID: -9044941616243452535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_33
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802512dbb7bfb16f0800000000000000
+      internalID: -712699607135464952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonSystems_34
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2427c707032551a0800000000000000
+      internalID: -6821507547480513494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DragonSystems_12: -7071369930074244291
+      DragonSystems_2: -358271231837445061
+      DragonSystems_26: -3419124774353266168
+      DragonSystems_25: -2375906062737179917
+      DragonSystems_1: 932453482203286323
+      DragonSystems_3: -130877182161600870
+      DragonSystems_11: -3663424640145795952
+      DragonSystems_24: -6695971922881868363
+      DragonSystems_9: -724990981520823647
+      DragonSystems_29: -610082579566324277
+      DragonSystems_17: 3128480460157771570
+      DragonSystems_14: 1004099896764448371
+      DragonSystems_10: -7261014684837982043
+      DragonSystems_5: 3331071521720492163
+      DragonSystems_27: 6903478480879193170
+      DragonSystems_23: -6232965473226847872
+      DragonSystems_13: 7256834225365553424
+      DragonSystems_31: 6539453313987859585
+      DragonSystems_32: -9044941616243452535
+      DragonSystems_4: 2476209041798370338
+      DragonSystems_7: -8523188886518522347
+      DragonSystems_6: -5165927375208024381
+      DragonSystems_8: -3054171158008196421
+      DragonSystems_20: -8601700487290816096
+      DragonSystems_18: 916051428185968491
+      DragonSystems_28: 600254341089378594
+      DragonSystems_0: -9187385814554643734
+      DragonSystems_19: -9218941966657816136
+      DragonSystems_30: 1537462746352244536
+      DragonSystems_15: -5247390849645241802
+      DragonSystems_33: -712699607135464952
+      DragonSystems_34: -6821507547480513494
+      DragonSystems_21: -2455730720240803854
+      DragonSystems_16: 64462833836934195
+      DragonSystems_22: -2338504691940437173
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

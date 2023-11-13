@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b742e930586004ea96dbc7cee1d43d, type: 3}
+  m_Name: LabWeapons
+  m_EditorClassIdentifier: 
+  _blueprints:
+  - inDevelop: 0
+    handingID: 601
+    requirementsID: []
+    cosPrice: 0
+    posPrice: 0
+    sprite: {fileID: 21300000, guid: d06a930eb7626f2499d0ce4248e7856c, type: 3}
+    localizationID: 0
+  - inDevelop: 0
+    handingID: 602
+    requirementsID: []
+    cosPrice: 200
+    posPrice: 0
+    sprite: {fileID: 21300000, guid: 50cf45674e60d704e865e4ac7a560105, type: 3}
+    localizationID: 1
+  - inDevelop: 0
+    handingID: 603
+    requirementsID:
+    - _UID: 622
+      _amount: 0
+    cosPrice: 200
+    posPrice: 0
+    sprite: {fileID: 21300000, guid: 838b8f0d3e85e7845933d9cce23d88a5, type: 3}
+    localizationID: 3

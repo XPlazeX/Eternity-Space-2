@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c4e165b3b2bd84ab4cb3804a1c8082, type: 3}
+  m_Name: Null Heavy
+  m_EditorClassIdentifier: 
+  _enemyPacks:
+  - _weight: 1
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: b574d5e6c4d017947902c7d775ac85fa,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: a3c0f103b78717b40b87195608d62027,
+      type: 3}
+  - _weight: 4
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 0449894f35b604942a61aabc3ed9191d,
+      type: 3}
+  - _weight: 4
+    _count: 3
+    _enemy: {fileID: 9069206062416828823, guid: f18bf1dc55125fc4db39ca83ceb6c082,
+      type: 3}
+  - _weight: 4
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: 487b4353fd5b01d4d94bba62725975c3,
+      type: 3}
+  - _weight: 4
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: 54bde79417fd5f34a8879abcf93800fe,
+      type: 3}
+  - _weight: 3
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: c6def45dd96fd5b48a007d2a0026ecc8,
+      type: 3}
+  - _weight: 3
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: e4d404218a8280c4cbc45a37b8388b3a,
+      type: 3}
+  - _weight: 3
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: ca9a97980e079df44ad2cce4de50fc57,
+      type: 3}
+  - _weight: 3
+    _count: 6
+    _enemy: {fileID: 9069206062416828823, guid: b574d5e6c4d017947902c7d775ac85fa,
+      type: 3}
+  - _weight: 3
+    _count: 6
+    _enemy: {fileID: 9069206062416828823, guid: 34c45ae5b7dad4841bd5ec0d02bb5fa7,
+      type: 3}
+  - _weight: 3
+    _count: 3
+    _enemy: {fileID: 9069206062416828823, guid: b5554633f5080214fab1f5fcb6c87171,
+      type: 3}
+  - _weight: 4
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: 225c5e9aaf3062347bfe37e27670a68c,
+      type: 3}

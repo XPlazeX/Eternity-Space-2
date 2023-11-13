@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c56bee326fd354eb789d09d6d323d2, type: 3}
+  m_Name: Null-B1
+  m_EditorClassIdentifier: 
+  _background:
+    _cameraBordersSizeXMultiplier: 0.4
+    _cameraBordersSizeYMultiplier: 0.8
+    _backgroundObjects:
+    - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
+        type: 3}
+      _color: {r: 0, g: 0.61128855, b: 1, a: 0.6666667}
+      _position: {x: 3.65, y: 4.52, z: 0}
+      _rotation: -235
+      _rotationSpread: 0
+    - _object: {fileID: 3945150267831715264, guid: 05ef7f2c94d23e64d8a14f293f353914,
+        type: 3}
+      _color: {r: 1, g: 1, b: 1, a: 1}
+      _position: {x: 0, y: 0, z: 0}
+      _rotation: -31
+      _rotationSpread: 0
+    _backgroundSpriteFilename: Levels/BG/Null-1
+    _backgroundColor: {r: 0, g: 0.5321255, b: 1, a: 1}
+    _flipX: 1
+    _flipY: 0
+    _hasStation: 0
+    _stationSpriteFilename: Levels/BG/GunAlpha
+    _downColorMult: {r: 0, g: 0.083200455, b: 1, a: 0.12156863}
+    _upperColorMult: {r: 0, g: 0.43053055, b: 1, a: 0.07058824}
+    _dustGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0.9071305, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 32960
+      ctime2: 65535
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+    _dustEmissionMultiplier: 1
+    _fogGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0.032600213, b: 0.15, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 32960
+      ctime2: 65535
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+    _fogEmissionMultiplier: 1
+    _windSpeed: 0
+    _objectsToBeaconLevel: 1
+  _mainSpawnerModifier:
+    _additiveWaveCountMultiplier: 0.3
+    _additiveWeightMultiplier: 0.6
+    _additiveEnemyBuffer: 0
+    _affectProgression: 0
+    _weightGrowthProgression:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _flatBonusEnemiesBonus: 0
+    _enemySpawnReloadMultiplier: 1
+    _bonusEnemySpawnReloadMultiplier: 1
+    _levelProgression: 1
+    _byLevelProgression:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _topLevelProgressionAdditiveMultiplier: 0.75
+    _additiveBonusEnemies: 2
+  _enemyDB:
+    _levelPacks:
+    - _neededLevelPercentage: 0
+      _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85,
+        type: 2}
+    - _neededLevelPercentage: 0.3
+      _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
+        type: 2}
+    - _neededLevelPercentage: 0.8
+      _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
+        type: 2}
+    _bonusEnemies:
+    - 1
+    - 2
+    - 8
+    - 9
+    _towers: []
+    _weightMultiplier: 6
+  _soundtrack:
+    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _volume: 0.555
+    _pitchRandomizing: 0
+  _additiveEDBs: []
+  _additiveObjects: []

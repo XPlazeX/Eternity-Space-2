@@ -1,0 +1,1124 @@
+fileFormatVersion: 2
+guid: 641331c47cb32134cbd77eb3fbe24bc6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1338737647926668619
+    second: ContagionMonsters_0
+  - first:
+      213: 3176238147758267267
+    second: ContagionMonsters_1
+  - first:
+      213: -6566352147306465349
+    second: ContagionMonsters_2
+  - first:
+      213: 6974130768257664117
+    second: ContagionMonsters_3
+  - first:
+      213: -1163788744418505949
+    second: ContagionMonsters_4
+  - first:
+      213: 3292543769947692183
+    second: ContagionMonsters_5
+  - first:
+      213: 8259953709495505607
+    second: ContagionMonsters_6
+  - first:
+      213: -8133184781875364434
+    second: ContagionMonsters_7
+  - first:
+      213: -6583934593052360775
+    second: ContagionMonsters_8
+  - first:
+      213: 8668223732325003217
+    second: ContagionMonsters_9
+  - first:
+      213: 7104993316451267902
+    second: ContagionMonsters_10
+  - first:
+      213: 1552349383080635187
+    second: ContagionMonsters_11
+  - first:
+      213: 3284289409477526698
+    second: ContagionMonsters_12
+  - first:
+      213: -8042635724737720741
+    second: ContagionMonsters_13
+  - first:
+      213: -228493078081000665
+    second: ContagionMonsters_14
+  - first:
+      213: 7324015778203122299
+    second: ContagionMonsters_15
+  - first:
+      213: 1145789169455749960
+    second: ContagionMonsters_16
+  - first:
+      213: -6349353052382364100
+    second: ContagionMonsters_17
+  - first:
+      213: 1095402207238242909
+    second: ContagionMonsters_18
+  - first:
+      213: 5648715368386639953
+    second: ContagionMonsters_19
+  - first:
+      213: -6797233105339117454
+    second: ContagionMonsters_20
+  - first:
+      213: 6284436255813209625
+    second: ContagionMonsters_21
+  - first:
+      213: -906030865261610433
+    second: ContagionMonsters_22
+  - first:
+      213: -7760719417178661987
+    second: ContagionMonsters_23
+  - first:
+      213: -4247945774205332484
+    second: ContagionMonsters_24
+  - first:
+      213: -5970939502773247670
+    second: ContagionMonsters_25
+  - first:
+      213: -4915866891878144809
+    second: ContagionMonsters_26
+  - first:
+      213: -3192871777956676595
+    second: ContagionMonsters_27
+  - first:
+      213: -7046349830110552290
+    second: ContagionMonsters_28
+  - first:
+      213: 8695930445634326581
+    second: ContagionMonsters_29
+  - first:
+      213: 7056899863494287460
+    second: ContagionMonsters_30
+  - first:
+      213: 5170969167895289360
+    second: ContagionMonsters_31
+  - first:
+      213: 2791520390206703470
+    second: ContagionMonsters_32
+  - first:
+      213: -5864133188848341591
+    second: ContagionMonsters_33
+  - first:
+      213: 4320153910628678176
+    second: ContagionMonsters_34
+  - first:
+      213: 565890041038357789
+    second: ContagionMonsters_35
+  - first:
+      213: 4860787788872341888
+    second: ContagionMonsters_36
+  - first:
+      213: 6184852056424233605
+    second: ContagionMonsters_37
+  - first:
+      213: -3578022053676183256
+    second: ContagionMonsters_38
+  - first:
+      213: -3276371692403187354
+    second: ContagionMonsters_39
+  - first:
+      213: -7490253311678843881
+    second: ContagionMonsters_40
+  - first:
+      213: 1439494263845722654
+    second: ContagionMonsters_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ContagionMonsters_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b293efb339db6de0800000000000000
+      internalID: -1338737647926668619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 107
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b1d2754c3441c20800000000000000
+      internalID: 3176238147758267267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 110
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7bca51381afd4a0800000000000000
+      internalID: -6566352147306465349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 93
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574ce13bbf619c060800000000000000
+      internalID: 6974130768257664117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 106
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b465f8d4469dfe0800000000000000
+      internalID: -1163788744418505949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_5
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 100
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c58273d1771bd20800000000000000
+      internalID: 3292543769947692183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_6
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 107
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c256abb22041a270800000000000000
+      internalID: 8259953709495505607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_7
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 102
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eadb4b7488f112f80800000000000000
+      internalID: -8133184781875364434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_8
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 102
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf35bcee5a21a4a0800000000000000
+      internalID: -6583934593052360775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_9
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 108
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfa7deee87bb4870800000000000000
+      internalID: 8668223732325003217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 87
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e353a9607c10a9260800000000000000
+      internalID: 7104993316451267902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 87
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b61d90a8d0b8510800000000000000
+      internalID: 1552349383080635187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 80
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa44c7721d3249d20800000000000000
+      internalID: 3284289409477526698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_13
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 70
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e44298b61d26090800000000000000
+      internalID: -8042635724737720741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_14
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 71
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ba85f81ca34dcf0800000000000000
+      internalID: -228493078081000665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_15
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 67
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a3725cb8124a560800000000000000
+      internalID: 7324015778203122299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_16
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 71
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b56e0dd29a6ef00800000000000000
+      internalID: 1145789169455749960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_17
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 79
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ef4370a0192e7a0800000000000000
+      internalID: -6349353052382364100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_18
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 82
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d524d98f086a33f00800000000000000
+      internalID: 1095402207238242909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_19
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 86
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158b9f903b4446e40800000000000000
+      internalID: 5648715368386639953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2709cb401806ba1a0800000000000000
+      internalID: -6797233105339117454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_21
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 56
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e05517a7dc63750800000000000000
+      internalID: 6284436255813209625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_22
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 39
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3aba887ab12d63f0800000000000000
+      internalID: -906030865261610433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 37
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9bd691eec26c4490800000000000000
+      internalID: -7760719417178661987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_24
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 28
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf39e5f23d34c05c0800000000000000
+      internalID: -4247945774205332484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_25
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 52
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a416ad95826f22da0800000000000000
+      internalID: -5970939502773247670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_26
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 52
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4ef727b1557cbb0800000000000000
+      internalID: -4915866891878144809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_27
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 53
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cb585d804a0b3d0800000000000000
+      internalID: -3192871777956676595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_28
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 52
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f5025a926563e90800000000000000
+      internalID: -7046349830110552290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_29
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 42
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530d983daa62ea870800000000000000
+      internalID: 8695930445634326581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460641b69052fe160800000000000000
+      internalID: 7056899863494287460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_31
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 28
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e55ecaf09f2c740800000000000000
+      internalID: 5170969167895289360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_32
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 22
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67c78931097db620800000000000000
+      internalID: 2791520390206703470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_33
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 13
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9adad1b2fe96e9ea0800000000000000
+      internalID: -5864133188848341591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_34
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 33
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a7902b71544fb30800000000000000
+      internalID: 4320153910628678176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_35
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 33
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15c50e7ef17ad700800000000000000
+      internalID: 565890041038357789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_36
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 17
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089da4c8dbcf47340800000000000000
+      internalID: 4860787788872341888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 6
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ab2833d2205d550800000000000000
+      internalID: 6184852056424233605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_38
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8211e1c36ef485ec0800000000000000
+      internalID: -3578022053676183256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_39
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 4
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661a9220e4df782d0800000000000000
+      internalID: -3276371692403187354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_40
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 2
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71470bf4c464d0890800000000000000
+      internalID: -7490253311678843881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContagionMonsters_41
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 4
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a9cbcf76c1af310800000000000000
+      internalID: 1439494263845722654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
