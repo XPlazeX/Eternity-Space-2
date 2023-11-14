@@ -17,8 +17,6 @@ public class TrainingOperator : MonoBehaviour
 
     public void Initialize()
     {
-        //SceneStatics.CharacterCore.GetComponent<ModuleCore>().SpawnGear(ModuleWork.GearType.Weapon, training_weapon_name);
-
         _sampleText = Instantiate(_controllableText, _textPosition, Quaternion.identity);
         _sampleText.Initialize(_trainingLocalizationFilename, 0);
 
@@ -31,7 +29,6 @@ public class TrainingOperator : MonoBehaviour
         SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>().Modify(0.1f * _tipCount, 1f, 0, 1f);
 
         PlayerShipData.PlayerDeath += RestartTraining;
-        // PausePanelMethods.SavedAndExited += EndTraining;
         VictoryHandler.MissionVictored += EndTraining;
         VictoryHandler.CustomSceneOnVictory = "MissionMenu";
         VictoryHandler.CustomSceneOnExit = "Intro";
@@ -42,11 +39,6 @@ public class TrainingOperator : MonoBehaviour
         _currentTip ++;
 
         _sampleText.SetText(_currentTip);
-
-        // if (_currentTip == _tipCount)
-        // {
-        //     EndTraining();
-        // }
     }
 
     public void EndTraining()
@@ -69,12 +61,17 @@ public class TrainingOperator : MonoBehaviour
 
     public void RestartTraining()
     {
-        SceneTransition.ReloadScene();
+        if (_currentTip >= 10)
+        {
+            EndTraining();
+            VictoryHandler.VictorySession();
+        } else
+            SceneTransition.ReloadScene();
     }
 
-    private void OnDisable() {
+    private void OnDisable() 
+    {
         PlayerShipData.PlayerDeath -= RestartTraining;
-        // PausePanelMethods.SavedAndExited -= EndTraining;
         VictoryHandler.MissionVictored -= EndTraining;
     }
 }

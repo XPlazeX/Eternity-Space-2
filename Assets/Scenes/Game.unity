@@ -8371,7 +8371,7 @@ MonoBehaviour:
   - {fileID: 1380005973944226359, guid: c6f6c0381f70faa4d8b375afb0aa07b5, type: 3}
   - {fileID: 1380005973944226359, guid: c6f6c0381f70faa4d8b375afb0aa07b5, type: 3}
   - {fileID: 8489227230942964884, guid: db9934dacf711444da63ac531dfb2e2d, type: 3}
-  _chance: 0.15
+  _chance: 0.1
 --- !u!114 &770287104
 MonoBehaviour:
   m_ObjectHideFlags: 0

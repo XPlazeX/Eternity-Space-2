@@ -28,7 +28,6 @@ public class ClearSave : MonoBehaviour
     {
         GameSessionInfoHandler.ClearGameSession();
         GlobalSaveHandler.ClearSave();
-        //ModulasSaveHandler.ClearSave();
         int presetType = Mathf.RoundToInt(PlayerPrefs.GetFloat("ClearSavePreset", 0));
 
         switch (presetType)

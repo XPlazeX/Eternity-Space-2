@@ -8,21 +8,15 @@ public class Bus : MonoBehaviour
     [SerializeField] private float _catchSpeed;
     [SerializeField] private float _busAcceleration;
     [SerializeField] private LaserAttackModule _laserModule;
-    //[SerializeField] private GearBarterHandler _gearBarterHandler;
     [SerializeField] private int _gateChoice;
     [Header("Animations")]
     [SerializeField] private float _flySpeed;
 
-    //public int InitID {get; private set;} = -1;
-
-    //private IEnumerator _controllingBus;
     private bool _tiggered = false;
 
-    //public void Initialize(int id) => InitID = id;
-
-    private void OnEnable() {
+    private void OnEnable() 
+    {
         StartCoroutine(Entering());
-        //SceneStatics.SceneCore.GetComponent<GateHandler>().BusConnected += OnOtherBusConnected;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -56,28 +50,18 @@ public class Bus : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        //_controllingBus = ControllingBus();
-
         for (int i = 0; i < player.childCount; i++)
         {
             Destroy(player.GetChild(i).gameObject);
         }
 
-        //GameSessionInfoHandler.AddDataCollection("BusChoice", new List<int>() {InitID});
-
-        //StartCoroutine(_controllingBus);
         Player.PlayerTransform.SetParent(_bus);
         StartEngine();
     }
 
     public void StartEngine()
     {
-        //GameSessionInfoHandler.DischargeLevel();
-
         SceneTransition.BlockUI();
-        //StopCoroutine(_controllingBus);
-
-        // запись индекса уровня
 
         Camera.main.GetComponent<CameraController>().CanMoving = false;
         PlayerController.CanControl = false;

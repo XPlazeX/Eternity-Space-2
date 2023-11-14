@@ -11,7 +11,6 @@ public class VictoryHandler : MonoBehaviour
     [SerializeField] private GameObject _levelVictoryObject;
     [SerializeField] private GameObject _missionVictoryObject;
 
-    //public static bool FinalLevel {get; private set;} = false;
     public static string CustomSceneOnVictory {get; set;}
     public static string CustomSceneOnDeath {get; set;}
     public static string CustomSceneOnExit {get; set;}
@@ -26,7 +25,6 @@ public class VictoryHandler : MonoBehaviour
     {
         LevelVictored = null;
         MissionVictored = null;
-        //SceneStatics.SceneCore.GetComponent<Spawner>().LevelVictory += OnLevelVictory;
 
         _tempCosmilite = 0;
         _tempPositronium = 0;
