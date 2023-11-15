@@ -18,6 +18,7 @@ public class DeathUIHandler : MonoBehaviour
             GameSessionInfoHandler.ClearGameSession();
         }
 
+        DeathCountRegister.RegisterDeath();
         _deathPanel.SetActive(true);
         TimeHandler.Pause();
     }
