@@ -166,6 +166,14 @@ MonoBehaviour:
     m_Address: Assets/_Development/RU-Changelog.txt
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 345b3b946c74e074d8fdb37d7bf7c573
+    m_Address: Assets/Levels/Missions/Byrill-1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf4e356c73716e1498f8c128e69b4c27
+    m_Address: Assets/Levels/Missions/Null2-0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:
