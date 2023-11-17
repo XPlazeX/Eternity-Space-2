@@ -46,7 +46,7 @@ MonoBehaviour:
   _icon: {fileID: -989844970, guid: d2c3478e7f693d341af2f4dfbf2de9bc, type: 3}
   _bulletSample: {fileID: 6149396609532520741, guid: 4ad30d0219bd30b4c97d4121ea674a5f,
     type: 3}
-  _firerate: 0.4
+  _firerate: 0.45
   _spread: 0
   _spreadBulletSpeed: 0
   _soundWork: {fileID: 8300000, guid: 4423672ddff666e41b4e04b8a63d7798, type: 3}

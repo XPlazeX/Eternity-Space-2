@@ -182,12 +182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 1
+  _damageValue: 3
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
   _lifetime: 1
-  _speed: 10.5
+  _speed: 13.25
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   _color: {r: 0.2784314, g: 1, b: 1, a: 1}
   _scale: 0.85
   _shakePower: 0
-  _damage: 4
+  _damage: 6
 --- !u!96 &5490292475713024866
 TrailRenderer:
   serializedVersion: 2

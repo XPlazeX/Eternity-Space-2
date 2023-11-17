@@ -54,7 +54,7 @@ MonoBehaviour:
   _startPitch: 0.86
   _pitchSpread: 0.19
   _customWeaponRoot: {fileID: 0}
-  _topFirerate: 0.08
+  _topFirerate: 0.075
   _firerateGrowth: -0.15
   _bulletsPerFire: 1
   _barrelPool: 0100000002000000

@@ -46,7 +46,7 @@ MonoBehaviour:
   _unlockID: 11
   _boostFirstLevel: 0
   _levelCount: 4
-  _startAurite: 50
+  _startAurite: 75
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 20, y: 30}
   _nameLocalizationID: 3

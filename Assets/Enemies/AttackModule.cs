@@ -26,7 +26,7 @@ public class AttackModule : MonoBehaviour
         {
             for (int i = 0; i < _attackObjects.Length; i++)
             {
-                for (int j = 0; j < Mathf.Ceil((float)_attackObjects[i].Cycles * _aggro); j++)
+                for (int j = 0; j < ((float)_attackObjects[i].Cycles * _aggro < 1f ? 1f : Mathf.Floor((float)_attackObjects[i].Cycles * _aggro)); j++)
                 {
                     _attackObjects[i].Fire();
 

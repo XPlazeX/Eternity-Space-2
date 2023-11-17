@@ -182,12 +182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 2
+  _damageValue: 3
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
   _lifetime: 1.3
-  _speed: 17
+  _speed: 18
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0

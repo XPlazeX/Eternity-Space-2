@@ -182,12 +182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 8
+  _damageValue: 12
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
-  _lifetime: 1.75
-  _speed: 13.5
+  _lifetime: 1.6
+  _speed: 16
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0
@@ -354,4 +354,4 @@ MonoBehaviour:
   _color: {r: 1, g: 0.24644181, b: 0, a: 1}
   _scale: 0.7
   _shakePower: 0
-  _damage: 3
+  _damage: 5

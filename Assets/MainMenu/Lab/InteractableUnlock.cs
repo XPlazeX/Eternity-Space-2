@@ -19,7 +19,6 @@ public class InteractableUnlock : MonoBehaviour
         {
             GetComponent<Button>().interactable = Unlocks.HasUnlock(_unlockRequire);
             Color imageColor = GetComponent<Image>().color;
-            GetComponent<Image>().color = Unlocks.HasUnlock(_unlockRequire) ? new Color(imageColor.r, imageColor.g, imageColor.b, 1f) : new Color(imageColor.r, imageColor.g, imageColor.b, _disabledAlpha);
         }
     } 
 }

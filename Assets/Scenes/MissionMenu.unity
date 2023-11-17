@@ -6768,91 +6768,91 @@ MonoBehaviour:
     isPack: 0
     stackable: 1
     destroyOnNextLevel: 0
-    auritePrice: 110
+    auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 1
     isPack: 0
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 200
+    auritePrice: 150
     requiredUnlocks: []
   - moduleOperandID: 2
     isPack: 0
     stackable: 1
     destroyOnNextLevel: 0
-    auritePrice: 165
+    auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 3
     isPack: 0
     stackable: 1
     destroyOnNextLevel: 0
-    auritePrice: 100
+    auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 4
     isPack: 0
     stackable: 1
     destroyOnNextLevel: 0
-    auritePrice: 99
+    auritePrice: 69
     requiredUnlocks: []
   - moduleOperandID: 5
     isPack: 0
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 120
+    auritePrice: 90
     requiredUnlocks: []
   - moduleOperandID: 6
     isPack: 0
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 250
+    auritePrice: 200
     requiredUnlocks: []
   - moduleOperandID: 7
     isPack: 0
     stackable: 1
     destroyOnNextLevel: 0
-    auritePrice: 80
+    auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 8
     isPack: 0
     stackable: 1
     destroyOnNextLevel: 0
-    auritePrice: 75
+    auritePrice: 50
     requiredUnlocks: []
   - moduleOperandID: 9
     isPack: 0
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 130
+    auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 10
     isPack: 0
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 190
+    auritePrice: 130
     requiredUnlocks: []
   - moduleOperandID: 11
     isPack: 0
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 260
+    auritePrice: 200
     requiredUnlocks: []
   - moduleOperandID: 12
     isPack: 1
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 360
+    auritePrice: 275
     requiredUnlocks: []
   - moduleOperandID: 13
     isPack: 1
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 320
+    auritePrice: 235
     requiredUnlocks: []
   - moduleOperandID: 14
     isPack: 1
     stackable: 0
     destroyOnNextLevel: 0
-    auritePrice: 400
+    auritePrice: 300
     requiredUnlocks: []
   DefaultExclusions: 
   moduleServices:
@@ -25030,8 +25030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _btn: {fileID: 468858891}
-  _startPrice: 50
-  _priceStep: 15
+  _startPrice: 30
+  _priceStep: 10
   _buyBtn: {fileID: 468858894}
   _repairPercentageLabel: {fileID: 1405966944}
 --- !u!1 &1570260053

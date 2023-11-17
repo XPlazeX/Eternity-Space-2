@@ -185,8 +185,8 @@ MonoBehaviour:
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
-  _lifetime: 0.975
-  _speed: 10.5
+  _lifetime: 0.9
+  _speed: 12.5
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0
@@ -256,4 +256,4 @@ MonoBehaviour:
   _color: {r: 0.40000004, g: 0.86666673, b: 1, a: 1}
   _scale: 0.8
   _shakePower: 0
-  _damage: 4
+  _damage: 6

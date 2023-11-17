@@ -468,7 +468,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _bulletSample: {fileID: 6149396609532520741, guid: 175a5105742e28f4cbc4d6e7113c1115,
     type: 3}
-  _firerate: 0.2
+  _firerate: 0.133
   _spread: 0
   _spreadBulletSpeed: 0
   _soundWork: {fileID: 0}

@@ -8257,7 +8257,8 @@ MonoBehaviour:
   _testWeaponPattern: {fileID: 3508560286569720342, guid: 5c5fdea5d57a7bc439293aba6a3f8e79,
     type: 3}
   _testDevice: {fileID: 0}
-  _testLoadingModules: []
+  _testLoadingModules:
+  - {fileID: 1554671533882739457, guid: 6828cb1b7d9cfd844b06ec3a29698d55, type: 3}
 --- !u!114 &770287096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8371,7 +8372,7 @@ MonoBehaviour:
   - {fileID: 1380005973944226359, guid: c6f6c0381f70faa4d8b375afb0aa07b5, type: 3}
   - {fileID: 1380005973944226359, guid: c6f6c0381f70faa4d8b375afb0aa07b5, type: 3}
   - {fileID: 8489227230942964884, guid: db9934dacf711444da63ac531dfb2e2d, type: 3}
-  _chance: 0.1
+  _chance: 0.125
 --- !u!114 &770287104
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,7 +72,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _bulletSample: {fileID: 6149396609532520741, guid: d6258a3c4be2a4440835fd5e894aec3a,
     type: 3}
-  _firerate: 0.42
+  _firerate: 0.51
   _spread: 0
   _spreadBulletSpeed: 0
   _soundWork: {fileID: 0}
