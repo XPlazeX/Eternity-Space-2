@@ -63,9 +63,6 @@ public class Mission : MonoBehaviour
 
         save.LevelUnlockCode = _unlockID;
 
-        //save.Bossfight = _bossfight;
-        //save.BeaconLevel = _isBeacon;
-        //save.CurrentLevel = 0;
         save.MaxLevel = _levelCount;
         save.Boosted = BoostFirstLevel;
 
@@ -73,24 +70,10 @@ public class Mission : MonoBehaviour
             save.Money = _startAurite;
         save.MoneyPerLevel = _auritePerLevel;
 
-        //save.RecievedCosmilite = UnityEngine.Random.Range(_minMaxCosmilite.x, _minMaxCosmilite.y + 1);
-
         save.LocalizedLocationName = new TextLoader("Locations", _nameLocalizationID, 0, true).FirstCell;
 
         save.DialogueEntry = _radioID;
-        //save.VictoriedDialogue = _completedMissionLobbyDialogue;
 
-        // if (_customShip != -1)
-        // {
-        //     save.ShipModel = _customShip;
-        //     UnityEngine.Debug.Log($"-custom ship: {_customShip}");
-        // }
-        // if (!string.IsNullOrEmpty(_customWeaponModel))
-        // {
-        //     save.WeaponModel = _customWeaponModel;
-        //     UnityEngine.Debug.Log($"-custom mission weapon: {_customWeaponModel}");
-        // }
-        
         GameSessionInfoHandler.RewriteSessionSave(save);
 
         GlobalSave gsave = GlobalSaveHandler.GetSave();

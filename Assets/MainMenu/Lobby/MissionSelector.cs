@@ -54,7 +54,7 @@ public class MissionSelector : MonoBehaviour
         gsave.TotalMissionsTries ++;
         GlobalSaveHandler.RewriteSave(gsave);
 
-        if (_missionDatabase._lastMissionReference.BoostFirstLevel)
+        if (GameSessionInfoHandler.GetSessionSave().Boosted)
         {
             SceneTransition.SwitchToScene("MissionMenu");
         } else

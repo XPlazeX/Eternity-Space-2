@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerShip: {fileID: 1260780666538092923, guid: e9d65f0e538a0114d8ab11f3c75a087a,
     type: 3}
-  _hitPoints: 360
+  _hitPoints: 260
   _armorPoints: 0
   _armorCap: 0
   _handingModules:

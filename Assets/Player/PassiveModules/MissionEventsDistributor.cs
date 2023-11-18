@@ -24,9 +24,6 @@ public class MissionEventsDistributor : MonoBehaviour
 
     public void Start()
     {
-        // if (GameSessionInfoHandler.GetSessionSave().CurrentLevel == 0)
-        //     return;
-
         LoadEvents((GameSessionInfoHandler.GetSessionSave().Boosted && GameSessionInfoHandler.GetSessionSave().CurrentLevel == 0));
 
         if (_log)

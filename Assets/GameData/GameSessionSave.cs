@@ -7,18 +7,15 @@ public class GameSessionSave
     private const string default_device = "UpsetSlingshot";
 
     public bool SessionInitialized {get; private set;} = false;
-    public int GameMode {get; set;} = 0; //-1 - обучение, 0 - вылазка, 1 - режим цикла.
+    public int GameMode {get; set;} = 0;
     public int Seed {get; private set;}
     
-    //public string LocationName {get; set;} = "Null-0";
     public int LocationID {get; set;} = 0;
     public string LocalizedLocationName {get; set;} = "Null-0";
     public int DialogueEntry {get; set;} = 0;
-    //public string VictoriedDialogue {get; set;} = null;
 
     public int CurrentLevel {get; set;} = 0;
     public int MaxLevel {get; set;} = 2;
-    //public bool BeaconLevel {get; set;} = false;
     public bool Boosted {get; set;} = false;
     public int BeaconBG {get; set;} = -1;
     public int WeightSelectorID {get; set;} = 1;

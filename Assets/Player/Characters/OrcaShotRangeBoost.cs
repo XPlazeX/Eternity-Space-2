@@ -10,7 +10,7 @@ public class OrcaShotRangeBoost : MonoBehaviour
 
         if (weaponModel == "Spreader")
         {
-            ShipStats.MultiplyStat("PlayerShotLifetimeMultiplier", 2.5f);
+            ShipStats.MultiplyStat("PlayerShotLifetimeMultiplier", 2f);
         }
     }
 
