@@ -2,13 +2,9 @@
 
 public class PlayerDamageBody : DamageBody
 {
-    //private int _hpCap = 0;
-
     public override void TakeDamage(int damage)
     {
         PlayerShipData.TakeDamage(damage);
-
-        //print("taked damage : " + damage.ToString());
     }
 
     public override void GetShield(int shieldPoints)
@@ -30,13 +26,12 @@ public class PlayerDamageBody : DamageBody
 
         if ((otherHP <= _decadesBlockForRam * 10) && (damageBody.GetType() != typeof(AsteroidBody)))
         {
-            //print("tryRam");
             PlayerRamsHandler.TryRam();
             damageBody.TakeDamage((_decadesBlockForRam * 10));
             return;
         }
 
-        damageBody.TakeDamage(PlayerShipData.HitPoints);
+        damageBody.TakeDamage(ShipStats.GetIntValue("MaxDamageTaken"));
         TakeDamage(otherHP);
     }
 

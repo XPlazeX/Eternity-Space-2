@@ -12,7 +12,6 @@ public class PlayerShipData : MonoBehaviour
 
     [SerializeField] private bool _testMode = false;
     [SerializeField] private int _loadingHP = 100;
-    // [SerializeField] private int _loadingARM = 20;
     [SerializeField] private int _loadingArmorCap = 50;
 
     public static int HitPoints 
@@ -53,7 +52,8 @@ public class PlayerShipData : MonoBehaviour
     public static bool Active {get; private set;} = true;
     public static bool CriticalState {get; private set;} = false;
     public static int MaxHP => _hpCap;
-    public static bool OneShotProtection {get; private set;} = false;
+    public static bool OneShotProtection {get; private set;} = true;
+    public static float GameTimerBuffer {get; private set;} = 0f;
 
     private static int _hitPoints;
     private static int _criticalStateBorder = 15;
@@ -63,7 +63,6 @@ public class PlayerShipData : MonoBehaviour
     private static int _armorCap;
     private static PlayerUI _playerUI;
     private static ShieldComponent _shield;
-    //private static bool _initialized = false;
 
     public void Initialize(int hp, int arm)
     {
@@ -81,14 +80,13 @@ public class PlayerShipData : MonoBehaviour
 
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         
-        _hpCap = hp;//GameSessionInfoHandler.GetSessionSave().MaxHealth;
+        _hpCap = hp;
         _armorCap = arm;
         _playerUI.MaxHP = _hpCap;
 
         if (save.SessionInitialized)
         {
             HitPoints = save.HealthPoints;
-            //ArmorPoints = Mathf.CeilToInt((float)_armorCap * GameSessionInfoHandler.GetSessionSave().ArmorPart);
         } 
         else 
         {
@@ -97,24 +95,26 @@ public class PlayerShipData : MonoBehaviour
         }
 
         ArmorPoints = arm;
-        //SceneTransition.SceneTransit += WriteSaveData;
         VictoryHandler.LevelVictored += WriteSaveData;
     }
     private void OnDisable() {
         VictoryHandler.LevelVictored -= WriteSaveData;
-        //SceneTransition.SceneTransit -= WriteSaveData;
     }
 
     public static void TakeDamage(int damage)
     {
-        if ((damage <= 0) || (Invulnerable))
+        if ((damage <= 0) || (Invulnerable) || (SceneStatics.GameTimer - GameTimerBuffer < ShipStats.GetValue("UnvulnerableTimeAfterDamage")))
             return;
 
         damage = Mathf.CeilToInt(ShipStats.GetValue("TakingDamageMultiplier") * damage);
+        if (damage > ShipStats.GetIntValue("MaxDamageTaken"))
+        {
+            damage = ShipStats.GetIntValue("MaxDamageTaken");
+        }
+
+        GameTimerBuffer = SceneStatics.GameTimer;
 
         int tempDmg = damage - ShipStats.GetIntValue("BlockArmor");
-
-        //print($"Taked damage : {damage}, total : {tempDmg}, block : {ShipStats.GetIntValue("BlockArmor")}");
 
         if (ShieldPoints != 0)
         {
@@ -136,7 +136,7 @@ public class PlayerShipData : MonoBehaviour
         if (tempDmg == 0)
             return;
 
-        PlayTakingDamageAnimation(tempDmg, damage - tempDmg);
+        _playerUI.PlayTakingDamage(tempDmg, damage - tempDmg);
 
         int lastARM = ArmorPoints - Mathf.CeilToInt((tempDmg));
 
@@ -160,14 +160,12 @@ public class PlayerShipData : MonoBehaviour
         }
     }
 
-    public static void PlayTakingDamageAnimation(int damage, int flatBlock) => _playerUI.PlayTakingDamage(damage, flatBlock);
-
     private static void SetHitPoints(int newValue)
     {
         if (newValue > _hpCap)
             newValue = _hpCap;
 
-        if ((OneShotProtection) && (HitPoints > _criticalStateBorder) && (newValue < 0))
+        if (((OneShotProtection) && (HitPoints >= _criticalStateBorder) && (newValue <= 0)) || newValue == 0)
         {
             ParryingHandler.ConstParry();
             HitPoints = 0;
@@ -207,7 +205,7 @@ public class PlayerShipData : MonoBehaviour
 
     public static void ConsumeHP(int takingValue)
     {
-        PlayTakingDamageAnimation(1, 0);
+        _playerUI.PlayTakingDamage(1, 0);
 
         SetHitPoints(HitPoints - takingValue);
     }

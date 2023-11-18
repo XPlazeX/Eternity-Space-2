@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerRamsHandler : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class PlayerRamsHandler : MonoBehaviour
     private static bool CanRam {get; set;} = true;
     private static bool RamShielding {get; set;} = true;
     private static bool RamSaveWaving {get; set;} = true;
-    //public static int LowerEnemyHealthLimit {get; set;} = 10;
 
     public static int MoneyValue {get; set;} = 3;
     private static RamShield _ramShield;
@@ -41,13 +39,6 @@ public class PlayerRamsHandler : MonoBehaviour
         if (!CanRam)
             return;
 
-        // if (RamShielding)
-        // {
-        //     // if (PlayerShipData.CriticalState)
-        //     //     PlayerShipData.RegenerateHP(MoneyValue * ShipStats.GetIntValue("RamRegenOnCriticalStateMultiplier"));
-        //     // else
-        //     //     PlayerShipData.RegenerateHP(MoneyValue);
-        // }
         _victoryHandler.AddAurite(MoneyValue);
 
         if (RamShielding && _ramShield != null)
@@ -62,11 +53,7 @@ public class PlayerRamsHandler : MonoBehaviour
         }
             
         RamSuccess?.Invoke();
-        //print($"invoking ram success. invokation list: {RamSuccess.GetInvocationList().Length}");
     }
-
-    // private void OnUltratechCharged() => RamShielding = false;
-    // private void OnUltratechEmpty() => RamShielding = true;
 
     private void FindShield()
     {

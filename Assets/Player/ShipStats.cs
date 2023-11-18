@@ -24,6 +24,8 @@ public class ShipStats
         ["BlockArmor"] = 0, // округляется до целого вверх
         ["TimeSlowValue"] = 0.33f,
         ["CriticalTimeSlowMultiplier"] = 0.33f,
+        ["UnvulnerableTimeAfterDamage"] = 0.5f,
+        ["MaxDamageTaken"] = 40f,
         // тараны
         ["RamMoneyValue"] = 3f,// округляется до целого вверх
         //["RamRegenOnCriticalStateMultiplier"] = 3f, // округляется до целого вверх

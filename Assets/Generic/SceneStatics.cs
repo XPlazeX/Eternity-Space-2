@@ -8,6 +8,7 @@ public class SceneStatics : MonoBehaviour
     public static float ChaosMultiplier {get; set;} = 0.15f;
     public static float LevelEnemyHPMultiplier {get; set;} = 1f;
 
+    public static float GameTimer {get; private set;} = 0f;
     public static bool CoresFinded {get; private set;} = false;
 
     public static GameObject SceneCore {get; private set;}
@@ -27,9 +28,15 @@ public class SceneStatics : MonoBehaviour
 
     private void Awake() 
     {
+        GameTimer = 0f;
         HealthGradient = _healthGradient;
         CombineGradient = _combineGradient;
         CoresInitialization();
+    }
+
+    private void Update()
+    {
+        GameTimer += Time.deltaTime;
     }
 
     private void CoresInitialization()

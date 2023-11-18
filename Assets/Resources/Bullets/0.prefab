@@ -235,7 +235,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.175, y: 0.175}
   m_EdgeRadius: 0
 --- !u!114 &-5441174016827092469
 MonoBehaviour:
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionCode: 0
+  _mute: 0
   _modParams: 1
   _color: {r: 1, g: 0.986928, b: 0, a: 1}
   _scale: 0.6

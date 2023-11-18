@@ -24,7 +24,6 @@ public class ParryingHandler : MonoBehaviour
             ParringPools.Add(new PullForObjects(_parringObjects[i] as ParringObject));
         }
 
-        // SceneTransition.SceneTransit += Clear;
         Initialized = true;
     }
 

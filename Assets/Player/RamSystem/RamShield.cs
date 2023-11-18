@@ -55,14 +55,12 @@ public class RamShield : MonoBehaviour
         if (byParry)
         {
             _shieldSpriteRenderer.sprite = _parryShieldSprite;
-            // Toggle(true, _ramFirerateBoost + _parryAdditiveFirerateBoost);
             timer = _ramDuration * 2f;
             modColor = _ParryColor;
         }
         else
         {
             _shieldSpriteRenderer.sprite = _ramShieldSprite;
-            // Toggle(true, _ramFirerateBoost);
             timer = _ramDuration;
             modColor = _RamColor;
         }
@@ -77,6 +75,8 @@ public class RamShield : MonoBehaviour
             yield return null;
         }
 
+        modColor.a = 0f;
+        _shieldSpriteRenderer.color = modColor;
 
         Toggle(false);
     }
