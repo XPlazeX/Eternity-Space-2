@@ -95,7 +95,6 @@ public class TimeHandler : MonoBehaviour
             
         Time.timeScale = 0;
         TimePaused?.Invoke();
-        //print("time paused");
     }
 
     public static void Resume(float forcedMultiplier = -1f)
@@ -110,23 +109,5 @@ public class TimeHandler : MonoBehaviour
         Time.timeScale = _timeScaleBeforePause;
         Time.fixedDeltaTime = normalFixedDeltaTime * _timeScaleBeforePause;
         TimeNormalized?.Invoke();
-        //print("time resume");
     }
-
-    // public static void Overheat(float time)
-    // {
-    //     if (!Workable)
-    //         return;
-
-    //     Workable = false;
-    //     Time.timeScale = 1f;
-    //     instance.StartCoroutine(Recovering(time));
-    // }
-
-    // private static IEnumerator Recovering(float time)
-    // {
-    //     yield return new WaitForSeconds(time);
-
-    //     Workable = true;
-    // }
 }

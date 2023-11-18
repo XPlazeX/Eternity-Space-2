@@ -29,7 +29,8 @@ public class PlaneAI : EnemyAIRoot
 
     private void SetTarget()
     {
-        _targetPosition = new Vector3 (Random.Range(_XBorders.x, _XBorders.y), Random.Range(_YBorders.x, _YBorders.y), 0f);
+        _targetPosition = new Vector3 (Random.Range(_XBorders.x + level_borders_moving_offset, _XBorders.y - level_borders_moving_offset),
+            Random.Range(_YBorders.x + level_borders_moving_offset, _YBorders.y - level_borders_moving_offset), 0f);
     }
 
     protected override void DoMove()

@@ -2,6 +2,8 @@
 
 public class EnemyAIRoot : MonoBehaviour
 {
+    public const float level_borders_moving_offset = 3f;
+
     protected enum LookingOrientation 
     {
         Fixed,

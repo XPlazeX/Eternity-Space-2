@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 350
+  _hitPoints: 450
   _startShieldPoints: 0
 --- !u!114 &8239230982404834186
 MonoBehaviour:
@@ -632,8 +632,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _upperBorderPercent: 0.87
-  _downBorderPercent: 0.698
+  _upperBorderPercent: 0.579
+  _downBorderPercent: 0.461
   _timeToReloadTarget: 10
 --- !u!114 &6146907518614858163
 MonoBehaviour:
@@ -648,11 +648,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 8.5
+  _attackReload: 12
   _attackObjects:
   - _cycles: 6
     _timeBetweenCycles: 0.3
-    _timeCooling: 3.3
+    _timeCooling: 5.5
     _bulletCode: 16
     _barrels:
     - {fileID: 5657283062640649439}
@@ -667,7 +667,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 12
     _timeBetweenCycles: 0.1
-    _timeCooling: 3
+    _timeCooling: 6
     _bulletCode: 0
     _barrels:
     - {fileID: 5045044249413747386}
@@ -680,9 +680,9 @@ MonoBehaviour:
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
     _soundOnFireID: 1
-  - _cycles: 6
+  - _cycles: 5
     _timeBetweenCycles: 0.2
-    _timeCooling: 2.3
+    _timeCooling: 4.6
     _bulletCode: 14
     _barrels:
     - {fileID: 7220868107379145315}
@@ -695,7 +695,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 4
     _timeBetweenCycles: 0.1
-    _timeCooling: 2.5
+    _timeCooling: 6.5
     _bulletCode: 16
     _barrels:
     - {fileID: 5657283062640649439}
@@ -710,7 +710,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 3
     _timeBetweenCycles: 0.1
-    _timeCooling: 1.6
+    _timeCooling: 4
     _bulletCode: 14
     _barrels:
     - {fileID: 3272629801758583890}
@@ -723,7 +723,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 2
     _timeBetweenCycles: 0.75
-    _timeCooling: 0
+    _timeCooling: 2
     _bulletCode: 6
     _barrels:
     - {fileID: 2968124488016852171}
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 10
+  _deathExplosionType: 19
 --- !u!50 &5273715181747866732
 Rigidbody2D:
   serializedVersion: 4
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 8
-  _attackReload: 24
+  _attackReload: 30
   _attackObjects:
   - _cycles: 3
     _timeBetweenCycles: 0.66

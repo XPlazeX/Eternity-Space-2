@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 32
+  _hitPoints: 24
   _startShieldPoints: 0
 --- !u!114 &5954530038771785861
 MonoBehaviour:

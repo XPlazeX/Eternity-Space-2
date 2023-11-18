@@ -48,7 +48,7 @@ MonoBehaviour:
   _levelCount: 1
   _startAurite: 380
   _auritePerLevel: 80
-  _minMaxCosmilite: {x: 40, y: 50}
+  _minMaxCosmilite: {x: 35, y: 35}
   _nameLocalizationID: 3
   _radioID: 5
   _customShip: -1
@@ -167,4 +167,3 @@ MonoBehaviour:
   _waitTime: 4.6
   _preLevelWS: {fileID: 2891289184826753115, guid: 1fc0a5ed5cee9f54290a850f3ae97474,
     type: 3}
-  _victoryDialogue: Null-Boss-Defeat

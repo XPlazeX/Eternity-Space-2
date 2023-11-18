@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 16
   _boostFirstLevel: 0
-  _levelCount: 10
+  _levelCount: 7
   _startAurite: 125
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 70, y: 100}
@@ -153,9 +153,9 @@ MonoBehaviour:
   _bonusCount: 0
   _bonusSpawnReload: 0
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 8
+  _finalLevelWaveCount: 6
   _startLevelWeight: 2
-  _finalLevelWeight: 7
+  _finalLevelWeight: 5
   _missionWeightFinalMultiplier: 2.25
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5

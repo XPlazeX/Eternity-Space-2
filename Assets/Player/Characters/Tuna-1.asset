@@ -17,4 +17,5 @@ MonoBehaviour:
   _hitPoints: 100
   _armorPoints: 0
   _armorCap: 0
-  _handingModules: []
+  _handingModules:
+  - {fileID: 1554671533882739457, guid: 951b08d35e937a54583441ccca4c830c, type: 3}

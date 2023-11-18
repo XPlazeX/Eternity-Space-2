@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 46
+  _hitPoints: 36
   _startShieldPoints: 0
 --- !u!114 &4098054914371315080
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
   _autoStart: 1
   _speed: 7
   _orientation: 1
-  _rotationSpeed: 10
+  _rotationSpeed: 7
   _movingProgression:
     serializedVersion: 2
     m_Curve:

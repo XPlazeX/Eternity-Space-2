@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTag: Player
   _rotatingTransform: {fileID: 5500839470369327556}
-  _powerHoming: 6
+  _powerHoming: 5
 --- !u!58 &2113112305298132116
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 4
 --- !u!50 &1750055062095824111
 Rigidbody2D:
   serializedVersion: 4

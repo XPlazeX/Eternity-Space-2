@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 300
+  _hitPoints: 400
   _startShieldPoints: 0
 --- !u!114 &5903395138270826022
 MonoBehaviour:
@@ -422,7 +422,7 @@ MonoBehaviour:
   - {fileID: 3667323105161002813}
   _presets:
   - _code: 0
-    _duration: 12
+    _duration: 15
   - _code: 1
     _duration: 6
 --- !u!114 &6146907518614858163
@@ -442,7 +442,7 @@ MonoBehaviour:
   _attackObjects:
   - _cycles: 20
     _timeBetweenCycles: 0.25
-    _timeCooling: 1
+    _timeCooling: 3.5
     _bulletCode: 2
     _barrels:
     - {fileID: 6854286057996215881}
@@ -457,7 +457,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 5
     _timeBetweenCycles: 1
-    _timeCooling: 1
+    _timeCooling: 3
     _bulletCode: 0
     _barrels:
     - {fileID: 4623085315465564868}
@@ -470,7 +470,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 2
     _timeBetweenCycles: 1.8
-    _timeCooling: 0
+    _timeCooling: 1.25
     _bulletCode: 0
     _barrels:
     - {fileID: 7220868107379145315}
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 10
+  _deathExplosionType: 19
 --- !u!114 &3667323105161002813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,21 +520,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoStart: 0
-  _speed: 15
+  _speed: 12.5
   _orientation: 1
   _rotationSpeed: 10
   _movingProgression:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.007938385
-      value: 1.0007172
+      time: -0.00365448
+      value: 0.35894775
       inSlope: 0.014396671
       outSlope: 0.014396671
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0.14561866
+    - serializedVersion: 3
+      time: 0.29124168
+      value: 0.9966822
+      inSlope: -0.052085333
+      outSlope: -0.052085333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.8641204
       value: 0.5910182
@@ -557,7 +566,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _ramDistance: 10
-  _ramReload: 1.15
+  _ramReload: 1.5
 --- !u!50 &5273715181747866732
 Rigidbody2D:
   serializedVersion: 4
@@ -757,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 1
-  _attackReload: 20
+  _attackReload: 22
   _attackObjects:
   - _cycles: 5
     _timeBetweenCycles: 0.6

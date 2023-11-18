@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 40
+  _hitPoints: 26
   _startShieldPoints: 0
 --- !u!114 &5573706225068476796
 MonoBehaviour:
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _closingDistance: 2.5
+  _closingDistance: 3.25
   _autoTargetPlayer: 1
   _retreating: 1
   _repositionTime: 0.8
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 1
-  _attackReload: 3
+  _attackReload: 4.5
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0

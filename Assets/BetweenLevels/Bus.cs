@@ -37,7 +37,8 @@ public class Bus : MonoBehaviour
     private IEnumerator PlayerCatch()
     {
         PlayerShipData.DeactivateAllBindedSystems();
-        TimeHandler.Resume();
+        TimeHandler.Resume(1f);
+        TimeHandler.Workable = false;
 
         Transform player = Player.PlayerTransform;
 
