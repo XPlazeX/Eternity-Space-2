@@ -40,11 +40,6 @@ public class PlayerUI: MonoBehaviour
         _healthLabel.text = nowHP.ToString() + " / " + MaxHP.ToString();
     }
 
-    public void ToggleInvulnerability(bool tog)
-    {
-
-    }
-
     public void ChangeARM(int nowArm, float partHP)
     {
         _armorBar.fillAmount = partHP;

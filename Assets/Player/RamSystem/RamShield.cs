@@ -17,7 +17,8 @@ public class RamShield : MonoBehaviour
     private float _parryAdditiveFirerateBoost;
     private float _ramDuration;
 
-    private void Start() {
+    private void Start() 
+    {
         _ramFirerateBoost = ShipStats.GetValue("RamFirerateBoost");
         _parryAdditiveFirerateBoost = ShipStats.GetValue("ParryAdditiveFirerateBoost");
         _ramDuration = ShipStats.GetValue("RamBoostDuration");
@@ -33,11 +34,6 @@ public class RamShield : MonoBehaviour
         else
         {
             shielding = Shielding(byParry);
-
-            if (byParry)
-                Toggle(true, _ramFirerateBoost + _parryAdditiveFirerateBoost);
-            else
-                Toggle(true, _ramFirerateBoost);
                 
             StartCoroutine(shielding);
         }
@@ -51,6 +47,11 @@ public class RamShield : MonoBehaviour
         print("Shielding");
         float timer = 0;
         Color modColor = new Color();
+
+        if (byParry)
+                Toggle(true, _ramFirerateBoost + _parryAdditiveFirerateBoost);
+            else
+                Toggle(true, _ramFirerateBoost);
 
         if (byParry)
         {

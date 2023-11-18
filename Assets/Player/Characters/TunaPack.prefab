@@ -47,5 +47,5 @@ MonoBehaviour:
   _operators:
   - _statName: RamMoneyValue
     _typeOperation: 2
-    _operationValue: 2
+    _operationValue: 3
   _healthOperators: []

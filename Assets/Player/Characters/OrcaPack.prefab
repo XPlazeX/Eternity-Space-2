@@ -47,8 +47,8 @@ MonoBehaviour:
   _operators:
   - _statName: PlayerShotLifetimeMultiplier
     _typeOperation: 1
-    _operationValue: 0.25
+    _operationValue: 0.33
   - _statName: MainWeaponFirerateMultiplier
     _typeOperation: 1
-    _operationValue: 1.33
+    _operationValue: 1.4
   _healthOperators: []

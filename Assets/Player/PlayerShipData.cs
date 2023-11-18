@@ -71,6 +71,7 @@ public class PlayerShipData : MonoBehaviour
 
         Invulnerable = false;
         Active = true;
+        Hover = false;
 
         if (_testMode)
         {
@@ -280,14 +281,11 @@ public class PlayerShipData : MonoBehaviour
     private static void ToggleInvulnerability(bool tog)
     {
         Invulnerable = tog;
-        if (_playerUI != null)
-            _playerUI.ToggleInvulnerability(tog);
     }
 
     public static void TryToggleInvulnerability(bool tog)
     {
-        if (Active)
-            ToggleInvulnerability(tog);
+        ToggleInvulnerability(tog);
         print($"toggle invulnerability : {tog}, active : {Active}");
     }
 
