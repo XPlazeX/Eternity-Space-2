@@ -5,6 +5,14 @@ public class TimedDelegator : MonoBehaviour
 {
     public delegate void commonAction();
 
+    private void OnEnable() {
+        SceneTransition.SceneTransit += StopAll;
+    }
+
+    private void OnDisable() {
+        SceneTransition.SceneTransit -= StopAll;
+    }
+
     public void FuseAction(commonAction action, float fuseTime)
     {
         StartCoroutine(TimedAction(action, fuseTime));
@@ -17,4 +25,8 @@ public class TimedDelegator : MonoBehaviour
         action.Invoke();
     }
 
+    private void StopAll()
+    {
+        StopAllCoroutines();
+    }
 }

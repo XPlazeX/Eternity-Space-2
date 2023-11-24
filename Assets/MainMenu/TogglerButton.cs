@@ -12,14 +12,22 @@ public class TogglerButton : MonoBehaviour
 
     public bool ON {get; private set;}
 
-    private void Start() {
-        GetComponent<Image>().sprite = _spriteOFF;
-        
+    protected virtual void Start() {
         if (_defaultState)
             Toggle();
     }
 
-    public void Toggle()
+    private void OnEnable() {
+        if (ON)
+        {
+            GetComponent<Image>().sprite = _spriteON;
+        } else 
+        {
+            GetComponent<Image>().sprite = _spriteOFF;
+        }
+    }
+
+    public virtual void Toggle()
     {
         ON = !ON;
 

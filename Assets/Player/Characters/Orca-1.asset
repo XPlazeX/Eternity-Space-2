@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee4ddcb0936c0e4eaeaa05c898744f9, type: 3}
   m_Name: Orca-1
   m_EditorClassIdentifier: 
-  _playerShip: {fileID: 1260780666538092923, guid: 10c585a90f8bfc343ae32b860a58afb1,
-    type: 3}
+  _skinnedShips:
+  - {fileID: 1260780666538092923, guid: 10c585a90f8bfc343ae32b860a58afb1, type: 3}
+  - {fileID: 1260780666538092923, guid: d9a19f85bef5115419becfc1d33db42a, type: 3}
   _hitPoints: 140
   _armorPoints: 0
   _armorCap: 0

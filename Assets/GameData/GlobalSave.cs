@@ -3,8 +3,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public class GlobalSave
 {
-    //public bool TrainingCompleted {get; set;} = false;
-
     public int Cosmilite {get; set;} = 100;
     public int Positronium {get; set;} = 0;
     public int WeaponStartLevel {get; set;} = 0;
@@ -15,14 +13,9 @@ public class GlobalSave
     public int LastSelectedWeapon {get; set;} = 0;
     public int LastSelectedDevice {get; set;} = 0;
 
-    public int TotalMissionsCompleted {get; set;} = 0;
-    public int TotalMissionsTries {get; set;} = 0;
     public float RepairPart {get; set;} = 0.3f;
 
     public string LobbyDialogue {get; set;} = null;
-
-    // public float MFramePosX {get; set;} = 140f;
-    // public float MFramePosY {get; set;} = 0;
 
     public Dictionary<int, int> Unlocks {get; private set;} = new Dictionary<int, int>();
 
@@ -65,4 +58,12 @@ public class GlobalSave
         return Unlocks[code] >= progress;
     }
     
+    public int ValueOfUnlock(int code)
+    {
+        if (!Unlocks.ContainsKey(code))
+            return -1;
+
+        else return Unlocks[code];
+
+    }
 }

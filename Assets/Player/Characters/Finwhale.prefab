@@ -5497,7 +5497,7 @@ MonoBehaviour:
   - {fileID: 1260780668016141902}
   - {fileID: 1260780666147496287}
   - {fileID: 1260780667689757784}
-  _prepareTime: 1
+  _prepareTime: 0.8
   _customWeaponUI: {fileID: 0}
 --- !u!1 &1260780667689757787
 GameObject:

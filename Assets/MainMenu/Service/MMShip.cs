@@ -2,9 +2,13 @@
 
 public class MMShip : MonoBehaviour
 {
-    [SerializeField] private Sprite[] _shipSpritesByID;
+    private const int ruStore_skin_id = 1;
 
-    private void Start() {
-        GetComponent<SpriteRenderer>().sprite = _shipSpritesByID[GameSessionInfoHandler.GetSessionSave().ShipModel];
+    [SerializeField] private ShipSkinPack[] _shipSkinsByID;
+
+    private void Start()
+    {
+        int skinID = Dev.RuStoreVersionSprites ? ruStore_skin_id : 0; 
+        GetComponent<SpriteRenderer>().sprite = _shipSkinsByID[GameSessionInfoHandler.GetSessionSave().ShipModel].GetSkin(skinID);
     }
 }

@@ -48,7 +48,7 @@ MonoBehaviour:
   _levelCount: 1
   _startAurite: 380
   _auritePerLevel: 80
-  _minMaxCosmilite: {x: 35, y: 35}
+  _minMaxCosmilite: {x: 25, y: 25}
   _nameLocalizationID: 3
   _radioID: 5
   _customShip: -1

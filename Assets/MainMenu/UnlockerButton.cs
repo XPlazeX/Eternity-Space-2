@@ -4,9 +4,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class UnlockerButton : MonoBehaviour
 {
+    const int beacon_code_count = 5;
+
     [SerializeField] UnlockRequire[] _requiredUnlocks;
     [SerializeField] private GameObject[] _hiddingGO;
-    [SerializeField][Range(0, 4)] private int _beaconCode = 0;
+    [SerializeField][Range(0, beacon_code_count - 1)] private int _beaconCode = 0;
     [Space()]
     [SerializeField] private bool _modColor = false;
     [SerializeField] private UnlockRequire[] _unlocksRequires;
@@ -29,14 +31,11 @@ public class UnlockerButton : MonoBehaviour
 
         if (_beaconCode > 0)
         {
-            if (GlobalSaveHandler.GetSave().TotalMissionsTries % 5 != _beaconCode)
+            if (Unlocks.ValueOfUnlock(8) % beacon_code_count != _beaconCode) // берется кол-во пройденных миссий
             {
                 CanvasGroup cg = GetComponent<CanvasGroup>();
                 cg.alpha = 0f;
                 check = false;
-                //cg.interactable = false;
-                //GetComponent<Button>().interactable = check;
-                //return;
             }
         }
         

@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757a1d9779d4b1c41b896762be00e6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 1.2
+  _rotationSpeed: 0.8
 --- !u!1 &5104951251766068995
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 450
+  _hitPoints: 500
   _startShieldPoints: 0
 --- !u!114 &8239230982404834186
 MonoBehaviour:
@@ -648,11 +648,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 12
+  _attackReload: 2
   _attackObjects:
   - _cycles: 6
     _timeBetweenCycles: 0.3
-    _timeCooling: 5.5
+    _timeCooling: 5
     _bulletCode: 16
     _barrels:
     - {fileID: 5657283062640649439}
@@ -667,7 +667,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 12
     _timeBetweenCycles: 0.1
-    _timeCooling: 6
+    _timeCooling: 5.5
     _bulletCode: 0
     _barrels:
     - {fileID: 5045044249413747386}
@@ -682,7 +682,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 5
     _timeBetweenCycles: 0.2
-    _timeCooling: 4.6
+    _timeCooling: 4.4
     _bulletCode: 14
     _barrels:
     - {fileID: 7220868107379145315}
@@ -695,7 +695,7 @@ MonoBehaviour:
     _soundOnFireID: 1
   - _cycles: 4
     _timeBetweenCycles: 0.1
-    _timeCooling: 6.5
+    _timeCooling: 5.5
     _bulletCode: 16
     _barrels:
     - {fileID: 5657283062640649439}
@@ -929,7 +929,7 @@ MonoBehaviour:
   _waitTime: 8
   _attackReload: 30
   _attackObjects:
-  - _cycles: 3
+  - _cycles: 4
     _timeBetweenCycles: 0.66
     _timeCooling: 0
     _bulletCode: 17

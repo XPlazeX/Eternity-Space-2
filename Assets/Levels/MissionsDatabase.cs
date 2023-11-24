@@ -31,7 +31,7 @@ public class MissionsDatabase : MonoBehaviour
         print($"MISSION DATABASE: loading menu dialogue: {missionID}");
     }
     
-    private IEnumerator SettingGameSessionData(int missionID, bool rewriteAll)
+    public IEnumerator SettingGameSessionData(int missionID, bool rewriteAll)
     {
         if (_missionOperationHandle.IsValid())
         {

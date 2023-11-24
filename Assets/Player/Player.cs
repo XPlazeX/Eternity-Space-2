@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
         _firstPlayerExample = Instantiate(PlayerObject);
         _firstPlayerExample.SetActive(false);
-        print("character Loaded");
     }
 
     public static void UpdatePlayer()

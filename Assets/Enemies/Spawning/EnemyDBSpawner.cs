@@ -38,7 +38,7 @@ public class EnemyDBSpawner : SpawnerRoot
         SceneStatics.SceneCore.GetComponent<Spawner>().PrintCountUI(ActiveEnemies);
         SceneStatics.SceneCore.GetComponent<Spawner>().PrintProgressUI($"{_currentWave} / {WaveCount}");
 
-        print($"Установлены параметры спаунера: волны {WaveCount}. Вес {StartWeight}-{FinalWeight}. Буфер {EnemyBuffer}. Перезарядка {ReloadSpawnTime}.");
+        //print($"Установлены параметры спаунера: волны {WaveCount}. Вес {StartWeight}-{FinalWeight}. Буфер {EnemyBuffer}. Перезарядка {ReloadSpawnTime}.");
     }
 
     public void Modify(float waveCountMultiplier, float weightMultiplier, int additiveEnemyBuffer, float reloadTimeMultiplier)
@@ -54,7 +54,7 @@ public class EnemyDBSpawner : SpawnerRoot
 
         _spawner.PrintProgressUI($"{_currentWave} / {WaveCount}");
 
-        print($"мод спаунера волн: волны Х{waveCountMultiplier} = {WaveCount}. Вес {StartWeight}-{FinalWeight}. Буфер {EnemyBuffer}. Перезарядка {ReloadSpawnTime}.");
+        //print($"мод спаунера волн: волны Х{waveCountMultiplier} = {WaveCount}. Вес {StartWeight}-{FinalWeight}. Буфер {EnemyBuffer}. Перезарядка {ReloadSpawnTime}.");
     }
 
     public override void StartSpawning()
@@ -65,13 +65,15 @@ public class EnemyDBSpawner : SpawnerRoot
         } else if (GameSessionInfoHandler.ExistDataCollection(weightSelectorID_data_collection))
         {
             _weightSelector = Instantiate(_wsSelectors[GameSessionInfoHandler.GetDataCollection(weightSelectorID_data_collection)[0]].weightSelector);
-            print($"Загружен выборщик веса из сохранения: {GameSessionInfoHandler.GetDataCollection(weightSelectorID_data_collection)[0]}");
+            //print($"Загружен выборщик веса из сохранения: {GameSessionInfoHandler.GetDataCollection(weightSelectorID_data_collection)[0]}");
         } else
         {
             int selectedID = 0;
 
             if (GameSessionInfoHandler.LevelProgress == 0 || GameSessionInfoHandler.MaxLevel == 1)
-                print("Выбран выборщик веса по умолчанию для первого уровня.");
+            {
+                //print("Выбран выборщик веса по умолчанию для первого уровня.");
+            }
             else
             {
                 for (int i = 0; i < _wsSelectors.Length; i++)
@@ -87,8 +89,7 @@ public class EnemyDBSpawner : SpawnerRoot
             _weightSelector = Instantiate(_wsSelectors[selectedID].weightSelector);
 
             GameSessionInfoHandler.AddDataCollection(weightSelectorID_data_collection, new System.Collections.Generic.List<int>(1) {selectedID});
-            //GameSessionInfoHandler.GetDataCollection(weightSelectorID_data_collection).Add(selectedID);
-            print($"Сохранён и установлен выборщик веса : {selectedID}");
+            //print($"Сохранён и установлен выборщик веса : {selectedID}");
         }
 
         _weightSelector.Initialize();
@@ -102,7 +103,6 @@ public class EnemyDBSpawner : SpawnerRoot
 
     public override void Stop()
     {
-        print("Очищен выборщик веса.");
         GameSessionInfoHandler.RemoveDataCollection(weightSelectorID_data_collection);
         base.Stop();
     }

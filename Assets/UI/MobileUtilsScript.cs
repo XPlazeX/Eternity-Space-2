@@ -14,9 +14,8 @@ public class MobileUtilsScript : MonoBehaviour {
     private GUIStyle _largeFont;
     private bool _work = false;
  
-    void Awake(){
-        print($"check unlock :{_checkingUnlock.Completed}");
-
+    void Awake()
+    {
         Application.targetFrameRate = Mathf.RoundToInt(PlayerPrefs.GetFloat("TargetFPS", 60));
         Time.fixedDeltaTime = PlayerPrefs.GetFloat("FixedUpdateStep", 1f / 60f);
         
@@ -28,12 +27,6 @@ public class MobileUtilsScript : MonoBehaviour {
         StartCoroutine(FPS());
 
         _largeFont = _guiStyle;
-
-        // PlayerPrefs.SetInt("TargetGameMode", 1);
-        // print("Ручная загрузка игрового режима : 1");
-
-        // _largeFont.fontSize = 20;
-        // _largeFont.normal.textColor = Color.white;
     }
 
     #if UNITY_EDITOR
@@ -47,6 +40,11 @@ public class MobileUtilsScript : MonoBehaviour {
         {
             Unlocks.ProgressUnlock(7, 1);
             print("+1 beacon");
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Bank.PutCash(BankSystem.Currency.Aurite, 20);
+            print("+20 aurite");
         }
     }
     #endif

@@ -44,8 +44,6 @@ public class VictoryHandler : MonoBehaviour
     public void AddAurite(int val)
     {
         _tempAurite += val;
-        //print("Adding temp aurite");
-        //_explosionHandler.SpawnExplosion(Player.PlayerTransform.position, _auriteExplosionID);
     }
 
     public void LevelVictory(bool andMission = false)
@@ -54,8 +52,6 @@ public class VictoryHandler : MonoBehaviour
 
         save.PrepareToNewLevel(); // Current level ++
         ModulasSaveHandler.FlushChoice();
-
-        //GameSessionInfoHandler.DischargeLevel();
 
         save.RecievedCosmilite += _tempCosmilite;
         save.RecievedPositronium += _tempPositronium;
@@ -92,6 +88,7 @@ public class VictoryHandler : MonoBehaviour
         // ID Анлока миссии и подсчёт прогресса уровней маяков ведётся непосредственно из класса Mission
 
         GameSessionInfoHandler.ClearGameSession();
+        CustomSceneOnExit = "Lobby";
         //FinalLevel = true;
         print("МИССИЯ ПРОЙДЕНА");
         MissionVictored?.Invoke();
@@ -125,7 +122,7 @@ public class VictoryHandler : MonoBehaviour
 
         ClearCustomData();
 
-            SceneTransition.SwitchToScene("MissionMenu");
+        SceneTransition.SwitchToScene("MissionMenu");
     }
 
     public static void LoseSession()

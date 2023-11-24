@@ -187,7 +187,7 @@ MonoBehaviour:
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
   _lifetime: 3
-  _speed: 8.5
+  _speed: 12
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0

@@ -23,7 +23,6 @@ public class CharacterLoader : MonoBehaviour
         if (activeMission != null && activeMission.CustomShip != -1)
             id = activeMission.CustomShip;
 
-        //LoadCharacter(_characters[id]);
         yield return StartCoroutine(LoadingCharacter(id));
     }
 
@@ -44,7 +43,10 @@ public class CharacterLoader : MonoBehaviour
 
     private void LoadCharacter(Character character)
     {
-        Player.Initialize(character.Ship);
+        int id = 0;
+        if (Dev.RuStoreVersionSprites)
+            id = 1;
+        Player.Initialize(character.GetSkinnedShip(id));
         SceneStatics.SceneCore.GetComponent<PlayerShipData>().Initialize(character.HP, character.ARM);
 
         for (int i = 0; i < character.HandingModules.Length; i++)

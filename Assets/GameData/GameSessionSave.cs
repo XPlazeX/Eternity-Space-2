@@ -63,11 +63,7 @@ public class GameSessionSave
 
     public void PrepareToNewLevel() // вызывается при выгрузке пройденного уровня.
     {
-        UnityEngine.Debug.Log($"PrepareToNewLevel : {CurrentLevel + 1}");
-        //CurrentWave = 0;
         EnterNewLevel = true;
-        //LevelCompleted = false;
-        //Money += MoneyPerLevel;
         CurrentLevel ++;
         Seed ++;
     }

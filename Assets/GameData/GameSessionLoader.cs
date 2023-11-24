@@ -39,23 +39,13 @@ public class GameSessionLoader : MonoBehaviour
         CharacterLoader cl = SceneStatics.CharacterCore.GetComponent<CharacterLoader>();
 
         yield return cl.StartCoroutine(cl.LoadingPlayerShip()); // >> Player >> PlayerShipData 
-        print("character loader >> load player ship");
+        print("Character loader >> loaded player ship!");
 
         Player.UpdatePlayer();
-        //Camera.main.GetComponent<CameraController>().FindPlayer();
-
-        //bool newLevel = GameSessionInfoHandler.GetSessionSave().EnterNewLevel;
-            
-        //SceneStatics.SceneCore.GetComponent<LevelLoader>().Initialize(); // >> BackgroundLoader >> WeightSelector + All TypeModifiers + CameraController >> Spawner
         SceneStatics.SceneCore.GetComponent<ShieldDistributor>().Initialize();
-        //SceneStatics.SceneCore.GetComponent<SoundPlayer>().Initialize();
-        //SceneStatics.SceneCore.GetComponent<ExplosionHandler>().Initialize();
 
         SceneStatics.SceneCore.GetComponent<GenericBulletDatabase>().Initialize();
         SceneStatics.CharacterCore.GetComponent<ModuleCore>().StartInitialization(); // >> CharacterModules >> CharacterBulletDatabase >> ParryingHandler >> AllModules
-        //SceneStatics.CharacterCore.GetComponent<DebuffsHandler>().Initialize(newLevel);
-
-        //SceneStatics.SceneCore.GetComponent<Spawner>().Initialize();
 
         SceneStatics.CharacterCore.GetComponent<PlayerRamsHandler>().Initialize();
         SceneStatics.CharacterCore.GetComponent<DeviceHandler>().Initialize();
@@ -77,7 +67,6 @@ public class GameSessionLoader : MonoBehaviour
 
         if (!save.SessionInitialized)
         {
-            //GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
             save.AllSysInitialized();
         }
 

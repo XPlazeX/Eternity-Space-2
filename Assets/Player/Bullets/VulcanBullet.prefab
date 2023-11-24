@@ -185,12 +185,12 @@ MonoBehaviour:
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
-  _lifetime: 2
-  _speed: 14
+  _lifetime: 1
+  _speed: 13
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0
-  _explodeOnTimer: 0
+  _explodeOnTimer: 1
 --- !u!50 &965381140312984591
 Rigidbody2D:
   serializedVersion: 4
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionCode: 0
+  _mute: 0
   _modParams: 1
   _color: {r: 0.57254905, g: 0.19215688, b: 1, a: 1}
   _scale: 0.4

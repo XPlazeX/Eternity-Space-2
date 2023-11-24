@@ -51,13 +51,23 @@ public class Bus : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        for (int i = 0; i < player.childCount; i++)
-        {
-            Destroy(player.GetChild(i).gameObject);
-        }
+        DestroyAllChildObjects(player);
 
         Player.PlayerTransform.SetParent(_bus);
         StartEngine();
+    }
+
+    private void DestroyAllChildObjects(Transform parent)
+    {
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            GameObject childObject = parent.GetChild(i).gameObject;
+            
+            if (childObject.GetComponent<_DontDestroyThisChildObject_>() != null)
+                return;
+
+            Destroy(childObject);
+        }
     }
 
     public void StartEngine()

@@ -30,17 +30,17 @@ public class MissionEventsDistributor : MonoBehaviour
         {
             ModulasSave modulasSave = ModulasSaveHandler.GetSave();
 
-            print("постоянные модули:");
+            print("||||||||| постоянные модули |||||||||");
             for (int i = 0; i < modulasSave.PassiveEvents.Count; i++)
             {
                 print(modulasSave.PassiveEvents[i].moduleOperandID);
             }
-            print("временные модули:");
+            print("--------- временные модули ----------");
             for (int i = 0; i < modulasSave.LevelEvents.Count; i++)
             {
                 print(modulasSave.LevelEvents[i].moduleOperandID);
             }
-            print("конец");
+            print("||||||||||| конец модулей |||||||||||");
         }
     }
 

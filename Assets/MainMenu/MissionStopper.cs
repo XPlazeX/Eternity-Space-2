@@ -11,8 +11,6 @@ public class MissionStopper : MonoBehaviour
         {
             _togButtons[i].Toggled += CheckState;
         }
-        
-        // _locationTerminal.text = $"{GameSessionInfoHandler.GetSessionSave().LocalizedLocationName}: {GameSessionInfoHandler.GetSessionSave().CurrentLevel} / {GameSessionInfoHandler.GetSessionSave().MaxLevel}";
     }
 
     private void CheckState()

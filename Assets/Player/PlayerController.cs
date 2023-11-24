@@ -28,10 +28,8 @@ public class PlayerController : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         BeginDrag += TimeHandler.Recover;
         EndDrag += TimeHandler.SlowDown;
 
-        //Player.PlayerChanged += FindPlayer;
-        //FindPlayer();
         ReplacePlayer(Player.PlayerTransform);
-        print(_player == null);
+        //print(_player == null);
     }
 
     private void OnDisable() {

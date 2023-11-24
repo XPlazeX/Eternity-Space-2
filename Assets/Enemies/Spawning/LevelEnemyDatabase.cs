@@ -15,12 +15,6 @@ public class LevelEnemyDatabase
     public LevelPack[] LevelPacks => _levelPacks;
     public int WieghtMultiplier => _weightMultiplier;
 
-    // public LevelEnemyDatabase(LevelPack[] packs, string[] bonusEnemies, string[] towers, int wm)
-    // {
-    //     _levelPacks = packs;
-    //     _weightMultiplier = wm;
-    // }
-
     public void Initialize()
     {
         EnemyPacks = new List<EnemyPack>();
@@ -29,7 +23,6 @@ public class LevelEnemyDatabase
         {
             if (_levelPacks[i].NeededPercentage <= GameSessionInfoHandler.LevelProgress)
             {
-                Debug.Log($"> Добавлены пакеты Враг-Х-Вес | Инициализация");
                 EnemyPacks.AddRange(_levelPacks[i].GetPacks);
             }
         }

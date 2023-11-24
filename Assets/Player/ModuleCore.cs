@@ -41,7 +41,6 @@ public class ModuleCore : MonoBehaviour
         Player.StartPlayerReturn += ReloadMainWeapon;
 
         moduleCoreInitialized?.Invoke();
-        print("Module core initialization succeeded");
     }
 
     private void LoadAllSaveModules(GameSessionSave save)

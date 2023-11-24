@@ -4,6 +4,9 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class SoundPlayer : MonoBehaviour
 {
+    public delegate void audioActionHandler();
+    public event audioActionHandler AudioSettingsChanged;
+
     const float snapshot_transition_time = 0.15f;
     public const string master_toggle_player_prefs = "AudioMaster";
     public const string music_toggle_player_prefs = "Music";
@@ -16,14 +19,10 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private AudioSource _soundtrackAudioSource;
     [SerializeField] private AudioSource _soundsAudioSource;
     [SerializeField] private AudioSource _UIsoundsAudioSource;
-    //[SerializeField] private SoundObject[] _sounds;
-    //[SerializeField] private AudioClip _enemyHurtClip;
 
     private static AudioSource SoundAudioSource;
     private static AudioSource UISoundAudioSource;
-    //private static SoundObject[] _soundObjects;
 
-    //private static AudioClip _enemyHurt;
     private static bool Disabled {get; set;}
 
     public static float InnerAudioRadius {get; set;} = 5f;
@@ -34,13 +33,11 @@ public class SoundPlayer : MonoBehaviour
 
     private float _soundtrackVolume = 1f;
 
-    public void Initialize() {
+    public void Initialize()
+    {
         SoundAudioSource = _soundsAudioSource;
         UISoundAudioSource = _UIsoundsAudioSource;
-        // _soundObjects = _sounds;
-        // _sounds = null;
         Disabled = _disable;
-        //_enemyHurt = _enemyHurtClip;
         UpdateData();
     }
 
@@ -56,12 +53,12 @@ public class SoundPlayer : MonoBehaviour
 
     public void UpdateData()
     {
-        print("audio data update");
         if (PlayerPrefs.GetInt(master_toggle_player_prefs, 1) == 0)
         {
             MusicVolume = 0f;
             SoundVolume = 0f;
             _soundtrackAudioSource.volume = _soundtrackVolume * MusicVolume;
+            AudioSettingsChanged?.Invoke();
             return;
         }
         if (PlayerPrefs.GetInt(music_toggle_player_prefs, 1) == 1)
@@ -79,6 +76,7 @@ public class SoundPlayer : MonoBehaviour
             SoundVolume = 0f;
 
         _soundtrackAudioSource.volume = _soundtrackVolume * MusicVolume;
+        AudioSettingsChanged?.Invoke();
     }
 
     public void MuteSoundtrack()

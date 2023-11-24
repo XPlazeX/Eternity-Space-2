@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 9215659683061787468}
   - component: {fileID: 7490226464503488186}
   - component: {fileID: 8532156968382289352}
+  - component: {fileID: 2755661842132767603}
   m_Layer: 0
   m_Name: VulcanPackObj
   m_TagString: Untagged
@@ -451,7 +452,7 @@ MonoBehaviour:
   _barrels:
   - {fileID: 7515465513975768210}
   - {fileID: 3830694872632800840}
-  _prepareTime: 1.66
+  _prepareTime: 2
   _customWeaponUI: {fileID: 2802069367008110496}
 --- !u!114 &8532156968382289352
 MonoBehaviour:
@@ -468,15 +469,27 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _bulletSample: {fileID: 6149396609532520741, guid: 175a5105742e28f4cbc4d6e7113c1115,
     type: 3}
-  _firerate: 0.133
+  _firerate: 0.2
   _spread: 0
   _spreadBulletSpeed: 0
-  _soundWork: {fileID: 0}
-  _volume: 1
-  _startPitch: 1
-  _pitchSpread: 0
+  _soundWork: {fileID: 8300000, guid: 2ab68f892a9715741bc0abab1304dd54, type: 3}
+  _volume: 0.625
+  _startPitch: 0.8
+  _pitchSpread: 0.05
   _customWeaponRoot: {fileID: 7490226464503488186}
   _barrelIndexes: 0000000001000000
+--- !u!114 &2755661842132767603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849246123739044888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5360c233e35fc7478494b23d44530a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8507377057846993747
 GameObject:
   m_ObjectHideFlags: 0

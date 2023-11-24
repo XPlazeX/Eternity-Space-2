@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 5
+  _damageValue: 15
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _warningTime: 0.4

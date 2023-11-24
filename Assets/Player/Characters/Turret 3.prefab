@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3639838467419673479}
   - component: {fileID: 9211422743991727219}
   - component: {fileID: 7229568094761040123}
+  - component: {fileID: -933967288234165214}
+  - component: {fileID: -9056413957547056294}
   m_Layer: 0
   m_Name: Turret 3
   m_TagString: Untagged
@@ -112,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 4.33
+  _attackReload: 4
   _attackObjects:
   - _cycles: 5
     _timeBetweenCycles: 0.1
@@ -126,6 +128,32 @@ MonoBehaviour:
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
     _soundOnFireID: 1
+--- !u!114 &-933967288234165214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590678914301399413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5360c233e35fc7478494b23d44530a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-9056413957547056294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590678914301399413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d55fbb4ee843e4ab89059e6e9112d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ruStoreSprite: {fileID: 454346891352078678, guid: 96e8c513aedfbda4aaaace89775e673f,
+    type: 3}
 --- !u!1 &7977737942644073690
 GameObject:
   m_ObjectHideFlags: 0

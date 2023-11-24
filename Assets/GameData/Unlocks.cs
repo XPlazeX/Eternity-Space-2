@@ -51,6 +51,15 @@ public static class Unlocks
         gsave.ProgressUnlock(code, progress);
         GlobalSaveHandler.RewriteSave(gsave);
     }
+
+    public static int ValueOfUnlock(int code)
+    {
+        if (code == -1)
+            return -1;
+
+        GlobalSave gsave = GlobalSaveHandler.GetSave();
+        return GlobalSaveHandler.GetSave().ValueOfUnlock(code);
+    }
 }
 
 [System.Serializable]

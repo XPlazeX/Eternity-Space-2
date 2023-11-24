@@ -188,31 +188,17 @@ public class SelectCatalog : MonoBehaviour
                 _weaponsSelectors[i].Hide();
             }
         }
-        // for (int i = 0; i < _compatObjects.Length; i++)
-        // {
-        //     _compatObjects[i].Hide();
-        // }
-        // for (int i = 0; i <_compatObjects.Length; i++)
-        // {
-        //     if (_compatObjects[i].Type == ActiveClass || _compatObjects[i].Type == ShipClass.Universal || ActiveClass == ShipClass.Universal)
-        //     {
-        //         _compatObjects[i].Show();
-        //     }
-        // }
     }
 
-    public void PrepareSessionSave()
-    {
+    private void OnDisable() {
+        GlobalSave gsave = GlobalSaveHandler.GetSave();
+        gsave.LastSelectedShip = _shipID;
+        gsave.LastSelectedWeapon = _weaponID;
+        GlobalSaveHandler.RewriteSave(gsave);
+
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         save.WeaponModel = _weaponsSelectors[_weaponID].SettingValue;
         save.ShipModel = int.Parse(_shipSelectors[_shipID].SettingValue);
         GameSessionInfoHandler.RewriteSessionSave(save);
-    }
-
-    private void OnDisable() {
-        GlobalSave save = GlobalSaveHandler.GetSave();
-        save.LastSelectedShip = _shipID;
-        save.LastSelectedWeapon = _weaponID;
-        GlobalSaveHandler.RewriteSave(save);
     }
 }

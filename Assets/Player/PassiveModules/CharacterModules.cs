@@ -8,7 +8,6 @@ public class CharacterModules : MonoBehaviour
     public int ModuleCount => moduleOperands.Length;
     public Gear GetGear(GearType type, string name)
     {
-        print($"{name}");
         switch (type)
         {       
             case GearType.Weapon:
@@ -24,7 +23,6 @@ public class CharacterModules : MonoBehaviour
 
     public ModuleOperand GetModuleOperand(int id)
     {
-        print($"return module op: {id}");
         return moduleOperands[id];
     }
 

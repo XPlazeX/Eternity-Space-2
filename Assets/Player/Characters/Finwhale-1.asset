@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee4ddcb0936c0e4eaeaa05c898744f9, type: 3}
   m_Name: Finwhale-1
   m_EditorClassIdentifier: 
-  _playerShip: {fileID: 1260780666538092923, guid: e9d65f0e538a0114d8ab11f3c75a087a,
-    type: 3}
+  _skinnedShips:
+  - {fileID: 1260780666538092923, guid: e9d65f0e538a0114d8ab11f3c75a087a, type: 3}
+  - {fileID: 1260780666538092923, guid: 83b90a3c41e04cc4e97a159e6e290680, type: 3}
   _hitPoints: 260
   _armorPoints: 0
   _armorCap: 0

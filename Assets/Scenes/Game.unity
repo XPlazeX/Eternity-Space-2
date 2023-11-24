@@ -15423,8 +15423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7ce68e000e38d42af28e8beaa96a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bus: {fileID: 1375130112381704145, guid: 48f7ddb182850854a93032a6a015580e, type: 3}
-  _portal: {fileID: 0}
+  _buses:
+  - {fileID: 1375130112381704145, guid: 48f7ddb182850854a93032a6a015580e, type: 3}
+  - {fileID: 1375130112381704145, guid: d8565c48b0db2ce4e9f8385fc0db37fc, type: 3}
 --- !u!114 &1625426980
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,8 +5,6 @@ using DamageSystem;
 public class Module : MonoBehaviour
 {
     [SerializeField] private Sprite _icon;
-
-    //public int Level {get; set;}
     public Sprite Icon => _icon;
     
     public virtual void Load() {} // метод загрузки модуля перед боем
@@ -16,13 +14,7 @@ public class Module : MonoBehaviour
 
 public class Gear : Module
 {
-    // //[SerializeField] private GearRarity _rarity;
-    // [SerializeField] private string _firstStatValue = "-"; 
-    // [SerializeField] private string _secondStatValue = "-"; 
 
-    // //public GearRarity MRarity => _rarity;
-    // public string FirstStat => _firstStatValue;
-    // public string SecondStat => _secondStatValue;
 }
 
 public class AttackPattern : Gear
@@ -69,7 +61,6 @@ public class AttackPattern : Gear
         _bulletIndex = CharacterBulletDatabase.InitializeAttackSample(_bulletSample);
 
         _normalDamage = Mathf.CeilToInt(CharacterBulletDatabase.GetForChangeAttackObject(_bulletIndex).Damage);
-        if (Dev.IsLogging) print($"Load attackPattern ---------- normal damage : {_normalDamage}");
 
         ShipStats.StatChanged += ObserveStat;
         ObserveStat("MainWeaponFirerateMultiplier", 1f);
@@ -80,7 +71,6 @@ public class AttackPattern : Gear
         if (name == "MainWeaponFirerateMultiplier")
         {
             _firerateMultiplier = ShipStats.GetValue("MainWeaponFirerateMultiplier");
-            print($"firerateMultiplier : {_firerateMultiplier}");
         }
 
     }

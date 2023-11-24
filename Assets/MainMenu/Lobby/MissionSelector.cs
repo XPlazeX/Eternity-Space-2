@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MissionSelector : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class MissionSelector : MonoBehaviour
     {
         _missionDatabase = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>();
 
-        UpdateData();
         _selectorFrame.gameObject.SetActive(false);
         _startButton.interactable = false;
     }
@@ -26,23 +26,23 @@ public class MissionSelector : MonoBehaviour
         gsave.LastSelectedLocation = ID;
         GlobalSaveHandler.RewriteSave(gsave);
 
-        UpdateData();
+        UpdateData(ID);
     }
 
     public void UpdateFramePosition(RectTransform rect)
     {
         _selectorFrame.anchoredPosition = rect.anchoredPosition;
         _selectorFrame.gameObject.SetActive(true);
-
-        _startButton.interactable = true;
     }
 
-    private void UpdateData()
+    private void UpdateData(int ID = -1)
     {
-        int locID = GlobalSaveHandler.GetSave().LastSelectedLocation;
+        int locID = ID;
 
-        _missionDatabase.SetSessionData(locID);
-        print($"Перезапись сохранения (лобби): {locID}");
+        if (locID < 0)
+            locID = GlobalSaveHandler.GetSave().LastSelectedLocation;
+
+        StartCoroutine(PreparingMission(locID));
     }
 
     public void StartMission()
@@ -50,16 +50,24 @@ public class MissionSelector : MonoBehaviour
         if (_started)
             return;
 
-        GlobalSave gsave = GlobalSaveHandler.GetSave();
-        gsave.TotalMissionsTries ++;
-        GlobalSaveHandler.RewriteSave(gsave);
+        Unlocks.ProgressUnlock(3, 1); // кол-во запусков миссий
 
-        if (GameSessionInfoHandler.GetSessionSave().Boosted)
+        if (_missionDatabase._lastMissionReference.BoostFirstLevel)
         {
             SceneTransition.SwitchToScene("MissionMenu");
         } else
             SceneTransition.SwitchToScene("Game");
 
         _started = true;
+    }
+
+    private IEnumerator PreparingMission(int ID)
+    {
+        _startButton.interactable = false;
+
+        yield return _missionDatabase.StartCoroutine(_missionDatabase.SettingGameSessionData(ID, true));
+
+        print($"Подготовлена миссия (лобби): {ID}");
+        _startButton.interactable = true;
     }
 }

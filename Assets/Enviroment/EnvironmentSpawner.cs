@@ -9,9 +9,7 @@ public class EnvironmentSpawner : MonoBehaviour
     [Header("Информация только для просмотра. Изменения не будут учтены.")]
     [SerializeField] private AnimationCurve _selectionCurve;
     [SerializeField] private List<PullableObject> _objects = new List<PullableObject>();
-    //[SerializeField] private EnvironmentObject[] Objects;
 
-    //private List<int> IndexList = new List<int>();
     private List<PullForObjects> EnvironmentsPools = new List<PullForObjects>();
     private Dictionary<int, int> Codes = new Dictionary<int, int>();
     private float _maxTime = 0f;
@@ -84,7 +82,6 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         if (!Codes.ContainsKey(selectedID))
         {
-            //print(selectedID);
             Codes[selectedID] = EnvironmentsPools.Count;
             EnvironmentsPools.Add(new PullForObjects(_objects[selectedID]));
         }

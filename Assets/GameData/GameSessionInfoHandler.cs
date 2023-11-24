@@ -80,7 +80,7 @@ public class GameSessionInfoHandler : MonoBehaviour
     {
         return _save;
     }
-// MOD SAVE
+
     public static void RewriteSessionSave(GameSessionSave save)
     {
         _storage.Save(save);
@@ -96,17 +96,6 @@ public class GameSessionInfoHandler : MonoBehaviour
 
         ModulasSaveHandler.ClearSave();
     }
-
-    // public static void DischargeLevel()
-    // {
-    //     print($"DischargingLevel {_save.CurrentLevel}");
-    //     // _save.PrepareToNewLevel();
-    //     // RewriteSessionSave(_save);
-    //     // ModulasSaveHandler.FlushChoice();
-
-    //     LevelDischarge?.Invoke();
-    //     //SaveAll();
-    // }
 
     public static void SaveAll()
     {

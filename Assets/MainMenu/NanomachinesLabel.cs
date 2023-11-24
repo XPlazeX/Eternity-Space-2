@@ -12,7 +12,6 @@ public class NanomachinesLabel : MonoBehaviour
         
         CheckValue();
         GameSessionInfoHandler.SavingAll += CheckValue;
-        //PlayerShipData.ChangeHealth += ChangeValue;
     }
 
     private void OnDisable() {

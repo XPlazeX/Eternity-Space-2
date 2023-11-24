@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0
-  _damageValue: 0
+  _damageValue: 20
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
@@ -226,7 +226,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.011280224}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -237,7 +237,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.2, y: 0.4797481}
   m_EdgeRadius: 0
 --- !u!96 &2824151163589104879
 TrailRenderer:
@@ -354,4 +354,4 @@ MonoBehaviour:
   _color: {r: 0, g: 0.35106063, b: 1, a: 1}
   _scale: 2
   _shakePower: 0
-  _damage: 20
+  _damage: 10

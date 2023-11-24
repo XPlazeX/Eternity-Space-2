@@ -32,7 +32,7 @@ MonoBehaviour:
     requirementsID:
     - _UID: 7
       _amount: 5
-    cosPrice: 500
+    cosPrice: 1000
     posPrice: 0
     sprite: {fileID: 21300000, guid: 326adcae350325341b82b9a47e90c7d6, type: 3}
     localizationID: 19

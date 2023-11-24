@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee4ddcb0936c0e4eaeaa05c898744f9, type: 3}
   m_Name: Tuna-1
   m_EditorClassIdentifier: 
-  _playerShip: {fileID: 1260780666538092923, guid: dcf140f5ade09f64d81cdd8a984df422,
-    type: 3}
+  _skinnedShips:
+  - {fileID: 1260780666538092923, guid: dcf140f5ade09f64d81cdd8a984df422, type: 3}
+  - {fileID: 1260780666538092923, guid: 37b8e4bcb72b61448a211bb4abc4caf3, type: 3}
   _hitPoints: 100
   _armorPoints: 0
   _armorCap: 0

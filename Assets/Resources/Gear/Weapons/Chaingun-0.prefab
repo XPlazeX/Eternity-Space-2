@@ -46,7 +46,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _bulletSample: {fileID: 6149396609532520741, guid: d032415fc606a2c4cbe53078e6516235,
     type: 3}
-  _firerate: 0.6
+  _firerate: 0.3
   _spread: 9
   _spreadBulletSpeed: 0.237
   _soundWork: {fileID: 8300000, guid: c374d22f85a798e49bbf862c07faa572, type: 3}
@@ -55,6 +55,6 @@ MonoBehaviour:
   _pitchSpread: 0.19
   _customWeaponRoot: {fileID: 0}
   _topFirerate: 0.125
-  _firerateGrowth: -0.1
+  _firerateGrowth: -0.05
   _bulletsPerFire: 1
   _barrelPool: 0100000002000000

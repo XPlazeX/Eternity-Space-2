@@ -163,7 +163,6 @@ public class BackgroundLoader
         if (!obj.GetComponent<CameraObjects>())
         {
             obj.transform.SetParent(_bgTransform);
-            Debug.Log($"bindToBG: {obj.gameObject.name}");
         }
 
         obj.GetComponent<SpriteRenderer>().color = backgroundObject.SpawnColor;
