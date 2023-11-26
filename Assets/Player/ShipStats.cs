@@ -93,7 +93,7 @@ public class ShipStats
         ["AdditiveWaveBuffer"] = 0, // округляется до целого вверх
         ["TimeBetweenWaves"] = 4f,
         ["EnemySpawnReloadMultiplier"] = 0.45f,
-        ["StalkerChance"] = 0.01f,
+        ["StalkerChanceMultiplier"] = 1f,
         ["EliteChance"] = 0.01f,
         // --- Враги - здоровье --- -----------------------------------
         ["EnemyHealthMultiplier"] = 1f,

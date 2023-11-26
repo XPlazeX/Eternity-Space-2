@@ -15,7 +15,6 @@ public class SpawnerRoot : MonoBehaviour
 
     public virtual void StartSpawning()
     {
-        // тело
         _spawner = SceneStatics.SceneCore.GetComponent<Spawner>();
 
         if (_stopped)
@@ -24,7 +23,7 @@ public class SpawnerRoot : MonoBehaviour
         StartCoroutine(Spawning());
     }
 
-    private void Start() {
+    protected virtual void Start() {
         VictoryHandler.LevelVictored += Stop;
     }
 
@@ -43,8 +42,6 @@ public class SpawnerRoot : MonoBehaviour
     {
         return false;
     }
-
-    //protected virtual void NextCheck(){}
 
     private IEnumerator Spawning()
     {

@@ -3,6 +3,8 @@
 public class PickupSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _pickupPool;
+    [SerializeField] private GameObject _positroniumPickup;
+
     [SerializeField][Range(0, 1f)] private float _chance;
 
     private void Start() {
@@ -25,4 +27,9 @@ public class PickupSpawner : MonoBehaviour
 
         Instantiate(_pickupPool[Random.Range(0, _pickupPool.Length)], pos, Quaternion.Euler(0, 0, Random.Range(-90f, 90f)));
     } 
+
+    public void SpawnPositronium(Vector3 pos)
+    {
+        Instantiate(_positroniumPickup, pos, Quaternion.identity);
+    }
 }

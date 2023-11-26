@@ -21,7 +21,8 @@ public class BonusSpawner : SpawnerRoot
         ReloadTime *= reloadMultiplier;
     }
 
-    private void Start() {
+    protected override void Start() {
+        base.Start();
         SceneStatics.SceneCore.GetComponent<Spawner>().PrintBonusCountUI(0);
     }
 

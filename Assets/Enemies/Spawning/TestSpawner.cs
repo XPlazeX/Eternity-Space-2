@@ -14,6 +14,7 @@ public class TestSpawner : MonoBehaviour
 
         GetComponent<EnemyDBSpawner>().Stop();
         GetComponent<BonusSpawner>().Stop();
+        GetComponent<StalkerSpawner>().Stop();
 
         StartCoroutine(Spawning());
     }
@@ -27,7 +28,7 @@ public class TestSpawner : MonoBehaviour
 
     private IEnumerator Spawning()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < _count; i++)
         {

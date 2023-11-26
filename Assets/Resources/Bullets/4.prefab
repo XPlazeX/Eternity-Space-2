@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 2a2c2192e0aeeef40864adcacc824be7, type: 3}
-  m_Color: {r: 0.21960786, g: 0.7019608, b: 1, a: 0.65882355}
+  m_Color: {r: 0, g: 0.4523177, b: 1, a: 0.65882355}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,10 +92,10 @@ GameObject:
   - component: {fileID: 5500839470369327556}
   - component: {fileID: 6301609241194541591}
   - component: {fileID: 6149396609532520741}
-  - component: {fileID: 7815993191270703453}
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
-  - component: {fileID: 8649128338536997155}
+  - component: {fileID: -7349499463470542236}
+  - component: {fileID: -7665815411263410993}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -186,27 +186,12 @@ MonoBehaviour:
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
-  _lifetime: 5
-  _speed: 4.5
+  _lifetime: 7
+  _speed: 4
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 0
-  _explodeOnTimer: 0
---- !u!114 &7815993191270703453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7644595582373362196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1afa3eaf1febcf54ab6abe16653332ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _hitPoints: 30
-  _startShieldPoints: 0
+  _explodeOnTimer: 1
 --- !u!50 &965381140312984591
 Rigidbody2D:
   serializedVersion: 4
@@ -254,7 +239,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &8649128338536997155
+--- !u!114 &-7349499463470542236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,7 +248,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7644595582373362196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
+  m_Script: {fileID: 11500000, guid: 656fd471c08527b4191f171a2096183b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 0
+  _explosionCode: 0
+  _mute: 0
+  _modParams: 1
+  _color: {r: 0, g: 0.5363922, b: 1, a: 1}
+  _scale: 0.8
+  _shakePower: 0
+  _damage: 0
+--- !u!114 &-7665815411263410993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644595582373362196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
