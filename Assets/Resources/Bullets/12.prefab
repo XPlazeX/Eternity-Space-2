@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
   - component: {fileID: 7760180674541320619}
+  - component: {fileID: 7483263306890973875}
   m_Layer: 0
   m_Name: 12
   m_TagString: Untagged
@@ -185,15 +186,15 @@ MonoBehaviour:
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
-  _lifetime: 4
+  _lifetime: 6
   _speed: 4
-  _acceleration: -3
+  _acceleration: -1
   _accelerateToZero: 1
   _piercingTargets: 0
   _explodeOnTimer: 1
   _targetTag: Player
-  _ramDelay: 1.5
-  _speedRam: 12
+  _ramDelay: 3
+  _speedRam: 7
 --- !u!50 &965381140312984591
 Rigidbody2D:
   serializedVersion: 4
@@ -338,3 +339,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &7483263306890973875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644595582373362196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656fd471c08527b4191f171a2096183b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionCode: 0
+  _mute: 0
+  _modParams: 1
+  _color: {r: 1, g: 0, b: 0.9848051, a: 1}
+  _scale: 0.6
+  _shakePower: 0
+  _damage: 0

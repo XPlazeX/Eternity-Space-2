@@ -4,7 +4,7 @@
 public class SpawnOnDeath : MonoBehaviour
 {
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private DamageBody _damageBody;
+    [SerializeField] private GameObject _spawningObject;
     [SerializeField] private int _count;
     [SerializeField] private float _spawnSpread;
 
@@ -16,7 +16,11 @@ public class SpawnOnDeath : MonoBehaviour
     {
         for (int i = 0; i < _count; i++)
         {
-            Spawner.SpawnDamageBody(_damageBody, _spawnPoint.position + new Vector3(Random.Range(-_spawnSpread, _spawnSpread), Random.Range(-_spawnSpread, _spawnSpread), 0));   
+            if (_spawningObject.GetComponent<DamageBody>() != null)
+                Spawner.SpawnDamageBody(_spawningObject.GetComponent<DamageBody>(), _spawnPoint.position + new Vector3(Random.Range(-_spawnSpread, _spawnSpread), Random.Range(-_spawnSpread, _spawnSpread), 0));   
+
+            else
+                Instantiate(_spawningObject, _spawnPoint.position, Quaternion.identity).GetComponent<DamageBody>();
         }
     }
 }

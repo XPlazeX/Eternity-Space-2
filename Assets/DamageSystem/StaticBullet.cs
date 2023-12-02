@@ -15,18 +15,12 @@ public class StaticBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         DamageBody damageBody = other.GetComponent<DamageBody>();
-        //print(other.gameObject.name);
 
-        //print(ModdedDamage);
         if (damageBody == null)
             return;
 
-        //if (damageBody.KeyDamage != _damageKey)
-            //return;
-
         if (ModdedDamage == -1)
             AttackObject.InflictDamage(damageBody, _damageKey, _damageValue);
-            //damageBody.TakeDamage(_damageValue);
         else
             AttackObject.InflictDamage(damageBody, _damageKey, ModdedDamage);
 

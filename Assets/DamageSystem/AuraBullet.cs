@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AuraBullet : Bullet
 {
-    public const float damageDelay = 0.25f;
+    [SerializeField] private float _damageDelay = 0.25f;
 
     private Collider2D _collider;
 
@@ -17,7 +17,7 @@ public class AuraBullet : Bullet
         {
             _collider.enabled = true;
 
-            yield return new WaitForSeconds(damageDelay);
+            yield return new WaitForSeconds(_damageDelay);
 
             _collider.enabled = false;
         }

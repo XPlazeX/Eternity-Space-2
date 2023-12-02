@@ -15384,7 +15384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _test: 1
-  _testEnemy: {fileID: 9069206062416828823, guid: 1f210c3dfecbdc74785ab07eb530b0c8,
+  _testEnemy: {fileID: 9069206062416828823, guid: b0e1841610eee92498ab80d181997dbf,
     type: 3}
   _count: 1
   _testWS: {fileID: 0}

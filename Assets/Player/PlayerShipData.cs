@@ -105,7 +105,6 @@ public class PlayerShipData : MonoBehaviour
 
     public static void TakeDamage(int damage)
     {
-        print($"{damage} || {Invulnerable} || {(SceneStatics.GameTimer - GameTimerBuffer < ShipStats.GetValue("UnvulnerableTimeAfterDamage"))}");
         if ((damage <= 0) || (Invulnerable) || (SceneStatics.GameTimer - GameTimerBuffer < ShipStats.GetValue("UnvulnerableTimeAfterDamage")))
             return;
 

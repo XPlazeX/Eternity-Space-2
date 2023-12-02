@@ -81,8 +81,7 @@ public class SpawnEnemyAttackObject
     {
         for (int i = 0; i < _enemyPerFire; i++)
         {
-            Spawner.SpawnDamageBody(_enemy, barrel.position);
-            //spawner.SpawnEnemy(_enemy, barrel.position);
+            Spawner.InitializeHPBar(Spawner.SpawnDamageBody(_enemy, barrel.position));
         }
     }
 }
