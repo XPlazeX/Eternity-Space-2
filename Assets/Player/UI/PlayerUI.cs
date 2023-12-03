@@ -91,4 +91,6 @@ public class PlayerUI: MonoBehaviour
     }
 
     public void SetCriticalState(bool tog) => _stateAnimator.SetBool("CriticalState", tog);
+    public void TriggerPreDeath() => _stateAnimator.SetTrigger("PreDeath");
+    public void Flash() => _stateAnimator.SetTrigger("Flash");
 }

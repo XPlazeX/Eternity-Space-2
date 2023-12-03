@@ -3,6 +3,7 @@
 public class SpawnPickup : Pickup
 {
     [SerializeField] private GameObject _spawningObject;
+    [SerializeField] private bool _destroyOnEffectEnded = true;
     [SerializeField] private bool _bindToPlayer;
 
     private GameObject _spawnedObject;
@@ -14,7 +15,7 @@ public class SpawnPickup : Pickup
         if (_bindToPlayer)
             _spawnedObject.transform.SetParent(Player.PlayerTransform);
 
-        if (_effectDuration > 0f)
+        if (_destroyOnEffectEnded)
             GameObject.FindWithTag("BetweenScenes").GetComponent<TimedDelegator>().FuseAction(NegativeEffect, _effectDuration);
 
         base.Picked();

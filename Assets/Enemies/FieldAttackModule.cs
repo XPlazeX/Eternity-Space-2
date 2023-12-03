@@ -40,7 +40,7 @@ public class FieldAttackModule : MonoBehaviour
     }
 
     [System.Serializable]
-    private class FieldAttackObject
+    public class FieldAttackObject
     {
         [SerializeField] private int _cycles = 1;
         [SerializeField] private float _timeBetweenCycles;
