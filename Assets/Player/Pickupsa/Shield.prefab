@@ -102,11 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.5
   _lifeTime: 10
+  _playingEffectID: 4
+  _effectDuration: 8
   _spawningObject: {fileID: 112581486737163272, guid: 75213ccfc927cad47bd0e34ea0551b17,
     type: 3}
   _bindToPlayer: 1
   _objectLifeTime: 8
-  _playShield: 1
 --- !u!114 &1380005973944226364
 MonoBehaviour:
   m_ObjectHideFlags: 0

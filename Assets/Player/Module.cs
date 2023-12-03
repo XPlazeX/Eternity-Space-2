@@ -102,7 +102,7 @@ public class AttackPattern : Gear
     {
         AttackObject bulletSample = CharacterBulletDatabase.GetAttackObject(_bulletIndex);
 
-        bulletSample.transform.rotation = Quaternion.Euler(0, 0, startRotation + Random.Range(-_spread, _spread));
+        bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-_spread, _spread) * ShipStats.GetValue("SpreadMultiplier"))));
         bulletSample.transform.position = position;
 
         if (_spreadBulletSpeed != 0)

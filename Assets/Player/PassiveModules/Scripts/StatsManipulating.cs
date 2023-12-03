@@ -8,25 +8,70 @@ namespace StatsManipulating
         [SerializeField] private string _statName;
         [SerializeField] private StatTypeOeration _typeOperation;
         [SerializeField] private float _operationValue;
+        [SerializeField] private bool _negativeSetsToZero = false;
+
+        private float _oldValue = 0f;
 
         public void Enforce()
+        {
+            Complete(_operationValue);
+        }
+
+        public void Negative()
         {
             switch (_typeOperation)
             {
                 case StatTypeOeration.SetNewValue:
-                    ShipStats.ModifyStat(_statName, _operationValue);
+                    if (_negativeSetsToZero)
+                        Complete(0f);
+                    else
+                        Complete(_oldValue);
                     break;
                 
                 case StatTypeOeration.Multiplying:
-                    ShipStats.MultiplyStat(_statName, _operationValue);
+                    if (_negativeSetsToZero)
+                        Complete(0f);
+                    else
+                        Complete(1f / _operationValue);
                     break;
 
                 case StatTypeOeration.Summation:
-                    ShipStats.IncreaseStat(_statName, _operationValue);
+                    if (_negativeSetsToZero)
+                        Complete(0f);
+                    else
+                        Complete(-_operationValue);
                     break;
 
                 case StatTypeOeration.AddNewStat:
-                    ShipStats.AddNewStat(_statName, _operationValue);
+                    if (_negativeSetsToZero)
+                        Complete(0f);
+
+                    break;
+
+                default:
+                    return;
+            }
+        }
+
+        private void Complete(float value)
+        {
+            switch (_typeOperation)
+            {
+                case StatTypeOeration.SetNewValue:
+                    _oldValue = ShipStats.GetValue(_statName);
+                    ShipStats.ModifyStat(_statName, value);
+                    break;
+                
+                case StatTypeOeration.Multiplying:
+                    ShipStats.MultiplyStat(_statName, value);
+                    break;
+
+                case StatTypeOeration.Summation:
+                    ShipStats.IncreaseStat(_statName, value);
+                    break;
+
+                case StatTypeOeration.AddNewStat:
+                    ShipStats.AddNewStat(_statName, value);
                     break;
 
                 default:

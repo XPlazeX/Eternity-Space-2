@@ -342,7 +342,7 @@ TextureImporter:
       213: -7274521858496642960
     second: PlayerBullets_112
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -359,12 +359,9 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -396,15 +393,10 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2492,10 +2484,10 @@ TextureImporter:
       name: PlayerBullets_95
       rect:
         serializedVersion: 2
-        x: 146
-        y: 0
-        width: 12
-        height: 23
+        x: 147
+        y: 1
+        width: 10
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2876,122 +2868,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PlayerBullets_81: -7281471451726075801
-      PlayerBullets_12: 8293188371459095782
-      PlayerBullets_25: 7868632440542371284
-      PlayerBullets_59: -5320372226550610298
-      PlayerBullets_45: 6973268028503662328
-      PlayerBullets_56: 2817000455228522909
-      PlayerBullets_87: -121328800066846352
-      PlayerBullets_73: -3645056644868414674
-      PlayerBullets_43: -528170701810699240
-      PlayerBullets_2: 3363345518852339943
-      PlayerBullets_30: 6913779304127118374
-      PlayerBullets_60: 2342844986754249883
-      PlayerBullets_1: -3510300615731403005
-      PlayerBullets_33: -7817160570585179408
-      PlayerBullets_72: -4178808081704344651
-      PlayerBullets_62: -4807241662263093401
-      PlayerBullets_20: -2486558621168741503
-      PlayerBullets_74: 1406888568777770341
-      PlayerBullets_65: 8081391251466783212
-      PlayerBullets_84: -1142230451307759787
-      PlayerBullets_0: 1826435522382185477
-      PlayerBullets_107: 3080800617117550146
-      PlayerBullets_32: -6167178027455379812
-      PlayerBullets_98: -5965089192085092956
-      PlayerBullets_104: -8262998772027769969
-      PlayerBullets_108: -172836562607099855
-      PlayerBullets_5: -5945476533142621309
-      PlayerBullets_23: -5716888005892333214
-      PlayerBullets_105: -7430433049777572622
-      PlayerBullets_37: 7108665376503368371
-      PlayerBullets_47: -7056456611624016965
-      PlayerBullets_103: -1353094969043184607
-      PlayerBullets_9: -303499761090423102
-      PlayerBullets_36: -4184257748611940712
-      PlayerBullets_95: 7904308622247460604
-      PlayerBullets_67: 3382441986246782357
-      PlayerBullets_10: 6010871950872164128
-      PlayerBullets_44: 6039179679424442254
-      PlayerBullets_76: 6571088390622486567
-      PlayerBullets_41: 2382334766270553903
-      PlayerBullets_110: 1929423460433841643
-      PlayerBullets_24: 319291640182863871
-      PlayerBullets_15: -8154041959616294076
-      PlayerBullets_111: -7325647718391527695
-      PlayerBullets_50: 6853764827812559003
-      PlayerBullets_39: 1704938821152368465
-      PlayerBullets_93: -4276406732309491396
-      PlayerBullets_46: -4836353995960356697
-      PlayerBullets_69: -1974563045889328323
-      PlayerBullets_106: 5039056771444878385
-      PlayerBullets_4: -1671483015453375206
-      PlayerBullets_19: -5080930665037626637
-      PlayerBullets_21: -2247554775449858254
-      PlayerBullets_61: 3329509891835390933
-      PlayerBullets_78: -9158008458055328054
-      PlayerBullets_68: 5466566212430925108
-      PlayerBullets_51: -2845557120398334266
-      PlayerBullets_83: 8357340114267305309
-      PlayerBullets_52: -9173373305793755624
-      PlayerBullets_88: -3871129146719049736
-      PlayerBullets_99: -5910863242871853722
-      PlayerBullets_86: -7835462613242932116
-      PlayerBullets_49: 465368010248421400
-      PlayerBullets_80: 1396524887257148675
-      PlayerBullets_7: 5758088807569485493
-      PlayerBullets_66: 7600007735367537659
-      PlayerBullets_75: -2438988793599055897
-      PlayerBullets_109: 8644997364660020676
-      PlayerBullets_71: 564198555695656770
-      PlayerBullets_8: 6159704369741753002
-      PlayerBullets_94: 6155155512619079169
-      PlayerBullets_82: -723764231724983501
-      PlayerBullets_96: 208410184016294549
-      PlayerBullets_91: 1988731713552860745
-      PlayerBullets_35: -7016535320670112604
-      PlayerBullets_27: 5270420570821549803
-      PlayerBullets_42: 7729725887105177850
-      PlayerBullets_63: -6946234170242055150
-      PlayerBullets_40: -7021636285711633972
-      PlayerBullets_100: 2085426329873472172
-      PlayerBullets_112: -7274521858496642960
-      PlayerBullets_29: -6779566479796805101
-      PlayerBullets_85: -8058561899436898952
-      PlayerBullets_17: 2189804431629364962
-      PlayerBullets_90: -7933208265492870503
-      PlayerBullets_58: 7589926982368813320
-      PlayerBullets_28: 3498932556638027582
-      PlayerBullets_14: 6804819354999865064
-      PlayerBullets_34: 7408562092454530534
-      PlayerBullets_6: -3131782035735570187
-      PlayerBullets_54: -6374804329175846580
-      PlayerBullets_13: 1686476825304976061
-      PlayerBullets_3: 5370770742446766670
-      PlayerBullets_97: 4424744828958238558
-      PlayerBullets_102: 7815590021801867920
-      PlayerBullets_64: -1789150367687122856
-      PlayerBullets_70: -2848530409385538678
-      PlayerBullets_48: 4280315647701391714
-      PlayerBullets_26: -4144223734739582692
-      PlayerBullets_38: -7986890154115562309
-      PlayerBullets_31: 8183695748963113868
-      PlayerBullets_18: -1767888415817056042
-      PlayerBullets_57: -5264101285616303219
-      PlayerBullets_11: -2995774086582949444
-      PlayerBullets_16: -7179430612574729365
-      PlayerBullets_55: 5159449367349762755
-      PlayerBullets_92: -1205162267192522911
-      PlayerBullets_101: 571974552004612012
-      PlayerBullets_22: 620470172823412708
-      PlayerBullets_77: -4866290417346445778
-      PlayerBullets_89: 1553416886050655514
-      PlayerBullets_53: -833030494703990022
-      PlayerBullets_79: 1627538879573031281
   spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

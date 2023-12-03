@@ -146,10 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _lifeTime: 20
+  _playingEffectID: 3
   _effectDuration: 20
   _modifiers:
   - _statName: MainWeaponFirerateMultiplier
-    _value: 1.5
+    _typeOperation: 1
+    _operationValue: 1.5
   _playPowerUp: 1
 --- !u!58 &1380005973944226354
 CircleCollider2D:

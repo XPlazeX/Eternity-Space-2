@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
+using StatsManipulating;
 
 public class StatPickup : Pickup
 {
-    [SerializeField] private float _effectDuration;
-    [SerializeField] private ShipStatModifier[] _modifiers;
-    [SerializeField] private bool _playPowerUp;
+    [SerializeField] private StatOperator[] _modifiers;
 
     protected override void Picked()
     {
@@ -14,9 +13,6 @@ public class StatPickup : Pickup
         }
         
         GameObject.FindWithTag("BetweenScenes").GetComponent<TimedDelegator>().FuseAction(NegativeEffect, _effectDuration);
-
-        if (_playPowerUp)
-            SceneStatics.UICore.GetComponent<PlayerUI>().PlayEffect(PlayerUI.Effect.PowerUp, _effectDuration);
 
         base.Picked();
     }

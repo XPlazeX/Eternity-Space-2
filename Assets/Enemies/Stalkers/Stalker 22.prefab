@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitTime: 4
+  _waitTime: 2
   _attackReload: 2
   _attackObjects:
   - _cycles: 20
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 9069206062416828812}
-  _spawningObject: {fileID: 8489227230942964884, guid: db9934dacf711444da63ac531dfb2e2d,
+  _spawningObject: {fileID: 1380005973944226359, guid: 9229b30d74f8be0409e40c2ed22ae3b4,
     type: 3}
   _count: 1
   _spawnSpread: 0

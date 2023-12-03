@@ -56,14 +56,7 @@ public class Bullet : AttackObject
     {
         base.Initialize();
 
-        if (KeyDamage == DamageKey.Enemy)
-            _startSpeed = _speed * ShipStats.GetValue("PlayerShotSpeedMultiplier");
-
-        else if (KeyDamage == DamageKey.Player)
-            _startSpeed = _speed * ShipStats.GetValue("EnemyBulletSpeedMultiplier");
-            
-        else
-            _startSpeed = _speed;
+        _startSpeed = _speed;
 
         _speed = _startSpeed;
 
@@ -106,10 +99,16 @@ public class Bullet : AttackObject
         if (KeyDamage == DamageKey.Enemy)
             _lifeTimer *= ShipStats.GetValue("PlayerShotLifetimeMultiplier");
 
-        if (_initialized)
-            _speed = _startSpeed;
+        _curPierces = Pierces + ShipStats.GetIntValue("PiercesBoost");
 
-        _curPierces = Pierces;
+        if (!_initialized)
+            return;
+
+        if (KeyDamage == DamageKey.Enemy)
+            _speed = _startSpeed * ShipStats.GetValue("PlayerShotSpeedMultiplier");
+        else 
+            _speed = _startSpeed * ShipStats.GetValue("EnemyBulletSpeedMultiplier");
+
     }
 
     public virtual void Parrying()

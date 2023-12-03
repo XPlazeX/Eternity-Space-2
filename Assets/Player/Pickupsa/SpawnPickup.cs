@@ -4,8 +4,6 @@ public class SpawnPickup : Pickup
 {
     [SerializeField] private GameObject _spawningObject;
     [SerializeField] private bool _bindToPlayer;
-    [SerializeField] private float _objectLifeTime = -1f;
-    [SerializeField] private bool _playShield;
 
     private GameObject _spawnedObject;
 
@@ -16,11 +14,8 @@ public class SpawnPickup : Pickup
         if (_bindToPlayer)
             _spawnedObject.transform.SetParent(Player.PlayerTransform);
 
-        if (_objectLifeTime > 0f)
-            GameObject.FindWithTag("BetweenScenes").GetComponent<TimedDelegator>().FuseAction(NegativeEffect, _objectLifeTime);
-
-        if (_playShield)
-            SceneStatics.UICore.GetComponent<PlayerUI>().PlayEffect(PlayerUI.Effect.Shielding, _objectLifeTime);
+        if (_effectDuration > 0f)
+            GameObject.FindWithTag("BetweenScenes").GetComponent<TimedDelegator>().FuseAction(NegativeEffect, _effectDuration);
 
         base.Picked();
     }

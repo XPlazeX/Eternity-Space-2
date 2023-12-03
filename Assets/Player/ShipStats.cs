@@ -70,10 +70,11 @@ public class ShipStats
         ["TimeSlowMultiplier"] = 1f,
         ["CriticalTimeSlowMultiplier"] = 0.33f,
         ["SpreadMultiplier"] = 1f,
+        ["NoSpread"] = 0f,
         ["SpreadSpeedMultiplier"] = 1f,
         ["FlatHomingBoost"] = 0,
         ["HomingEfficiencyMultiplier"] = 1f,
-        ["EnemyPiercesBoost"] = 0, // округляется до целого вверх
+        ["PiercesBoost"] = 0, // округляется до целого вверх
         ["PiercedDamageMultiplier"] = 0.66f,
         ["ExplosionDamageMultiplier"] = 1f,
         ["ExplosionAreaMultiplier"] = 1f,
