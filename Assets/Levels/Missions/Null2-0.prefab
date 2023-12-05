@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5972983307079532163}
   - component: {fileID: 4671021735225386770}
-  - component: {fileID: 2695280256960536345}
   m_Layer: 0
   m_Name: Null2-0
   m_TagString: Untagged
@@ -168,24 +167,3 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
---- !u!114 &2695280256960536345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3409399996074538531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ba28bf1bc02294fab477f6c56b84bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _minMaxCount: {x: 4, y: 7}
-  _spawnObjects:
-  - {fileID: 6243127765971177891, guid: 4d915eb436c6d224490323bc6c1a9977, type: 3}
-  - {fileID: 6243127765971177891, guid: 4d915eb436c6d224490323bc6c1a9977, type: 3}
-  - {fileID: 6243127765971177891, guid: dade223173991c644ae2149816892838, type: 3}
-  - {fileID: 6243127765971177891, guid: da4d7e901695bd5468db7e9903661c5b, type: 3}
-  - {fileID: 6243127765971177891, guid: 5a38659845b980f48abbe75c9d174388, type: 3}
-  - {fileID: 6243127765971177891, guid: ffcb0612274329942a9e072973e39d7f, type: 3}
-  _autostart: 1

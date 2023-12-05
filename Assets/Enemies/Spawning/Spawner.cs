@@ -18,6 +18,8 @@ public class Spawner : MonoBehaviour
 
     public void Initialize()
     {
+        PrintCountUI(0);
+        PrintBonusCountUI(0);
         _HPBarsPool = new PullForObjects(_enemyHealthBar);
     }
 
@@ -62,4 +64,5 @@ public class Spawner : MonoBehaviour
     public void PrintProgressUI(string text) => _waveIndexLabel.text = text;
     public void PrintCountUI(int count) => _enemyCountUI.SetCount(count);
     public void PrintBonusCountUI(int count) => _enemyCountUI.SetBonusCount(count);
+    public void HideLabel() => _enemyCountUI.HideHead();
 }

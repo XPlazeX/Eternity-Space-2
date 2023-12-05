@@ -712,8 +712,9 @@ GameObject:
   - component: {fileID: 66260425}
   - component: {fileID: 66260424}
   - component: {fileID: 66260423}
+  - component: {fileID: 66260428}
   m_Layer: 5
-  m_Name: Mission Loop 1 (1)
+  m_Name: Emerald Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -733,7 +734,7 @@ RectTransform:
   - {fileID: 978476073}
   - {fileID: 1923849661}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -765,7 +766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 15
+  - _UID: 22
+    _amount: 0
+  - _UID: 33
     _amount: 0
   _hiddingGO:
   - {fileID: 978476072}
@@ -773,7 +776,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 34
     _amount: 0
   _coloringRect: {fileID: 66260426}
   _coloringText: {fileID: 978476074}
@@ -829,7 +832,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -883,6 +886,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66260421}
   m_CullTransparentMesh: 1
+--- !u!114 &66260428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66260421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 22
+    _amount: 0
+  - _UID: 33
+    _amount: 0
 --- !u!1 &77351531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,8 +2332,9 @@ GameObject:
   - component: {fileID: 216515166}
   - component: {fileID: 216515165}
   - component: {fileID: 216515164}
+  - component: {fileID: 216515169}
   m_Layer: 5
-  m_Name: Mission 4 (4)
+  m_Name: Byrill 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2333,7 +2354,7 @@ RectTransform:
   - {fileID: 1366925162}
   - {fileID: 622912391}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 14
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -2365,7 +2386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 12
+  - _UID: 32
     _amount: 0
   _hiddingGO:
   - {fileID: 1366925161}
@@ -2373,7 +2394,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 33
     _amount: 0
   _coloringRect: {fileID: 216515167}
   _coloringText: {fileID: 1366925163}
@@ -2429,7 +2450,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -2482,6 +2503,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216515162}
   m_CullTransparentMesh: 1
+--- !u!114 &216515169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216515162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &232274196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3460,7 @@ GameObject:
   - component: {fileID: 315873916}
   - component: {fileID: 315873920}
   m_Layer: 5
-  m_Name: Mission Beacon 1
+  m_Name: Beacon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4860,8 +4896,9 @@ GameObject:
   - component: {fileID: 436141529}
   - component: {fileID: 436141528}
   - component: {fileID: 436141527}
+  - component: {fileID: 436141532}
   m_Layer: 5
-  m_Name: Mission 4 (1)
+  m_Name: Byrill 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4881,7 +4918,7 @@ RectTransform:
   - {fileID: 530465082}
   - {fileID: 1880344646}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 11
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -4921,7 +4958,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 30
     _amount: 0
   _coloringRect: {fileID: 436141530}
   _coloringText: {fileID: 530465083}
@@ -4977,7 +5014,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -5030,6 +5067,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436141525}
   m_CullTransparentMesh: 1
+--- !u!114 &436141532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436141525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &439100121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5141,8 +5193,9 @@ GameObject:
   - component: {fileID: 449110689}
   - component: {fileID: 449110688}
   - component: {fileID: 449110687}
+  - component: {fileID: 449110692}
   m_Layer: 5
-  m_Name: Mission 4 (3)
+  m_Name: Byrill 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5162,7 +5215,7 @@ RectTransform:
   - {fileID: 2107925738}
   - {fileID: 674990131}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 13
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -5194,7 +5247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 12
+  - _UID: 31
     _amount: 0
   _hiddingGO:
   - {fileID: 2107925737}
@@ -5202,7 +5255,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 32
     _amount: 0
   _coloringRect: {fileID: 449110690}
   _coloringText: {fileID: 2107925739}
@@ -5258,7 +5311,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -5311,6 +5364,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449110685}
   m_CullTransparentMesh: 1
+--- !u!114 &449110692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449110685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &461839694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,8 +6157,9 @@ GameObject:
   - component: {fileID: 531138428}
   - component: {fileID: 531138427}
   - component: {fileID: 531138426}
+  - component: {fileID: 531138431}
   m_Layer: 5
-  m_Name: Mission 4 (6)
+  m_Name: Shipwreck 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6110,7 +6179,7 @@ RectTransform:
   - {fileID: 236058782}
   - {fileID: 1976136653}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 16
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -6142,7 +6211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 12
+  - _UID: 20
     _amount: 0
   _hiddingGO:
   - {fileID: 236058781}
@@ -6150,7 +6219,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 21
     _amount: 0
   _coloringRect: {fileID: 531138429}
   _coloringText: {fileID: 236058783}
@@ -6206,7 +6275,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -6259,6 +6328,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531138424}
   m_CullTransparentMesh: 1
+--- !u!114 &531138431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531138424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &540403739
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,8 +6851,9 @@ GameObject:
   - component: {fileID: 592764446}
   - component: {fileID: 592764445}
   - component: {fileID: 592764444}
+  - component: {fileID: 592764449}
   m_Layer: 5
-  m_Name: Mission 4 (2)
+  m_Name: Byrill 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6788,7 +6873,7 @@ RectTransform:
   - {fileID: 277714397}
   - {fileID: 393974940}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 12
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -6820,7 +6905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 12
+  - _UID: 30
     _amount: 0
   _hiddingGO:
   - {fileID: 277714396}
@@ -6828,7 +6913,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 31
     _amount: 0
   _coloringRect: {fileID: 592764447}
   _coloringText: {fileID: 277714398}
@@ -6884,7 +6969,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -6937,6 +7022,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592764442}
   m_CullTransparentMesh: 1
+--- !u!114 &592764449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592764442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &597133148
 GameObject:
   m_ObjectHideFlags: 0
@@ -10297,7 +10397,7 @@ GameObject:
   - component: {fileID: 899542150}
   - component: {fileID: 899542149}
   m_Layer: 5
-  m_Name: Mission Beacon 1 (1)
+  m_Name: Beacon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10317,7 +10417,7 @@ RectTransform:
   - {fileID: 1998582313}
   - {fileID: 1336210720}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 19
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -10349,11 +10449,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 11
+  - _UID: 21
     _amount: 0
   _hiddingGO:
   - {fileID: 1336210719}
-  _beaconCode: 2
+  _beaconCode: 1
   _modColor: 0
   _unlocksRequires: []
   _coloringRect: {fileID: 0}
@@ -10410,7 +10510,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: Null-B1
           m_BoolArgument: 0
@@ -10926,8 +11026,9 @@ GameObject:
   - component: {fileID: 940607483}
   - component: {fileID: 940607482}
   - component: {fileID: 940607481}
+  - component: {fileID: 940607486}
   m_Layer: 5
-  m_Name: Mission 4 (5)
+  m_Name: Shipwreck 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10947,7 +11048,7 @@ RectTransform:
   - {fileID: 530930597}
   - {fileID: 1807697986}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 15
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -11096,6 +11197,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940607479}
   m_CullTransparentMesh: 1
+--- !u!114 &940607486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940607479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &945690590
 GameObject:
   m_ObjectHideFlags: 0
@@ -18629,8 +18745,9 @@ GameObject:
   - component: {fileID: 1536384151}
   - component: {fileID: 1536384150}
   - component: {fileID: 1536384149}
+  - component: {fileID: 1536384154}
   m_Layer: 5
-  m_Name: Mission 4 (7)
+  m_Name: Shipwreck 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18650,7 +18767,7 @@ RectTransform:
   - {fileID: 778918506}
   - {fileID: 1100575148}
   m_Father: {fileID: 1996638271}
-  m_RootOrder: 17
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -18682,7 +18799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredUnlocks:
-  - _UID: 12
+  - _UID: 21
     _amount: 0
   _hiddingGO:
   - {fileID: 778918505}
@@ -18690,7 +18807,7 @@ MonoBehaviour:
   _beaconCode: 0
   _modColor: 1
   _unlocksRequires:
-  - _UID: 20
+  - _UID: 22
     _amount: 0
   _coloringRect: {fileID: 1536384152}
   _coloringText: {fileID: 778918507}
@@ -18746,7 +18863,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: Null-3
           m_BoolArgument: 0
@@ -18799,6 +18916,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536384147}
   m_CullTransparentMesh: 1
+--- !u!114 &1536384154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536384147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068f9e7f4b3df5246b35cdb99ca95e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockRequires:
+  - _UID: 15
+    _amount: 0
 --- !u!1 &1537980678
 GameObject:
   m_ObjectHideFlags: 0
@@ -24370,15 +24502,15 @@ RectTransform:
   - {fileID: 1130739112}
   - {fileID: 1805040583}
   - {fileID: 1888664467}
+  - {fileID: 940607480}
+  - {fileID: 531138425}
+  - {fileID: 1536384148}
+  - {fileID: 899542148}
   - {fileID: 436141526}
   - {fileID: 592764443}
   - {fileID: 449110686}
   - {fileID: 216515163}
-  - {fileID: 940607480}
-  - {fileID: 531138425}
-  - {fileID: 1536384148}
   - {fileID: 66260422}
-  - {fileID: 899542148}
   m_Father: {fileID: 393234969}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

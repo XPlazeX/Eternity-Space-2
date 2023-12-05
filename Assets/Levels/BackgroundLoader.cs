@@ -31,7 +31,7 @@ public class BackgroundLoader
     [SerializeField] private float _dustEmissionMultiplier = 1f;
     [SerializeField] private Gradient _fogGradient;
     [SerializeField] private float _fogEmissionMultiplier = 1f;
-    [SerializeField][Range(-3f, 3f)] private float _windSpeed = 0f;
+    [SerializeField][Range(-5f, 5f)] private float _windSpeed = 0f;
     [Space()]
     [SerializeField] private int _objectsToBeaconLevel = 3;
 
@@ -204,6 +204,8 @@ public class BackgroundLoader
         em.rateOverTime = 20f * _dustEmissionMultiplier;
         var vel = ps.velocityOverLifetime;
         vel.speedModifier = _windSpeed;
+        var shape = ps.shape;
+        shape.position = new Vector3(0f, 5f + (5f * _windSpeed), 0f);
 
         ps = GameObject.FindWithTag("Fog").GetComponent<ParticleSystem>();
         col = ps.colorOverLifetime;
@@ -212,6 +214,8 @@ public class BackgroundLoader
         em.rateOverTime = 1.25f * _fogEmissionMultiplier;
         vel = ps.velocityOverLifetime;
         vel.speedModifier = _windSpeed;
+        shape = ps.shape;
+        shape.position = new Vector3(0f, 5f + (7f * _windSpeed), 0f);
     }
 }
 

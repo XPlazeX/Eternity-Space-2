@@ -62,33 +62,21 @@ MonoBehaviour:
     _backgroundObjects:
     - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
         type: 3}
-      _color: {r: 0.10196078, g: 0.93333334, b: 0.87700844, a: 0.67058825}
-      _position: {x: -5.17, y: 1.53, z: 0}
-      _rotation: 250
+      _color: {r: 0.10196078, g: 0.45238885, b: 0.93333334, a: 0.6156863}
+      _position: {x: 4.5, y: 2.5, z: 0}
+      _rotation: 135
       _rotationSpread: 0
-    - _object: {fileID: 3945150267831715264, guid: 05ef7f2c94d23e64d8a14f293f353914,
-        type: 3}
-      _color: {r: 1, g: 1, b: 1, a: 1}
-      _position: {x: 2.36, y: 1.65, z: 0}
-      _rotation: 12
-      _rotationSpread: 0
-    - _object: {fileID: 6598767354843725784, guid: 5528292a973eee7499d7c9f6c84fc510,
-        type: 3}
-      _color: {r: 1, g: 1, b: 1, a: 1}
-      _position: {x: 0, y: 0, z: 0}
-      _rotation: -73
-      _rotationSpread: 8
     _backgroundSpriteFilename: Levels/BG/Byrill
-    _backgroundColor: {r: 0.15477037, g: 0.6981132, b: 0.43269017, a: 1}
+    _backgroundColor: {r: 0.11414205, g: 0.5377358, b: 0.4036486, a: 1}
     _flipX: 0
-    _flipY: 1
-    _hasStation: 1
-    _stationSpriteFilename: Levels/BG/EmeraldDrill
-    _upperColorMult: {r: 0, g: 1, b: 0.9291322, a: 0.07058824}
+    _flipY: 0
+    _hasStation: 0
+    _stationSpriteFilename: 
+    _upperColorMult: {r: 0, g: 0.46924686, b: 1, a: 0.07058824}
     _dustGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0.60090315, g: 1, b: 0, a: 1}
+      key1: {r: 0, g: 1, b: 0.8124628, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -118,7 +106,7 @@ MonoBehaviour:
     _fogGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0, g: 0.101960786, b: 0.061154608, a: 1}
+      key1: {r: 0, g: 0.047518887, b: 0.101960786, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -144,7 +132,7 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
-    _fogEmissionMultiplier: 1
+    _fogEmissionMultiplier: 0.25
     _windSpeed: 0
     _objectsToBeaconLevel: 1
   _soundtrack:
@@ -155,6 +143,8 @@ MonoBehaviour:
   _bonusEnemies: []
   _bonusCount: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 5
   _startLevelWeight: 2

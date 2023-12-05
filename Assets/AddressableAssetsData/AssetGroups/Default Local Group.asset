@@ -182,6 +182,26 @@ MonoBehaviour:
     m_Address: Assets/Levels/Missions/Null2-1.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: e26356de4f51d1543a7be8f0b252b510
+    m_Address: Assets/Levels/Missions/Null2-2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e91c1dffd527e4b42a60ce10f27bd482
+    m_Address: Assets/Levels/Missions/Byrill-Beacon.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c99b43076ab35b848b7e23b9b23b9386
+    m_Address: Assets/Levels/Missions/Byrill-2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 86710b5c0b0245c4d8d2e3a74f018b74
+    m_Address: Assets/Levels/Missions/Byrill-3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6bdbc32ef4d566d45b63759511a27131
+    m_Address: Assets/Levels/Missions/Byrill-4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

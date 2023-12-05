@@ -63,13 +63,13 @@ MonoBehaviour:
     - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
         type: 3}
       _color: {r: 1, g: 0.6523757, b: 0.21226418, a: 0.69411767}
-      _position: {x: 1.1, y: 7, z: 0}
-      _rotation: -200
+      _position: {x: -3.05, y: 7, z: 0}
+      _rotation: 192
       _rotationSpread: 0
     - _object: {fileID: 3945150267831715264, guid: 05ef7f2c94d23e64d8a14f293f353914,
         type: 3}
       _color: {r: 1, g: 1, b: 1, a: 1}
-      _position: {x: 1.8, y: 4.2, z: 0}
+      _position: {x: 1, y: 4, z: 0}
       _rotation: -20
       _rotationSpread: 0
     _backgroundSpriteFilename: Levels/BG/Null-2
@@ -149,6 +149,8 @@ MonoBehaviour:
   _bonusEnemies: []
   _bonusCount: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 5
   _startLevelWeight: 2

@@ -395,8 +395,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
         type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 20
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
         type: 3}
@@ -416,7 +426,7 @@ PrefabInstance:
     - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
         type: 3}
       propertyPath: VelocityModule.speedModifier.scalar
-      value: 0.25
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
         type: 3}
@@ -467,6 +477,66 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786162018365771833, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 8709470657471796500, guid: dbb2c6b1478c4e14a9cd3ce4e21e6258,
         type: 3}
