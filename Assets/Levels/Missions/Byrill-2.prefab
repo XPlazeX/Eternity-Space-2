@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5972983307079532163}
   - component: {fileID: 6234392112926126236}
+  - component: {fileID: 3447971739256304512}
   m_Layer: 0
   m_Name: Byrill-2
   m_TagString: Untagged
@@ -43,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dbd043591f4d840b57cad0c660beab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unlockID: -1
+  _unlockID: 31
   _boostFirstLevel: 0
-  _levelCount: 10
+  _levelCount: 3
   _startAurite: 50
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 0, y: 0}
@@ -59,14 +60,32 @@ MonoBehaviour:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 1
     _cameraBordersSizeYMultiplier: 1
-    _backgroundObjects: []
+    _backgroundObjects:
+    - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
+        type: 3}
+      _color: {r: 0.10196078, g: 0.77249837, b: 0.93333334, a: 0.48235294}
+      _position: {x: 4.5, y: 2.5, z: 0}
+      _rotation: 135
+      _rotationSpread: 0
+    - _object: {fileID: 3945150267831715264, guid: 6074d73921e5cc74ab0285fe2b2efaf7,
+        type: 3}
+      _color: {r: 1, g: 1, b: 1, a: 1}
+      _position: {x: -2.65, y: -1.5, z: 0}
+      _rotation: 7
+      _rotationSpread: 2
+    - _object: {fileID: 3945150267831715264, guid: e36c05bac04d970489fdaf1eb718486f,
+        type: 3}
+      _color: {r: 1, g: 1, b: 1, a: 1}
+      _position: {x: 0.55, y: 2, z: 0}
+      _rotation: 7
+      _rotationSpread: 2
     _backgroundSpriteFilename: Levels/BG/Byrill
     _backgroundColor: {r: 0.15294118, g: 0.69803923, b: 0.52971464, a: 1}
     _flipX: 1
     _flipY: 0
     _hasStation: 0
     _stationSpriteFilename: 
-    _upperColorMult: {r: 0, g: 0, b: 0, a: 0}
+    _upperColorMult: {r: 0, g: 0.46924686, b: 1, a: 0.07058824}
     _dustGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
@@ -136,9 +155,35 @@ MonoBehaviour:
   _hasBonusSpawn: 1
   _bonusEnemies:
   - 1
-  _bonusCount: 2
+  _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 3
   _bonusSpawnReload: 1
   _hasStalkers: 0
   _chance: 0
-  _firstLevelTime: 10
-  _finalLevelTime: 30
+  _firstLevelTime: 45
+  _finalLevelTime: 100
+--- !u!114 &3447971739256304512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409399996074538531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0229c2c7d598642b5a3dc0ff8e2e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _averageReload: 0.33
+  _minSpawnAngle: 180
+  _maxSpawnAngle: 180
+  _waitTime: 0
+  _defaultDB: {fileID: 11400000, guid: a2837971cfb059043b8243f2bf8f4171, type: 2}
+  _autoStart: 1
+  _selectionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _objects: []

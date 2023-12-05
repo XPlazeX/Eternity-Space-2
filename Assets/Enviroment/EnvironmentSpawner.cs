@@ -5,7 +5,11 @@ using UnityEngine;
 public class EnvironmentSpawner : MonoBehaviour
 {
     [SerializeField] private float _averageReload;
+    [SerializeField] private float _minSpawnAngle = 150f;
+    [SerializeField] private float _maxSpawnAngle = 210f;
+    [SerializeField] private float _waitTime = 3f;
     [SerializeField] private EnvironmentDB _defaultDB;
+    [SerializeField] private bool _autoStart = false;
     [Header("Информация только для просмотра. Изменения не будут учтены.")]
     [SerializeField] private AnimationCurve _selectionCurve;
     [SerializeField] private List<PullableObject> _objects = new List<PullableObject>();
@@ -16,6 +20,11 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public float AverageReload {get; set;}
     public float WindAngle {get; set;} = 0f;
+
+    private void Start() {
+        if (_autoStart)
+            Initialize();
+    }
 
     public void Initialize() 
     {
@@ -53,7 +62,7 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private IEnumerator Spawning()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(_waitTime);
         while (true)
         {
             SpawnObject(Mathf.RoundToInt(_selectionCurve.Evaluate(Random.Range(0f, _maxTime))));
@@ -69,7 +78,7 @@ public class EnvironmentSpawner : MonoBehaviour
             Random.Range(CameraController.Borders_xXyY.x - 2.5f, CameraController.Borders_xXyY.y + 2.5f),
             (CameraController.Borders_xXyY.w + 5f), 0f));
 
-        environmentObject.transform.eulerAngles = new Vector3(0, 0, Random.Range(150f, 210f) + WindAngle);
+        environmentObject.transform.eulerAngles = new Vector3(0, 0, Random.Range(_minSpawnAngle, _maxSpawnAngle) + WindAngle);
         environmentObject.SetActive(true);
     }
 

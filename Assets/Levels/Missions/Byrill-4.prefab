@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d147eed48bd4a4eb274ad5ab2001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unlockID: 13
+  _unlockID: 33
   _boostFirstLevel: 0
   _levelCount: 5
   _startAurite: 50
@@ -118,7 +118,7 @@ MonoBehaviour:
     _fogGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0, g: 0.101960786, b: 0.061154608, a: 1}
+      key1: {r: 0, g: 0.07, b: 0.04307692, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     _fogEmissionMultiplier: 1
-    _windSpeed: 0
+    _windSpeed: 0.3
     _objectsToBeaconLevel: 1
   _soundtrack:
     _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
@@ -154,7 +154,10 @@ MonoBehaviour:
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 5
   _startLevelWeight: 2

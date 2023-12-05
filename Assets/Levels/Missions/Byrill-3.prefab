@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d147eed48bd4a4eb274ad5ab2001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unlockID: 13
+  _unlockID: 32
   _boostFirstLevel: 0
   _levelCount: 5
   _startAurite: 50
@@ -62,28 +62,22 @@ MonoBehaviour:
     _backgroundObjects:
     - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
         type: 3}
-      _color: {r: 0.10196078, g: 0.93333334, b: 0.87700844, a: 0.67058825}
-      _position: {x: -5.17, y: 1.53, z: 0}
-      _rotation: 250
-      _rotationSpread: 0
-    - _object: {fileID: 3945150267831715264, guid: 05ef7f2c94d23e64d8a14f293f353914,
-        type: 3}
-      _color: {r: 1, g: 1, b: 1, a: 1}
-      _position: {x: 2.36, y: 1.65, z: 0}
-      _rotation: 12
+      _color: {r: 0.10196078, g: 0.88780105, b: 0.93333334, a: 0.5686275}
+      _position: {x: -3.8, y: -3.4, z: 0}
+      _rotation: -64
       _rotationSpread: 0
     - _object: {fileID: 6598767354843725784, guid: 5528292a973eee7499d7c9f6c84fc510,
         type: 3}
       _color: {r: 1, g: 1, b: 1, a: 1}
-      _position: {x: 0, y: 0, z: 0}
-      _rotation: -73
-      _rotationSpread: 8
+      _position: {x: 2.35, y: 6.1, z: 0}
+      _rotation: 30
+      _rotationSpread: 2
     _backgroundSpriteFilename: Levels/BG/Byrill
-    _backgroundColor: {r: 0.15477037, g: 0.6981132, b: 0.43269017, a: 1}
-    _flipX: 0
+    _backgroundColor: {r: 0.06323426, g: 0.46226418, b: 0.3273404, a: 1}
+    _flipX: 1
     _flipY: 1
-    _hasStation: 1
-    _stationSpriteFilename: Levels/BG/EmeraldDrill
+    _hasStation: 0
+    _stationSpriteFilename: 
     _upperColorMult: {r: 0, g: 1, b: 0.9291322, a: 0.07058824}
     _dustGradient:
       serializedVersion: 2
@@ -118,7 +112,7 @@ MonoBehaviour:
     _fogGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0, g: 0.101960786, b: 0.061154608, a: 1}
+      key1: {r: 0, g: 0.07, b: 0.05271214, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -145,7 +139,7 @@ MonoBehaviour:
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     _fogEmissionMultiplier: 1
-    _windSpeed: 0
+    _windSpeed: 0.67
     _objectsToBeaconLevel: 1
   _soundtrack:
     _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
@@ -154,7 +148,10 @@ MonoBehaviour:
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 5
   _startLevelWeight: 2

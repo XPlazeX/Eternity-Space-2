@@ -6,6 +6,7 @@ public class SpawningMission : Mission
     [SerializeField] private bool _hasBonusSpawn;
     [SerializeField] private string[] _bonusEnemies;
     [SerializeField][Range(-5, 10)] private int _bonusCount;
+    [SerializeField] private int _bonusLerpBoostOnFinalLevel = 0;
     [SerializeField] private float _bonusSpawnReload;
     [Header("Stalkers")]
     [SerializeField] private bool _hasStalkers = false;
@@ -16,7 +17,7 @@ public class SpawningMission : Mission
         if (_hasBonusSpawn)
         {
             BonusSpawner bs = SceneStatics.SceneCore.GetComponent<BonusSpawner>();
-            bs.SetParams(_bonusEnemies, _bonusCount, _bonusSpawnReload);
+            bs.SetParams(_bonusEnemies, _bonusCount + Mathf.RoundToInt(Mathf.Lerp(0f, _bonusLerpBoostOnFinalLevel, GameSessionInfoHandler.LevelProgress)), _bonusSpawnReload);
 
             bs.StartSpawning();
         }

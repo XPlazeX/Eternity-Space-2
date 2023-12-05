@@ -202,6 +202,10 @@ MonoBehaviour:
     m_Address: Assets/Levels/Missions/Byrill-4.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d361a59132716554695cf9535639ee93
+    m_Address: Assets/Levels/Missions/Emerald Edge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

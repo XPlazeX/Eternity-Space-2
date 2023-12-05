@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d147eed48bd4a4eb274ad5ab2001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unlockID: 13
+  _unlockID: 22
   _boostFirstLevel: 0
   _levelCount: 5
   _startAurite: 50
@@ -143,6 +143,7 @@ MonoBehaviour:
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
   _hasStalkers: 1
   _chance: 1

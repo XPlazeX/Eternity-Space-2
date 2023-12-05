@@ -6228,7 +6228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _averageReload: 2
+  _minSpawnAngle: 150
+  _maxSpawnAngle: 210
+  _waitTime: 3
   _defaultDB: {fileID: 11400000, guid: 6ac75a9c74712ae42b367ab8095e8c3f, type: 2}
+  _autoStart: 0
   _selectionCurve:
     serializedVersion: 2
     m_Curve:
@@ -15356,7 +15360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _testMode: 1
-  _testLocationID: 14
+  _testLocationID: 17
 --- !u!114 &1625426972
 MonoBehaviour:
   m_ObjectHideFlags: 0
