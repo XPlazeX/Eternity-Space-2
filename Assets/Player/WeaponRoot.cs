@@ -16,8 +16,18 @@ public class WeaponRoot : MonoBehaviour
     private DeviceUI _weaponUI;
     private bool Active => Player.Alive;
     public bool Prepared => (_preparing >= _prepareTime) && Active;
+    public float PrepareSpeed {get; private set;} = 1f;
 
     private float _preparing = 0f;
+
+    private void OnEnable() {
+        ShipStats.StatChanged += ObserveStat;
+        PrepareSpeed = ShipStats.GetValue("PrepareTimeMultiplier");
+    }
+
+    private void OnDisable() {
+        ShipStats.StatChanged -= ObserveStat;
+    }
 
     private void Start()
     {      
@@ -46,7 +56,7 @@ public class WeaponRoot : MonoBehaviour
 
         if ((Input.touchCount > 0) || Input.GetMouseButton(0))
         {
-            SetPreparing(_preparing += Time.unscaledDeltaTime);
+            SetPreparing(_preparing += Time.unscaledDeltaTime * PrepareSpeed);
         }
         #if UNITY_EDITOR
             if (Input.GetMouseButtonUp(0))
@@ -70,6 +80,15 @@ public class WeaponRoot : MonoBehaviour
     {
         _preparing = val;
         _weaponUI.Fill(_preparing / _prepareTime);
+    }
+
+    protected virtual void ObserveStat(string name, float val)
+    {
+        if (name == "PrepareTimeMultiplier")
+        {
+            PrepareSpeed = ShipStats.GetValue("PrepareTimeMultiplier");
+        }
+
     }
 
     //private void Deactivate() => Active = false;

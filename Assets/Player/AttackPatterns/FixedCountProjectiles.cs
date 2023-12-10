@@ -36,7 +36,7 @@ public class FixedCountProjectiles : AttackPattern
     {
         AttackObject bulletSample = CharacterBulletDatabase.GetAttackObject(_bulletIndex);
 
-        bulletSample.transform.rotation = Quaternion.Euler(0, 0, startRotation + Random.Range(-_spread, _spread));
+        bulletSample.transform.rotation = Quaternion.Euler(0, 0, startRotation + Random.Range(-Spread, Spread));
         bulletSample.transform.position = position + _barrelOffset;
 
         if (_spreadBulletSpeed != 0)

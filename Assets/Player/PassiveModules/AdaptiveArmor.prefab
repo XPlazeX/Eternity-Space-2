@@ -47,5 +47,6 @@ MonoBehaviour:
   _operators:
   - _statName: BlockArmor
     _typeOperation: 2
-    _operationValue: 2
+    _operationValue: 3
+    _negativeSetsToZero: 0
   _healthOperators: []

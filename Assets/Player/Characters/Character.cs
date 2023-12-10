@@ -7,7 +7,6 @@ public class Character : ScriptableObject
     [SerializeField] private GameObject[] _skinnedShips;
     [SerializeField] private int _hitPoints;
     [SerializeField] private int _armorPoints;
-    [SerializeField] private int _armorCap;
     [SerializeField] private Module[] _handingModules;
 
     public GameObject GetSkinnedShip(int skinID) => _skinnedShips[skinID];

@@ -88,6 +88,7 @@ public class PlayerShipData : MonoBehaviour
 
         if (save.SessionInitialized)
         {
+            _hpCap = save.MaxHealth;
             HitPoints = save.HealthPoints;
         } 
         else 
@@ -188,6 +189,12 @@ public class PlayerShipData : MonoBehaviour
             newValue = _armorCap;
 
         ArmorPoints = newValue;
+    }
+
+    public static void UpgradeArmor(int additiveArmorCap, int additiveValue)
+    {
+        _armorCap += additiveArmorCap;
+        ArmorPoints = Mathf.Clamp(ArmorPoints + additiveValue, 0, _armorCap);
     }
 
     public static void RegenerateArmor(int addingValue)

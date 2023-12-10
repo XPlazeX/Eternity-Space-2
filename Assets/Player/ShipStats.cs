@@ -28,6 +28,7 @@ public class ShipStats
         ["MaxDamageTaken"] = 40f,
         // тараны
         ["RamMoneyValue"] = 3f,// округляется до целого вверх
+        ["RamHealValue"] = 0f,
         //["RamRegenOnCriticalStateMultiplier"] = 3f, // округляется до целого вверх
         ["DecadesBlockForRam"] = 1f, // округляется до целого вверх
         ["RamFirerateBoost"] = 0.5f,
@@ -53,8 +54,8 @@ public class ShipStats
         ["EmissionBlock"] = 5f, // округляется до целого вверх
         ["EmissionResetPart"] = 1f,
         // главное оружие
-        ["MainWeaponDamageMultiplier"] = 1f,
         ["MainWeaponFirerateMultiplier"] = 1f,
+        ["PrepareTimeMultiplier"] = 1f,
         // устройства
         ["DeviceDamageMultiplier"] = 1f,
         ["DeviceChargeTimeBoostFlat"] = 0,
@@ -71,6 +72,7 @@ public class ShipStats
         ["CriticalTimeSlowMultiplier"] = 0.33f,
         ["SpreadMultiplier"] = 1f,
         ["NoSpread"] = 0f,
+        ["FlatSpread"] = 0f,
         ["SpreadSpeedMultiplier"] = 1f,
         ["FlatHomingBoost"] = 0,
         ["HomingEfficiencyMultiplier"] = 1f,
@@ -81,6 +83,7 @@ public class ShipStats
         ["FlatBulletAccelerationBoost"] = 0,
         ["BulletAccelerationMultiplier"] = 1f,
         ["WeaponAccelerationMultiplier"] = 1f,
+        ["FlatPlayerBulletAcceleration"] = 0f,
         ["ShieldCapacityMultiplier"] = 1f,
         ["PickupChanceMultiplier"] = 1f,
         // --- Окружение --- ------------------------------------------
@@ -100,6 +103,7 @@ public class ShipStats
         ["EnemyHealthMultiplier"] = 1f,
         ["AdditiveBlockArmor"] = 0, // округляется до целого вверх
         ["EnemyShieldHealthBoost"] = 0, // округляется до целого вверх
+        ["EnemyTakenDamageMultiplier"] = 1f,
         // --- Враги - атака --- --------------------------------------
         ["EnemyAggresionMultiplier"] = 1f,
         ["EnemyMobilityMultiplier"] = 1f,

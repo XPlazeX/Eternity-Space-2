@@ -8259,11 +8259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce69fbe4480800440ab2ef851495096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 0
-  _testWeaponPattern: {fileID: 8617238154026544125, guid: 25b736950555aa34a971fae87197623b,
+  _testMode: 1
+  _testWeaponPattern: {fileID: 6525367773829292917, guid: 7cc398a4214e8524f8464cb3c592e126,
     type: 3}
   _testDevice: {fileID: 0}
-  _testLoadingModules: []
+  _testLoadingModules:
+  - {fileID: 6334140083983375581, guid: 131412d0d763ff046af75932a8beb86e, type: 3}
 --- !u!114 &770287096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15360,7 +15361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _testMode: 1
-  _testLocationID: 17
+  _testLocationID: 10
 --- !u!114 &1625426972
 MonoBehaviour:
   m_ObjectHideFlags: 0

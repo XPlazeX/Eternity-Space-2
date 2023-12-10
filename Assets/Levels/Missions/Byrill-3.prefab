@@ -142,7 +142,7 @@ MonoBehaviour:
     _windSpeed: 0.67
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: 16acb87bb2e013a4c8e56529819e1575, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
   _hasBonusSpawn: 0

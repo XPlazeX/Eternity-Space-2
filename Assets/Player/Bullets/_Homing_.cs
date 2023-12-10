@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class _Homing_ : MonoBehaviour
 {
@@ -15,6 +13,12 @@ public class _Homing_ : MonoBehaviour
 
     private void OnEnable() {
         _checkReloadTimer = 0f;
+    }
+
+    public void ModParams(string targetTag, float homingPower)
+    {
+        _targetTag = targetTag;
+        _homingPower = homingPower;
     }
 
     private void FixedUpdate() {

@@ -129,4 +129,15 @@ public class CameraController : MonoBehaviour
         return (position.x > Borders_xXyY.x - sound_overborders) && (position.x < Borders_xXyY.y + sound_overborders) 
             && (position.y > Borders_xXyY.z - sound_overborders) && (position.y < Borders_xXyY.w + sound_overborders);
     }
+
+    public static bool InsideGameField(Vector3 position)
+    {
+        return (position.x > Borders_xXyY.x) && (position.x < Borders_xXyY.y) 
+            && (position.y > Borders_xXyY.z) && (position.y < Borders_xXyY.w);
+    }
+
+    public static Vector3 GetRandomFieldPosition()
+    {
+        return new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+    }
 }

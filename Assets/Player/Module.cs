@@ -23,7 +23,7 @@ public class AttackPattern : Gear
 
     [SerializeField] protected AttackObject _bulletSample;
     [SerializeField] protected float _firerate = 1f;
-    [SerializeField] protected float _spread = 0;
+    [SerializeField] private float _spread = 0;
     [Range(0, 1f)][SerializeField] protected float _spreadBulletSpeed = 0;
     [SerializeField] protected AudioClip _soundWork;
     [SerializeField][Range(0, 1f)] private float _volume = 1f;
@@ -33,6 +33,7 @@ public class AttackPattern : Gear
     [SerializeField] private WeaponRoot _customWeaponRoot;
 
     public AttackObject BulletSample => _bulletSample;
+    public int CharacterBulletIndex => _bulletIndex;
 
     protected Transform[] _barrels => _bindedWR.PlayerBarrels; // нужен, для ссылок на Barrels
     protected WeaponRoot _bindedWR;
@@ -41,6 +42,7 @@ public class AttackPattern : Gear
     protected int _normalDamage;
     private float _firerateMultiplier = 1f;
     private float _fireReloading = 0f;
+    public float Spread {get; private set;} = 0f;
 
     public float FireReload
     {
@@ -63,7 +65,8 @@ public class AttackPattern : Gear
         _normalDamage = Mathf.CeilToInt(CharacterBulletDatabase.GetForChangeAttackObject(_bulletIndex).Damage);
 
         ShipStats.StatChanged += ObserveStat;
-        ObserveStat("MainWeaponFirerateMultiplier", 1f);
+        _firerateMultiplier = ShipStats.GetValue("MainWeaponFirerateMultiplier");
+        Spread = _spread + ShipStats.GetValue("FlatSpread");
     }
 
     protected virtual void ObserveStat(string name, float val)
@@ -71,16 +74,20 @@ public class AttackPattern : Gear
         if (name == "MainWeaponFirerateMultiplier")
         {
             _firerateMultiplier = ShipStats.GetValue("MainWeaponFirerateMultiplier");
+        } else if (name == "FlatSpread")
+        {
+            Spread = _spread + ShipStats.GetValue("FlatSpread");
         }
 
     }
 
     protected virtual void Update()
     {
+        _fireReloading -= Time.deltaTime;
+        
         if (!Active)
             return;
 
-        _fireReloading -= Time.deltaTime;
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0)) && _fireReloading <= 0)
         {
             Fire();
@@ -102,11 +109,16 @@ public class AttackPattern : Gear
     {
         AttackObject bulletSample = CharacterBulletDatabase.GetAttackObject(_bulletIndex);
 
-        bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-_spread, _spread) * ShipStats.GetValue("SpreadMultiplier"))));
+        bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
         bulletSample.transform.position = position;
 
         if (_spreadBulletSpeed != 0)
             ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
+    }
+
+    public AttackObject SpawnBullet()
+    {
+        return CharacterBulletDatabase.GetAttackObject(_bulletIndex);
     }
 }
 
