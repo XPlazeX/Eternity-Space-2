@@ -705,6 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110854062}
   - component: {fileID: 110854063}
+  - component: {fileID: 110854064}
   m_Layer: 0
   m_Name: Palm
   m_TagString: Untagged
@@ -777,6 +778,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &110854064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110854061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -623859496033481858, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &133576500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &282896907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5625,6 +5647,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &486557968
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6609,6 +6634,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &593803870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9264,6 +9292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912716882}
   - component: {fileID: 912716883}
+  - component: {fileID: 912716884}
   m_Layer: 0
   m_Name: Palm(2)
   m_TagString: Untagged
@@ -9336,6 +9365,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &912716884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912716881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -7921517150186868476, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &921759321
 GameObject:
   m_ObjectHideFlags: 0
@@ -11258,6 +11305,9 @@ MonoBehaviour:
   - _skins:
     - {fileID: -4641838352402916905, guid: 45ab9bee371fb054184d2cbf119dbac5, type: 3}
     - {fileID: -3048801259306072638, guid: 96e8c513aedfbda4aaaace89775e673f, type: 3}
+  - _skins:
+    - {fileID: 3459463589256513909, guid: 0d56954a1b4d15949a0b78aadf3e3720, type: 3}
+    - {fileID: -4208518234604051650, guid: 0d56954a1b4d15949a0b78aadf3e3720, type: 3}
 --- !u!1 &1162129993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13418,6 +13468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &1358383879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24408,6 +24461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479923710}
   - component: {fileID: 1479923711}
+  - component: {fileID: 1479923712}
   m_Layer: 0
   m_Name: Palm (1)
   m_TagString: Untagged
@@ -24480,6 +24534,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1479923712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479923709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -8335213089741392711, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &1506455079
 GameObject:
   m_ObjectHideFlags: 0
@@ -27377,6 +27449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808541435}
   - component: {fileID: 1808541436}
+  - component: {fileID: 1808541437}
   m_Layer: 0
   m_Name: Palm (3)
   m_TagString: Untagged
@@ -27449,6 +27522,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1808541437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808541434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -3702401792256998472, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &1828896045
 GameObject:
   m_ObjectHideFlags: 0

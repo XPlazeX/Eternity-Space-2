@@ -8259,12 +8259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce69fbe4480800440ab2ef851495096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 1
+  _testMode: 0
   _testWeaponPattern: {fileID: 6525367773829292917, guid: 7cc398a4214e8524f8464cb3c592e126,
     type: 3}
   _testDevice: {fileID: 0}
-  _testLoadingModules:
-  - {fileID: 6334140083983375581, guid: 131412d0d763ff046af75932a8beb86e, type: 3}
+  _testLoadingModules: []
 --- !u!114 &770287096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8331,6 +8330,10 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   - m_AssetGUID: 567c7b31ded1e3344ac6e179c42c821d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 3c38cd7abf2a3de4fa62894d9f8e01e4
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
@@ -15360,7 +15363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d2674652d27784d816bbde2a781053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 1
+  _testMode: 0
   _testLocationID: 10
 --- !u!114 &1625426972
 MonoBehaviour:
@@ -15374,9 +15377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c263370746d56a4db34460927585339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 0
-  _loadingHP: 100
-  _loadingArmorCap: 30
 --- !u!114 &1625426973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15402,9 +15402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _test: 0
-  _testEnemy: {fileID: 9069206062416828823, guid: f18bf1dc55125fc4db39ca83ceb6c082,
+  _testEnemy: {fileID: 9069206062416828823, guid: 1b4b812d45f04b74c8d87d4e6267a621,
     type: 3}
-  _count: 2
+  _count: 8
   _testWS: {fileID: 0}
 --- !u!114 &1625426975
 MonoBehaviour:

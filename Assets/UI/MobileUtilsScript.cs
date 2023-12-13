@@ -30,11 +30,23 @@ public class MobileUtilsScript : MonoBehaviour {
     }
 
     #if UNITY_EDITOR
+
+    private void Start() {
+        // GlobalSave gsave = GlobalSaveHandler.GetSave();
+        // gsave.RemoveUnlock(622);
+        // GlobalSaveHandler.RewriteSave(gsave);
+    }
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             Bank.PutCash(BankSystem.Currency.Cosmilite, 500);
             print("+500 cos");
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Bank.PutCash(BankSystem.Currency.Positronium, 3);
+            print("+3 pos");
         }
         if (Input.GetKeyDown(KeyCode.B))
         {

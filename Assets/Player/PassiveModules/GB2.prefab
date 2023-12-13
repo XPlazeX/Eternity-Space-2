@@ -48,4 +48,4 @@ MonoBehaviour:
   _color: {r: 0.015686274, g: 1, b: 0.032319125, a: 1}
   _scale: 2
   _damage: 24
-  _onRam: 1
+  _condition: -1

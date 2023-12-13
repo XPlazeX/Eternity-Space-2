@@ -206,6 +206,18 @@ MonoBehaviour:
     m_Address: Assets/Levels/Missions/Emerald Edge.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: a34e759c0b9eb28449368e9ab0e3fa05
+    m_Address: Assets/MainMenu/Lab/LabTunWeapons.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5132074e4e8e5eb408d0d5df914340e9
+    m_Address: Assets/MainMenu/Lab/LabSurvival.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3c38cd7abf2a3de4fa62894d9f8e01e4
+    m_Address: Assets/Player/Characters/Sailfish-1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

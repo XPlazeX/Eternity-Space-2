@@ -36,7 +36,8 @@ public class _ExplosionBullet : MonoBehaviour
         if (_damage > 0)
             explosion.GetComponent<StaticBullet>().ModdedDamage = _damage;
 
-        explosion.GetComponent<SpriteRenderer>().color = _color;
+        if (explosion.GetComponent<SpriteRenderer>() != null)
+            explosion.GetComponent<SpriteRenderer>().color = _color;
         explosion.transform.localScale = Vector3.one * _scale;
 
         if (_shakePower > 0)

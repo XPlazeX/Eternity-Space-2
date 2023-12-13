@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 6
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!114 &6243127765971177902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +231,7 @@ GameObject:
   - component: {fileID: 6243127766243253820}
   - component: {fileID: 3464942263340952125}
   - component: {fileID: 6416615326806104933}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CommonBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,7 +26,7 @@ public class LabUI : MonoBehaviour
         {
             if (x > _labCards[i].minXrectNormalized && x < _labCards[i].maxXrectNormalized)
             {
-                LoadCategory(_labCards[i].labCategory);
+                LoadCategory(_labCards[i].labCategory, _labCards[i].avaiable);
                 return;
             }
         }
@@ -35,10 +35,12 @@ public class LabUI : MonoBehaviour
         _terminalLabel.text = SceneLocalizator.GetLocalizedString(_labLocalizationFilename, 1, 1);
     }
 
-    public void LoadCategory(int id)
+    public void LoadCategory(int id, bool avaiableRead)
     {
         _terminalLabel.text = SceneLocalizator.GetLocalizedString(_labLocalizationFilename, _labLocalizationCategoriesRow, id);
-        _lab.LoadCategory(id);
+
+        if (avaiableRead)
+            _lab.LoadCategory(id);
     }
 
     [System.Serializable]
@@ -47,5 +49,7 @@ public class LabUI : MonoBehaviour
         public int labCategory;
         public float minXrectNormalized;
         public float maxXrectNormalized;
+        public UnlockRequire[] unlockRequires;
+        public bool avaiable => Unlocks.HasUnlocks(unlockRequires);
     }
 }

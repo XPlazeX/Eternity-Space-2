@@ -62,6 +62,7 @@ public class Lab : MonoBehaviour
 
         SelectBlueprint(_activeBlueprint);
         _asquiredPanel.SetActive(true);
+        _labLamps.PlaceLamps(_activeCategory);
         print($"> успешная покупка чертежа {_activeBlueprint.handingID}!");
     }
 

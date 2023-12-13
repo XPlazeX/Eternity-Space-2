@@ -24,6 +24,8 @@ public class LaserObject : AttackObject
         StartCoroutine(Laser(origin, maxDistance, mask, lifetime));
     }
 
+
+
     private IEnumerator Laser(Transform origin, float maxDistance, LayerMask mask, float lifetime)
     {
         float time = _warningTime;
@@ -66,9 +68,12 @@ public class LaserObject : AttackObject
                 pos = hit.point;
                 if (timerHurt <= 0)
                 {
-                    hit.collider.GetComponent<DamageBody>().TakeDamage(Damage);
-                    if (Dev.IsLogging) print($"laser dmg : {Damage}");
-                    timerHurt = _damageTick;
+                    DamageBody db = hit.collider.GetComponent<DamageBody>();
+                    if (db != null)
+                    {
+                        db.TakeDamage(Damage);
+                        timerHurt = _damageTick;
+                    }
                 }
             }
 

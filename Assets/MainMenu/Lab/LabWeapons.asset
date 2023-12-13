@@ -39,18 +39,18 @@ MonoBehaviour:
   - inDevelop: 0
     handingID: 604
     requirementsID:
-    - _UID: 622
-      _amount: 0
-    cosPrice: 150
+    - _UID: 21
+      _amount: 2
+    cosPrice: 250
     posPrice: 0
-    sprite: {fileID: 21300000, guid: 838b8f0d3e85e7845933d9cce23d88a5, type: 3}
-    localizationID: 3
+    sprite: {fileID: 21300000, guid: 12a84ba552f33f34d95121aed4f1408d, type: 3}
+    localizationID: 7
   - inDevelop: 0
     handingID: 606
     requirementsID:
-    - _UID: 622
+    - _UID: 666
       _amount: 0
-    cosPrice: 150
-    posPrice: 0
-    sprite: {fileID: 21300000, guid: 838b8f0d3e85e7845933d9cce23d88a5, type: 3}
-    localizationID: 3
+    cosPrice: 666
+    posPrice: 13
+    sprite: {fileID: 21300000, guid: ef0511a13324090459b1f2bf3bc42a4a, type: 3}
+    localizationID: 8
