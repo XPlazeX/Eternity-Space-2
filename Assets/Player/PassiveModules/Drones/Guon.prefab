@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3151115811066776247}
   - component: {fileID: 3151115811066776244}
   - component: {fileID: 2590863965848703526}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Guon
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.21}
+  m_Size: {x: 0.47, y: 0.22}
   m_EdgeRadius: 0
 --- !u!95 &2590863965848703526
 Animator:

@@ -46,3 +46,4 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _customWeaponModel: Disintegrator-0
   _customShipID: -1
+  _maxWeaponUpgrade: 1

@@ -47,7 +47,7 @@ MonoBehaviour:
   _operators:
   - _statName: PlayerShotSpeedMultiplier
     _typeOperation: 1
-    _operationValue: 0.15
+    _operationValue: 0.05
     _negativeSetsToZero: 0
   - _statName: MainWeaponFirerateMultiplier
     _typeOperation: 1

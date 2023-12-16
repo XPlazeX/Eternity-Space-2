@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
   _spawningObjects:
-  - {fileID: 6849246123739044888, guid: b20a16e48ce0c614cbe1e30ac80c6783, type: 3}
+  - {fileID: 6849246123739044888, guid: 5488d8c0d1db3db4fafbb467bb81fc3a, type: 3}
   _onPlayerPosition: 1
   _randomPosition: 0
   _bindToPlayer: 1

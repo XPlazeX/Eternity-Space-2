@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using ModuleWork;
 
 public class MissionEventsDistributor : MonoBehaviour
 {
@@ -18,30 +19,36 @@ public class MissionEventsDistributor : MonoBehaviour
     [SerializeField] private float _boostedEventYPosition;
     [Space()]
     [SerializeField] private bool _log;
+    [Space()]
+    [Header("Testing")]
+    [SerializeField] private bool _testMode;
+    [SerializeField] private int _testEventID = 1;
 
     private int _maxEvents = 1;
     private float _verticalStep = 0f;
 
     public void Start()
     {
-        LoadEvents((GameSessionInfoHandler.GetSessionSave().Boosted && GameSessionInfoHandler.GetSessionSave().CurrentLevel == 0));
-
         if (_log)
         {
-            ModulasSave modulasSave = ModulasSaveHandler.GetSave();
-
-            print("||||||||| постоянные модули |||||||||");
-            for (int i = 0; i < modulasSave.PassiveEvents.Count; i++)
-            {
-                print(modulasSave.PassiveEvents[i].moduleOperandID);
-            }
-            print("--------- временные модули ----------");
-            for (int i = 0; i < modulasSave.LevelEvents.Count; i++)
-            {
-                print(modulasSave.LevelEvents[i].moduleOperandID);
-            }
-            print("||||||||||| конец модулей |||||||||||");
+            ShowSaveModules();
         }
+        if (_testMode)
+        {
+            LevelEvent le = _levelEvents[_testEventID];
+
+            ModulasSave modulasSave = ModulasSaveHandler.GetSave();
+            modulasSave.InitEventChoice(new int[1] {_testEventID});
+            ModulasSaveHandler.RewriteSave(modulasSave);
+
+            if (le.stackType == ModuleStackType.Pack)
+                PlaceEventRect(moduleServices[1], le, 0);
+            else
+                PlaceEventRect(moduleServices[0], le, 0);
+
+            return;
+        }
+        LoadEvents((GameSessionInfoHandler.GetSessionSave().Boosted && GameSessionInfoHandler.GetSessionSave().CurrentLevel == 0));
     }
 
     public void LoadEvents(bool boosted)
@@ -68,7 +75,7 @@ public class MissionEventsDistributor : MonoBehaviour
             if (boosted && i == 0)
                 customY = _boostedEventYPosition;
 
-            if (le.isPack)
+            if (le.stackType == ModuleStackType.Pack)
                 PlaceEventRect(moduleServices[1], le, i, customY);
 
             else
@@ -94,7 +101,8 @@ public class MissionEventsDistributor : MonoBehaviour
 
         for (int i = 0; i < _levelEvents.Length; i++) // исключаем неоткрытые модули и заполняем пул доступными ID
         {
-            if (!_levelEvents[i].Unlocked || !Bank.EnoughtCash(BankSystem.Currency.Aurite, _levelEvents[i].auritePrice) || Exclusions.Contains(i))
+            if (!_levelEvents[i].unlocked || !Bank.EnoughtCash(BankSystem.Currency.Aurite, _levelEvents[i].auritePrice) || Exclusions.Contains(i)
+                || (_levelEvents[i].oneLeveled && GameSessionInfoHandler.LevelProgress == 0))
             {
                 print($"Исключено событие: {i}");
                 continue;
@@ -117,7 +125,7 @@ public class MissionEventsDistributor : MonoBehaviour
             SelectedEvents.Add(SelectionPool[selector]);
             print($"Выбрано событие: {SelectionPool[selector]}");
 
-            if (!_levelEvents[SelectionPool[selector]].stackable || _levelEvents[SelectionPool[selector]].isPack) // убираем в случае чего ID события из пула
+            if (_levelEvents[SelectionPool[selector]].stackType != ModuleStackType.Stacking) // убираем в случае чего ID события из пула
                 SelectionPool.RemoveAt(selector);
         }
 
@@ -126,6 +134,23 @@ public class MissionEventsDistributor : MonoBehaviour
         ModulasSaveHandler.RewriteSave(modulasSave);
 
         print($"### Перезапись выбора событий");
+    }
+
+    public void ShowSaveModules()
+    {
+        ModulasSave modulasSave = ModulasSaveHandler.GetSave();
+
+        print("||||||||| постоянные модули |||||||||");
+        for (int i = 0; i < modulasSave.PassiveEvents.Count; i++)
+        {
+            print(modulasSave.PassiveEvents[i].moduleOperandID);
+        }
+        print("--------- временные модули ----------");
+        for (int i = 0; i < modulasSave.LevelEvents.Count; i++)
+        {
+            print(modulasSave.LevelEvents[i].moduleOperandID);
+        }
+        print("||||||||||| конец модулей |||||||||||");
     }
 
     public void PlaceEventRect(ModuleService moduleService, LevelEvent levelEvent, int choiceID, float _customYposition = 0f)

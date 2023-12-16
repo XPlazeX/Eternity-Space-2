@@ -45,10 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
   _operators:
-  - _statName: TakingDamageMultiplier
-    _typeOperation: 1
-    _operationValue: 5
-    _negativeSetsToZero: 0
   - _statName: MaxDamageTaken
     _typeOperation: 2
     _operationValue: 100

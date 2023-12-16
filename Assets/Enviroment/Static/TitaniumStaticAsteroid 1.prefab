@@ -316,7 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0
-  _damageValue: 15
+  _damageValue: 9
+  _hoverable: 1
 --- !u!114 &6243127766243253816
 MonoBehaviour:
   m_ObjectHideFlags: 0

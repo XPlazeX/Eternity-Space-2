@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
   _spawningObjects:
-  - {fileID: 3151115811066776241, guid: b890b62a63a4f22498ec9f1414d5b357, type: 3}
-  - {fileID: 3151115811066776241, guid: b890b62a63a4f22498ec9f1414d5b357, type: 3}
-  - {fileID: 3151115811066776241, guid: b890b62a63a4f22498ec9f1414d5b357, type: 3}
-  - {fileID: 3151115811066776241, guid: b890b62a63a4f22498ec9f1414d5b357, type: 3}
+  - {fileID: 3151115811066776241, guid: c0df10f967d0e9241b7d89b1dbb7220f, type: 3}
+  - {fileID: 3151115811066776241, guid: c0df10f967d0e9241b7d89b1dbb7220f, type: 3}
+  - {fileID: 3151115811066776241, guid: c0df10f967d0e9241b7d89b1dbb7220f, type: 3}
+  - {fileID: 3151115811066776241, guid: c0df10f967d0e9241b7d89b1dbb7220f, type: 3}
   _onPlayerPosition: 0
-  _randomPosition: 0
+  _randomPosition: 1
   _bindToPlayer: 0

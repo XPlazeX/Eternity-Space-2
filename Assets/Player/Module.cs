@@ -210,4 +210,11 @@ namespace ModuleWork
         Device = 2,
         Ultratech = 3
     }  
+
+    public enum ModuleStackType
+    {
+        NoneStacks = 0,
+        Stacking = 1,
+        Pack = 2
+    }
 }

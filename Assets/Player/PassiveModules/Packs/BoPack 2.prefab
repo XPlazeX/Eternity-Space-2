@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
-  _newSprite: {fileID: -2845557120398334266, guid: d393de212b6e36d428fe29708de66cca,
+  _newSprite: {fileID: 220803674136563859, guid: d393de212b6e36d428fe29708de66cca,
     type: 3}
   _damageMult: 2
   _addHoming: 1

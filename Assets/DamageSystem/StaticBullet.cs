@@ -5,6 +5,7 @@ public class StaticBullet : MonoBehaviour
 {
     [SerializeField] private DamageKey _damageKey;
     [SerializeField] private int _damageValue;
+    [SerializeField] private bool _hoverable = false;
 
     public int ModdedDamage {get; set;} = -1;
 
@@ -16,7 +17,7 @@ public class StaticBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         DamageBody damageBody = other.GetComponent<DamageBody>();
 
-        if (damageBody == null)
+        if (damageBody == null || (damageBody.KeyDamage == DamageKey.Player && _hoverable))
             return;
 
         if (ModdedDamage == -1)
@@ -24,5 +25,6 @@ public class StaticBullet : MonoBehaviour
         else
             AttackObject.InflictDamage(damageBody, _damageKey, ModdedDamage);
 
+        print("inf");
     }
 }

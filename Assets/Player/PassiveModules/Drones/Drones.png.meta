@@ -8,6 +8,39 @@ TextureImporter:
   - first:
       213: -593408854877048684
     second: Drones_1
+  - first:
+      213: -101316458230432158
+    second: Drones_2
+  - first:
+      213: -6941392303247865411
+    second: Drones_3
+  - first:
+      213: 9086552681576077766
+    second: Drones_4
+  - first:
+      213: -3870342367222206932
+    second: Drones_5
+  - first:
+      213: -5706238378214818482
+    second: Drones_6
+  - first:
+      213: -5437753295192909161
+    second: Drones_7
+  - first:
+      213: 5200268240978218721
+    second: Drones_8
+  - first:
+      213: -8247243890803809837
+    second: Drones_9
+  - first:
+      213: 1071754697261867086
+    second: Drones_10
+  - first:
+      213: 1859914795518304835
+    second: Drones_11
+  - first:
+      213: -6357513501068774192
+    second: Drones_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -134,7 +167,7 @@ TextureImporter:
         width: 15
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,6 +175,237 @@ TextureImporter:
       bones: []
       spriteID: 4907b7e5ac9c3c7f0800000000000000
       internalID: -593408854877048684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e3641d73d089ef0800000000000000
+      internalID: -101316458230432158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9c74e2a783baf90800000000000000
+      internalID: -6941392303247865411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 20
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c91732758be91e70800000000000000
+      internalID: 9086552681576077766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e639a7f18c94ac0800000000000000
+      internalID: -3870342367222206932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 20
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4dfdce8d6e5fc0b0800000000000000
+      internalID: -5706238378214818482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_7
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 34
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a11df30383984b0800000000000000
+      internalID: -5437753295192909161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 27
+        height: 14
+      alignment: 9
+      pivot: {x: 0.09056376, y: 0.6015892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee8048b9601b2840800000000000000
+      internalID: 5200268240978218721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_9
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 49
+        width: 18
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38686594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1e0a88067eb8d80800000000000000
+      internalID: -8247243890803809837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_10
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 48
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41048723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4066a00833afde00800000000000000
+      internalID: 1071754697261867086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_11
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 63
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342ac5bf6aebfc910800000000000000
+      internalID: 1859914795518304835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drones_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d4bb02872395c7a0800000000000000
+      internalID: -6357513501068774192
       vertices: []
       indices: 
       edges: []

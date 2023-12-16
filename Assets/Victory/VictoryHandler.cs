@@ -44,6 +44,7 @@ public class VictoryHandler : MonoBehaviour
     public void AddAurite(int val)
     {
         _tempAurite += val;
+        print($"Добавлен временный аурит: {val}");
     }
 
     public void LevelVictory(bool andMission = false)

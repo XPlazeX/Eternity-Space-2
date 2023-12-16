@@ -15,3 +15,5 @@ MonoBehaviour:
   _module: {fileID: 1554671533882739457, guid: dbf96d4752e1a5945a549a575bf26496, type: 3}
   _icon: {fileID: 1802297219522750923, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
   _localizationID: 3
+  _stackType: 1
+  _oneLeveled: 0
