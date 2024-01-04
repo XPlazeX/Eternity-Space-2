@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656fd471c08527b4191f171a2096183b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionCode: 11
+  _explosionCode: 26
+  _mute: 0
   _modParams: 0
   _color: {r: 0, g: 0, b: 0, a: 0}
   _scale: 1

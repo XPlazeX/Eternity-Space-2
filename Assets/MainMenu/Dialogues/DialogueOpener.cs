@@ -44,7 +44,13 @@ public class DialogueOpener : MonoBehaviour
         print($"trigger dialogue: {name}");
     }
 
-    private IEnumerator OpenDialogueInternal(string name)
+    public void TriggerDialogue(string name, float delay)
+    {
+        StartCoroutine(OpenDialogueInternal(name, delay));
+        print($"trigger dialogue: {name}");
+    }
+
+    private IEnumerator OpenDialogueInternal(string name, float delay = 0f)
     {
         if (currentDialogueOperationHandle.IsValid())
         {
@@ -54,6 +60,10 @@ public class DialogueOpener : MonoBehaviour
         var dialogueReference = _dialogueAsset;
         currentDialogueOperationHandle = dialogueReference.LoadAssetAsync<GameObject>();
         yield return currentDialogueOperationHandle;
+
+        if (delay > 0)
+            yield return new WaitForSeconds(delay);
+
         if (currentDialogueOperationHandle.Status == AsyncOperationStatus.Succeeded)
         {
             GameObject dialogObject = (GameObject)currentDialogueOperationHandle.Result;

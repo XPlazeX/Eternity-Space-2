@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 30
   _boostFirstLevel: 0
-  _levelCount: 5
+  _levelCount: 6
   _startAurite: 50
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 30, y: 40}
@@ -53,8 +53,17 @@ MonoBehaviour:
   _radioID: 4
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
-  _completedMissionLobbyDialogue: 
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: Byrill-0-G0
+  - targetLevel: 1
+    menuDialogue: Byrill-0-M1
+    gameDialogue: 
+  - targetLevel: 3
+    menuDialogue: Byrill-0-M3
+    gameDialogue: 
+  _completedMissionLobbyDialogue: Byrill-0-End
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -167,4 +176,7 @@ MonoBehaviour:
     - _neededMissionProgress: 0.66
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
-    _weightMultiplier: 6
+    _weightMultiplier: 5
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c4e165b3b2bd84ab4cb3804a1c8082, type: 3}
+  m_Name: EmeraldHeavy
+  m_EditorClassIdentifier: 
+  _enemyPacks:
+  - _weight: 4
+    _count: 3
+    _enemy: {fileID: 9069206062416828823, guid: 0065b2e964165064e9674b6cdadd97a4,
+      type: 3}
+  - _weight: 3
+    _count: 3
+    _enemy: {fileID: 9069206062416828823, guid: 0f5926c2ed8f63741a1b69688b19677e,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 43961ec9683957347914e88e19e3d0b6,
+      type: 3}
+  - _weight: 5
+    _count: 8
+    _enemy: {fileID: 9069206062416828823, guid: 25bf131c2b34ce943a0d026de98df93a,
+      type: 3}
+  - _weight: 2
+    _count: 4
+    _enemy: {fileID: 9069206062416828823, guid: 0291ae8d78b0a2942b46ec5393ccfebd,
+      type: 3}
+  - _weight: 1
+    _count: 2
+    _enemy: {fileID: 9069206062416828823, guid: ff60e033ad920c04891c74b79723160f,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 76dbb4872a0de6b4ea963db8f7c74a80,
+      type: 3}
+  - _weight: 3
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 5bc821f9bd303054f9276a2517451367,
+      type: 3}
+  - _weight: 4
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 0aa311dbdc2d0ac4e95787feb1037531,
+      type: 3}
+  - _weight: 4
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: a471b9c30cf1b56458de6fe42145d640,
+      type: 3}
+  - _weight: 4
+    _count: 1
+    _enemy: {fileID: 9069206062416828823, guid: 94c8e46f2f0d500448c542b3ec40636c,
+      type: 3}
+  - _weight: 3
+    _count: 5
+    _enemy: {fileID: 9069206062416828823, guid: ff60e033ad920c04891c74b79723160f,
+      type: 3}

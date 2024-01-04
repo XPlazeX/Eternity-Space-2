@@ -15391,8 +15391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d2674652d27784d816bbde2a781053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 0
-  _testLocationID: 10
+  _testMode: 1
+  _testLocationID: 9
 --- !u!114 &1625426972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15429,10 +15429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7029fac8ecc6c40944d8fda9638219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 0
-  _testEnemy: {fileID: 9069206062416828823, guid: 1b4b812d45f04b74c8d87d4e6267a621,
+  _test: 1
+  _testEnemy: {fileID: 9069206062416828823, guid: ec2a59f614693294caac5d788c80b939,
     type: 3}
-  _count: 8
+  _count: 1
   _testWS: {fileID: 0}
 --- !u!114 &1625426975
 MonoBehaviour:
@@ -15453,6 +15453,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  _defaultChance: 0.05
 --- !u!114 &1625426977
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,16 +45,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 33
   _boostFirstLevel: 0
-  _levelCount: 5
-  _startAurite: 50
+  _levelCount: 10
+  _startAurite: 80
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 30, y: 40}
   _nameLocalizationID: 3
   _radioID: 4
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
-  _completedMissionLobbyDialogue: 
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: Byrill-3-G0
+  - targetLevel: 4
+    menuDialogue: Byrill-3-M10
+    gameDialogue: 
+  _completedMissionLobbyDialogue: Byrill-3-End
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -148,7 +154,7 @@ MonoBehaviour:
     _windSpeed: 0.3
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: 16acb87bb2e013a4c8e56529819e1575, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
   _hasBonusSpawn: 0
@@ -180,3 +186,6 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

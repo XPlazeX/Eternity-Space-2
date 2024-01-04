@@ -47,15 +47,21 @@ MonoBehaviour:
   _unlockID: 31
   _boostFirstLevel: 0
   _levelCount: 3
-  _startAurite: 50
+  _startAurite: 80
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 0, y: 0}
   _nameLocalizationID: 0
   _radioID: 0
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
-  _completedMissionLobbyDialogue: 
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: Byrill-1-G0
+  - targetLevel: 1
+    menuDialogue: 
+    gameDialogue: Byrill-1-G1
+  _completedMissionLobbyDialogue: Byrill-1-End
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 1

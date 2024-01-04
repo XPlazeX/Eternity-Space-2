@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveSpawningMission : SpawningMission
 {
@@ -12,6 +13,9 @@ public class WaveSpawningMission : SpawningMission
     [SerializeField] private float _reloadSpawnTime = 0.5f;
     [Space()]
     [SerializeField] private LevelEnemyDatabase _levelEnemyDatabase;
+    [Space()]
+    [Header("События вызываются в начале каждой волны и передают номер волны")]
+    public UnityEvent OnNewWaveStarted;
 
     public override void StartPlay()
     {
@@ -45,5 +49,11 @@ public class WaveSpawningMission : SpawningMission
     private void StartOnSceneLoaded()
     {
         SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>().StartSpawning();
+        SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>().WaveStarted += OnSpawnerWaveStarted;
+    }
+
+    private void OnSpawnerWaveStarted(int waveID)
+    {
+        OnNewWaveStarted.Invoke();
     }
 }

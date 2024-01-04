@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTag: Player
   _rotatingTransform: {fileID: 5500839470369327556}
-  _powerHoming: 0.66
+  _powerHoming: 0.8
 --- !u!58 &6343436263849731300
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
 --- !u!50 &9174848954250578926
 Rigidbody2D:
   serializedVersion: 4
@@ -305,7 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656fd471c08527b4191f171a2096183b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionCode: 4
+  _explosionCode: 0
+  _mute: 0
   _modParams: 1
   _color: {r: 0, g: 1, b: 0.288177, a: 1}
   _scale: 0.6

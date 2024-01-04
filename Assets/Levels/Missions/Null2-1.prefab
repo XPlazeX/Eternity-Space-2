@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 21
   _boostFirstLevel: 0
-  _levelCount: 5
-  _startAurite: 50
+  _levelCount: 10
+  _startAurite: 100
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 30, y: 40}
   _nameLocalizationID: 3
@@ -174,3 +174,6 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

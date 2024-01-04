@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 22
   _boostFirstLevel: 0
-  _levelCount: 5
-  _startAurite: 50
+  _levelCount: 8
+  _startAurite: 80
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 30, y: 40}
   _nameLocalizationID: 3
@@ -63,9 +63,15 @@ MonoBehaviour:
     _backgroundObjects:
     - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
         type: 3}
-      _color: {r: 0.90099996, g: 0.6126565, b: 0.19079998, a: 0.69411767}
+      _color: {r: 0.7075472, g: 0.31492317, b: 0, a: 0.69411767}
       _position: {x: 1.1, y: -7.6, z: 0}
       _rotation: 30
+      _rotationSpread: 0
+    - _object: {fileID: 3945150267831715264, guid: 5811847d7fd52654594cc244f4ee4f9e,
+        type: 3}
+      _color: {r: 1, g: 1, b: 1, a: 1}
+      _position: {x: 0, y: 0, z: 0}
+      _rotation: 206
       _rotationSpread: 0
     _backgroundSpriteFilename: Levels/BG/Null-2
     _backgroundColor: {r: 0.62352943, g: 0.2415074, b: 0.13333331, a: 1}
@@ -137,7 +143,7 @@ MonoBehaviour:
     _windSpeed: 0.71
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: 221109c15ade2724097f33ffa4e292c2, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
   _hasBonusSpawn: 0
@@ -169,6 +175,9 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2695280256960536345
 MonoBehaviour:
   m_ObjectHideFlags: 0
