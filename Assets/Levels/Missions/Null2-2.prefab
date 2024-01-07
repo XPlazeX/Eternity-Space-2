@@ -49,13 +49,25 @@ MonoBehaviour:
   _levelCount: 8
   _startAurite: 80
   _auritePerLevel: 100
-  _minMaxCosmilite: {x: 30, y: 40}
+  _minMaxCosmilite: {x: 50, y: 75}
   _nameLocalizationID: 3
   _radioID: 4
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
-  _completedMissionLobbyDialogue: 
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: Null2-2-G0
+  - targetLevel: 2
+    menuDialogue: Null2-2-M2
+    gameDialogue: 
+  - targetLevel: 5
+    menuDialogue: 
+    gameDialogue: Null2-2-G5
+  - targetLevel: 6
+    menuDialogue: Null2-2-M6
+    gameDialogue: 
+  _completedMissionLobbyDialogue: Null2-2-End
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -153,11 +165,11 @@ MonoBehaviour:
   _bonusSpawnReload: 0
   _hasStalkers: 1
   _chance: 1
-  _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
-  _startLevelWeight: 2
-  _finalLevelWeight: 5
-  _missionWeightFinalMultiplier: 1.5
+  _firstLevelWaveCount: 4
+  _finalLevelWaveCount: 9
+  _startLevelWeight: 4
+  _finalLevelWeight: 8
+  _missionWeightFinalMultiplier: 1.85
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
   _levelEnemyDatabase:
@@ -168,10 +180,10 @@ MonoBehaviour:
     - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
         type: 2}
-    - _neededMissionProgress: 0.2
+    - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
         type: 2}
-    - _neededMissionProgress: 0.66
+    - _neededMissionProgress: 0.3
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
@@ -190,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ba28bf1bc02294fab477f6c56b84bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minMaxCount: {x: 4, y: 7}
+  _minMaxCount: {x: 3, y: 6}
   _spawnObjects:
   - {fileID: 6243127765971177891, guid: 4d915eb436c6d224490323bc6c1a9977, type: 3}
   - {fileID: 6243127765971177891, guid: 4d915eb436c6d224490323bc6c1a9977, type: 3}

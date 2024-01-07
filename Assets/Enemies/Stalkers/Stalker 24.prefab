@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 100
-  _startShieldPoints: 0
+  _hitPoints: 33
+  _startShieldPoints: 100
 --- !u!114 &9069206062416828814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
     _bulletCode: 25
     _bulletsPerFire: 7
     _fixedVector2Step: {x: 0, y: 0, z: 0}
-    _randomVector2Step: {x: 7, y: 7, z: 0}
+    _randomVector2Step: {x: 5, y: 5, z: 0}
 --- !u!114 &9069206062416828808
 MonoBehaviour:
   m_ObjectHideFlags: 0

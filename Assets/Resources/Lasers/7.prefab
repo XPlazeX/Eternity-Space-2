@@ -49,7 +49,7 @@ MonoBehaviour:
   _damageValue: 15
   _shieldDamageMultiplier: 1
   _asteroidDamageMultiplier: 1
-  _warningTime: 0.33
+  _warningTime: 0.5
   _damageTick: 0.1
 --- !u!120 &6748709974024960279
 LineRenderer:

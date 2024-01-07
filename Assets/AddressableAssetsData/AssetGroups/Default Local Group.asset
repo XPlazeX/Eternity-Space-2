@@ -218,6 +218,114 @@ MonoBehaviour:
     m_Address: Assets/Player/Characters/Sailfish-1.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 4b71afb21c21f724fb6c706c1cca426e
+    m_Address: Assets/Enemies/Stalkers/Stalker 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 05840c2223fd3b64b97b92299f5f5229
+    m_Address: Assets/Enemies/Stalkers/Stalker 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bd4ce1e48093b424986ac8bce9b153d6
+    m_Address: Assets/Enemies/Stalkers/Stalker 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd3ccb16124085a468ec9cf75637a9c1
+    m_Address: Assets/Enemies/Stalkers/Stalker 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40a37361c5415b44b96295fd64dd2c4f
+    m_Address: Assets/Enemies/Stalkers/Stalker 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0c4609fb9d4c3ec48b22383a0a509793
+    m_Address: Assets/Enemies/Stalkers/Stalker 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1c555bee09f3566468106dee83f21e7a
+    m_Address: Assets/Enemies/Stalkers/Stalker 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9218ae4565938ea4ea4de307b1fa89c9
+    m_Address: Assets/Enemies/Stalkers/Stalker 9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 687cf68a911abdb4caf9efc6040c8a19
+    m_Address: Assets/Enemies/Stalkers/Stalker 10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f210c3dfecbdc74785ab07eb530b0c8
+    m_Address: Assets/Enemies/Stalkers/Stalker 11.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 501487957896e654996e6e9dd4a60862
+    m_Address: Assets/Enemies/Stalkers/Stalker 12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7f7ac6f7f890fdc47b8f21cef0634000
+    m_Address: Assets/Enemies/Stalkers/Stalker 13.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 57b9d204fc8589042a1a1dd456d6617f
+    m_Address: Assets/Enemies/Stalkers/Stalker 14.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e15995724f35b44caea17ec3351d175
+    m_Address: Assets/Enemies/Stalkers/Stalker 15.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 45e390227b88e0845802f46cd2675ba7
+    m_Address: Assets/Enemies/Stalkers/Stalker 16.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 12c97fdd724f5d94a922d9888912e2f0
+    m_Address: Assets/Enemies/Stalkers/Stalker 17.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5730067344aa4f64cba36b8d1588c7b6
+    m_Address: Assets/Enemies/Stalkers/Stalker 18.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b0e1841610eee92498ab80d181997dbf
+    m_Address: Assets/Enemies/Stalkers/Stalker 19.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f94cbc57caf801243aca499af1318225
+    m_Address: Assets/Enemies/Stalkers/Stalker 20.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: de802f0151903b241b49424a68e2d740
+    m_Address: Assets/Enemies/Stalkers/Stalker 21.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 32cf259c813ba8d4d9d81985adcb173e
+    m_Address: Assets/Enemies/Stalkers/Stalker 22.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 258f87bcc797e0146a777ed49f839942
+    m_Address: Assets/Enemies/Stalkers/Stalker 23.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 434463724659f8d4a9cf921f55a274dc
+    m_Address: Assets/Enemies/Stalkers/Stalker 24.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec2a59f614693294caac5d788c80b939
+    m_Address: Assets/Enemies/Stalkers/Stalker 25.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 99bf133c9b6d1d5419d99284120bc9a7
+    m_Address: Assets/Enemies/Stalkers/Stalker 26.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d21c3f5daac0cf04eb3c9de233763449
+    m_Address: Assets/Enemies/Stalkers/Stalker 27.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9b41b952366f1cd4cab7d5b783c34ce4
+    m_Address: Assets/Enemies/Stalkers/Stalker 28.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

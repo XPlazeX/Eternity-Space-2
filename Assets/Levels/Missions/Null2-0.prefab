@@ -48,7 +48,7 @@ MonoBehaviour:
   _levelCount: 7
   _startAurite: 60
   _auritePerLevel: 100
-  _minMaxCosmilite: {x: 30, y: 40}
+  _minMaxCosmilite: {x: 40, y: 45}
   _nameLocalizationID: 3
   _radioID: 4
   _customShip: -1
@@ -156,9 +156,9 @@ MonoBehaviour:
   _hasStalkers: 1
   _chance: 1
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
-  _startLevelWeight: 2
-  _finalLevelWeight: 5
+  _finalLevelWaveCount: 7
+  _startLevelWeight: 3
+  _finalLevelWeight: 7
   _missionWeightFinalMultiplier: 1.5
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
@@ -170,11 +170,8 @@ MonoBehaviour:
     - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
         type: 2}
-    - _neededMissionProgress: 0.2
+    - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
-        type: 2}
-    - _neededMissionProgress: 0.66
-      _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
   OnNewWaveStarted:

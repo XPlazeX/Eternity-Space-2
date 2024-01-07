@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5255746018cfc054abb8a9b97e969d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetLevel: 0
-  _targetWave: 1
+  _targetLevel: 5
+  _targetWave: 2
 --- !u!114 &676855726170709158
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6858,7 +6858,7 @@ MonoBehaviour:
     auritePrice: 50
     requiredUnlocks: []
   - moduleOperandID: 16
-    auritePrice: 60
+    auritePrice: 50
     requiredUnlocks: []
   - moduleOperandID: 17
     auritePrice: 80
@@ -6869,7 +6869,7 @@ MonoBehaviour:
     auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 19
-    auritePrice: 200
+    auritePrice: 150
     requiredUnlocks: []
   - moduleOperandID: 20
     auritePrice: 140
@@ -6896,31 +6896,31 @@ MonoBehaviour:
     auritePrice: 85
     requiredUnlocks: []
   - moduleOperandID: 28
-    auritePrice: 125
+    auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 29
     auritePrice: 150
     requiredUnlocks: []
   - moduleOperandID: 30
-    auritePrice: 110
+    auritePrice: 125
     requiredUnlocks: []
   - moduleOperandID: 31
-    auritePrice: 140
+    auritePrice: 125
     requiredUnlocks: []
   - moduleOperandID: 32
-    auritePrice: 135
+    auritePrice: 125
     requiredUnlocks: []
   - moduleOperandID: 33
-    auritePrice: 145
+    auritePrice: 140
     requiredUnlocks: []
   - moduleOperandID: 34
-    auritePrice: 190
+    auritePrice: 175
     requiredUnlocks: []
   - moduleOperandID: 35
-    auritePrice: 110
+    auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 36
-    auritePrice: 130
+    auritePrice: 115
     requiredUnlocks: []
   - moduleOperandID: 37
     auritePrice: 200
@@ -30486,7 +30486,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}

@@ -5083,7 +5083,7 @@ MonoBehaviour:
   _autoTargetPlayer: 1
   _noiseOffset: 1
   _retreating: 1
-  _retreatTime: 1
+  _retreatTime: 3.3
   _retreatOffsetXY: {x: 1.5, y: 0.5}
 --- !u!114 &4188525758009706579
 MonoBehaviour:

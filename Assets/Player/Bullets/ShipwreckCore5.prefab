@@ -110,7 +110,7 @@ MonoBehaviour:
   _acceleration: 0
   _accelerateToZero: 0
   _piercingTargets: 2
-  _explodeOnTimer: 0
+  _explodeOnTimer: 1
 --- !u!96 &7999260474803513107
 TrailRenderer:
   serializedVersion: 2

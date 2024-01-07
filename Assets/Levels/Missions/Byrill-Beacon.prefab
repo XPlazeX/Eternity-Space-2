@@ -48,7 +48,7 @@ MonoBehaviour:
   _levelCount: 4
   _startAurite: 200
   _auritePerLevel: 80
-  _minMaxCosmilite: {x: 30, y: 40}
+  _minMaxCosmilite: {x: 25, y: 80}
   _nameLocalizationID: 3
   _radioID: 4
   _customShip: -1
@@ -133,39 +133,42 @@ MonoBehaviour:
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     _fogEmissionMultiplier: 1
-    _windSpeed: 0
+    _windSpeed: 0.47
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
-    _volume: 0.285
+    _clip: {fileID: 8300000, guid: 16acb87bb2e013a4c8e56529819e1575, type: 3}
+    _volume: 0.3
     _pitchRandomizing: 0
-  _hasBonusSpawn: 0
-  _bonusEnemies: []
-  _bonusCount: 0
-  _bonusLerpBoostOnFinalLevel: 0
-  _bonusSpawnReload: 0
+  _hasBonusSpawn: 1
+  _bonusEnemies:
+  - 2
+  - 3
+  - 6
+  - 8
+  - 10
+  - 13
+  _bonusCount: 2
+  _bonusLerpBoostOnFinalLevel: 1
+  _bonusSpawnReload: 6
   _hasStalkers: 0
   _chance: 0
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
+  _finalLevelWaveCount: 4
   _startLevelWeight: 2
-  _finalLevelWeight: 5
-  _missionWeightFinalMultiplier: 1.5
+  _finalLevelWeight: 4
+  _missionWeightFinalMultiplier: 2
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
   _levelEnemyDatabase:
     _levelPacks:
     - _neededMissionProgress: 0
-      _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85,
-        type: 2}
-    - _neededMissionProgress: 0
-      _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
+      _enemyPackObject: {fileID: 11400000, guid: b6de633fddda39044bfe8cc497181888,
         type: 2}
     - _neededMissionProgress: 0.2
-      _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
+      _enemyPackObject: {fileID: 11400000, guid: b2c504fdef64a5843898ff847e7d9c91,
         type: 2}
-    - _neededMissionProgress: 0.66
-      _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
+    - _neededMissionProgress: 0.35
+      _enemyPackObject: {fileID: 11400000, guid: 85b88a3d56dafc14ba4fdc6100e318e0,
         type: 2}
     _weightMultiplier: 6
   OnNewWaveStarted:

@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 4
+  _hoverable: 0
 --- !u!114 &738838576868626730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 13
+  _damageValue: 23
+  _hoverable: 0
 --- !u!1 &3228216205979531007
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,8 +54,8 @@ public class VictoryHandler : MonoBehaviour
         save.PrepareToNewLevel(); // Current level ++
         ModulasSaveHandler.FlushChoice();
 
-        save.RecievedCosmilite += _tempCosmilite;
-        save.RecievedPositronium += _tempPositronium;
+        Bank.PutCash(BankSystem.Currency.Cosmilite, _tempCosmilite);
+        Bank.PutCash(BankSystem.Currency.Positronium, _tempPositronium);
         Bank.PutCash(BankSystem.Currency.Aurite, _tempAurite + save.MoneyPerLevel);
 
         GameSessionInfoHandler.RewriteSessionSave(save);

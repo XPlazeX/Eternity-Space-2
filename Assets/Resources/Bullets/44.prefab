@@ -379,3 +379,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTag: Enemy
   _homingPower: 2.5
+  _waitTime: 0.33

@@ -1686,7 +1686,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0432\u0435\u0440\u0441\u0438\u044F 0.1"
+  m_Text: "\u0432\u0435\u0440\u0441\u0438\u044F 0.2 dev"
 --- !u!222 &289867127
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8761,6 +8761,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 3
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &728361071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10878,6 +10881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 1
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &1211809737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12549,6 +12555,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 4.5
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &1423645133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15947,6 +15956,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 6
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &1864292351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18072,6 +18084,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 1
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &1275194052858716303
 GameObject:
   m_ObjectHideFlags: 0
@@ -18138,6 +18153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 3
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &1691644682691054814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18425,6 +18443,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 4.5
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!114 &8164845252012026287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18517,6 +18538,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 6
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!114 &8505160792663746851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18642,6 +18666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 2
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &9158697072070951903
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ MonoBehaviour:
   _levelCount: 3
   _startAurite: 80
   _auritePerLevel: 80
-  _minMaxCosmilite: {x: 0, y: 0}
+  _minMaxCosmilite: {x: 40, y: 60}
   _nameLocalizationID: 0
   _radioID: 0
   _customShip: -1
@@ -64,7 +64,7 @@ MonoBehaviour:
   _completedMissionLobbyDialogue: Byrill-1-End
   _background:
     _beaconBG: 0
-    _cameraBordersSizeXMultiplier: 1
+    _cameraBordersSizeXMultiplier: 0.3
     _cameraBordersSizeYMultiplier: 1
     _backgroundObjects:
     - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
@@ -166,8 +166,8 @@ MonoBehaviour:
   _bonusSpawnReload: 1
   _hasStalkers: 0
   _chance: 0
-  _firstLevelTime: 45
-  _finalLevelTime: 100
+  _firstLevelTime: 60
+  _finalLevelTime: 120
 --- !u!114 &3447971739256304512
 MonoBehaviour:
   m_ObjectHideFlags: 0
