@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 543702742833015342}
   - component: {fileID: 543702742833015343}
   - component: {fileID: 6677556567886882618}
+  - component: {fileID: 2498399125379728763}
   m_Layer: 5
   m_Name: ControllableText
   m_TagString: Untagged
@@ -179,3 +180,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 543702742833015343}
+--- !u!95 &2498399125379728763
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543702742833015337}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 431a64e15165ca041925c8ebb023d3f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

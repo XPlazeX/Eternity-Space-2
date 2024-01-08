@@ -11521,6 +11521,8 @@ MonoBehaviour:
   _checkingUnlock:
     _UID: -1
     _amount: 0
+  _deleteUnlockMode: 0
+  _deletingUnlocks: 2100000023000000
   _guiStyle:
     m_Name: 
     m_Normal:
@@ -11720,7 +11722,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
@@ -16523,6 +16525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b883f90da6f2b93479251546a6ed2bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _requiresDreamEH:
+  - _UID: 33
+    _amount: 0
+  - _UID: 22
+    _amount: 0
 --- !u!4 &2043322329
 Transform:
   m_ObjectHideFlags: 0

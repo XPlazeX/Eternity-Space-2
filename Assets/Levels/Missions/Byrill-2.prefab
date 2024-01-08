@@ -50,7 +50,7 @@ MonoBehaviour:
   _startAurite: 80
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 40, y: 60}
-  _nameLocalizationID: 0
+  _nameLocalizationID: 4
   _radioID: 0
   _customShip: -1
   _customWeaponModel: 

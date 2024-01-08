@@ -18,5 +18,6 @@ public class ControllableText : MonoBehaviour
     public void SetText(int row)
     {
         _label.text = SceneLocalizator.GetLocalizedString(_filename, row, _readingColumn);
+        GetComponent<Animator>().SetTrigger("Update");
     }
 }

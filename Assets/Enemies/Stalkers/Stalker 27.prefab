@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 9
+  _deathExplosionType: 10
 --- !u!50 &9069206062416828809
 Rigidbody2D:
   serializedVersion: 4
@@ -370,7 +370,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.625, y: 0.69581795}
+  m_Size: {x: 0.51, y: 0.55}
   m_EdgeRadius: 0
 --- !u!95 &-5699246355379222676
 Animator:

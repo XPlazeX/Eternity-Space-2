@@ -788,6 +788,26 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_15
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_16
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_17
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_18
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
   _voiceClips:
   - m_AssetGUID: aca969aa9faddf145bf3021d7a236217
     m_SubObjectName: 

@@ -18,8 +18,9 @@ public class EnvironmentSpawner : MonoBehaviour
     private Dictionary<int, int> Codes = new Dictionary<int, int>();
     private float _maxTime = 0f;
 
-    public float AverageReload {get; set;}
+    public float AverageReload {get; private set;}
     public float WindAngle {get; set;} = 0f;
+    public float ReloadMultiplier {get; set;} = 1f;
 
     private void Start() {
         if (_autoStart)
@@ -66,7 +67,7 @@ public class EnvironmentSpawner : MonoBehaviour
         while (true)
         {
             SpawnObject(Mathf.RoundToInt(_selectionCurve.Evaluate(Random.Range(0f, _maxTime))));
-            yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(AverageReload));
+            yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(AverageReload * ReloadMultiplier));
         }
     }
 

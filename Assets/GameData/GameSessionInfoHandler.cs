@@ -16,6 +16,7 @@ public class GameSessionInfoHandler : MonoBehaviour
     public static int MaxLevel {get; private set;} = 0;
     public static bool FinalLevel => CurrentLevel >= MaxLevel - 1;
     public static float LevelProgress => MaxLevel == 1 ? 1 : ((float)CurrentLevel / (MaxLevel - 1));
+    public static float LevelProgressFloored => MaxLevel == 1 ? 0 : ((float)CurrentLevel / (MaxLevel - 1));
 
     private void Awake() 
     {

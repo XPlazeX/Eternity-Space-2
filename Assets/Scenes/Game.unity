@@ -6338,7 +6338,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
@@ -7055,6 +7055,8 @@ MonoBehaviour:
   _checkingUnlock:
     _UID: -1
     _amount: 0
+  _deleteUnlockMode: 0
+  _deletingUnlocks: 
   _guiStyle:
     m_Name: 
     m_Normal:
@@ -15391,7 +15393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _testMode: 0
-  _testLocationID: 16
+  _testLocationID: 18
 --- !u!114 &1625426972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15423,15 +15425,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625426961}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7029fac8ecc6c40944d8fda9638219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 0
-  _testEnemy: {fileID: 9069206062416828823, guid: b5b45aeea94db444ea4f080c871042e8,
+  _test: 1
+  _testEnemy: {fileID: 9069206062416828823, guid: 9218ae4565938ea4ea4de307b1fa89c9,
     type: 3}
-  _count: 5
+  _count: 1
   _testWS: {fileID: 0}
 --- !u!114 &1625426975
 MonoBehaviour:

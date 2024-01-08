@@ -50,11 +50,14 @@ MonoBehaviour:
   _startAurite: 125
   _auritePerLevel: 125
   _minMaxCosmilite: {x: 125, y: 200}
-  _nameLocalizationID: 3
+  _nameLocalizationID: 6
   _radioID: 4
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: EmeraldEdge-G0
   _completedMissionLobbyDialogue: 
   _background:
     _beaconBG: 0

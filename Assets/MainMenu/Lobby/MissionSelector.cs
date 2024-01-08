@@ -11,6 +11,7 @@ public class MissionSelector : MonoBehaviour
     private int _maxCosReward;
     private bool _started;
     private MissionsDatabase _missionDatabase;
+    private bool _loadAvaiable = true;
 
     private void Start() 
     {
@@ -22,6 +23,9 @@ public class MissionSelector : MonoBehaviour
 
     public void SelectMission(int ID)
     {
+        if (!_loadAvaiable)
+            return;
+
         GlobalSave gsave = GlobalSaveHandler.GetSave();
         gsave.LastSelectedLocation = ID;
         GlobalSaveHandler.RewriteSave(gsave);
@@ -64,10 +68,12 @@ public class MissionSelector : MonoBehaviour
     private IEnumerator PreparingMission(int ID)
     {
         _startButton.interactable = false;
+        _loadAvaiable = false;
 
         yield return _missionDatabase.StartCoroutine(_missionDatabase.SettingGameSessionData(ID, true));
 
         print($"Подготовлена миссия (лобби): {ID}");
         _startButton.interactable = true;
+        _loadAvaiable = true;
     }
 }

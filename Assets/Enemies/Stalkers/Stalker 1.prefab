@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &2767813033448516015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -30
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &2618118867248341553
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &157917948962450010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +413,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -15
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &6675220230644707351
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &5305372039646631411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +621,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -16
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &6808847708440602347
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &2089318153376785417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +829,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -15.5
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &7985377860373131827
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &1200517797218271012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1037,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -14
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &9069206062416828815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 8
+  _deathExplosionType: 14
 --- !u!50 &9069206062416828809
 Rigidbody2D:
   serializedVersion: 4
@@ -1267,7 +1287,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.93550557, y: 0.3978101}
+  m_Size: {x: 1.45, y: 0.58}
   m_EdgeRadius: 0
 --- !u!95 &1498424832729120637
 Animator:
