@@ -55,4 +55,4 @@ MonoBehaviour:
   _pitchSpread: 0
   _customWeaponRoot: {fileID: 0}
   _bulletCount: 5
-  _angleStep: 8
+  _angleStep: 11

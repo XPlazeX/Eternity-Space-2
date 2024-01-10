@@ -6338,7 +6338,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
@@ -8265,7 +8265,8 @@ MonoBehaviour:
   _testWeaponPattern: {fileID: 2064451516607518026, guid: 1f7523bfb919c8a4d897fb7457c33bac,
     type: 3}
   _testDevice: {fileID: 0}
-  _testLoadingModules: []
+  _testLoadingModules:
+  - {fileID: 4128665657442192847, guid: 50c9a6834c727de4e8f31b072a7b45c1, type: 3}
 --- !u!114 &770287096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15341,7 +15342,7 @@ MonoBehaviour:
   _wsSelectors:
   - weightSelector: {fileID: 2891289184826753115, guid: ef676aaf666bcd04c83986ee79ea1b35,
       type: 3}
-    selectChance: 0.4
+    selectChance: 0.5
     minimumLevel: 0
   - weightSelector: {fileID: 2891289184826753115, guid: 3d4200b898ad5c74a8d45a9edd9ececb,
       type: 3}
@@ -15430,8 +15431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7029fac8ecc6c40944d8fda9638219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 1
-  _testEnemy: {fileID: 9069206062416828823, guid: 9218ae4565938ea4ea4de307b1fa89c9,
+  _test: 0
+  _testEnemy: {fileID: 9069206062416828823, guid: 434463724659f8d4a9cf921f55a274dc,
     type: 3}
   _count: 1
   _testWS: {fileID: 0}
@@ -15559,6 +15560,10 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   - m_AssetGUID: 9b41b952366f1cd4cab7d5b783c34ce4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: d0823d9d062d90d46923d1a9e7c0b4da
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

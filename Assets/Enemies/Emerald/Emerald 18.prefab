@@ -1169,9 +1169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoStart: 1
-  _speed: 2
+  _speed: 1.5
   _orientation: 2
-  _rotationSpeed: 0.85
+  _rotationSpeed: 0.5
   _movingProgression:
     serializedVersion: 2
     m_Curve:

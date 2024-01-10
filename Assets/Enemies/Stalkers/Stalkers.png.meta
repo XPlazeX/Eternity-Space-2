@@ -248,6 +248,9 @@ TextureImporter:
   - first:
       213: 4593149447322950581
     second: Stalkers_22
+  - first:
+      213: 858599317456061725
+    second: Stalkers_41
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -2054,7 +2057,7 @@ TextureImporter:
         width: 11
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2062,6 +2065,27 @@ TextureImporter:
       bones: []
       spriteID: 5bb57f736152ebf30800000000000000
       internalID: 4593149447322950581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalkers_41
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 65
+        width: 22
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.725736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d158c59b78b5aeb00800000000000000
+      internalID: 858599317456061725
       vertices: []
       indices: 
       edges: []

@@ -106,7 +106,7 @@ MonoBehaviour:
   _explosionAnimators:
   - {fileID: 448841916602678942}
   _animationTime: 0.6
-  _explosionPower: 0.5
+  _explosionPower: 0
   _sound:
     _clip: {fileID: 0}
     _volume: 0

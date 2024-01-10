@@ -6822,7 +6822,7 @@ MonoBehaviour:
     auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 4
-    auritePrice: 69
+    auritePrice: 99
     requiredUnlocks: []
   - moduleOperandID: 5
     auritePrice: 90
@@ -6920,7 +6920,7 @@ MonoBehaviour:
     auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 36
-    auritePrice: 115
+    auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 37
     auritePrice: 200
@@ -25433,6 +25433,8 @@ MonoBehaviour:
   _checkingUnlock:
     _UID: -1
     _amount: 0
+  _deleteUnlockMode: 0
+  _deletingUnlocks: 
   _guiStyle:
     m_Name: 
     m_Normal:
@@ -30486,7 +30488,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}

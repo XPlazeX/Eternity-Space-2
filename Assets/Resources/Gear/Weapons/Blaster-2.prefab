@@ -54,4 +54,4 @@ MonoBehaviour:
   _startPitch: 1.225
   _pitchSpread: 0
   _customWeaponRoot: {fileID: 0}
-  _barrelIndexes: 010000000200000000000000
+  _barrelIndexes: 000000000100000002000000

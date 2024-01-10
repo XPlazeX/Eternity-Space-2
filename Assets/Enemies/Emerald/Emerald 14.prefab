@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 4.5
+  _attackReload: 5
   _attackObjects:
   - _cycles: 2
     _timeBetweenCycles: 0.66

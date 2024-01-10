@@ -221,7 +221,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _offsetDistance: 4.5
-  _timeToReloadCirclePoint: 5
+  _timeToReloadCirclePoint: 4
   _autoTargetPlayer: 1
 --- !u!114 &4916566158284321736
 MonoBehaviour:
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 4
-  _attackReload: 10
+  _attackReload: 15
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0

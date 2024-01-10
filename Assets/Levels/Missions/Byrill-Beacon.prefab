@@ -50,7 +50,7 @@ MonoBehaviour:
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 25, y: 80}
   _nameLocalizationID: 2
-  _radioID: 4
+  _radioID: 14
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers: []

@@ -330,6 +330,10 @@ MonoBehaviour:
     m_Address: Assets/Levels/Missions/Dream-EventHorizon.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d0823d9d062d90d46923d1a9e7c0b4da
+    m_Address: Assets/Enemies/Stalkers/Stalker 29.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

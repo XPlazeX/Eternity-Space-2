@@ -146,11 +146,14 @@ MonoBehaviour:
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 10
   _finalLevelWaveCount: 10
-  _startLevelWeight: 4
-  _finalLevelWeight: 12
+  _startLevelWeight: 6
+  _finalLevelWeight: 18
   _missionWeightFinalMultiplier: 1
   _enemyBuffer: 0
   _reloadSpawnTime: 0.33
@@ -160,6 +163,9 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: d8df9cfd634863f46a85e307bad90745,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5112445179432358233
 MonoBehaviour:
   m_ObjectHideFlags: 0

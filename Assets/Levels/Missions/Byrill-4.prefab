@@ -50,7 +50,7 @@ MonoBehaviour:
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 40, y: 80}
   _nameLocalizationID: 4
-  _radioID: 4
+  _radioID: 10
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -60,7 +60,7 @@ MonoBehaviour:
   - targetLevel: 1
     menuDialogue: Byrill-3-M1
     gameDialogue: 
-  - targetLevel: 10
+  - targetLevel: 9
     menuDialogue: Byrill-3-M10
     gameDialogue: 
   _completedMissionLobbyDialogue: Byrill-3-End
@@ -165,13 +165,13 @@ MonoBehaviour:
   - 43
   _bonusCount: 1
   _bonusLerpBoostOnFinalLevel: 2
-  _bonusSpawnReload: 12
+  _bonusSpawnReload: 16
   _hasStalkers: 0
   _chance: 0
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 8
-  _startLevelWeight: 4
-  _finalLevelWeight: 8
+  _finalLevelWaveCount: 7
+  _startLevelWeight: 3
+  _finalLevelWeight: 6
   _missionWeightFinalMultiplier: 2
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5

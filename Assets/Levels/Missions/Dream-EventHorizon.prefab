@@ -294,7 +294,12 @@ PrefabInstance:
     - target: {fileID: 5813631878105058035, guid: 0c35170c49eec0e4ca3275a1c6a50725,
         type: 3}
       propertyPath: _jumpPower
-      value: 42
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813631878105058035, guid: 0c35170c49eec0e4ca3275a1c6a50725,
+        type: 3}
+      propertyPath: _noSpreadJumpPower
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c35170c49eec0e4ca3275a1c6a50725, type: 3}

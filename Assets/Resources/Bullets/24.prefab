@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTag: Player
   _homingPower: 4
+  _waitTime: 0
 --- !u!50 &965381140312984591
 Rigidbody2D:
   serializedVersion: 4
@@ -408,7 +409,7 @@ MonoBehaviour:
   _explosionCode: 16
   _mute: 0
   _modParams: 0
-  _color: {r: 0.48538494, g: 0, b: 1, a: 1}
-  _scale: 0.8
+  _color: {r: 0.06170094, g: 1, b: 0, a: 1}
+  _scale: 2
   _shakePower: 0
   _damage: 0

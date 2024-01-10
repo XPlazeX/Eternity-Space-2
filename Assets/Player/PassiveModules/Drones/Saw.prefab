@@ -104,17 +104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoStart: 1
-  _speed: 1.25
+  _speed: 2.5
   _orientation: 0
-  _rotationSpeed: 4
+  _rotationSpeed: 6
   _movingProgression:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _closingDistance: 3.5
-  _rotationAroundSpeedMultiplier: 60
+  _closingDistance: 3.66
+  _rotationAroundSpeedMultiplier: 30
 --- !u!114 &1039798824412622173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 23
+  _damageValue: 30
   _hoverable: 0
 --- !u!1 &3228216205979531007
 GameObject:

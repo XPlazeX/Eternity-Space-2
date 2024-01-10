@@ -51,7 +51,7 @@ MonoBehaviour:
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 50, y: 75}
   _nameLocalizationID: 3
-  _radioID: 4
+  _radioID: 13
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -167,8 +167,8 @@ MonoBehaviour:
   _chance: 1
   _firstLevelWaveCount: 4
   _finalLevelWaveCount: 9
-  _startLevelWeight: 4
-  _finalLevelWeight: 8
+  _startLevelWeight: 3
+  _finalLevelWeight: 6
   _missionWeightFinalMultiplier: 1.85
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
