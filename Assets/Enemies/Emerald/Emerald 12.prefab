@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 44
+  _hitPoints: 40
   _startShieldPoints: 0
 --- !u!114 &4098054914371315080
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 8
+  _attackReload: 9.5
   _attackObjects:
   - _cycles: 3
     _timeBetweenCycles: 0.2

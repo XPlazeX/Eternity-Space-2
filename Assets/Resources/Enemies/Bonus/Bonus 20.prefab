@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 112
+  _hitPoints: 77
   _startShieldPoints: 0
 --- !u!114 &5328834294763884746
 MonoBehaviour:
@@ -472,6 +472,7 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 20
     _randomizingBulletSpeed: 0.2
+    _soundOnFireID: 1
 --- !u!1001 &1259039703454837903
 PrefabInstance:
   m_ObjectHideFlags: 0

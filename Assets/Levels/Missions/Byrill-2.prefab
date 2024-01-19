@@ -162,8 +162,8 @@ MonoBehaviour:
   _bonusEnemies:
   - 1
   _bonusCount: 0
-  _bonusLerpBoostOnFinalLevel: 3
-  _bonusSpawnReload: 1
+  _bonusLerpBoostOnFinalLevel: 2
+  _bonusSpawnReload: 6
   _hasStalkers: 0
   _chance: 0
   _firstLevelTime: 60

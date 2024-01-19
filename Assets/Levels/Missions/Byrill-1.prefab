@@ -159,7 +159,7 @@ MonoBehaviour:
   _finalLevelWaveCount: 5
   _startLevelWeight: 3
   _finalLevelWeight: 5
-  _missionWeightFinalMultiplier: 1.66
+  _missionWeightFinalMultiplier: 1.5
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
   _levelEnemyDatabase:

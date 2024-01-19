@@ -165,7 +165,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1451491788174430269
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &6751523034223437709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +341,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5896900375546931955
@@ -357,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &94061094640402314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +517,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8219312012764368373
@@ -532,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &5124226077757447895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,7 +774,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1819521133177235659
@@ -788,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &1557238110015785888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +950,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1377803801569857492
@@ -963,6 +967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 10
+  _hoverable: 0
 --- !u!114 &5964893554179041423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,7 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 85
+  _hitPoints: 60
   _startShieldPoints: 0
 --- !u!114 &9069206062416828814
 MonoBehaviour:
@@ -1448,6 +1453,11 @@ MonoBehaviour:
   _startAngle: 0
   _angleStep: 0
   _randomAngleStep: 180
+  _randomizeSpeed: 0
+  _sound:
+    _clip: {fileID: 0}
+    _volume: 0
+    _pitchRandomizing: 0
 --- !u!1 &9090956436083263997
 GameObject:
   m_ObjectHideFlags: 0

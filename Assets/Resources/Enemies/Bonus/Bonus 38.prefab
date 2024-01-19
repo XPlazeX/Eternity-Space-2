@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 150
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &1157123304994547076
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +184,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4473491885607572224
@@ -198,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 50
+  _hoverable: 0
 --- !u!50 &4212462741540522902
 Rigidbody2D:
   serializedVersion: 4
@@ -492,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 158
+  _hitPoints: 100
   _startShieldPoints: 0
 --- !u!114 &-1174939864238941926
 MonoBehaviour:

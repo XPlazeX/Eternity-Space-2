@@ -440,6 +440,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _startAngleDeviation: 0
   _jumpPower: 15
+  _noSpreadJumpPower: 0
 --- !u!114 &5292186451697319176
 MonoBehaviour:
   m_ObjectHideFlags: 0

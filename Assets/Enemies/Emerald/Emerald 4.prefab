@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 4
-  _attackReload: 8
+  _attackReload: 10
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _startAngleDeviation: 7.5
   _jumpPower: 7.5
+  _noSpreadJumpPower: 0
 --- !u!114 &9069206062416828808
 MonoBehaviour:
   m_ObjectHideFlags: 0

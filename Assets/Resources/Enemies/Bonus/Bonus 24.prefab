@@ -97,6 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 150
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &5617292144243986099
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -150
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &9069206062416828815
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 250
+  _hitPoints: 140
   _startShieldPoints: 0
 --- !u!114 &6569081757905819860
 MonoBehaviour:
@@ -368,6 +374,7 @@ MonoBehaviour:
     _fixedAngleStep: 18
     _randomAngleStep: 6
     _randomizingBulletSpeed: 0
+    _soundOnFireID: 1
 --- !u!114 &9069206062416828808
 MonoBehaviour:
   m_ObjectHideFlags: 0

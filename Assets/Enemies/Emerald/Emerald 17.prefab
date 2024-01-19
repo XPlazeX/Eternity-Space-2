@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 9
+  _attackReload: 12
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 2.5
-  _attackReload: 5
+  _attackReload: 6.6
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0
