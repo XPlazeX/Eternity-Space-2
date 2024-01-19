@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8675445030596896783}
   - component: {fileID: 1363647615197831078}
-  - component: {fileID: 2621465754474426917}
+  - component: {fileID: 5077817924765386944}
   m_Layer: 0
   m_Name: BigFIre
   m_TagString: Untagged
@@ -48,7 +48,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 7119590795678000302, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  m_Sprite: {fileID: 7119590795678000302, guid: e0575c41d6f98c7488ce1296d2144704,
+    type: 3}
   m_Color: {r: 1, g: 0.5137317, b: 0, a: 0.77254903}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,25 +84,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2621465754474426917
-Animator:
-  serializedVersion: 3
+--- !u!114 &5077817924765386944
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57680380439807843}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35980811df73fdd4c877b4db1a5f352a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bda5c1bc9f4b84f9ce516a184fe853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frames:
+  - {fileID: 7119590795678000302, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: -1017689038774455504, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 7005017476905301018, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 3188493022985713068, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: -3180023469336969901, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  _frameTime: 0.08
 --- !u!1 &4118131889214677241
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +150,6 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

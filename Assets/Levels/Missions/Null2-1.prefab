@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5972983307079532163}
   - component: {fileID: 4671021735225386770}
+  - component: {fileID: 5236701312438023101}
   m_Layer: 0
   m_Name: Null2-1
   m_TagString: Untagged
@@ -45,16 +46,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 21
   _boostFirstLevel: 0
-  _levelCount: 5
-  _startAurite: 50
+  _levelCount: 10
+  _startAurite: 100
   _auritePerLevel: 100
-  _minMaxCosmilite: {x: 30, y: 40}
-  _nameLocalizationID: 3
-  _radioID: 4
+  _minMaxCosmilite: {x: 50, y: 65}
+  _nameLocalizationID: 5
+  _radioID: 12
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
-  _completedMissionLobbyDialogue: 
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: Null2-1-G0
+  - targetLevel: 1
+    menuDialogue: Null2-1-M1
+    gameDialogue: 
+  - targetLevel: 5
+    menuDialogue: Null2-1-M5
+    gameDialogue: 
+  - targetLevel: 9
+    menuDialogue: Null2-1-M9
+    gameDialogue: 
+  _completedMissionLobbyDialogue: Null2-1-End
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -142,7 +155,7 @@ MonoBehaviour:
     _windSpeed: 0.71
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: 221109c15ade2724097f33ffa4e292c2, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
   _hasBonusSpawn: 0
@@ -152,11 +165,11 @@ MonoBehaviour:
   _bonusSpawnReload: 0
   _hasStalkers: 0
   _chance: 0
-  _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
-  _startLevelWeight: 2
-  _finalLevelWeight: 5
-  _missionWeightFinalMultiplier: 1.5
+  _firstLevelWaveCount: 4
+  _finalLevelWaveCount: 8
+  _startLevelWeight: 3
+  _finalLevelWeight: 6
+  _missionWeightFinalMultiplier: 1.85
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
   _levelEnemyDatabase:
@@ -167,10 +180,34 @@ MonoBehaviour:
     - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
         type: 2}
-    - _neededMissionProgress: 0.2
+    - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
         type: 2}
-    - _neededMissionProgress: 0.66
+    - _neededMissionProgress: 0.4
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5236701312438023101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409399996074538531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ba28bf1bc02294fab477f6c56b84bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minMaxCount: {x: 4, y: 7}
+  _spawnObjects:
+  - {fileID: 6243127765971177891, guid: 4d915eb436c6d224490323bc6c1a9977, type: 3}
+  - {fileID: 6243127765971177891, guid: 4d915eb436c6d224490323bc6c1a9977, type: 3}
+  - {fileID: 6243127765971177891, guid: dade223173991c644ae2149816892838, type: 3}
+  - {fileID: 6243127765971177891, guid: da4d7e901695bd5468db7e9903661c5b, type: 3}
+  - {fileID: 6243127765971177891, guid: 5a38659845b980f48abbe75c9d174388, type: 3}
+  - {fileID: 6243127765971177891, guid: ffcb0612274329942a9e072973e39d7f, type: 3}
+  _autostart: 1

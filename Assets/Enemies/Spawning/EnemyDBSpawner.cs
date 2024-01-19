@@ -8,6 +8,7 @@ public class EnemyDBSpawner : SpawnerRoot
 
     public event spawnerAction WaveCompleted;
     public event spawnerAction EnemyKilled;
+    public event spawnerNumericAction WaveStarted;
 
     [SerializeField] private WeightSelectorSelector[] _wsSelectors;
     [Space()]
@@ -121,6 +122,7 @@ public class EnemyDBSpawner : SpawnerRoot
 
     protected override IEnumerator SpawnBody()
     {
+        WaveStarted?.Invoke(_currentWave);
         int aviableWeight = Mathf.CeilToInt(Mathf.Lerp(StartWeight, FinalWeight, (float)_currentWave / WaveCount));
 
         _waveWeight = aviableWeight;

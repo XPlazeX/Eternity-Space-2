@@ -4,6 +4,7 @@ using UnityEngine;
 public class SpawnerRoot : MonoBehaviour
 {
     public delegate void spawnerAction();
+    public delegate void spawnerNumericAction(int num);
     public event spawnerAction SpawnerEnded;
 
     [Space()]

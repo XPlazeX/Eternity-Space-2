@@ -7,6 +7,8 @@ public class LabCategory : ScriptableObject
 
     private int _currentID = 0;
 
+    public Blueprint[] Blueprints => _blueprints;
+
     public Blueprint SelectBlueprint(int ID)
     {
         _currentID = ID;

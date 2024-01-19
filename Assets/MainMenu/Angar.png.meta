@@ -74,8 +74,20 @@ TextureImporter:
   - first:
       213: 6063822619609936806
     second: Angar_11
+  - first:
+      213: -623859496033481858
+    second: Angar_13
+  - first:
+      213: -7921517150186868476
+    second: Angar_14
+  - first:
+      213: -3702401792256998472
+    second: Angar_15
+  - first:
+      213: -8335213089741392711
+    second: Angar_16
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,12 +104,9 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -129,15 +138,10 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -499,6 +503,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Angar_13
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 442
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5319805, y: 0.28071022}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b8b2df71b9757f0800000000000000
+      internalID: -623859496033481858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_14
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 442
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.46913433, y: 0.28222084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40172f43f1e111290800000000000000
+      internalID: -7921517150186868476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_15
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 442
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.46753597, y: 0.7200432}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b380c4af2d6e9cc0800000000000000
+      internalID: -3702401792256998472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_16
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 399
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.53095055, y: 0.71806526}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b437c25bdf535c80800000000000000
+      internalID: -8335213089741392711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -509,22 +597,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Angar_2: 8209380045960735173
-      Angar_0: -5406737827980274024
-      Angar_4: 6497344672769789388
-      Angar_11: -5058414625190862763
-      Angar_7: -7878686372682496307
-      Angar_5: 6982100264143426722
-      Angar_3: -1322469603994264839
-      Angar_10: 8420180825251520317
-      Angar_8: 7466074178090948381
-      Angar_6: -7220615973881021912
-      Angar_12: 2700236729600030550
-      Angar_9: 6881424348197048107
-      Angar_1: -3975625545865135740
   spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

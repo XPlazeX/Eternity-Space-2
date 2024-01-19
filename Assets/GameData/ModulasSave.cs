@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ModuleWork;
 
 [System.Serializable]
 public class ModulasSave
@@ -28,7 +29,7 @@ public class ModulasSave
 
         for (int i = 0; i < PassiveEvents.Count; i++)
         {
-            if (!PassiveEvents[i].stackable || PassiveEvents[i].isPack)
+            if (PassiveEvents[i].stackType != ModuleStackType.Stacking)
                 uniques.Add(PassiveEvents[i].moduleOperandID);
         }
 
@@ -37,12 +38,12 @@ public class ModulasSave
 
     public void AddEvent(LevelEvent levelEvent)
     {
-        if (levelEvent.isPack)
+        if (levelEvent.stackType == ModuleStackType.Pack)
         {
             AddPackEvent(levelEvent);
             return;
         }
-        if (levelEvent.destroyOnNextLevel)
+        if (levelEvent.oneLeveled)
         {
             LevelEvents.Add(levelEvent);
         } 
@@ -56,7 +57,7 @@ public class ModulasSave
     {
         for (int i = 0; i < PassiveEvents.Count; i++)
         {
-            if (PassiveEvents[i].isPack)
+            if (PassiveEvents[i].stackType == ModuleStackType.Pack)
             {
                 PassiveEvents.RemoveAt(i);
                 break;
@@ -82,6 +83,7 @@ public class ModulasSave
     public void FlushLevel()
     {
         LevelEvents = new List<LevelEvent>();
+        UnityEngine.Debug.Log("Очищены одноуровневые ивенты");
         ActiveEventDatas = new ActiveEventData[0];
 
         EventsLoaded = false;

@@ -119,10 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnerModifier:
-    _additiveWaveCountMultiplier: 1.33
+    _additiveWaveCountMultiplier: 1.5
     _additiveWeightMultiplier: 0.7
     _additiveEnemyBuffer: 2
-    _enemySpawnReloadMultiplier: 0.2
+    _enemySpawnReloadMultiplier: 0.5
     _flatBonusEnemiesBonus: 0
     _bonusEnemySpawnReloadMultiplier: 0.9
     _levelProgression: 0

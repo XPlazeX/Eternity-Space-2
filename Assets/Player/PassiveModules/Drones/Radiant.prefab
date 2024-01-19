@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 9069206062416828809}
   - component: {fileID: 9069206062416828810}
   - component: {fileID: 2643619014507769924}
+  - component: {fileID: 8290657254997633710}
   m_Layer: 12
   m_Name: Radiant
   m_TagString: Untagged
@@ -225,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 6
+  _attackReload: 4
   _attackObjects:
   - _cycles: 3
     _timeBetweenCycles: 0.15
@@ -319,6 +320,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8290657254997633710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069206062416828815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d55fbb4ee843e4ab89059e6e9112d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ruStoreSprite: {fileID: 1071754697261867086, guid: a118f54bfedf6af44b9739f22e34e6bd,
+    type: 3}
 --- !u!1001 &3627821849772330827
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: cf39df522ebc03549b705fb5945a8ffc
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4724276017062545407
+    second: BonusEnemies_56
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,12 +23,9 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -57,15 +57,10 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1330,6 +1325,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BonusEnemies_56
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 37
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.67704797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108f6162effff6eb0800000000000000
+      internalID: -4724276017062545407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1340,65 +1356,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      BonusEnemies_47: -1641439414
-      BonusEnemies_26: 74823851
-      BonusEnemies_34: -1708308465
-      BonusEnemies_6: -493051414
-      BonusEnemies_10: 2036647544
-      BonusEnemies_9: 1582694011
-      BonusEnemies_44: 686179710
-      BonusEnemies_33: -677254090
-      BonusEnemies_15: 423595750
-      BonusEnemies_3: -563814000
-      BonusEnemies_39: -1057162422
-      BonusEnemies_13: -1443176672
-      BonusEnemies_0: 10372614
-      BonusEnemies_50: -160395719
-      BonusEnemies_17: -1761523548
-      BonusEnemies_54: 1408797961
-      BonusEnemies_31: -657586275
-      BonusEnemies_51: -1125466462
-      BonusEnemies_27: -1976912367
-      BonusEnemies_46: 939129438
-      BonusEnemies_48: -388317682
-      BonusEnemies_40: -2009611930
-      BonusEnemies_14: 1813270858
-      BonusEnemies_4: 1297072419
-      BonusEnemies_8: 1324250769
-      BonusEnemies_29: -2092602810
-      BonusEnemies_28: -428841170
-      BonusEnemies_43: 175198577
-      BonusEnemies_30: -693674656
-      BonusEnemies_21: 1940439811
-      BonusEnemies_36: 1053342949
-      BonusEnemies_42: 151361551
-      BonusEnemies_41: 1576092101
-      BonusEnemies_38: -1359964802
-      BonusEnemies_7: -1689395070
-      BonusEnemies_11: 1723562924
-      BonusEnemies_22: -1396721954
-      BonusEnemies_16: 1846182457
-      BonusEnemies_19: 27049735
-      BonusEnemies_49: 139350431
-      BonusEnemies_32: 406680309
-      BonusEnemies_37: 125586191
-      BonusEnemies_52: -896670559
-      BonusEnemies_24: -732965645
-      BonusEnemies_20: -539379635
-      BonusEnemies_2: 2139800206
-      BonusEnemies_53: 17924488
-      BonusEnemies_5: 1863572790
-      BonusEnemies_35: 108597043
-      BonusEnemies_23: -1333053761
-      BonusEnemies_1: 189527188
-      BonusEnemies_55: -420680840
-      BonusEnemies_18: -1900068611
-      BonusEnemies_45: -1289705929
-      BonusEnemies_12: 335177615
-      BonusEnemies_25: 1967773467
   spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

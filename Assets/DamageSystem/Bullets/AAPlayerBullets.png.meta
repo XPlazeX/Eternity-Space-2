@@ -341,6 +341,36 @@ TextureImporter:
   - first:
       213: -7274521858496642960
     second: PlayerBullets_112
+  - first:
+      213: -3272103051075161603
+    second: AAPlayerBullets_0
+  - first:
+      213: -4973433786314938767
+    second: AAPlayerBullets_1
+  - first:
+      213: 220803674136563859
+    second: AAPlayerBullets_2
+  - first:
+      213: -7386367638697506495
+    second: AAPlayerBullets_3
+  - first:
+      213: 5269322578367909024
+    second: AAPlayerBullets_4
+  - first:
+      213: 7079783492482624177
+    second: AAPlayerBullets_5
+  - first:
+      213: -7003454618015257034
+    second: AAPlayerBullets_6
+  - first:
+      213: -4983711983143594322
+    second: AAPlayerBullets_7
+  - first:
+      213: -4361888641402834428
+    second: AAPlayerBullets_8
+  - first:
+      213: -2147419943287908874
+    second: AAPlayerBullets_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -2854,6 +2884,216 @@ TextureImporter:
       bones: []
       spriteID: 0704e7969e4bb0b90800000000000000
       internalID: -7274521858496642960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_0
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 93
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df171348c972792d0800000000000000
+      internalID: -3272103051075161603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_1
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 88
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176a5cc5250dafab0800000000000000
+      internalID: -4973433786314938767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 80
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390d20295c3701300800000000000000
+      internalID: 220803674136563859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_3
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 92
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1498efa64c95e7990800000000000000
+      internalID: -7386367638697506495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_4
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 99
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac809a87f4602940800000000000000
+      internalID: 5269322578367909024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_5
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 77
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bae91c7391704260800000000000000
+      internalID: 7079783492482624177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 71
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ea1ac712bbece90800000000000000
+      internalID: -7003454618015257034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 66
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea65edd2b5c46dab0800000000000000
+      internalID: -4983711983143594322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_8
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 57
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4027f5314657773c0800000000000000
+      internalID: -4361888641402834428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_9
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 58
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f51cb860f4d232e0800000000000000
+      internalID: -2147419943287908874
       vertices: []
       indices: 
       edges: []

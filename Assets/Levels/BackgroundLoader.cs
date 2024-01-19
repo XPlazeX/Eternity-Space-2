@@ -11,8 +11,8 @@ public class BackgroundLoader
 
     [Header("Нормальный размер 8.75 на 5")]
     [SerializeField] private bool _beaconBG = false;
-    [SerializeField][Range(0f, 2.5f)] private float _cameraBordersSizeXMultiplier = 1f;
-    [SerializeField][Range(0f, 2.5f)] private float _cameraBordersSizeYMultiplier = 1f;
+    [SerializeField][Range(0f, 4f)] private float _cameraBordersSizeXMultiplier = 1f;
+    [SerializeField][Range(0f, 4f)] private float _cameraBordersSizeYMultiplier = 1f;
     [Space()]
     [SerializeField] private BackgroundObject[] _backgroundObjects;
     [Space()]

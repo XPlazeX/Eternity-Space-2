@@ -1,23 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class _Homing_ : MonoBehaviour
 {
     [SerializeField] private string _targetTag;
     [SerializeField] private float _homingPower;
+    [SerializeField] private float _waitTime = 0f;
 
     private Transform _target;
     private float _checkReloadTimer;
+    private float _waitTimer;
 
     public string TargetTag => _targetTag;
     public float HomingPower => _homingPower; 
 
     private void OnEnable() {
         _checkReloadTimer = 0f;
+        _waitTimer = _waitTime;
+    }
+
+    public void ModParams(string targetTag, float homingPower)
+    {
+        _targetTag = targetTag;
+        _homingPower = homingPower;
     }
 
     private void FixedUpdate() {
+        _waitTimer -= Time.deltaTime;
+
+        if (_waitTimer > 0f)
+            return;
+            
         _checkReloadTimer -= Time.deltaTime;
         if (_checkReloadTimer <= 0)
         {

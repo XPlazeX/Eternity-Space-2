@@ -122,7 +122,7 @@ MonoBehaviour:
     _additiveWaveCountMultiplier: 0.1
     _additiveWeightMultiplier: 5
     _additiveEnemyBuffer: 0
-    _enemySpawnReloadMultiplier: 3
+    _enemySpawnReloadMultiplier: 2
     _flatBonusEnemiesBonus: 0
     _bonusEnemySpawnReloadMultiplier: 1
     _levelProgression: 0

@@ -5,6 +5,7 @@ public class OnePointAI : EnemyAIRoot
     [Space()]
     [Range(0f, 40f)][SerializeField] private float _startAngleDeviation;
     [SerializeField] private float _jumpPower;
+    [SerializeField] private bool _noSpreadJumpPower = false;
 
     private Vector3 _selectedDirection;
     private float _passedWay = 0f;
@@ -12,7 +13,8 @@ public class OnePointAI : EnemyAIRoot
     protected override void Start() 
     {
         _selectedDirection = Quaternion.Euler(0, 0, Random.Range(-_startAngleDeviation, _startAngleDeviation)) * transform.up;
-        _jumpPower = SceneStatics.MultiplyByChaos(_jumpPower);
+        if (!_noSpreadJumpPower)
+            _jumpPower = SceneStatics.MultiplyByChaos(_jumpPower);
         _targetPosition = transform.position + (_selectedDirection.normalized * _jumpPower);
 
         base.Start();

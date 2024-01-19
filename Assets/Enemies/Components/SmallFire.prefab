@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2981578838078379799}
   - component: {fileID: 5307671392625045316}
-  - component: {fileID: 699817522401307930}
+  - component: {fileID: 8220985975454445091}
   m_Layer: 0
   m_Name: SmallFire
   m_TagString: Untagged
@@ -28,7 +28,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.633, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8163795234662800612}
   m_Father: {fileID: 0}
@@ -45,12 +44,10 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 4643055009716374612, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  m_Sprite: {fileID: 5920582775740813497, guid: e0575c41d6f98c7488ce1296d2144704,
+    type: 3}
   m_Color: {r: 1, g: 0.5952402, b: 0, a: 0.69803923}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,26 +84,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &699817522401307930
-Animator:
-  serializedVersion: 4
+--- !u!114 &8220985975454445091
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2639839672171094617}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 31ccff19ef1b4c44cb840c5f0bd96082, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bda5c1bc9f4b84f9ce516a184fe853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frames:
+  - {fileID: 5920582775740813497, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 8627830642043555193, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 4643055009716374612, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 4878000140956054308, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: -617764689107002770, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  _frameTime: 0.08
 --- !u!1 &5207029348331000435
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,14 +130,13 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.037, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2981578838078379799}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &8441278524704536773
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,12 +146,10 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -241,11 +235,8 @@ TrailRenderer:
     numCapVertices: 3
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0

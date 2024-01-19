@@ -66,4 +66,11 @@ public class GlobalSave
         else return Unlocks[code];
 
     }
+    #if UNITY_EDITOR
+    public void RemoveUnlock(int code)
+    {
+        UnityEngine.Debug.Log($"unlock: {code} had progress {Unlocks[code]}, but was removed");
+        Unlocks.Remove(code);
+    }
+    #endif
 }

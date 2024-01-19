@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9005991823833437051
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 16
+  _hoverable: 0
 --- !u!50 &1723084191443096304
 Rigidbody2D:
   serializedVersion: 4
@@ -241,7 +242,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &921762324014560378
@@ -258,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 16
+  _hoverable: 0
 --- !u!50 &8562466733709972953
 Rigidbody2D:
   serializedVersion: 4
@@ -423,8 +425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 66
-  _startShieldPoints: 66
+  _hitPoints: 44
+  _startShieldPoints: 44
 --- !u!114 &9069206062416828814
 MonoBehaviour:
   m_ObjectHideFlags: 0

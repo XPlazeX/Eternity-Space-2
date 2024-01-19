@@ -47,18 +47,24 @@ MonoBehaviour:
   _unlockID: 31
   _boostFirstLevel: 0
   _levelCount: 3
-  _startAurite: 50
+  _startAurite: 80
   _auritePerLevel: 80
-  _minMaxCosmilite: {x: 0, y: 0}
-  _nameLocalizationID: 0
-  _radioID: 0
+  _minMaxCosmilite: {x: 40, y: 60}
+  _nameLocalizationID: 4
+  _radioID: 8
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
-  _completedMissionLobbyDialogue: 
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: Byrill-1-G0
+  - targetLevel: 1
+    menuDialogue: 
+    gameDialogue: Byrill-1-G1
+  _completedMissionLobbyDialogue: Byrill-1-End
   _background:
     _beaconBG: 0
-    _cameraBordersSizeXMultiplier: 1
+    _cameraBordersSizeXMultiplier: 0.3
     _cameraBordersSizeYMultiplier: 1
     _backgroundObjects:
     - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
@@ -156,12 +162,12 @@ MonoBehaviour:
   _bonusEnemies:
   - 1
   _bonusCount: 0
-  _bonusLerpBoostOnFinalLevel: 3
-  _bonusSpawnReload: 1
+  _bonusLerpBoostOnFinalLevel: 2
+  _bonusSpawnReload: 6
   _hasStalkers: 0
   _chance: 0
-  _firstLevelTime: 45
-  _finalLevelTime: 100
+  _firstLevelTime: 60
+  _finalLevelTime: 120
 --- !u!114 &3447971739256304512
 MonoBehaviour:
   m_ObjectHideFlags: 0

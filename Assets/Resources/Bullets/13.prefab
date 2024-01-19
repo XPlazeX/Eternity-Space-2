@@ -252,11 +252,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _splitOnEnemyDeath: 0
-  _bulletCode: 1
+  _bulletCode: 12
   _countShards: 4
   _startAngle: 0
   _angleStep: 0
   _randomAngleStep: 180
+  _randomizeSpeed: 0
+  _sound:
+    _clip: {fileID: 0}
+    _volume: 0
+    _pitchRandomizing: 0
 --- !u!96 &7499766563122158184
 TrailRenderer:
   serializedVersion: 2

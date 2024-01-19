@@ -10,10 +10,6 @@ public class PlayerShipData : MonoBehaviour
     public static event healthOperation TakeHealthDamage;
     public static event healthOperation ChangeHealth;
 
-    [SerializeField] private bool _testMode = false;
-    [SerializeField] private int _loadingHP = 100;
-    [SerializeField] private int _loadingArmorCap = 50;
-
     public static int HitPoints 
     {
         get {return _hitPoints;} 
@@ -74,12 +70,6 @@ public class PlayerShipData : MonoBehaviour
         Hover = false;
         GameTimerBuffer = 0f;
 
-        if (_testMode)
-        {
-            _hpCap = _loadingHP;
-            _armorCap = _loadingArmorCap;
-        }
-
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         
         _hpCap = hp;
@@ -88,6 +78,7 @@ public class PlayerShipData : MonoBehaviour
 
         if (save.SessionInitialized)
         {
+            _hpCap = save.MaxHealth;
             HitPoints = save.HealthPoints;
         } 
         else 
@@ -188,6 +179,12 @@ public class PlayerShipData : MonoBehaviour
             newValue = _armorCap;
 
         ArmorPoints = newValue;
+    }
+
+    public static void UpgradeArmor(int additiveArmorCap, int additiveValue)
+    {
+        _armorCap += additiveArmorCap;
+        ArmorPoints = Mathf.Clamp(ArmorPoints + additiveValue, 0, _armorCap);
     }
 
     public static void RegenerateArmor(int addingValue)

@@ -36,3 +36,12 @@ MonoBehaviour:
     posPrice: 0
     sprite: {fileID: 21300000, guid: 326adcae350325341b82b9a47e90c7d6, type: 3}
     localizationID: 19
+  - inDevelop: 0
+    handingID: 624
+    requirementsID:
+    - _UID: 33
+      _amount: 0
+    cosPrice: 450
+    posPrice: 5
+    sprite: {fileID: 21300000, guid: 8d997dfcdf8cae94ebb2aa40d931112f, type: 3}
+    localizationID: 17

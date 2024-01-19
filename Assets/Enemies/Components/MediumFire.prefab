@@ -47,7 +47,6 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -148,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7761671912216951403}
   - component: {fileID: 5184947607237940794}
-  - component: {fileID: 7529080604522157997}
+  - component: {fileID: 8097490619811887503}
   m_Layer: 0
   m_Name: MediumFire
   m_TagString: Untagged
@@ -186,7 +185,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -211,7 +209,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 8834177511578120343, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  m_Sprite: {fileID: 8834177511578120343, guid: e0575c41d6f98c7488ce1296d2144704,
+    type: 3}
   m_Color: {r: 1, g: 0.5952402, b: 0, a: 0.69803923}
   m_FlipX: 0
   m_FlipY: 0
@@ -222,22 +221,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7529080604522157997
-Animator:
-  serializedVersion: 3
+--- !u!114 &8097490619811887503
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6324971738897548978}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ca205d6c15be86b46be338a2d99f4e30, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bda5c1bc9f4b84f9ce516a184fe853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frames:
+  - {fileID: 8834177511578120343, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 6046351888417708072, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 6981868163705054824, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 49283623501993955, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 455011513156570561, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  - {fileID: 7898279611297343138, guid: e0575c41d6f98c7488ce1296d2144704, type: 3}
+  _frameTime: 0.08

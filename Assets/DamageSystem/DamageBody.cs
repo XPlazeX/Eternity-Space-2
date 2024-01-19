@@ -73,6 +73,7 @@ public class DamageBody : MonoBehaviour
             return;
         
         int tempDmg = damage;
+        
         if (ShieldPoints != 0)
         {
             tempDmg = damage - ShieldPoints;

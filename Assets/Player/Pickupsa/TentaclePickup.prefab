@@ -147,7 +147,7 @@ MonoBehaviour:
   _lifeTime: 666
   _playingEffectID: 0
   _effectDuration: 2
-  _unlockCode: 606
+  _unlockCode: 666
   _addingProgress: 0
 --- !u!58 &1380005973944226354
 CircleCollider2D:
@@ -213,6 +213,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 20
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!198 &103187346343031986
 ParticleSystem:
   m_ObjectHideFlags: 0

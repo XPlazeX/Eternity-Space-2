@@ -81,6 +81,14 @@ public class Bank : MonoBehaviour
         }
     }
 
+    public static void CancelAurite()
+    {
+        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+        save.Money = 0;
+        GameSessionInfoHandler.RewriteSessionSave(save);
+        GameSessionInfoHandler.SaveAll();
+    }
+
     public void AddAurite(int val)
     {
         PutCash(Currency.Aurite, val);
@@ -89,7 +97,7 @@ public class Bank : MonoBehaviour
     public void ConsumeAurite(int val)
     {
         if (!EnoughtCash(Currency.Aurite, val))
-            return;
+            throw new System.ArgumentException("Попытка снять со счёта больше, чем на нём есть. Проверяйте баланс или используйте CancelAurite.");
             
         ConsumeCash(Currency.Aurite, val);
     }

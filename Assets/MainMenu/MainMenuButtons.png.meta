@@ -137,8 +137,14 @@ TextureImporter:
   - first:
       213: 961711005429613436
     second: MainMenuButtons_44
+  - first:
+      213: 8417566572105944907
+    second: MainMenuButtons_45
+  - first:
+      213: 8802267302773723696
+    second: MainMenuButtons_46
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -155,12 +161,9 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -185,22 +188,17 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -992,7 +990,7 @@ TextureImporter:
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 9, y: 18, z: 12, w: 5}
+      border: {x: 9, y: 19, z: 14, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1234,6 +1232,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_45
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 8
+        width: 39
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 20, y: 19, z: 18, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fc39bf23431d470800000000000000
+      internalID: 8417566572105944907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_46
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 32
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 5, z: 11, w: 29}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0321dd7b97fe72a70800000000000000
+      internalID: 8802267302773723696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1244,54 +1284,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      MainMenuButtons_42: -4951454837617978833
-      MainMenuButtons_38: -172916137121073743
-      MainMenuButtons_39: 4812367109502509218
-      MainMenuButtons_23: -3814012432978217232
-      MainMenuButtons_12: 5774149115355719822
-      MainMenuButtons_25: 6752517760832860781
-      MainMenuButtons_29: -165444766360638589
-      MainMenuButtons_27: 997550528599525179
-      MainMenuButtons_32: 9035823172182315610
-      MainMenuButtons_4: -6380436368723242459
-      MainMenuButtons_8: 51792382003104765
-      MainMenuButtons_44: 961711005429613436
-      MainMenuButtons_34: -5543408354733321339
-      MainMenuButtons_21: -7428720378833076265
-      MainMenuButtons_28: -2925538351155967708
-      MainMenuButtons_14: 7561262740417951312
-      MainMenuButtons_35: 1455600548780849402
-      MainMenuButtons_40: 3739812676660921401
-      MainMenuButtons_31: -5183031010234380378
-      MainMenuButtons_41: -2444240509032973444
-      MainMenuButtons_17: -8709121331304896921
-      MainMenuButtons_7: -7920201597797747234
-      MainMenuButtons_15: -7321798177538850575
-      MainMenuButtons_26: 3199531830380655127
-      MainMenuButtons_36: -1542217003049699070
-      MainMenuButtons_3: 7514338990341422671
-      MainMenuButtons_2: -4084990643401607137
-      MainMenuButtons_43: -7344996213304184910
-      MainMenuButtons_0: 6182443410152869186
-      MainMenuButtons_20: 2028482252414431556
-      MainMenuButtons_18: -2336775181200505031
-      MainMenuButtons_22: -6355149182621596512
-      MainMenuButtons_19: -6206723992125221049
-      MainMenuButtons_6: -8161154217084563648
-      MainMenuButtons_11: -6726785326983674887
-      MainMenuButtons_24: 8181844380282776881
-      MainMenuButtons_5: 6626107364307247444
-      MainMenuButtons_16: 8926401858763432584
-      MainMenuButtons_13: 7023940821165310243
-      MainMenuButtons_1: -3274239917416431365
-      MainMenuButtons_33: 3197614340519569712
-      MainMenuButtons_30: -6947983116019658882
-      MainMenuButtons_10: 4472062161930831116
-      MainMenuButtons_37: -6015199613871694453
-      MainMenuButtons_9: 8578991572074229597
   spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

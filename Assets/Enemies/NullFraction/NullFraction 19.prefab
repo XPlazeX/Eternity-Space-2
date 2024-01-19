@@ -385,7 +385,7 @@ MonoBehaviour:
     _bulletsPerFire: 2
     _fixedAngleStep: 0
     _randomAngleStep: 0
-    _randomizingBulletSpeed: 0.556
+    _randomizingBulletSpeed: 0.348
     _soundOnFireID: 1
 --- !u!114 &9069206062416828808
 MonoBehaviour:

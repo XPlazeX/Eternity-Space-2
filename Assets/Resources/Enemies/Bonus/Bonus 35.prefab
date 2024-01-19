@@ -552,7 +552,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5939628244277566932
@@ -569,6 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _damageValue: 20
+  _hoverable: 0
 --- !u!114 &5634446493367714095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 200
+  _hitPoints: 153
   _startShieldPoints: 0
 --- !u!114 &9069206062416828814
 MonoBehaviour:
@@ -825,6 +826,7 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 15
     _randomizingBulletSpeed: 0.1
+    _soundOnFireID: 1
   - _cycles: 3
     _timeBetweenCycles: 0.2
     _timeCooling: 0
@@ -836,6 +838,7 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
+    _soundOnFireID: 1
 --- !u!114 &9069206062416828808
 MonoBehaviour:
   m_ObjectHideFlags: 0

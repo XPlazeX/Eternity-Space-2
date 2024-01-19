@@ -12,6 +12,6 @@ public class EnvironmentModifier : MonoBehaviour, TypeModifier
     {
         EnvironmentSpawner environmentSpawner = GameObject.FindWithTag("Level core").GetComponent<EnvironmentSpawner>();
 
-        environmentSpawner.AverageReload *= _averageReloadMultiplier;
+        environmentSpawner.ReloadMultiplier *= _averageReloadMultiplier;
     }
 }

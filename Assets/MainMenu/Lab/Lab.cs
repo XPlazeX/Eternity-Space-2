@@ -9,16 +9,42 @@ public class Lab : MonoBehaviour
     [SerializeField] private LabBlueprint _labBlueprint;
     [SerializeField] private CanvasGroup _controls;
     [SerializeField] private GameObject _asquiredPanel;
+    [SerializeField] private LabLamps _labLamps;
     [Space]
     [SerializeField] private AssetReference[] _labCategories;
 
     private AsyncOperationHandle _categoryLoadingHandle;
     private LabCategory _activeCategory;
     private Blueprint _activeBlueprint;
+    private bool _categoryLoaded;
+    private int _loadingCategoryID = -1;
 
-    public void OpenCategory(int id)
+    private void Start() {
+        BlockControls();
+    }
+
+    public void LoadCategory(int id)
     {
+        if (_loadingCategoryID == id)
+            return;
+
+        if (id >= _labCategories.Length)
+        {
+            BlockControls();
+            return;
+        }
+
         StartCoroutine(LoadingCategory(id));
+        _loadingCategoryID = id;
+    }
+
+    public void OpenActiveCategory()
+    {
+        if (!_categoryLoaded)
+            return;
+
+        SelectBlueprint(_activeCategory.SelectBlueprint(0));
+        _labLamps.PlaceLamps(_activeCategory);
     }
 
     public void TryBuy()
@@ -36,13 +62,13 @@ public class Lab : MonoBehaviour
 
         SelectBlueprint(_activeBlueprint);
         _asquiredPanel.SetActive(true);
+        _labLamps.PlaceLamps(_activeCategory);
         print($"> успешная покупка чертежа {_activeBlueprint.handingID}!");
     }
 
     private IEnumerator LoadingCategory(int id)
     {
-        _labBlueprint.Block();
-        _controls.interactable = false;
+        BlockControls();
         if (_categoryLoadingHandle.IsValid())
         {
             Addressables.Release(_categoryLoadingHandle);
@@ -53,9 +79,12 @@ public class Lab : MonoBehaviour
         _categoryLoadingHandle = Addressables.LoadAssetAsync<LabCategory>(categoryReference);
         yield return _categoryLoadingHandle;
 
+        if (_loadingCategoryID == -1)
+            yield break;
+
         _activeCategory = (LabCategory)_categoryLoadingHandle.Result;
-        SelectBlueprint(_activeCategory.SelectBlueprint(0));
         _controls.interactable = true;
+        _categoryLoaded = true;
     }
 
     private void SelectBlueprint(Blueprint bp)
@@ -72,5 +101,13 @@ public class Lab : MonoBehaviour
     public void PreviousBlueprint()
     {
         SelectBlueprint(_activeCategory.PreviousBlueprint());
+    }
+
+    public void BlockControls()
+    {
+        _labBlueprint.Block();
+        _controls.interactable = false;
+        _categoryLoaded = false;
+        _loadingCategoryID = -1;
     }
 }

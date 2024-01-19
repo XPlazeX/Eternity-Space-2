@@ -10,6 +10,7 @@ public class RepairService : MonoBehaviour
     [SerializeField] private Text _repairPercentageLabel;
 
     public float RepairPart {get; private set;} = 0f;
+    public float RepairBoostPerRepair {get; private set;} = 0.03f;
 
     private void Start() {
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
@@ -40,7 +41,9 @@ public class RepairService : MonoBehaviour
         if (save.HealthPoints >= save.MaxHealth || ModulasSaveHandler.GetSave().BlockHeal)
             _btn.interactable = false;
 
-        RepairPart = GlobalSaveHandler.GetSave().RepairPart + GameSessionInfoHandler.GetSessionSave().RepairAdditivePart;
+        RepairPart = GlobalSaveHandler.GetSave().RepairPart + GameSessionInfoHandler.GetSessionSave().RepairAdditivePart + (RepairBoostPerRepair * level);
+        RepairPart = Mathf.Clamp01(RepairPart);
+        
         _repairPercentageLabel.text = $"{RepairPart * 100f}%";
     }
 

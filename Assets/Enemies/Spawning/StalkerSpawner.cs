@@ -6,6 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class StalkerSpawner : SpawnerRoot
 {
     [SerializeField] private AssetReference[] _stalkers;
+    [SerializeField][Range(0, 1f)] private float _defaultChance;
     
     private AsyncOperationHandle _stalkerOperationHandle;
     public float StalkerChance {get; private set;} = 0f;
@@ -15,6 +16,7 @@ public class StalkerSpawner : SpawnerRoot
     public override void StartSpawning()
     {
         print("СПАУНЕР СТАЛКЕРОВ ЗАПУЩЕН");
+        StalkerChance = _defaultChance;
 
         base.StartSpawning();
     }

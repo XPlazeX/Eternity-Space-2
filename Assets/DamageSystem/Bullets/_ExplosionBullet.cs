@@ -11,8 +11,6 @@ public class _ExplosionBullet : MonoBehaviour
     [Header("Если урон = 0, то урон взрыва по умолчанию не будет изменён")]
     [SerializeField] private int _damage;
 
-    public int AdditiveExplosionCode {get; set;} = 0;
-
     private ExplosionHandler _explosionHandler;
 
     private void Start() {
@@ -22,16 +20,12 @@ public class _ExplosionBullet : MonoBehaviour
             GetComponent<Bullet>().Deathed += SpawnExplosion;
     }
 
-    private void OnEnable() {
-        AdditiveExplosionCode = 0;
-    }
-
     public void SpawnExplosion()
     {
         if (_explosionHandler == null || !CameraController.InsideSoundArea(transform.position))
             return;
 
-        GameObject explosion = _explosionHandler.InstantiateExplosion(transform.position, _explosionCode + AdditiveExplosionCode);
+        GameObject explosion = _explosionHandler.InstantiateExplosion(transform.position, _explosionCode);
 
         if (_mute)
             explosion.GetComponent<Explosion>().Mute();
@@ -42,7 +36,8 @@ public class _ExplosionBullet : MonoBehaviour
         if (_damage > 0)
             explosion.GetComponent<StaticBullet>().ModdedDamage = _damage;
 
-        explosion.GetComponent<SpriteRenderer>().color = _color;
+        if (explosion.GetComponent<SpriteRenderer>() != null)
+            explosion.GetComponent<SpriteRenderer>().color = _color;
         explosion.transform.localScale = Vector3.one * _scale;
 
         if (_shakePower > 0)

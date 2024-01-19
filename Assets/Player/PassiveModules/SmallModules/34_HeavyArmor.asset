@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14471dbe60ecf6d4488a8268cfabe7b4, type: 3}
+  m_Name: 34_HeavyArmor
+  m_EditorClassIdentifier: 
+  _module: {fileID: 1554671533882739457, guid: e485c40d68a242e48b3143b1d248e28b, type: 3}
+  _icon: {fileID: 7555359100117883097, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
+  _localizationID: 36
+  _stackType: 1
+  _oneLeveled: 1

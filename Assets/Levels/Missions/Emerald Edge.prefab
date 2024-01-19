@@ -46,15 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 22
   _boostFirstLevel: 0
-  _levelCount: 5
-  _startAurite: 50
-  _auritePerLevel: 100
-  _minMaxCosmilite: {x: 30, y: 40}
-  _nameLocalizationID: 3
-  _radioID: 4
+  _levelCount: 20
+  _startAurite: 125
+  _auritePerLevel: 125
+  _minMaxCosmilite: {x: 125, y: 200}
+  _nameLocalizationID: 6
+  _radioID: 0
   _customShip: -1
   _customWeaponModel: 
-  _levelDialogueTriggers: []
+  _levelDialogueTriggers:
+  - targetLevel: 0
+    menuDialogue: 
+    gameDialogue: EmeraldEdge-G0
   _completedMissionLobbyDialogue: 
   _background:
     _beaconBG: 0
@@ -143,7 +146,7 @@ MonoBehaviour:
     _windSpeed: -0.48
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: 221109c15ade2724097f33ffa4e292c2, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
   _hasBonusSpawn: 0
@@ -154,10 +157,10 @@ MonoBehaviour:
   _hasStalkers: 1
   _chance: 1
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
-  _startLevelWeight: 2
-  _finalLevelWeight: 5
-  _missionWeightFinalMultiplier: 1.5
+  _finalLevelWaveCount: 10
+  _startLevelWeight: 3
+  _finalLevelWeight: 6
+  _missionWeightFinalMultiplier: 2
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
   _levelEnemyDatabase:
@@ -174,7 +177,22 @@ MonoBehaviour:
     - _neededMissionProgress: 0.66
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
+    - _neededMissionProgress: 0.2
+      _enemyPackObject: {fileID: 11400000, guid: b6de633fddda39044bfe8cc497181888,
+        type: 2}
+    - _neededMissionProgress: 0.2
+      _enemyPackObject: {fileID: 11400000, guid: b2c504fdef64a5843898ff847e7d9c91,
+        type: 2}
+    - _neededMissionProgress: 0.45
+      _enemyPackObject: {fileID: 11400000, guid: 85b88a3d56dafc14ba4fdc6100e318e0,
+        type: 2}
+    - _neededMissionProgress: 0.66
+      _enemyPackObject: {fileID: 11400000, guid: 9936ffb799996a74f8868e68d8a35e7f,
+        type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2695280256960536345
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using ModuleWork;
 
 public class ModuleService : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class ModuleService : MonoBehaviour
         _activeEvent = levelEvent;
         _choiceID = choiceID;
 
-        ModuleOperand mo = SceneStatics.CharacterCore.GetComponent<CharacterModules>().GetModuleOperand(levelEvent.moduleOperandID);
+        ModuleOperand mo = levelEvent.handingModuleOperand;
         _name.text = SceneLocalizator.GetLocalizedString("PassiveModules", mo.LocalizationID, 0);
         _description.text = SceneLocalizator.GetLocalizedString("PassiveModules", mo.LocalizationID, 1);
         _icon.sprite = mo.Icon;
@@ -35,13 +36,11 @@ public class ModuleService : MonoBehaviour
         ModulasSave modulasSave = ModulasSaveHandler.GetSave();
 
         modulasSave.AddEvent(_activeEvent);
-
         modulasSave.ActiveEventDatas[_choiceID].purchased = true;
 
         ModulasSaveHandler.RewriteSave(modulasSave);
 
-        SceneStatics.CharacterCore.GetComponent<CharacterModules>().GetModuleOperand(_activeEvent.moduleOperandID).HandingModule.Asquiring();
-
+        _activeEvent.handingModule.Asquiring();
         CheckAsquisition();
     }
 
@@ -52,10 +51,10 @@ public class ModuleService : MonoBehaviour
             _buyBtn.SetPriceText(SceneLocalizator.GetLocalizedString("MissionMenu", 0, 0));
             _btn.interactable = false;
 
-            if (!_activeEvent.isPack)
+            if (_activeEvent.stackType != ModuleStackType.Pack)
                 return;
 
-            PackModuleOperand mo = SceneStatics.CharacterCore.GetComponent<CharacterModules>().GetModuleOperand(_activeEvent.moduleOperandID) as PackModuleOperand;
+            PackModuleOperand mo = _activeEvent.handingModuleOperand as PackModuleOperand;
             SceneStatics.SceneCore.GetComponent<MenuPackRenderer>().RenderPack(mo.PackID);
 
         } else {

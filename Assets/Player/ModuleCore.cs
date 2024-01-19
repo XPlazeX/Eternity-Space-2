@@ -49,7 +49,7 @@ public class ModuleCore : MonoBehaviour
         Mission activeMission = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>()._activeMissionSample;
 
         if (!char.IsDigit(save.WeaponModel[save.WeaponModel.Length - 1]))
-            weaponModel = save.WeaponModel.ToString() + "-" + (save.WeaponLevel + GlobalSaveHandler.GetSave().WeaponStartLevel).ToString();
+            weaponModel = save.WeaponModel.ToString() + "-" + (save.WeaponLevel + GetMainWeaponStartLevel()).ToString();
 
         if (!string.IsNullOrEmpty(activeMission.CustomWeaponModel))
             weaponModel = activeMission.CustomWeaponModel;
@@ -130,6 +130,18 @@ public class ModuleCore : MonoBehaviour
     public void ReloadMainWeapon() => _defaultWeaponPattern.Load();
 
     private void NeverReloadMainWeapon() => Player.StartPlayerReturn -= ReloadMainWeapon;
+
+    private const int weapon_startLevel_boost_1_id = 501;
+
+    public static int GetMainWeaponStartLevel()
+    {
+        int result = 0;
+
+        if (Unlocks.HasUnlock(weapon_startLevel_boost_1_id))
+            result = 1;
+
+        return result;
+    }
 
 }
 

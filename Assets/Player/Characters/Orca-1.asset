@@ -16,7 +16,8 @@ MonoBehaviour:
   - {fileID: 1260780666538092923, guid: 10c585a90f8bfc343ae32b860a58afb1, type: 3}
   - {fileID: 1260780666538092923, guid: d9a19f85bef5115419becfc1d33db42a, type: 3}
   _hitPoints: 140
-  _armorPoints: 0
-  _armorCap: 0
+  _boostedHitPoints: 160
+  _armorPoints: 15
+  _boostedArmorPoints: 25
   _handingModules:
   - {fileID: 1554671533882739457, guid: 456abe146ca965f44af586d15c711ee2, type: 3}

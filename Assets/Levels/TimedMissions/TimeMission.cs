@@ -10,6 +10,9 @@ public class TimeMission : SpawningMission
     [SerializeField] private float _firstLevelTime;
     [SerializeField] private float _finalLevelTime;
 
+    public float MaxTime => _targetTime;
+    public float LeftTime => _timer;
+
     private Spawner _spawner;
     private float _timer;
     private int _lastCeiledTime;

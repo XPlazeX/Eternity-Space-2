@@ -7,6 +7,8 @@ public class MobileUtilsScript : MonoBehaviour {
     private float frequency = 1.0f;
     private string fps = "N/A";
     [SerializeField] private UnlockRequire _checkingUnlock;
+    [SerializeField] private bool _deleteUnlockMode;
+    [SerializeField] private int[] _deletingUnlocks;
     [SerializeField] private GUIStyle _guiStyle;
     [SerializeField] private ScriptableObject[] _preloads;
 
@@ -30,11 +32,32 @@ public class MobileUtilsScript : MonoBehaviour {
     }
 
     #if UNITY_EDITOR
+
+    private void Start() {
+        if (_deleteUnlockMode)
+        {
+            GlobalSave gsave = GlobalSaveHandler.GetSave();
+            for (int i = 0; i < _deletingUnlocks.Length; i++)
+            {
+                gsave.RemoveUnlock(_deletingUnlocks[i]);
+            }
+            GlobalSaveHandler.RewriteSave(gsave);
+        }
+        // GlobalSave gsave = GlobalSaveHandler.GetSave();
+        // gsave.RemoveUnlock(622);
+        // GlobalSaveHandler.RewriteSave(gsave);
+    }
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             Bank.PutCash(BankSystem.Currency.Cosmilite, 500);
             print("+500 cos");
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Bank.PutCash(BankSystem.Currency.Positronium, 3);
+            print("+3 pos");
         }
         if (Input.GetKeyDown(KeyCode.B))
         {

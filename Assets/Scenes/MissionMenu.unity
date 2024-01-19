@@ -705,6 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110854062}
   - component: {fileID: 110854063}
+  - component: {fileID: 110854064}
   m_Layer: 0
   m_Name: Palm
   m_TagString: Untagged
@@ -777,6 +778,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &110854064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110854061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -623859496033481858, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &133576500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &282896907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5295,9 +5317,9 @@ RectTransform:
   m_Father: {fileID: 1557943121}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -172.2575, y: -189}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -172.2575, y: 76.829956}
   m_SizeDelta: {x: 215, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468858891
@@ -5625,6 +5647,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &486557968
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6517,9 +6542,9 @@ RectTransform:
   m_Father: {fileID: 1557943121}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.6, y: -114.83}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -148.6, y: 151}
   m_SizeDelta: {x: -577.4044, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &591384928
@@ -6609,6 +6634,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &593803870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6782,103 +6810,143 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelEvents:
   - moduleOperandID: 0
-    isPack: 0
-    stackable: 1
-    destroyOnNextLevel: 0
     auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 1
-    isPack: 0
-    stackable: 0
-    destroyOnNextLevel: 0
-    auritePrice: 150
+    auritePrice: 200
     requiredUnlocks: []
   - moduleOperandID: 2
-    isPack: 0
-    stackable: 1
-    destroyOnNextLevel: 0
     auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 3
-    isPack: 0
-    stackable: 1
-    destroyOnNextLevel: 0
     auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 4
-    isPack: 0
-    stackable: 1
-    destroyOnNextLevel: 0
-    auritePrice: 69
+    auritePrice: 99
     requiredUnlocks: []
   - moduleOperandID: 5
-    isPack: 0
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 90
     requiredUnlocks: []
   - moduleOperandID: 6
-    isPack: 0
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 200
     requiredUnlocks: []
   - moduleOperandID: 7
-    isPack: 0
-    stackable: 1
-    destroyOnNextLevel: 0
     auritePrice: 75
     requiredUnlocks: []
   - moduleOperandID: 8
-    isPack: 0
-    stackable: 1
-    destroyOnNextLevel: 0
     auritePrice: 50
     requiredUnlocks: []
   - moduleOperandID: 9
-    isPack: 0
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 10
-    isPack: 0
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 130
     requiredUnlocks: []
   - moduleOperandID: 11
-    isPack: 0
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 200
     requiredUnlocks: []
   - moduleOperandID: 12
-    isPack: 1
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 275
     requiredUnlocks: []
   - moduleOperandID: 13
-    isPack: 1
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 235
     requiredUnlocks: []
   - moduleOperandID: 14
-    isPack: 1
-    stackable: 0
-    destroyOnNextLevel: 0
     auritePrice: 300
+    requiredUnlocks: []
+  - moduleOperandID: 15
+    auritePrice: 50
+    requiredUnlocks: []
+  - moduleOperandID: 16
+    auritePrice: 50
+    requiredUnlocks: []
+  - moduleOperandID: 17
+    auritePrice: 80
+    requiredUnlocks:
+    - _UID: 551
+      _amount: 0
+  - moduleOperandID: 18
+    auritePrice: 100
+    requiredUnlocks: []
+  - moduleOperandID: 19
+    auritePrice: 150
+    requiredUnlocks: []
+  - moduleOperandID: 20
+    auritePrice: 140
+    requiredUnlocks: []
+  - moduleOperandID: 21
+    auritePrice: 300
+    requiredUnlocks: []
+  - moduleOperandID: 22
+    auritePrice: 100
+    requiredUnlocks: []
+  - moduleOperandID: 23
+    auritePrice: 177
+    requiredUnlocks: []
+  - moduleOperandID: 24
+    auritePrice: 250
+    requiredUnlocks: []
+  - moduleOperandID: 25
+    auritePrice: 200
+    requiredUnlocks: []
+  - moduleOperandID: 26
+    auritePrice: 75
+    requiredUnlocks: []
+  - moduleOperandID: 27
+    auritePrice: 85
+    requiredUnlocks: []
+  - moduleOperandID: 28
+    auritePrice: 100
+    requiredUnlocks: []
+  - moduleOperandID: 29
+    auritePrice: 150
+    requiredUnlocks: []
+  - moduleOperandID: 30
+    auritePrice: 125
+    requiredUnlocks: []
+  - moduleOperandID: 31
+    auritePrice: 125
+    requiredUnlocks: []
+  - moduleOperandID: 32
+    auritePrice: 125
+    requiredUnlocks: []
+  - moduleOperandID: 33
+    auritePrice: 140
+    requiredUnlocks: []
+  - moduleOperandID: 34
+    auritePrice: 175
+    requiredUnlocks: []
+  - moduleOperandID: 35
+    auritePrice: 100
+    requiredUnlocks: []
+  - moduleOperandID: 36
+    auritePrice: 100
+    requiredUnlocks: []
+  - moduleOperandID: 37
+    auritePrice: 200
+    requiredUnlocks: []
+  - moduleOperandID: 38
+    auritePrice: 144
+    requiredUnlocks: []
+  - moduleOperandID: 39
+    auritePrice: 220
+    requiredUnlocks: []
+  - moduleOperandID: 40
+    auritePrice: 300
+    requiredUnlocks: []
+  - moduleOperandID: 41
+    auritePrice: 290
     requiredUnlocks: []
   DefaultExclusions: 
   moduleServices:
   - {fileID: 7599863071385695259, guid: 7aacbbe9fc166df40b63a4057b7386aa, type: 3}
   - {fileID: 7599863071385695259, guid: a1266ae3e9719e044b9dbd31a4a1d97d, type: 3}
   _serviceParentTransform: {fileID: 1963499106}
-  _startEventRectPosition: {x: 0, y: -1010}
-  _boostedEventYPosition: -430
+  _startEventRectPosition: {x: 0, y: -1020}
+  _boostedEventYPosition: -420
   _log: 1
+  _testMode: 0
+  _testEventID: 21
 --- !u!4 &599807285
 Transform:
   m_ObjectHideFlags: 0
@@ -6946,6 +7014,9 @@ MonoBehaviour:
   - {fileID: 9215659683061787468, guid: 00ebaf00ba97aab45bdf4487dcca902b, type: 3}
   - {fileID: 9215659683061787468, guid: f489e2c7f08224645af7b4e3a32ec4e2, type: 3}
   - {fileID: 9215659683061787468, guid: 4c03b5fa422ec554985b38973993d0ac, type: 3}
+  - {fileID: 9215659683061787468, guid: 0dabe4f7c96769a489cf9293fe75dceb, type: 3}
+  - {fileID: 9215659683061787468, guid: c5ccdc490de12aa4592e6203f36bf942, type: 3}
+  - {fileID: 9215659683061787468, guid: c62a16e9e2def504a92a205bdda82976, type: 3}
 --- !u!114 &599807289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8117,7 +8188,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 5332234734715444159, guid: edee557f1ad95bf43bf759820a609970,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8421,8 +8492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.75, y: -124.75}
-  m_SizeDelta: {x: 75, y: 187.5}
+  m_AnchoredPosition: {x: -18.75, y: -108.4}
+  m_SizeDelta: {x: 75, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847669017
 MonoBehaviour:
@@ -9264,6 +9335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912716882}
   - component: {fileID: 912716883}
+  - component: {fileID: 912716884}
   m_Layer: 0
   m_Name: Palm(2)
   m_TagString: Untagged
@@ -9336,6 +9408,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &912716884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912716881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -7921517150186868476, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &921759321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9742,9 +9832,9 @@ RectTransform:
   m_Father: {fileID: 1557943121}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.75, y: -170}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -12.349976, y: 110}
   m_SizeDelta: {x: 75, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952354909
@@ -11085,8 +11175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -720}
-  m_SizeDelta: {x: 0.75, y: 305.91235}
+  m_AnchoredPosition: {x: -2.9387207, y: -710}
+  m_SizeDelta: {x: -5.1225114, y: 290}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1135786612
 MonoBehaviour:
@@ -11107,7 +11197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3197614340519569712, guid: cac3b0aa7ec98084e9856cc5f351b4f3,
+  m_Sprite: {fileID: 8417566572105944907, guid: cac3b0aa7ec98084e9856cc5f351b4f3,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -11258,6 +11348,9 @@ MonoBehaviour:
   - _skins:
     - {fileID: -4641838352402916905, guid: 45ab9bee371fb054184d2cbf119dbac5, type: 3}
     - {fileID: -3048801259306072638, guid: 96e8c513aedfbda4aaaace89775e673f, type: 3}
+  - _skins:
+    - {fileID: 3459463589256513909, guid: 0d56954a1b4d15949a0b78aadf3e3720, type: 3}
+    - {fileID: -4208518234604051650, guid: 0d56954a1b4d15949a0b78aadf3e3720, type: 3}
 --- !u!1 &1162129993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13418,6 +13511,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 130
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!212 &1358383879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24408,6 +24504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479923710}
   - component: {fileID: 1479923711}
+  - component: {fileID: 1479923712}
   m_Layer: 0
   m_Name: Palm (1)
   m_TagString: Untagged
@@ -24480,6 +24577,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1479923712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479923709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -8335213089741392711, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &1506455079
 GameObject:
   m_ObjectHideFlags: 0
@@ -24590,9 +24705,9 @@ RectTransform:
   m_Father: {fileID: 1557943121}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -115.3, y: -201.804}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -115.29999, y: 64.025955}
   m_SizeDelta: {x: -328.8389, y: 77.08801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506582510
@@ -24628,8 +24743,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
-    \u0447\u0430\u0441\u0442\u044C \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0433\u043E
-    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u043A\u043E\u0440\u0430\u0431\u043B\u044F."
+    \u0447\u0430\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441\u0430 \u043D\u0430\u043D\u043E\u043C\u0430\u0448\u0438\u043D."
 --- !u!222 &1506582511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24774,7 +24888,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 5332234734715444159, guid: edee557f1ad95bf43bf759820a609970,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -25001,8 +25115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -415}
-  m_SizeDelta: {x: 0.75, y: 269.844}
+  m_AnchoredPosition: {x: 3.3894043, y: -428.2}
+  m_SizeDelta: {x: -6.221176, y: 243.47595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557943122
 MonoBehaviour:
@@ -25023,7 +25137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6752517760832860781, guid: cac3b0aa7ec98084e9856cc5f351b4f3,
+  m_Sprite: {fileID: 8802267302773723696, guid: cac3b0aa7ec98084e9856cc5f351b4f3,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -25319,6 +25433,8 @@ MonoBehaviour:
   _checkingUnlock:
     _UID: -1
     _amount: 0
+  _deleteUnlockMode: 0
+  _deletingUnlocks: 
   _guiStyle:
     m_Name: 
     m_Normal:
@@ -25445,7 +25561,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 5332234734715444159, guid: edee557f1ad95bf43bf759820a609970,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -26039,7 +26155,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 5332234734715444159, guid: edee557f1ad95bf43bf759820a609970,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -27266,7 +27382,7 @@ Transform:
   m_Children:
   - {fileID: 57587970}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1795878573
 MonoBehaviour:
@@ -27377,6 +27493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808541435}
   - component: {fileID: 1808541436}
+  - component: {fileID: 1808541437}
   m_Layer: 0
   m_Name: Palm (3)
   m_TagString: Untagged
@@ -27449,6 +27566,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1808541437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808541434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16d71a67bff814fbef4bf4aa069c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesByUnlockRequires:
+  - sprite: {fileID: -3702401792256998472, guid: b829e3d51f7232c42b8429f3d708d824,
+      type: 3}
+    unlockRequires:
+    - _UID: 551
+      _amount: 0
 --- !u!1 &1828896045
 GameObject:
   m_ObjectHideFlags: 0
@@ -28242,7 +28377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95, y: 63}
+  m_AnchoredPosition: {x: 95, y: 56.2}
   m_SizeDelta: {x: 80, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982671361
@@ -28266,7 +28401,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 5332234734715444159, guid: edee557f1ad95bf43bf759820a609970,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -28549,6 +28684,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76fb0391f22db8a41a8fcfd0bb114af2, type: 2}
   - {fileID: 11400000, guid: 5fdae00ad050b3641afd842ca5fcdc88, type: 2}
   - {fileID: 11400000, guid: 8cfad0b781c1c154c88e4910e6a8e611, type: 2}
+  - {fileID: 11400000, guid: d7506c0809b33b84992c7cff7ee4fd53, type: 2}
+  - {fileID: 11400000, guid: 4c2d0997bcf10cf43af95bf2836107e3, type: 2}
+  - {fileID: 11400000, guid: 7e67729dd01bbe4458fd6d4ab4cd6903, type: 2}
+  - {fileID: 11400000, guid: 3e115027c7d9add4e9df61f05e53c7d0, type: 2}
+  - {fileID: 11400000, guid: 2b1c52ce2d26cc046a3763a2044b6377, type: 2}
+  - {fileID: 11400000, guid: 5c52ef4c165638b40861d6f3fc479371, type: 2}
+  - {fileID: 11400000, guid: 48e85b8d78f6bdc45b049ddc89523abf, type: 2}
+  - {fileID: 11400000, guid: 9f236c7dbfdf44c449e9fb74905a066e, type: 2}
+  - {fileID: 11400000, guid: 663ecd182481e174f8e0472eb57a7ca1, type: 2}
+  - {fileID: 11400000, guid: f2ce48996a092e94db6c4b42fbd071e1, type: 2}
+  - {fileID: 11400000, guid: 376a6622990ce784cbab78e5f171a19d, type: 2}
+  - {fileID: 11400000, guid: adfeaf3993f98804797cf99444b9e587, type: 2}
+  - {fileID: 11400000, guid: 32def24c3395c01448386c9ec8f6cf0f, type: 2}
+  - {fileID: 11400000, guid: ae4d31e4c1f7b9e4989a21f27b16be90, type: 2}
+  - {fileID: 11400000, guid: 98c348c3d73c0864fa6ffd8683661ca3, type: 2}
+  - {fileID: 11400000, guid: 3b438e729607b7f4f8f5d106425f5549, type: 2}
+  - {fileID: 11400000, guid: 12982e0bd02a196438330463ae45ae90, type: 2}
+  - {fileID: 11400000, guid: ec269b7f4e916a9448434e3adcf3455f, type: 2}
+  - {fileID: 11400000, guid: 291a939da941b184c8b4554aabaf1a59, type: 2}
+  - {fileID: 11400000, guid: 1f517c2f199c6224da9c0b907be41eca, type: 2}
+  - {fileID: 11400000, guid: 6414c2b6c1b9d6646abbce2e3027898c, type: 2}
+  - {fileID: 11400000, guid: 0f45a9f95f7f53c4789207c0bf3a0ada, type: 2}
+  - {fileID: 11400000, guid: bd5c53dc61196d641a20dc9800e64480, type: 2}
+  - {fileID: 11400000, guid: 7fb7d1a076332ba4f81caeac61cadec2, type: 2}
+  - {fileID: 11400000, guid: ad1ab46a9cf4c064397446f076458233, type: 2}
+  - {fileID: 11400000, guid: 38c9f6b08d990ae48ada2a255f640f0b, type: 2}
+  - {fileID: 11400000, guid: 26b380cb515bb294c988b9ca1ecb2f58, type: 2}
 --- !u!4 &2042368133
 Transform:
   m_ObjectHideFlags: 0
@@ -29715,7 +29877,7 @@ PrefabInstance:
     - target: {fileID: 953217843218255112, guid: 198649386e29cdb46a76f78857e83bb5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 953217843218255112, guid: 198649386e29cdb46a76f78857e83bb5,
         type: 3}
@@ -30326,7 +30488,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
@@ -30585,7 +30747,7 @@ PrefabInstance:
     - target: {fileID: 25913667532425205, guid: 2fd9e1d6519a8d146b05ee82aa6108f2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 25913667532425205, guid: 2fd9e1d6519a8d146b05ee82aa6108f2,
         type: 3}

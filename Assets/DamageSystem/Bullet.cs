@@ -36,6 +36,7 @@ public class Bullet : AttackObject
     private ExplosionHandler _explosionHandler;
     private float _lifeTimer;
     private float _startSpeed;
+    private float _startAcceleration;
     private float _curPierces = 0;
 
     private void Awake() {
@@ -57,6 +58,7 @@ public class Bullet : AttackObject
         base.Initialize();
 
         _startSpeed = _speed;
+        _startAcceleration = _acceleration;
 
         _speed = _startSpeed;
 
@@ -105,7 +107,10 @@ public class Bullet : AttackObject
             return;
 
         if (KeyDamage == DamageKey.Enemy)
+        {
             _speed = _startSpeed * ShipStats.GetValue("PlayerShotSpeedMultiplier");
+            _acceleration = _startAcceleration + ShipStats.GetValue("FlatPlayerBulletAcceleration");
+        }
         else 
             _speed = _startSpeed * ShipStats.GetValue("EnemyBulletSpeedMultiplier");
 

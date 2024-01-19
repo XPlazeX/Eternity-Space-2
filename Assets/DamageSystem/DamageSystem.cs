@@ -54,11 +54,14 @@ namespace DamageSystem
         public static bool InflictDamage(DamageBody targetBody, DamageKey key, int damageValue)
         {
             //print("static inflict");
-            if (targetBody.KeyDamage == DamageKey.Unvulnerable || ((key != targetBody.KeyDamage) && key != DamageKey.Everything))
+            if (targetBody.KeyDamage != DamageKey.Unvulnerable && ((key == targetBody.KeyDamage) || key == DamageKey.Everything))
+            {
+                targetBody.TakeDamage(damageValue);
+                return true;
+            }
+            else
                 return false;
 
-            targetBody.TakeDamage(damageValue);
-            return true;
         }
     }
 }

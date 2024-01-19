@@ -11,6 +11,7 @@ public class PlayerRamsHandler : MonoBehaviour
     private static bool RamSaveWaving {get; set;} = true;
 
     public static int MoneyValue {get; set;} = 3;
+    public static int HealValue {get; set;} = 0;
     private static RamShield _ramShield;
     private static VictoryHandler _victoryHandler;
 
@@ -27,6 +28,7 @@ public class PlayerRamsHandler : MonoBehaviour
         FindShield();
 
         MoneyValue = ShipStats.GetIntValue("RamMoneyValue");
+        HealValue = ShipStats.GetIntValue("RamHealValue");
     }
 
     private void OnDisable() {
@@ -40,6 +42,8 @@ public class PlayerRamsHandler : MonoBehaviour
             return;
 
         _victoryHandler.AddAurite(MoneyValue);
+        if (HealValue > 0)
+            PlayerShipData.RegenerateHP(HealValue);
 
         if (RamShielding && _ramShield != null)
         {
@@ -68,6 +72,10 @@ public class PlayerRamsHandler : MonoBehaviour
         {
             MoneyValue = ShipStats.GetIntValue("RamMoneyValue");
             print($"Ram money value : {MoneyValue}");
+        } else if (name == "RamHealValue")
+        {
+            HealValue = ShipStats.GetIntValue("RamHealValue");
+            print($"Ram heal value : {HealValue}");
         }
 
     }
