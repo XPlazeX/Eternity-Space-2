@@ -149,7 +149,7 @@ public class SelectCatalog : MonoBehaviour
             _targetShipIcons[i].sprite = _shipSelectors[id].Icon;
         }
         //print(_shipID);
-        _nameLabel.text = new TextLoader("Ships", _shipID, 0, true).FirstCell;
+        _nameLabel.text = new TextLoader("Ships", _shipID, 0).FirstCell;
     }
 
     public void SetWeapon(int id)
@@ -161,7 +161,7 @@ public class SelectCatalog : MonoBehaviour
             _targetWeaponIcons[i].sprite = _weaponsSelectors[id].Icon;
         }
 
-        _nameLabel.text = new TextLoader("Weapons", _weaponID, 0, true).FirstCell;
+        _nameLabel.text = new TextLoader("Weapons", _weaponID, 0).FirstCell;
     }
 
     public void SetClass(ShipClass type)

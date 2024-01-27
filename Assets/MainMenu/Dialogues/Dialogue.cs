@@ -5,8 +5,6 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Dialogue : MonoBehaviour
 {
-    public const string dialogues_text_path = "Localization/Dialogues";
-
     [SerializeField] private DialogueSwitcher _dialogueSwitcher;
     [SerializeField] private float _voiceTime = 0.05f;
     [SerializeField] private float _voiceVolume = 0.66f;
@@ -19,9 +17,7 @@ public class Dialogue : MonoBehaviour
     private AsyncOperationHandle _characterOperationHandle;
     private AsyncOperationHandle _voiceOperationHandle;
     private DialogueConverter _dialogueConverter;
-    //private DialogueFrame[] _dialogueFrames;
     private int _currentPhrase = 0;
-    //private int _lastFrame = 0;
 
     private bool _isVoicing;
     private int _lastVoiceRepeats;
@@ -57,9 +53,7 @@ public class Dialogue : MonoBehaviour
             return;
             
         _dialogueConverter = new DialogueConverter(filename);
-        //_dialogueFrames = Resources.Load<DialogueAnimator>(dialogues_animators_path + filename).GetFrames();
 
-        //ProcessRow();
         SetDialogueFrame();
         TimeHandler.Pause();
     }
@@ -77,7 +71,6 @@ public class Dialogue : MonoBehaviour
             return;
         }
 
-        //ProcessRow();
         SetDialogueFrame();
     }
 

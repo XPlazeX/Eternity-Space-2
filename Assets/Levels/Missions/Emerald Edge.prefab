@@ -57,7 +57,7 @@ MonoBehaviour:
   _levelDialogueTriggers:
   - targetLevel: 0
     menuDialogue: 
-    gameDialogue: EmeraldEdge-G0
+    gameDialogue: Byrill-Inf-G0
   _completedMissionLobbyDialogue: 
   _background:
     _beaconBG: 0

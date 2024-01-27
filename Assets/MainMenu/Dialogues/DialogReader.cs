@@ -11,7 +11,7 @@ public class DialogReader : MonoBehaviour
     private int _carette = 0;
 
     private void Start() {
-        _message = new TextLoader("Dialogues", GameSessionInfoHandler.GetSessionSave().DialogueEntry, true).GetRow(0);
+        _message = new TextLoader("Dialogues", GameSessionInfoHandler.GetSessionSave().DialogueEntry).GetRow(0);
         Debug.Log($"loaded radio with len {_message.Length}");
         SetMessage(0);
     }

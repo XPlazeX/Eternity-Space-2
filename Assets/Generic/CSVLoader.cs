@@ -25,6 +25,7 @@ public class CSV
     public string GetCell(string path, int row, int col)
     {
         var dataset = Resources.Load<TextAsset>(path);
+        Debug.Log(path);
         var splitDataset = dataset.text.Split(new char[] {'\n'});
         for (int i = 0; i < splitDataset.Length; i++)
         {

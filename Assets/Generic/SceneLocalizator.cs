@@ -8,7 +8,7 @@ public class SceneLocalizator : MonoBehaviour
     public static string GetLocalizedString(string fileName, int row, int col)
     {
         if (!TextLoaders.ContainsKey(fileName))
-            TextLoaders.Add(fileName, new TextLoader("Localization", fileName, -1));
+            TextLoaders.Add(fileName, new TextLoader("UI", fileName, false));
         
         return TextLoaders[fileName].GetCell(row, col);
     }

@@ -1,6 +1,6 @@
 ﻿public static class DeathCountRegister
 {
-    private const string first_death_dialogue = "FirstDeath";
+    private const string first_death_dialogue = "Events-FirstDeath";
     public static void RegisterDeath()
     {
         if (!Unlocks.HasUnlock(5) && !Unlocks.HasUnlock(6))

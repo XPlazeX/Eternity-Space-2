@@ -11,61 +11,32 @@ public class TextLoader
 
     public int TextMatrixLength => TextMatrix.Count;
 
-    public TextLoader (string folder, string fileName, int additiveID=0) // additiveID =0 => можно пустые клетки
+    public TextLoader (string folder, string filename, bool applyEmptyCells = true, bool localized = true) // additiveID =0 => можно пустые клетки
     {
         TextMatrix = new List<string[]>();
 
-        if (additiveID == -1)
+        if (!applyEmptyCells)
             _safety = false;
-        
-        switch (folder)
-        {
-            case "Localization":
-                if (additiveID == 1)
-                {
-                    Debug.Log("Special english load (additiveID == 1)");
-                    GetText("Localization/" + "EN-" + fileName);
-                    break;
-                }   
-                else
-                {
-                    GetText("Localization/" + PlayerPrefs.GetString("Language", "RU-") + fileName);
-                    break;
-                }
 
-            default:
-                GetText(folder + "/" + fileName);
-                break;
-        }
-    }
-
-    public TextLoader (string path, int row, int col, bool localized = false)
-    {
         if (localized)
         {
-            FirstCell = new CSV().GetCell("Localization/" + PlayerPrefs.GetString("Language", "RU-") + path, row, col);   
-        }
-
-        else
+            GetText("Localization/" + PlayerPrefs.GetString("Language", "RU") + $"/{folder}/{filename}");
+        } else
         {
-            FirstCell = new CSV().GetCell(path, row, col);   
+            GetText(folder + "/" + filename);
         }
     }
 
-    public TextLoader (string path, int row, bool localized = false)
+    public TextLoader (string uifilename, int row, int col)
+    {
+        FirstCell = new CSV().GetCell("Localization/" + PlayerPrefs.GetString("Language", "RU") + "/UI/" + uifilename, row, col);   
+    }
+
+    public TextLoader (string uifilename, int row)
     {
         TextMatrix = new List<string[]>();
-        if (localized)
-        {
-            TextMatrix.Add(GetText("Localization/" + PlayerPrefs.GetString("Language", "RU-") + path, row));
-            FirstCell = TextMatrix[0][0];
-        }
-
-        else
-        {
-            TextMatrix.Add(GetText(path, row));
-            FirstCell = TextMatrix[0][0];
-        }
+        TextMatrix.Add(GetText("Localization/" + PlayerPrefs.GetString("Language", "RU") + "/UI/" + uifilename, row));
+        FirstCell = TextMatrix[0][0];
     }
 
     public void GetText(string path)

@@ -55,18 +55,18 @@ MonoBehaviour:
   _customWeaponModel: 
   _levelDialogueTriggers:
   - targetLevel: 0
-    menuDialogue: SimT_Awake
-    gameDialogue: SimT_StartGame
+    menuDialogue: Training-SimT_Awake
+    gameDialogue: Training-SimT_StartGame
   - targetLevel: 1
-    menuDialogue: SimT_MM
-    gameDialogue: SimT_Ram
+    menuDialogue: Training-SimT_MM
+    gameDialogue: Training-SimT_Ram
   - targetLevel: 2
-    menuDialogue: SimT_Module
+    menuDialogue: Training-SimT_Module
     gameDialogue: 
   - targetLevel: 3
     menuDialogue: 
-    gameDialogue: SimT_Final
-  _completedMissionLobbyDialogue: Lobby_Entry
+    gameDialogue: Training-SimT_Final
+  _completedMissionLobbyDialogue: Training-Lobby_Entry
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 1
@@ -160,7 +160,10 @@ MonoBehaviour:
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 5
   _startLevelWeight: 2
@@ -174,3 +177,6 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

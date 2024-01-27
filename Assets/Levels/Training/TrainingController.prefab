@@ -86,10 +86,10 @@ MonoBehaviour:
     _byPercentage: 0
     _targetPercentage: 0
   _dialogueFilenames:
-  - Training_Intro
-  - Training_Med
-  - Training_Protest
-  - Training_Final
+  - Training-Training_Intro
+  - Training-Training_Med
+  - Training-Training_Protest
+  - Training-Training_Final
 --- !u!114 &3965740972246234391
 MonoBehaviour:
   m_ObjectHideFlags: 0

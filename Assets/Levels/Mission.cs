@@ -50,7 +50,7 @@ public class Mission : MonoBehaviour
 
     public void SetDataForSessionSave(int locID, bool rewriteAll = true)
     {
-        TextLoader txtLoader = new TextLoader("Levels", "MissionsData");
+        //TextLoader txtLoader = new TextLoader("Levels", "MissionsData");
 
         if (rewriteAll)
         {
@@ -70,7 +70,7 @@ public class Mission : MonoBehaviour
             save.Money = _startAurite;
         save.MoneyPerLevel = _auritePerLevel;
 
-        save.LocalizedLocationName = new TextLoader("Locations", _nameLocalizationID, 0, true).FirstCell;
+        save.LocalizedLocationName = new TextLoader("Locations", _nameLocalizationID, 0).FirstCell;
 
         save.DialogueEntry = _radioID;
 

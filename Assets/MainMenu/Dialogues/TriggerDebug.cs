@@ -6,6 +6,8 @@ public class TriggerDebug : MonoBehaviour
 
     void Start()
     {
-        GameObject.FindWithTag("BetweenScenes").GetComponent<DialogueOpener>().TriggerDialogue(_filename);
+        Open();
     }
+
+    public void Open() => GameObject.FindWithTag("BetweenScenes").GetComponent<DialogueOpener>().TriggerDialogue(_filename);
 }

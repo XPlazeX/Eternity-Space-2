@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
-  _dialogueFilename: Sigi
+  _dialogueFilename: Events-Sigi
   _unique: 1
   _unlockCodeForUnique: 400

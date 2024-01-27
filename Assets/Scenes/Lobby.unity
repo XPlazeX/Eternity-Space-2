@@ -10112,7 +10112,7 @@ MonoBehaviour:
   - unlockRequires: []
     uniqueDialog: 1
     writtenUnlockID: 401
-    dialogFilename: Lab_1
+    dialogFilename: Events-Lab_1
     delay: 3
 --- !u!1 &856002970
 GameObject:
@@ -13272,7 +13272,7 @@ PrefabInstance:
     - target: {fileID: 6328693336960554401, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6328693336960554404, guid: 14390939c9a638a4e8fb4a7487a7f2b3,
         type: 3}
@@ -21466,7 +21466,7 @@ MonoBehaviour:
     _UID: 16
     _amount: 0
   _deleteUnlockMode: 0
-  _deletingUnlocks: 
+  _deletingUnlocks: 91010000
   _guiStyle:
     m_Name: 
     m_Normal:

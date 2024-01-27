@@ -59,8 +59,8 @@ MonoBehaviour:
   _levelDialogueTriggers:
   - targetLevel: 0
     menuDialogue: 
-    gameDialogue: Dream_EH-G0
-  _completedMissionLobbyDialogue: Dream_EH-End
+    gameDialogue: Dreams-EH-G0
+  _completedMissionLobbyDialogue: Dreams-EH-End
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 4
@@ -178,13 +178,13 @@ MonoBehaviour:
   - elapsedTime: 25
     dialogueFilename: 
   - elapsedTime: 30
-    dialogueFilename: Dream_EH-G01
+    dialogueFilename: Dreams-EH-G01
   - elapsedTime: 45
-    dialogueFilename: Dream_EH-G02
+    dialogueFilename: Dreams-EH-G02
   - elapsedTime: 75
-    dialogueFilename: Dream_EH-G03
+    dialogueFilename: Dreams-EH-G03
   - elapsedTime: 90
-    dialogueFilename: Dream_EH-G04
+    dialogueFilename: Dreams-EH-G04
   _controllableText: {fileID: 6677556567886882618, guid: bf7d0160a226e944bb3b7f71624548e8,
     type: 3}
   _controllableTextFilename: EventHorizon
