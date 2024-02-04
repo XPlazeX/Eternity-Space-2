@@ -334,6 +334,10 @@ MonoBehaviour:
     m_Address: Assets/Enemies/Stalkers/Stalker 29.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9776cd0f1634ca5409a8b59712b7f5b4
+    m_Address: Assets/BetweenLevels/Buses/DocPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

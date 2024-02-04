@@ -11,16 +11,29 @@ public class NanomachinesLabel : MonoBehaviour
         _label = GetComponent<Text>();
         
         CheckValue();
+        CheckGameValue(0);
+        PlayerShipData.ChangeHealth += CheckGameValue;
         GameSessionInfoHandler.SavingAll += CheckValue;
     }
 
     private void OnDisable() {
+        PlayerShipData.ChangeHealth -= CheckGameValue;
         GameSessionInfoHandler.SavingAll -= CheckValue;
     }
 
     private void CheckValue()
     {
-        if (_label != null)
+        if (_label != null && !Player.Alive)
+        {
             _label.text = $"{GameSessionInfoHandler.GetSessionSave().HealthPoints} / {GameSessionInfoHandler.GetSessionSave().MaxHealth}";
+        }
+    }
+
+    private void CheckGameValue(int value)
+    {
+        if (_label != null && Player.Alive)
+        {
+            _label.text = $"{PlayerShipData.HitPoints} / {GameSessionInfoHandler.GetSessionSave().MaxHealth}";
+        }
     }
 }

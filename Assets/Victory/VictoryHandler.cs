@@ -18,6 +18,7 @@ public class VictoryHandler : MonoBehaviour
     private int _tempCosmilite = 0;
     private int _tempPositronium = 0;
     private int _tempAurite = 0;
+    private int _healOnVictory = 0;
 
     private static bool _loadLobby = false;
 
@@ -47,8 +48,16 @@ public class VictoryHandler : MonoBehaviour
         print($"Добавлен временный аурит: {val}");
     }
 
+    public void AddHealOnVictory(int amount)
+    {
+        _healOnVictory += amount;
+    }
+
     public void LevelVictory(bool andMission = false)
     {
+        if (_healOnVictory > 0)
+            PlayerShipData.RegenerateHP(_healOnVictory);
+
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
 
         save.PrepareToNewLevel(); // Current level ++

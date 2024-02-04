@@ -371,6 +371,15 @@ TextureImporter:
   - first:
       213: -2147419943287908874
     second: AAPlayerBullets_9
+  - first:
+      213: 2279827377554021636
+    second: AAPlayerBullets_10
+  - first:
+      213: 1972913450238036978
+    second: AAPlayerBullets_11
+  - first:
+      213: 4372133752404512401
+    second: AAPlayerBullets_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -3094,6 +3103,69 @@ TextureImporter:
       bones: []
       spriteID: 6f51cb860f4d232e0800000000000000
       internalID: -2147419943287908874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_10
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 44
+        width: 9
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2923962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d515cbbe293af10800000000000000
+      internalID: 2279827377554021636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_11
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 47
+        width: 7
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37622535}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb470e7452316b10800000000000000
+      internalID: 1972913450238036978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_12
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 45
+        width: 9
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32826266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e0196bb70fcac30800000000000000
+      internalID: 4372133752404512401
       vertices: []
       indices: 
       edges: []

@@ -94,6 +94,12 @@ public class PlayerShipData : MonoBehaviour
         VictoryHandler.LevelVictored -= WriteSaveData;
     }
 
+    public static void LoadHealth()
+    {
+        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+        HitPoints = save.HealthPoints;
+    }
+
     public static void TakeDamage(int damage)
     {
         if ((damage <= 0) || (Invulnerable) || (SceneStatics.GameTimer - GameTimerBuffer < ShipStats.GetValue("UnvulnerableTimeAfterDamage")))

@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public static Transform PlayerTransform {get; private set;}
     public static bool Alive => PlayerShipData.Active;
 
+    public static bool CanAttack {get; set;} = true;
+
     private static GameObject _firstPlayerExample;
 
     public static void Initialize(GameObject player) // надо переработать

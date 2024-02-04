@@ -14,7 +14,7 @@ public class WeaponRoot : MonoBehaviour
     public Transform[] PlayerBarrels => _barrels;
 
     private DeviceUI _weaponUI;
-    private bool Active => Player.Alive;
+    private bool Active => Player.Alive && Player.CanAttack;
     public bool Prepared => (_preparing >= _prepareTime) && Active;
     public float PrepareSpeed {get; private set;} = 1f;
 

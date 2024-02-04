@@ -11,7 +11,7 @@ public class AuriteOnVictory : Module
         int addValue = Random.Range(_gainRange.x, _gainRange.y + 1);
 
         if (_useArray)
-            addValue = _gainRange[Random.Range(0, _gainVariants.Length)];
+            addValue = _gainVariants[Random.Range(0, _gainVariants.Length)];
 
         SceneStatics.CharacterCore.GetComponent<VictoryHandler>().AddAurite(addValue);
     }

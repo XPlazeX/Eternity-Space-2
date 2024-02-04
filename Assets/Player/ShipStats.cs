@@ -86,6 +86,7 @@ public class ShipStats
         ["FlatPlayerBulletAcceleration"] = 0f,
         ["ShieldCapacityMultiplier"] = 1f,
         ["PickupChanceMultiplier"] = 1f,
+        ["DroneEffeciency"] = 1f,
         // --- Окружение --- ------------------------------------------
         ["AsteroidSpawnRateMultiplier"] = 1f,
         ["AsteroidSpeedMultiplier"] = 1f,

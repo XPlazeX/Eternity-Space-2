@@ -5,8 +5,17 @@ using DamageSystem;
 public class Module : MonoBehaviour
 {
     [SerializeField] private Sprite _icon;
+    [SerializeField] private bool _selfLoadOnStart = false;
     public Sprite Icon => _icon;
     
+    private void Start() 
+    {
+        if (_selfLoadOnStart)
+        {
+            Load();
+        }
+    }
+
     public virtual void Load() {} // метод загрузки модуля перед боем
     public virtual void Asquiring() {}
     public virtual void MissionMenuLoad() {}

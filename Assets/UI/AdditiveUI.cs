@@ -7,7 +7,7 @@ public class AdditiveUI : MonoBehaviour
     [SerializeField] private Vector2 _anchoredPosition;
 
     private void Start() {
-        SceneStatics.UICore.GetComponent<UIPlacer>().SpawnUI(_placingObject, _anchoredPosition);
+        SceneStatics.UICore.GetComponent<UIPlacer>().PlacePassiveUI(_placingObject, _anchoredPosition);
     }
 
 }

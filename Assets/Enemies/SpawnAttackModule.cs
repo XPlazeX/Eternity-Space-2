@@ -1,23 +1,40 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SpawnAttackModule : MonoBehaviour
+public class SpawnAttackModule : MonoBehaviour, IAttackModule
 {
     [SerializeField] private float _waitTime;
     [SerializeField] private float _attackReload;
     [SerializeField] private SpawnEnemyAttackObject[] _attackObjects;
     [SerializeField] private int _maxSpawnerEnemies = 1;
+    [SerializeField] private bool _autoStart = true;
 
     private EnemyDBSpawner _edbSpawner;
     private float _aggro = 1f;
 
     private void OnEnable() {
         _edbSpawner = SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>();
-        StartCoroutine(Firing());
+
+        if (_autoStart)
+            StartCoroutine(Firing());
     }
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
+    }
+
+    public void LocalMultiplyAggro(float aggro)
+    {
+
+    }
+
+    public void LocalAddAggro(float multiplier)
+    {
+
+    }
+    public void HandFire()
+    {
+        StartCoroutine(Firing());
     }
 
     private IEnumerator Firing()

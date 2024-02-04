@@ -25,6 +25,6 @@ public class StaticBullet : MonoBehaviour
         else
             AttackObject.InflictDamage(damageBody, _damageKey, ModdedDamage);
 
-        print("inf");
+        //print("inf");
     }
 }
