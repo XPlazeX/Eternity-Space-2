@@ -20,7 +20,7 @@ public class RamAI : EnemyAIRoot
 
     private void SetTarget()
     {
-        _targetPosition = ((_player.position - transform.position).normalized * _ramDistance * _mobility) + transform.position;
+        _targetPosition = ((_player.position - transform.position).normalized * _ramDistance * Mobility) + transform.position;
 
         float secondaryOffset = SceneStatics.MultiplyByChaos(SceneStatics.ChaosMultiplier) * 5f;
         _targetPosition += new Vector3(Random.Range(-secondaryOffset, secondaryOffset), Random.Range(-secondaryOffset, secondaryOffset), 0f);
@@ -28,7 +28,7 @@ public class RamAI : EnemyAIRoot
 
     protected override void DoMove()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * _mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
         _passedWay += currentMoving;
         transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
 
@@ -39,7 +39,7 @@ public class RamAI : EnemyAIRoot
             SetTarget();
             _passedWay = 0f;
             _distance = (_targetPosition - transform.position).magnitude;
-            _timer = SceneStatics.MultiplyByChaos(_ramReload / _mobility);
+            _timer = SceneStatics.MultiplyByChaos(_ramReload / Mobility);
         }
     }
 }

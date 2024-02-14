@@ -17,10 +17,12 @@ public class AsqRepairing : Module
         else
         {
             int hp = save.HealthPoints;
-            hp += Mathf.FloorToInt(save.MaxHealth * _repairPart);
+            print($"hp from save: {hp}");
+            hp += Mathf.FloorToInt((float)save.MaxHealth * _repairPart);
+            print($"repair percentaged: {Mathf.FloorToInt((float)save.MaxHealth * _repairPart)}");
             hp += _repairFlat;
 
-            save.HealthPoints = hp;
+            save.HealthPoints = Mathf.Clamp(hp, 0, save.MaxHealth);
         }
 
         if (_resetRepairs)

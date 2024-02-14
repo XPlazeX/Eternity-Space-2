@@ -81,10 +81,10 @@ public class Doc : MonoBehaviour
 
         TimeHandler.Pause();
 
-        GameObject docPanel = (GameObject)_docPanelOperation.Result;
+        RectTransform docPanel = SceneStatics.UICore.GetComponent<UIPlacer>().PlaceInteractiveUI(((GameObject)_docPanelOperation.Result).GetComponent<RectTransform>(), Vector2.zero, true);
 
-        SceneStatics.UICore.GetComponent<UIPlacer>().PlaceInteractiveUI(docPanel.GetComponent<RectTransform>(), Vector2.zero, true);
         docPanel.GetComponent<DocModuleChoice>().BindDoc(this);
+        PlayerShipData.LoadHealth();
     }
 
     public void ChoiceMade()

@@ -67,6 +67,12 @@ public class DamageBody : MonoBehaviour
         GetShield(_startShieldPoints);
     }
 
+    public virtual void MultiplyHP(float multiplier)
+    {
+        HitPoints = Mathf.CeilToInt(HitPoints * multiplier);
+        DamageTaking?.Invoke(HitPoints);
+    }
+
     public virtual void TakeDamage(int damage)
     {
         if (KeyDamage == DamageKey.Unvulnerable)

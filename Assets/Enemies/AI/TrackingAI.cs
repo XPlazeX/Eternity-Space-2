@@ -31,16 +31,16 @@ public class TrackingAI : EnemyAIRoot
             if (((transform.position - _player.position).magnitude < (_closingDistance) && _retreating))
             {
                 _reposition = true;
-                _timer = SceneStatics.MultiplyByChaos(_repositionTime / _mobility);
+                _timer = SceneStatics.MultiplyByChaos(_repositionTime / Mobility);
                 _secondaryOffset = SceneStatics.MultiplyByChaos(SceneStatics.ChaosMultiplier) * 2f;
 
-                _targetPosition = _player.position + ((transform.position - _player.position).normalized * (_closingDistance / _mobility) * _retreatPower);
+                _targetPosition = _player.position + ((transform.position - _player.position).normalized * (_closingDistance / Mobility) * _retreatPower);
                 _targetPosition += new Vector3(Random.Range(-_secondaryOffset, _secondaryOffset), Random.Range(-_secondaryOffset, _secondaryOffset), 0f);
                 return;
             }
 
-            _targetPosition = _player.position + ((transform.position - _player.position).normalized * (_closingDistance / _mobility));
-            transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * _mobility);
+            _targetPosition = _player.position + ((transform.position - _player.position).normalized * (_closingDistance / Mobility));
+            transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
         } else 
         {
             if (_timer <= 0)
@@ -49,7 +49,7 @@ public class TrackingAI : EnemyAIRoot
                 return;
             }
 
-            transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * _mobility);
+            transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
         }
         
         _timer -= Time.deltaTime;

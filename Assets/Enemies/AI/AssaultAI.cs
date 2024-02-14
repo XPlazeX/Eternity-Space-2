@@ -31,7 +31,7 @@ public class AssaultAI : EnemyAIRoot
     private void SetOffset()
     {
         Vector2 temp = Random.insideUnitCircle.normalized;
-        _offset = new Vector3(temp.x, temp.y, 0f) * (_offsetDistance / _mobility);
+        _offset = new Vector3(temp.x, temp.y, 0f) * (_offsetDistance / Mobility);
     }
 
     protected override void DoMove()
@@ -48,11 +48,11 @@ public class AssaultAI : EnemyAIRoot
         if (_timer <= 0f)
         {
             SetOffset();
-            _timer = SceneStatics.MultiplyByChaos((_timeToReloadCirclePoint / _mobility));
+            _timer = SceneStatics.MultiplyByChaos((_timeToReloadCirclePoint / Mobility));
         }
 
         _targetPosition = _player.position + _offset;
 
-        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * _mobility);
+        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
     }
 }

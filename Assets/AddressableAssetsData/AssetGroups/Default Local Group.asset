@@ -338,6 +338,10 @@ MonoBehaviour:
     m_Address: Assets/BetweenLevels/Buses/DocPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 94a2edb2b4177274786e061380f3a4c6
+    m_Address: Assets/Levels/Missions/Gin-0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

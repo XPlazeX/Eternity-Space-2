@@ -15,6 +15,9 @@ public class VictoryHandler : MonoBehaviour
     public static string CustomSceneOnDeath {get; set;}
     public static string CustomSceneOnExit {get; set;}
 
+    public int RequiredLevelCountForDocs {get; private set;} = 9;
+    public int DocOnLevels {get; private set;} = 5;
+
     private int _tempCosmilite = 0;
     private int _tempPositronium = 0;
     private int _tempAurite = 0;
@@ -84,6 +87,14 @@ public class VictoryHandler : MonoBehaviour
         }
 
         SceneStatics.SceneCore.GetComponent<BusStop>().SpawnBus();
+
+        if (GameSessionInfoHandler.MaxLevel < RequiredLevelCountForDocs || GameSessionInfoHandler.FinalLevel)
+            return;
+
+        if ((GameSessionInfoHandler.CurrentLevel + 1) % DocOnLevels == 0)
+        {
+            SceneStatics.SceneCore.GetComponent<BusStop>().SpawnDoc();
+        }
     }
 
     public void MissionVictory()

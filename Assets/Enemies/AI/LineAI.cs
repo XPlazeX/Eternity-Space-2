@@ -25,12 +25,12 @@ public class LineAI : EnemyAIRoot
 
     private void OnCameraSizeChange(float nul)
     {
-        _circleSize = (CameraController.Size * 2f) + (_circleAroundPlayerSizeBoost / _mobility);
+        _circleSize = (CameraController.Size * 2f) + (_circleAroundPlayerSizeBoost / Mobility);
     }
 
     protected override void DoMove()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * _mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
         _passedWay += currentMoving;
         transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
 

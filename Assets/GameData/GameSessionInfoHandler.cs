@@ -55,6 +55,15 @@ public class GameSessionInfoHandler : MonoBehaviour
         RewriteSessionSave(_save);
     }
 
+    public static void ReplaceValueFromCollection(string name, int index, int newValue)
+    {
+        if (!ExistDataCollection(name))
+            throw new System.MissingMemberException($"Коллекции с именем {name}, не существует в AdditiveData. Проверьте её наличие и/или создайте коллекцию с таким именем.");
+
+        _save.AdditiveData[name][index] = newValue;
+        RewriteSessionSave(_save);
+    }
+
     public static List<int> GetDataCollection(string name)
     {
         if (!_save.AdditiveData.ContainsKey(name))

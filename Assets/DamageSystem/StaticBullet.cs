@@ -17,7 +17,7 @@ public class StaticBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         DamageBody damageBody = other.GetComponent<DamageBody>();
 
-        if (damageBody == null || (damageBody.KeyDamage == DamageKey.Player && _hoverable))
+        if (damageBody == null || (damageBody.KeyDamage == DamageKey.Player && (_hoverable && PlayerShipData.Hover)))
             return;
 
         if (ModdedDamage == -1)

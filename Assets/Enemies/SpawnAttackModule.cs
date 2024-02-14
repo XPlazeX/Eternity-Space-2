@@ -11,6 +11,7 @@ public class SpawnAttackModule : MonoBehaviour, IAttackModule
 
     private EnemyDBSpawner _edbSpawner;
     private float _aggro = 1f;
+    private float _localAggro = 1f;
 
     private void OnEnable() {
         _edbSpawner = SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>();
@@ -23,15 +24,11 @@ public class SpawnAttackModule : MonoBehaviour, IAttackModule
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
     }
 
-    public void LocalMultiplyAggro(float aggro)
+    public void LocalMultiplyAggro(float multiplier)
     {
-
+        _localAggro *= multiplier;
     }
 
-    public void LocalAddAggro(float multiplier)
-    {
-
-    }
     public void HandFire()
     {
         StartCoroutine(Firing());
@@ -39,7 +36,7 @@ public class SpawnAttackModule : MonoBehaviour, IAttackModule
 
     private IEnumerator Firing()
     {
-        yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime / _aggro));
+        yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime / (_aggro * _localAggro)));
 
         while (true)
         {
@@ -47,18 +44,18 @@ public class SpawnAttackModule : MonoBehaviour, IAttackModule
             {
                 for (int i = 0; i < _attackObjects.Length; i++)
                 {
-                    for (int j = 0; j < Mathf.Floor((float)_attackObjects[i].Cycles * _aggro); j++)
+                    for (int j = 0; j < Mathf.Floor((float)_attackObjects[i].Cycles * (_aggro * _localAggro)); j++)
                     {
                         _attackObjects[i].Fire();
 
-                        yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeBetweenCycles / _aggro));
+                        yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeBetweenCycles / (_aggro * _localAggro)));
                     }
 
-                    yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeCooling / _aggro));
+                    yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeCooling / (_aggro * _localAggro)));
                 }
             }
 
-            yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackReload / _aggro));
+            yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackReload / (_aggro * _localAggro)));
         }
     }
 }

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 5759273032523267841, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
+  _selfLoadOnStart: 0
   _loadingModules:
   - {fileID: 6325196337678085520, guid: 567579e00b1c48647a36cf3fb257a955, type: 3}
   - {fileID: 1554671533882739457, guid: 7c6a8e7cd0ca39b439b139fbe8af4dce, type: 3}
-  - {fileID: 4128665657442192847, guid: bec53f08360e4eb4e86425d164acc18e, type: 3}

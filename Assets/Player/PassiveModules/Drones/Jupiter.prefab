@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9069206062416828812}
   - component: {fileID: 9069206062416828813}
   - component: {fileID: 9069206062416828823}
+  - component: {fileID: 7169935762942016446}
   - component: {fileID: 9117154736942138863}
   - component: {fileID: 9069206062416828808}
   - component: {fileID: 9069206062416828809}
@@ -107,8 +108,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0
-  _hitPoints: 444
+  _hitPoints: 555
   _startShieldPoints: 0
+--- !u!114 &7169935762942016446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069206062416828815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf4d871a4ca45e47ad1f5320762e07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleLocalAggro: 0
+  _aggroBoostPerStep: 0.4
+  _scaleHP: 1
+  _hpNormalizedBoostPerStep: 0.5
+  _scaleLocalMobility: 1
+  _mobilityBoostPerStep: 0.33
 --- !u!114 &9117154736942138863
 MonoBehaviour:
   m_ObjectHideFlags: 0

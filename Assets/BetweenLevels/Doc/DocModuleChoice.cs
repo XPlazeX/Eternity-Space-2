@@ -19,6 +19,8 @@ public class DocModuleChoice : MonoBehaviour
     {
         if (doc != null)
             _bindedDoc = doc;
+        else 
+            throw new System.NullReferenceException($"Пустая ссылка на объект Doc: {doc}");
     }
 
     public void OnModuleGetted()

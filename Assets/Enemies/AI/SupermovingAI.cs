@@ -42,7 +42,7 @@ public class SupermovingAI : EnemyAIRoot
             if ((transform.position - _targetPosition).magnitude <= _rotationRadius)
             {
                 _rotatingAround = true;
-                _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / _mobility);
+                _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
                 _rotationDirection = -1f;
 
                 if (Random.Range(0, 2) == 1)
@@ -52,7 +52,7 @@ public class SupermovingAI : EnemyAIRoot
                 return;
             }
 
-            float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * _mobility;
+            float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
             _passedWay += currentMoving;
             transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
         } else 
@@ -64,8 +64,8 @@ public class SupermovingAI : EnemyAIRoot
                 return;
             }
 
-            transform.RotateAround(_targetPosition, Vector3.forward, _rotationAroundSpeedMultiplier * Time.deltaTime * Speed * _rotationDirection * _mobility);
-            transform.Rotate(0, 0, _rotationAroundSpeedMultiplier * Time.deltaTime * Speed * -_rotationDirection * _mobility);
+            transform.RotateAround(_targetPosition, Vector3.forward, _rotationAroundSpeedMultiplier * Time.deltaTime * Speed * _rotationDirection * Mobility);
+            transform.Rotate(0, 0, _rotationAroundSpeedMultiplier * Time.deltaTime * Speed * -_rotationDirection * Mobility);
             _timer -= Time.deltaTime;
         }
     }

@@ -18,11 +18,13 @@ public class EnemyAIRoot : MonoBehaviour
     [SerializeField] protected AnimationCurve _movingProgression;
 
     private float _startSpeed;
-    protected float _mobility = 1f;
+    private float _mobility = 1f;
+    private float _localMobility = 1f;
     protected Vector3 _targetPosition;
     protected Transform _player;
 
     public float Speed => _speed;
+    public float Mobility => _mobility * _localMobility;
     public bool Active {get; private set;} = false;
 
     private void OnEnable() 
@@ -35,6 +37,11 @@ public class EnemyAIRoot : MonoBehaviour
 
         ShipStats.StatChanged += ObserveStat;
         _mobility = ShipStats.GetValue("EnemyMobilityMultiplier");
+    }
+
+    public void LocalMultiplyMobility(float multiplier)
+    {
+        _localMobility *= multiplier;
     }
 
     public void Reload()
@@ -81,7 +88,7 @@ public class EnemyAIRoot : MonoBehaviour
 
     protected void RotateToTarget()
     {
-        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_targetPosition - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * _mobility, 0f));
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_targetPosition - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }
@@ -89,7 +96,7 @@ public class EnemyAIRoot : MonoBehaviour
     protected void RotateToPlayer()
     {
         if (_player != null)
-                transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * _mobility, 0f));
+                transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }

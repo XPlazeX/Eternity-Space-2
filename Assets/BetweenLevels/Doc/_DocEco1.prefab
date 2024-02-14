@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: -6644556464896919635, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
-  _fullRepair: 1
-  _repairPart: 0
-  _repairFlat: 0
-  _resetRepairs: 1
+  _selfLoadOnStart: 0
+  _fullRepair: 0
+  _repairPart: 0.3
+  _repairFlat: 20
+  _resetRepairs: 0

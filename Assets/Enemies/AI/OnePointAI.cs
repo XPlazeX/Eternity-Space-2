@@ -27,7 +27,7 @@ public class OnePointAI : EnemyAIRoot
             return;
         }
 
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _jumpPower) * Speed * Time.deltaTime * _mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _jumpPower) * Speed * Time.deltaTime * Mobility;
         transform.position += _selectedDirection * currentMoving;
         _passedWay += currentMoving;
     }

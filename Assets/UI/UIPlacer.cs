@@ -16,7 +16,7 @@ public class UIPlacer : MonoBehaviour
         tmp.anchoredPosition = position;
     }
 
-    public void PlaceInteractiveUI(RectTransform rectTransform, Vector2 position, bool panel = false)
+    public RectTransform PlaceInteractiveUI(RectTransform rectTransform, Vector2 position, bool panel = false)
     {
         RectTransform tmp = Instantiate(rectTransform);
         tmp.SetParent(_interactiveCanvas);
@@ -29,6 +29,8 @@ public class UIPlacer : MonoBehaviour
             tmp.offsetMin = new Vector2(-5f, -5f);
             tmp.offsetMax = new Vector2(5f, 5f);
         }
+
+        return tmp;
     }
 
 }

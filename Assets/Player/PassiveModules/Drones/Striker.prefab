@@ -70,6 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9069206062416828812}
   - component: {fileID: 9069206062416828813}
+  - component: {fileID: -896986898134049908}
   - component: {fileID: 9069206062416828823}
   - component: {fileID: 4384622019232125236}
   - component: {fileID: 1770884239022283663}
@@ -154,6 +155,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-896986898134049908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069206062416828815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf4d871a4ca45e47ad1f5320762e07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleLocalAggro: 1
+  _aggroBoostPerStep: 0.4
+  _scaleHP: 1
+  _hpNormalizedBoostPerStep: 0.3
+  _scaleLocalMobility: 1
+  _mobilityBoostPerStep: 0.1
 --- !u!114 &9069206062416828823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _attackReload: 4
+  _attackReload: 3.5
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0
@@ -241,6 +260,7 @@ MonoBehaviour:
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
     _soundOnFireID: 1
+  _autoStart: 1
 --- !u!114 &9069206062416828808
 MonoBehaviour:
   m_ObjectHideFlags: 0

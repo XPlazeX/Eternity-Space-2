@@ -54,13 +54,13 @@ public class WormAI : EnemyAIRoot
             if (_targetingTimer <= 0)
             {
                 SetTarget();
-                _targetingTimer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / _mobility);
+                _targetingTimer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
             }
-            transform.position += transform.up.normalized * Speed * Time.deltaTime * _mobility;
+            transform.position += transform.up.normalized * Speed * Time.deltaTime * Mobility;
         } else {
             _targetPosition = _player.position;
             _rotationSpeed = _normalRotationSpeed * _rotationSpeedProgression.Evaluate(1f - (_timer / _phaseTime));
-            transform.position += transform.up.normalized * (Speed + _agressiveSpeedBoost) * Time.deltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * _mobility;
+            transform.position += transform.up.normalized * (Speed + _agressiveSpeedBoost) * Time.deltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
         }
 
         _timer -= Time.deltaTime;
@@ -73,7 +73,7 @@ public class WormAI : EnemyAIRoot
             {
                 _timer = SceneStatics.MultiplyByChaos(_phaseCycleTime * AgressiveTimePercent);
                 _phaseTime = _timer;
-                _normalRotationSpeed = _rotationSpeed * _mobility;
+                _normalRotationSpeed = _rotationSpeed * Mobility;
             } else {
                 _timer = SceneStatics.MultiplyByChaos(_phaseCycleTime * (1f - AgressiveTimePercent));
                 _rotationSpeed = _normalRotationSpeed;

@@ -17,8 +17,7 @@ public class FollowAI : EnemyAIRoot
         float ySize = -CameraController.Borders_xXyY.z + CameraController.Borders_xXyY.w;
         _YBorders = new Vector2 ( -ySize,  ySize);
 
-        _timer = SceneStatics.MultiplyByChaos((_retargetDelay / _mobility));
-        //_movingIE = Moving();
+        _timer = SceneStatics.MultiplyByChaos((_retargetDelay / Mobility));
 
         base.Start();
     }
@@ -28,10 +27,10 @@ public class FollowAI : EnemyAIRoot
         if (!_retargeting)
         {
             _targetPosition = _player.position;
-            transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * _mobility;
+            transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
         } else 
         {
-            transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * _mobility;
+            transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
         }
 
         _timer -= Time.deltaTime;
@@ -39,46 +38,9 @@ public class FollowAI : EnemyAIRoot
         if (_timer < 0f)
         {
             _retargeting = !_retargeting;
-            _timer = SceneStatics.MultiplyByChaos((_retargetDelay / _mobility));
+            _timer = SceneStatics.MultiplyByChaos((_retargetDelay / Mobility));
             if (_retargeting)
                 _targetPosition = new Vector3 (Random.Range(_XBorders.x, _XBorders.y), Random.Range(_YBorders.x, _YBorders.y), 0f);
         }
     }
-
-    // private IEnumerator Moving()
-    // {
-    //     float _timer = SceneStatics.MultiplyByChaos((_retargetDelay / _mobility));
-
-    //     while (_timer > 0)
-    //     {
-    //         _targetPosition = _player.position;
-
-    //         transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * _mobility;
-
-    //         _timer -= Time.deltaTime;
-
-    //         yield return null;
-    //     }
-
-    //     StartCoroutine(RetargetMoving());
-    // }
-
-    // private IEnumerator RetargetMoving()
-    // {
-    //     float _timer = SceneStatics.MultiplyByChaos(_retargetTime / _mobility);
-
-    //     _targetPosition = new Vector3 (Random.Range(_XBorders.x, _XBorders.y), Random.Range(_YBorders.x, _YBorders.y), 0f);
-
-    //     while ((_timer > 0) && ((transform.position - _targetPosition).magnitude > 0.1f))
-    //     {
-
-    //         transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * _mobility;
-
-    //         _timer -= Time.deltaTime;
-
-    //         yield return null;
-    //     }
-
-    //     StartCoroutine(Moving());
-    // }
 }

@@ -35,9 +35,9 @@ public class OppositionAI : EnemyAIRoot
         Vector2 retreatOffset = new Vector2();
 
         if (_noiseOffset)
-            retreatOffset = (_retreatOffsetXY * _mobility) + new Vector2(SceneStatics.MultiplyByChaos(1f), SceneStatics.MultiplyByChaos(1f));
+            retreatOffset = (_retreatOffsetXY * Mobility) + new Vector2(SceneStatics.MultiplyByChaos(1f), SceneStatics.MultiplyByChaos(1f));
         else
-            retreatOffset = (_retreatOffsetXY * _mobility);
+            retreatOffset = (_retreatOffsetXY * Mobility);
 
         _trueOffset = _offset + new Vector3(Random.Range(-retreatOffset.x, retreatOffset.x), Random.Range(-retreatOffset.y, retreatOffset.y), 0);
     }
@@ -57,12 +57,12 @@ public class OppositionAI : EnemyAIRoot
         if (_retreating && _timer <= 0)
         {
             Retreat();
-            _timer = _retreatTime / _mobility;
+            _timer = _retreatTime / Mobility;
         }
 
         _targetPosition = _player.position + (_player.rotation * _trueOffset);
 
-        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * _mobility);
+        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
 
         _timer -= Time.deltaTime;
     }

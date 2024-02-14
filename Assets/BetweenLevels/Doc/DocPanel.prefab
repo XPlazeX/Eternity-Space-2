@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 7889753983870166985}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 478, y: -67}
-  m_SizeDelta: {x: 626.3343, y: 42.5459}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -330, y: -67}
+  m_SizeDelta: {x: 626.3342, y: 42.5459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1820239395103710968
 CanvasRenderer:
@@ -299,10 +299,10 @@ RectTransform:
   m_Father: {fileID: 7889753983870166985}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 478, y: 296}
-  m_SizeDelta: {x: 626.3343, y: 42.5459}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -330, y: 296}
+  m_SizeDelta: {x: 626.3342, y: 42.5459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &363808763993204608
 CanvasRenderer:
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 7670621952143497533}
   - component: {fileID: 6180103163077774999}
   m_Layer: 5
-  m_Name: Service 1 (1)
+  m_Name: PanelSport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: 2401601487684920938}
   - component: {fileID: 3673326423647748060}
   m_Layer: 5
-  m_Name: Service 1
+  m_Name: PanelDelicate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2228,6 +2228,7 @@ MonoBehaviour:
   - {fileID: 1120768048338768218}
   - {fileID: 167662797203063882}
   _destroyingObject: {fileID: 7889753983870166984}
+  _bindedDoc: {fileID: 0}
 --- !u!225 &7889753983870166989
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2271,7 +2272,7 @@ GameObject:
   - component: {fileID: 7889753983988760755}
   - component: {fileID: 167662797203063882}
   m_Layer: 5
-  m_Name: Service 1 (2)
+  m_Name: PanelEco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

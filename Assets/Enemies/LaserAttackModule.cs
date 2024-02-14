@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LaserAttackModule : MonoBehaviour
+public class LaserAttackModule : MonoBehaviour, IAttackModule
 {
     [SerializeField] private float _waitTime;
     [SerializeField] private float _attackReload;
@@ -9,6 +9,7 @@ public class LaserAttackModule : MonoBehaviour
     [SerializeField] private bool _autoStart = true;
 
     private float _aggro = 1f;
+    private float _localAggro = 1f;
 
     private void OnEnable() {
         if (_autoStart)
@@ -17,6 +18,11 @@ public class LaserAttackModule : MonoBehaviour
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
+    }
+
+    public void LocalMultiplyAggro(float multiplier)
+    {
+        _localAggro *= multiplier;
     }
 
     public void HandFire()
@@ -39,7 +45,7 @@ public class LaserAttackModule : MonoBehaviour
                     yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeBetweenCycles));
                 }
 
-                yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeCooling / _aggro));
+                yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeCooling / (_aggro * _localAggro)));
             }
 
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackReload));

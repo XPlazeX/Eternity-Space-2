@@ -10,7 +10,7 @@ public class RotateAroundAI : EnemyAIRoot
     private float _rotationDirection = -1f;
 
     protected override void Start() {
-        _emptyTarget = Instantiate(new GameObject(), _player.position + Vector3.up * (_closingDistance / _mobility), Quaternion.identity, _player).transform;
+        _emptyTarget = Instantiate(new GameObject(), _player.position + Vector3.up * (_closingDistance / Mobility), Quaternion.identity, _player).transform;
         
         if (Random.Range(0, 2) == 1)
             _rotationDirection = 1f;
@@ -24,11 +24,11 @@ public class RotateAroundAI : EnemyAIRoot
     {
         if (_emptyTarget != null)
         {
-            _emptyTarget.RotateAround(_player.position, Vector3.forward, Speed * _rotationAroundSpeedMultiplier * Time.deltaTime * _rotationDirection * _mobility);
+            _emptyTarget.RotateAround(_player.position, Vector3.forward, Speed * _rotationAroundSpeedMultiplier * Time.deltaTime * _rotationDirection * Mobility);
             _targetPosition = _emptyTarget.position;
         }
 
-        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * _mobility);
+        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
     }
 
     private void OnDestroy() {

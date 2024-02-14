@@ -35,7 +35,7 @@ public class PlaneAI : EnemyAIRoot
 
     protected override void DoMove()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * _mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
         _passedWay += currentMoving;
         transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
 
@@ -46,7 +46,7 @@ public class PlaneAI : EnemyAIRoot
             SetTarget();
             _passedWay = 0f;
             _distance = (_targetPosition - transform.position).magnitude;
-            _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / _mobility);
+            _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
         }
     }
 }
