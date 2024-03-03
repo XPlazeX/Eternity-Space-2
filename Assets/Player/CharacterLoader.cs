@@ -26,6 +26,29 @@ public class CharacterLoader : MonoBehaviour
         yield return StartCoroutine(LoadingCharacter(id));
     }
 
+    public IEnumerator WritingShipHPData(int characterID)
+    {
+        if (_characterOperationHandle.IsValid())
+        {
+            Addressables.Release(_characterOperationHandle);
+        }
+
+        var characterReference = _characters[characterID];
+
+        _characterOperationHandle = Addressables.LoadAssetAsync<Character>(characterReference);
+        yield return _characterOperationHandle;
+
+        int hp = ((Character)_characterOperationHandle.Result).HP;
+
+        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+
+        save.MaxHealth = hp;
+        save.HealthPoints = hp;
+        Debug.Log($"written character hp: {hp}");
+
+        GameSessionInfoHandler.RewriteSessionSave(save);
+    }
+
     private IEnumerator LoadingCharacter(int characterID)
     {
         if (_characterOperationHandle.IsValid())

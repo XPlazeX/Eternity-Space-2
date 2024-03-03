@@ -28,6 +28,9 @@ public class PlayerShipData : MonoBehaviour
         
         private set 
         {
+            if (!Armoring)
+                return;
+
             _armorPoints = value;
             CheckState();
             _playerUI.ChangeARM(_armorPoints, (float)_armorPoints / _hpCap);
@@ -45,7 +48,8 @@ public class PlayerShipData : MonoBehaviour
     }
     public static bool Invulnerable {get; private set;} = false;
     public static bool Hover {get; set;} = false;
-    public static bool Active {get; private set;} = true;
+    public static bool Active {get; private set;} = false;
+    public static bool Armoring {get; private set;} = true;
     public static bool CriticalState {get; private set;} = false;
     public static int MaxHP => _hpCap;
     public static bool OneShotProtection {get; private set;} = true;
@@ -191,6 +195,13 @@ public class PlayerShipData : MonoBehaviour
     {
         _armorCap += additiveArmorCap;
         ArmorPoints = Mathf.Clamp(ArmorPoints + additiveValue, 0, _armorCap);
+    }
+
+    public static void BreakArmoring()
+    {
+        Armoring = false;
+        _armorCap = 0;
+        ArmorPoints = 0;
     }
 
     public static void RegenerateArmor(int addingValue)

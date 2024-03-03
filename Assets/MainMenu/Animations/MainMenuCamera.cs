@@ -23,7 +23,7 @@ public class MainMenuCamera : MonoBehaviour
     private void FixedUpdate() {
         if (!_lightWork)
             return;
-        if (Random.value < noisePertactChance && !_nirvus)
+        if (Random.value < (noisePertactChance * (1f + ContagionHandler.ContagionLevel)) && !_nirvus)
         _lightAnimator.SetTrigger("Noise");
     }
 

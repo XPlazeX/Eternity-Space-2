@@ -54,6 +54,8 @@ public class GameSessionLoader : MonoBehaviour
 
         PlayerController.Initialize();
 
+        SceneStatics.CharacterCore.GetComponent<GameContagionExecutor>().Initialize();
+
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         
         if (!save.EnterNewLevel)

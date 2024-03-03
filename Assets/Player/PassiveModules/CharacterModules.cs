@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using ModuleWork;
+using System;
 
 public class CharacterModules : MonoBehaviour
 {
     [SerializeField] private ModuleOperand[] moduleOperands;
+    [SerializeField] private int[] randomizedExclusions;
 
     public int ModuleCount => moduleOperands.Length;
     public Gear GetGear(GearType type, string name)
@@ -29,5 +31,17 @@ public class CharacterModules : MonoBehaviour
     public Module GetModule(int id)
     {
         return moduleOperands[id].HandingModule;
+    }
+
+    public int GetRandomModuleID()
+    {
+        while (true)
+        {
+            int result = UnityEngine.Random.Range(0, moduleOperands.Length);
+            if (!Array.Exists(randomizedExclusions, element => element == result))
+            {
+                return result;
+            }
+        }
     }
 }

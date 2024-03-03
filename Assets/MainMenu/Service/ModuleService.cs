@@ -10,6 +10,12 @@ public class ModuleService : MonoBehaviour
     [SerializeField] private Text _description;
     [SerializeField] private BuyButton _buyBtn;
     [SerializeField] private float _heightStep;
+    [Space()]
+    [SerializeField][Range(0, 11)] private int _contagionLevel;
+    [SerializeField][Range(0, 1f)] private float _sale = 0f;
+    [Space()]
+    [SerializeField] private bool _useConstantLevelEvent = false;
+    [SerializeField] private LevelEvent _constantLevelEvent;
 
     public float Height => _heightStep;
 
@@ -18,6 +24,11 @@ public class ModuleService : MonoBehaviour
     
     public void Load(LevelEvent levelEvent, int choiceID)
     {
+        if (_useConstantLevelEvent)
+        {
+            levelEvent = _constantLevelEvent;
+        }
+
         _activeEvent = levelEvent;
         _choiceID = choiceID;
 
@@ -26,7 +37,7 @@ public class ModuleService : MonoBehaviour
         _description.text = SceneLocalizator.GetLocalizedString("PassiveModules", mo.LocalizationID, 1);
         _icon.sprite = mo.Icon;
 
-        _buyBtn.ScalePrice(levelEvent.auritePrice);
+        _buyBtn.ScalePrice(Mathf.RoundToInt(levelEvent.auritePrice * (1f - _sale)));
 
         CheckAsquisition();
     }
@@ -41,6 +52,12 @@ public class ModuleService : MonoBehaviour
         ModulasSaveHandler.RewriteSave(modulasSave);
 
         _activeEvent.handingModule.Asquiring();
+
+        if (_contagionLevel > 0)
+        {
+            ContagionHandler.AddContagion(_contagionLevel);
+        }
+
         CheckAsquisition();
     }
 

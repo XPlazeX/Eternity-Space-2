@@ -8210,6 +8210,7 @@ GameObject:
   - component: {fileID: 770287093}
   - component: {fileID: 770287099}
   - component: {fileID: 770287100}
+  - component: {fileID: 770287102}
   - component: {fileID: 770287104}
   m_Layer: 0
   m_Name: CharacterCore
@@ -8265,7 +8266,8 @@ MonoBehaviour:
   _testWeaponPattern: {fileID: 8617238154026544125, guid: d53ade181ecfbe7438b060d2caf9cc3e,
     type: 3}
   _testDevice: {fileID: 0}
-  _testLoadingModules: []
+  _testLoadingModules:
+  - {fileID: 4128665657442192847, guid: 2cccfd24a6fd7264f84e0333b4f7f7dc, type: 3}
 --- !u!114 &770287096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8325,6 +8327,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c23d6003f09f6584f9353956f343045f, type: 2}
   - {fileID: 11400000, guid: 66144f56505c26941ba2e47d2ccca8b8, type: 2}
   - {fileID: 11400000, guid: d49966fe77a8c544f903693fa7e48bb5, type: 2}
+  - {fileID: 11400000, guid: 87c203b51c182c147b598fa7025962e4, type: 2}
+  randomizedExclusions: 020000002a0000002b0000002c0000002d000000
 --- !u!114 &770287097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8429,6 +8433,32 @@ MonoBehaviour:
   _positroniumPickup: {fileID: 1380005973944226359, guid: fa584f2b1d41c864bb3b921e06f31cdf,
     type: 3}
   _chance: 0.133
+--- !u!114 &770287102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770287092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6817d2934f12c741b35422616d0fae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moduleList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1554671533882739457, guid: 851afc01f8d9a1d488e36337b893a298, type: 3}
+  - {fileID: 1554671533882739457, guid: adf25e41b4ffa734cbca3ccc1b0df78f, type: 3}
+  - {fileID: 1554671533882739457, guid: 3118d42b68d3b854e84813d7b26b442a, type: 3}
+  - {fileID: 6334140083983375581, guid: d9b5e3c5657633441b1d38bdc33fca58, type: 3}
+  - {fileID: 1554671533882739457, guid: 06182b3b07ab4874cb2a5fe041851092, type: 3}
+  - {fileID: 1554671533882739457, guid: a3f711dc190a83543b5e330d6d7cd4b1, type: 3}
+  - {fileID: 1554671533882739457, guid: f17598395ec4f1e49beadc62981288f7, type: 3}
+  - {fileID: 1554671533882739457, guid: f9e818803257cd4479a042c64b3029c1, type: 3}
+  - {fileID: 4128665657442192847, guid: 2cccfd24a6fd7264f84e0333b4f7f7dc, type: 3}
+  _aggroPerContagion: 0.06
+  _mobilityPerContagion: 0.03
 --- !u!114 &770287104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15396,7 +15426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d2674652d27784d816bbde2a781053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 1
+  _testMode: 0
   _testLocationID: 19
 --- !u!114 &1625426972
 MonoBehaviour:
@@ -16928,6 +16958,7 @@ MonoBehaviour:
   - {r: 0.8266667, g: 1, b: 0, a: 0.69803923}
   - {r: 0.504717, g: 0.9582997, b: 1, a: 1}
   - {r: 0.5776758, g: 0, b: 1, a: 1}
+  - {r: 0, g: 0.16854954, b: 1, a: 1}
   _damageTakens:
   - _clip: {fileID: 8300000, guid: 40796fa0c57a7e5458ace588a9dd7cc4, type: 3}
     _volume: 0.5

@@ -5,6 +5,7 @@ using ModuleWork;
 public class MissionEventsDistributor : MonoBehaviour
 {
     const float module_service_offset = 10f;
+    const string service_type_collection_key = "ModuleServiceTypes";
     // Этот класс предоставляет загрузку и выбор событий на уровне, создавая объекты ModuleService
     // Все данные сохраняются в ModulasSave с помощью ModulasSaveHandler
     // Загрузку модулей осуществляет Module Core, модули беруться из  CHaracterModules который должен быть на CharacterCore
@@ -12,7 +13,11 @@ public class MissionEventsDistributor : MonoBehaviour
     // Спрайты паков устанавливаются через PackRenderer!!!
     [SerializeField] private LevelEvent[] _levelEvents;
     [SerializeField] private List<int> DefaultExclusions = new List<int>();
-    [SerializeField] private ModuleService[] moduleServices;
+    [SerializeField] private ModuleServiceOffer[] _commonModuleServices;
+    [SerializeField] private ModuleServiceOffer[] _packModuleServices;
+    [Space()]
+    [SerializeField] private ModuleService _defaultCommonModuleService;
+    [SerializeField] private ModuleService _defaultPackModuleService;
     [Space()]
     [SerializeField] private Transform _serviceParentTransform;
     [SerializeField] private Vector2 _startEventRectPosition;
@@ -29,6 +34,8 @@ public class MissionEventsDistributor : MonoBehaviour
 
     public void Start()
     {
+        ContagionHandler.Initialize();
+
         if (_log)
         {
             ShowSaveModules();
@@ -42,9 +49,9 @@ public class MissionEventsDistributor : MonoBehaviour
             ModulasSaveHandler.RewriteSave(modulasSave);
 
             if (le.stackType == ModuleStackType.Pack)
-                PlaceEventRect(moduleServices[1], le, 0);
+                PlaceEventRect(_defaultPackModuleService, le, 0);
             else
-                PlaceEventRect(moduleServices[0], le, 0);
+                PlaceEventRect(_defaultCommonModuleService, le, 0);
 
             return;
         }
@@ -76,10 +83,10 @@ public class MissionEventsDistributor : MonoBehaviour
                 customY = _boostedEventYPosition;
 
             if (le.stackType == ModuleStackType.Pack)
-                PlaceEventRect(moduleServices[1], le, i, customY);
+                PlaceEventRect(GetModuleServiceFromSave(i, true), le, i, customY);
 
             else
-                PlaceEventRect(moduleServices[0], le, i, customY);
+                PlaceEventRect(GetModuleServiceFromSave(i, false), le, i, customY);
         }
 
         if (modulasSave.HasPack)
@@ -88,28 +95,23 @@ public class MissionEventsDistributor : MonoBehaviour
         }
     }
 
+    public LevelEvent GetLevelEvent(int id)
+    {
+        return _levelEvents[id];
+    }
+
     public void GetNewEventChoice(int maxEvents)
     {
         print($"### Начало выбора событий");
-        List<int> Exclusions = new List<int>(DefaultExclusions);
+        GameSessionInfoHandler.RemoveDataCollection(service_type_collection_key);
+
         List<int> SelectedEvents = new List<int>();
         List<int> SelectionPool = new List<int>();
 
         ModulasSave modulasSave = ModulasSaveHandler.GetSave();
 
-        Exclusions.AddRange(modulasSave.GetUniqueModulasID()); // исключаем уже имеющиеся уникальные модули
+        SelectionPool = GetAvaiableEvents();
 
-        for (int i = 0; i < _levelEvents.Length; i++) // исключаем неоткрытые модули и заполняем пул доступными ID
-        {
-            if (!_levelEvents[i].unlocked || !Bank.EnoughtCash(BankSystem.Currency.Aurite, _levelEvents[i].auritePrice) || Exclusions.Contains(i)
-                || (_levelEvents[i].oneLeveled && GameSessionInfoHandler.LevelProgress == 0))
-            {
-                print($"Исключено событие: {i}");
-                continue;
-            }
-
-            SelectionPool.Add(i);
-        }
         print($"размер пула: {SelectionPool.Count}");
         if (SelectionPool.Count == 0)
         {
@@ -118,7 +120,53 @@ public class MissionEventsDistributor : MonoBehaviour
             print($"### Перезаписан пустой пул");
             return;
         }
-        while (SelectedEvents.Count < maxEvents) // выбираем ивенты
+
+        SelectedEvents = SelectEventsFromPool(SelectionPool, maxEvents);
+
+        modulasSave.InitEventChoice(SelectedEvents.ToArray());
+
+        ModulasSaveHandler.RewriteSave(modulasSave);
+
+        GameSessionInfoHandler.AddDataCollection(service_type_collection_key, GetServiceTypeListRandomized(SelectedEvents));
+
+        print($"### Перезапись выбора событий");
+    }
+
+    public List<int> GetAvaiableEvents(bool auriteAvailable = true)
+    {
+        List<int> Exclusions = new List<int>(DefaultExclusions);
+        List<int> SelectionPool = new List<int>();
+
+        Exclusions.AddRange(ModulasSaveHandler.GetSave().GetUniqueModulasID()); // исключаем уже имеющиеся уникальные модули
+
+        for (int i = 0; i < _levelEvents.Length; i++) // исключаем неоткрытые модули и заполняем пул доступными ID
+        {
+            if (!_levelEvents[i].unlocked 
+            || (auriteAvailable ? !Bank.EnoughtCash(BankSystem.Currency.Aurite, _levelEvents[i].auritePrice) : false)
+             || Exclusions.Contains(i)
+                || (_levelEvents[i].oneLeveled && GameSessionInfoHandler.LevelProgress == 0))
+            {
+                print($"Исключено событие: {i}");
+                continue;
+            }
+
+            SelectionPool.Add(i);
+        }
+
+        return SelectionPool;
+    }
+
+    public List<int> SelectEventsFromPool(List<int> eventPool, int targetCount)
+    {
+        List<int> SelectedEvents = new List<int>();
+        List<int> SelectionPool = new List<int>(eventPool);
+
+        if (SelectionPool.Count == 0)
+        {
+            Debug.Log("ВНИМАНИЕ! пустой пул событий");
+        }
+
+        while (SelectedEvents.Count < targetCount) // выбираем ивенты
         {
             int selector = Random.Range(0, SelectionPool.Count); // выбираем из пула доступный ID
 
@@ -129,11 +177,7 @@ public class MissionEventsDistributor : MonoBehaviour
                 SelectionPool.RemoveAt(selector);
         }
 
-        modulasSave.InitEventChoice(SelectedEvents.ToArray());
-
-        ModulasSaveHandler.RewriteSave(modulasSave);
-
-        print($"### Перезапись выбора событий");
+        return SelectedEvents;
     }
 
     public void ShowSaveModules()
@@ -151,6 +195,62 @@ public class MissionEventsDistributor : MonoBehaviour
             print(modulasSave.LevelEvents[i].moduleOperandID);
         }
         print("||||||||||| конец модулей |||||||||||");
+    }
+
+    private ModuleService GetModuleServiceFromSave(int eventID, bool isPack)
+    {
+        if (!GameSessionInfoHandler.ExistDataCollection(service_type_collection_key))
+        {
+            Debug.Log("Коллекция типа Модуль сервиса не существует. Используются модуль сервисы по умолчанию.");
+            return isPack ? _defaultPackModuleService : _defaultCommonModuleService;
+        }
+
+        int result = GameSessionInfoHandler.GetDataCollection(service_type_collection_key)[eventID];
+
+        if (result == -1)
+        {
+            return isPack ? _defaultPackModuleService : _defaultCommonModuleService;
+        }
+
+        return isPack ? _packModuleServices[result].moduleServiceSample : _commonModuleServices[result].moduleServiceSample;
+    }
+
+    private List<int> GetServiceTypeListRandomized(List<int> selectedEventIDs)
+    {
+        List<int> result = new List<int>();
+
+        for (int i = 0; i < selectedEventIDs.Count; i++)
+        {
+            if (_levelEvents[selectedEventIDs[i]].stackType == ModuleStackType.Pack)
+            {
+                result.Add(GetModuleServiceIDRandomized(true, -1));
+            } else
+            {
+                result.Add(GetModuleServiceIDRandomized(false, -1));
+            }
+        }
+
+        return result;
+    }
+
+    private int GetModuleServiceIDRandomized(bool isPack, int defaultValue)
+    {
+        ModuleServiceOffer[] servicePool;
+
+        if (isPack)
+            servicePool = _packModuleServices;
+        else
+            servicePool = _commonModuleServices;
+
+        for (int i = 0; i < servicePool.Length; i++)
+        {
+            if (Random.value < servicePool[i].chance)
+            {
+                return i;
+            }
+        }
+
+        return defaultValue;
     }
 
     public void PlaceEventRect(ModuleService moduleService, LevelEvent levelEvent, int choiceID, float _customYposition = 0f)
@@ -172,5 +272,12 @@ public class MissionEventsDistributor : MonoBehaviour
         serviceRect.sizeDelta = new Vector2(1f, moduleService.Height);
 
         sampleEvent.Load(levelEvent, choiceID);
+    }
+
+    [System.Serializable]
+    public struct ModuleServiceOffer
+    {
+        public ModuleService moduleServiceSample;
+        [Range(0, 1f)]public float chance;
     }
 }

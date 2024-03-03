@@ -140,4 +140,28 @@ public class CameraController : MonoBehaviour
     {
         return new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
     }
+
+    public static Vector3 GetRandomFieldPosition(float minDistanceToPlayer)
+    {
+        Vector3 output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+
+        while ((output - Player.PlayerTransform.position).magnitude < minDistanceToPlayer)
+        {
+            output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+        }
+
+        return output;
+    }
+
+    public static Vector3 GetRandomFieldPosition(float minDistanceToOrigin, Vector3 origin)
+    {
+        Vector3 output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+
+        while ((output - origin).magnitude < minDistanceToOrigin)
+        {
+            output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+        }
+
+        return output;
+    }
 }

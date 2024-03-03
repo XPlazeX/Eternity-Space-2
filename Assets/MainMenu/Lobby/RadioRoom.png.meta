@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: -5772488610312080601
     second: RadioRoom_4
+  - first:
+      213: -8207021516163298250
+    second: RadioRoom_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +125,7 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,7 +146,7 @@ TextureImporter:
         width: 162
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,6 +217,27 @@ TextureImporter:
       bones: []
       spriteID: 7233c50613004efa0800000000000000
       internalID: -5772488610312080601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RadioRoom_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 216
+        width: 2
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c4919e96dca1e80800000000000000
+      internalID: -8207021516163298250
       vertices: []
       indices: 
       edges: []

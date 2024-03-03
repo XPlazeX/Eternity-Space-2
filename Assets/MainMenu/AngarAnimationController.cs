@@ -38,18 +38,37 @@ public class AngarAnimationController : MonoBehaviour
 
     }
 
+    private void OnEnable() {
+        ContagionHandler.ContagionChanged += OnContagionChanged;
+    }
+
+    private void OnDisable() {
+        ContagionHandler.ContagionChanged -= OnContagionChanged;
+    }
+
+    public void OnContagionChanged()
+    {
+        SetAirLabelState();
+    }
+
     public void SetAirLabelState(int state = 0)
     {
         switch (state)
         {
             case 0:
-                _airLabel.text = "ВОЗДУХ";
+                if (ContagionHandler.ContagionLevel >= 11)
+                    _airLabel.text = "<color=#0044FF>УГРОЗА</color>";
+                else
+                    _airLabel.text = "ВОЗДУХ";
                 break;
             case 1:
                 _airLabel.text = "ТЯГА";
                 break;
             case 2:
-                _airLabel.text = "ВОЗДУХА НЕТ";
+                if (ContagionHandler.ContagionLevel >= 11)
+                    _airLabel.text = "<color=#0044FF>ВЕРНИСЬ</color>";
+                else
+                    _airLabel.text = "ВОЗДУХА НЕТ";
                 break;
             case 3:
                 _airLabel.text = "ПРОДУВ";

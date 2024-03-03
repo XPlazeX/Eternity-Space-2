@@ -17,6 +17,21 @@ TextureImporter:
   - first:
       213: 7705744009360808537
     second: ModuleChest_4
+  - first:
+      213: -4481118183945298347
+    second: ModuleChest_5
+  - first:
+      213: 7185438079474885054
+    second: ModuleChest_6
+  - first:
+      213: 4025985267890980048
+    second: ModuleChest_7
+  - first:
+      213: 2778909188519500239
+    second: ModuleChest_8
+  - first:
+      213: -6179091482292192767
+    second: ModuleChest_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -193,6 +208,132 @@ TextureImporter:
       bones: []
       spriteID: c7b85e4f1a8afae20800000000000000
       internalID: 3364092860220935036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ModuleChest_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 6, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a9b08895d40fa60800000000000000
+      internalID: 7705744009360808537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ModuleChest_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 4, z: 6, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e9561f0cedfc1c0800000000000000
+      internalID: -4481118183945298347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ModuleChest_6
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 15
+        width: 43
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 11, z: 10, w: 26}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb16aaafcddc7b360800000000000000
+      internalID: 7185438079474885054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ModuleChest_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 10
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 35, y: 13, z: 17, w: 29}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d40993454c2fd730800000000000000
+      internalID: 4025985267890980048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ModuleChest_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 54
+        width: 73
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 36, y: 13, z: 36, w: 28}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc916c40f2ba09620800000000000000
+      internalID: 2778909188519500239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ModuleChest_9
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 72
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10af45bf8057f3aa0800000000000000
+      internalID: -6179091482292192767
       vertices: []
       indices: 
       edges: []

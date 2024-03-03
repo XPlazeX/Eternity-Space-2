@@ -9,7 +9,7 @@ public class ConditionedDialogTrigger : MonoBehaviour
         TryTriggerDialog(0);
     }
 
-    public void TryTriggerDialog(int id)
+    public virtual void TryTriggerDialog(int id)
     {
         if (!Unlocks.HasUnlocks(_dialogs[id].unlockRequires))
             return;

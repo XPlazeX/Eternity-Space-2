@@ -67,7 +67,7 @@ MonoBehaviour:
       _rotation: 160
       _rotationSpread: 0
     _backgroundSpriteFilename: Levels/BG/Gin
-    _backgroundColor: {r: 0.84367007, g: 0.5707547, b: 1, a: 1}
+    _backgroundColor: {r: 0.4460842, g: 0.08904416, b: 0.6509434, a: 1}
     _flipX: 0
     _flipY: 0
     _hasStation: 0

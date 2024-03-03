@@ -11,11 +11,13 @@ public class MissionSelector : MonoBehaviour
     private int _maxCosReward;
     private bool _started;
     private MissionsDatabase _missionDatabase;
+    private CharacterLoader _characterLoader;
     private bool _loadAvaiable = true;
 
     private void Start() 
     {
         _missionDatabase = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>();
+        _characterLoader = SceneStatics.CharacterCore.GetComponent<CharacterLoader>();
 
         _selectorFrame.gameObject.SetActive(false);
         _startButton.interactable = false;
@@ -71,6 +73,7 @@ public class MissionSelector : MonoBehaviour
         _loadAvaiable = false;
 
         yield return _missionDatabase.StartCoroutine(_missionDatabase.SettingGameSessionData(ID, true));
+        yield return _characterLoader.StartCoroutine(_characterLoader.WritingShipHPData(SelectCatalog.ActiveShipID));
 
         print($"Подготовлена миссия (лобби): {ID}");
         _startButton.interactable = true;

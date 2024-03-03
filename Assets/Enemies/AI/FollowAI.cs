@@ -24,6 +24,8 @@ public class FollowAI : EnemyAIRoot
 
     protected override void DoMove()
     {
+        if (_player == null)
+            return;
         if (!_retargeting)
         {
             _targetPosition = _player.position;

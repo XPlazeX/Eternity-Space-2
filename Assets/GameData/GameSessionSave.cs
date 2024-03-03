@@ -26,8 +26,8 @@ public class GameSessionSave
     public string DeviceModel {get; set;} = default_device;
     public int WeaponLevel {get; set;} = 0;
 
-    public int MaxHealth {get; set;} = 100;
-    public int HealthPoints {get; set;} = 100;
+    public int MaxHealth {get; set;} = 66;
+    public int HealthPoints {get; set;} = 66;
 
     public int MoneyPerLevel {get; set;} = 100;
     public int HealsCount {get; set;} = 0;

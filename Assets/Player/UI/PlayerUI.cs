@@ -29,7 +29,8 @@ public class PlayerUI: MonoBehaviour
         LowDamage = 2,
         PowerUp = 3,
         Shielding = 4,
-        Violet = 5
+        Violet = 5,
+        Contagion = 6
     }
 
     public int MaxHP {get; set;}

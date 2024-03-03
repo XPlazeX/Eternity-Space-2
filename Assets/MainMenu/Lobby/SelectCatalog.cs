@@ -109,6 +109,7 @@ public class SelectCatalog : MonoBehaviour
     [SerializeField] private GameObject[] _panels;
 
     public static ShipClass ActiveClass {get; private set;} = ShipClass.Scout;
+    public static int ActiveShipID {get; private set;} = 0;
     private int _shipID = 0;
     private int _weaponID = 0;
 
@@ -142,6 +143,7 @@ public class SelectCatalog : MonoBehaviour
     {
         SetClass(_shipSelectors[id].Type);
         _shipID = id;
+        ActiveShipID = int.Parse(_shipSelectors[_shipID].SettingValue);
 
         _placeFrame.anchoredPosition = _shipSelectors[id].Rect.anchoredPosition;
         for (int i = 0; i < _targetShipIcons.Length; i++)
