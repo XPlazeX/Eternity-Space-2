@@ -24,6 +24,8 @@ public class ParryingHandler : MonoBehaviour
             ParringPools.Add(new PullForObjects(_parringObjects[i] as ParringObject));
         }
 
+        SceneStatics.SceneCore.GetComponent<ExplosionHandler>().PreloadExplosion(Bullet.parryExplosionID);
+
         Initialized = true;
     }
 

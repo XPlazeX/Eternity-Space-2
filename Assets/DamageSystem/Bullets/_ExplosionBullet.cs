@@ -15,6 +15,7 @@ public class _ExplosionBullet : MonoBehaviour
 
     private void Start() {
         _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
+        _explosionHandler.PreloadExplosion(_explosionCode);
 
         if (GetComponent<Bullet>())
             GetComponent<Bullet>().Deathed += SpawnExplosion;

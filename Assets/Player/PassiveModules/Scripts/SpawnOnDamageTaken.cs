@@ -21,6 +21,7 @@ public class SpawnOnDamageTaken : Module
 
     private void Start() {
         _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
+        _explosionHandler.PreloadExplosion(_explosionCode);
     }
 
     public override void Load()

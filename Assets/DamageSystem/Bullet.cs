@@ -4,7 +4,7 @@ using DamageSystem;
 [RequireComponent(typeof(_ExplosionBullet))]
 public class Bullet : AttackObject
 {
-    const int parryExplosionID = 11;
+    public const int parryExplosionID = 11;
 
     public delegate void stateLife();
     public event stateLife Deathed;
