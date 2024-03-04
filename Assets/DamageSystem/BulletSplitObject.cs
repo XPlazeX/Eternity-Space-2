@@ -11,7 +11,10 @@ public class BulletSplitObject : MonoBehaviour
     [SerializeField][Range(0, 3f)] private float _randomizeSpeed = 0f;
     [SerializeField] private SoundObject _sound;
 
-    private void Start() {
+    private void Start() 
+    {
+        GenericBulletDatabase.PreloadBullet(_bulletCode);
+
         if (!_splitOnEnemyDeath)
             return;
 

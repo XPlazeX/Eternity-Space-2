@@ -18,6 +18,11 @@ public class LaserAttackModule : MonoBehaviour, IAttackModule
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
+
+        for (int i = 0; i < _attackObjects.Length; i++)
+        {
+            _attackObjects[i].Preload();
+        }
     }
 
     public void LocalMultiplyAggro(float multiplier)
@@ -73,6 +78,11 @@ public class EnemyLaserAttackObject
     public int Cycles => _cycles;
     public float TimeBetweenCycles => _timeBetweenCycles;
     public float TimeCooling => _timeCooling;
+
+    public void Preload()
+    {
+        GenericBulletDatabase.Preloadlaser(_laserCode);
+    }
 
     public void Fire()
     {

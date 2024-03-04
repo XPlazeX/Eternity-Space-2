@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ExplosionHandler : MonoBehaviour
 {
+    [SerializeField] private bool _logLoading = false;
+
     private List<PullForObjects> ExplosionPools = new List<PullForObjects>();
     private Dictionary<int, int> Codes = new Dictionary<int, int>(); // ключ - код взрыва, значение - индекс в пуле
     private List<int> LoadingCodes = new List<int>();
@@ -58,7 +60,7 @@ public class ExplosionHandler : MonoBehaviour
             yield break;
         }
 
-        print($"Загружается взрыв: {id}");
+        if (_logLoading) print($"Загружается взрыв: {id}");
         LoadingCodes.Add(id);
         ResourceRequest explosionRequest = Resources.LoadAsync<Explosion>("Explosions/" + id.ToString());
 
@@ -89,6 +91,6 @@ public class ExplosionHandler : MonoBehaviour
         if (LoadingCodes.Contains(id))
             LoadingCodes.Remove(id);
 
-        print($"Загружен взрыв: {id}!");
+        if (_logLoading) print($"Загружен взрыв: {id}!");
     }
 }

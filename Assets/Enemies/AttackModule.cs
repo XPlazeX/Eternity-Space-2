@@ -19,6 +19,11 @@ public class AttackModule : MonoBehaviour, IAttackModule
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
+
+        for (int i = 0; i < _attackObjects.Length; i++)
+        {
+            _attackObjects[i].Preload();
+        }
     }
 
     public void LocalMultiplyAggro(float multiplier)
@@ -79,6 +84,11 @@ public class EnemyAttackObject
     public int Cycles => _cycles;
     public float TimeBetweenCycles => _timeBetweenCycles;
     public float TimeCooling => _timeCooling;
+
+    public void Preload()
+    {
+        GenericBulletDatabase.PreloadBullet(_bulletCode);
+    }
 
     public void Fire()
     {

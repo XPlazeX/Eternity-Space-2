@@ -15,6 +15,11 @@ public class FieldAttackModule : MonoBehaviour
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
+
+        for (int i = 0; i < _attackObjects.Length; i++)
+        {
+            _attackObjects[i].Preload();
+        }
     }
 
     private IEnumerator Firing()
@@ -55,6 +60,11 @@ public class FieldAttackModule : MonoBehaviour
         public int Cycles => _cycles;
         public float TimeBetweenCycles => _timeBetweenCycles;
         public float TimeCooling => _timeCooling;
+
+        public void Preload()
+        {
+            GenericBulletDatabase.PreloadBullet(_bulletCode);
+        }
 
         public void Fire()
         {
