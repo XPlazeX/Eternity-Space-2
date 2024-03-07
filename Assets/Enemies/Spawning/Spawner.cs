@@ -65,4 +65,5 @@ public class Spawner : MonoBehaviour
     public void PrintCountUI(int count) => _enemyCountUI.SetCount(count);
     public void PrintBonusCountUI(int count) => _enemyCountUI.SetBonusCount(count);
     public void HideLabel() => _enemyCountUI.HideHead();
+    public void SetWaveHeadText(string text) => _enemyCountUI.SetHead(text);
 }

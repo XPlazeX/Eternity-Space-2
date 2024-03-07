@@ -75,7 +75,16 @@ public class DialogueOpener : MonoBehaviour
             sample.transform.localScale = Vector3.one;
             sample.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             sample.GetComponent<RectTransform>().sizeDelta = new Vector2(1f, 1f);
-            sample.GetComponent<Dialogue>().InitializeDialog(name);
+
+            try
+            {
+                sample.GetComponent<Dialogue>().InitializeDialog(name);
+            }
+            catch (System.Exception)
+            {
+                Debug.Log($"Ошибка инициализации диалога: {name}");
+                throw;
+            }
         }
     }
 }

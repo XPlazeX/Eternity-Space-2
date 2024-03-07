@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 6932236439037099188}
   - component: {fileID: 5970515066040848163}
   - component: {fileID: 508732056099871701}
+  - component: {fileID: 2871572299863024860}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -153,6 +154,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043F\u0440\u043E\u0431\u043D\u0438\u043A\u0438"
+--- !u!114 &2871572299863024860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768690504410842380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 6}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &988049338392129027
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +523,7 @@ GameObject:
   - component: {fileID: 7989587559033880730}
   - component: {fileID: 9185159934453212383}
   - component: {fileID: 8182043035395487473}
+  - component: {fileID: 8034500174220490268}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -573,6 +591,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+--- !u!114 &8034500174220490268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432517457624048536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 0, y: 0}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &1587964120223010153
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +693,7 @@ GameObject:
   - component: {fileID: 5603636269317960773}
   - component: {fileID: 1718302540797841305}
   - component: {fileID: 9019257730150651874}
+  - component: {fileID: 5241618595139843983}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -726,6 +761,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0434\u0438\u0430\u043B\u043E\u0433\u0438"
+--- !u!114 &5241618595139843983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615769906743914869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 3}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &1635048084259533729
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +866,7 @@ GameObject:
   - component: {fileID: 8871834874527000208}
   - component: {fileID: 4919931478994803970}
   - component: {fileID: 9157363762801699463}
+  - component: {fileID: 7307892080716784208}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -882,6 +934,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0432\u044B\u0445\u043E\u0434 1"
+--- !u!114 &7307892080716784208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688051435476930072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 1}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &1793345790652595219
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +1036,7 @@ GameObject:
   - component: {fileID: 3772028109355278118}
   - component: {fileID: 2972496883638467735}
   - component: {fileID: 6840548832203077631}
+  - component: {fileID: 1224051725585925528}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -1036,6 +1105,22 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\u0414\u043B\u044F \u0447\u0435\u0433\u043E \u0431\u044B \u0442\u043E
     \u043D\u0438 \u0431\u044B\u043B\u043E"
+--- !u!114 &1224051725585925528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829743650270778111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 3, y: 2}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2000757115522653762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1264,7 @@ GameObject:
   - component: {fileID: 8995424934812998381}
   - component: {fileID: 6775947931269339279}
   - component: {fileID: 9086910576058557210}
+  - component: {fileID: 8239218043693066990}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -1246,6 +1332,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0434\u0430\u043B\u044C\u0448\u0435 >>>"
+--- !u!114 &8239218043693066990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042442435188245853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 0, y: 1}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2120687493654645189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1547,7 @@ GameObject:
   - component: {fileID: 2347949835663224841}
   - component: {fileID: 2347949835663224951}
   - component: {fileID: 2347949835663224840}
+  - component: {fileID: 4474698452887915073}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -1511,7 +1614,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u043B\u043E\u0445 "
+  m_Text: "\u043B\u043E\u0445"
+--- !u!114 &4474698452887915073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949835663224842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 0, y: 3}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949835692735106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2171,7 @@ GameObject:
   - component: {fileID: 2347949836286205729}
   - component: {fileID: 2347949836286205743}
   - component: {fileID: 2347949836286205728}
+  - component: {fileID: 5355772292942083544}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2119,6 +2239,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430"
+--- !u!114 &5355772292942083544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949836286205730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 3, y: 0}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949836335920084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,6 +2702,7 @@ GameObject:
   - component: {fileID: 2347949836674474499}
   - component: {fileID: 2347949836674474497}
   - component: {fileID: 2347949836674474498}
+  - component: {fileID: 4812701695899360800}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -2636,6 +2773,22 @@ MonoBehaviour:
     \u0431\u0443\u0434\u0435\u0442 \u0437\u0430\u043F\u0443\u0441\u043A\u0430\u0442\u044C\u0441\u044F
     \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C, \u043F\u043E\u0441\u043B\u0435
     \u043F\u0430\u0443\u0437\u044B \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0430\u0445:"
+--- !u!114 &4812701695899360800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949836674474500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 2, y: 1}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949836693276338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,6 +3613,7 @@ GameObject:
   - component: {fileID: 2347949837064464614}
   - component: {fileID: 2347949837064464612}
   - component: {fileID: 2347949837064464613}
+  - component: {fileID: 6313498732183007865}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3527,6 +3681,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0414\u0438\u0430\u043B\u043E\u0433\u0438"
+--- !u!114 &6313498732183007865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837064464615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 0}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949837097284101
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,6 +3857,7 @@ GameObject:
   - component: {fileID: 2347949837207480640}
   - component: {fileID: 2347949837207480654}
   - component: {fileID: 2347949837207480655}
+  - component: {fileID: 8226401941737874345}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3754,6 +3925,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0441\u0442\u0430\u0440\u0442\u0435\u0440 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044F"
+--- !u!114 &8226401941737874345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837207480641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 2, y: 0}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949837289272667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,6 +4027,7 @@ GameObject:
   - component: {fileID: 2347949837321690983}
   - component: {fileID: 2347949837321690981}
   - component: {fileID: 2347949837321690982}
+  - component: {fileID: 489894736114666532}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -3911,6 +4099,22 @@ MonoBehaviour:
     - \u0444\u0438\u043A\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u0430\u044F
     \u0434\u0435\u043B\u044C\u0442\u0430 \u0432\u0440\u0435\u043C\u0435\u043D\u0438\nDT
     - \u0434\u0435\u043B\u044C\u0442\u0430 \u0432\u0440\u0435\u043C\u0435\u043D\u0438"
+--- !u!114 &489894736114666532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837321691000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 1, y: 1}
+  _suffixCode: 
+  _multiline: 1
 --- !u!1 &2347949837382362797
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4256,7 @@ GameObject:
   - component: {fileID: 2347949837429110440}
   - component: {fileID: 2347949837429110422}
   - component: {fileID: 2347949837429110423}
+  - component: {fileID: 3728917064327452149}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -4120,6 +4325,22 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\u0414\u043B\u044F \u0447\u0435\u0433\u043E \u0431\u044B \u0442\u043E
     \u043D\u0438 \u0431\u044B\u043B\u043E"
+--- !u!114 &3728917064327452149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837429110441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 3, y: 2}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949837448888101
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,6 +4610,7 @@ GameObject:
   - component: {fileID: 2347949837508119580}
   - component: {fileID: 2347949837508119578}
   - component: {fileID: 2347949837508119579}
+  - component: {fileID: 8369633325854383108}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4457,6 +4679,22 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\u0421\u0447\u0451\u0442\u0447\u0438\u043A \u043A\u0430\u0434\u0440\u043E\u0432
     \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
+--- !u!114 &8369633325854383108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837508119581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 1, y: 0}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949837555320688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4626,6 +4864,7 @@ GameObject:
   - component: {fileID: 2347949837589819485}
   - component: {fileID: 2347949837589819483}
   - component: {fileID: 2347949837589819484}
+  - component: {fileID: 3311591194708920802}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4693,6 +4932,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0412\u0441\u0435\u0433\u0434\u0430 \u0434\u0438\u0430\u043B\u043E\u0433\u0438"
+--- !u!114 &3311591194708920802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837589819486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 1}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949837683368164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4796,7 +5051,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2347949837728454770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4911,6 +5166,7 @@ GameObject:
   - component: {fileID: 2347949837736662449}
   - component: {fileID: 2347949837736662463}
   - component: {fileID: 2347949837736662448}
+  - component: {fileID: 9214235680749526361}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -4978,6 +5234,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u043A\u0430"
+--- !u!114 &9214235680749526361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347949837736662450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 0, y: 2}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &2347949837763387840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5438,6 +5710,7 @@ GameObject:
   - component: {fileID: 7665078574338340278}
   - component: {fileID: 5082990748032199930}
   - component: {fileID: 1866605730272353226}
+  - component: {fileID: 5060659909027518363}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -5507,6 +5780,22 @@ MonoBehaviour:
   m_Text: "\u0414\u0438\u0430\u043B\u043E\u0433\u0438 \u0431\u0443\u0434\u0443\u0442
     \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F \u0432\u0441\u0435\u0433\u0434\u0430,
     \u0433\u0434\u0435 \u043E\u043D\u0438 \u043F\u0440\u0435\u0434\u0443\u0441\u043C\u043E\u0442\u0440\u0435\u043D\u044B."
+--- !u!114 &5060659909027518363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529988010224984798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 4}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &3543879009381588064
 GameObject:
   m_ObjectHideFlags: 0
@@ -6375,6 +6664,7 @@ GameObject:
   - component: {fileID: 4520675844822996680}
   - component: {fileID: 8999609911183961890}
   - component: {fileID: 1911484215610198538}
+  - component: {fileID: 3190355220132169468}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -6445,6 +6735,22 @@ MonoBehaviour:
     \u0441\u044E\u0436\u0435\u0442, \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0438
     \u0438 \u0447\u0430\u0441\u0442\u044C \u0430\u0442\u043C\u043E\u0441\u0444\u0435\u0440\u044B.
     \u041D\u0435 \u043D\u0430\u0434\u043E."
+--- !u!114 &3190355220132169468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990365337431379235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 6}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &5118128897981353169
 GameObject:
   m_ObjectHideFlags: 0
@@ -6456,6 +6762,7 @@ GameObject:
   - component: {fileID: 5976872486641878137}
   - component: {fileID: 7212919358057498150}
   - component: {fileID: 58757172723652793}
+  - component: {fileID: 159462048290440819}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6523,6 +6830,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0437\u0432\u0443\u043A\u0438"
+--- !u!114 &159462048290440819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118128897981353169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 4}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &5139049319131580486
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,6 +6857,7 @@ GameObject:
   - component: {fileID: 8380355278495689858}
   - component: {fileID: 4703287953887858735}
   - component: {fileID: 831057778315986282}
+  - component: {fileID: 802684616262218718}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6601,6 +6925,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "< \u043C\u0430\u0441\u0442\u0435\u0440"
+--- !u!114 &802684616262218718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5139049319131580486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 5}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &5225539365383099876
 GameObject:
   m_ObjectHideFlags: 0
@@ -6745,6 +7085,7 @@ GameObject:
   - component: {fileID: 5551677180636148261}
   - component: {fileID: 5680127364689711192}
   - component: {fileID: 5400708302280150135}
+  - component: {fileID: 5234524836751463476}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6820,6 +7161,22 @@ MonoBehaviour:
     \u043F\u0440\u043E\u0447\u0438\u0442\u0430\u0435\u0448\u044C - \u0441\u043E\u0436\u0433\u0438
     \u0437\u0430\u043F\u0438\u0441\u043A\u0443. \u0418\u0449\u0438 \u043C\u0435\u043D\u044F
     \u0432 </i>"
+--- !u!114 &5234524836751463476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299195432305003568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 3, y: 3}
+  _suffixCode: 
+  _multiline: 1
 --- !u!1 &5392637329685740271
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,6 +7188,7 @@ GameObject:
   - component: {fileID: 4245839284400921307}
   - component: {fileID: 669458627180452951}
   - component: {fileID: 5251013509835704437}
+  - component: {fileID: 7764646218010725364}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -6900,6 +7258,22 @@ MonoBehaviour:
   m_Text: "\u0414\u0438\u0430\u043B\u043E\u0433\u0438 \u043D\u0435 \u0431\u0443\u0434\u0443\u0442
     \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F \u0432
     \u043F\u0440\u043E\u0439\u0434\u0435\u043D\u043D\u044B\u0445 \u043C\u0438\u0441\u0441\u0438\u044F\u0445."
+--- !u!114 &7764646218010725364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392637329685740271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 5}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &5922420040263054998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6911,6 +7285,7 @@ GameObject:
   - component: {fileID: 5618927435605783161}
   - component: {fileID: 3337239213545319992}
   - component: {fileID: 233829359112927732}
+  - component: {fileID: 2924613516396111169}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6978,6 +7353,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0430\u0443\u0434\u0438\u043E"
+--- !u!114 &2924613516396111169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5922420040263054998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 0}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &5961635348810298333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,6 +7583,7 @@ GameObject:
   - component: {fileID: 4784881790369249650}
   - component: {fileID: 2775104793851635900}
   - component: {fileID: 2636868403647798815}
+  - component: {fileID: 7967012607334577214}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7259,6 +7651,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0432\u044B\u0439\u0442\u0438 \u043A \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0435"
+--- !u!114 &7967012607334577214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016629381957109767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 3, y: 1}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &6046625368586853175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7270,6 +7678,7 @@ GameObject:
   - component: {fileID: 8033746493961924276}
   - component: {fileID: 4051941699092378130}
   - component: {fileID: 6615431281748715568}
+  - component: {fileID: 4644712422650987188}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7337,6 +7746,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043C\u0443\u0437\u044B\u043A\u0430"
+--- !u!114 &4644712422650987188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046625368586853175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 3}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &6450695348226080901
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,6 +8068,7 @@ GameObject:
   - component: {fileID: 2252418177282883699}
   - component: {fileID: 1551622357936655162}
   - component: {fileID: 4612118739013000741}
+  - component: {fileID: 7656577729566786707}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7711,6 +8137,22 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\u0434\u0438\u0430\u043B\u043E\u0433\u0438 \u0433\u0434\u0435 \u043D\u0435
     \u043F\u0440\u043E\u0439\u0434\u0435\u043D\u043E"
+--- !u!114 &7656577729566786707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716793531315160167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 4, y: 2}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &6741137170633930404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,6 +9119,7 @@ GameObject:
   - component: {fileID: 7633358210715911875}
   - component: {fileID: 8163024049131695114}
   - component: {fileID: 1557734849397497209}
+  - component: {fileID: 7246985017043605914}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8744,6 +9187,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0432\u044B\u0445\u043E\u0434 1"
+--- !u!114 &7246985017043605914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403325298700630582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Settings
+  _rowCol: {x: 5, y: 2}
+  _suffixCode: 
+  _multiline: 0
 --- !u!1 &8457826010654784554
 GameObject:
   m_ObjectHideFlags: 0

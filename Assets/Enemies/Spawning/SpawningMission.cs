@@ -14,6 +14,8 @@ public class SpawningMission : Mission
 
     public override void StartPlay()
     {
+        SceneStatics.SceneCore.GetComponent<Spawner>().SetWaveHeadText(SceneLocalizator.GetLocalizedString("Game", 0, 0));
+
         if (_hasBonusSpawn)
         {
             BonusSpawner bs = SceneStatics.SceneCore.GetComponent<BonusSpawner>();

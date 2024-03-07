@@ -57,21 +57,21 @@ public class AngarAnimationController : MonoBehaviour
         {
             case 0:
                 if (ContagionHandler.ContagionLevel >= 11)
-                    _airLabel.text = "<color=#0044FF>УГРОЗА</color>";
+                    _airLabel.text = SceneLocalizator.GetLocalizedString("MissionMenu", 0, 0);
                 else
-                    _airLabel.text = "ВОЗДУХ";
+                    _airLabel.text = SceneLocalizator.GetLocalizedString("MissionMenu", 0, 1);
                 break;
             case 1:
-                _airLabel.text = "ТЯГА";
+                _airLabel.text = SceneLocalizator.GetLocalizedString("MissionMenu", 0, 2);
                 break;
             case 2:
                 if (ContagionHandler.ContagionLevel >= 11)
-                    _airLabel.text = "<color=#0044FF>ВЕРНИСЬ</color>";
+                    _airLabel.text = SceneLocalizator.GetLocalizedString("MissionMenu", 0, 3);
                 else
-                    _airLabel.text = "ВОЗДУХА НЕТ";
+                    _airLabel.text = SceneLocalizator.GetLocalizedString("MissionMenu", 0, 4);
                 break;
             case 3:
-                _airLabel.text = "ПРОДУВ";
+                _airLabel.text = SceneLocalizator.GetLocalizedString("MissionMenu", 0, 5);
                 break;
             default:
                 throw new System.Exception("Неопределённое состояние индикатора воздуха");

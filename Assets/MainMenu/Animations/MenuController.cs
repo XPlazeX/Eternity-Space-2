@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private UIAnimationGroupObject[] _uiGroups;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private bool _cameraWork = true;
+    [SerializeField][Range(0, 2f)] private float _rectAccuracy = 1f;
 
     private MainMenuCamera _mainMenuCamera;
     private int _lastID = 0;
@@ -118,7 +119,7 @@ public class MenuController : MonoBehaviour
             rect.anchoredPosition = _uiGroups[idGroup].StartPosition;
         }
 
-        while ((rect.anchoredPosition - toPosition).magnitude > 2f)
+        while ((rect.anchoredPosition - toPosition).magnitude > _rectAccuracy)
         {
             rect.anchoredPosition += (toPosition - rect.anchoredPosition) * _moveSpeed * Time.fixedDeltaTime;
 

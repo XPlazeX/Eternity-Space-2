@@ -304,6 +304,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -70
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &2793183286358906667
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +404,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 40
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &2793183286464811347
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +418,7 @@ GameObject:
   - component: {fileID: 2793183286464811346}
   - component: {fileID: 2793183286464811348}
   - component: {fileID: 2793183286464811349}
+  - component: {fileID: 61708803207391375}
   m_Layer: 0
   m_Name: Label
   m_TagString: Untagged
@@ -480,3 +487,19 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "! \u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u0430\u044F \u0437\u043E\u043D\u0430!\n!
     \u043E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C \u0437\u0434\u0435\u0441\u044C!"
+--- !u!114 &61708803207391375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793183286464811347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e4ad379121c4896bea2b52f61a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filename: Game
+  _rowCol: {x: 5, y: 0}
+  _suffixCode: 
+  _multiline: 1

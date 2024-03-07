@@ -10,4 +10,5 @@ public class EnemyCountUI : MonoBehaviour
     public void SetCount(int val) => _textLabel.text = val.ToString();
     public void SetBonusCount(int val) => _bonusTextLabel.text = "+" + val.ToString();
     public void HideHead() => _headLabel.SetActive(false);
+    public void SetHead(string text) => _headLabel.GetComponent<Text>().text = text;
 }

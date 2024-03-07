@@ -8,6 +8,7 @@ public class MainMenuCamera : MonoBehaviour
     [SerializeField] private Animator _lightAnimator;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private bool _lightWork = true;
+    [SerializeField][Range(0, 0.1f)] private float _cameraAccuracy = 0.1f;
 
     private IEnumerator _movingIE;
     private bool _nirvus = false;
@@ -61,7 +62,7 @@ public class MainMenuCamera : MonoBehaviour
 
     private IEnumerator Moving(Vector3 toPos)
     {
-        while ((transform.position - toPos).magnitude > 0.1f)
+        while ((transform.position - toPos).magnitude > _cameraAccuracy)
         {
             transform.position = Vector3.Lerp(transform.position, toPos, _moveSpeed * Time.fixedDeltaTime);
 
