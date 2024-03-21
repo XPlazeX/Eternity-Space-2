@@ -12,6 +12,9 @@ public class ColorBlight : MonoBehaviour
 
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable() {
         timer = _timeParse;
     }
 

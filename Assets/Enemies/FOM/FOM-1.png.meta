@@ -1,0 +1,716 @@
+fileFormatVersion: 2
+guid: e766fa7b3cd04a34f8b35362d2cf0412
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7845480922519149076
+    second: FOM-1_0
+  - first:
+      213: 8085527083516509804
+    second: FOM-1_1
+  - first:
+      213: -1535446300159445146
+    second: FOM-1_2
+  - first:
+      213: 7943353915132554422
+    second: FOM-1_3
+  - first:
+      213: -5106867052159748287
+    second: FOM-1_4
+  - first:
+      213: -4973172507912652855
+    second: FOM-1_5
+  - first:
+      213: -94104226057050926
+    second: FOM-1_6
+  - first:
+      213: 8830080325219078561
+    second: FOM-1_7
+  - first:
+      213: 631458120793735514
+    second: FOM-1_8
+  - first:
+      213: -717756487587453225
+    second: FOM-1_9
+  - first:
+      213: -5758405593863624664
+    second: FOM-1_10
+  - first:
+      213: 2535682674456247957
+    second: FOM-1_11
+  - first:
+      213: -5178489537181510729
+    second: FOM-1_12
+  - first:
+      213: -5387227709223099455
+    second: FOM-1_13
+  - first:
+      213: 4855186315541185582
+    second: FOM-1_14
+  - first:
+      213: 4556934210956731916
+    second: FOM-1_15
+  - first:
+      213: -6955957170208044921
+    second: FOM-1_16
+  - first:
+      213: 3203807724659690293
+    second: FOM-1_17
+  - first:
+      213: 9192838742430174943
+    second: FOM-1_18
+  - first:
+      213: 1690778096701135839
+    second: FOM-1_19
+  - first:
+      213: -3856629583162568140
+    second: FOM-1_20
+  - first:
+      213: -8930107448986060884
+    second: FOM-1_21
+  - first:
+      213: 7545725087292811634
+    second: FOM-1_22
+  - first:
+      213: 1572962232306227281
+    second: FOM-1_23
+  - first:
+      213: 7819654134608905630
+    second: FOM-1_24
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FOM-1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 46
+        height: 44
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.38461912}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce564290ba04f1390800000000000000
+      internalID: -7845480922519149076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 113
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e3dc22b00953070800000000000000
+      internalID: 8085527083516509804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 113
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6089852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 667fe43a9bff0bae0800000000000000
+      internalID: -1535446300159445146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 104
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc2fa4dc467c3e60800000000000000
+      internalID: 7943353915132554422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_4
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 102
+        width: 25
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5726568}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1473fd03973c029b0800000000000000
+      internalID: -5106867052159748287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 108
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64361095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c7b02bf3fdbbfab0800000000000000
+      internalID: -4973172507912652855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 91
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4a10a74bca1bef0800000000000000
+      internalID: -94104226057050926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 77
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a159d2a54fba8a70800000000000000
+      internalID: 8830080325219078561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 85
+        width: 14
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64985466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a514274b0d363c800800000000000000
+      internalID: 631458120793735514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_9
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 89
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d62e1207440a06f0800000000000000
+      internalID: -717756487587453225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 78
+      alignment: 9
+      pivot: {x: 0.5, y: 0.63921326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828e2292f980610b0800000000000000
+      internalID: -5758405593863624664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_11
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 41
+        width: 30
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.66018367}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59eb31235fd803320800000000000000
+      internalID: 2535682674456247957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_12
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 47
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b31837e33f4228b0800000000000000
+      internalID: -5178489537181510729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_13
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 66
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6054531}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3ad93f0f8bc35b0800000000000000
+      internalID: -5387227709223099455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_14
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 70
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e248b28ea36116340800000000000000
+      internalID: 4855186315541185582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 47
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06a6ec658b7d3f30800000000000000
+      internalID: 4556934210956731916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_16
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 48
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7880be4dec9777f90800000000000000
+      internalID: -6955957170208044921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_17
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 38
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5840965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b4efca626367c20800000000000000
+      internalID: 3203807724659690293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_18
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 29
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdecff76126839f70800000000000000
+      internalID: 9192838742430174943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_19
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 28
+        width: 7
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13402557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdbd1e788b9d67710800000000000000
+      internalID: 1690778096701135839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_20
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 17
+        width: 30
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.59811276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4321551d3df7a7ac0800000000000000
+      internalID: -3856629583162568140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_21
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 19
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.675201}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7bd11c692e11480800000000000000
+      internalID: -8930107448986060884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_22
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 14
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5, y: 0.30273718}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27967d8ecfcc7b860800000000000000
+      internalID: 7545725087292811634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_23
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 74
+        width: 8
+        height: 14
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.6659421}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158d7bdf0d844d510800000000000000
+      internalID: 1572962232306227281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOM-1_24
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 57
+        width: 11
+        height: 16
+      alignment: 9
+      pivot: {x: 0.45, y: 0.64892197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9547cf410ef48c60800000000000000
+      internalID: 7819654134608905630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

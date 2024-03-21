@@ -3,7 +3,10 @@
 public delegate void AttackHandler();
 public class WeaponRoot : MonoBehaviour
 {
-    private AttackHandler mainAttack; // делегат атаки главного оружия
+    public delegate void weaponOperation();
+    public event weaponOperation WeaponCharged;
+
+    private AttackHandler mainAttack; // делегат атаки главного оружия 
 
     [SerializeField] private AttackPattern _defaultWeaponPattern;
     [SerializeField] private AttackPattern _autoLoadWeaponPattern;
@@ -56,6 +59,11 @@ public class WeaponRoot : MonoBehaviour
 
         if ((Input.touchCount > 0) || Input.GetMouseButton(0))
         {
+            if ((_preparing < _prepareTime) && (_preparing + Time.unscaledDeltaTime * PrepareSpeed >= _prepareTime))
+            {
+                WeaponCharged?.Invoke();
+            }
+
             SetPreparing(_preparing += Time.unscaledDeltaTime * PrepareSpeed);
         }
         #if UNITY_EDITOR

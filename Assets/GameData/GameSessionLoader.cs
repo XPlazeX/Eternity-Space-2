@@ -45,6 +45,7 @@ public class GameSessionLoader : MonoBehaviour
         SceneStatics.SceneCore.GetComponent<ShieldDistributor>().Initialize();
 
         SceneStatics.SceneCore.GetComponent<GenericBulletDatabase>().Initialize();
+        SceneStatics.SceneCore.GetComponent<ReflectorHandler>().Initialize();
         SceneStatics.CharacterCore.GetComponent<ModuleCore>().StartInitialization(); // >> CharacterModules >> CharacterBulletDatabase >> ParryingHandler >> AllModules
 
         SceneStatics.CharacterCore.GetComponent<PlayerRamsHandler>().Initialize();

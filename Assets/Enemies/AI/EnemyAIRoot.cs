@@ -11,7 +11,7 @@ public class EnemyAIRoot : MonoBehaviour
         RotateToTarget
     }
 
-    [SerializeField] private bool _autoStart = true;
+    [SerializeField] protected bool _autoStart = true;
     [SerializeField] private float _speed;
     [SerializeField] protected LookingOrientation _orientation;
     [SerializeField] protected float _rotationSpeed;
@@ -76,9 +76,9 @@ public class EnemyAIRoot : MonoBehaviour
 
     protected virtual void DoMove() {}
 
-    public void StartMoving() => Active = true;
+    public virtual void StartMoving() => Active = true;
 
-    public void StopMoving() => Active = false;
+    public virtual void StopMoving() => Active = false;
 
     private void OnDisable() 
     {

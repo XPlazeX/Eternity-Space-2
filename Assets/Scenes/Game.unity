@@ -8313,12 +8313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce69fbe4480800440ab2ef851495096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 0
-  _testWeaponPattern: {fileID: 8617238154026544125, guid: d53ade181ecfbe7438b060d2caf9cc3e,
+  _testMode: 1
+  _testWeaponPattern: {fileID: -1672851220140487087, guid: 20d3fecd9fae2264d9e505f5692639a4,
     type: 3}
   _testDevice: {fileID: 0}
-  _testLoadingModules:
-  - {fileID: 4128665657442192847, guid: 2cccfd24a6fd7264f84e0333b4f7f7dc, type: 3}
+  _testLoadingModules: []
 --- !u!114 &770287096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15281,6 +15280,7 @@ GameObject:
   - component: {fileID: 1625426966}
   - component: {fileID: 1625426968}
   - component: {fileID: 1625426978}
+  - component: {fileID: 1625426976}
   - component: {fileID: 1625426964}
   - component: {fileID: 1625426974}
   - component: {fileID: 1625426970}
@@ -15530,7 +15530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d2674652d27784d816bbde2a781053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 0
+  _testMode: 1
   _testLocationID: 19
 --- !u!114 &1625426972
 MonoBehaviour:
@@ -15568,10 +15568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7029fac8ecc6c40944d8fda9638219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 0
-  _testEnemy: {fileID: 9069206062416828823, guid: 085e71230eeba8544af4d15e69433f76,
+  _test: 1
+  _testEnemy: {fileID: 9069206062416828823, guid: 69b0a244bcd953949afdc0e4d1159b81,
     type: 3}
-  _count: 6
+  _count: 1
   _testWS: {fileID: 0}
 --- !u!114 &1625426975
 MonoBehaviour:
@@ -15705,6 +15705,20 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   _defaultChance: 0.033
+--- !u!114 &1625426976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625426961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554de4faab88e464eb6e82e7bb4b977b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reflectedProjectiles:
+  - {fileID: 6149396609532520741, guid: ba7736674e1db3a4db1eb672f868e9be, type: 3}
 --- !u!114 &1625426977
 MonoBehaviour:
   m_ObjectHideFlags: 0

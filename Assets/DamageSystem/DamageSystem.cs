@@ -51,6 +51,8 @@ namespace DamageSystem
             return true;
         }
 
+        public void ChangeDamageKey(DamageKey newKey) => _damageKey = newKey;
+
         public static bool InflictDamage(DamageBody targetBody, DamageKey key, int damageValue)
         {
             //print("static inflict");

@@ -8,8 +8,19 @@ public class ExplosionAnimator : MonoBehaviour
     [SerializeField] private Gradient _colorProgression;
     [SerializeField] private AnimationCurve _scaleProgression;
     [SerializeField] private float _scaleMultiplier = 1f;
+    [Space()]
+    [SerializeField] private bool _autoStart = false;
+    [SerializeField] private float _selfAnimationTime;
 
     private float _animationTime;
+
+    private void OnEnable() {
+        if (!_autoStart)
+            return;
+
+        Initialize(_selfAnimationTime);
+        Play();
+    }
 
     public void Initialize(float animationTime)
     {

@@ -27,6 +27,13 @@ public class PlaneAI : EnemyAIRoot
         base.Start();
     }
 
+    public override void StartMoving()
+    {
+        base.StartMoving();
+        if (!_autoStart)
+            Start();
+    }
+
     private void SetTarget()
     {
         _targetPosition = new Vector3 (Random.Range(_XBorders.x + level_borders_moving_offset, _XBorders.y - level_borders_moving_offset),

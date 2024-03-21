@@ -36,7 +36,7 @@ public class ApporachingHoming : MonoBehaviour
         if (!_workable)
             return;
 
-        if (other.CompareTag(_targetTag))
+        if (other.CompareTag(_targetTag) && _homingCoroutine != null)
         {
             StopCoroutine(_homingCoroutine);
         }

@@ -43,14 +43,8 @@ public class ParringObject : PullableObject
         //canHeal = false;
     }
 
-    // protected override void SetDefaultStats()
-    // {
-    //     canHeal = true;
-    // }
-
     public virtual void Death()
     {
-        //print(Binded);
         gameObject.SetActive(false);
     }
 }
