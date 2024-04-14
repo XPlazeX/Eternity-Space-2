@@ -342,6 +342,22 @@ MonoBehaviour:
     m_Address: Assets/Levels/Missions/Gin-0.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: fd21a8089b07b1c418fb33ebad95a80d
+    m_Address: Assets/MainMenu/Lab/LabHiTech.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5133565cd178221489a551162020c8e1
+    m_Address: Assets/Levels/Missions/Gin-1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 00e2be57b42a8b3488a367a25bc45742
+    m_Address: Assets/Levels/Missions/Gin-2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 88a0de8b3b703e748ba814fca7cd57d5
+    m_Address: Assets/MainMenu/Dialogues/Voice/Boris.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

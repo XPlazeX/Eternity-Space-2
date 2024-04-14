@@ -16,6 +16,8 @@ public class Spawner : MonoBehaviour
         _HPBarsPool = new PullForObjects(ehb);
     }
 
+    public static int EnemyCount {get; private set;} = 0;
+
     public void Initialize()
     {
         PrintCountUI(0);
@@ -36,9 +38,17 @@ public class Spawner : MonoBehaviour
 
         DamageBody db = Instantiate(dbSample, spawningPosition, Quaternion.Euler(0, 0, 180f)).GetComponent<DamageBody>();
 
+        EnemyCount ++;
+        db.Deathed += SubstractEnemyCount;
+
         DamageBodySpawned?.Invoke(db);
 
         return db;
+    }
+
+    private static void SubstractEnemyCount()
+    {
+        EnemyCount --;
     }
 
     public static void InitializeHPBar(DamageBody targetBody)

@@ -13,38 +13,43 @@ public class RamShield : MonoBehaviour
     private IEnumerator shielding;
     private bool _active = false;
     private float _lastBonus;
+    private float _lastRamTime = 0f;
     private float _ramFirerateBoost;
     private float _parryAdditiveFirerateBoost;
     private float _ramDuration;
+    private float _ramBoostByEnemyCount;
 
     private void Start() 
     {
         _ramFirerateBoost = ShipStats.GetValue("RamFirerateBoost");
         _parryAdditiveFirerateBoost = ShipStats.GetValue("ParryAdditiveFirerateBoost");
         _ramDuration = ShipStats.GetValue("RamBoostDuration");
+        _ramBoostByEnemyCount = ShipStats.GetValue("RamBoostByEnemy");
     }
 
     public void EnableShield(bool byParry = false)
     {
         if (_active)
         {
-            Toggle(false);
             StopCoroutine(shielding);
+            Toggle(false);
         }
-        else
-        {
-            shielding = Shielding(byParry);
-                
-            StartCoroutine(shielding);
-        }
+
+        shielding = Shielding(byParry);
+        StartCoroutine(shielding);
     }
+    
     private void OnDisable() {
         Toggle(false);
     }
 
+    private float GetBoostByEnemyCount() => _ramBoostByEnemyCount * Spawner.EnemyCount;
+
     private IEnumerator Shielding(bool byParry = false)
     {
         print("Shielding");
+        _active = true;
+
         float timer = 0;
         Color modColor = new Color();
 
@@ -66,6 +71,12 @@ public class RamShield : MonoBehaviour
             modColor = _RamColor;
         }
 
+        timer *=  1f + GetBoostByEnemyCount();
+
+        if (timer < _lastRamTime)
+            timer = _lastRamTime;
+        _lastRamTime = timer;
+
         while (timer > 0)
         {
 
@@ -80,11 +91,12 @@ public class RamShield : MonoBehaviour
         _shieldSpriteRenderer.color = modColor;
 
         Toggle(false);
+        _lastRamTime = 0f;
+        _active = false;
     }
 
     private void Toggle(bool tog, float frtBoost = 0)
     {
-        _active = tog;
         PlayerShipData.TryToggleInvulnerability(tog);
         if (tog)
         {

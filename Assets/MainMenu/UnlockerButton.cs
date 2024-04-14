@@ -6,7 +6,9 @@ public class UnlockerButton : MonoBehaviour
 {
     const int beacon_code_count = 5;
 
-    [SerializeField] UnlockRequire[] _requiredUnlocks;
+    [SerializeField] private UnlockRequire[] _requiredUnlocks;
+    [SerializeField] private bool _anyRequirement = false;
+    [Space()]
     [SerializeField] private GameObject[] _hiddingGO;
     [SerializeField][Range(0, beacon_code_count - 1)] private int _beaconCode = 0;
     [Space()]
@@ -20,13 +22,13 @@ public class UnlockerButton : MonoBehaviour
     private void OnEnable() {
         bool check = true;
 
-        for (int i = 0; i < _requiredUnlocks.Length; i++)
+        if (_anyRequirement)
         {
-            if (!_requiredUnlocks[i].Completed)
-            {
-                check = false;
-                break;
-            }
+            check = Unlocks.HasAnyUnlocks(_requiredUnlocks);
+        }
+        else
+        {
+            check = Unlocks.HasUnlocks(_requiredUnlocks);
         }
 
         if (_beaconCode > 0)

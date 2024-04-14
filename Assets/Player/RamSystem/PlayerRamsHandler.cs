@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerRamsHandler : MonoBehaviour
 {
+    public const int ram_shielding_unlock_ID = 561;
+
     public delegate void ramAction();
 
     public static event ramAction RamSuccess;
+
+    [SerializeField] private PullableObject[] _ramPoolableObjects;
+
+    private static List<PullForObjects> RamObjectPools = new List<PullForObjects>();
 
     private static bool CanRam {get; set;} = true;
     private static bool RamShielding {get; set;} = true;
@@ -17,9 +24,16 @@ public class PlayerRamsHandler : MonoBehaviour
 
     public void Initialize() 
     {
+        RamObjectPools.Clear();
+
+        for (int i = 0; i < _ramPoolableObjects.Length; i++)
+        {
+            RamObjectPools.Add(new PullForObjects(_ramPoolableObjects[i]));
+        }
+
         _victoryHandler = SceneStatics.CharacterCore.GetComponent<VictoryHandler>();
 
-        RamShielding = false;
+        RamShielding = Unlocks.HasUnlock(ram_shielding_unlock_ID);
         RamSaveWaving = false;
 
         Player.StartPlayerReturn += FindShield;
@@ -55,7 +69,9 @@ public class PlayerRamsHandler : MonoBehaviour
                 exp.transform.position = _ramShield.transform.position;
             }
         }
-            
+        
+        SpawnRamObject(0, Player.PlayerTransform.position);
+
         RamSuccess?.Invoke();
     }
 
@@ -78,6 +94,13 @@ public class PlayerRamsHandler : MonoBehaviour
             print($"Ram heal value : {HealValue}");
         }
 
+    }
+
+    public static void SpawnRamObject(int id, Vector3 position)
+    {
+        GameObject ramObject = RamObjectPools[id].GetGameObject();
+
+        ramObject.transform.position = position;
     }
 
 }

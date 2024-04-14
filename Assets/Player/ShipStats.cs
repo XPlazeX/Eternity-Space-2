@@ -33,6 +33,7 @@ public class ShipStats
         ["DecadesBlockForRam"] = 1f, // округляется до целого вверх
         ["RamFirerateBoost"] = 0.5f,
         ["RamBoostDuration"] = 0.66f,
+        ["RamBoostByEnemy"] = 0.3f,
         // восстановление здоровья
         ["LevelEntryHealthRegen"] = 3f, // округляется до целого вверх НННННННННННННННННННННННННН Нужно удалить и сделать для регулировки упрощённый метод в конечном скрипте
         ["PartHealOnBossDefeat"] = 0.75f,

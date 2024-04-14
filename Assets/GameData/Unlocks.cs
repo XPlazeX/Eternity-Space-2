@@ -34,6 +34,19 @@ public static class Unlocks
         return true;
     }
 
+    public static bool HasAnyUnlocks(UnlockRequire[] unlockRequires)
+    {
+        for (int i = 0; i < unlockRequires.Length; i++)
+        {
+            if (unlockRequires[i].Completed) 
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void NewUnlock(int code)
     {
         if (code == -1)

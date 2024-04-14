@@ -14,7 +14,7 @@ public class PlayerDamageBody : DamageBody
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (PlayerShipData.Invulnerable || PlayerShipData.Hover)
+        if (PlayerShipData.Hover)
             return;
 
         DamageBody damageBody = other.GetComponent<DamageBody>();
@@ -30,6 +30,9 @@ public class PlayerDamageBody : DamageBody
             damageBody.TakeDamage((_decadesBlockForRam * 10));
             return;
         }
+
+        if (PlayerShipData.Invulnerable)
+            return;
 
         damageBody.TakeDamage(ShipStats.GetIntValue("MaxDamageTaken"));
         TakeDamage(otherHP);

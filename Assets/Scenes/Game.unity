@@ -8314,7 +8314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _testMode: 1
-  _testWeaponPattern: {fileID: -1672851220140487087, guid: 20d3fecd9fae2264d9e505f5692639a4,
+  _testWeaponPattern: {fileID: 8617238154026544125, guid: 688feaf606e9f8642a19cee44c30328e,
     type: 3}
   _testDevice: {fileID: 0}
   _testLoadingModules: []
@@ -8438,6 +8438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615a0eaeccca5cc4abcde6c09e24cfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ramPoolableObjects:
+  - {fileID: 655645021032277092, guid: 65884b952731c3f41843d59d7f832a33, type: 3}
 --- !u!114 &770287100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15569,9 +15571,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _test: 1
-  _testEnemy: {fileID: 9069206062416828823, guid: 69b0a244bcd953949afdc0e4d1159b81,
+  _testEnemy: {fileID: 9069206062416828823, guid: 085e71230eeba8544af4d15e69433f76,
     type: 3}
-  _count: 1
+  _count: 10
   _testWS: {fileID: 0}
 --- !u!114 &1625426975
 MonoBehaviour:
