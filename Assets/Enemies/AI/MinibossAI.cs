@@ -4,19 +4,28 @@ public class MinibossAI : MonoBehaviour
 {
     const float startDelay = 0.2f; // необходим, чтобы AI успели обработать свои методы Start
 
+    [SerializeField] private bool _autoStart = true;
     [SerializeField] private EnemyAIRoot[] _AIArray;
     [SerializeField] private AIPreset[] _presets;
 
     private float _timer = 0f;
     private int _order = 0;
     private EnemyAIRoot _activeAI = null;
+    private bool _active = false;
 
     private void Start() {
+        if (_autoStart)
+            _active = true;
         _timer = startDelay;
     }
 
+    public void StartMoving() => _active = true;
+
     private void Update()
     {
+        if (!_active)
+            return;
+
         _timer -= Time.deltaTime;
 
         if (_timer > 0f)

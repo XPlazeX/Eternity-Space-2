@@ -86,7 +86,7 @@ public class Bus : MonoBehaviour
         if (_laserModule != null)
             _laserModule.HandFire();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
 
         yield return FlyAway(true);
 

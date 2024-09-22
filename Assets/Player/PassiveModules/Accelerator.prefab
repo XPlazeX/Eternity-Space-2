@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 1802297219522750923, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
+  _selfLoadOnStart: 0
   _operators:
   - _statName: PlayerShotSpeedMultiplier
     _typeOperation: 1
-    _operationValue: 1.33
+    _operationValue: 1.25
+    _negativeSetsToZero: 0
   _healthOperators: []

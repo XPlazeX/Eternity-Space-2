@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 22
   _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
   _levelCount: 8
+  _bonusModuleChoice: 0
   _startAurite: 80
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 50, y: 75}
@@ -158,17 +160,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 221109c15ade2724097f33ffa4e292c2, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
   _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
   _hasStalkers: 1
-  _chance: 1
+  _chance: 0.033
   _firstLevelWaveCount: 4
   _finalLevelWaveCount: 9
-  _startLevelWeight: 3
-  _finalLevelWeight: 6
+  _startLevelWeight: 2
+  _finalLevelWeight: 5
   _missionWeightFinalMultiplier: 1.7
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5

@@ -1,22 +1,39 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class BossDistributor : MonoBehaviour
 {
     [SerializeField] private BossBar _bossBarSample;
 
-    private int _activeBosses = 0;
+    private List<bool> BossbarSlots = new List<bool>();
 
     public BossBar InitializeBossBar(int hp)
     {
-        BossBar bb = Instantiate(_bossBarSample);
-        bb.Initialize(hp, _activeBosses);
+        int slot = -1;
 
-        _activeBosses ++;
+        for (int i = 0; i < BossbarSlots.Count; i++)
+        {
+            if (!BossbarSlots[i])
+            {
+                slot = i;
+                BossbarSlots[i] = true;
+            }
+        }
+
+        if (slot == -1)
+        {
+            BossbarSlots.Add(true);
+            slot = BossbarSlots.Count - 1;
+        }
+
+        BossBar bb = Instantiate(_bossBarSample);
+        bb.Initialize(hp, slot);
+
         return bb;
     }
 
-    public void UnregisterBossBar()
+    public void UnregisterBossBar(int pos)
     {
-        _activeBosses --;
+       BossbarSlots[pos] = false;
     }
 }

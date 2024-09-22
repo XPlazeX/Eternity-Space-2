@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class SoundOnEnable : MonoBehaviour
 {
-    [SerializeField] private int _code;
+    [SerializeField] private SoundObject _sound;
+    [SerializeField] private bool _ignoreFirst = false;
 
-    // private SoundPlayer _soundPlayer;
-
-    // private void Awake() {
-    //     _soundPlayer = GameObject.FindWithTag("SceneCore").GetComponent<SoundPlayer>();
-    // }
+    private bool _firstTimeTriggered;
 
     private void OnEnable() {
-        print("Звук при включении не работает");
-        //SoundPlayer.PlaySound(_code);
+        if (_ignoreFirst && !_firstTimeTriggered)
+        {
+            _firstTimeTriggered = true;
+            return;
+        }
+        // if (!_firstTimeTriggered && GetComponent<PullableObject>() != null)
+        // {
+        //     _firstTimeTriggered = true;
+        //     return;
+        // }
+
+        SoundPlayer.PlaySound(_sound);
     }
 }

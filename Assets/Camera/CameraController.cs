@@ -4,6 +4,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public const float sound_overborders = 4f;
+    public const float defaultSize = 8.2f;
 
     public delegate void scaleOperation(float val);
     public event scaleOperation ChangingScale;
@@ -23,14 +24,20 @@ public class CameraController : MonoBehaviour
     private static CameraController instance;
 
     public bool CanMoving {get; set;} = true;
+    public bool CustomTarget {get; private set;} = false;
+    public Vector2 CameraOffset {get; private set;} = new Vector2(0, 2f);
 
+    private static readonly Vector2 _defaultOffset = new Vector2(0, 2f);
+    private Transform _customTarget;
     private Transform _player;
     private Camera _camera;
+    private float _startDumping;
 
 
     public void Initialize(Vector2 x_borders, Vector2 y_borders) // from BackgroundLoader
     {
         instance = this;
+        _startDumping = dumping;
 
         _bordersX = x_borders;
         _bordersY = y_borders;
@@ -46,16 +53,54 @@ public class CameraController : MonoBehaviour
         if (!CanMoving)
             return;
 
-        if (_player != null)
-            transform.position = Vector3.Lerp(transform.position, new Vector3 (_player.position.x, _player.position.y + 2f, transform.position.z), dumping * Time.deltaTime);
-        transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * Time.deltaTime * _speed;
+        if (_player != null && !CustomTarget)
+            transform.position = Vector3.Lerp(transform.position, new Vector3 (_player.position.x + CameraOffset.x, _player.position.y + 2f + CameraOffset.y, transform.position.z), dumping * Time.deltaTime);
+        else if (CustomTarget && _customTarget != null)
+            transform.position = Vector3.Lerp(transform.position, new Vector3 (_customTarget.position.x + CameraOffset.x, _customTarget.position.y + 2f + CameraOffset.y, transform.position.z), dumping * Time.deltaTime);
+        //transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * Time.deltaTime * _speed;
 
-        transform.position = new Vector3 
-        (
-            Mathf.Clamp(transform.position.x, _bordersX.x, _bordersX.y),
-            Mathf.Clamp(transform.position.y, _bordersY.x, _bordersY.y),
-            transform.position.z
-        );
+        if (!CustomTarget)
+            transform.position = new Vector3 
+            (
+                Mathf.Clamp(transform.position.x, _bordersX.x, _bordersX.y),
+                Mathf.Clamp(transform.position.y, _bordersY.x, _bordersY.y),
+                transform.position.z
+            );
+    }
+
+    public static void ToggleCustomDumping(bool tog, float newDumping = 0)
+    {
+        if (tog)
+        {
+            instance.dumping = newDumping;
+        } else
+        {
+            instance.dumping = instance._startDumping;
+        }
+    }
+
+    public static void ToggleCustomTarget(bool tog, Transform target = null)
+    {
+        instance.CustomTarget = tog;
+        if (tog)
+        {
+            instance._customTarget = target;
+            if (target == null)
+                Debug.Log("Устанавливается цель null для customTarget камеры. Камера перестанет двигаться.");
+        } else
+        {
+            instance.FindPlayer();
+        }
+    }
+
+    public static void SetCustomOffset(Vector2 offset)
+    {
+        instance.CameraOffset = offset;
+    }
+
+    public static void DisableCustomOffset()
+    {
+        instance.CameraOffset = _defaultOffset;
     }
 
     public static void Shake(float power, float tactMult = 1f) => instance.StartCoroutine(instance.Shaking(power, tactMult));
@@ -141,13 +186,18 @@ public class CameraController : MonoBehaviour
         return new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
     }
 
+    private const int random_field_max_iterations = 64;
+
     public static Vector3 GetRandomFieldPosition(float minDistanceToPlayer)
     {
         Vector3 output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
 
-        while ((output - Player.PlayerTransform.position).magnitude < minDistanceToPlayer)
+        int iterations = 0;
+
+        while (((output - Player.PlayerTransform.position).magnitude < minDistanceToPlayer) && (iterations < random_field_max_iterations))
         {
             output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+            iterations ++;
         }
 
         return output;
@@ -157,9 +207,27 @@ public class CameraController : MonoBehaviour
     {
         Vector3 output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
 
-        while ((output - origin).magnitude < minDistanceToOrigin)
+        int iterations = 0;
+
+        while (((output - origin).magnitude < minDistanceToOrigin) && (iterations < random_field_max_iterations))
         {
             output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
+            iterations ++;
+        }
+
+        return output;
+    }
+
+    public static Vector3 GetRandomFieldPosition(float minDistanceToOrigin, Vector3 origin, float borderOffset)
+    {
+        Vector3 output = new Vector3(Random.Range(Borders_xXyY.x + borderOffset, Borders_xXyY.y - borderOffset), Random.Range(Borders_xXyY.z + borderOffset, Borders_xXyY.w - borderOffset), 0f);
+
+        int iterations = 0;
+
+        while (((output - origin).magnitude < minDistanceToOrigin) && (iterations < random_field_max_iterations))
+        {
+            output = new Vector3(Random.Range(Borders_xXyY.x + borderOffset, Borders_xXyY.y - borderOffset), Random.Range(Borders_xXyY.z + borderOffset, Borders_xXyY.w - borderOffset), 0f);
+            iterations ++;
         }
 
         return output;

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 884311464353496646}
   - component: {fileID: 4399992438288367163}
   - component: {fileID: 6617438161428800384}
+  - component: {fileID: 7541389907205231973}
   m_Layer: 0
   m_Name: AuraDamage
   m_TagString: Untagged
@@ -161,6 +162,7 @@ MonoBehaviour:
   _accelerateToZero: 0
   _piercingTargets: 0
   _explodeOnTimer: 0
+  _damageDelay: 0.25
 --- !u!198 &884311464353496646
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -678,7 +680,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1432,8 +1434,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.56593406, b: 0, a: 1}
-        key1: {r: 0, g: 0, b: 0, a: 1}
+        key0: {r: 0, g: 0, b: 0, a: 1}
+        key1: {r: 1, g: 0.55638766, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1441,8 +1443,8 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 32960
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -1457,7 +1459,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -4901,3 +4903,15 @@ MonoBehaviour:
   _scale: 4
   _shakePower: 1
   _damage: 0
+--- !u!114 &7541389907205231973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900977726808398756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd78127c99eef554ba84584d3c939672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

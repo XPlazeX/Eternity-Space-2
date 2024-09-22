@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3151115811066776243}
   - component: {fileID: -8381372533854284996}
   - component: {fileID: 6532749123697282654}
-  - component: {fileID: 1039798824412622173}
+  - component: {fileID: 1757258756109899029}
   - component: {fileID: 3151115811066776247}
   - component: {fileID: 2590863965848703526}
   - component: {fileID: 748498768244485101}
@@ -110,6 +110,8 @@ MonoBehaviour:
   _hpNormalizedBoostPerStep: 0.3
   _scaleLocalMobility: 1
   _mobilityBoostPerStep: 0.2
+  _scaleStaticDamage: 1
+  _staticDamageMultiplierPerStep: 0.3
 --- !u!114 &6532749123697282654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoStart: 1
-  _speed: 2.5
+  _speed: 2.75
   _orientation: 0
   _rotationSpeed: 6
   _movingProgression:
@@ -132,9 +134,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _foresight: 0
   _closingDistance: 3.66
   _rotationAroundSpeedMultiplier: 30
---- !u!114 &1039798824412622173
+--- !u!114 &1757258756109899029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3151115811066776241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0
@@ -217,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0
-  _damageValue: 4
+  _damageValue: 8
   _hoverable: 0
 --- !u!114 &738838576868626730
 MonoBehaviour:
@@ -347,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aebaf0155e3a74e9bff8f4cca4cab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiImage: 0
   _gradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
@@ -379,6 +383,7 @@ MonoBehaviour:
   _delay: 0
   _timeParse: 0.5
   _cycle: 1
+  _unscaledTime: 1
 --- !u!1 &6542929930260376655
 GameObject:
   m_ObjectHideFlags: 0

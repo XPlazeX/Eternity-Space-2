@@ -30,6 +30,7 @@ public class GameSessionLoader : MonoBehaviour
         GameObject.FindWithTag("BetweenScenes").GetComponent<DialogueOpener>().FindCanvas();
 
         SceneStatics.CharacterCore.GetComponent<VictoryHandler>().Initialize();
+        SceneStatics.SceneCore.GetComponent<GenericBulletDatabase>().Initialize();
 
         int locID = _testMode ? _testLocationID : GameSessionInfoHandler.GetSessionSave().LocationID;
         
@@ -41,21 +42,24 @@ public class GameSessionLoader : MonoBehaviour
         yield return cl.StartCoroutine(cl.LoadingPlayerShip()); // >> Player >> PlayerShipData 
         print("Character loader >> loaded player ship!");
 
+        PlayerCore.LoadMegawatts();
+
         Player.UpdatePlayer();
         SceneStatics.SceneCore.GetComponent<ShieldDistributor>().Initialize();
 
-        SceneStatics.SceneCore.GetComponent<GenericBulletDatabase>().Initialize();
         SceneStatics.SceneCore.GetComponent<ReflectorHandler>().Initialize();
         SceneStatics.CharacterCore.GetComponent<ModuleCore>().StartInitialization(); // >> CharacterModules >> CharacterBulletDatabase >> ParryingHandler >> AllModules
 
         SceneStatics.CharacterCore.GetComponent<PlayerRamsHandler>().Initialize();
         SceneStatics.CharacterCore.GetComponent<DeviceHandler>().Initialize();
+        SceneStatics.UICore.GetComponent<CurrencyUI>().Initialize();
         GameObject.FindWithTag("Level core").GetComponent<EnvironmentSpawner>().Initialize();
         TimeHandler.Initialize();
 
         PlayerController.Initialize();
 
         SceneStatics.CharacterCore.GetComponent<GameContagionExecutor>().Initialize();
+        SceneStatics.UICore.GetComponent<DeathUIHandler>().TrySpawnErrorer();
 
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         

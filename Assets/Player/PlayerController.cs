@@ -11,12 +11,19 @@ public class PlayerController : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     [SerializeField] private float _sensivity = 1f;
     [SerializeField] private Vector3 _offset_XyY;
+    [SerializeField] private float _forceDecelerration = 1f;
+    [SerializeField] private TrailRenderer _trailForce;
+    [SerializeField] private float _trailTimeMultiplier = 1f;
+    [SerializeField] private float _trailFadeSpeed = 1f;
 
     private static Transform _player;
     private Vector3 _lastMousePosition;
     private static Quaternion _cameraBorders; 
 
     public static bool CanControl {get; set;} = true;
+    public static Vector3 DefaultForce {get; set;} = Vector3.zero;
+    public static Vector3 AdditiveForce {get; private set;} = Vector3.zero;
+    public static bool IsControlling {get; private set;} = false;
 
     public static void Initialize() 
     {        
@@ -32,6 +39,42 @@ public class PlayerController : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         //print(_player == null);
     }
 
+    private void Update()
+    {
+        if (_player == null || !Player.Alive)
+            return;
+
+        if (AdditiveForce.magnitude > 0f)
+        {
+            AdditiveForce = Vector3.Lerp(AdditiveForce, Vector3.zero, _forceDecelerration * Time.deltaTime);
+
+            if (AdditiveForce.magnitude < 0.03f)
+            {
+                AdditiveForce = Vector3.zero;
+            }
+        }
+
+        // if (!IsControlling)
+        // {
+        _player.position += (DefaultForce + AdditiveForce) * Time.deltaTime;
+        ClampPosition();
+
+        if ((DefaultForce + AdditiveForce).magnitude == 0)
+        {
+            _trailForce.gameObject.SetActive(false);
+            return;
+        } else{
+            _trailForce.gameObject.SetActive(true);
+            _trailForce.time = _trailTimeMultiplier * (AdditiveForce.magnitude + DefaultForce.magnitude);
+            _trailForce.transform.position = _player.position;
+        }
+    }
+
+    public static void AddImpulse(Vector2 direction, float forceScale)
+    {
+        AdditiveForce += (new Vector3(direction.x, direction.y, 0f) * forceScale);
+    }
+
     private void OnDisable() {
         BeginDrag -= TimeHandler.Recover;
         EndDrag -= TimeHandler.SlowDown;
@@ -43,6 +86,7 @@ public class PlayerController : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         if (!CanControl)
             return;
+        IsControlling = true;
         BeginDrag?.Invoke();
     }
 
@@ -50,6 +94,7 @@ public class PlayerController : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         if (!CanControl)
             return;
+        IsControlling = false;
         EndDrag?.Invoke();
     }
 
@@ -70,17 +115,20 @@ public class PlayerController : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         {
             _player.position += dragDelta;
            
-            _player.position = new Vector3 
+            ClampPosition();
+        }
+    }
+
+    public static void ReplacePlayer(Transform newPlayer) => _player = newPlayer;
+
+    public void ClampPosition()
+    {
+        _player.position = new Vector3 
             (
                 Mathf.Clamp(_player.position.x, _cameraBorders.x, _cameraBorders.y),
                 Mathf.Clamp(_player.position.y, _cameraBorders.z, _cameraBorders.w),
                 _player.position.z
             );
-
-            //print(_cameraBorders.y);
-        }
     }
-
-    public static void ReplacePlayer(Transform newPlayer) => _player = newPlayer;
 
 }

@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour
 
     private MainMenuCamera _mainMenuCamera;
     private int _lastID = 0;
+    private int _previousID = 0;
     private bool _canMove = true;
     private Coroutine[] _movingUICoroutines;
 
@@ -28,8 +29,17 @@ public class MenuController : MonoBehaviour
 
     public void OpenGroup(int id)
     {
-        if (!_canMove || (_lastID == id))
+        if (!_canMove || id == 0 && _lastID == 0)
             return;
+
+        if ((_lastID == id))
+        {
+            if (_previousID == id)
+                return;
+
+            OpenGroup(0);
+            return;
+        }
 
         if (_lastID == -1)
         {
@@ -52,6 +62,7 @@ public class MenuController : MonoBehaviour
 
         _movingUICoroutines[_lastID] = StartCoroutine(MovingUI(_lastID, false));
 
+        _previousID = _lastID;
         _lastID = id;
         //print($"Moving rect : {id}");
 
@@ -97,7 +108,7 @@ public class MenuController : MonoBehaviour
         Invoke("Quit", 1f);
     }
 
-    private void Quit()
+    public void Quit()
     {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

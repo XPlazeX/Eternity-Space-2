@@ -20,7 +20,8 @@ public class TimeMission : SpawningMission
 
     public override void StartPlay()
     {
-        _spawner = SceneStatics.SceneCore.GetComponent<Spawner>();
+        if (_spawner == null)
+            _spawner = SceneStatics.SceneCore.GetComponent<Spawner>();
 
         _targetTime = Mathf.CeilToInt(Mathf.Lerp(_firstLevelTime, _finalLevelTime, GameSessionInfoHandler.LevelProgress));
 
@@ -52,6 +53,9 @@ public class TimeMission : SpawningMission
     public virtual void Tick()
     {
         TimedMissionTick?.Invoke(Mathf.CeilToInt(_timer));
+
+        if (_spawner == null)
+            _spawner = SceneStatics.SceneCore.GetComponent<Spawner>();
 
         _spawner.PrintProgressUI($"{Mathf.CeilToInt(_timer)}s");
 

@@ -57,6 +57,12 @@ public class ModulasSaveHandler : MonoBehaviour
         _save = (ModulasSave)_storage.Load(new ModulasSave());
     }
 
+    public static void ClearPassiveModules(bool andPacks)
+    {
+        _save.ClearAllHandingModules(andPacks);
+        _storage.Save(_save);
+    }
+
     public static void SaveAll()
     {
         SavingAll?.Invoke();

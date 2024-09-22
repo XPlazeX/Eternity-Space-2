@@ -251,6 +251,18 @@ TextureImporter:
   - first:
       213: 858599317456061725
     second: Stalkers_41
+  - first:
+      213: -6101025581560189699
+    second: Stalkers_42
+  - first:
+      213: 214569701418538410
+    second: Stalkers_84
+  - first:
+      213: -9198111520278515174
+    second: Stalkers_85
+  - first:
+      213: -7329967452718017615
+    second: Stalkers_86
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -754,8 +766,8 @@ TextureImporter:
         y: 245
         width: 8
         height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1510,8 +1522,8 @@ TextureImporter:
         y: 66
         width: 5
         height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72222304}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1741,8 +1753,8 @@ TextureImporter:
         y: 0
         width: 23
         height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.50305974, y: 0.65292835}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1867,8 +1879,8 @@ TextureImporter:
         y: 0
         width: 15
         height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.7007487, y: 0.5161199}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2014,8 +2026,8 @@ TextureImporter:
         y: 1
         width: 22
         height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.34024602, y: 0.5521303}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2086,6 +2098,90 @@ TextureImporter:
       bones: []
       spriteID: d158c59b78b5aeb00800000000000000
       internalID: 858599317456061725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalkers_42
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 132
+        width: 27
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3111274}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfca885ee8dc45ba0800000000000000
+      internalID: -6101025581560189699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalkers_84
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 132
+        width: 15
+        height: 52
+      alignment: 9
+      pivot: {x: 0.7411214, y: 0.082673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa51d90b10e4af200800000000000000
+      internalID: 214569701418538410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalkers_85
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 185
+        width: 19
+        height: 37
+      alignment: 9
+      pivot: {x: 0.86287165, y: 0.06011468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12fe555e4eb95080800000000000000
+      internalID: -9198111520278515174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalkers_86
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 224
+        width: 5
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6383994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b351950079b64a90800000000000000
+      internalID: -7329967452718017615
       vertices: []
       indices: 
       edges: []

@@ -4,6 +4,7 @@
 public class PlayerTargetCursor : MonoBehaviour
 {
     [SerializeField] private float _playerOffset;
+    [SerializeField] private bool _toPlayer = false;
 
     private SpriteRenderer _sr;
     private Transform _targetingTransform;
@@ -25,17 +26,20 @@ public class PlayerTargetCursor : MonoBehaviour
             return;
         }
 
-        transform.position = Player.PlayerTransform.position + (_targetingTransform.position - Player.PlayerTransform.position).normalized * _playerOffset;
-        transform.up = (_targetingTransform.position - Player.PlayerTransform.position);
+        transform.position = GetTarget().position + (GetPivot().position - GetTarget().position).normalized * _playerOffset;
+        transform.up = (GetPivot().position - GetTarget().position);
 
-        if (_visible && (Player.PlayerTransform.position - _targetingTransform.position).magnitude < _playerOffset)
+        if (_visible && (GetTarget().position - GetPivot().position).magnitude < _playerOffset)
         {
             _sr.enabled = false;
             _visible = false;
-        } else if (!_visible && (Player.PlayerTransform.position - _targetingTransform.position).magnitude > _playerOffset)
+        } else if (!_visible && (GetTarget().position - GetPivot().position).magnitude > _playerOffset)
         {
             _sr.enabled = true;
             _visible = true;
         }
     }
+
+    private Transform GetPivot() => _toPlayer ? Player.PlayerTransform : _targetingTransform;
+    private Transform GetTarget() => _toPlayer ? _targetingTransform : Player.PlayerTransform;
 }

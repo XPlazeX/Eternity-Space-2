@@ -28,6 +28,11 @@ public class DocModuleChoice : MonoBehaviour
         if (_choiced)
             return;
 
+        Refuse();
+    }
+
+    public void Refuse()
+    {
         _choiced = true;
         print("choice");
         _bindedDoc.ChoiceMade();

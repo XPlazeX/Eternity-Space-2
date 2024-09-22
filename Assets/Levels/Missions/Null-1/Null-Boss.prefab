@@ -45,8 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 15
   _boostFirstLevel: 1
+  _firstLevelBonusModulas: 2
   _levelCount: 1
-  _startAurite: 380
+  _bonusModuleChoice: 0
+  _startAurite: 250
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 25, y: 25}
   _nameLocalizationID: 3
@@ -145,25 +147,31 @@ MonoBehaviour:
     _windSpeed: -0.363
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: 992426f22fc18894fa22912a310a8421, type: 3}
     _volume: 0.258
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 1
   _bonusEnemies:
   - 5
   - 1
   _bonusCount: 1
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 6
+  _hasStalkers: 0
+  _chance: 0
   _bossesPerLevels:
   - bosses:
     - gameObject: {fileID: 5273715181747866730, guid: d32d64f5c3e056e4f886d002701d6d74,
         type: 3}
       spawnPosition: {x: 3, y: 15, z: 0}
       spawnAngles: 0
+      atPlayerPosition: 0
     - gameObject: {fileID: 5273715181747866730, guid: 6028e13156351664690a3ffd777d1830,
         type: 3}
       spawnPosition: {x: -3, y: 15, z: 0}
       spawnAngles: 0
+      atPlayerPosition: 0
   _waitTime: 4.6
   _preLevelWS: {fileID: 2891289184826753115, guid: 1fc0a5ed5cee9f54290a850f3ae97474,
     type: 3}

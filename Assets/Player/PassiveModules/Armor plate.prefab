@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
-  _armorCapBuff: 10
-  _addingArmorPoints: 6
+  _selfLoadOnStart: 0
+  _armorCapBuff: 8
+  _addingArmorPoints: 5
+  _breakArmoring: 0

@@ -1,11 +1,19 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundPlayer : MonoBehaviour
 {
     public delegate void audioActionHandler();
     public event audioActionHandler AudioSettingsChanged;
+
+    public enum OSTMemoryOperation
+    {
+        None = 0,
+        SaveTime = 1,
+        ReleaseTime = 2
+    }
 
     const float snapshot_transition_time = 0.15f;
     public const string master_toggle_player_prefs = "AudioMaster";
@@ -17,6 +25,7 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private bool _disable = false;
     [SerializeField] private AudioMixerSnapshot[] _snapshots;
     [SerializeField] private AudioSource _soundtrackAudioSource;
+    [SerializeField] private AudioSource[] _soundtrackAudioSources;
     [SerializeField] private AudioSource _soundsAudioSource;
     [SerializeField] private AudioSource _UIsoundsAudioSource;
 
@@ -32,6 +41,12 @@ public class SoundPlayer : MonoBehaviour
     public static float SoundVolume {get; private set;} = 0f;
 
     private float _soundtrackVolume = 1f;
+    private Coroutine _soundtrackTransitionCoroutine;
+    private bool _firstOSTSourcePlayed = true;
+    private float _oldVolume;
+    private float _savedOstTime;
+
+    private AudioSource ActiveSoundtrackSource => _soundtrackAudioSources[_firstOSTSourcePlayed ? 0 : 1];
 
     public void Initialize()
     {
@@ -41,14 +56,74 @@ public class SoundPlayer : MonoBehaviour
         UpdateData();
     }
 
-    public void SetSoundtrack(SoundObject soundObject)
+    public void SetSoundtrack(SoundObject soundObject, float transitionTime = 6f, OSTMemoryOperation memoryOperation = OSTMemoryOperation.None)
     {
-        _soundtrackAudioSource.clip = soundObject.Clip;
-        _soundtrackAudioSource.volume = soundObject.Volume * MusicVolume;
-        _soundtrackAudioSource.pitch = soundObject.GetPitch();
-        _soundtrackAudioSource.Play();
+        print($"<color=cyan>Set OST: {soundObject.Clip.name}</color>");
+        if (transitionTime == 0f)
+        {
+            ActiveSoundtrackSource.clip = soundObject.Clip;
+            ActiveSoundtrackSource.volume = soundObject.Volume * MusicVolume;
+            ActiveSoundtrackSource.pitch = soundObject.GetPitch();
+            ActiveSoundtrackSource.Play();
 
-        _soundtrackVolume = soundObject.Volume;
+            _soundtrackVolume = soundObject.Volume;
+        }
+        if (_soundtrackTransitionCoroutine != null)
+        {
+            StopCoroutine(_soundtrackTransitionCoroutine);
+
+            AudioSource quiterSource = _soundtrackAudioSources[_firstOSTSourcePlayed ? 0 : 1];
+            AudioSource louderSource = _soundtrackAudioSources[_firstOSTSourcePlayed ? 1 : 0];
+
+            quiterSource.volume = louderSource.volume;
+
+            _firstOSTSourcePlayed = !_firstOSTSourcePlayed;
+        }
+
+        _soundtrackTransitionCoroutine = StartCoroutine(TransitionSoundtrack(soundObject, transitionTime, memoryOperation));
+    }
+
+    public IEnumerator TransitionSoundtrack(SoundObject newSoundtrack, float transitionTime, OSTMemoryOperation memoryOperation)
+    {
+        float transitionTimer = 0;
+
+        AudioSource quiterSource = _soundtrackAudioSources[_firstOSTSourcePlayed ? 0 : 1];
+        AudioSource louderSource = _soundtrackAudioSources[_firstOSTSourcePlayed ? 1 : 0];
+
+        _oldVolume = quiterSource.volume;
+
+        louderSource.clip = newSoundtrack.Clip;
+        louderSource.volume = 0;
+        louderSource.pitch = newSoundtrack.GetPitch();
+        louderSource.time = Mathf.Clamp(louderSource.time, 0, louderSource.clip.length - 0.01f);
+        louderSource.Play();
+
+        if (memoryOperation == OSTMemoryOperation.SaveTime)
+        {
+            _savedOstTime = quiterSource.time;
+        } else if (memoryOperation == OSTMemoryOperation.ReleaseTime)
+        {
+            louderSource.time = Mathf.Clamp(_savedOstTime, 0, louderSource.clip.length - 0.01f);
+        }
+
+        float startQuiterVolume = quiterSource.volume;
+
+        while (transitionTimer < transitionTime)
+        {
+            quiterSource.volume = Mathf.Lerp(_oldVolume, 0f, transitionTimer / transitionTime);
+            louderSource.volume = Mathf.Lerp(0f, newSoundtrack.Volume * MusicVolume, transitionTimer / transitionTime);
+
+            transitionTimer += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        
+        quiterSource.Stop();
+
+        louderSource.volume = newSoundtrack.Volume * MusicVolume;
+        _soundtrackVolume = louderSource.volume;
+
+        _firstOSTSourcePlayed = !_firstOSTSourcePlayed;
+        _soundtrackTransitionCoroutine = null;
     }
 
     public void UpdateData()
@@ -57,7 +132,7 @@ public class SoundPlayer : MonoBehaviour
         {
             MusicVolume = 0f;
             SoundVolume = 0f;
-            _soundtrackAudioSource.volume = _soundtrackVolume * MusicVolume;
+            ActiveSoundtrackSource.volume = _soundtrackVolume * MusicVolume;
             AudioSettingsChanged?.Invoke();
             return;
         }
@@ -75,13 +150,22 @@ public class SoundPlayer : MonoBehaviour
         else
             SoundVolume = 0f;
 
-        _soundtrackAudioSource.volume = _soundtrackVolume * MusicVolume;
+        ActiveSoundtrackSource.volume = _soundtrackVolume * MusicVolume;
         AudioSettingsChanged?.Invoke();
     }
 
     public void MuteSoundtrack()
     {
-        _soundtrackAudioSource.mute = true;
+        for (int i = 0; i < _soundtrackAudioSources.Length; i++)
+        {
+            _soundtrackAudioSources[i].mute = true;
+        }
+    }
+
+    public void MuteSounds()
+    {
+        UISoundAudioSource.mute = true;
+        SoundAudioSource.mute = true;
     }
 
     public void SetSnapshot(int id) => _snapshots[id].TransitionTo(snapshot_transition_time);

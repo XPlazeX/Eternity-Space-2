@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048538241424775930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: 0.41, z: 0}
+  m_LocalPosition: {x: 0.12, y: 0.504, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   _startShieldPoints: 0
   _lifetime: 2.5
   _minMaxSpeed: {x: 8, y: 20}
+  _explodeOnTimer: 0
 --- !u!96 &8354922504341434384
 TrailRenderer:
   serializedVersion: 2
@@ -196,7 +197,7 @@ TrailRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 5
+    numCapVertices: 7
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
@@ -4963,18 +4964,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003809899, y: 0.12572595}
+  m_Offset: {x: -0.042817175, y: 0.014339209}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.71875, y: 1.71875}
+    oldSize: {x: 1.75, y: 1.75}
     newSize: {x: 0.75, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.40711123, y: 1.2452836}
+  m_Size: {x: 0.5003654, y: 1.312634}
   m_EdgeRadius: 0
 --- !u!50 &7645035111354763375
 Rigidbody2D:

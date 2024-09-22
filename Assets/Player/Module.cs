@@ -51,6 +51,7 @@ public class AttackPattern : Gear
     protected int _normalDamage;
     private float _firerateMultiplier = 1f;
     private float _fireReloading = 0f;
+    private float _firerateRandomizing = 1f;
     public float Spread {get; private set;} = 0f;
 
     public float FireReload
@@ -76,6 +77,7 @@ public class AttackPattern : Gear
         ShipStats.StatChanged += ObserveStat;
         _firerateMultiplier = ShipStats.GetValue("MainWeaponFirerateMultiplier");
         Spread = _spread + ShipStats.GetValue("FlatSpread");
+        _firerateRandomizing = ShipStats.GetValue("MainWeaponFirerateRandomizing");
     }
 
     protected virtual void ObserveStat(string name, float val)
@@ -86,8 +88,11 @@ public class AttackPattern : Gear
         } else if (name == "FlatSpread")
         {
             Spread = _spread + ShipStats.GetValue("FlatSpread");
+        } else if (name == "MainWeaponFirerateRandomizing")
+        {
+            _firerateRandomizing = ShipStats.GetValue("MainWeaponFirerateRandomizing");
         }
-
+        
     }
 
     protected virtual void Update()
@@ -100,7 +105,7 @@ public class AttackPattern : Gear
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0)) && _fireReloading <= 0)
         {
             Fire();
-            _fireReloading = FireReload * (1f / _firerateMultiplier);
+            _fireReloading = FireReload * (1f / _firerateMultiplier) * Random.Range(1f / _firerateRandomizing, 1f * _firerateRandomizing);
         }
     }
 
@@ -180,6 +185,74 @@ public class Device : AttackPattern
     {
         Fired?.Invoke();
         print("Empty Device attack fired!");
+    }
+}
+
+public class Core : Gear
+{
+    [SerializeField] protected float _maxMegawatts;
+    [SerializeField] protected float _startMegawatts;
+    [SerializeField] protected float _megawattsGrowth;
+
+    public float MaxMegawatts => _maxMegawatts;
+    public float StartMegawatts => _startMegawatts;
+}
+
+public class Ability : Gear
+{
+    public delegate void useAction();
+    public event useAction AbilityUsed;
+
+    [SerializeField] protected float _energyConsume;
+    [SerializeField] protected float _reloadTime;
+    [SerializeField] protected bool _bindToPlayer;
+    [SerializeField] private SoundObject _soundWork;
+
+    public float EnergyConsume => _energyConsume;
+    public float ReloadTime => _reloadTime;
+
+    private AbilityUI _abilityUI;
+    private float _timer;
+
+    public override void Load()
+    {
+        _abilityUI = SceneStatics.UICore.GetComponent<AbilityUI>();
+        _abilityUI.SetStats(this);
+
+        _abilityUI.ControlButton.onClick.AddListener(TryUse);
+
+        if (_bindToPlayer)
+        {
+            transform.position = Player.PlayerTransform.position;
+            transform.SetParent(Player.PlayerTransform);
+        }
+    }
+
+    private void Update()
+    {
+        _timer -= Time.deltaTime;
+
+        _abilityUI.ToggleInteractable((_timer <= 0f && PlayerCore.EnoughtEnergy(_energyConsume)));
+
+        _abilityUI.SetFillIcon(Mathf.Clamp01(1f - (_timer / _reloadTime)));
+    }
+
+    public virtual void TryUse()
+    {
+        if (PlayerCore.EnoughtEnergy(_energyConsume) && _timer <= 0f)
+        {
+            PlayerCore.ConsumeEnergy(_energyConsume);
+            SoundPlayer.PlaySound(_soundWork);
+            
+            Use();
+
+            _timer = _reloadTime;
+        }
+    }
+
+    public virtual void Use()
+    {
+        AbilityUsed?.Invoke();
     }
 }
 

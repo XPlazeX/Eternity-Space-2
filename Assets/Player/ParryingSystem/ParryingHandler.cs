@@ -33,11 +33,11 @@ public class ParryingHandler : MonoBehaviour
         Initialized = false;
     }
 
-    public static void Parry()
+    public static void Parry(int additieArmor = 0)
     {
         ParrySuccess?.Invoke();
 
-        PlayerShipData.RegenerateArmor(ArmorRegen);
+        PlayerShipData.RegenerateArmor(ArmorRegen + additieArmor);
     }
 
     public static void BuffedParry()

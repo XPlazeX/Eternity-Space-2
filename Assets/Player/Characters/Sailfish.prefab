@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 1260780666538092921}
   - component: {fileID: 1260780666538092814}
   - component: {fileID: 1260780666538092915}
+  - component: {fileID: 5300017626321219497}
   - component: {fileID: 1260780666538092920}
   - component: {fileID: 1260780666538092919}
   - component: {fileID: 1260780666538092918}
@@ -549,6 +550,8 @@ GameObject:
   - component: {fileID: 1260780666538092913}
   - component: {fileID: 1260780666538092912}
   - component: {fileID: 1260780666538092815}
+  - component: {fileID: -3885061094654488280}
+  - component: {fileID: 1274065857800520415}
   m_Layer: 11
   m_Name: Sailfish
   m_TagString: Player
@@ -644,6 +647,21 @@ MonoBehaviour:
   _damageKey: 0
   _hitPoints: 0
   _startShieldPoints: 0
+--- !u!114 &5300017626321219497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3235d6c2132a6494ea6e0d54c834c1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityVariations:
+  - {fileID: -4703388997396113125, guid: 9442e7f2784cd2449acf3f7eebdf904d, type: 3}
+  - {fileID: -139383414015804743, guid: e74ab1749b5ab61439db6ccce64919ff, type: 3}
 --- !u!114 &1260780666538092920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5443,7 +5461,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.20380318}
+  m_Offset: {x: 0, y: 0.01991129}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5454,7 +5472,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25241563, y: 0.28037643}
+  m_Size: {x: 0.11275576, y: 0.7278054}
   m_EdgeRadius: 0
 --- !u!114 &1260780666538092815
 MonoBehaviour:
@@ -5474,8 +5492,40 @@ MonoBehaviour:
   - {fileID: 1260780668016141902}
   - {fileID: 1260780666147496287}
   - {fileID: 1260780667689757784}
-  _prepareTime: 0.5
+  _prepareTime: 0.6
   _customWeaponUI: {fileID: 0}
+  _noWeaponUI: 0
+--- !u!114 &-3885061094654488280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c714afa49f8f27f4c82c0e3aec5da548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisWeaponRoot: 1
+  _unlockRequire:
+    _UID: 562
+    _amount: 0
+  _triggeringObject: {fileID: 655645021032277092, guid: 4a08b2348e8b0714e96216092f4d80aa,
+    type: 3}
+  _spawnPivot: {fileID: 4827066729574865507}
+--- !u!114 &1274065857800520415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bb8e933346bee4e8ad2cea1c44ea16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260780667689757787
 GameObject:
   m_ObjectHideFlags: 0

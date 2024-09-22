@@ -7,6 +7,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _playingEffectID = -1;
     [SerializeField] protected float _effectDuration;
+    [SerializeField] protected string _timeScaleByStat;
 
     private float _windAngle;
     private float _lifeTimer = 0f;
@@ -37,7 +38,7 @@ public class Pickup : MonoBehaviour
     protected virtual void Picked()
     {
         if (_playingEffectID > -1)
-            SceneStatics.UICore.GetComponent<PlayerUI>().PlayEffect((PlayerUI.Effect)_playingEffectID, _effectDuration);
+            SceneStatics.UICore.GetComponent<PlayerUI>().PlayEffect((PlayerUI.Effect)_playingEffectID, _effectDuration + (string.IsNullOrEmpty(_timeScaleByStat) ? 0f : ShipStats.GetValue(_timeScaleByStat)));
 
         Destroying();
     }

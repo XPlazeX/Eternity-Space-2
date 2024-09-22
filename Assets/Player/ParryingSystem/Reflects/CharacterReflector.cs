@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(WeaponRoot))]
 public class CharacterReflector : MonoBehaviour
 {
+    [SerializeField] private bool _thisWeaponRoot = true;
     [SerializeField] private UnlockRequire _unlockRequire;
     [Space()]
     [SerializeField] private PullableObject _triggeringObject;
@@ -20,14 +20,26 @@ public class CharacterReflector : MonoBehaviour
             return;
 
         ObjectPool = new PullForObjects(_triggeringObject);
-        GetComponent<WeaponRoot>().WeaponCharged += OnWeaponCharged;
+        if (_thisWeaponRoot)
+            GetComponent<WeaponRoot>().WeaponCharged += OnWeaponCharged;
+        else
+            Player.PlayerObject.GetComponent<WeaponRoot>().WeaponCharged += OnWeaponCharged;
     }
 
     private void OnDisable() {
         if (_workable)
         {
-            GetComponent<WeaponRoot>().WeaponCharged -= OnWeaponCharged;
+            if (_thisWeaponRoot)
+                GetComponent<WeaponRoot>().WeaponCharged -= OnWeaponCharged;
+            else
+            Player.PlayerObject.GetComponent<WeaponRoot>().WeaponCharged -= OnWeaponCharged;
         }
+    }
+
+    public void ChangeTriggeringObject(PullableObject newObject)
+    {
+        ObjectPool.SampleChanged();
+        ObjectPool = new PullForObjects(newObject);
     }
 
     public void OnWeaponCharged()

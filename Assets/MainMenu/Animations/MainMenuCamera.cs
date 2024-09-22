@@ -42,6 +42,7 @@ public class MainMenuCamera : MonoBehaviour
     public void ExtraNoise()
     {
         _lightAnimator.SetTrigger("Noise");
+        _lightWork = true;
         _nirvus = false;
     }
 
@@ -69,5 +70,4 @@ public class MainMenuCamera : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
-
 }

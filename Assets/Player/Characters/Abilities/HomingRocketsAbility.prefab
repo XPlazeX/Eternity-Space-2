@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1027571838581095956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2310539115003305486}
+  - component: {fileID: -139383414015804743}
+  - component: {fileID: 8824169441089182934}
+  m_Layer: 0
+  m_Name: HomingRocketsAbility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2310539115003305486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027571838581095956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.083456255, y: -0.038796425, z: -0.23110917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6238976937066171066}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-139383414015804743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027571838581095956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707daca461d225140ae8a82d3d619bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: -7312252029852053250, guid: 7a982271e4bf4c14780a507e79744e9d, type: 3}
+  _selfLoadOnStart: 0
+  _energyConsume: 1.1
+  _reloadTime: 11
+  _bindToPlayer: 1
+  _soundWork:
+    _clip: {fileID: 8300000, guid: 905f0a203c0785c4e8fcc7db9fe79c3d, type: 3}
+    _volume: 0.76
+    _pitchRandomizing: 0
+  _attackModule: {fileID: 8824169441089182934}
+  _waitTime: 0.33
+  _consumeHP: 0
+  _hpCost: 0
+--- !u!114 &8824169441089182934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027571838581095956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waitTime: 0
+  _attackReload: 0
+  _attackObjects:
+  - _cycles: 2
+    _timeBetweenCycles: 0.5
+    _timeCooling: 0
+    _bulletCode: 54
+    _barrels:
+    - {fileID: 6238976937066171066}
+    _randomBarrel: 0
+    _bulletsPerFire: 4
+    _fixedAngleStep: 30
+    _randomAngleStep: 0
+    _randomizingBulletSpeed: 0
+  _autoStart: 0
+--- !u!1 &4647040619971632463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6238976937066171066}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6238976937066171066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4647040619971632463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2310539115003305486}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

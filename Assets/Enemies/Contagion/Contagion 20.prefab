@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 9069206062416828812}
-  _damageBody: {fileID: 9069206062416828823, guid: 7f4a5f8ebb1de15479b04f14a7237770,
+  _spawningObject: {fileID: 9069206062416828815, guid: 7f4a5f8ebb1de15479b04f14a7237770,
     type: 3}
   _count: 3
   _spawnSpread: 1

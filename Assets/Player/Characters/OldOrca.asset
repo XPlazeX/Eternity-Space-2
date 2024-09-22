@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee4ddcb0936c0e4eaeaa05c898744f9, type: 3}
+  m_Name: OldOrca
+  m_EditorClassIdentifier: 
+  _skinnedShips:
+  - {fileID: 1260780666538092923, guid: af85903692e9fac4b812f76e5a8fdf79, type: 3}
+  - {fileID: 1260780666538092923, guid: 22aa8923ceec9f543b72d4641149f6e4, type: 3}
+  - {fileID: 1260780666538092923, guid: 98ebbbc446ec4754e858546f223c85b5, type: 3}
+  _class: 1
+  _hitPoints: 117
+  _boostedHitPoints: 131
+  _armorPoints: 3
+  _boostedArmorPoints: 7
+  _handingModules:
+  - {fileID: 1554671533882739457, guid: a9e9a079a4c39bd468d2820642d94b5c, type: 3}

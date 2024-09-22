@@ -11,6 +11,7 @@ public class ModuleCore : MonoBehaviour
     [SerializeField] private AttackPattern _testWeaponPattern;
     [SerializeField] private Device _testDevice;
     [SerializeField] private Module[] _testLoadingModules;
+    [SerializeField] private CoreList _coreList;
     //[SerializeField] private Ultratech _defaultUltratech;
 
     private static CharacterModules _characterModules;
@@ -48,11 +49,19 @@ public class ModuleCore : MonoBehaviour
         string weaponModel = save.WeaponModel;
         Mission activeMission = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>()._activeMissionSample;
 
+        Core core = Instantiate(_coreList.GetCore(save.CoreModel));
+        core.Load();
+        print($"Модель ядра: {save.CoreModel}");
+
         if (!char.IsDigit(save.WeaponModel[save.WeaponModel.Length - 1]))
             weaponModel = save.WeaponModel.ToString() + "-" + (save.WeaponLevel + GetMainWeaponStartLevel()).ToString();
 
+        print($"Модель оружия: {weaponModel}");
+
         if (!string.IsNullOrEmpty(activeMission.CustomWeaponModel))
             weaponModel = activeMission.CustomWeaponModel;
+
+        print($"Корректировка модель оружия: {weaponModel}");
 
         _defaultWeaponPattern = SpawnGear(GearType.Weapon, weaponModel) as AttackPattern;
         
@@ -113,6 +122,8 @@ public class ModuleCore : MonoBehaviour
         Module m = Instantiate(_characterModules.GetModule(id));
         if (autoLoad)
             m.Load();
+
+        print($"spawn module : {m.gameObject.name}");
         return m;
     }
 

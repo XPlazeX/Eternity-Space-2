@@ -51,8 +51,19 @@ public class AssaultAI : EnemyAIRoot
             _timer = SceneStatics.MultiplyByChaos((_timeToReloadCirclePoint / Mobility));
         }
 
-        _targetPosition = _player.position + _offset;
+        _targetPosition = GetActualPlayerPosition() + _offset;
 
         transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
+    }
+
+    protected Vector3 GetActualPlayerPosition()
+    {
+        if (!_autoTargetPlayer)
+        {
+            return _player.position;
+        } else
+        {
+            return Player.GetPlayerPosition(_foresight);
+        }
     }
 }

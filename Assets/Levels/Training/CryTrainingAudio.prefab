@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7466754035269506951}
   - component: {fileID: 4641559988825934199}
+  - component: {fileID: 6783277556847216127}
   m_Layer: 0
   m_Name: CryTrainingAudio
   m_TagString: Untagged
@@ -128,3 +129,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6783277556847216127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993780487381222007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b681fb4afd1e542ba9f4c76c010e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioChannel: 0

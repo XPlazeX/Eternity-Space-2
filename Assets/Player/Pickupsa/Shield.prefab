@@ -106,8 +106,8 @@ MonoBehaviour:
   _effectDuration: 8
   _spawningObject: {fileID: 112581486737163272, guid: 75213ccfc927cad47bd0e34ea0551b17,
     type: 3}
+  _destroyOnEffectEnded: 1
   _bindToPlayer: 1
-  _objectLifeTime: 8
 --- !u!114 &1380005973944226364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 20
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0

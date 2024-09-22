@@ -2,6 +2,8 @@
 
 public class WormAI : EnemyAIRoot
 {
+    [SerializeField] private bool _useInnerRotation = false;
+    [SerializeField] private float _innerSpeedMultiplier = 1f;
     [SerializeField] private AnimationCurve _rotationSpeedProgression;
     [Header("This AI always use RotateToTarget orientation")]
     [SerializeField] private float _phaseCycleTime;
@@ -15,6 +17,7 @@ public class WormAI : EnemyAIRoot
 
     private Vector2 _XBorders;
     private Vector2 _YBorders;
+    private Vector3 _moveDirection;
     private bool _aggresive = false;
     private float _timer = 0f;
     private float _targetingTimer = 0f;
@@ -32,7 +35,8 @@ public class WormAI : EnemyAIRoot
     }
 
     private void Awake() {
-        _orientation = LookingOrientation.RotateToTarget;
+        //_orientation = LookingOrientation.RotateToTarget;
+        _moveDirection = transform.up;
     }
 
     protected override void Start() {
@@ -43,24 +47,27 @@ public class WormAI : EnemyAIRoot
         _timer = SceneStatics.MultiplyByChaos(_phaseCycleTime * (1f - AgressiveTimePercent));
         SetTarget();
         
-        StartMoving();
+        if (_autoStart)
+            StartMoving();
     }
 
     protected override void DoMove()
     {
         if (!_aggresive)
         {
+            RotateMoveDirection(_targetPosition);
             _targetingTimer -= Time.deltaTime;
             if (_targetingTimer <= 0)
             {
                 SetTarget();
                 _targetingTimer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
             }
-            transform.position += transform.up.normalized * Speed * Time.deltaTime * Mobility;
+            transform.position += (_useInnerRotation ? _moveDirection : transform.up).normalized * Speed * Time.deltaTime * Mobility;
         } else {
-            _targetPosition = _player.position;
+            RotateMoveDirection(Player.GetPlayerPosition(_foresight));
+            _targetPosition = Player.GetPlayerPosition(_foresight);
             _rotationSpeed = _normalRotationSpeed * _rotationSpeedProgression.Evaluate(1f - (_timer / _phaseTime));
-            transform.position += transform.up.normalized * (Speed + _agressiveSpeedBoost) * Time.deltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
+            transform.position += (_useInnerRotation ? _moveDirection : transform.up).normalized * (Speed + _agressiveSpeedBoost) * Time.deltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
         }
 
         _timer -= Time.deltaTime;
@@ -86,5 +93,18 @@ public class WormAI : EnemyAIRoot
     {
         _targetPosition = new Vector3 (Random.Range(_XBorders.x + level_borders_moving_offset, _XBorders.y - level_borders_moving_offset),
             Random.Range(_YBorders.x + level_borders_moving_offset, _YBorders.y - level_borders_moving_offset), 0f);
+    }
+
+    private void RotateMoveDirection(Vector3 toPosition)
+    {
+        if (_player != null)
+            _moveDirection = SceneStatics.FlatVector(Vector3.RotateTowards(_moveDirection, (toPosition - transform.position), _rotationSpeed * Time.deltaTime * (Speed) * _innerSpeedMultiplier * Mobility, 0f));
+
+        // if (transform.rotation.eulerAngles.y != 180 && transform.rotation .eulerAngles.y != -180)
+        //     return;
+
+        // transform.rotation = Quaternion.Euler(0, 0, 180);
+
+        //CorrectRotation();
     }
 }

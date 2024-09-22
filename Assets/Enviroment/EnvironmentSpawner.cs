@@ -66,7 +66,7 @@ public class EnvironmentSpawner : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
         while (true)
         {
-            SpawnObject(Mathf.RoundToInt(_selectionCurve.Evaluate(Random.Range(0f, _maxTime))));
+            SpawnObject(Mathf.CeilToInt(_selectionCurve.Evaluate(Random.Range(0f, _maxTime))));
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(AverageReload * ReloadMultiplier));
         }
     }
@@ -76,7 +76,7 @@ public class EnvironmentSpawner : MonoBehaviour
         var environmentObject = GetEnvironmentObject(selectedIndex);
 
         environmentObject.transform.position =  Quaternion.Euler(0, 0, WindAngle) * (new Vector3(
-            Random.Range(CameraController.Borders_xXyY.x - 2.5f, CameraController.Borders_xXyY.y + 2.5f),
+            Random.Range(CameraController.Borders_xXyY.x - 2.5f, CameraController.Borders_xXyY.y + 4f),
             (CameraController.Borders_xXyY.w + 5f), 0f));
 
         environmentObject.transform.eulerAngles = new Vector3(0, 0, Random.Range(_minSpawnAngle, _maxSpawnAngle) + WindAngle);

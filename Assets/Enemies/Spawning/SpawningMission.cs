@@ -10,7 +10,7 @@ public class SpawningMission : Mission
     [SerializeField] private float _bonusSpawnReload;
     [Header("Stalkers")]
     [SerializeField] private bool _hasStalkers = false;
-    [SerializeField][Range(0, 1f)] private float _chance;
+    [SerializeField][Range(0, 1f)] private float _chance = 0.033f;
 
     public override void StartPlay()
     {

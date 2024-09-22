@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _damageValue: 4
-  _shieldDamageMultiplier: 1
+  _shieldDamageMultiplier: 0.75
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
   _lifetime: 2
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTag: Enemy
   _homingPower: 1.5
+  _waitTime: 0
 --- !u!96 &7999260474803513107
 TrailRenderer:
   serializedVersion: 2

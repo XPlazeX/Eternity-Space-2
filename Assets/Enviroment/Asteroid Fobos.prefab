@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 74206241480872419}
   - component: {fileID: 5308181217489804155}
   - component: {fileID: 3746244766388657795}
-  - component: {fileID: 3526774073924551660}
   - component: {fileID: 2835621247644382070}
+  - component: {fileID: 8065595978016296497}
+  - component: {fileID: 5614534964437946325}
   m_Layer: 12
   m_Name: Asteroid Fobos
   m_TagString: Untagged
@@ -106,6 +107,7 @@ MonoBehaviour:
   _startShieldPoints: 0
   _lifetime: 300
   _minMaxSpeed: {x: 0.25, y: 0.35}
+  _explodeOnTimer: 0
 --- !u!114 &-368271745789324966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 10
+  _deathExplosionType: 17
 --- !u!50 &5308181217489804155
 Rigidbody2D:
   serializedVersion: 4
@@ -171,20 +173,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3526774073924551660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3018917793387868237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 0
-  _countParry: 0
 --- !u!58 &2835621247644382070
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,3 +189,34 @@ CircleCollider2D:
   m_Offset: {x: -0.038280487, y: 0}
   serializedVersion: 2
   m_Radius: 0.804494
+--- !u!114 &8065595978016296497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018917793387868237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 0
+  _countParry: 0
+--- !u!114 &5614534964437946325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018917793387868237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2575f7ee611915140a011a913cc11b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currency: 2
+  _unique: 0
+  _unlockCode: 0
+  _count: 1
+  _offsetSpawn: 0.4

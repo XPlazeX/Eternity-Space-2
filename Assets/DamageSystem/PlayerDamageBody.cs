@@ -14,20 +14,20 @@ public class PlayerDamageBody : DamageBody
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (PlayerShipData.Hover)
+        if (PlayerShipData.Hover || other.GetComponent<Hover>() != null)
             return;
 
         DamageBody damageBody = other.GetComponent<DamageBody>();
 
-        if ((damageBody == null) || (damageBody.KeyDamage == _damageKey))
+        if ((damageBody == null) || (damageBody.KeyDamage == _damageKey) || (damageBody.KeyDamage == DamageSystem.DamageKey.Unvulnerable))
             return;
 
         int otherHP = damageBody.HitPoints;
 
-        if ((otherHP <= _decadesBlockForRam * 10) && (damageBody.GetType() != typeof(AsteroidBody)))
+        if ((otherHP <= PlayerRamsHandler.DecadesBlockForRam * 10) && (damageBody.GetType() != typeof(AsteroidBody)))
         {
             PlayerRamsHandler.TryRam();
-            damageBody.TakeDamage((_decadesBlockForRam * 10));
+            damageBody.TakeDamage((PlayerRamsHandler.DecadesBlockForRam * 10));
             return;
         }
 

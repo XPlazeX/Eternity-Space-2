@@ -150,6 +150,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _scaleMultiplier: 1
+  _autoStart: 0
+  _selfAnimationTime: 0
 --- !u!1 &5391114448405375803
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,10 +216,13 @@ MonoBehaviour:
   - {fileID: 8649241287829898101}
   _animationTime: 1.66
   _explosionPower: 1.5
+  _explosionDelay: 0
   _sound:
     _clip: {fileID: 8300000, guid: 71e3c5e8aa3ffae42bf579fcba9a5a19, type: 3}
     _volume: 1
     _pitchRandomizing: 0.06
+  _togglingColliders: []
+  _colliderEnableDelay: 0
 --- !u!114 &5640600212121480000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _damageValue: 150
+  _hoverable: 0
 --- !u!50 &1280558250301604019
 Rigidbody2D:
   serializedVersion: 4
@@ -376,7 +382,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -5275,7 +5281,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -10086,7 +10092,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -14898,7 +14904,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -19791,17 +19797,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.6598027
-      outSlope: 1.6598027
+      inSlope: 0.44104216
+      outSlope: 0.44104216
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.35370895
+      value: 0.15600055
+      inSlope: 1.9228549
+      outSlope: 1.9228549
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 0.60076904
       value: 0.99715805
-      inSlope: 1.6598027
-      outSlope: 1.6598027
+      inSlope: 3.4046676
+      outSlope: 3.4046676
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -19810,6 +19825,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _scaleMultiplier: 3
+  _autoStart: 0
+  _selfAnimationTime: 0
 --- !u!1 &7535012393457417608
 GameObject:
   m_ObjectHideFlags: 0
@@ -19917,7 +19934,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3

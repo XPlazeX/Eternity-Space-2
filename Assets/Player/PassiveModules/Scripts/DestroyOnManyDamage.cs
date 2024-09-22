@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(_ExplosionBullet))]
 public class DestroyOnManyDamage : MonoBehaviour
@@ -8,11 +6,11 @@ public class DestroyOnManyDamage : MonoBehaviour
     [SerializeField] private int _damageValue;
 
     private void OnEnable() {
-        PlayerShipData.TakeHealthDamage += CheckDetonate;
+        PlayerShipData.TakeAnyDamage += CheckDetonate;
     }
 
     private void OnDisable() {
-        PlayerShipData.TakeHealthDamage -= CheckDetonate;
+        PlayerShipData.TakeAnyDamage -= CheckDetonate;
     }
 
     private void CheckDetonate(int val)

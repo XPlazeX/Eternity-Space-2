@@ -50,4 +50,8 @@ MonoBehaviour:
     _typeOperation: 1
     _operationValue: 1.5
     _negativeSetsToZero: 0
+  - _statName: MainWeaponFirerateRandomizing
+    _typeOperation: 1
+    _operationValue: 1.5
+    _negativeSetsToZero: 0
   _healthOperators: []

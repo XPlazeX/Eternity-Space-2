@@ -1,9 +1,10 @@
 ﻿public class ContagionDialogTrigger : ConditionedDialogTrigger
 {
-    public override void TryTriggerDialog(int id)
+    public override bool TryTriggerDialog(int id)
     {
         if (ContagionHandler.ContagionLevel == 0)
-            return;
+            return false;
         base.TryTriggerDialog(id);
+        return true;
     }
 }

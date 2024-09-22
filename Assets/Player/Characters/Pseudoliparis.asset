@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee4ddcb0936c0e4eaeaa05c898744f9, type: 3}
+  m_Name: Pseudoliparis
+  m_EditorClassIdentifier: 
+  _skinnedShips:
+  - {fileID: 1260780666538092923, guid: 1ae7bba8d75b4494a8b7e05936fbcd01, type: 3}
+  - {fileID: 1260780666538092923, guid: 1ae7bba8d75b4494a8b7e05936fbcd01, type: 3}
+  - {fileID: 1260780666538092923, guid: b04a91c975299664d82c868e41d9f018, type: 3}
+  _class: 6
+  _hitPoints: 600
+  _boostedHitPoints: 660
+  _armorPoints: 0
+  _boostedArmorPoints: 0
+  _handingModules:
+  - {fileID: -3477625590575642632, guid: eca07d2748acda548b066f572eba81a2, type: 3}

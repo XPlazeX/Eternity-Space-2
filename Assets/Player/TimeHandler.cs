@@ -26,6 +26,7 @@ public class TimeHandler : MonoBehaviour
     public static bool CriticalState {get; set;} = false;
     public static bool Workable {get; set;} = true;
     public static bool AffectCriticalState {get; private set;} = false;
+    public static float LevelTime {get; private set;} = 0f;
     private static TimeHandler instance;
 
     private void Awake() {
@@ -35,10 +36,17 @@ public class TimeHandler : MonoBehaviour
         normalFixedDeltaTime = PlayerPrefs.GetFloat("FixedUpdateStep", 1f / 60f);
     }
 
+    private void Update() 
+    {
+        if (Time.timeScale > 0)
+            LevelTime += Time.unscaledDeltaTime;
+    }
+
     public static void Initialize() 
     {
         ShipStats.StatChanged += ObserveStat;
         _defaultTimeSlowing = ShipStats.GetValue("TimeSlowValue");
+        LevelTime = 0f;
 
         _criticalTimeSlowing = _defaultTimeSlowing * ShipStats.GetValue("CriticalTimeSlowMultiplier");
         print($"TimeHandler started, time slowing : {_defaultTimeSlowing}, criticalTImeSlowing : {_criticalTimeSlowing}");

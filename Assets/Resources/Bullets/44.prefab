@@ -238,7 +238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.2, y: 0.25}
   m_EdgeRadius: 0
 --- !u!114 &338576502365975596
 MonoBehaviour:
@@ -380,3 +380,5 @@ MonoBehaviour:
   _targetTag: Enemy
   _homingPower: 2.5
   _waitTime: 0.33
+  _checkReloadTime: 1
+  _playerIfNullTarget: 0

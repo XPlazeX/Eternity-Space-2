@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7498908939121929663}
   - component: {fileID: 4708359300555300469}
   - component: {fileID: 4152975546508816955}
+  - component: {fileID: 8230334113895228790}
   m_Layer: 0
   m_Name: Cryodream mission
   m_TagString: Untagged
@@ -31,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6697346704661468474}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,7 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 5
   _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
   _levelCount: 1
+  _bonusModuleChoice: 0
   _startAurite: 50
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 0, y: 0}
@@ -140,9 +144,10 @@ MonoBehaviour:
     _windSpeed: 0
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: 5f46ca3f4f1a883468e3c152b25b9e00, type: 3}
+    _clip: {fileID: 8300000, guid: adc8c6731f3a593448d431c84e4e81c2, type: 3}
     _volume: 0.436
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
@@ -188,10 +193,12 @@ MonoBehaviour:
       type: 3}
     spawnPosition: {x: -4.5, y: 5, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
   - gameObject: {fileID: 3805544117901422509, guid: d9fecfb4fc236f4439fed00522960956,
       type: 3}
     spawnPosition: {x: 4.5, y: 5, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
 --- !u!114 &7498908939121929663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3696c89474454786fef539f9e2c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _atEveryWave: 0
+  _skipFirstWave: 0
   _conditionList:
   - _targetWave: 0
     _byPercentage: 0
@@ -234,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11866ac1621c3b04a8afee13a97caf95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _atEveryWave: 0
+  _skipFirstWave: 0
   _conditionList:
   - _targetWave: 3
     _byPercentage: 0
@@ -256,6 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479719f5a7999a0418b40f43fc8a10ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _atEveryWave: 0
+  _skipFirstWave: 0
   _conditionList:
   - _targetWave: 4
     _byPercentage: 0
@@ -271,11 +284,98 @@ MonoBehaviour:
       type: 3}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
   - gameObject: {fileID: 3990426208589283306, guid: 59f0c1305a0646c4f9c6f5026617c5fc,
       type: 3}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
   - gameObject: {fileID: 9069206062416828815, guid: 362c2c5f83d15a24597cce39fbba85b6,
       type: 3}
     spawnPosition: {x: 0, y: 25, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
+--- !u!114 &8230334113895228790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409399996074538531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e341d092828c148921bb42406c44cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 0}
+  _selfLoadOnStart: 1
+  _operators:
+  - _statName: PickupChanceMultiplier
+    _typeOperation: 0
+    _operationValue: 0
+    _negativeSetsToZero: 1
+  _healthOperators: []
+--- !u!1001 &6693674749216208704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5972983307079532163}
+    m_Modifications:
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 264764569839649458, guid: ee7a17341807e0a42bb032f6ca8c772d,
+        type: 3}
+      propertyPath: m_Name
+      value: InteriorSoundDisabler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee7a17341807e0a42bb032f6ca8c772d, type: 3}
+--- !u!4 &6697346704661468474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6039481038824058, guid: ee7a17341807e0a42bb032f6ca8c772d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6693674749216208704}
+  m_PrefabAsset: {fileID: 0}

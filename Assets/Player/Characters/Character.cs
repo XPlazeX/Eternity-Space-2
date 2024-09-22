@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using GearCompatibility;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "Character", menuName = "Teleplane2/Character", order = 0)]
@@ -9,6 +10,7 @@ public class Character : ScriptableObject
     private const int armor_boost_unlock_id = 553;
 
     [SerializeField] private GameObject[] _skinnedShips;
+    [SerializeField] private ShipClass _class;
     [Space()]
     [SerializeField] private int _hitPoints;
     [SerializeField] private int _boostedHitPoints;
@@ -19,6 +21,9 @@ public class Character : ScriptableObject
     [SerializeField] private Module[] _handingModules;
 
     public GameObject GetSkinnedShip(int skinID) => _skinnedShips[skinID];
+
+    public ShipClass Class => _class; 
+
     public int HP 
     {
         get 

@@ -145,11 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcedf5825a9be747b0ab984918de624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 0.66
   _lifeTime: 20
   _playingEffectID: 3
   _effectDuration: 1
+  _timeScaleByStat: 
   _attackObject:
+    _foresight: 0
     _cycles: 1
     _timeBetweenCycles: 0
     _timeCooling: 0
@@ -221,6 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 20
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!114 &-7710991608879052132
 MonoBehaviour:
   m_ObjectHideFlags: 0

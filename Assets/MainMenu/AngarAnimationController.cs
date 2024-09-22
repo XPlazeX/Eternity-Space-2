@@ -7,6 +7,7 @@ public class AngarAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator _angarAnimator;
     [SerializeField] private Text _airLabel;
+    [SerializeField] private SoundObject _gatewaySound;
     //[SerializeField] private Transform _player;
     
 
@@ -49,6 +50,16 @@ public class AngarAnimationController : MonoBehaviour
     public void OnContagionChanged()
     {
         SetAirLabelState();
+    }
+
+    public void PlayGatewaySound()
+    {
+        SoundPlayer.PlayUISound(_gatewaySound);
+    }
+
+    public void DisconnectNM()
+    {
+        GameObject.FindObjectOfType<NanomachinesLabel>().Disconnect();
     }
 
     public void SetAirLabelState(int state = 0)

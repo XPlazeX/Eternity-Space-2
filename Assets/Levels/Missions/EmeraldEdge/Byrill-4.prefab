@@ -45,7 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 33
   _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
   _levelCount: 10
+  _bonusModuleChoice: 0
   _startAurite: 80
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 40, y: 80}
@@ -160,6 +162,7 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 16acb87bb2e013a4c8e56529819e1575, type: 3}
     _volume: 0.3
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 1
   _bonusEnemies:
   - 43

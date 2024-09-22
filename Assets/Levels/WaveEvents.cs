@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class WaveEvents : MonoBehaviour
 {
+    [SerializeField] private bool _atEveryWave;
+    [SerializeField] private bool _skipFirstWave;
     [SerializeField] private List<WaveCondition> _conditionList = new List<WaveCondition>();
 
     protected EnemyDBSpawner _edbSpawner;
@@ -21,6 +23,15 @@ public class WaveEvents : MonoBehaviour
     public void CheckConditions()
     {
         int selectedID = -1;
+
+        if (_atEveryWave && (_skipFirstWave ? _edbSpawner.CurrentWave > 0 : true))
+        {
+            Trigger(0);
+            return;
+        } else if (_atEveryWave)
+        {
+            return;
+        }
 
         for (int i = 0; i < _conditionList.Count; i++)
         {

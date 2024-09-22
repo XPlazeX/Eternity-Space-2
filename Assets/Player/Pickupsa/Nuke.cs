@@ -2,23 +2,32 @@
 
 public class Nuke : MonoBehaviour
 {
+    public delegate void nukeAction();
+
+    public static event nukeAction NukeExploded;
+
     [SerializeField] private int _damageDeal;
     [SerializeField] private SoundObject _explosionSound;
+    [SerializeField] private bool _trackPlayer = true;
     private bool _playerIn;
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
+        if (!_trackPlayer)
+            return;
         if (other.CompareTag("Player"))
         {
             _playerIn = true;
-            print("enter");
+            //print("stay");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
+        if (!_trackPlayer)
+            return;
         if (other.CompareTag("Player"))
         {
-            _playerIn = true;
-            print("exit");
+            _playerIn = false;
+            //print("exit");
         }
     }
 
@@ -32,7 +41,7 @@ public class Nuke : MonoBehaviour
         SceneStatics.UICore.GetComponent<PlayerUI>().Flash();
         SoundPlayer.PlayUISound(_explosionSound);
 
-        if (!_playerIn)
+        if (!_playerIn && _trackPlayer)
             PlayerShipData.TakeDamage(60);
         else
             ParryingHandler.ConstParry();
@@ -46,5 +55,12 @@ public class Nuke : MonoBehaviour
             dbs[i].TakeDamage(_damageDeal / 2);
             dbs[i].TakeDamage(_damageDeal / 2);
         }
+
+        TriggerExplodeEvent();
+    }
+
+    public static void TriggerExplodeEvent()
+    {
+        NukeExploded?.Invoke();
     }
 }

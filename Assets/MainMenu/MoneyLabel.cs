@@ -4,6 +4,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class MoneyLabel : MonoBehaviour
 {
+    [SerializeField] private Color _normalColor;
+    [SerializeField] private Color _minusColor;
     private Text _label;
 
     void Start()
@@ -23,6 +25,12 @@ public class MoneyLabel : MonoBehaviour
     private void CheckValue()
     {
         if (_label != null)
-            _label.text = $"{GameSessionInfoHandler.GetSessionSave().Money}";
+        {
+            int money = GameSessionInfoHandler.GetSessionSave().Money;
+
+            _label.color = money >= 0 ? _normalColor : _minusColor; 
+
+            _label.text = $"{money}";
+        }
     }
 }

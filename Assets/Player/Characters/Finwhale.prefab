@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 1260780666538092921}
   - component: {fileID: 1260780666538092814}
   - component: {fileID: 1260780666538092915}
+  - component: {fileID: 451818243941015820}
   - component: {fileID: 1260780666538092920}
   - component: {fileID: 2948243927374605931}
   - component: {fileID: 1260780666538092919}
@@ -549,6 +550,8 @@ GameObject:
   - component: {fileID: 1260780666538092913}
   - component: {fileID: 1260780666538092912}
   - component: {fileID: 1260780666538092815}
+  - component: {fileID: -96214376445380502}
+  - component: {fileID: -1653813526794093952}
   m_Layer: 11
   m_Name: Finwhale
   m_TagString: Player
@@ -645,6 +648,21 @@ MonoBehaviour:
   _damageKey: 0
   _hitPoints: 0
   _startShieldPoints: 0
+--- !u!114 &451818243941015820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3235d6c2132a6494ea6e0d54c834c1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityVariations:
+  - {fileID: 4267130474554212066, guid: 45f74478ad8466549afca403d8b744e3, type: 3}
+  - {fileID: -7345760703895455715, guid: 03b0009422575d748892e6c5679f2286, type: 3}
 --- !u!114 &1260780666538092920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5499,6 +5517,38 @@ MonoBehaviour:
   - {fileID: 1260780667689757784}
   _prepareTime: 0.8
   _customWeaponUI: {fileID: 0}
+  _noWeaponUI: 0
+--- !u!114 &-96214376445380502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c714afa49f8f27f4c82c0e3aec5da548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisWeaponRoot: 1
+  _unlockRequire:
+    _UID: 562
+    _amount: 0
+  _triggeringObject: {fileID: 655645021032277092, guid: 4a08b2348e8b0714e96216092f4d80aa,
+    type: 3}
+  _spawnPivot: {fileID: 4827066729574865507}
+--- !u!114 &-1653813526794093952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9944330f3496d434c9fcd9f0563add51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260780667689757787
 GameObject:
   m_ObjectHideFlags: 0
@@ -6383,6 +6433,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1260780666538092921}
     m_Modifications:
+    - target: {fileID: 444573817476985184, guid: debea0ab26492c94482c6c8bf26ca2e7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2584782597709736449, guid: debea0ab26492c94482c6c8bf26ca2e7,
         type: 3}
       propertyPath: m_Name

@@ -7,6 +7,8 @@ public class EnemyHealthBar : PullableObject
     private int _startHP;
     private float _offsetY;
 
+    private bool _elite = false;
+
     private void Awake() {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -14,9 +16,11 @@ public class EnemyHealthBar : PullableObject
     protected override void SetDefaultStats() 
     {}
 
-    public void Initialize(int startHP)
+    public void Initialize(int startHP, bool elite)
     {
         _startHP = startHP;
+        _elite = elite;
+
         SetHP(startHP);
 
         _parent = transform.parent;
@@ -24,6 +28,7 @@ public class EnemyHealthBar : PullableObject
         if (_parent.GetComponent<_Invisible>() != null)
         {
             _parent.GetComponent<DamageBody>().DamageTaking -= SetHP;
+            _parent.GetComponent<DamageBody>().HealthModified -= OnHealthModified;
             gameObject.SetActive(false);
             return;
         }
@@ -38,11 +43,16 @@ public class EnemyHealthBar : PullableObject
 
     public void SetHP(int hitPoints)
     {
-        _spriteRenderer.color = SceneStatics.HealthGradient.Evaluate((float)hitPoints / _startHP);
+        _spriteRenderer.color = (_elite ? SceneStatics.EliteHealthGradient : SceneStatics.HealthGradient).Evaluate((float)hitPoints / _startHP);
 
         float countBlocks = Mathf.Ceil(hitPoints / 10f);
         float rows = Mathf.Ceil(countBlocks / 20f);
         _spriteRenderer.size = new Vector2(Mathf.Ceil(countBlocks / rows), rows);
+    }
+
+    public void OnHealthModified(int newMaxHealth)
+    {
+        _startHP = newMaxHealth;
     }
 
     private void FixedUpdate() {

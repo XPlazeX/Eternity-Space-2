@@ -168,7 +168,7 @@ public class EnemyDBSpawner : SpawnerRoot
             ActiveEnemies ++;
             _spawner.PrintCountUI(ActiveEnemies);
 
-            Spawner.InitializeHPBar(spawnedDB);
+            //Spawner.InitializeHPBar(spawnedDB);
 
             yield return new WaitForSeconds(ReloadSpawnTime);
         }

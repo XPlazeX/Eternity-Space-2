@@ -16,8 +16,9 @@ public class EnemyAIRoot : MonoBehaviour
     [SerializeField] protected LookingOrientation _orientation;
     [SerializeField] protected float _rotationSpeed;
     [SerializeField] protected AnimationCurve _movingProgression;
+    [SerializeField] protected float _foresight = 0f;
 
-    private float _startSpeed;
+    protected float _startSpeed;
     private float _mobility = 1f;
     private float _localMobility = 1f;
     protected Vector3 _targetPosition;
@@ -30,7 +31,7 @@ public class EnemyAIRoot : MonoBehaviour
     private void OnEnable() 
     {
         _startSpeed = _speed;
-        _speed *= Random.Range(0.95f, 1.05f);
+        _speed *= Random.Range(0.9f, 1.15f);
 
         Player.PlayerChanged += FindPlayer;
         FindPlayer();
@@ -93,10 +94,10 @@ public class EnemyAIRoot : MonoBehaviour
         CorrectRotation();
     }
 
-    protected void RotateToPlayer()
+    protected virtual void RotateToPlayer()
     {
-        if (_player != null)
-                transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
+        //if (_player != null)
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (Player.GetPlayerPosition(_foresight) - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }

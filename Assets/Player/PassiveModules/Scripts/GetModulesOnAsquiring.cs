@@ -9,13 +9,15 @@ public class GetModulesOnAsquiring : Module
     {
         MissionEventsDistributor med = SceneStatics.SceneCore.GetComponent<MissionEventsDistributor>();
 
-        List<int> selectedEvents = med.SelectEventsFromPool(med.GetAvaiableEvents(false), _moduleCount);
+        List<int> selectedEvents = med.SelectEventsFromPool(med.GetAvaiableEvents(false, true), _moduleCount);
 
         ModulasSave moduleSave = ModulasSaveHandler.GetSave();
 
         for (int i = 0; i < selectedEvents.Count; i++)
         {
-            moduleSave.AddEvent(med.GetLevelEvent(selectedEvents[i]));
+            LevelEvent le = med.GetLevelEvent(selectedEvents[i]);
+            le.handingModule.Asquiring();
+            moduleSave.AddEvent(le);
             Debug.Log($"$$$ RANDOM MODULE GETTED $$$ LevelEventID={selectedEvents[i]}");
         }
         

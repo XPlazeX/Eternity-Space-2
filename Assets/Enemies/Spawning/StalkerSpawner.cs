@@ -16,7 +16,7 @@ public class StalkerSpawner : SpawnerRoot
     public override void StartSpawning()
     {
         print("СПАУНЕР СТАЛКЕРОВ ЗАПУЩЕН");
-        StalkerChance = _defaultChance;
+        //StalkerChance = _defaultChance;
 
         base.StartSpawning();
     }
@@ -30,6 +30,7 @@ public class StalkerSpawner : SpawnerRoot
     {
         yield return new WaitForSeconds(_reloadTime);
 
+        print($"<color=orange>{StalkerChance}</color>");
         if ((Random.value / ShipStats.GetValue("StalkerChanceMultiplier")) > StalkerChance)
             yield break;
 
@@ -51,7 +52,7 @@ public class StalkerSpawner : SpawnerRoot
         {
             DamageBody spawnedStalker = Spawner.SpawnDamageBody(((GameObject)_stalkerOperationHandle.Result).GetComponent<DamageBody>());
 
-            Spawner.InitializeHPBar(spawnedStalker);
+            //Spawner.InitializeHPBar(spawnedStalker);
             spawnedStalker.PositionDeathed += OnStalkerDeath;
         }
     }

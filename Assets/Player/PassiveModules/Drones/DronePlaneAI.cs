@@ -10,10 +10,17 @@ public class DronePlaneAI : PlaneAI
         _player = GetNearestTransformWithTag(_targetTag);
     }
 
-    protected override void CorrectRotation()
+    protected override void RotateToPlayer()
     {
         if (_player == null)
+        {
             FindPlayer();
+            return;
+        }
+
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
+
+        CorrectRotation();
     }
 
     private Transform GetNearestTransformWithTag(string targetTag)

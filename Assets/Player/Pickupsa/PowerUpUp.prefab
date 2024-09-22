@@ -148,11 +148,12 @@ MonoBehaviour:
   _lifeTime: 10
   _playingEffectID: 2
   _effectDuration: 6
+  _timeScaleByStat: RedPowerupTimeBoost
   _modifiers:
   - _statName: MainWeaponFirerateMultiplier
     _typeOperation: 1
     _operationValue: 3
-  _playPowerUp: 1
+    _negativeSetsToZero: 0
 --- !u!58 &1380005973944226354
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,6 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 20
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!199 &251197488918851851
 ParticleSystemRenderer:
   serializedVersion: 6

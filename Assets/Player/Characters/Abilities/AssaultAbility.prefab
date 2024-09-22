@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1027571838581095956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2310539115003305486}
+  - component: {fileID: -4703388997396113125}
+  m_Layer: 0
+  m_Name: AssaultAbility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2310539115003305486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027571838581095956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.083456255, y: -0.038796425, z: -0.23110917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4703388997396113125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027571838581095956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e20a04cb2703b418019fe94c8160a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: -3334098486080132323, guid: 7a982271e4bf4c14780a507e79744e9d, type: 3}
+  _selfLoadOnStart: 0
+  _energyConsume: 0.4
+  _reloadTime: 0.2
+  _bindToPlayer: 0
+  _soundWork:
+    _clip: {fileID: 8300000, guid: 1e97356362b107a499b5b98ca7b0604d, type: 3}
+    _volume: 0.5
+    _pitchRandomizing: 0
+  _modifiers:
+  - _statName: FlatSpread
+    _typeOperation: 2
+    _operationValue: 5
+    _negativeSetsToZero: 0
+  - _statName: MainWeaponFirerateMultiplier
+    _typeOperation: 1
+    _operationValue: 1.4
+    _negativeSetsToZero: 0
+  _effectDuration: 10
+  _effectColor: {r: 1, g: 0.5316495, b: 0.19339621, a: 0.8}

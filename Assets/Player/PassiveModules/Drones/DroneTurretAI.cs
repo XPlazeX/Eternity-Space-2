@@ -5,6 +5,10 @@ public class DroneTurretAI : TurretStaticAI
     [Space()]
     [SerializeField] private string _targetTag;
 
+    private void Start() {
+        _useForesight = false;
+    }
+
     public override void FindPlayer()
     {
         GameObject[] allTargets = GameObject.FindGameObjectsWithTag(_targetTag);

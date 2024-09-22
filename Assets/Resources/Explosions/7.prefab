@@ -106,10 +106,13 @@ MonoBehaviour:
   - {fileID: 8789807591167193112}
   _animationTime: 0.45
   _explosionPower: 0.1
+  _explosionDelay: 0
   _sound:
     _clip: {fileID: 8300000, guid: 3cf0dd5ac367adf43befe768f665dd4d, type: 3}
-    _volume: 0.66
+    _volume: 0.55
     _pitchRandomizing: 0.06
+  _togglingColliders: []
+  _colliderEnableDelay: 0
 --- !u!1 &112581486983953785
 GameObject:
   m_ObjectHideFlags: 0
@@ -9933,6 +9936,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _scaleMultiplier: 1
+  _autoStart: 0
+  _selfAnimationTime: 0
 --- !u!1 &112581488492471005
 GameObject:
   m_ObjectHideFlags: 0

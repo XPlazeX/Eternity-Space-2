@@ -133,9 +133,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1012.7}
-  m_SizeDelta: {x: 0, y: 280}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 399, y: -1012.7}
+  m_SizeDelta: {x: 798, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3514555756822843212
 CanvasRenderer:
@@ -193,6 +193,11 @@ MonoBehaviour:
   _description: {fileID: 3514555757517863950}
   _buyBtn: {fileID: 3514555757477135681}
   _heightStep: 280
+  _widthStep: 798
+  _soundAsquire:
+    _clip: {fileID: 8300000, guid: cafcd84261a36084f883ca2d92913e4b, type: 3}
+    _volume: 0
+    _pitchRandomizing: 0
   _contagionLevel: 0
   _sale: 0
   _useConstantLevelEvent: 0
@@ -640,10 +645,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412 \u043A\u043E\u043D\u0446\u0435 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E
-    \u0443\u0440\u043E\u0432\u043D\u044F, \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0435
-    \u0434\u0438\u0432\u0438\u0434\u0435\u043D\u0434\u044B \u0432 \u0440\u0430\u0437\u043C\u0435\u0440\u0435
-    50-200 \u0430\u0443\u0440\u0438\u0442\u0430."
+  m_Text: "\u0412\u0430\u0448\u0435 \u0433\u043B\u0430\u0432\u043D\u043E\u0435 \u043E\u0440\u0443\u0436\u0438\u0435
+    \u043F\u0435\u0440\u0435\u043C\u0435\u0449\u0430\u0435\u0442\u0441\u044F \u043D\u0430
+    \u043F\u043E\u0432\u043E\u0440\u043E\u0442\u043D\u0443\u044E \u0442\u0443\u0440\u0435\u043B\u044C."
 --- !u!1 &3514555758404407054
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -54.281, y: -84}
-  m_SizeDelta: {x: -473.82397, y: 110}
+  m_AnchoredPosition: {x: -51.95, y: -84}
+  m_SizeDelta: {x: -469.15985, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3514555758404407049
 CanvasRenderer:
@@ -702,15 +706,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10588236, g: 0.12941177, b: 0.19215688, a: 1}
+  m_Color: {r: 0.21568629, g: 0.25882354, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a4ba46632ba129045bb7f67b589fb911, type: 3}
-    m_FontSize: 44
+    m_Font: {fileID: 12800000, guid: 080e7e6d1c8526e4e8c5e7a8b5ec6092, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -721,7 +725,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0414\u04153- \u0418\u041D\u0422\u0415\u0413\u0420\u0410\u04220\u0420"
+  m_Text: "\u0420\u0415\u041C\u041A\u041E\u041C\u041F\u041B\u0415\u041A\u0422"
 --- !u!1 &6296407353867036073
 GameObject:
   m_ObjectHideFlags: 0

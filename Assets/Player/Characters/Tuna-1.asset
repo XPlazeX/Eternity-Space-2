@@ -15,9 +15,12 @@ MonoBehaviour:
   _skinnedShips:
   - {fileID: 1260780666538092923, guid: dcf140f5ade09f64d81cdd8a984df422, type: 3}
   - {fileID: 1260780666538092923, guid: 37b8e4bcb72b61448a211bb4abc4caf3, type: 3}
+  - {fileID: 1260780666538092923, guid: 89782ab9aff66f2419d5f5466d5f530f, type: 3}
+  _class: 0
   _hitPoints: 100
   _boostedHitPoints: 120
-  _armorPoints: 20
-  _boostedArmorPoints: 30
+  _armorPoints: 10
+  _boostedArmorPoints: 20
   _handingModules:
   - {fileID: 1554671533882739457, guid: 951b08d35e937a54583441ccca4c830c, type: 3}
+  - {fileID: 984292243012110772, guid: 22c187a0fd4e29a4da47dcd0f5b58b0a, type: 3}

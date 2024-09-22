@@ -65,5 +65,10 @@ public class ContagionHandler : MonoBehaviour
 
         GameSessionInfoHandler.ReplaceValueInCollection(contagion_collection_key, 0, ContagionLevel);
         Debug.Log($"<color=#6666FF>Сохранён уровень заражения: {ContagionLevel}</color>");
+
+        if (ContagionLevel >= 20)
+        {
+            Unlocks.NewUnlock(924);
+        }
     }
 }

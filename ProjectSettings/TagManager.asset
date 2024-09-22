@@ -30,6 +30,7 @@ TagManager:
   - AudioCore
   - BG-Station
   - BetweenScenes
+  - MenuNavigation
   layers:
   - Default
   - TransparentFX

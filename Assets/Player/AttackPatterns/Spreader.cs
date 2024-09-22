@@ -13,7 +13,7 @@ public class Spreader : AttackPattern
         
         for (int i = 0; i < _bulletCount; i++)
         {
-            SpawnBullet(_barrels[0].position, startAngle);
+            SpawnBullet(_barrels[0].position, startAngle + _barrels[0].eulerAngles.z);
             startAngle += _angleStep;
         }
     }

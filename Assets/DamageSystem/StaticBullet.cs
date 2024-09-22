@@ -14,6 +14,11 @@ public class StaticBullet : MonoBehaviour
             ModdedDamage = -1;
     }
 
+    public void MultiplyDamage(float multiplier)
+    {
+        ModdedDamage = Mathf.RoundToInt(_damageValue * multiplier);
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         DamageBody damageBody = other.GetComponent<DamageBody>();
 

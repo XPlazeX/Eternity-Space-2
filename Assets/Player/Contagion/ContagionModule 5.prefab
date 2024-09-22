@@ -48,6 +48,10 @@ MonoBehaviour:
   _operators:
   - _statName: EnemyBulletSpeedMultiplier
     _typeOperation: 1
-    _operationValue: 1.15
+    _operationValue: 1.25
+    _negativeSetsToZero: 0
+  - _statName: ForesightAddition
+    _typeOperation: 2
+    _operationValue: 10
     _negativeSetsToZero: 0
   _healthOperators: []

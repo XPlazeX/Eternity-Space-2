@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5909004747822131293}
-  - component: {fileID: 325622838926826867}
+  - component: {fileID: -6461938605176055326}
   m_Layer: 0
   m_Name: _ATestModule
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &325622838926826867
+--- !u!114 &-6461938605176055326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,8 +40,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3142575517236464921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 136bf14115dd65e48ae8f2911e34fc90, type: 3}
+  m_Script: {fileID: 11500000, guid: cfe5e319a78beb344b891e869f8053ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 3841178324992266585, guid: 580c49536e484854ab06cf906fb46232, type: 3}
-  _type: 0
+  _icon: {fileID: 0}
+  _selfLoadOnStart: 0
+  _boostExplosion: 1
+  _explosionBoost: 3
+  _setColor: 1
+  _newColor: {r: 1, g: 0, b: 0, a: 1}
+  _boostScale: 1
+  _scaleMultiplier: 2
+  _boostDamage: 1
+  _damageMultiplier: 2

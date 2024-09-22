@@ -5,6 +5,7 @@ public class StaticParryingObject : MonoBehaviour
 {
     [SerializeField] private DamageKey _damageKey;
     [SerializeField] private bool _countParry = false;
+    [SerializeField] private int _bonusArmor = 0;
 
     public DamageKey KeyDamage => _damageKey;
     private int _parriedObjects = 0;
@@ -32,7 +33,7 @@ public class StaticParryingObject : MonoBehaviour
         if (!_countParry)
             return;
 
-        ParryingHandler.Parry();
+        ParryingHandler.Parry(_bonusArmor);
         _parriedObjects ++;
 
         if (!_sendedMsg && (_parriedObjects >= ShipStats.GetIntValue("BulletsForParry")))

@@ -131,8 +131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -242}
-  m_SizeDelta: {x: -120, y: 80}
+  m_AnchoredPosition: {x: 0, y: -244.12}
+  m_SizeDelta: {x: -100, y: 84.24005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5360358869581094114
 CanvasRenderer:
@@ -204,7 +204,8 @@ MonoBehaviour:
     m_PressedSprite: {fileID: 3806695705442361109, guid: edee557f1ad95bf43bf759820a609970,
       type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 3806695705442361109, guid: edee557f1ad95bf43bf759820a609970,
+      type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -262,8 +263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -62}
-  m_SizeDelta: {x: -440, y: 660}
+  m_AnchoredPosition: {x: 0, y: -65.52}
+  m_SizeDelta: {x: -412.5, y: 656.1502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5513315825578570298
 CanvasRenderer:
@@ -825,6 +826,91 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_19
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_20
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_21
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_22
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_23
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_24
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_25
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_26
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_27
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_28
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_29
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_30
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_31
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_32
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_33
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_34
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 106c11f3ff7ed664e8a27ef07933bb9a
+    m_SubObjectName: Characters 1_35
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
   _voiceClips:
   - m_AssetGUID: aca969aa9faddf145bf3021d7a236217
     m_SubObjectName: 
@@ -895,6 +981,18 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   - m_AssetGUID: 4674090cb4ec73b4a985b48a8dad5ff3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: b382303e032d80e429cd803112ed065a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: d8fbb5364ca240842919b418612841cb
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 08c66386d2de3864d936cd72292878bd
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

@@ -10,12 +10,12 @@ public class Minigun : AttackPattern
 
     private float _startFirerate;
     private bool _spinning = false;
-    private WeaponRoot _weaponRoot;
+    //private WeaponRoot _weaponRoot;
 
     private void Start() {
         _startFirerate = FireReload;
 
-        FindPlayer();
+        //FindPlayer();
         
         TimeHandler.TimeSlow += EndSpin;
         TimeHandler.TimeResume += StartSpin;
@@ -27,10 +27,10 @@ public class Minigun : AttackPattern
         TimeHandler.TimeResume -= StartSpin;
     }
 
-    private void FindPlayer()
-    {
-        _weaponRoot = Player.PlayerObject.GetComponent<WeaponRoot>();
-    }
+    // private void FindPlayer()
+    // {
+    //     _weaponRoot = Player.PlayerObject.GetComponent<WeaponRoot>();
+    // }
 
     public override void Fire()
     {
@@ -38,7 +38,8 @@ public class Minigun : AttackPattern
         
         for (int i = 0; i < _bulletsPerFire; i++)
         {
-            SpawnBullet(_barrels[_barrelPool[Random.Range(0, _barrelPool.Length)]].position , 0f);   
+            int id = _barrelPool[Random.Range(0, _barrelPool.Length)];
+            SpawnBullet(_barrels[id].position, _barrels[id].eulerAngles.z);   
         }
     }
 

@@ -10,6 +10,7 @@ public class PlayerRamsHandler : MonoBehaviour
     public static event ramAction RamSuccess;
 
     [SerializeField] private PullableObject[] _ramPoolableObjects;
+    [SerializeField] private SoundObject _ramSuccesSound;
 
     private static List<PullForObjects> RamObjectPools = new List<PullForObjects>();
 
@@ -18,9 +19,13 @@ public class PlayerRamsHandler : MonoBehaviour
     private static bool RamSaveWaving {get; set;} = true;
 
     public static int MoneyValue {get; set;} = 3;
+    public static int MoneyPerEnemy {get; set;} = 0;
+    public static int CosmiliteMoneyValue {get; set;} = 3;
     public static int HealValue {get; set;} = 0;
+    public static int DecadesBlockForRam {get; private set;} = 1;
     private static RamShield _ramShield;
     private static VictoryHandler _victoryHandler;
+    private static SoundObject _ramSound;
 
     public void Initialize() 
     {
@@ -33,6 +38,8 @@ public class PlayerRamsHandler : MonoBehaviour
 
         _victoryHandler = SceneStatics.CharacterCore.GetComponent<VictoryHandler>();
 
+        _ramSound = _ramSuccesSound;
+
         RamShielding = Unlocks.HasUnlock(ram_shielding_unlock_ID);
         RamSaveWaving = false;
 
@@ -41,8 +48,11 @@ public class PlayerRamsHandler : MonoBehaviour
         
         FindShield();
 
-        MoneyValue = ShipStats.GetIntValue("RamMoneyValue");
+        MoneyValue = ShipStats.GetIntValue("RamMoneyValue") + Mathf.Clamp(GameSessionInfoHandler.CurrentLevel, 0, 7);
+        MoneyPerEnemy = ShipStats.GetIntValue("RamMoneyPerEnemy");
+        CosmiliteMoneyValue = ShipStats.GetIntValue("RamCosmiliteValue");
         HealValue = ShipStats.GetIntValue("RamHealValue");
+        DecadesBlockForRam = ShipStats.GetIntValue("DecadesBlockForRam");
     }
 
     private void OnDisable() {
@@ -50,14 +60,31 @@ public class PlayerRamsHandler : MonoBehaviour
         ShipStats.StatChanged -= ObserveStat;
     }
 
+    #if UNITY_EDITOR
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TryRam();
+        }
+    }
+    #endif
+
     public static void TryRam()
     {
         if (!CanRam)
             return;
 
-        _victoryHandler.AddAurite(MoneyValue);
+        if (GameSessionInfoHandler.FinalLevel)
+            _victoryHandler.AddCosmilite(CosmiliteMoneyValue);
+        else
+            _victoryHandler.AddAurite(MoneyValue + MoneyPerEnemy * Spawner.EnemyCount);
+
+        
         if (HealValue > 0)
             PlayerShipData.RegenerateHP(HealValue);
+
+        if (PlayerShipData.CriticalState)
+            PlayerShipData.RegenerateHP(PlayerShipData.CriticalStateBorder - PlayerShipData.HitPoints);
 
         if (RamShielding && _ramShield != null)
         {
@@ -72,7 +99,11 @@ public class PlayerRamsHandler : MonoBehaviour
         
         SpawnRamObject(0, Player.PlayerTransform.position);
 
+        SoundPlayer.PlayUISound(_ramSound);
+
         RamSuccess?.Invoke();
+
+        Unlocks.ProgressUnlock(930, 1);
     }
 
     private void FindShield()
@@ -86,12 +117,20 @@ public class PlayerRamsHandler : MonoBehaviour
     {
         if (name == "RamMoneyValue")
         {
-            MoneyValue = ShipStats.GetIntValue("RamMoneyValue");
+            MoneyValue = ShipStats.GetIntValue("RamMoneyValue") + Mathf.Clamp(GameSessionInfoHandler.CurrentLevel, 0, 7);
             print($"Ram money value : {MoneyValue}");
         } else if (name == "RamHealValue")
         {
             HealValue = ShipStats.GetIntValue("RamHealValue");
             print($"Ram heal value : {HealValue}");
+        } else if (name == "RamMoneyPerEnemy")
+        {
+            MoneyPerEnemy = ShipStats.GetIntValue("RamMoneyPerEnemy");
+            print($"Ram money per enemy value : {MoneyPerEnemy}");
+        } else if (name == "DecadesBlockForRam")
+        {
+            DecadesBlockForRam = ShipStats.GetIntValue("DecadesBlockForRam");
+            print($"DecadesBlockForRam : {DecadesBlockForRam}");
         }
 
     }

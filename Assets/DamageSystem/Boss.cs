@@ -27,6 +27,6 @@ public class Boss : MonoBehaviour
     private void Death()
     {
         _bindedBossBar.Death();
-        SceneStatics.SceneCore.GetComponent<BossDistributor>().UnregisterBossBar();
+        //SceneStatics.SceneCore.GetComponent<BossDistributor>().UnregisterBossBar();
     }
 }

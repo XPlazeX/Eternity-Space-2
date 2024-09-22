@@ -3,6 +3,10 @@
 public class PickupSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _pickupPool;
+    [Space()]
+    [SerializeField][Range(0, 1f)] private float _currencyChance;
+    [SerializeField] private GameObject _auritePickup;
+    [SerializeField] private GameObject _cosmilitePickup;
     [SerializeField] private GameObject _positroniumPickup;
 
     [SerializeField][Range(0, 1f)] private float _chance;
@@ -25,11 +29,25 @@ public class PickupSpawner : MonoBehaviour
         if (Random.value > _chance * ShipStats.GetValue("PickupChanceMultiplier"))
             return;
 
+        if ((Random.value / ShipStats.GetValue("CurrencyPickupReplaceMultiplier")) < _currencyChance)
+        {
+            Instantiate(GameSessionInfoHandler.FinalLevel? _cosmilitePickup : _auritePickup, pos, Quaternion.Euler(0, 0, Random.Range(-90f, 90f)));
+            return;
+        }
+
         Instantiate(_pickupPool[Random.Range(0, _pickupPool.Length)], pos, Quaternion.Euler(0, 0, Random.Range(-90f, 90f)));
     } 
 
     public void SpawnPositronium(Vector3 pos)
     {
         Instantiate(_positroniumPickup, pos, Quaternion.identity);
+    }
+    public void SpawnAurite(Vector3 pos)
+    {
+        Instantiate(_auritePickup, pos, Quaternion.identity);
+    }
+    public void SpawnCosmilite(Vector3 pos)
+    {
+        Instantiate(_cosmilitePickup, pos, Quaternion.identity);
     }
 }

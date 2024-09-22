@@ -12,10 +12,16 @@ public class GlobalSave
     public int LastSelectedShip {get; set;} = 0;
     public int LastSelectedWeapon {get; set;} = 0;
     public int LastSelectedDevice {get; set;} = 0;
+    public int LastSelectedCore {get; set;} = 0;
+    public int LastSelectedAbility {get; set;} = 0;
 
     public float RepairPart {get; set;} = 0.3f;
 
     public string LobbyDialogue {get; set;} = null;
+
+    public float EternityMinute {get; set;} = -1f;
+    public float EternityHour {get; set;} = -1f;
+    public bool EternityParse {get; set;} = false;
 
     public Dictionary<int, int> Unlocks {get; private set;} = new Dictionary<int, int>();
 
@@ -31,7 +37,7 @@ public class GlobalSave
             return;
 
         Unlocks[code] = 0;
-        UnityEngine.Debug.Log($"new unlock: {code}");
+        UnityEngine.Debug.Log($"<color=lime>new unlock: {code}</color>");
     }
 
     public void ProgressUnlock(int code, int addingValue)
@@ -42,7 +48,18 @@ public class GlobalSave
         }
 
         Unlocks[code] += addingValue;
-        UnityEngine.Debug.Log($"progress unlock now: {code} : {Unlocks[code]}");
+        UnityEngine.Debug.Log($"<color=yellow>progress unlock now: {code} : {Unlocks[code]}</color>");
+    }
+
+    public void RewriteUnlockProgress(int code, int newValue)
+    {
+        if (!Unlocks.ContainsKey(code))
+        {
+            NewUnlock(code);
+        }
+
+        Unlocks[code] = newValue;
+        UnityEngine.Debug.Log($"<color=yellow>progress unlock now: {code} : {Unlocks[code]}</color>");
     }
 
     public bool HasUnlock(int code)
@@ -58,10 +75,10 @@ public class GlobalSave
         return Unlocks[code] >= progress;
     }
     
-    public int ValueOfUnlock(int code)
+    public int ValueOfUnlock(int code, bool zeroIfNot = false)
     {
         if (!Unlocks.ContainsKey(code))
-            return -1;
+            return zeroIfNot ? 0 : -1;
 
         else return Unlocks[code];
 
@@ -69,7 +86,7 @@ public class GlobalSave
     #if UNITY_EDITOR
     public void RemoveUnlock(int code)
     {
-        UnityEngine.Debug.Log($"unlock: {code} had progress {Unlocks[code]}, but was removed");
+        UnityEngine.Debug.Log($"<color=red>unlock: {code} had progress {Unlocks[code]}, but was removed</color>");
         Unlocks.Remove(code);
     }
     #endif

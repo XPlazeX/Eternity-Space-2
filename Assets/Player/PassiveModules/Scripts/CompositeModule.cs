@@ -19,4 +19,12 @@ public class CompositeModule : Module
             ModuleCore.SpawnModule(_loadingModules[i]);
         }
     }
+
+    public override void MissionMenuLoad()
+    {
+        for (int i = 0; i < _loadingModules.Length; i++)
+        {
+            _loadingModules[i].MissionMenuLoad();
+        }
+    }
 }

@@ -13,6 +13,7 @@ public class WeaponRoot : MonoBehaviour
     [SerializeField] private Transform[] _barrels;
     [SerializeField] private float _prepareTime;
     [SerializeField] private DeviceUI _customWeaponUI;
+    [SerializeField] private bool _noWeaponUI;
 
     public Transform[] PlayerBarrels => _barrels;
 
@@ -37,7 +38,7 @@ public class WeaponRoot : MonoBehaviour
         if (_customWeaponUI != null)
         {
             _weaponUI = _customWeaponUI;
-        } else
+        } else if (!_noWeaponUI)
             _weaponUI = GameObject.FindWithTag("WeaponCharge").GetComponent<DeviceUI>();
 
         if (_defaultWeaponPattern != null)
@@ -52,9 +53,14 @@ public class WeaponRoot : MonoBehaviour
         }
     }
 
+    public void ReplaceBarrel(int id, Transform newBarrel)
+    {
+        _barrels[id] = newBarrel;
+    }
+
     void Update()
     {
-        if (!Active)
+        if (!Active || Time.timeScale == 0)
             return;
 
         if ((Input.touchCount > 0) || Input.GetMouseButton(0))
@@ -87,7 +93,8 @@ public class WeaponRoot : MonoBehaviour
     private void SetPreparing(float val)
     {
         _preparing = val;
-        _weaponUI.Fill(_preparing / _prepareTime);
+        if (!_noWeaponUI)
+            _weaponUI.Fill(_preparing / _prepareTime);
     }
 
     protected virtual void ObserveStat(string name, float val)

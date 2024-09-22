@@ -133,9 +133,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1012.7}
-  m_SizeDelta: {x: 0, y: 280}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 399, y: -1012.7}
+  m_SizeDelta: {x: 798, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3514555756822843212
 CanvasRenderer:
@@ -193,8 +193,13 @@ MonoBehaviour:
   _description: {fileID: 3514555757517863950}
   _buyBtn: {fileID: 3514555757477135681}
   _heightStep: 280
+  _widthStep: 798
+  _soundAsquire:
+    _clip: {fileID: 8300000, guid: cafcd84261a36084f883ca2d92913e4b, type: 3}
+    _volume: 0
+    _pitchRandomizing: 0
   _contagionLevel: 2
-  _sale: 0.75
+  _sale: 0.45
   _useConstantLevelEvent: 0
   _constantLevelEvent:
     moduleOperandID: 0
@@ -702,15 +707,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10588236, g: 0.12941177, b: 0.19215688, a: 1}
+  m_Color: {r: 0.21568629, g: 0.25882354, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a4ba46632ba129045bb7f67b589fb911, type: 3}
-    m_FontSize: 44
+    m_Font: {fileID: 12800000, guid: 080e7e6d1c8526e4e8c5e7a8b5ec6092, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3

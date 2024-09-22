@@ -8,13 +8,16 @@ public class SceneTransition : MonoBehaviour
     public static event sceneTransitionOperation SceneTransit;
     public static event sceneOperation SceneClosing;
     public static event sceneOperation SceneOpened;
+    public static event sceneOperation SceneRestarted;
 
     private static Animator _animator;
     private static AsyncOperation _loadingSceneOperation;
     public static bool SceneReady {get; private set;} = false;
+    private static bool TimeResetAnimation {get; set;} = false;
     //private static AsyncOperation _unloadingSceneOperation;
 
     private static SceneTransition _instance = null;
+    private static string _lastSceneName;
 
     public static string ActiveSceneName => SceneManager.GetActiveScene().name;
 
@@ -27,19 +30,20 @@ public class SceneTransition : MonoBehaviour
         else 
             Destroy(gameObject); 
 
-        if (SceneManager.GetActiveScene().name != "Game")
+        if (SceneManager.GetActiveScene().name != "Game" && SceneManager.GetActiveScene().name != "MissionMenu")
         {
             SceneStatics.CoresLoaded += SceneLoaded;
             
             if (SceneStatics.CoresFinded)
                 SceneLoaded();
-            //SceneLoaded();
         } 
     }
 
     public static void SceneLoaded()
     {
-        if (SceneManager.GetActiveScene().name != "Game")
+        TimeResetAnimation = false;
+
+        if (SceneManager.GetActiveScene().name != "Game" && SceneManager.GetActiveScene().name != "MissionMenu")
         {
             SceneStatics.CoresLoaded -= SceneLoaded;
             //SceneLoaded();
@@ -47,7 +51,13 @@ public class SceneTransition : MonoBehaviour
         Debug.Log("!!!---Сцена загружена---!!!");
         GameObject.FindWithTag("SceneTransitionScreen").GetComponent<LoadingCaller>().OpenMask();
         SceneOpened?.Invoke();
+        TimeHandler.Resume(1f);
         SceneReady = true;
+
+        if (_lastSceneName == SceneManager.GetActiveScene().name)
+        {
+            SceneRestarted?.Invoke();
+        }
     }
 
     public static void BlockUI()
@@ -62,6 +72,11 @@ public class SceneTransition : MonoBehaviour
 
     public static void SwitchToScene(string name, int codeReason = -1)
     {
+        if (codeReason == 4)
+        {
+            TimeResetAnimation = true;
+        }
+
         print($"LoadScene : {name}");
         SceneLocalizator.Reload();
         TimeHandler.Resume(1f);
@@ -76,10 +91,16 @@ public class SceneTransition : MonoBehaviour
 
         transitionAnimator.SetTrigger("SceneCloses");
 
+        if (TimeResetAnimation)
+        {
+            GameObject.FindWithTag("SceneTransitionScreen").GetComponent<LoadingCaller>().TimebackAnimation();
+        }
+
         _loadingSceneOperation = SceneManager.LoadSceneAsync(name);
         _loadingSceneOperation.allowSceneActivation = false;
 
         SceneTransit?.Invoke();
+        _lastSceneName = SceneManager.GetActiveScene().name;
     }
 
     public static void OpenRelevantLobbyScene()
@@ -97,7 +118,14 @@ public class SceneTransition : MonoBehaviour
     {
         SceneReady = false;
         SceneClosing?.Invoke();
-        //shouldPlayAnim = true;
+        
+        if (!TimeResetAnimation)
+            _loadingSceneOperation.allowSceneActivation = true;
+    }
+
+    public static void OnTimeResetAnimationOver()
+    {
+        TimeResetAnimation = false;
         _loadingSceneOperation.allowSceneActivation = true;
     }
     

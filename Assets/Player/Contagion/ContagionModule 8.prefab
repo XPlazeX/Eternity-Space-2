@@ -50,4 +50,12 @@ MonoBehaviour:
     _typeOperation: 2
     _operationValue: -2
     _negativeSetsToZero: 0
+  - _statName: Pressure
+    _typeOperation: 1
+    _operationValue: 0.8
+    _negativeSetsToZero: 0
+  - _statName: ForesightAddition
+    _typeOperation: 2
+    _operationValue: 10
+    _negativeSetsToZero: 0
   _healthOperators: []

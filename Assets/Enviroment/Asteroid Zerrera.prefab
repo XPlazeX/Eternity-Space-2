@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 5308181217489804155}
   - component: {fileID: 3746244766388657795}
   - component: {fileID: 6540329210789379055}
-  - component: {fileID: 7865821052282379433}
+  - component: {fileID: 5151532142091738212}
+  - component: {fileID: 8541663109996679840}
   m_Layer: 12
   m_Name: Asteroid Zerrera
   m_TagString: Untagged
@@ -106,6 +107,7 @@ MonoBehaviour:
   _startShieldPoints: 0
   _lifetime: 1000
   _minMaxSpeed: {x: 0.1, y: 0.15}
+  _explodeOnTimer: 0
 --- !u!114 &5450146073535504596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 3
+  _deathExplosionType: 19
 --- !u!50 &5308181217489804155
 Rigidbody2D:
   serializedVersion: 4
@@ -187,7 +189,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.78
---- !u!114 &7865821052282379433
+--- !u!114 &5151532142091738212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,8 +198,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3018917793387868237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0
   _countParry: 0
+--- !u!114 &8541663109996679840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018917793387868237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2575f7ee611915140a011a913cc11b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currency: 2
+  _unique: 0
+  _unlockCode: 0
+  _count: 33
+  _offsetSpawn: 2

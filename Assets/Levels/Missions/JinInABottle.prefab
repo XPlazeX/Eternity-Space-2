@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3409399996074538531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5972983307079532163}
+  - component: {fileID: 4671021735225386770}
+  m_Layer: 0
+  m_Name: JinInABottle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5972983307079532163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409399996074538531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4671021735225386770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409399996074538531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d147eed48bd4a4eb274ad5ab2001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockID: 44
+  _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
+  _levelCount: 25
+  _bonusModuleChoice: 0
+  _startAurite: 150
+  _auritePerLevel: 115
+  _minMaxCosmilite: {x: 250, y: 380}
+  _nameLocalizationID: 8
+  _radioID: 22
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
+  _customShip: -1
+  _customWeaponModel: 
+  _levelDialogueTriggers: []
+  _completedMissionLobbyDialogue: 
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
+  _background:
+    _beaconBG: 0
+    _cameraBordersSizeXMultiplier: 0.75
+    _cameraBordersSizeYMultiplier: 0.75
+    _backgroundObjects:
+    - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
+        type: 3}
+      _color: {r: 0.3355286, g: 0.13127448, b: 0.4716981, a: 0.6156863}
+      _position: {x: -0.36, y: -3.83, z: 0}
+      _rotation: -317
+      _rotationSpread: 0
+    - _object: {fileID: 3945150267831715264, guid: 547a8ebef9df29e409ae66d63874b335,
+        type: 3}
+      _color: {r: 1, g: 1, b: 1, a: 1}
+      _position: {x: 0, y: 0, z: 0}
+      _rotation: 0
+      _rotationSpread: 180
+    _backgroundSpriteFilename: Levels/BG/Gin
+    _backgroundColor: {r: 0.54509807, g: 0.33480033, b: 0.17254901, a: 1}
+    _flipX: 1
+    _flipY: 1
+    _hasStation: 0
+    _stationSpriteFilename: Levels/BG/TOWER
+    _upperColorMult: {r: 0.43547705, g: 0.21933962, b: 0.8773585, a: 0.11764706}
+    _dustGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 0.5473727, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 32960
+      ctime2: 65535
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+    _dustEmissionMultiplier: 1
+    _fogGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0.09326776, g: 0, b: 0.101960786, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 32960
+      ctime2: 65535
+      ctime3: 65535
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+    _fogEmissionMultiplier: 3
+    _windSpeed: 0.3
+    _objectsToBeaconLevel: 1
+  _soundtrack:
+    _clip: {fileID: 8300000, guid: f97d4f09f494262459df631434e2f6f6, type: 3}
+    _volume: 0.285
+    _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
+  _hasBonusSpawn: 1
+  _bonusEnemies: []
+  _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 1
+  _bonusSpawnReload: 0
+  _hasStalkers: 1
+  _chance: 0.033
+  _firstLevelWaveCount: 3
+  _finalLevelWaveCount: 10
+  _startLevelWeight: 3
+  _finalLevelWeight: 6
+  _missionWeightFinalMultiplier: 2.5
+  _enemyBuffer: 0
+  _reloadSpawnTime: 0.5
+  _levelEnemyDatabase:
+    _levelPacks:
+    - _neededMissionProgress: 0
+      _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85,
+        type: 2}
+    - _neededMissionProgress: 0.053
+      _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
+        type: 2}
+    - _neededMissionProgress: 0
+      _enemyPackObject: {fileID: 11400000, guid: b255a33f22399b540aa237c46317720f,
+        type: 2}
+    - _neededMissionProgress: 0.067
+      _enemyPackObject: {fileID: 11400000, guid: 004f680465f77e4459971539b45cb6e7,
+        type: 2}
+    - _neededMissionProgress: 0.168
+      _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
+        type: 2}
+    - _neededMissionProgress: 0.233
+      _enemyPackObject: {fileID: 11400000, guid: 502e1217d7d1dca48a61953e6b853600,
+        type: 2}
+    - _neededMissionProgress: 0.701
+      _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
+        type: 2}
+    - _neededMissionProgress: 0.523
+      _enemyPackObject: {fileID: 11400000, guid: 2681ceb2fbc30bf488c7087ff476fd95,
+        type: 2}
+    _weightMultiplier: 5
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

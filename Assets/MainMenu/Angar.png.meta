@@ -86,6 +86,21 @@ TextureImporter:
   - first:
       213: -8335213089741392711
     second: Angar_16
+  - first:
+      213: -6778847904533352905
+    second: Angar_17
+  - first:
+      213: -38266818307309302
+    second: Angar_18
+  - first:
+      213: -8506856715788843106
+    second: Angar_19
+  - first:
+      213: -4989592576991595369
+    second: Angar_20
+  - first:
+      213: -3917924658997355086
+    second: Angar_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -583,6 +598,111 @@ TextureImporter:
       bones: []
       spriteID: 9b437c25bdf535c80800000000000000
       internalID: -8335213089741392711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_17
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 368
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e63e72fb1bce1a0800000000000000
+      internalID: -6778847904533352905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 459
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01cb10188c087ff0800000000000000
+      internalID: -38266818307309302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 353
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97824463e291f980800000000000000
+      internalID: -8506856715788843106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_20
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 362
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7947d7abcf761cab0800000000000000
+      internalID: -4989592576991595369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angar_21
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 344
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd18bbd74cb0a9c0800000000000000
+      internalID: -3917924658997355086
       vertices: []
       indices: 
       edges: []

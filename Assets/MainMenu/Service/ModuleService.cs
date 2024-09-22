@@ -10,6 +10,8 @@ public class ModuleService : MonoBehaviour
     [SerializeField] private Text _description;
     [SerializeField] private BuyButton _buyBtn;
     [SerializeField] private float _heightStep;
+    [SerializeField] private float _widthStep;
+    [SerializeField] private SoundObject _soundAsquire;
     [Space()]
     [SerializeField][Range(0, 11)] private int _contagionLevel;
     [SerializeField][Range(0, 1f)] private float _sale = 0f;
@@ -18,6 +20,7 @@ public class ModuleService : MonoBehaviour
     [SerializeField] private LevelEvent _constantLevelEvent;
 
     public float Height => _heightStep;
+    public float Width => _widthStep;
 
     private LevelEvent _activeEvent;
     private int _choiceID;
@@ -44,6 +47,8 @@ public class ModuleService : MonoBehaviour
 
     public void Asquire()
     {
+        _activeEvent.handingModule.Asquiring();
+        
         ModulasSave modulasSave = ModulasSaveHandler.GetSave();
 
         modulasSave.AddEvent(_activeEvent);
@@ -51,12 +56,12 @@ public class ModuleService : MonoBehaviour
 
         ModulasSaveHandler.RewriteSave(modulasSave);
 
-        _activeEvent.handingModule.Asquiring();
-
         if (_contagionLevel > 0)
         {
             ContagionHandler.AddContagion(_contagionLevel);
         }
+
+        SoundPlayer.PlayUISound(_soundAsquire);
 
         CheckAsquisition();
     }
@@ -65,7 +70,7 @@ public class ModuleService : MonoBehaviour
     {
         if (ModulasSaveHandler.GetSave().ActiveEventDatas[_choiceID].purchased)
         {
-            _buyBtn.SetPriceText(SceneLocalizator.GetLocalizedString("MissionMenu", 0, 0));
+            _buyBtn.SetPriceText($"<color=#26FFA5>{SceneLocalizator.GetLocalizedString("MissionMenu", 6, 2)}</color>");
             _btn.interactable = false;
 
             if (_activeEvent.stackType != ModuleStackType.Pack)

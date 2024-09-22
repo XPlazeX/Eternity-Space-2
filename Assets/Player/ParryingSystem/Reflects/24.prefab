@@ -103,10 +103,13 @@ MonoBehaviour:
   - {fileID: 2243537926381618363}
   _animationTime: 0.3
   _explosionPower: 0
+  _explosionDelay: 0
   _sound:
     _clip: {fileID: 0}
     _volume: 0
     _pitchRandomizing: 0.05
+  _togglingColliders: []
+  _colliderEnableDelay: 0
 --- !u!114 &428973839479541804
 MonoBehaviour:
   m_ObjectHideFlags: 0

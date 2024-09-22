@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
-  _repairPartBoost: 0.15
+  _selfLoadOnStart: 0
+  _repairPartBoost: 0.12

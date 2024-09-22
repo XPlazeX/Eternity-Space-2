@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5909004747822131293}
   - component: {fileID: 1554671533882739457}
+  - component: {fileID: 6650827829244807672}
   m_Layer: 0
   m_Name: VectorTimeBoost
   m_TagString: Untagged
@@ -44,8 +45,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: -7228365511018803363, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
+  _selfLoadOnStart: 0
   _operators:
   - _statName: TimeSlowValue
     _typeOperation: 1
     _operationValue: 0.6
+    _negativeSetsToZero: 0
   _healthOperators: []
+--- !u!114 &6650827829244807672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3142575517236464921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29e10f1aed65ad498aaae001c3f1ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enforceDelay: 1
+  _keyName: LiquidTime
+  _scalingGameObjects:
+  - {fileID: 0}
+  - {fileID: 3900977726808398756, guid: 8309db3f4e0489d448a48ac47dfbf3d0, type: 3}
+  _bindToPlayer: 1

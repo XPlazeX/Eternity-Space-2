@@ -10,6 +10,7 @@ public class AuraBullet : Bullet
     private void Awake() {
         Pierces = 999999;
         _collider = GetComponent<Collider2D>();
+        _ignoreForce = true;
     }
 
     private IEnumerator Damaging(){

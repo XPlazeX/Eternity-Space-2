@@ -25,6 +25,11 @@ public class ExplosionAnimator : MonoBehaviour
     public void Initialize(float animationTime)
     {
         _animationTime = animationTime;
+        if (_affectColor)
+            GetComponent<SpriteRenderer>().color = Color.clear;
+            
+        transform.localScale = Vector3.one * _scaleProgression.Evaluate(0f) * _scaleMultiplier;
+
     }
 
     public void Play()

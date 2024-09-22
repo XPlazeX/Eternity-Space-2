@@ -11,6 +11,11 @@ public class _ExplosionBullet : MonoBehaviour
     [Header("Если урон = 0, то урон взрыва по умолчанию не будет изменён")]
     [SerializeField] private int _damage;
 
+    public int ExplosionCode {get {return _explosionCode;} set {_explosionCode = value;}}
+    public Color ExplosionColor {get {return _color;} set {_color = value;}}
+    public float Scale {get {return _scale;} set {_scale = value;}}
+    public int Damage {get {return _damage;} set {_damage = value;}}
+
     private ExplosionHandler _explosionHandler;
 
     private void Start() {
@@ -35,11 +40,11 @@ public class _ExplosionBullet : MonoBehaviour
             return;
 
         if (_damage > 0)
-            explosion.GetComponent<StaticBullet>().ModdedDamage = _damage;
+            explosion.GetComponent<StaticBullet>().ModdedDamage = Mathf.RoundToInt((float)_damage * ShipStats.GetValue("ExplosionDamageMultiplier"));
 
         if (explosion.GetComponent<SpriteRenderer>() != null)
             explosion.GetComponent<SpriteRenderer>().color = _color;
-        explosion.transform.localScale = Vector3.one * _scale;
+        explosion.transform.localScale = Vector3.one * _scale * (1f / ShipStats.GetValue("Pressure"));
 
         if (_shakePower > 0)
             CameraController.Shake(_shakePower);

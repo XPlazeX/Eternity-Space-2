@@ -53,7 +53,7 @@ public class BonusSpawner : SpawnerRoot
             ActiveEnemies ++;
             _spawner.PrintBonusCountUI(ActiveEnemies);
 
-            Spawner.InitializeHPBar(spawnedDB);
+            //Spawner.InitializeHPBar(spawnedDB);
         }
     }
 

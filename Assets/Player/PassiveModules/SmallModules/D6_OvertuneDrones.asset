@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14471dbe60ecf6d4488a8268cfabe7b4, type: 3}
+  m_Name: D6_OvertuneDrones
+  m_EditorClassIdentifier: 
+  _module: {fileID: 6334140083983375581, guid: 1f0ed6af89bbac348af468f15506672f, type: 3}
+  _icon: {fileID: -3441260316567861194, guid: f6a6362f85048694c9453b803bd6029f, type: 3}
+  _localizationID: 0
+  _stackType: 1
+  _oneLeveled: 0

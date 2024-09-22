@@ -36,4 +36,22 @@ public class AsteroidBody : DamageBody
             
         gameObject.SetActive(false);
     }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (_damageKey == DamageSystem.DamageKey.Enemy || other.GetComponent<Hover>() != null)
+            return;
+
+        DamageBody damageBody = other.GetComponent<DamageBody>();
+        
+        if (damageBody == null)
+            return;
+
+        if (damageBody.KeyDamage == DamageSystem.DamageKey.Enemy || damageBody.KeyDamage == DamageSystem.DamageKey.Everything)
+        {
+            int otherHP = damageBody.HitPoints;
+            damageBody.TakeDamage(HitPoints);
+            TakeDamage(otherHP);
+        }
+    }
 }

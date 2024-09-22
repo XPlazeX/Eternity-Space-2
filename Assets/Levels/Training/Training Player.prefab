@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 1260780666538092913}
   - component: {fileID: 1260780666538092912}
   - component: {fileID: 1260780666538092815}
+  - component: {fileID: 5581581068810391913}
   m_Layer: 11
   m_Name: Training Player
   m_TagString: Player
@@ -5264,6 +5265,19 @@ MonoBehaviour:
   - {fileID: 1260780667689757784}
   _prepareTime: 0.5
   _customWeaponUI: {fileID: 0}
+  _noWeaponUI: 0
+--- !u!114 &5581581068810391913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260780666538092923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa7c397d46b9bf4bbe364babe3a7f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260780667689757787
 GameObject:
   m_ObjectHideFlags: 0

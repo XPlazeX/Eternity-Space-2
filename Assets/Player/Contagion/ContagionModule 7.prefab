@@ -46,12 +46,20 @@ MonoBehaviour:
   _icon: {fileID: 2479076137170739074, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
   _selfLoadOnStart: 0
   _operators:
-  - _statName: EmissionDuration
-    _typeOperation: 1
-    _operationValue: 2
+  - _statName: FlatPlayerBulletAcceleration
+    _typeOperation: 2
+    _operationValue: 3
     _negativeSetsToZero: 0
   - _statName: PickupChanceMultiplier
     _typeOperation: 1
-    _operationValue: 0.75
+    _operationValue: 0.66
+    _negativeSetsToZero: 0
+  - _statName: YellowPowerupTimeBoost
+    _typeOperation: 2
+    _operationValue: -10
+    _negativeSetsToZero: 0
+  - _statName: RedPowerupTimeBoost
+    _typeOperation: 2
+    _operationValue: 5
     _negativeSetsToZero: 0
   _healthOperators: []

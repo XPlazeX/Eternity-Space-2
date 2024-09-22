@@ -3,23 +3,34 @@
 public class OppositionAI : EnemyAIRoot
 {
     [Header("This AI always use Lerp function to closing the Player (Moving Progression will not using)")]
-    [SerializeField] private Vector3 _offset;
+    [SerializeField] protected Vector3 _offset;
     [SerializeField] private bool _autoTargetPlayer = true;
     [SerializeField] private bool _noiseOffset = true;
+    [SerializeField] private bool _copyTargetRotation = true;
     [Header("Retreating")]
     [SerializeField] private bool _retreating = false;
     [SerializeField] private float _retreatTime;
     [SerializeField] private Vector2 _retreatOffsetXY;
+    [Header("Latitude использует отступ Y от верхней границы и отменяет retreating")]
+    [SerializeField] private bool _useLatitude;
 
-    private Vector3 _trueOffset;
+    protected Vector3 _trueOffset;
     private float _timer = 0f;
+    private float _latitudeY;
+    protected bool _neverTargetToPlayer = false;
 
     protected override void Start() 
     {
-        if (!_autoTargetPlayer)
+        if (!_autoTargetPlayer && !_neverTargetToPlayer)
         {
             _player = transform.parent;
             transform.parent = null;
+        }
+
+        if (_useLatitude)
+        {
+            _retreating = false;
+            _latitudeY = CameraController.Borders_xXyY.w - _offset.y;
         }
         
         if ((!_retreating) && (Random.Range(0, 2) == 1) && (_autoTargetPlayer))
@@ -46,10 +57,14 @@ public class OppositionAI : EnemyAIRoot
     {
         if (_player == null)
         {
-            _autoTargetPlayer = true;
-            base.FindPlayer();
-            _offset = new Vector3(_offset.x, -_offset.y);
-            _orientation = LookingOrientation.RotateToPlayer;
+            if (!_neverTargetToPlayer)
+            {
+                _autoTargetPlayer = true;
+                _orientation = LookingOrientation.RotateToPlayer;
+                _offset = new Vector3(_offset.x, -_offset.y);
+            }
+            print("tfp");
+            FindPlayer();
             
             Start();
             return;
@@ -60,10 +75,24 @@ public class OppositionAI : EnemyAIRoot
             _timer = _retreatTime / Mobility;
         }
 
-        _targetPosition = _player.position + (_player.rotation * _trueOffset);
+        if (!_useLatitude)
+            _targetPosition = GetActualPlayerPosition() + ((_copyTargetRotation ? _player.rotation : Quaternion.identity) * _trueOffset);
+        else
+            _targetPosition = new Vector3(GetActualPlayerPosition().x, _latitudeY, 0f);
 
         transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
 
         _timer -= Time.deltaTime;
+    }
+
+    protected Vector3 GetActualPlayerPosition()
+    {
+        if (!_autoTargetPlayer)
+        {
+            return _player.position;
+        } else
+        {
+            return Player.GetPlayerPosition(_foresight);
+        }
     }
 }

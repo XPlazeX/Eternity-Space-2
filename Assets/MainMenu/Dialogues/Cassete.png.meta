@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -569005425776130181
     second: Cassete_7
+  - first:
+      213: -7595687688014291615
+    second: Cassete_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -85,7 +88,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,7 +100,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -109,7 +112,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -286,6 +289,27 @@ TextureImporter:
       bones: []
       spriteID: b770859749c7a18f0800000000000000
       internalID: -569005425776130181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cassete_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 39
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d991b9a42b69690800000000000000
+      internalID: -7595687688014291615
       vertices: []
       indices: 
       edges: []

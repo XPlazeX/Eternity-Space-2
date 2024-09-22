@@ -46,12 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 22
   _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
   _levelCount: 20
+  _bonusModuleChoice: 0
   _startAurite: 125
-  _auritePerLevel: 125
+  _auritePerLevel: 115
   _minMaxCosmilite: {x: 125, y: 200}
   _nameLocalizationID: 6
-  _radioID: 0
+  _radioID: 21
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -59,6 +65,8 @@ MonoBehaviour:
     menuDialogue: 
     gameDialogue: Byrill-Inf-G0
   _completedMissionLobbyDialogue: 
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -149,13 +157,14 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 221109c15ade2724097f33ffa4e292c2, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
   _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
   _hasStalkers: 1
-  _chance: 1
+  _chance: 0.033
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 10
   _startLevelWeight: 3

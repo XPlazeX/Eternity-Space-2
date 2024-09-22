@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class VersionBooster : MonoBehaviour
 {
     [SerializeField][Range(0, 1)] private int _controlVersion = 0;
+    [SerializeField] private bool _devVersion;
     [Space()]
     [SerializeField] private Image _targetImage;
     [SerializeField] private Sprite[] _panelSprites;
@@ -22,6 +23,8 @@ public class VersionBooster : MonoBehaviour
             Dev.RuStoreVersion = false;
             print("GOOGLEPLAY VERSION");
         }
+
+        Dev.DevVersion = _devVersion;
     }
 
     private void Start()

@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 10
+  _foresight: 0
   _targetTag: Enemy
 --- !u!1 &6221155724733764511
 GameObject:
@@ -148,7 +149,7 @@ GameObject:
   - component: {fileID: 9069206062416828809}
   - component: {fileID: 9069206062416828810}
   - component: {fileID: 2643619014507769924}
-  - component: {fileID: 7829456736549934345}
+  - component: {fileID: -3319608774097819868}
   m_Layer: 12
   m_Name: Can
   m_TagString: Untagged
@@ -234,11 +235,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scaleLocalAggro: 1
-  _aggroBoostPerStep: 0.4
+  _aggroBoostPerStep: 0.15
   _scaleHP: 0
   _hpNormalizedBoostPerStep: 0.3
   _scaleLocalMobility: 0
   _mobilityBoostPerStep: 0.2
+  _scaleStaticDamage: 0
+  _staticDamageMultiplierPerStep: 0.4
 --- !u!114 &446222335156728079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,8 +264,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _foresight: 0
   _closingDistance: 2
   _autoTargetPlayer: 1
+  _linearMove: 0
   _retreating: 0
   _repositionTime: 1
   _retreatPower: 2.5
@@ -278,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitTime: 3
+  _waitTime: 10
   _attackReload: 4.33
   _attackObjects:
   - _cycles: 4
@@ -292,7 +297,6 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 4
     _randomizingBulletSpeed: 0
-    _soundOnFireID: 1
   _autoStart: 1
 --- !u!114 &9069206062416828808
 MonoBehaviour:
@@ -373,7 +377,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7829456736549934345
+--- !u!114 &-3319608774097819868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,7 +386,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9069206062416828815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0

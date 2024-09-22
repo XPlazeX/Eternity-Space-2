@@ -3,6 +3,11 @@ using UnityEngine;
 public class ClearSave : MonoBehaviour
 {
     [SerializeField] private TogglerButton[] _togButtons;
+    [Space()]
+    [SerializeField] private float _shakePower;
+    [SerializeField] private float _shakeTime;
+    [SerializeField] private MenuController _menuController;
+    [SerializeField] private ParticleSystem _explodePS;
 
     private void Start() {
         for (int i = 0; i < _togButtons.Length; i++)
@@ -26,6 +31,10 @@ public class ClearSave : MonoBehaviour
 
     private void Reset()
     {
+        _menuController.HideCurrent();
+        GameObject.FindWithTag("AudioCore").GetComponent<SoundPlayer>().MuteSoundtrack();
+
+        Invoke("ExplodeAnimation", 2f);
         GameSessionInfoHandler.ClearGameSession();
         GlobalSaveHandler.ClearSave();
         int presetType = Mathf.RoundToInt(PlayerPrefs.GetFloat("ClearSavePreset", 0));
@@ -50,7 +59,18 @@ public class ClearSave : MonoBehaviour
                 break;
         }
 
-        Invoke("Reload", 0.5f);
+        //Invoke("Reload", 0.5f);
+    }
+
+    public void ExplodeAnimation()
+    {
+        _explodePS.Play();
+        Invoke("Exit", 2f);
+    }
+
+    public void Exit()
+    {
+        _menuController.Quit();
     }
 
     public void Reload()

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 6284546397581732400}
   - component: {fileID: 6284546397581732407}
   - component: {fileID: 6284546397581732406}
+  - component: {fileID: 5968978092994225037}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -190,6 +191,53 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5968978092994225037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284546397581732401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4aebaf0155e3a74e9bff8f4cca4cab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiImage: 0
+  _uiText: 0
+  _gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.08018869, g: 1, b: 0.11486837, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 0.25, g: 0.8665751, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 17438
+    ctime2: 33534
+    ctime3: 49247
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 2
+  _delay: 0
+  _timeParse: 0.5
+  _cycle: 1
+  _unscaledTime: 1
 --- !u!1 &6284546397930832861
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +375,7 @@ MonoBehaviour:
     _mask:
       serializedVersion: 2
       m_Bits: 0
-    _attackDistance: 50
+    _attackDistance: 75
     _laserLifetime: 3
   _autoStart: 0
 --- !u!114 &1375130112381704145

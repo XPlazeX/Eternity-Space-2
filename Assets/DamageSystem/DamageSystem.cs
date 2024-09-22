@@ -5,18 +5,22 @@ namespace DamageSystem
     public delegate void healthOperation(int takingValue);
     public delegate void deathHandler();
     public delegate void bodyPositionHandler(Vector3 position);
+    public delegate void bodyInflicting(DamageBody damageBody, int resultDamage);
     
     public enum DamageKey
     {
         Unvulnerable = -1,
         Player = 0,
         Enemy = 1,
-        Everything = 2
+        Everything = 2,
+        ToAsteroids = 3
     }
 
     public class AttackObject : PullableObject
     {
         public const float defaultDamageToAsteroid = 1f;
+
+        public event bodyInflicting DamageBodyInflicted;
 
         [SerializeField] private DamageKey _damageKey;
         [SerializeField] private int _damageValue;
@@ -33,7 +37,7 @@ namespace DamageSystem
 
         protected virtual bool InflictDamage(DamageBody damageBody, float moddedDamage = -1f)
         {
-            if (damageBody.KeyDamage == DamageKey.Unvulnerable || ((_damageKey != damageBody.KeyDamage) && _damageKey != DamageKey.Everything))
+            if (damageBody.KeyDamage == DamageKey.Unvulnerable)
                 return false;
 
             float dmg = _damageValue;
@@ -47,7 +51,18 @@ namespace DamageSystem
             if (_asteroidDamageMultiplier != 1f && damageBody is AsteroidBody)
                 dmg *= _asteroidDamageMultiplier;
 
+            if (_damageKey == DamageKey.ToAsteroids && (damageBody is AsteroidBody))
+            {
+                damageBody.TakeDamage(Mathf.CeilToInt(dmg));
+                DamageBodyInflicted?.Invoke(damageBody, Mathf.CeilToInt(dmg));
+                return true;
+            }
+
+            if (_damageKey != damageBody.KeyDamage && _damageKey != DamageKey.Everything)
+                return false;
+
             damageBody.TakeDamage(Mathf.CeilToInt(dmg));
+            DamageBodyInflicted?.Invoke(damageBody, Mathf.CeilToInt(dmg));
             return true;
         }
 

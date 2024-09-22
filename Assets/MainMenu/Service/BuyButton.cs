@@ -10,6 +10,7 @@ public class BuyButton : MonoBehaviour
     [SerializeField] private UnityEvent _successBuyEvent;
     [SerializeField] private UnityEvent _failedBuyEvent;
     [SerializeField] private Text _priceLabel;
+    //[SerializeField] private SoundObject _soundFailure;
 
     // private void Start() {
     //     _priceLabel.text = _price.ToString();
@@ -42,6 +43,7 @@ public class BuyButton : MonoBehaviour
     public void DefFailure(Animator animator)
     {
         DefaultFailure.Failure(animator);
+        //SoundPlayer.PlayUISound(_soundFailure);
     }
 
     public void DefAsquire()

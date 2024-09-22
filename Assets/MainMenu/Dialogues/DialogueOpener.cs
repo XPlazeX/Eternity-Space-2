@@ -38,19 +38,19 @@ public class DialogueOpener : MonoBehaviour
         SceneTransition.SceneOpened -= FindCanvas;
     }
 
-    public void TriggerDialogue(string name)
+    public void TriggerDialogue(string name, bool safety = false)
     {
-        StartCoroutine(OpenDialogueInternal(name));
+        StartCoroutine(OpenDialogueInternal(name, 0, safety));
         print($"trigger dialogue: {name}");
     }
 
-    public void TriggerDialogue(string name, float delay)
+    public void TriggerDialogue(string name, float delay, bool safety = false)
     {
-        StartCoroutine(OpenDialogueInternal(name, delay));
+        StartCoroutine(OpenDialogueInternal(name, delay, safety));
         print($"trigger dialogue: {name}");
     }
 
-    private IEnumerator OpenDialogueInternal(string name, float delay = 0f)
+    private IEnumerator OpenDialogueInternal(string name, float delay = 0f, bool safety = false)
     {
         if (currentDialogueOperationHandle.IsValid())
         {
@@ -86,5 +86,8 @@ public class DialogueOpener : MonoBehaviour
                 throw;
             }
         }
+
+        if (safety)
+            ParryingHandler.ConstParry();
     }
 }

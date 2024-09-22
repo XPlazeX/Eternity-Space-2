@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _damageValue: 2
-  _shieldDamageMultiplier: 1
-  _asteroidDamageMultiplier: 1
+  _shieldDamageMultiplier: 0.5
+  _asteroidDamageMultiplier: 2
   _warningTime: 0
-  _damageTick: 0.03
+  _damageTick: 0.045
 --- !u!120 &6748709974024960279
 LineRenderer:
   m_ObjectHideFlags: 0

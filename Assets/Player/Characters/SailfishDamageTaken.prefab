@@ -44,9 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: -5986465274598063849, guid: 0cf14bde9959a434a9d46714b9cd723c, type: 3}
+  _selfLoadOnStart: 0
   _operators:
   - _statName: BlockArmor
     _typeOperation: 2
     _operationValue: -2
+    _negativeSetsToZero: 0
+  - _statName: MainWeaponFirerateMultiplier
+    _typeOperation: 1
+    _operationValue: 0.75
     _negativeSetsToZero: 0
   _healthOperators: []

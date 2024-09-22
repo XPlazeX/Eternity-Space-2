@@ -79,7 +79,7 @@ public class ShieldComponent : PullableObject
             StartRecovering();
 
         _currentShield = newSP;
-        print($"shield update : {newSP}");
+        //print($"shield update : {newSP}");
     }
 
     public void BreakShield()

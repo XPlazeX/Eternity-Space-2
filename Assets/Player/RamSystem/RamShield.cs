@@ -7,8 +7,17 @@ public class RamShield : MonoBehaviour
     [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
     [SerializeField] private Sprite _ramShieldSprite;
     [SerializeField] private Sprite _parryShieldSprite;
+    [SerializeField] private Sprite _drillShieldSprite;
     [SerializeField] private Color _RamColor;
     [SerializeField] private Color _ParryColor;
+    [Space()]
+    [SerializeField] private Color _DrillColor;
+    [SerializeField] private ParticleSystem _drillPS;
+    [SerializeField] private GameObject _drillObject;
+
+    public bool DrillMode {get; set;} = false;
+    public bool UseConstantEnemyCount {get; set;} = false;
+    public int ConstantEnemyCount {get; set;} = 0;
 
     private IEnumerator shielding;
     private bool _active = false;
@@ -25,6 +34,9 @@ public class RamShield : MonoBehaviour
         _parryAdditiveFirerateBoost = ShipStats.GetValue("ParryAdditiveFirerateBoost");
         _ramDuration = ShipStats.GetValue("RamBoostDuration");
         _ramBoostByEnemyCount = ShipStats.GetValue("RamBoostByEnemy");
+
+        _drillPS.Stop();
+        _drillObject.SetActive(false);
     }
 
     public void EnableShield(bool byParry = false)
@@ -43,7 +55,7 @@ public class RamShield : MonoBehaviour
         Toggle(false);
     }
 
-    private float GetBoostByEnemyCount() => _ramBoostByEnemyCount * Spawner.EnemyCount;
+    private float GetBoostByEnemyCount() => _ramBoostByEnemyCount * (UseConstantEnemyCount ? ConstantEnemyCount : Spawner.EnemyCount);
 
     private IEnumerator Shielding(bool byParry = false)
     {
@@ -61,14 +73,14 @@ public class RamShield : MonoBehaviour
         if (byParry)
         {
             _shieldSpriteRenderer.sprite = _parryShieldSprite;
-            timer = _ramDuration * 2f;
+            timer = _ramDuration * 1.5f;
             modColor = _ParryColor;
         }
         else
         {
-            _shieldSpriteRenderer.sprite = _ramShieldSprite;
+            _shieldSpriteRenderer.sprite = DrillMode ? _drillShieldSprite : _ramShieldSprite;
             timer = _ramDuration;
-            modColor = _RamColor;
+            modColor = DrillMode ? _DrillColor : _RamColor;
         }
 
         timer *=  1f + GetBoostByEnemyCount();
@@ -76,6 +88,12 @@ public class RamShield : MonoBehaviour
         if (timer < _lastRamTime)
             timer = _lastRamTime;
         _lastRamTime = timer;
+
+        if (DrillMode)
+        {
+            _drillPS.Play();
+            _drillObject.SetActive(true);
+        }
 
         while (timer > 0)
         {
@@ -87,6 +105,11 @@ public class RamShield : MonoBehaviour
             yield return null;
         }
 
+        if (DrillMode)
+        {
+            _drillPS.Stop();
+            _drillObject.SetActive(false);
+        }
         modColor.a = 0f;
         _shieldSpriteRenderer.color = modColor;
 

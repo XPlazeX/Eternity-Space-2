@@ -5,28 +5,37 @@ using System.Collections;
 
 public class CharacterLoader : MonoBehaviour
 {
+    public enum CharacterLoadType
+    {
+        NoneLoad = 0,
+        GameLoad = 1,
+        MissionMenuLoad = 2
+    }
+
     [SerializeField] private AssetReference[] _characters;
     [SerializeField] private bool _testMode;
     [SerializeField] private int _testID;
 
     private AsyncOperationHandle _characterOperationHandle;
 
-    public IEnumerator LoadingPlayerShip()
+    public Character ActiveCharacterSample {get; set;}
+
+    public IEnumerator LoadingPlayerShip(CharacterLoadType loadType = CharacterLoadType.GameLoad)
     {
         int id = GameSessionInfoHandler.GetSessionSave().ShipModel;
 
         if (_testMode)
             id = _testID;
 
-        Mission activeMission = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>()._activeMissionSample;
-
-        if (activeMission != null && activeMission.CustomShip != -1)
-            id = activeMission.CustomShip;
-
-        yield return StartCoroutine(LoadingCharacter(id));
+        yield return StartCoroutine(LoadingCharacter(id, loadType));
     }
 
-    public IEnumerator WritingShipHPData(int characterID)
+    public IEnumerator LoadingPlayerShip(int id, CharacterLoadType loadType = CharacterLoadType.GameLoad)
+    {
+        yield return StartCoroutine(LoadingCharacter(id, loadType));
+    }
+
+    public IEnumerator WritingShipHPData(int characterID, float hpPart = 1f)
     {
         if (_characterOperationHandle.IsValid())
         {
@@ -43,13 +52,13 @@ public class CharacterLoader : MonoBehaviour
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
 
         save.MaxHealth = hp;
-        save.HealthPoints = hp;
+        save.HealthPoints = Mathf.CeilToInt((float)hp * hpPart);
         Debug.Log($"written character hp: {hp}");
 
         GameSessionInfoHandler.RewriteSessionSave(save);
     }
 
-    private IEnumerator LoadingCharacter(int characterID)
+    private IEnumerator LoadingCharacter(int characterID, CharacterLoadType loadType = CharacterLoadType.GameLoad)
     {
         if (_characterOperationHandle.IsValid())
         {
@@ -61,20 +70,35 @@ public class CharacterLoader : MonoBehaviour
         _characterOperationHandle = Addressables.LoadAssetAsync<Character>(characterReference);
         yield return _characterOperationHandle;
 
-        LoadCharacter((Character)_characterOperationHandle.Result);
+        ActiveCharacterSample = (Character)_characterOperationHandle.Result;
+        Debug.Log($"Active char sample: {ActiveCharacterSample == null}");
+
+        if (loadType == CharacterLoadType.GameLoad)
+            LoadCharacter(ActiveCharacterSample);
+
+        else if (loadType == CharacterLoadType.MissionMenuLoad)
+            MissionMenuLoadCharacter(ActiveCharacterSample);
     }
 
     private void LoadCharacter(Character character)
     {
-        int id = 0;
-        if (Dev.RuStoreVersionSprites)
-            id = 1;
-        Player.Initialize(character.GetSkinnedShip(id));
+        // int id = 0;
+        // if (Dev.RuStoreVersionSprites)
+        //     id = 1;
+        Player.Initialize(character.GetSkinnedShip(Skins.SOCurrentSkin()), character.Class);
         SceneStatics.SceneCore.GetComponent<PlayerShipData>().Initialize(character.HP, character.ARM);
 
         for (int i = 0; i < character.HandingModules.Length; i++)
         {
             ModuleCore.SpawnModule(character.HandingModules[i]);
+        }
+    }
+
+    private void MissionMenuLoadCharacter(Character character)
+    {
+        for (int i = 0; i < character.HandingModules.Length; i++)
+        {
+            character.HandingModules[i].MissionMenuLoad();
         }
     }
 }

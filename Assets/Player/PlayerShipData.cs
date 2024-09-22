@@ -8,7 +8,9 @@ public class PlayerShipData : MonoBehaviour
     public static event playerAction PlayerDeath;
     public static event healthOperation TakeArmorDamage;
     public static event healthOperation TakeHealthDamage;
+    public static event healthOperation TakeAnyDamage;
     public static event healthOperation ChangeHealth;
+    public static event healthOperation ChangeArmor;
 
     public static int HitPoints 
     {
@@ -28,12 +30,13 @@ public class PlayerShipData : MonoBehaviour
         
         private set 
         {
-            if (!Armoring)
+            if (!Armoring && value >= _armorPoints)
                 return;
 
             _armorPoints = value;
             CheckState();
             _playerUI.ChangeARM(_armorPoints, (float)_armorPoints / _hpCap);
+            ChangeArmor?.Invoke(value);
         }
     }
     public static int ShieldPoints
@@ -51,6 +54,7 @@ public class PlayerShipData : MonoBehaviour
     public static bool Active {get; private set;} = false;
     public static bool Armoring {get; private set;} = true;
     public static bool CriticalState {get; private set;} = false;
+    public static int CriticalStateBorder => _criticalStateBorder;
     public static int MaxHP => _hpCap;
     public static bool OneShotProtection {get; private set;} = true;
     public static float GameTimerBuffer {get; private set;} = 0f;
@@ -68,10 +72,14 @@ public class PlayerShipData : MonoBehaviour
     {
         _playerUI = SceneStatics.UICore.GetComponent<PlayerUI>();
         _playerUI.ToggleShield(false);
+        ArmorPoints = 0;
 
+        Armoring = true;
         Invulnerable = false;
         Active = true;
         Hover = false;
+        _criticalStateBorder = 15;
+        OneShotProtection = true;
         GameTimerBuffer = 0f;
 
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
@@ -109,6 +117,13 @@ public class PlayerShipData : MonoBehaviour
         if ((damage <= 0) || (Invulnerable) || (SceneStatics.GameTimer - GameTimerBuffer < ShipStats.GetValue("UnvulnerableTimeAfterDamage")))
             return;
 
+        if (GameSessionInfoHandler.GetSessionSave().NoDamage)
+        {
+            GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+            save.NoDamage = false;
+            GameSessionInfoHandler.RewriteSessionSave(save);
+        }
+
         damage = Mathf.CeilToInt(ShipStats.GetValue("TakingDamageMultiplier") * damage);
         if (damage > ShipStats.GetIntValue("MaxDamageTaken"))
         {
@@ -118,6 +133,15 @@ public class PlayerShipData : MonoBehaviour
         GameTimerBuffer = SceneStatics.GameTimer;
 
         int tempDmg = damage - ShipStats.GetIntValue("BlockArmor");
+
+        if (tempDmg < 1)
+            tempDmg = 1;
+        else if (tempDmg >= 100)
+        {
+            Unlocks.NewUnlock(923);
+        }
+
+        TakeAnyDamage?.Invoke(tempDmg);
 
         if (ShieldPoints != 0)
         {
@@ -163,8 +187,22 @@ public class PlayerShipData : MonoBehaviour
         }
     }
 
+    public static void SetCriticalBorder(int newValue)
+    {
+        _criticalStateBorder = newValue;
+        SetHitPoints(HitPoints);
+    }
+
+    public static void ToggleOneShotProtection(bool tog)
+    {
+        OneShotProtection = tog;
+    }
+
     private static void SetHitPoints(int newValue)
     {
+        if (!Active)
+            return;
+            
         if (newValue > _hpCap)
             newValue = _hpCap;
 
@@ -204,6 +242,11 @@ public class PlayerShipData : MonoBehaviour
         ArmorPoints = 0;
     }
 
+    public static void BreakArmor()
+    {
+        ArmorPoints = 0;
+    }
+
     public static void RegenerateArmor(int addingValue)
     {
         ArmorPoints += addingValue;
@@ -214,14 +257,20 @@ public class PlayerShipData : MonoBehaviour
 
     public static void RegenerateHP(int addingValue)
     {
-        _playerUI.PlayRecuperation();
+        if (_playerUI != null)
+            _playerUI.PlayRecuperation();
 
         SetHitPoints(HitPoints + addingValue);
+
+        if (VictoryHandler.LevelVictoried)
+        {
+            WriteSaveData();
+        }
     }
 
     public static void ConsumeHP(int takingValue)
     {
-        _playerUI.PlayTakingDamage(1, 0);
+        //_playerUI.PlayTakingDamage(1, 0);
 
         SetHitPoints(HitPoints - takingValue);
     }
@@ -315,12 +364,14 @@ public class PlayerShipData : MonoBehaviour
 
     private static void Death()
     {
+        ReviveManager.TryRevive();
+
         DeactivateAllBindedSystems();
         PlayerDeath?.Invoke();
         SceneStatics.UICore.GetComponent<DeathUIHandler>().Death();
     }
 
-    private void WriteSaveData()
+    private static void WriteSaveData()
     {
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         save.HealthPoints = HitPoints;
@@ -348,6 +399,10 @@ public class PlayerShipData : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             TakeDamage(20);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            RegenerateArmor(10);
         }
     }
     #endif

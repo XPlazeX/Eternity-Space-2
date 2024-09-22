@@ -47,6 +47,7 @@ public class FieldAttackModule : MonoBehaviour
     [System.Serializable]
     public class FieldAttackObject
     {
+        [SerializeField] private float _foresight = 0f;
         [SerializeField] private int _cycles = 1;
         [SerializeField] private float _timeBetweenCycles;
         [SerializeField] private float _timeCooling = 0;
@@ -68,7 +69,7 @@ public class FieldAttackModule : MonoBehaviour
 
         public void Fire()
         {
-            SpawnBullets(Player.PlayerTransform.position);
+            SpawnBullets(Player.GetPlayerPosition(_foresight));
         }
 
         private void SpawnBullets(Vector3 position)

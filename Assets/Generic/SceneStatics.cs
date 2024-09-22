@@ -17,11 +17,22 @@ public class SceneStatics : MonoBehaviour
     public static GameObject AudioCore {get; private set;}
     public static Lab AngarLab {get; private set;}
 
+    public static Color ScoutColor => new Color(0.87f, 0.39f, 1f);
+    public static Color StormtrooperColor => new Color(1f, 0.82f, 0.3f);
+    public static Color FighterColor => new Color(0.39f, 1f, 0.49f);
+    public static Color BomberColor => new Color(1f, 0.39f, 0.39f);
+    public static Color ScientificColor => new Color(0.38f, 0.88f, 1f);
+    public static Color UniversalColor => new Color(0.7f, 0.7f, 0.7f);
+    public static Color UniqueColor => new Color(0.53f, 0.11f, 0.35f);
+
     public static float MultiplyByChaos (float input) => Random.Range(input - (input * ChaosMultiplier), input + (input * ChaosMultiplier));
     public static Vector2 FlatVector(Vector3 vec) => new Vector2(vec.x, vec.y);
 
     [SerializeField] private Gradient _healthGradient;
     public static Gradient HealthGradient = null;
+
+    [SerializeField] private Gradient _eliteHealthGradient;
+    public static Gradient EliteHealthGradient = null;
 
     [SerializeField] private Gradient _combineGradient;
     public static Gradient CombineGradient = null;
@@ -30,13 +41,45 @@ public class SceneStatics : MonoBehaviour
     {
         GameTimer = 0f;
         HealthGradient = _healthGradient;
+        EliteHealthGradient = _eliteHealthGradient;
         CombineGradient = _combineGradient;
+
         CoresInitialization();
     }
 
     private void Update()
     {
         GameTimer += Time.deltaTime;
+    }
+
+    public static Color GetClassColor(GearCompatibility.ShipClass shipClass)
+    {
+        switch (shipClass)
+        {
+            case GearCompatibility.ShipClass.Scout:
+                return ScoutColor;
+
+            case GearCompatibility.ShipClass.Stormtrooper:
+                return StormtrooperColor;
+
+            case GearCompatibility.ShipClass.Fighter:
+                return FighterColor;
+
+            case GearCompatibility.ShipClass.Bomber:
+                return BomberColor;
+
+            case GearCompatibility.ShipClass.Scientific:
+                return ScientificColor;
+
+            case GearCompatibility.ShipClass.Universal:
+                return UniversalColor;
+
+            case GearCompatibility.ShipClass.Unique:
+                return UniqueColor;
+            
+            default:
+                return Color.white;
+        }
     }
 
     private void CoresInitialization()
@@ -61,5 +104,10 @@ public class SceneStatics : MonoBehaviour
     private void OnDisable() {
         CoresLoaded = null;
         CoresFinded = false;
+    }
+
+    public static string PreferFloatView(float input, int accuracy = 2)
+    {
+        return (Mathf.Floor(input * (Mathf.Pow(10f, accuracy))) / (Mathf.Pow(10f, accuracy))).ToString().Replace(',', '.');
     }
 }

@@ -13,6 +13,10 @@ public class DroneScaler : MonoBehaviour
     [Header("Работает с EnemyAIRoot")]
     [SerializeField] private bool _scaleLocalMobility;
     [SerializeField] private float _mobilityBoostPerStep = 0.2f;
+    [Space()]
+    [Header("Работает с StaticBullet")]
+    [SerializeField] private bool _scaleStaticDamage;
+    [SerializeField] private float _staticDamageMultiplierPerStep = 0.4f;
 
     private void Start() 
     {
@@ -34,6 +38,11 @@ public class DroneScaler : MonoBehaviour
         if (_scaleLocalMobility)
         {
             GetComponent<EnemyAIRoot>().LocalMultiplyMobility(1f + (_mobilityBoostPerStep * boostMultiplier));
+        }
+
+        if (_scaleStaticDamage)
+        {
+            GetComponent<StaticBullet>().MultiplyDamage(1f + (_staticDamageMultiplierPerStep * boostMultiplier));
         }
     }
 

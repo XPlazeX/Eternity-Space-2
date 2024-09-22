@@ -28,7 +28,7 @@ public class PauseUIHandler : MonoBehaviour
 
         while (timer > 0)
         {
-            _countdownLabel.text = Mathf.CeilToInt(timer).ToString();
+            _countdownLabel.text = $"{(int)timer % 10}.{(int)(timer * 10) % 10}{(int)(timer * 100) % 10}";
             timer -= Time.unscaledDeltaTime;
 
             yield return null;

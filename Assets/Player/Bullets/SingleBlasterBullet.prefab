@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _damageValue: 8
-  _shieldDamageMultiplier: 1
+  _shieldDamageMultiplier: 1.5
   _asteroidDamageMultiplier: 1
   _otherDeathResource: 0
   _lifetime: 1.6

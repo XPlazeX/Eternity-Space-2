@@ -29,6 +29,18 @@ TextureImporter:
   - first:
       213: 5807951971337420102
     second: Bus_13
+  - first:
+      213: 3910133106316225177
+    second: Bus_14
+  - first:
+      213: -947438459055278874
+    second: Bus_15
+  - first:
+      213: -7361061914533581130
+    second: Bus_16
+  - first:
+      213: 2238621444147834464
+    second: Bus_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -463,6 +475,90 @@ TextureImporter:
       bones: []
       spriteID: 64db81ccb8df99050800000000000000
       internalID: 5807951971337420102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bus_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 50
+        width: 11
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a297ae755934630800000000000000
+      internalID: 3910133106316225177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bus_15
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 52
+        width: 9
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e47771cdb50ad2f0800000000000000
+      internalID: -947438459055278874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bus_16
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 53
+        width: 11
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bea196703148d990800000000000000
+      internalID: -7361061914533581130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bus_17
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 49
+        width: 11
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ee00db75e211f10800000000000000
+      internalID: 2238621444147834464
       vertices: []
       indices: 
       edges: []

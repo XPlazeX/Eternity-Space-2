@@ -8,6 +8,7 @@ public class Bullet : AttackObject
 
     public delegate void stateLife();
     public event stateLife Deathed;
+    public event stateLife Hitted;
 
     [SerializeField] private bool _otherDeathResource = false; // если истинно - подразумевается другой источник смерти, lifetime не применяется
     [SerializeField] private float _lifetime;
@@ -38,6 +39,7 @@ public class Bullet : AttackObject
     private float _startSpeed;
     private float _startAcceleration;
     private float _curPierces = 0;
+    protected bool _ignoreForce = false;
 
     private void Awake() {
         _trailRenderer = GetComponent<TrailRenderer>();
@@ -47,6 +49,8 @@ public class Bullet : AttackObject
             if (_explosionHandler == null)
                 SceneStatics.CoresLoaded += Initialize;
         }
+
+        _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
     }
 
     private void OnDestroy() {
@@ -61,16 +65,16 @@ public class Bullet : AttackObject
         _startAcceleration = _acceleration;
 
         _speed = _startSpeed;
-
-        _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
     }
 
-    private void FixedUpdate() 
+    private void Update() 
     {      
-        if (!(_accelerateToZero && (Mathf.Abs(_speed) < 0.1f)))
+        if (_accelerateToZero && (Mathf.Abs(_speed) < 0.01f * Mathf.Abs(Acceleration)))
+            _speed = 0f;
+        else
             _speed += Acceleration * Time.deltaTime;
 
-        transform.position += transform.up * _speed * Time.deltaTime;
+        transform.position += ((transform.up * _speed) + (_ignoreForce ? Vector3.zero : (PlayerController.DefaultForce))) * Time.deltaTime;
 
         if (_otherDeathResource)
             return;
@@ -101,7 +105,7 @@ public class Bullet : AttackObject
         if (KeyDamage == DamageKey.Enemy)
             _lifeTimer *= ShipStats.GetValue("PlayerShotLifetimeMultiplier");
 
-        _curPierces = Pierces + ShipStats.GetIntValue("PiercesBoost");
+        _curPierces = Pierces + ShipStats.GetIntValue("PiercesBoost", ShipStats.RoundMode.Floor);
 
         if (!_initialized)
             return;
@@ -119,6 +123,10 @@ public class Bullet : AttackObject
     public virtual void Parrying()
     {
         gameObject.SetActive(false);
+        if (_explosionHandler == null)
+        {
+            _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
+        }
         _explosionHandler.SpawnExplosion(transform.position, parryExplosionID);
     }
 
@@ -136,6 +144,8 @@ public class Bullet : AttackObject
     public virtual void Pierce(int times = 1)
     {
         _curPierces -= times;
+        Hitted?.Invoke();
+        
         if (_curPierces < 0)
             Death();
     }

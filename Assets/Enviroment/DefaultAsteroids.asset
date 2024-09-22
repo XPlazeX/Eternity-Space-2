@@ -15,6 +15,9 @@ MonoBehaviour:
   _environmentObjects:
   - _sample: {fileID: 3018917793387868234, guid: 38a229ba9bfb7a74e870425ee93d6105,
       type: 3}
+    _chance: 0.01
+  - _sample: {fileID: 3018917793387868234, guid: 38a229ba9bfb7a74e870425ee93d6105,
+      type: 3}
     _chance: 500
   - _sample: {fileID: 3018917793387868234, guid: 34752ff46a9ce9b46ac454d78b8218ef,
       type: 3}
@@ -95,3 +98,9 @@ MonoBehaviour:
   - _sample: {fileID: 5450146073535504596, guid: d5ca88df61edae04e97d8c13e2c8d7ce,
       type: 3}
     _chance: 0.01
+  - _sample: {fileID: 3018917793387868234, guid: 6318ed2f921d3ae42b4fec756b2cc0ec,
+      type: 3}
+    _chance: 2
+  - _sample: {fileID: 3018917793387868234, guid: 0b14917895fc6c44c97dac85c38ad002,
+      type: 3}
+    _chance: 2

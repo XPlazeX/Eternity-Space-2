@@ -10,7 +10,7 @@ public class RotateAroundAI : EnemyAIRoot
     private float _rotationDirection = -1f;
 
     protected override void Start() {
-        _emptyTarget = Instantiate(new GameObject(), _player.position + Vector3.up * (_closingDistance / Mobility), Quaternion.identity, _player).transform;
+        _emptyTarget = Instantiate(new GameObject(), _player.position + Vector3.up * (_closingDistance), Quaternion.identity, _player).transform;
         
         if (Random.Range(0, 2) == 1)
             _rotationDirection = 1f;

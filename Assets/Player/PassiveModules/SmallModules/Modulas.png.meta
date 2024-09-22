@@ -128,6 +128,171 @@ TextureImporter:
   - first:
       213: -2216490386127411780
     second: Modulas_41
+  - first:
+      213: -4694520748145277773
+    second: Modulas_42
+  - first:
+      213: -7456308299766755963
+    second: Modulas_43
+  - first:
+      213: 7671146549307363630
+    second: Modulas_44
+  - first:
+      213: -8767747771272889471
+    second: Modulas_45
+  - first:
+      213: 2341458023180977524
+    second: Modulas_46
+  - first:
+      213: -6286730174482620353
+    second: Modulas_47
+  - first:
+      213: -6999685460105605254
+    second: Modulas_48
+  - first:
+      213: -4926216789224947140
+    second: Modulas_49
+  - first:
+      213: -2465490547210910336
+    second: Modulas_50
+  - first:
+      213: -2697051486107901474
+    second: Modulas_51
+  - first:
+      213: 3182899555715057722
+    second: Modulas_52
+  - first:
+      213: -9009654835890688079
+    second: Modulas_53
+  - first:
+      213: 4003176489208277059
+    second: Modulas_54
+  - first:
+      213: 3533636177874472454
+    second: Modulas_55
+  - first:
+      213: 7583056593389033771
+    second: Modulas_56
+  - first:
+      213: 6007845203781265403
+    second: Modulas_57
+  - first:
+      213: -9011237718387181985
+    second: Modulas_58
+  - first:
+      213: -2449297595632078617
+    second: Modulas_59
+  - first:
+      213: 6316984991569596155
+    second: Modulas_60
+  - first:
+      213: 4935016333403136896
+    second: Modulas_61
+  - first:
+      213: 3195142790472975193
+    second: Modulas_62
+  - first:
+      213: -4965150953101515848
+    second: Modulas_63
+  - first:
+      213: -387030083372111617
+    second: Modulas_64
+  - first:
+      213: -3286699915468486421
+    second: Modulas_65
+  - first:
+      213: -3945041685880999870
+    second: Modulas_66
+  - first:
+      213: -4157929502608618113
+    second: Modulas_67
+  - first:
+      213: -8042902019690920503
+    second: Modulas_68
+  - first:
+      213: -265763681247994349
+    second: Modulas_69
+  - first:
+      213: 7747018410524335362
+    second: Modulas_70
+  - first:
+      213: -5602074835142964409
+    second: Modulas_71
+  - first:
+      213: -6985168593315939648
+    second: Modulas_72
+  - first:
+      213: -8482344806430735785
+    second: Modulas_73
+  - first:
+      213: 6274793770559598965
+    second: Modulas_74
+  - first:
+      213: 1585997138535321664
+    second: Modulas_75
+  - first:
+      213: 2992302194975070665
+    second: Modulas_76
+  - first:
+      213: -5330020357552321589
+    second: Modulas_77
+  - first:
+      213: 5779754845883803279
+    second: Modulas_78
+  - first:
+      213: -5044322530430915383
+    second: Modulas_79
+  - first:
+      213: -6959942850481055727
+    second: Modulas_80
+  - first:
+      213: 5810565362257694513
+    second: Modulas_81
+  - first:
+      213: 333746847313038028
+    second: Modulas_82
+  - first:
+      213: -5076832928907939232
+    second: Modulas_83
+  - first:
+      213: 3891983510430241320
+    second: Modulas_84
+  - first:
+      213: 3583936168680040780
+    second: Modulas_85
+  - first:
+      213: -562392105161729453
+    second: Modulas_86
+  - first:
+      213: 6787500100286687185
+    second: Modulas_87
+  - first:
+      213: -6937443992201184903
+    second: Modulas_88
+  - first:
+      213: -4269530012425691479
+    second: Modulas_89
+  - first:
+      213: 3164138838659217986
+    second: Modulas_90
+  - first:
+      213: -5364343158467559209
+    second: Modulas_91
+  - first:
+      213: 3757786075582617735
+    second: Modulas_92
+  - first:
+      213: 2230597204663853176
+    second: Modulas_93
+  - first:
+      213: -2533468900247392296
+    second: Modulas_94
+  - first:
+      213: -1162098817296594263
+    second: Modulas_95
+  - first:
+      213: 5591198252088994059
+    second: Modulas_96
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -187,7 +352,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -199,7 +364,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -211,7 +376,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -1102,6 +1267,1161 @@ TextureImporter:
       bones: []
       spriteID: cb5aecebcb17d31e0800000000000000
       internalID: -2216490386127411780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_42
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 151
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b489109046b9deb0800000000000000
+      internalID: -4694520748145277773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_43
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 151
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d0b984b1fd58890800000000000000
+      internalID: -7456308299766755963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_44
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 151
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21dd63a423657a60800000000000000
+      internalID: 7671146549307363630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_45
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 151
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b7e050bd3b25680800000000000000
+      internalID: -8767747771272889471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_46
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 151
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475c030aaa78e7020800000000000000
+      internalID: 2341458023180977524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_47
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 151
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30eb3ff63c01c8a0800000000000000
+      internalID: -6286730174482620353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_48
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 126
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f40f2f82f1cde90800000000000000
+      internalID: -6999685460105605254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_49
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 126
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c328eaf2eef82abb0800000000000000
+      internalID: -4926216789224947140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_50
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 126
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0850968f861d8cdd0800000000000000
+      internalID: -2465490547210910336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_51
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 126
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1699586f5229ad0800000000000000
+      internalID: -2697051486107901474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_52
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 126
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38052e384eeb2c20800000000000000
+      internalID: 3182899555715057722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_53
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 126
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfead579a647f280800000000000000
+      internalID: -9009654835890688079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_54
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3486474aec32e8730800000000000000
+      internalID: 4003176489208277059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_55
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e4dabb16ff90130800000000000000
+      internalID: 3533636177874472454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_56
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2913a08bcd6c3960800000000000000
+      internalID: 7583056593389033771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_57
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7aae4c167206350800000000000000
+      internalID: 6007845203781265403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_58
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f563ee8e907a1f280800000000000000
+      internalID: -9011237718387181985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_59
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0b12f40d8520ed0800000000000000
+      internalID: -2449297595632078617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_60
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 76
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfecaf981607aa750800000000000000
+      internalID: 6316984991569596155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_61
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 76
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083ae395533bc7440800000000000000
+      internalID: 4935016333403136896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_62
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 76
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953cac8707d675c20800000000000000
+      internalID: 3195142790472975193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_63
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 76
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b32130c38d381bb0800000000000000
+      internalID: -4965150953101515848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_64
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 76
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff82733903ef0aaf0800000000000000
+      internalID: -387030083372111617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_65
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 76
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8c13f27db4362d0800000000000000
+      internalID: -3286699915468486421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_66
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 51
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24074f80d756049c0800000000000000
+      internalID: -3945041685880999870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_67
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 51
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7d85e3a5211c46c0800000000000000
+      internalID: -4157929502608618113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_68
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 51
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c50d09e93fd16090800000000000000
+      internalID: -8042902019690920503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_69
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 51
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e53090751df4cf0800000000000000
+      internalID: -265763681247994349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_70
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 51
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20dd6bbe230f28b60800000000000000
+      internalID: 7747018410524335362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_71
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 51
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b06265e9e6142b0800000000000000
+      internalID: -5602074835142964409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_72
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 26
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca30336c22bf0f90800000000000000
+      internalID: -6985168593315939648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_73
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 26
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75201560758a84a80800000000000000
+      internalID: -8482344806430735785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_74
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 26
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571f90560bb841750800000000000000
+      internalID: 6274793770559598965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_75
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 26
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0401f299ef7920610800000000000000
+      internalID: 1585997138535321664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_76
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 26
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c95c101efac68920800000000000000
+      internalID: 2992302194975070665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_77
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 26
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb4e7679b6f706b0800000000000000
+      internalID: -5330020357552321589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f862fbde860d53050800000000000000
+      internalID: 5779754845883803279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_79
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc6a217267fef9b0800000000000000
+      internalID: -5044322530430915383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_80
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1189e045ad0596f90800000000000000
+      internalID: -6959942850481055727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_81
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f0f89496643a050800000000000000
+      internalID: 5810565362257694513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_82
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca00074df4b1a400800000000000000
+      internalID: 333746847313038028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_83
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 062bf6079577b89b0800000000000000
+      internalID: -5076832928907939232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_84
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8225fd2d16a130630800000000000000
+      internalID: 3891983510430241320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_85
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4929d7f4f2bcb130800000000000000
+      internalID: 3583936168680040780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_86
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ad95b2c5bf138f0800000000000000
+      internalID: -562392105161729453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_87
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d72486216b023e50800000000000000
+      internalID: 6787500100286687185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_88
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9793eabf17f39bf90800000000000000
+      internalID: -6937443992201184903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_89
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae5f7b13159fb4c0800000000000000
+      internalID: -4269530012425691479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_90
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24abc4a628749eb20800000000000000
+      internalID: 3164138838659217986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_91
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 1
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d08e32a1560e85b0800000000000000
+      internalID: -5364343158467559209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_92
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788d201b686562430800000000000000
+      internalID: 3757786075582617735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_93
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870e7f4e65ca4fe10800000000000000
+      internalID: 2230597204663853176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_94
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df2147457f47dcd0800000000000000
+      internalID: -2533468900247392296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_95
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa822168456fdfe0800000000000000
+      internalID: -1162098817296594263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modulas_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09ac84df2de79d40800000000000000
+      internalID: 5591198252088994059
       vertices: []
       indices: 
       edges: []

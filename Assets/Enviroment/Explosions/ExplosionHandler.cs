@@ -21,7 +21,6 @@ public class ExplosionHandler : MonoBehaviour
         if (explosionObject == null)
             return;
         explosionObject.transform.position = position;
-        
     }
 
     public GameObject InstantiateExplosion(Vector3 position, int type)
@@ -85,6 +84,7 @@ public class ExplosionHandler : MonoBehaviour
 
         Codes[id] = ExplosionPools.Count;
         Explosion exp = (Explosion)explosionRequest.asset;
+        exp.transform.localScale *= (1f / ShipStats.GetValue("Pressure"));
 
         ExplosionPools.Add(new PullForObjects(exp));
 

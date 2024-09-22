@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 30
+  _foresight: 0
   _targetTag: Enemy
 --- !u!1 &9069206062416828815
 GameObject:
@@ -203,11 +204,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scaleLocalAggro: 1
-  _aggroBoostPerStep: 0.2
+  _aggroBoostPerStep: 0.1
   _scaleHP: 0
   _hpNormalizedBoostPerStep: 0.3
   _scaleLocalMobility: 0
   _mobilityBoostPerStep: 0.2
+  _scaleStaticDamage: 0
+  _staticDamageMultiplierPerStep: 0.4
 --- !u!114 &9117154736942138863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,12 +233,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _foresight: 0
   _offset: {x: 0, y: -1, z: 0}
   _autoTargetPlayer: 1
   _noiseOffset: 0
+  _copyTargetRotation: 1
   _retreating: 0
   _retreatTime: 0
   _retreatOffsetXY: {x: 0, y: 0}
+  _useLatitude: 0
 --- !u!50 &9069206062416828809
 Rigidbody2D:
   serializedVersion: 4
@@ -328,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitTime: 2.5
+  _waitTime: 10
   _attackReload: 2
   _attackObjects:
   - _cycles: 1
@@ -342,7 +348,6 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
-    _soundOnFireID: 1
   _autoStart: 1
 --- !u!114 &227236984484064984
 MonoBehaviour:
@@ -358,6 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
   _selfLoadOnStart: 1
+  _ifThisAlive: 0
   _gainRange: {x: 0, y: 0}
   _useArray: 1
   _gainVariants: 05000000

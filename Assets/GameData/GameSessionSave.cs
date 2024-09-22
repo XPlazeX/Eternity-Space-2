@@ -9,6 +9,7 @@ public class GameSessionSave
     public bool SessionInitialized {get; private set;} = false;
     public int GameMode {get; set;} = 0;
     public int Seed {get; private set;}
+    public bool NoDamage {get; set;} = true;
     
     public int LocationID {get; set;} = 0;
     public string LocalizedLocationName {get; set;} = "Null-0";
@@ -21,13 +22,20 @@ public class GameSessionSave
     public int WeightSelectorID {get; set;} = 1;
     public bool EnterNewLevel {get; private set;} = true;
 
+    public bool VectorError {get; set;} = false;
+
     public int ShipModel {get; set;} = 0;
     public string WeaponModel {get; set;} = default_weapon;
     public string DeviceModel {get; set;} = default_device;
     public int WeaponLevel {get; set;} = 0;
+    public int CoreModel {get; set;} = 0;
+    public int AbilityID {get; set;} = 0;
 
     public int MaxHealth {get; set;} = 66;
     public int HealthPoints {get; set;} = 66;
+
+    public float Megawatts {get; set;} = 1.4f;
+    public float MaxMegawatts {get; set;} = 4.4f;
 
     public int MoneyPerLevel {get; set;} = 100;
     public int HealsCount {get; set;} = 0;
@@ -50,6 +58,7 @@ public class GameSessionSave
         GameMode = gameMode;
 
         BeaconBG = -1;
+        SessionInitialized = false;
         BeaconColorValue = UnityEngine.Random.value;
         BeaconFlipState = UnityEngine.Random.Range(0, 4);
     }

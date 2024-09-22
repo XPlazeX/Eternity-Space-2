@@ -107,6 +107,7 @@ MonoBehaviour:
   _startShieldPoints: 0
   _lifetime: 2.5
   _minMaxSpeed: {x: 8, y: 12}
+  _explodeOnTimer: 0
 --- !u!96 &8354922504341434384
 TrailRenderer:
   serializedVersion: 2

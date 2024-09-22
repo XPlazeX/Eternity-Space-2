@@ -169,6 +169,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _foresight: 0
   _offsetDistance: 4
   _timeToReloadCirclePoint: 4
   _autoTargetPlayer: 1
@@ -198,7 +199,7 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 15
     _randomizingBulletSpeed: 0.3
-    _soundOnFireID: 1
+  _autoStart: 1
 --- !u!114 &9069206062416828808
 MonoBehaviour:
   m_ObjectHideFlags: 0

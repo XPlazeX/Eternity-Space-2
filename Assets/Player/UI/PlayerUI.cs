@@ -8,13 +8,14 @@ public class PlayerUI: MonoBehaviour
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _armorBar;
     [SerializeField] private GameObject _shieldObject;
-    [SerializeField] private Text _healthLabel;
+    //[SerializeField] private Text _healthLabel;
     [SerializeField] private Text _armorLabel;
     [SerializeField] private Text _shieldLabel;
     [Header("Animations")]
     [SerializeField] private Animator[] _damageTakenAnimators; 
     [SerializeField] private Animator _effectAnimator;
     [SerializeField] private Animator _stateAnimator;
+    [SerializeField] private Animator _abilityAnimator;
     [Space()]
     [SerializeField] private Color _mainColor;
     [SerializeField] private Color[] _effectColors = new Color[6];
@@ -38,7 +39,7 @@ public class PlayerUI: MonoBehaviour
     public void ChangeHP(int nowHP, float partMax)
     {
         _healthBar.fillAmount = partMax;
-        _healthLabel.text = nowHP.ToString() + " / " + MaxHP.ToString();
+        //_healthLabel.text = nowHP.ToString() + " / " + MaxHP.ToString();
     }
 
     public void ChangeARM(int nowArm, float partHP)
@@ -89,6 +90,13 @@ public class PlayerUI: MonoBehaviour
         _effectAnimator.GetComponent<Image>().color = _effectColors[(int)effect];
         _effectAnimator.speed = 1f / durationMultiplier;
         _effectAnimator.SetTrigger("TriggerEffect");
+    }
+
+    public void PlayAbility(Color color, float durationMultiplier = 1f)
+    {
+        _abilityAnimator.GetComponent<Image>().color = color;
+        _abilityAnimator.speed = 1f / durationMultiplier;
+        _abilityAnimator.SetTrigger("Use");
     }
 
     public void SetCriticalState(bool tog) => _stateAnimator.SetBool("CriticalState", tog);

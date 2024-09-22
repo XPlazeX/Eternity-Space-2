@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionCode: 4
+  _mute: 1
   _modParams: 1
   _color: {r: 0.98823535, g: 0.5803922, b: 0.050980397, a: 1}
   _scale: 0.5

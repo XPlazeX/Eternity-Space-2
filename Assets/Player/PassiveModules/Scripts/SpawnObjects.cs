@@ -5,6 +5,8 @@ public class SpawnObjects : Module
     [SerializeField] private GameObject[] _spawningObjects;
     [SerializeField] private bool _onPlayerPosition;
     [SerializeField] private bool _randomPosition;
+    [SerializeField] private Vector3 _spawnPosition;
+    [SerializeField] private float _spawnRotation = 0f;
     [SerializeField] private float _randomMinDistanceToPlayer = 0f;
     [SerializeField] private bool _bindToPlayer;
 
@@ -18,6 +20,12 @@ public class SpawnObjects : Module
                 obj.position = Player.PlayerTransform.position;
             else if (_randomPosition)
                 obj.position = CameraController.GetRandomFieldPosition(_randomMinDistanceToPlayer);
+            else
+            {
+                obj.position = _spawnPosition;
+            }
+
+            obj.eulerAngles = new Vector3(0f, 0f, _spawnRotation);
 
             if (_bindToPlayer)
                 obj.SetParent(Player.PlayerTransform);

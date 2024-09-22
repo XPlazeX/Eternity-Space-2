@@ -105,10 +105,13 @@ MonoBehaviour:
   - {fileID: 4015147023397590334}
   _animationTime: 0.4
   _explosionPower: 0
+  _explosionDelay: 0
   _sound:
     _clip: {fileID: 8300000, guid: 99483375ddbc9a3429cebd22ebbd9e66, type: 3}
     _volume: 0.625
     _pitchRandomizing: 0
+  _togglingColliders: []
+  _colliderEnableDelay: 0
 --- !u!114 &162937435172135937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _damageValue: 30
+  _damageValue: 15
+  _hoverable: 0
 --- !u!50 &2997197942480615223
 Rigidbody2D:
   serializedVersion: 4
@@ -359,6 +363,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _scaleMultiplier: 1
+  _autoStart: 0
+  _selfAnimationTime: 0
 --- !u!1 &5856947695448713883
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +518,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _scaleMultiplier: 2.75
+  _autoStart: 0
+  _selfAnimationTime: 0
 --- !u!114 &2311686549196482121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _damageValue: 10
+  _hoverable: 0
 --- !u!58 &2396778708259589626
 CircleCollider2D:
   m_ObjectHideFlags: 0

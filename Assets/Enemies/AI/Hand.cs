@@ -15,14 +15,18 @@ public class Hand : MonoBehaviour
     [SerializeField] private Transform _palmDown;
     [SerializeField] private bool _rightOrientation;
     [SerializeField] private bool _alwaysOrientation = false;
+    [SerializeField] private bool _palmAlwaysDirection;
 
     private Transform _palmUpCash;
     private Transform _palmDownCash;
     private bool transformed;
+    private Vector3 _palmTop;
 
     private void Awake() {
         if (_body == null)
             _body = transform;
+        if (_palmAlwaysDirection)
+            _palmTop = _palm.up;
         StartCoroutine(HandBending());
     }
 
@@ -84,6 +88,9 @@ public class Hand : MonoBehaviour
 
             _armParts[0].up = _shoulder.position - _body.position;
             _armParts[1].up = _palm.position - _shoulder.position;
+
+            if (_palmAlwaysDirection)
+                _palm.up = _palmTop;
             
             yield return new WaitForFixedUpdate();
         }

@@ -8,6 +8,7 @@ public class ObjectEvolver : MonoBehaviour
     [SerializeField] private float _enforceDelay = 1f;
     [SerializeField] private string _keyName;
     [SerializeField] private GameObject[] _scalingGameObjects;
+    [SerializeField] private bool _bindToPlayer;
 
     private static Dictionary<string, int> EvolvingObjects = new Dictionary<string, int>();
 
@@ -29,6 +30,16 @@ public class ObjectEvolver : MonoBehaviour
         if (stage >= _scalingGameObjects.Length)
             stage = _scalingGameObjects.Length - 1;
 
-        Instantiate(_scalingGameObjects[stage], Player.PlayerTransform.position, Quaternion.identity);
+        if (_scalingGameObjects[stage] == null)
+            yield break;
+
+        Transform t = Instantiate(_scalingGameObjects[stage], Player.PlayerTransform.position, Quaternion.identity).transform;
+
+        if (_bindToPlayer)
+            t.SetParent(Player.PlayerTransform);
+    }
+
+    private void OnDisable() {
+        EvolvingObjects.Clear();
     }
 }

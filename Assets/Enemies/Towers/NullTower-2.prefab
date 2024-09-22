@@ -178,7 +178,6 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
-    _soundOnFireID: 1
   - _cycles: 1
     _timeBetweenCycles: 0
     _timeCooling: 0
@@ -191,7 +190,7 @@ MonoBehaviour:
     _fixedAngleStep: 0
     _randomAngleStep: 0
     _randomizingBulletSpeed: 0
-    _soundOnFireID: 1
+  _autoStart: 1
 --- !u!114 &5100323556144023557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 0.25
+  _foresight: 0
 --- !u!114 &6619665749500961845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 150
   _startShieldPoints: 0
+  _flatArmor: 2
 --- !u!114 &164817942640985872
 MonoBehaviour:
   m_ObjectHideFlags: 0

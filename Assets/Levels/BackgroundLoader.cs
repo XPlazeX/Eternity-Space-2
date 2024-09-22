@@ -11,8 +11,8 @@ public class BackgroundLoader
 
     [Header("Нормальный размер 8.75 на 5")]
     [SerializeField] private bool _beaconBG = false;
-    [SerializeField][Range(0f, 4f)] private float _cameraBordersSizeXMultiplier = 1f;
-    [SerializeField][Range(0f, 4f)] private float _cameraBordersSizeYMultiplier = 1f;
+    [SerializeField][Range(0f, 5f)] private float _cameraBordersSizeXMultiplier = 1f;
+    [SerializeField][Range(0f, 7f)] private float _cameraBordersSizeYMultiplier = 1f;
     [Space()]
     [SerializeField] private BackgroundObject[] _backgroundObjects;
     [Space()]
@@ -189,13 +189,15 @@ public class BackgroundLoader
 
     private void PreparePS()
     {
-        GameObject.FindWithTag("Dust").GetComponent<Transform>().localScale = new Vector3(
-            (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX,
-            (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY, 1f);
+        // GameObject.FindWithTag("Dust").GetComponent<Transform>().localScale = new Vector3(
+        //     (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX,
+        //     (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY, 1f);
 
-        GameObject.FindWithTag("Fog").GetComponent<Transform>().localScale = new Vector3(
-            (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX,
-            (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY, 1f);
+        // GameObject.FindWithTag("Fog").GetComponent<Transform>().localScale = new Vector3(
+        //     (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX,
+        //     (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY, 1f);
+        float sizeMultX = (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX;
+        float sizeMultY = (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY;
 
         ParticleSystem ps = GameObject.FindWithTag("Dust").GetComponent<ParticleSystem>();
         var col = ps.colorOverLifetime;
@@ -206,6 +208,7 @@ public class BackgroundLoader
         vel.speedModifier = _windSpeed;
         var shape = ps.shape;
         shape.position = new Vector3(0f, 5f + (5f * _windSpeed), 0f);
+        shape.scale = new Vector3(shape.scale.x * sizeMultX, shape.scale.y * sizeMultY, shape.scale.z); 
 
         ps = GameObject.FindWithTag("Fog").GetComponent<ParticleSystem>();
         col = ps.colorOverLifetime;
@@ -216,6 +219,7 @@ public class BackgroundLoader
         vel.speedModifier = _windSpeed;
         shape = ps.shape;
         shape.position = new Vector3(0f, 5f + (7f * _windSpeed), 0f);
+        shape.scale = new Vector3(shape.scale.x * sizeMultX, shape.scale.y * sizeMultY, shape.scale.z); 
     }
 }
 

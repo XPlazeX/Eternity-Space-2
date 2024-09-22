@@ -12,6 +12,7 @@ public class Doc : MonoBehaviour
     [SerializeField] private Transform _targetUncatch;
     [SerializeField] private float _catchSpeed;
     [SerializeField] private float _flySpeed;
+    [SerializeField] private MonoBehaviour[] _disablingAfterCatchComponents;
 
     private bool _tiggered = false;
     private int startSortingLayerID = 0;
@@ -53,14 +54,14 @@ public class Doc : MonoBehaviour
 
         while ((_palmCatch.position - player.position).magnitude > 0.03f)
         {
-            _palmCatch.Translate((player.position - _palmCatch.position) * _catchSpeed * Time.deltaTime);
+            _palmCatch.transform.position += ((player.position - _palmCatch.position) * _catchSpeed * Time.deltaTime);
             
             yield return new WaitForFixedUpdate();
         }
 
         while ((_targetCatch.position - player.position).magnitude > 0.03f)
         {
-            player.Translate((_targetCatch.position - player.position) * _catchSpeed * Time.deltaTime);
+            player.position += ((_targetCatch.position - player.position) * _catchSpeed * Time.deltaTime);
             _palmCatch.position = player.position;
             
             yield return new WaitForFixedUpdate();
@@ -117,6 +118,11 @@ public class Doc : MonoBehaviour
         spriteRenderer.sortingOrder = startOrderInLayer;
 
         player.GetComponent<Collider2D>().enabled = true;
+
+        for (int i = 0; i < _disablingAfterCatchComponents.Length; i++)
+        {
+            _disablingAfterCatchComponents[i].enabled = false;
+        }
 
         while ((_palmCatch.position - _targetCatch.position).magnitude > 0.03f)
         {

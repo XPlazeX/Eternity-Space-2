@@ -2,8 +2,8 @@
 
 public class RamAI : EnemyAIRoot
 {
-    [SerializeField] private float _ramDistance;
-    [SerializeField] private float _ramReload;
+    [SerializeField] protected float _ramDistance;
+    [SerializeField] protected float _ramReload;
 
     private float _passedWay = 0f;
     private float _distance = 0f;
@@ -18,7 +18,7 @@ public class RamAI : EnemyAIRoot
         base.Start();
     }
 
-    private void SetTarget()
+    protected virtual void SetTarget()
     {
         _targetPosition = ((_player.position - transform.position).normalized * _ramDistance * Mobility) + transform.position;
 

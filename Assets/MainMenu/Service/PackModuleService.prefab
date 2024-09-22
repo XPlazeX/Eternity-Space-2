@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 3514555756822843212}
   - component: {fileID: 3514555756822843315}
   - component: {fileID: 7599863071385695259}
+  - component: {fileID: 285472785506161466}
   m_Layer: 5
   m_Name: PackModuleService
   m_TagString: Untagged
@@ -133,9 +134,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1037.5}
-  m_SizeDelta: {x: 0, y: 330}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 399, y: -1037.5}
+  m_SizeDelta: {x: 798, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3514555756822843212
 CanvasRenderer:
@@ -192,6 +193,11 @@ MonoBehaviour:
   _description: {fileID: 3514555757517863950}
   _buyBtn: {fileID: 3514555757477135681}
   _heightStep: 330
+  _widthStep: 798
+  _soundAsquire:
+    _clip: {fileID: 8300000, guid: cafcd84261a36084f883ca2d92913e4b, type: 3}
+    _volume: 0
+    _pitchRandomizing: 0
   _contagionLevel: 0
   _sale: 0
   _useConstantLevelEvent: 0
@@ -199,6 +205,27 @@ MonoBehaviour:
     moduleOperandID: 0
     auritePrice: 0
     requiredUnlocks: []
+--- !u!114 &285472785506161466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514555756822843312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889724c455b4e2c47ada8ff0831475a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogs:
+  - unlockRequires: []
+    uniqueDialog: 1
+    writtenUnlockID: 409
+    dialogFilename: Events-PackMontage
+    delay: 2
+  _randomize: 0
+  _autoStart: 0
+  _safeParry: 0
 --- !u!1 &3514555756872205889
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +574,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 285472785506161466}
+        m_MethodName: TriTriggerFirst
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _failedBuyEvent:
     m_PersistentCalls:
       m_Calls:
@@ -700,15 +738,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10588236, g: 0.12941177, b: 0.19215688, a: 1}
+  m_Color: {r: 0.21568629, g: 0.25882354, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a4ba46632ba129045bb7f67b589fb911, type: 3}
-    m_FontSize: 44
+    m_Font: {fileID: 12800000, guid: 080e7e6d1c8526e4e8c5e7a8b5ec6092, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -853,15 +891,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10588236, g: 0.12941177, b: 0.19215688, a: 1}
+  m_Color: {r: 0.21568629, g: 0.25882354, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a4ba46632ba129045bb7f67b589fb911, type: 3}
-    m_FontSize: 44
+    m_Font: {fileID: 12800000, guid: 080e7e6d1c8526e4e8c5e7a8b5ec6092, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3

@@ -60,7 +60,8 @@ public class PullForObjects
     {
         for (int i = 0; i < Pool.Count; i++)
         {
-            MonoBehaviour.Destroy(Pool[i].gameObject);
+            if (Pool[i] != null)
+                MonoBehaviour.Destroy(Pool[i].gameObject);
         }
         Pool.Clear();
     }

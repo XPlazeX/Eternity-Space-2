@@ -11,8 +11,10 @@ public class ApporachingHoming : MonoBehaviour
     private IEnumerator _homingCoroutine;
 
     private bool _workable;
+    private float _homingMultiplier = 1f;
 
     private void OnEnable() {
+        _homingMultiplier = ShipStats.GetValue("HomingEfficiencyMultiplier");
         _workable = true;
     }
 
@@ -46,7 +48,7 @@ public class ApporachingHoming : MonoBehaviour
     {
         while (target != null)
         {
-            _rotatingTransform.up = Vector3.RotateTowards(_rotatingTransform.up, target.position - _rotatingTransform.position, _powerHoming * Time.deltaTime, 0f);
+            _rotatingTransform.up = SceneStatics.FlatVector(Vector3.RotateTowards(_rotatingTransform.up, target.position - _rotatingTransform.position, _powerHoming * Time.deltaTime * _homingMultiplier, 0f));
 
             yield return new WaitForFixedUpdate();
         }

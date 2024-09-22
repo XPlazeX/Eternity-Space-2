@@ -11,6 +11,21 @@ TextureImporter:
   - first:
       213: -7200481089983285420
     second: MMAddon_9
+  - first:
+      213: -4919675073961549249
+    second: MMAddon_10
+  - first:
+      213: 3050638980159407814
+    second: MMAddon_11
+  - first:
+      213: 4486193547449430328
+    second: MMAddon_12
+  - first:
+      213: -6727339529878350218
+    second: MMAddon_13
+  - first:
+      213: -480062353886845355
+    second: MMAddon_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -207,7 +222,7 @@ TextureImporter:
       name: MMAddon_4
       rect:
         serializedVersion: 2
-        x: 51
+        x: 54
         y: 40
         width: 23
         height: 23
@@ -228,7 +243,7 @@ TextureImporter:
       name: MMAddon_5
       rect:
         serializedVersion: 2
-        x: 75
+        x: 78
         y: 48
         width: 15
         height: 15
@@ -249,7 +264,7 @@ TextureImporter:
       name: MMAddon_6
       rect:
         serializedVersion: 2
-        x: 91
+        x: 94
         y: 48
         width: 15
         height: 15
@@ -272,11 +287,11 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
+        width: 26
         height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 27, z: 12, w: 6}
+      border: {x: 12, y: 31, z: 13, w: 10}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -291,13 +306,13 @@ TextureImporter:
       name: MMAddon_8
       rect:
         serializedVersion: 2
-        x: 25
+        x: 27
         y: 0
-        width: 24
+        width: 26
         height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 27, z: 12, w: 6}
+      border: {x: 12, y: 31, z: 13, w: 10}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -312,7 +327,7 @@ TextureImporter:
       name: MMAddon_9
       rect:
         serializedVersion: 2
-        x: 51
+        x: 54
         y: 16
         width: 23
         height: 23
@@ -325,6 +340,111 @@ TextureImporter:
       bones: []
       spriteID: 457f0a33990c21c90800000000000000
       internalID: -7200481089983285420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MMAddon_10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 6
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32ad26f59dc9bbb0800000000000000
+      internalID: -4919675073961549249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MMAddon_11
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 32
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c68c5e4dfb065a20800000000000000
+      internalID: 3050638980159407814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MMAddon_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 46
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8317f553349224e30800000000000000
+      internalID: 4486193547449430328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MMAddon_13
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 35
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676582e2750b3a2a0800000000000000
+      internalID: -6727339529878350218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MMAddon_14
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 22
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 556698625d97659f0800000000000000
+      internalID: -480062353886845355
       vertices: []
       indices: 
       edges: []

@@ -12,7 +12,7 @@ public class StatPickup : Pickup
             _modifiers[i].Enforce();
         }
         
-        GameObject.FindWithTag("BetweenScenes").GetComponent<TimedDelegator>().FuseAction(NegativeEffect, _effectDuration);
+        GameObject.FindWithTag("BetweenScenes").GetComponent<TimedDelegator>().FuseAction(NegativeEffect, _effectDuration + (string.IsNullOrEmpty(_timeScaleByStat) ? 0f : ShipStats.GetValue(_timeScaleByStat)));
 
         base.Picked();
     }

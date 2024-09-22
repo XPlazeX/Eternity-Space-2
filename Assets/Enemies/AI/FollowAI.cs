@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FollowAI : EnemyAIRoot
 {
+    [SerializeField] private bool _useRetargeting = true;
     [SerializeField] private float _retargetDelay;
     [SerializeField] private float _retargetTime;
 
@@ -29,7 +30,12 @@ public class FollowAI : EnemyAIRoot
         if (!_retargeting)
         {
             _targetPosition = _player.position;
-            transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
+            if ((transform.position - _targetPosition).magnitude > 0.3f)
+                transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
+            }
         } else 
         {
             transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
@@ -37,7 +43,7 @@ public class FollowAI : EnemyAIRoot
 
         _timer -= Time.deltaTime;
 
-        if (_timer < 0f)
+        if (_timer < 0f && _useRetargeting)
         {
             _retargeting = !_retargeting;
             _timer = SceneStatics.MultiplyByChaos((_retargetDelay / Mobility));

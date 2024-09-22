@@ -45,12 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 14
   _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
   _levelCount: 2
+  _bonusModuleChoice: 0
   _startAurite: 200
   _auritePerLevel: 80
   _minMaxCosmilite: {x: 15, y: 40}
   _nameLocalizationID: 2
   _radioID: 6
+  _isSignal: 1
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -148,13 +151,17 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 1
   _bonusEnemies:
   - 1
   - 2
   - 4
   _bonusCount: 2
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 6
+  _hasStalkers: 0
+  _chance: 0.033
   _firstLevelWaveCount: 4
   _finalLevelWaveCount: 4
   _startLevelWeight: 3
@@ -171,3 +178,6 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

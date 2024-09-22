@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ContagionIndicator : MonoBehaviour
 {
     [SerializeField] private GameObject[] _togglingObjects;
     [SerializeField] private int _topValue = 11;
+    //[SerializeField] private Text _temperatuteLabel;
 
     private void OnEnable() {
         ContagionHandler.ContagionChanged += OnContagionChanged;
@@ -36,5 +38,7 @@ public class ContagionIndicator : MonoBehaviour
                 _togglingObjects[i].SetActive(i < ContagionHandler.ContagionLevel);
             }
         }
+
+        //_temperatuteLabel.text = $"+{149 - ContagionHandler.ContagionLevel}°С";
     }
 }

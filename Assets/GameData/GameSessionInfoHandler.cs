@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class GameSessionInfoHandler : MonoBehaviour
 {
     private const string filename = "GameSession";
+    public const float top_hardness_scale = 0.08f;
+    public const float step_hardness_scale = 0.01f;
 
     public delegate void saveDataOperation();
     public static event saveDataOperation SavingAll;
@@ -17,6 +19,8 @@ public class GameSessionInfoHandler : MonoBehaviour
     public static bool FinalLevel => CurrentLevel >= MaxLevel - 1;
     public static float LevelProgress => MaxLevel == 1 ? 1 : ((float)CurrentLevel / (MaxLevel - 1));
     public static float LevelProgressFloored => MaxLevel == 1 ? 0 : ((float)CurrentLevel / (MaxLevel - 1));
+    public static float HardnessMultiplier => CalculateHardness();
+    public static bool IsSignalLevel => GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>()._activeMissionSample.SignalLevel;
 
     private void Awake() 
     {
@@ -29,8 +33,18 @@ public class GameSessionInfoHandler : MonoBehaviour
     public static void Initialize() 
     {
         _storage = new Storage(filename);
-        _save = (GameSessionSave)_storage.Load(new GameSessionSave());
 
+        try
+        {
+            _save = (GameSessionSave)_storage.Load(new GameSessionSave());
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("<color=red>Ошибка загрузки GameSessionSave! Загружен пустой экземпляр!</color>");
+            _save = new GameSessionSave();
+            _storage.Save(_save);
+        }
+        
         CurrentLevel = _save.CurrentLevel;
         MaxLevel = _save.MaxLevel;
 
@@ -41,6 +55,18 @@ public class GameSessionInfoHandler : MonoBehaviour
     public static int GetSeed()
     {
         return _save.Seed + _save.CurrentLevel;
+    }
+    
+    private static float CalculateHardness()
+    {
+        float multiplier = 1f;
+
+        for (int i = 0; i < CurrentLevel + 1; i++)
+        {
+            multiplier += Mathf.Clamp(step_hardness_scale * i, 0f, top_hardness_scale);
+        }
+
+        return multiplier;
     }
 // DATA COLLECTIONS
     public static void AddDataCollection(string name, List<int> defaultValues)
@@ -105,6 +131,7 @@ public class GameSessionInfoHandler : MonoBehaviour
         print("Clear session.");
 
         ModulasSaveHandler.ClearSave();
+        ReviveManager.ClearSave();
     }
 
     public static void SaveAll()

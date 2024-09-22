@@ -7,16 +7,24 @@ public class VictoryHandler : MonoBehaviour
 
     public static event victoryAction LevelVictored;
     public static event victoryAction MissionVictored;
+    public static event victoryAction AddTempCurrency;
 
     [SerializeField] private GameObject _levelVictoryObject;
     [SerializeField] private GameObject _missionVictoryObject;
+    [SerializeField] private GameObject _noDamageVictoryObject;
 
     public static string CustomSceneOnVictory {get; set;}
     public static string CustomSceneOnDeath {get; set;}
     public static string CustomSceneOnExit {get; set;}
+    public static bool CustomTransitionAsDeath {get; set;}
+    public static bool ClearDataOnExit {get; set;}
 
-    public int RequiredLevelCountForDocs {get; private set;} = 9;
+    public int RequiredLevelCountForDocs {get; private set;} = 7;
     public int DocOnLevels {get; private set;} = 5;
+    public int TempAurite => _tempAurite;
+    public int TempCosmilite => _tempCosmilite;
+    public int TempPositronium => _tempPositronium;
+    public static bool LevelVictoried {get; private set;} = false;
 
     private int _tempCosmilite = 0;
     private int _tempPositronium = 0;
@@ -27,8 +35,9 @@ public class VictoryHandler : MonoBehaviour
 
     public void Initialize()
     {
-        LevelVictored = null;
-        MissionVictored = null;
+        // LevelVictored = null;
+        // MissionVictored = null;
+        LevelVictoried = false;
 
         _tempCosmilite = 0;
         _tempPositronium = 0;
@@ -38,17 +47,45 @@ public class VictoryHandler : MonoBehaviour
     public void AddCosmilite(int val)
     {
         _tempCosmilite += val;
+        print($"Добавлен временный космилит: {val}");
+        AddTempCurrency?.Invoke();
+
+        if (LevelVictoried)
+            Bank.PutCash(BankSystem.Currency.Cosmilite, val);
+    }
+
+    public static void EnableFastRestartOnDeath()
+    {
+        CustomSceneOnDeath = "Game";
+        DeathUIHandler.NoEraseData = true;
+        DeathUIHandler.FastRestart = true;
+    }
+
+    public static void EnableRestartLevelOnDeath()
+    {
+        CustomSceneOnDeath = "MissionMenu";
+        DeathUIHandler.NoEraseData = true;
+        DeathUIHandler.FastRestart = true;
     }
 
     public void AddPositronium(int val)
     {
         _tempPositronium += val;
+        print($"Добавлен временный позитроний: {val}");
+        AddTempCurrency?.Invoke();
+
+        if (LevelVictoried)
+            Bank.PutCash(BankSystem.Currency.Positronium, val);
     }
 
     public void AddAurite(int val)
     {
         _tempAurite += val;
         print($"Добавлен временный аурит: {val}");
+        AddTempCurrency?.Invoke();
+
+        if (LevelVictoried)
+            Bank.PutCash(BankSystem.Currency.Aurite, val);
     }
 
     public void AddHealOnVictory(int amount)
@@ -58,8 +95,15 @@ public class VictoryHandler : MonoBehaviour
 
     public void LevelVictory(bool andMission = false)
     {
+        if (LevelVictoried)
+            return;
+
+        LevelVictoried = true;
+
         if (_healOnVictory > 0)
             PlayerShipData.RegenerateHP(_healOnVictory);
+
+        PlayerCore.SaveMegawatts();
 
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
 
@@ -86,12 +130,14 @@ public class VictoryHandler : MonoBehaviour
             MissionVictory();
         }
 
+        GameObject.FindWithTag("AudioCore").GetComponent<InteriorSoundController>().SetInteriorOST();
+
         SceneStatics.SceneCore.GetComponent<BusStop>().SpawnBus();
 
         if (GameSessionInfoHandler.MaxLevel < RequiredLevelCountForDocs || GameSessionInfoHandler.FinalLevel)
             return;
 
-        if ((GameSessionInfoHandler.CurrentLevel + 1) % DocOnLevels == 0)
+        if (((GameSessionInfoHandler.CurrentLevel + 1) % DocOnLevels) == 0)
         {
             SceneStatics.SceneCore.GetComponent<BusStop>().SpawnDoc();
         }
@@ -103,15 +149,30 @@ public class VictoryHandler : MonoBehaviour
 
         _missionVictoryObject.SetActive(true);
 
-        Bank.PutCash(BankSystem.Currency.Cosmilite, save.RecievedCosmilite);
-        Bank.PutCash(BankSystem.Currency.Positronium, save.RecievedPositronium);
-
         // ID Анлока миссии и подсчёт прогресса уровней маяков ведётся непосредственно из класса Mission
+        if (GameSessionInfoHandler.GetSessionSave().NoDamage)
+        {
+            _noDamageVictoryObject.SetActive(true);
+            // Bank.PutCash(BankSystem.Currency.Cosmilite, save.RecievedCosmilite * 2);
+
+            Unlocks.ProgressUnlock(9, 1);
+
+            if (GameSessionInfoHandler.MaxLevel >= 10)
+            {
+                Unlocks.ProgressUnlock(932, 1);
+            }
+        } else
+        {
+            //Bank.PutCash(BankSystem.Currency.Cosmilite, save.RecievedCosmilite);
+        }
+
+        //Bank.PutCash(BankSystem.Currency.Positronium, save.RecievedPositronium);
 
         GameSessionInfoHandler.ClearGameSession();
         CustomSceneOnExit = "Lobby";
         //FinalLevel = true;
         print("МИССИЯ ПРОЙДЕНА");
+
         MissionVictored?.Invoke();
     }
 
@@ -134,6 +195,11 @@ public class VictoryHandler : MonoBehaviour
 
     public static void ExitSession()
     {
+        if (ClearDataOnExit)
+        {
+            GameSessionInfoHandler.ClearGameSession();
+        }
+
         if (!string.IsNullOrEmpty(CustomSceneOnExit))
         {
             SceneTransition.SwitchToScene(CustomSceneOnExit);
@@ -150,13 +216,13 @@ public class VictoryHandler : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(CustomSceneOnDeath))
         {
-            SceneTransition.SwitchToScene(CustomSceneOnDeath);
+            SceneTransition.SwitchToScene(CustomSceneOnDeath, CustomTransitionAsDeath ? 4 : -1);
             ClearCustomData();
             return;
         }
 
         ClearCustomData();
-        SceneTransition.SwitchToScene("Lobby");
+        SceneTransition.SwitchToScene("Lobby", 4);
     }
 
     private static void ClearCustomData()
@@ -164,6 +230,10 @@ public class VictoryHandler : MonoBehaviour
         CustomSceneOnVictory = null;
         CustomSceneOnDeath = null;
         CustomSceneOnExit = null;
+        DeathUIHandler.NoEraseData = false;
+        DeathUIHandler.FastRestart = false;
+        CustomTransitionAsDeath = false;
+        ClearDataOnExit = false;
     }
 
     #if UNITY_EDITOR
@@ -179,6 +249,13 @@ public class VictoryHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             LevelVictory(true);
+        } if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            DamageBody[] dbs = GameObject.FindObjectsOfType<DamageBody>();
+            for (int i = 0; i < dbs.Length; i++)
+            {
+                dbs[i].TakeDamage(20);
+            }
         }
     }
     #endif

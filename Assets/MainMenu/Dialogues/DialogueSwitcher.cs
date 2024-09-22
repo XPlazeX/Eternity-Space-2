@@ -12,7 +12,7 @@ public class DialogueSwitcher : MonoBehaviour
     [SerializeField] private Text _text;
 
     private Vector2 _targetPosition;
-    private float _deltaMagnitude = 0.1f;
+    private float _deltaMagnitude = 0.05f;
     //private bool _leftVoice = true;
 
     private void Start() {

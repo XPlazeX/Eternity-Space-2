@@ -6,6 +6,13 @@ public class ShipStats
     public delegate void statOperation(string name, float newValue);
     public static event statOperation StatChanged;
 
+    public enum RoundMode
+    {
+        Floor = -1,
+        Round = 0,
+        Ceil = 1
+    }
+
     private Dictionary<string, float> InitGlobalStats = new Dictionary<string, float>()
     {
         // --- Игрок - Инвентарь и снаряжение --- ------------------
@@ -24,16 +31,19 @@ public class ShipStats
         ["BlockArmor"] = 0, // округляется до целого вверх
         ["TimeSlowValue"] = 0.33f,
         ["CriticalTimeSlowMultiplier"] = 0.33f,
-        ["UnvulnerableTimeAfterDamage"] = 0.5f,
+        ["UnvulnerableTimeAfterDamage"] = 0.2f, // !!!!!! changelog
         ["MaxDamageTaken"] = 40f,
+        ["InflictingDamageMultiplier"] = 1f,
+        ["ForesightAddition"] = 0,
         // тараны
-        ["RamMoneyValue"] = 3f,// округляется до целого вверх
+        ["RamMoneyValue"] = 1f,// округляется до целого вверх
+        ["RamMoneyPerEnemy"] = 0f,
+        ["RamCosmiliteValue"] = 2f,
         ["RamHealValue"] = 0f,
-        //["RamRegenOnCriticalStateMultiplier"] = 3f, // округляется до целого вверх
         ["DecadesBlockForRam"] = 1f, // округляется до целого вверх
         ["RamFirerateBoost"] = 0.5f,
-        ["RamBoostDuration"] = 0.66f,
-        ["RamBoostByEnemy"] = 0.3f,
+        ["RamBoostDuration"] = 0.5f,
+        ["RamBoostByEnemy"] = 0.1f,
         // восстановление здоровья
         ["LevelEntryHealthRegen"] = 3f, // округляется до целого вверх НННННННННННННННННННННННННН Нужно удалить и сделать для регулировки упрощённый метод в конечном скрипте
         ["PartHealOnBossDefeat"] = 0.75f,
@@ -43,6 +53,7 @@ public class ShipStats
         ["FlatDamageBoost"] = 0, // округляется до целого вверх
         ["PlayerShotSpeedMultiplier"] = 1f,
         ["PlayerShotLifetimeMultiplier"] = 1f,
+        ["Pressure"] = 1f,
         // щиты
         ["ShieldDamageMultiplier"] = 1f,
         ["ShieldAreaScaleMultiplier"] = 1f,
@@ -56,6 +67,7 @@ public class ShipStats
         ["EmissionResetPart"] = 1f,
         // главное оружие
         ["MainWeaponFirerateMultiplier"] = 1f,
+        ["MainWeaponFirerateRandomizing"] = 1f,
         ["PrepareTimeMultiplier"] = 1f,
         // устройства
         ["DeviceDamageMultiplier"] = 1f,
@@ -86,8 +98,12 @@ public class ShipStats
         ["WeaponAccelerationMultiplier"] = 1f,
         ["FlatPlayerBulletAcceleration"] = 0f,
         ["ShieldCapacityMultiplier"] = 1f,
-        ["PickupChanceMultiplier"] = 1f,
         ["DroneEffeciency"] = 1f,
+        // --- Игрок - бонусы --- -----------------------------
+        ["PickupChanceMultiplier"] = 1f,
+        ["CurrencyPickupReplaceMultiplier"] = 1f,
+        ["YellowPowerupTimeBoost"] = 0f,
+        ["RedPowerupTimeBoost"] = 0f,
         // --- Окружение --- ------------------------------------------
         ["AsteroidSpawnRateMultiplier"] = 1f,
         ["AsteroidSpeedMultiplier"] = 1f,
@@ -129,10 +145,22 @@ public class ShipStats
 
     public static void ClearSubscribers() => StatChanged = null;
 
-    public static int GetIntValue(string statName)
+    public static int GetIntValue(string statName, RoundMode roundMode = RoundMode.Ceil)
     {
         if (GlobalStats.ContainsKey(statName))
-            return Mathf.CeilToInt(GlobalStats[statName]);
+        {
+            switch (roundMode)
+            {
+                case RoundMode.Floor:
+                    return Mathf.FloorToInt(GlobalStats[statName]);
+                case RoundMode.Round:
+                    return Mathf.RoundToInt(GlobalStats[statName]);
+                case RoundMode.Ceil:
+                    return Mathf.CeilToInt(GlobalStats[statName]);
+                default:
+                    return Mathf.CeilToInt(GlobalStats[statName]);
+            }
+        }
         else 
             throw new System.Exception("Несуществующий параметр в ShipStats");
     }

@@ -88,6 +88,25 @@ public class ModulasSave
 
         EventsLoaded = false;
     }
+
+    public void ClearAllHandingModules(bool andPacks = true)
+    {
+        List<LevelEvent> savedEvents = new List<LevelEvent>();
+        if (!andPacks)
+        {
+            for (int i = 0; i < PassiveEvents.Count; i++)
+            {
+                if (PassiveEvents[i].handingModuleOperand.StackType == ModuleStackType.Pack)
+                {
+                    savedEvents.Add(PassiveEvents[i]);
+                }
+            }
+        }
+
+        PassiveEvents.Clear();
+        
+        PassiveEvents.AddRange(savedEvents);
+    }
 }
 
 [System.Serializable]

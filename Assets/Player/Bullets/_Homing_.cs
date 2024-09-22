@@ -5,10 +5,13 @@ public class _Homing_ : MonoBehaviour
     [SerializeField] private string _targetTag;
     [SerializeField] private float _homingPower;
     [SerializeField] private float _waitTime = 0f;
+    [SerializeField] private float _checkReloadTime = 1f;
+    [SerializeField] private bool _playerIfNullTarget = false;
 
     private Transform _target;
     private float _checkReloadTimer;
     private float _waitTimer;
+    private float _homingMultiplier = 1f;
 
     public string TargetTag => _targetTag;
     public float HomingPower => _homingPower; 
@@ -16,6 +19,7 @@ public class _Homing_ : MonoBehaviour
     private void OnEnable() {
         _checkReloadTimer = 0f;
         _waitTimer = _waitTime;
+        _homingMultiplier = ShipStats.GetValue("HomingEfficiencyMultiplier");
     }
 
     public void ModParams(string targetTag, float homingPower)
@@ -34,10 +38,14 @@ public class _Homing_ : MonoBehaviour
         if (_checkReloadTimer <= 0)
         {
             _target = GetNearestTransformWithTag(_targetTag);
-            _checkReloadTimer = 1f;
+            _checkReloadTimer = _checkReloadTime;
         }
         if (_target)
-            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, _target.position - transform.position, _homingPower * Time.deltaTime, 0f));
+            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, _target.position - transform.position, _homingPower * Time.deltaTime * _homingMultiplier, 0f));
+        else if (_playerIfNullTarget)
+        {
+            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, Player.PlayerTransform.position - transform.position, _homingPower * Time.deltaTime * _homingMultiplier, 0f));
+        }
     }
 
     private Transform GetNearestTransformWithTag(string targetTag)

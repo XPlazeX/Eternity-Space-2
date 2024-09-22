@@ -22,11 +22,7 @@ public class SpawnOnStart : MonoBehaviour
         
         for (int i = 0; i < _spawnObjects.Length; i++)
         {
-            DamageBody db = Instantiate(_spawnObjects[i].gameObject, _spawnObjects[i].spawnPosition, Quaternion.Euler(0,0, _spawnObjects[i].spawnAngles)).GetComponent<DamageBody>();
-            if (db != null)
-            {
-                Spawner.InitializeHPBar(db);
-            }
+            _spawnObjects[i].Spawn();
         }
 
         SceneTransition.SceneOpened -= Spawn;
@@ -39,4 +35,14 @@ public struct SpawnObject
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public float spawnAngles;
+    public bool atPlayerPosition;
+
+    public void Spawn()
+    {
+        DamageBody db = MonoBehaviour.Instantiate(gameObject, atPlayerPosition ? Player.PlayerTransform.position : spawnPosition, Quaternion.Euler(0,0, spawnAngles)).GetComponent<DamageBody>();
+        if (db != null)
+        {
+            Spawner.InitializeHPBar(db);
+        }
+    }
 }

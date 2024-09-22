@@ -45,12 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 6
   _boostFirstLevel: 0
-  _levelCount: 4
+  _firstLevelBonusModulas: 0
+  _levelCount: 5
+  _bonusModuleChoice: 0
   _startAurite: 50
-  _auritePerLevel: 100
+  _auritePerLevel: 80
   _minMaxCosmilite: {x: 0, y: 0}
   _nameLocalizationID: 0
   _radioID: 0
+  _isSignal: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -64,6 +67,9 @@ MonoBehaviour:
     menuDialogue: Training-SimT_Module
     gameDialogue: 
   - targetLevel: 3
+    menuDialogue: 
+    gameDialogue: Training-SimT_Ability
+  - targetLevel: 4
     menuDialogue: 
     gameDialogue: Training-SimT_Final
   _completedMissionLobbyDialogue: Training-Lobby_Entry
@@ -81,7 +87,7 @@ MonoBehaviour:
     - _object: {fileID: 5892835685820551552, guid: 7c030544ab940ae4eac16178235aabdc,
         type: 3}
       _color: {r: 1, g: 1, b: 1, a: 1}
-      _position: {x: 0, y: 0, z: 0}
+      _position: {x: 0.3, y: 1, z: 0}
       _rotation: 10
       _rotationSpread: 0
     _backgroundSpriteFilename: Levels/BG/Sim-1
@@ -124,7 +130,7 @@ MonoBehaviour:
     _fogGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0, g: 0.024636889, b: 0.1, a: 1}
+      key1: {r: 0.08, g: 0.027450552, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -157,6 +163,7 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0

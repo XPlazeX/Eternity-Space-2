@@ -48,10 +48,14 @@ MonoBehaviour:
   _operators:
   - _statName: FlatSpread
     _typeOperation: 2
-    _operationValue: 5
+    _operationValue: 6
     _negativeSetsToZero: 0
   - _statName: MainWeaponFirerateMultiplier
     _typeOperation: 1
     _operationValue: 1.1
+    _negativeSetsToZero: 0
+  - _statName: PlayerShotLifetimeMultiplier
+    _typeOperation: 1
+    _operationValue: 0.85
     _negativeSetsToZero: 0
   _healthOperators: []

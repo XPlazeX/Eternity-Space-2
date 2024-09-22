@@ -21,6 +21,24 @@ public class Bank : MonoBehaviour
         }
     }
 
+    public static int GetCurrencyAmount(Currency currency)
+    {
+        GlobalSave globalSave = GlobalSaveHandler.GetSave();
+
+        switch (currency)
+        {
+            case Currency.Cosmilite:
+                return globalSave.Cosmilite;
+            case Currency.Positronium:
+                return globalSave.Positronium;
+            case Currency.Aurite:
+                GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+                return save.Money;
+            default:
+                return 0;
+        }
+    }
+
     public static void PutCash(Currency currency, int value)
     {
         if (value < 0)
@@ -32,12 +50,14 @@ public class Bank : MonoBehaviour
         {
             case Currency.Cosmilite:
                 globalSave.Cosmilite += value;
+                Debug.Log($"<color=cyan>Начислен космилит: {value}</color>");
                 GlobalSaveHandler.RewriteSave(globalSave);
                 BankUpdated?.Invoke();
                 break;
             case Currency.Positronium:
                 globalSave.Positronium += value;
                 GlobalSaveHandler.RewriteSave(globalSave);
+                Debug.Log($"<color=orange>Начислен позитроний: {value}</color>");
                 BankUpdated?.Invoke();
                 break;
             case Currency.Aurite:

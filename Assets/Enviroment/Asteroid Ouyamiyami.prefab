@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 74206241480872419}
   - component: {fileID: 5308181217489804155}
   - component: {fileID: 3746244766388657795}
-  - component: {fileID: 3627316096989290492}
   - component: {fileID: 4132964691169925720}
+  - component: {fileID: 5551170210704406134}
+  - component: {fileID: 7158538203032966273}
   m_Layer: 12
   m_Name: Asteroid Ouyamiyami
   m_TagString: Untagged
@@ -106,6 +107,7 @@ MonoBehaviour:
   _startShieldPoints: 0
   _lifetime: 666
   _minMaxSpeed: {x: 0.15, y: 0.225}
+  _explodeOnTimer: 0
 --- !u!114 &-2506622068710875293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 3
+  _deathExplosionType: 19
 --- !u!50 &5308181217489804155
 Rigidbody2D:
   serializedVersion: 4
@@ -171,20 +173,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3627316096989290492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3018917793387868237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 0
-  _countParry: 0
 --- !u!60 &4132964691169925720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -234,3 +222,34 @@ PolygonCollider2D:
       - {x: 0.1643591, y: -0.97188646}
       - {x: 0.67225146, y: -1.1252167}
       - {x: 2.640625, y: -1.0473083}
+--- !u!114 &5551170210704406134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018917793387868237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 0
+  _countParry: 0
+--- !u!114 &7158538203032966273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018917793387868237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2575f7ee611915140a011a913cc11b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currency: 2
+  _unique: 0
+  _unlockCode: 0
+  _count: 5
+  _offsetSpawn: 0.66

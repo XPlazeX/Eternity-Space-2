@@ -358,6 +358,94 @@ MonoBehaviour:
     m_Address: Assets/MainMenu/Dialogues/Voice/Boris.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: a2ad3e96d26495545bed40e5039d7f40
+    m_Address: Assets/Levels/Missions/Boris.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 550d95e4f5cbd194a8b15f42db9b5ed8
+    m_Address: Assets/Levels/Missions/DeepSpace-1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c5e738c9ff8e30e48aa46f764c58e1cf
+    m_Address: Assets/Levels/Missions/Gin-C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 83ae887f5bc284e458c1d1b6c1bc64ef
+    m_Address: Assets/MainMenu/Lab/LabModulas.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b382303e032d80e429cd803112ed065a
+    m_Address: Assets/MainMenu/Dialogues/Voice/Noise-Cleany.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d8fbb5364ca240842919b418612841cb
+    m_Address: Assets/MainMenu/Dialogues/Voice/Noise-Uncleany.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08c66386d2de3864d936cd72292878bd
+    m_Address: Assets/MainMenu/Dialogues/Voice/Noise-White.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f36b25abc71dc449b913abb0ed4dc81
+    m_Address: Assets/Player/Characters/OldOrca.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b23b6b70b01a8a4cbc264cff98ffb2f
+    m_Address: Assets/Levels/Missions/Dream-Dilya.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7be7839cba4538d47aae7d033236d5be
+    m_Address: Assets/Player/Characters/Soul.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff79d9ec318f3604dab6ce7994d3605e
+    m_Address: Assets/Levels/Missions/DeepSpace-2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6f8461dca76f6e646a87de2698963a3d
+    m_Address: Assets/Player/Characters/Pseudoliparis.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b3084d7771cf67c49a96052082bd56e3
+    m_Address: Assets/Enemies/Stalkers/Stalker 30.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6f19a3b3ccd9604478ebba742ff68466
+    m_Address: Assets/Enemies/Stalkers/Stalker 31.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f263dc51c7c0a61468ccaf1045ebb9f9
+    m_Address: Assets/Enemies/Stalkers/Stalker 32.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f8ffd6cea6ee90b4986c1eba9226ef1c
+    m_Address: Assets/Enemies/Stalkers/Stalker 33.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8e5cb38e9db5d7a4e97b6ce5146fb971
+    m_Address: Assets/Enemies/Stalkers/Stalker 34.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 20e2f71bc415a2b4ca67b7efb6740927
+    m_Address: Assets/Enemies/Stalkers/Stalker 35.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7d59ce0bc50453543a755d39922b05d9
+    m_Address: Assets/Enemies/Stalkers/Stalker 36.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92ac06bfd6b4d88409895cd953178a50
+    m_Address: Assets/Enemies/Stalkers/Stalker 37.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2564e65725a33b04d91dd82003644226
+    m_Address: Assets/Enemies/Stalkers/Stalker 38.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f8b4fb23247d7304aa95acc3eefe800b
+    m_Address: Assets/Enemies/Stalkers/Stalker 39.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

@@ -73,7 +73,14 @@ public class MissionSelector : MonoBehaviour
         _loadAvaiable = false;
 
         yield return _missionDatabase.StartCoroutine(_missionDatabase.SettingGameSessionData(ID, true));
-        yield return _characterLoader.StartCoroutine(_characterLoader.WritingShipHPData(SelectCatalog.ActiveShipID));
+
+        int shipID = SelectCatalog.ActiveShipID;
+        if (_missionDatabase._lastMissionReference.CustomShip != -1)
+        {
+            shipID = _missionDatabase._lastMissionReference.CustomShip;
+        }
+
+        yield return _characterLoader.StartCoroutine(_characterLoader.WritingShipHPData(shipID));
 
         print($"Подготовлена миссия (лобби): {ID}");
         _startButton.interactable = true;

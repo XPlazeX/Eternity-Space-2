@@ -45,12 +45,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 16
   _boostFirstLevel: 0
+  _firstLevelBonusModulas: 0
   _levelCount: 7
+  _bonusModuleChoice: 0
   _startAurite: 125
   _auritePerLevel: 100
   _minMaxCosmilite: {x: 70, y: 100}
   _nameLocalizationID: 3
-  _radioID: 0
+  _radioID: 20
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -58,6 +64,8 @@ MonoBehaviour:
     menuDialogue: Null-Loop-M1
     gameDialogue: 
   _completedMissionLobbyDialogue: 
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.88
@@ -148,14 +156,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
+  _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
+  _hasStalkers: 0
+  _chance: 0
   _firstLevelWaveCount: 3
   _finalLevelWaveCount: 6
-  _startLevelWeight: 2
-  _finalLevelWeight: 5
+  _startLevelWeight: 3
+  _finalLevelWeight: 6
   _missionWeightFinalMultiplier: 1.75
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
@@ -174,3 +186,6 @@ MonoBehaviour:
       _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
         type: 2}
     _weightMultiplier: 6
+  OnNewWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []

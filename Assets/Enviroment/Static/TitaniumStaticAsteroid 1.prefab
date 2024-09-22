@@ -224,14 +224,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6243127766243253811}
   - component: {fileID: 6243127766243253818}
-  - component: {fileID: 6243127766243253817}
-  - component: {fileID: 6243127766243253816}
-  - component: {fileID: 6243127766243253823}
   - component: {fileID: 6243127766243253822}
   - component: {fileID: 6243127766243253821}
   - component: {fileID: 6243127766243253820}
   - component: {fileID: 6787873600393085984}
   - component: {fileID: 5597738834633415840}
+  - component: {fileID: 6427861612615306210}
+  - component: {fileID: 2232891420205114657}
+  - component: {fileID: 7885026262125039672}
+  - component: {fileID: 3550455594287256316}
   m_Layer: 12
   m_Name: CommonBullet
   m_TagString: Untagged
@@ -303,49 +304,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6243127766243253817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6243127766243253810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a310dc62293d8f84f90551755d6564df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 0
-  _damageValue: 9
-  _hoverable: 1
---- !u!114 &6243127766243253816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6243127766243253810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
---- !u!114 &6243127766243253823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6243127766243253810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 0
-  _countParry: 0
 --- !u!50 &6243127766243253822
 Rigidbody2D:
   serializedVersion: 4
@@ -486,3 +444,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63998806, y: 0.7508683}
   m_EdgeRadius: 0
+--- !u!114 &6427861612615306210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243127766243253810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 0
+  _countParry: 0
+--- !u!114 &2232891420205114657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243127766243253810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
+--- !u!114 &7885026262125039672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243127766243253810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e40e7a28e6a971468f9ea55fd6ecc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _damageValue: 2
+  _hoverable: 1
+  _damageDelay: 0.25
+--- !u!114 &3550455594287256316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243127766243253810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a310dc62293d8f84f90551755d6564df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 0
+  _damageValue: 9
+  _hoverable: 1

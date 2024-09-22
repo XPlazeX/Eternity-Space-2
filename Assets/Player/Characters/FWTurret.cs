@@ -7,6 +7,8 @@ public class FWTurret : MonoBehaviour
     [SerializeField] private bool _testMode;
     [SerializeField] private int _testID;
 
+    public GameObject SpawnedTurret {get; private set;}
+
     private void Start() 
     {
         int id = GameSessionInfoHandler.GetSessionSave().WeaponLevel;
@@ -16,5 +18,7 @@ public class FWTurret : MonoBehaviour
         GameObject turret = Instantiate(_turretsByWeaponLevel[id]);
         turret.transform.SetParent(transform);
         turret.transform.localPosition = new Vector3(0, _yPos, 0);
+
+        SpawnedTurret = turret;
     }
 }

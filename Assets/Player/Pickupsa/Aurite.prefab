@@ -194,6 +194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 15
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!114 &-1090363330148611323
 MonoBehaviour:
   m_ObjectHideFlags: 0

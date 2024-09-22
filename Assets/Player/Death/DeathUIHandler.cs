@@ -3,24 +3,68 @@ using System.Collections;
 
 public class DeathUIHandler : MonoBehaviour
 {
+    public delegate void deathEvent();
+    public static event deathEvent AnyDeathed;
+    public static event deathEvent DeathedCleared;
+
     [SerializeField] private GameObject _deathPanel;
     [SerializeField] private GameObject _timeRift;
+    [SerializeField] private GameObject _vectorErrorer;
 
     public static bool NoEraseData {get; set;} = false;
+    public static bool FastRestart {get; set;} = false;
+
+    public void TrySpawnErrorer() {
+        if (((GameSessionInfoHandler.CurrentLevel + 1) % 4 == 0) || GameSessionInfoHandler.IsSignalLevel)
+        {
+            Instantiate(_vectorErrorer, CameraController.GetRandomFieldPosition(6f, Vector3.zero, 1f), Quaternion.identity);
+            print("<color=magenta>Spawn Vector errorer!</color>");
+        }
+    }
 
     public void Death()
     {
+        if ((GameSessionInfoHandler.GetSessionSave().VectorError || EternityClock.Parsing) && GameSessionInfoHandler.GetSessionSave().LocationID != 26)
+        {
+            NoEraseData = true;
+            FastRestart = true;
+            GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+            save.LocationID = 26;
+            save.CurrentLevel = 0;
+            save.MaxLevel = 404;
+            save.HealthPoints = save.MaxHealth;
+            GameSessionInfoHandler.RewriteSessionSave(save);
+            VictoryHandler.CustomSceneOnDeath = "Game";
+            VictoryHandler.CustomTransitionAsDeath = true;
+        }
         if (NoEraseData)
         {
             NoEraseData = false;
         } else 
         {
             GameSessionInfoHandler.ClearGameSession();
+            DeathedCleared?.Invoke();
         }
 
+        AnyDeathed?.Invoke();
+
         DeathCountRegister.RegisterDeath();
-        _deathPanel.SetActive(true);
-        TimeHandler.Pause();
+        if (!FastRestart)
+        {
+            _deathPanel.SetActive(true);
+            TimeHandler.Pause();
+        } else
+        {
+            FastRestart = false;
+            EndLevel();
+        }
+    }
+
+    public void ErrorVector()
+    {
+        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+        save.VectorError = true;
+        GameSessionInfoHandler.RewriteSessionSave(save);
     }
 
     public void EndLevel()

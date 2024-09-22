@@ -5,26 +5,26 @@ public class AbyssDamage : MonoBehaviour
 {
     [SerializeField] private float _timeDelay;
 
+    private bool _work = true;
+
     private void Start() {
         StartCoroutine(Pressure());
     }
+
+    public void StopPressure() => _work = false;
 
     private IEnumerator Pressure()
     {
         yield return new WaitForSeconds(_timeDelay);
 
-        for (int i = 0; i < 6; i++)
+        while (true)
         {
-            PlayerShipData.TakeDamage(i + 1); 
-            yield return new WaitForSeconds(Random.Range(0.5f, 2f));
+            if (!_work)
+            {
+                yield break;
+            }
+            PlayerShipData.ConsumeHP(Random.Range(0, 5)); 
+            yield return new WaitForSeconds(Random.Range(0.1f, 2f));
         }
-
-        for (int i = 0; i < 3; i++)
-        {
-            PlayerShipData.TakeDamage(11); 
-            yield return new WaitForSeconds(1.2f);
-        }
-
-        PlayerShipData.TakeDamage(1000); 
     }
 }

@@ -1,16 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(ElitizerManager))]
 public class Spawner : MonoBehaviour
 {
     public delegate void damageBodyOperationHandler(DamageBody db);
+    public delegate void damageBodyEvent();
     public static event damageBodyOperationHandler DamageBodySpawned;
+    public static event damageBodyEvent DamageBodyDeathed;
 
     [SerializeField] private EnemyHealthBar _enemyHealthBar;
     [SerializeField] private Text _waveIndexLabel;
     [SerializeField] private EnemyCountUI _enemyCountUI;
 
     private static PullForObjects _HPBarsPool;
+    private static ElitizerManager _elitizerManager;
+
     public static void InitializeHPBars(EnemyHealthBar ehb)
     {
         _HPBarsPool = new PullForObjects(ehb);
@@ -23,10 +28,17 @@ public class Spawner : MonoBehaviour
         PrintCountUI(0);
         PrintBonusCountUI(0);
         _HPBarsPool = new PullForObjects(_enemyHealthBar);
+        _elitizerManager = GetComponent<ElitizerManager>();
     }
 
-    public static DamageBody SpawnDamageBody(DamageBody dbSample, Vector3 spawnPosition = default(Vector3))
+    public static DamageBody SpawnDamageBody(DamageBody dbSample, Vector3 spawnPosition = default(Vector3), bool eliteSpawn = false)
     {
+        if (dbSample == null)
+        {
+            Debug.Log("Empty damageBody!");
+            return null;
+        }
+
         Vector3 spawningPosition = spawnPosition;
 
         if (spawnPosition == default(Vector3))
@@ -41,6 +53,23 @@ public class Spawner : MonoBehaviour
         EnemyCount ++;
         db.Deathed += SubstractEnemyCount;
 
+        bool elite = eliteSpawn;
+
+        if (!elite)
+        {
+            elite = _elitizerManager.WillElitize();
+        }
+
+        if (elite)
+        {
+            _elitizerManager.Elitize(db);
+        }
+
+        if (db.GetComponent<Boss>() == null)
+        {
+            InitializeHPBar(db, elite);
+        }
+
         DamageBodySpawned?.Invoke(db);
 
         return db;
@@ -49,9 +78,10 @@ public class Spawner : MonoBehaviour
     private static void SubstractEnemyCount()
     {
         EnemyCount --;
+        DamageBodyDeathed?.Invoke();
     }
 
-    public static void InitializeHPBar(DamageBody targetBody)
+    public static void InitializeHPBar(DamageBody targetBody, bool elite = false)
     {
         if (targetBody.GetComponent<Boss>() != null)
             return;
@@ -67,8 +97,9 @@ public class Spawner : MonoBehaviour
 
         hpBar.transform.position = targetBody.transform.position + offsetBar;
         targetBody.DamageTaking += hpBar.SetHP;
+        targetBody.HealthModified += hpBar.OnHealthModified;
 
-        hpBar.Initialize(targetBody.HitPoints);
+        hpBar.Initialize(targetBody.HitPoints, elite);
     }
 
     public void PrintProgressUI(string text) => _waveIndexLabel.text = text;
@@ -76,4 +107,6 @@ public class Spawner : MonoBehaviour
     public void PrintBonusCountUI(int count) => _enemyCountUI.SetBonusCount(count);
     public void HideLabel() => _enemyCountUI.HideHead();
     public void SetWaveHeadText(string text) => _enemyCountUI.SetHead(text);
+    public void ShowReinforcementUI() => _enemyCountUI.ShowReinforcements();
+    public void SetReinforcementDelay(int secs) => _enemyCountUI.SetReinforcementsDelay(secs);
 }

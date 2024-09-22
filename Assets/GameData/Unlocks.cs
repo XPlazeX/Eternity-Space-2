@@ -4,25 +4,31 @@ public static class Unlocks
 {
     public static bool HasUnlock(int code)
     {
-        if (code == -1)
+        if (code == -1 || DevToggle.AllUnlocked)
             return true;
         return GlobalSaveHandler.GetSave().HasUnlock(code);
     }
 
     public static bool HasUnlock(int code, int progress)
     {
-        if (code == -1)
+        if (code == -1 || DevToggle.AllUnlocked)
             return true;
         return GlobalSaveHandler.GetSave().HasUnlock(code, progress);
     }
 
     public static bool HasUnlock(UnlockRequire unlockRequire)
     {
+        if (DevToggle.AllUnlocked)
+            return true;
+            
         return unlockRequire.Completed;
     }
 
     public static bool HasUnlocks(UnlockRequire[] unlockRequires)
     {
+        if (DevToggle.AllUnlocked)
+            return true;
+            
         for (int i = 0; i < unlockRequires.Length; i++)
         {
             if (!unlockRequires[i].Completed) 
@@ -36,6 +42,9 @@ public static class Unlocks
 
     public static bool HasAnyUnlocks(UnlockRequire[] unlockRequires)
     {
+        if (DevToggle.AllUnlocked)
+            return true;
+
         for (int i = 0; i < unlockRequires.Length; i++)
         {
             if (unlockRequires[i].Completed) 
@@ -49,7 +58,7 @@ public static class Unlocks
 
     public static void NewUnlock(int code)
     {
-        if (code == -1)
+        if (code == -1 || DevToggle.AllUnlocked)
             return;
         GlobalSave gsave = GlobalSaveHandler.GetSave();
         gsave.NewUnlock(code);
@@ -58,20 +67,30 @@ public static class Unlocks
 
     public static void ProgressUnlock(int code, int progress)
     {
-        if (code == -1)
+        if (code == -1 || DevToggle.AllUnlocked)
             return;
         GlobalSave gsave = GlobalSaveHandler.GetSave();
         gsave.ProgressUnlock(code, progress);
         GlobalSaveHandler.RewriteSave(gsave);
     }
 
-    public static int ValueOfUnlock(int code)
+    public static void RewriteUnlockProgress(int code, int newValue)
+    {
+        if (code == -1 || DevToggle.AllUnlocked)
+            return;
+        
+        GlobalSave gsave = GlobalSaveHandler.GetSave();
+        gsave.RewriteUnlockProgress(code, newValue);
+        GlobalSaveHandler.RewriteSave(gsave);
+    }
+
+    public static int ValueOfUnlock(int code, bool zeroIfNot = false)
     {
         if (code == -1)
             return -1;
 
         GlobalSave gsave = GlobalSaveHandler.GetSave();
-        return GlobalSaveHandler.GetSave().ValueOfUnlock(code);
+        return GlobalSaveHandler.GetSave().ValueOfUnlock(code, zeroIfNot);
     }
 }
 

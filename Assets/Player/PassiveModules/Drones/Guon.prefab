@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3151115811066776243}
   - component: {fileID: 8329569928873352158}
   - component: {fileID: 6532749123697282654}
-  - component: {fileID: 1039798824412622173}
+  - component: {fileID: 6227122354985466714}
   - component: {fileID: 3151115811066776247}
   - component: {fileID: 3151115811066776244}
   - component: {fileID: 2590863965848703526}
@@ -131,7 +131,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _closingDistance: 3.25
   _rotationAroundSpeedMultiplier: 20
---- !u!114 &1039798824412622173
+--- !u!114 &6227122354985466714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3151115811066776241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 0

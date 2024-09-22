@@ -45,19 +45,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockID: 40
   _boostFirstLevel: 0
-  _levelCount: 6
+  _firstLevelBonusModulas: 0
+  _levelCount: 7
+  _bonusModuleChoice: 0
   _startAurite: 50
   _auritePerLevel: 100
-  _minMaxCosmilite: {x: 40, y: 50}
+  _minMaxCosmilite: {x: 50, y: 80}
   _nameLocalizationID: 7
-  _radioID: 7
+  _radioID: 15
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
   - targetLevel: 0
     menuDialogue: 
     gameDialogue: Jin-0-G0
-  _completedMissionLobbyDialogue: 
+  - targetLevel: 2
+    menuDialogue: Jin-0-M2
+    gameDialogue: 
+  - targetLevel: 3
+    menuDialogue: 
+    gameDialogue: Jin-0-G3
+  - targetLevel: 4
+    menuDialogue: 
+    gameDialogue: Jin-0-G4
+  - targetLevel: 5
+    menuDialogue: 
+    gameDialogue: Jin-0-G5
+  - targetLevel: 6
+    menuDialogue: 
+    gameDialogue: Jin-0-G6
+  _completedMissionLobbyDialogue: Jin-0-End
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -139,20 +162,21 @@ MonoBehaviour:
     _windSpeed: 0
     _objectsToBeaconLevel: 1
   _soundtrack:
-    _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}
+    _clip: {fileID: 8300000, guid: f97d4f09f494262459df631434e2f6f6, type: 3}
     _volume: 0.285
     _pitchRandomizing: 0
+  _force: {x: 0, y: 0}
   _hasBonusSpawn: 0
   _bonusEnemies: []
   _bonusCount: 0
   _bonusLerpBoostOnFinalLevel: 0
   _bonusSpawnReload: 0
-  _hasStalkers: 0
-  _chance: 0
+  _hasStalkers: 1
+  _chance: 0.033
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
+  _finalLevelWaveCount: 7
   _startLevelWeight: 3
-  _finalLevelWeight: 5
+  _finalLevelWeight: 6
   _missionWeightFinalMultiplier: 1.5
   _enemyBuffer: 0
   _reloadSpawnTime: 0.5
@@ -161,14 +185,20 @@ MonoBehaviour:
     - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85,
         type: 2}
-    - _neededMissionProgress: 0.202
+    - _neededMissionProgress: 0
       _enemyPackObject: {fileID: 11400000, guid: 63980ba33f715d5419fd33060157af1d,
         type: 2}
-    - _neededMissionProgress: 0.2
+    - _neededMissionProgress: 0.057
+      _enemyPackObject: {fileID: 11400000, guid: b255a33f22399b540aa237c46317720f,
+        type: 2}
+    - _neededMissionProgress: 0.186
       _enemyPackObject: {fileID: 11400000, guid: 6b90b99e98b923f438ca9e0c3649cbdd,
         type: 2}
-    - _neededMissionProgress: 0.5
-      _enemyPackObject: {fileID: 11400000, guid: df25d58ecd7feb344a76a5c62c744d4b,
+    - _neededMissionProgress: 0.311
+      _enemyPackObject: {fileID: 11400000, guid: 004f680465f77e4459971539b45cb6e7,
+        type: 2}
+    - _neededMissionProgress: 0.769
+      _enemyPackObject: {fileID: 11400000, guid: 502e1217d7d1dca48a61953e6b853600,
         type: 2}
     _weightMultiplier: 5
   OnNewWaveStarted:

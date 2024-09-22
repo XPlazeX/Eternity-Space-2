@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8499617797841798883}
   - component: {fileID: 5522805599668337340}
   - component: {fileID: 6578299983856386223}
-  - component: {fileID: 642740643127784334}
   - component: {fileID: 1463353920041191613}
   - component: {fileID: 2996761785764789714}
+  - component: {fileID: 2009102562192951320}
   m_Layer: 0
   m_Name: DragonSystems_17 (1)
   m_TagString: Untagged
@@ -119,20 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathExplosionType: 0
---- !u!114 &642740643127784334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366560272230946983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
 --- !u!114 &1463353920041191613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +150,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &2009102562192951320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366560272230946983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
 --- !u!1 &1432600431802541320
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,9 +236,9 @@ GameObject:
   - component: {fileID: 7048613339418216678}
   - component: {fileID: 1044117123829638287}
   - component: {fileID: 4183326016234146028}
-  - component: {fileID: 3647773684037406687}
   - component: {fileID: 4854635394500088660}
   - component: {fileID: 1834256884162910806}
+  - component: {fileID: 4134774070943675509}
   m_Layer: 0
   m_Name: DragonSystems_17
   m_TagString: Untagged
@@ -343,20 +343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathExplosionType: 0
---- !u!114 &3647773684037406687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2768193657703714245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
 --- !u!114 &4854635394500088660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +374,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &4134774070943675509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768193657703714245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
 --- !u!1 &3954759661933451997
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,9 +400,9 @@ GameObject:
   - component: {fileID: 3468133018999635184}
   - component: {fileID: 8764531903722454029}
   - component: {fileID: 5596716463024509825}
-  - component: {fileID: 1766601066092439878}
   - component: {fileID: 2139568808510692417}
   - component: {fileID: 6755948584607831891}
+  - component: {fileID: 684979539071547661}
   m_Layer: 0
   m_Name: DragonSystems_17 (5)
   m_TagString: Untagged
@@ -508,20 +508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathExplosionType: 2
---- !u!114 &1766601066092439878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3954759661933451997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
 --- !u!114 &2139568808510692417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +539,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &684979539071547661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954759661933451997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
 --- !u!1 &5085380138745246030
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,9 +565,9 @@ GameObject:
   - component: {fileID: 6827800399861240862}
   - component: {fileID: 7327797725183205494}
   - component: {fileID: 4368929386260787855}
-  - component: {fileID: 9045472224679940230}
   - component: {fileID: 2510515964909157893}
   - component: {fileID: 672585658009929784}
+  - component: {fileID: 890566304927122679}
   m_Layer: 0
   m_Name: DragonSystems_17 (2)
   m_TagString: Untagged
@@ -672,20 +672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathExplosionType: 0
---- !u!114 &9045472224679940230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5085380138745246030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
 --- !u!114 &2510515964909157893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +703,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &890566304927122679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085380138745246030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
 --- !u!1 &6891007300045091560
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,9 +729,9 @@ GameObject:
   - component: {fileID: 5670738056307552763}
   - component: {fileID: 7161832592527371629}
   - component: {fileID: 1770262295679326509}
-  - component: {fileID: 4729549089822631242}
   - component: {fileID: 4262339786180994372}
   - component: {fileID: 6289094254204948627}
+  - component: {fileID: 3796714879375385804}
   m_Layer: 0
   m_Name: DragonSystems_17 (4)
   m_TagString: Untagged
@@ -836,20 +836,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathExplosionType: 0
---- !u!114 &4729549089822631242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6891007300045091560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
 --- !u!114 &4262339786180994372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +867,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3796714879375385804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891007300045091560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
 --- !u!1 &8752310838706325844
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,9 +893,9 @@ GameObject:
   - component: {fileID: 4006510242700307096}
   - component: {fileID: 1773258368727221812}
   - component: {fileID: 2505833137632683612}
-  - component: {fileID: 1525425381899078394}
   - component: {fileID: 6950124280169226086}
   - component: {fileID: 1561168330445356028}
+  - component: {fileID: 7766474887179455723}
   m_Layer: 0
   m_Name: DragonSystems_17 (3)
   m_TagString: Untagged
@@ -1000,20 +1000,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathExplosionType: 0
---- !u!114 &1525425381899078394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8752310838706325844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8934ff93eb10049892185e606bb1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageKey: 1
-  _countParry: 0
 --- !u!114 &6950124280169226086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,6 +1031,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &7766474887179455723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8752310838706325844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60226068a473bd04ebd62815a9d5b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageKey: 1
+  _countParry: 0
 --- !u!1 &9069206062416828815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1087,7 @@ Transform:
   - {fileID: 7393894604988740836}
   - {fileID: 3832072173237291958}
   - {fileID: 3190879657987880714}
+  - {fileID: 1110734909409412955}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1156,6 +1157,7 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 70
   _startShieldPoints: 0
+  _flatArmor: 0
 --- !u!114 &1707002450572714417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,6 +1198,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _foresight: 0
+  _useInnerRotation: 0
+  _innerSpeedMultiplier: 1
   _rotationSpeedProgression:
     serializedVersion: 2
     m_Curve:
@@ -1334,3 +1339,83 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.88, y: 0.5625}
   m_EdgeRadius: 0
+--- !u!1001 &9201032653910556660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9069206062416828812}
+    m_Modifications:
+    - target: {fileID: 5136705210102080984, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136705210102080984, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_Name
+      value: _ElitizePivot_
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.219
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c2b95462ef63ed41b1525390f1bd685, type: 3}
+--- !u!4 &1110734909409412955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8132020919785945263, guid: 2c2b95462ef63ed41b1525390f1bd685,
+    type: 3}
+  m_PrefabInstance: {fileID: 9201032653910556660}
+  m_PrefabAsset: {fileID: 0}

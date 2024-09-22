@@ -6,6 +6,8 @@ public class TestSpawner : MonoBehaviour
     [SerializeField] private bool _test;
     [SerializeField] private DamageBody _testEnemy;
     [SerializeField] private int _count;
+    [SerializeField] private bool _elitize;
+    [Space()]
     [SerializeField] private WeightSelector _testWS;
 
     private void Start() {
@@ -32,7 +34,8 @@ public class TestSpawner : MonoBehaviour
 
         for (int i = 0; i < _count; i++)
         {
-            Spawner.InitializeHPBar(Spawner.SpawnDamageBody(_testEnemy));
+            Spawner.SpawnDamageBody(_testEnemy, default(Vector3), _elitize);
+            //Spawner.InitializeHPBar(Spawner.SpawnDamageBody(_testEnemy));
         }
     }
 }

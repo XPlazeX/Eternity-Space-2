@@ -6,4 +6,5 @@ public class Dev : MonoBehaviour
 
     public static bool RuStoreVersion {get; set;} = false;
     public static bool RuStoreVersionSprites {get; set;} = false;
+    public static bool DevVersion {get; set;} = true;
 }
