@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 164817942640985872}
   - component: {fileID: 8033221766776218195}
   - component: {fileID: 4752620179816914096}
+  - component: {fileID: -2304089660270916702}
   m_Layer: 0
   m_Name: NullTower-1
   m_TagString: Untagged
@@ -108,7 +109,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 995122490102436986, guid: 5647c23507ed6914c98f9ef8e6a3beb9, type: 3}
+  m_Sprite: {fileID: 5439253213037484968, guid: ff2fce6e086440c4e8e0bbfd266ed255,
+    type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -131,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitTime: 5
-  _attackReload: 2
+  _waitTime: 8
+  _attackReload: 3
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0
@@ -186,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 200
+  _hitPoints: 180
   _startShieldPoints: 0
   _flatArmor: 2
 --- !u!114 &164817942640985872
@@ -217,15 +219,15 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.8}
-    oldSize: {x: 0.46875, y: 1.03125}
+    pivot: {x: 0.5, y: 0.737648}
+    oldSize: {x: 0.46875, y: 1}
     newSize: {x: 0.46875, y: 1.03125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.8}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!95 &4752620179816914096
 Animator:
@@ -246,3 +248,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2304089660270916702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100323556144023559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a325e7498b3273a45b828404a6d48d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoint: {fileID: 9069206062416828812, guid: 2b723552951b344408997eaa58abff0d,
+    type: 3}
+  _spawningObject: {fileID: 1380005973944226359, guid: 16de89f42c80c5c40b76179c75e21af6,
+    type: 3}
+  _count: 1
+  _spawnSpread: 0

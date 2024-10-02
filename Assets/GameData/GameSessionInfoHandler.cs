@@ -66,6 +66,11 @@ public class GameSessionInfoHandler : MonoBehaviour
             multiplier += Mathf.Clamp(step_hardness_scale * i, 0f, top_hardness_scale);
         }
 
+        multiplier += _save.AdditiveHardness;
+
+        if (multiplier < 1f)
+            multiplier = 1f;
+
         return multiplier;
     }
 // DATA COLLECTIONS

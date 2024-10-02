@@ -191,7 +191,7 @@ MonoBehaviour:
   _scaleLocalMobility: 1
   _mobilityBoostPerStep: 0.35
   _scaleStaticDamage: 1
-  _staticDamageMultiplierPerStep: 0.4
+  _staticDamageMultiplierPerStep: 0.2
 --- !u!114 &6532749123697282654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _countParry: 0
+  _bonusArmor: 0
 --- !u!114 &4512036273316326783
 MonoBehaviour:
   m_ObjectHideFlags: 0

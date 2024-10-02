@@ -150,7 +150,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _foresight: 0
-  _upperBorderPercent: 0.792
+  _upperBorderPercent: 0.953
   _downBorderPercent: 0.244
   _timeToReloadTarget: 2.5
 --- !u!114 &2838865227822434578

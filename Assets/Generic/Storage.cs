@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 public class Storage
 {
+    private const string copy_prefix = "copy_";
+
     private string filePath;
+    private string filename;
     private BinaryFormatter formatter;
 
     public Storage(string path){
+        filename = path;
+
         var directory = Application.persistentDataPath + "/saves";
         if (!Directory.Exists(directory))
             Directory.CreateDirectory(directory);
-        filePath = directory + $"/{path}.save";
+        filePath = directory + $"/{filename}.save";
         Debug.Log(filePath);
         InitBinaryFormatter();
     }
@@ -42,6 +47,41 @@ public class Storage
         file.Close();
         return savedData;
 
+    }
+
+    public object LoadCopy(object saveDataByDefault, int id = 1)
+    {
+        var directory = Application.persistentDataPath + "/saves";
+        if (!Directory.Exists(directory))
+            Directory.CreateDirectory(directory);
+
+        string copyFilePath = directory + $"/{copy_prefix}{id}_{filename}.save";
+
+        if (!File.Exists(copyFilePath)){
+            if (saveDataByDefault != null) SaveCopy(saveDataByDefault, id);
+            return saveDataByDefault;
+        }
+
+        var file = File.Open(copyFilePath, FileMode.Open);
+        var savedData = formatter.Deserialize(file);
+        file.Close();
+
+        Debug.Log($"<color=magenta>LOAD COPY {copyFilePath}</color>");
+        return savedData;
+    }
+
+    public void SaveCopy(object saveData, int id = 1)
+    {
+        var directory = Application.persistentDataPath + "/saves";
+        if (!Directory.Exists(directory))
+            Directory.CreateDirectory(directory);
+        string copyFilePath = directory + $"/{copy_prefix}{id}_{filename}.save";
+
+        var file = File.Create(copyFilePath);
+        formatter.Serialize(file, saveData);
+        file.Close();
+
+        Debug.Log($"<color=magenta>SAVE COPY {copyFilePath}</color>");
     }
 
     async public void SaveAsync(object saveData){

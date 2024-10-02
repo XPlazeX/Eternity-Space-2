@@ -24,6 +24,11 @@ public class CharacterLoader : MonoBehaviour
     {
         int id = GameSessionInfoHandler.GetSessionSave().ShipModel;
 
+        int missionCustomId = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>()._activeMissionSample.CustomShip;
+
+        if (missionCustomId != -1)
+            id = missionCustomId;
+
         if (_testMode)
             id = _testID;
 
@@ -74,19 +79,19 @@ public class CharacterLoader : MonoBehaviour
         Debug.Log($"Active char sample: {ActiveCharacterSample == null}");
 
         if (loadType == CharacterLoadType.GameLoad)
-            LoadCharacter(ActiveCharacterSample);
+            LoadCharacter(ActiveCharacterSample, characterID);
 
         else if (loadType == CharacterLoadType.MissionMenuLoad)
             MissionMenuLoadCharacter(ActiveCharacterSample);
     }
 
-    private void LoadCharacter(Character character)
+    private void LoadCharacter(Character character, int id)
     {
         // int id = 0;
         // if (Dev.RuStoreVersionSprites)
         //     id = 1;
         Player.Initialize(character.GetSkinnedShip(Skins.SOCurrentSkin()), character.Class);
-        SceneStatics.SceneCore.GetComponent<PlayerShipData>().Initialize(character.HP, character.ARM);
+        SceneStatics.SceneCore.GetComponent<PlayerShipData>().Initialize(character.HP, character.ARM, id);
 
         for (int i = 0; i < character.HandingModules.Length; i++)
         {

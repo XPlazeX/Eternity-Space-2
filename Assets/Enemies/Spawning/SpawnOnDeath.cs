@@ -8,8 +8,12 @@ public class SpawnOnDeath : MonoBehaviour
     [SerializeField] private int _count;
     [SerializeField] private float _spawnSpread;
 
-    private void Start() {
+    private void OnEnable() {
         GetComponent<DamageBody>().Deathed += Spawn;
+    }
+
+    private void OnDisable() {
+        GetComponent<DamageBody>().Deathed -= Spawn;
     }
 
     private void Spawn()

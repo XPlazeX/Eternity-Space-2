@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoStart: 1
-  _speed: 3
+  _speed: 2
   _orientation: 1
   _rotationSpeed: 1.25
   _movingProgression:

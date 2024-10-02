@@ -9,9 +9,16 @@ public class MissionStopper : MonoBehaviour
     [SerializeField] private Text _locationTerminal;
     [SerializeField] private Color _dangerColor;
     [SerializeField] private float _dangerTimeCycle;
+    [Space()]
+    [SerializeField] private Sprite _commonButtonSprite;
+    [SerializeField] private Sprite _resetButtonSprite;
+    [SerializeField] private Text _launchLabel;
+    [SerializeField] private Color _activeLaunchColor;
+    [SerializeField] private Color _resetLaunchColor;
 
     private Color _normalLevelColor;
     bool _firstCheck = false;
+    bool _resetMode = false;
 
     private void Start() {
         for (int i = 0; i < _togButtons.Length; i++)
@@ -31,26 +38,38 @@ public class MissionStopper : MonoBehaviour
 
     public void ToggleLaunchButton(bool tog) => _launchButton.interactable = tog;
 
+    public void ResetButtonMode(bool tog)
+    {
+        _launchButton.GetComponent<Image>().sprite = tog ? _resetButtonSprite : _commonButtonSprite;
+        _launchLabel.color = tog ? _resetLaunchColor : _activeLaunchColor;
+    }
+
     private void CheckState()
     {
-        bool check = true;
         bool dangerCheck = false;
+        _resetMode = true;
 
         for (int i = 0; i < _togButtons.Length; i++)
         {
             if (!_togButtons[i].ON)
-                check = false;
+            {
+                _resetMode = false;
+            }
             else
                 dangerCheck = true;
         }
 
-        if (check)
+        if (_resetMode)
         {
             _locationTerminal.GetComponent<CanvasGroup>().alpha = 1f;
             StopAllCoroutines();
-            Reset();
+            _locationTerminal.text = SceneLocalizator.GetLocalizedString("MissionMenu", 2, 4);
+            ResetButtonMode(true);
             return;
         }
+
+        ResetButtonMode(false);
+        
         if (dangerCheck)
         {
             StartCoroutine(DangerReset());
@@ -65,12 +84,28 @@ public class MissionStopper : MonoBehaviour
         _locationTerminal.GetComponent<CanvasGroup>().alpha = 1f;
     }
 
-    private void Reset()
+    public void LaunchButtonPress()
     {
+        if (_resetMode)
+        {
+            ResetMission();
+        } else 
+        {
+            SceneStatics.SceneCore.GetComponent<MenuController>().StartGame();
+        }
+
+        ToggleLaunchButton(false);
+    }
+
+    private void ResetMission()
+    {
+        _locationTerminal.GetComponent<CanvasGroup>().alpha = 1f;
+        StopAllCoroutines();
         GameSessionInfoHandler.ClearGameSession();
         SceneTransition.SwitchToScene("Lobby");
         _locationTerminal.text = SceneLocalizator.GetLocalizedString("MissionMenu", 2, 3);
         _locationTerminal.color = _dangerColor;
+        Camera.main.GetComponent<MainMenuCamera>().CodeRed();
     }
 
     private IEnumerator DangerReset()

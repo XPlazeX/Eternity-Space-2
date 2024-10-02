@@ -16,7 +16,7 @@ MonoBehaviour:
   - inDevelop: 0
     handingID: 561
     requirementsID:
-    - _UID: 30
+    - _UID: 40
       _amount: 0
     cosPrice: 400
     posPrice: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
   - inDevelop: 0
     handingID: 562
     requirementsID:
-    - _UID: 30
+    - _UID: 43
       _amount: 0
     cosPrice: 150
     posPrice: 10

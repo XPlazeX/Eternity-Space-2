@@ -3,6 +3,8 @@ using UnityEngine;
 public class VictoryHandler : MonoBehaviour
 {
     private const int _auriteExplosionID = 12;
+    public const int arcade_aurite_penalty = 25;
+
     public delegate void victoryAction();
 
     public static event victoryAction LevelVictored;
@@ -112,7 +114,7 @@ public class VictoryHandler : MonoBehaviour
 
         Bank.PutCash(BankSystem.Currency.Cosmilite, _tempCosmilite);
         Bank.PutCash(BankSystem.Currency.Positronium, _tempPositronium);
-        Bank.PutCash(BankSystem.Currency.Aurite, _tempAurite + save.MoneyPerLevel);
+        Bank.PutCash(BankSystem.Currency.Aurite, _tempAurite + save.MoneyPerLevel - (PlayerPrefs.GetFloat("GameMode", 0) == 1f ? arcade_aurite_penalty : 0));
 
         GameSessionInfoHandler.RewriteSessionSave(save);
 

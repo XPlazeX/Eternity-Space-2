@@ -11,7 +11,8 @@ public class Tocamak : Core
             PlayerShipData.TakeAnyDamage += OnDamageTaken;
     }
 
-    private void OnDisable() {
+    protected override void OnDisable() {
+        base.OnDisable();
         if (_loseOnDamage)
             PlayerShipData.TakeAnyDamage -= OnDamageTaken;
     }
@@ -25,7 +26,7 @@ public class Tocamak : Core
             growth *= _perContagionMultiplier * ContagionHandler.ContagionLevel;
         }
 
-        PlayerCore.AddEnergy(growth * Time.deltaTime);
+        PlayerCore.AddEnergy(growth * Time.deltaTime * Effeciency);
     }
 
     private void OnDamageTaken(int points)

@@ -14,8 +14,23 @@ public class DeathUIHandler : MonoBehaviour
     public static bool NoEraseData {get; set;} = false;
     public static bool FastRestart {get; set;} = false;
 
-    public void TrySpawnErrorer() {
+    public void TrySpawnErrorer() 
+    {
+        int errorSpawns = 0;
+        if (Random.value <= 0.25f && GameSessionInfoHandler.GetSessionSave().LocationID != 26)
+        {
+            errorSpawns ++;
+        }
         if (((GameSessionInfoHandler.CurrentLevel + 1) % 4 == 0) || GameSessionInfoHandler.IsSignalLevel)
+        {
+            errorSpawns ++;
+        }
+        if (EternityClock.Parsing)
+        {
+            errorSpawns ++;
+        }
+
+        for (int i = 0; i < errorSpawns; i++)
         {
             Instantiate(_vectorErrorer, CameraController.GetRandomFieldPosition(6f, Vector3.zero, 1f), Quaternion.identity);
             print("<color=magenta>Spawn Vector errorer!</color>");

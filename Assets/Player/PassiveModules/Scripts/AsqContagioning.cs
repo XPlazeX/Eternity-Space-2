@@ -7,6 +7,7 @@ public class AsqContagioning : Module
     [SerializeField] private bool _cleanAll;
     [SerializeField] private bool _setToCap;
     [SerializeField][Range(1, 11)] private int _capVolume = 1;
+    [SerializeField] private float _additiveHardness = 0f;
 
     public override void Asquiring()
     {
@@ -27,6 +28,15 @@ public class AsqContagioning : Module
         } else if (_contagionVolume > 0)
         {
             ContagionHandler.AddContagion(_contagionVolume);
+        }
+
+        if (_additiveHardness != 0f)
+        {
+            GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+
+            save.AdditiveHardness += _additiveHardness;
+
+            GameSessionInfoHandler.RewriteSessionSave(save);
         }
     }
 }

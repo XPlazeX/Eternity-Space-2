@@ -7,6 +7,9 @@ public class PauseUIHandler : MonoBehaviour
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _timeBufferImage;
     [SerializeField] private Text _countdownLabel;
+    [Space()]
+    [SerializeField] private CanvasGroup _pauseCanvasGroup;
+    [SerializeField] private GameObject _uiPlacePanel;
 
     public void ShowPause()
     {
@@ -18,6 +21,13 @@ public class PauseUIHandler : MonoBehaviour
     {
         _pausePanel.SetActive(false);
         StartCoroutine(Countdown(timeBuffer));
+    }
+
+    public void ToggleUIPlaceMode(bool tog)
+    {
+        _pauseCanvasGroup.alpha = tog ? 0f : 1f;
+        _pauseCanvasGroup.interactable = tog ? false : true;
+        _uiPlacePanel.SetActive(tog);
     }
 
     private IEnumerator Countdown(int time)

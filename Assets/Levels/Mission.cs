@@ -102,6 +102,7 @@ public class Mission : MonoBehaviour
 
         if (rewriteAll)
             save.Money = _startAurite;
+
         save.MoneyPerLevel = _auritePerLevel;
 
         save.LocalizedLocationName = new TextLoader("Locations", _nameLocalizationID, 0).FirstCell;

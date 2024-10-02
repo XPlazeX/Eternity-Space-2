@@ -301,8 +301,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 599807286}
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1752504751}
+        m_MethodName: LaunchButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8256,7 +8256,7 @@ MonoBehaviour:
     auritePrice: 100
     requiredUnlocks: []
   - moduleOperandID: 75
-    auritePrice: 250
+    auritePrice: 300
     requiredUnlocks: []
   - moduleOperandID: 76
     auritePrice: 60
@@ -35476,6 +35476,13 @@ MonoBehaviour:
   _locationTerminal: {fileID: 1369471903}
   _dangerColor: {r: 0.9056604, g: 0.30769095, b: 0.18369527, a: 1}
   _dangerTimeCycle: 0.66
+  _commonButtonSprite: {fileID: -165444766360638589, guid: cac3b0aa7ec98084e9856cc5f351b4f3,
+    type: 3}
+  _resetButtonSprite: {fileID: 5802564455909163020, guid: cac3b0aa7ec98084e9856cc5f351b4f3,
+    type: 3}
+  _launchLabel: {fileID: 71704113}
+  _activeLaunchColor: {r: 0.29803923, g: 1, b: 0.8235295, a: 1}
+  _resetLaunchColor: {r: 0.21568629, g: 0.25882354, b: 0.3372549, a: 1}
 --- !u!1 &1760452792
 GameObject:
   m_ObjectHideFlags: 0
@@ -38245,7 +38252,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5ca8f2064d4973458c1002b704b7f82, type: 2}
   - {fileID: 11400000, guid: f1ec92dbcfb54cc44949a3bd67c304ab, type: 2}
   - {fileID: 11400000, guid: b0bf77c985f061b42955ea1c3ddb4a25, type: 2}
-  randomizedExclusions: 020000002a0000002b0000002c0000002d0000002e0000000c0000000d0000000e0000002700000028000000290000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d000000
+  - {fileID: 11400000, guid: 8a6d74e236ee9bb4a89a626135a73022, type: 2}
+  - {fileID: 11400000, guid: 88f9b19b9c9ab084890b89efce835ceb, type: 2}
+  - {fileID: 11400000, guid: 1b956abc544aabf4aa744582b295d81e, type: 2}
+  randomizedExclusions: 020000002a0000002b0000002c0000002d0000002e0000000c0000000d0000000e0000002700000028000000290000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006f0000007000000071000000
 --- !u!4 &2042368133
 Transform:
   m_ObjectHideFlags: 0

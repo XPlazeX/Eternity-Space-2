@@ -15,7 +15,7 @@ public class ElitizerManager : MonoBehaviour
             print($"<color=magenta>Elite not avaiable</color>");
             return;
         }
-        print($"<color=magenta>Elite chance: {_minSpawnChance + (1f - 1f / (1 + hardness / 3f)) / 3f}</color>");
+        print($"<color=magenta>Elite chance: {(_minSpawnChance + (1f - 1f / (1 + hardness / 3f)) / 3f) * ShipStats.GetValue("EliteChance")}</color>");
     }
 
     public bool WillElitize()
@@ -25,7 +25,7 @@ public class ElitizerManager : MonoBehaviour
         if (hardness < 0f)
             return false;
 
-        float resultChance = _minSpawnChance + (1f - 1f / (1 + hardness / 3f)) / 3f;
+        float resultChance = (_minSpawnChance + (1f - 1f / (1 + hardness / 3f)) / 3f) * ShipStats.GetValue("EliteChance");
 
         return Random.value < resultChance;
     }

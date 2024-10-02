@@ -271,7 +271,7 @@ MonoBehaviour:
   _waitTime: 3
   _attackReload: 11
   _attackObjects:
-  - _cycles: 11
+  - _cycles: 8
     _timeBetweenCycles: 0.1
     _timeCooling: 0
     _bulletCode: 0

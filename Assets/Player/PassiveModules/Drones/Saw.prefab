@@ -111,7 +111,7 @@ MonoBehaviour:
   _scaleLocalMobility: 1
   _mobilityBoostPerStep: 0.2
   _scaleStaticDamage: 1
-  _staticDamageMultiplierPerStep: 0.3
+  _staticDamageMultiplierPerStep: 0.2
 --- !u!114 &6532749123697282654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _countParry: 0
+  _bonusArmor: 0
 --- !u!50 &3151115811066776247
 Rigidbody2D:
   serializedVersion: 4
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiImage: 0
+  _uiText: 0
   _gradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}

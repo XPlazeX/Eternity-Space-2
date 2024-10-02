@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 0.5
-  _foresight: 0
+  _foresight: 20
 --- !u!1 &5451440514131603443
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +871,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _foresight: 0
+  _movementForesight: -15
   _upperBorderPercent: 0.932
   _downBorderPercent: 0.41
   _timeToReloadTarget: 22

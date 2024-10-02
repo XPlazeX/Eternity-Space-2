@@ -208,6 +208,8 @@ MonoBehaviour:
   _targetTag: Enemy
   _homingPower: 0.6
   _waitTime: 0
+  _checkReloadTime: 1
+  _playerIfNullTarget: 0
 --- !u!96 &7999260474803513107
 TrailRenderer:
   serializedVersion: 2
@@ -359,7 +361,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.275, y: 0.41}
+  m_Size: {x: 0.3, y: 0.45}
   m_EdgeRadius: 0
 --- !u!114 &1689287198338438149
 MonoBehaviour:

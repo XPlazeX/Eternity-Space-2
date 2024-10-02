@@ -56,7 +56,7 @@ public class DamageBody : MonoBehaviour
     {
         _hitPoints = Mathf.CeilToInt(_hitPoints * ShipStats.GetValue("EnemyHealthMultiplier") * GameSessionInfoHandler.HardnessMultiplier);
         _startHP = _hitPoints;
-        _startFlatArmor = _flatArmor;
+        _startFlatArmor = _flatArmor + ShipStats.GetIntValue("EnemyFlatArmor");
         _damageTakingAnimator = GetComponent<Animator>();
     }
 

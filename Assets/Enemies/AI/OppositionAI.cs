@@ -92,7 +92,7 @@ public class OppositionAI : EnemyAIRoot
             return _player.position;
         } else
         {
-            return Player.GetPlayerPosition(_foresight);
+            return Player.GetPlayerPosition(_foresight + MovementForesight);
         }
     }
 }

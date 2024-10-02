@@ -29,6 +29,24 @@ public class ClearSave : MonoBehaviour
             Reset();
     }
 
+    #if UNITY_EDITOR
+    private void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            GlobalSaveHandler.SaveCopy(1);
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            GlobalSaveHandler.ClearSave();
+        }
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            GlobalSaveHandler.LoadCopy(1);
+        }
+    }
+    #endif
+
     private void Reset()
     {
         _menuController.HideCurrent();
@@ -46,14 +64,15 @@ public class ClearSave : MonoBehaviour
                 break;
             case 1:
                 Unlocks.NewUnlock(5);
-                TrainingOperator.PrepareSimulationTraining();
-                print("Ручная очистка: криосон пропущен");
-                break;
-            case 2:
-                Unlocks.NewUnlock(5);
                 Unlocks.NewUnlock(6);
                 GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>().SetSessionData(2);
                 print("Ручная очистка: обучение пройдено");
+                break;
+            case 2:
+                // Unlocks.NewUnlock(5);
+                // Unlocks.NewUnlock(6);
+                // GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>().SetSessionData(2);
+                // print("Ручная очистка: обучение пройдено");
                 break;
             default:
                 break;

@@ -23,6 +23,7 @@ public class NanomachinesLabel : MonoBehaviour
         {
             CheckGameValue(0);
             PlayerShipData.ChangeHealth += CheckGameValue;
+            return;
         }
 
         CheckValue();
@@ -31,8 +32,11 @@ public class NanomachinesLabel : MonoBehaviour
 
     private void OnDisable() 
     {
-        if (_inGame)  
+        if (_inGame) 
+        {
             PlayerShipData.ChangeHealth -= CheckGameValue;
+            return;
+        }
         
         GameSessionInfoHandler.SavingAll -= CheckValue;
     }

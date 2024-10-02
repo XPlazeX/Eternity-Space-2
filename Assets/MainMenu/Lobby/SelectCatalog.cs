@@ -131,6 +131,8 @@ public class SelectCatalog : MonoBehaviour
     [SerializeField] private Image[] _targetWeaponIcons;
     [SerializeField] private Image[] _targetCoreIcons;
     [SerializeField] private Text _nameLabel;
+    [SerializeField] private Text _weaponLetalityLabel;
+    [SerializeField] private Text _weaponDescription;
     [SerializeField] private GameObject[] _panels;
 
     public static ShipClass ActiveClass {get; private set;} = ShipClass.Scout;
@@ -247,6 +249,8 @@ public class SelectCatalog : MonoBehaviour
         {
             _targetWeaponIcons[i].sprite = _weaponsSelectors[id].Icon;
         }
+        _weaponLetalityLabel.text = SceneLocalizator.GetLocalizedString("Weapons", id, 1);
+        _weaponDescription.text = SceneLocalizator.GetLocalizedString("Weapons", id, 2);
     }
 
     public void ButtonSetWeapon(int id)

@@ -29,7 +29,7 @@ public class FollowAI : EnemyAIRoot
             return;
         if (!_retargeting)
         {
-            _targetPosition = _player.position;
+            _targetPosition = GetActualPlayerPosition();
             if ((transform.position - _targetPosition).magnitude > 0.3f)
                 transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
             else
@@ -50,5 +50,10 @@ public class FollowAI : EnemyAIRoot
             if (_retargeting)
                 _targetPosition = new Vector3 (Random.Range(_XBorders.x, _XBorders.y), Random.Range(_YBorders.x, _YBorders.y), 0f);
         }
+    }
+
+    protected Vector3 GetActualPlayerPosition()
+    {
+        return Player.GetPlayerPosition(_foresight + MovementForesight);
     }
 }

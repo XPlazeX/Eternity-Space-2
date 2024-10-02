@@ -54,6 +54,10 @@ MonoBehaviour:
   _minMaxCosmilite: {x: 50, y: 65}
   _nameLocalizationID: 5
   _radioID: 12
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -70,6 +74,8 @@ MonoBehaviour:
     menuDialogue: Null2-1-M9
     gameDialogue: 
   _completedMissionLobbyDialogue: Null2-1-End
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -169,7 +175,7 @@ MonoBehaviour:
   _hasStalkers: 1
   _chance: 0.033
   _firstLevelWaveCount: 4
-  _finalLevelWaveCount: 8
+  _finalLevelWaveCount: 6
   _startLevelWeight: 2
   _finalLevelWeight: 5
   _missionWeightFinalMultiplier: 1.85

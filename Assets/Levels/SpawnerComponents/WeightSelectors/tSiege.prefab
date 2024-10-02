@@ -124,10 +124,12 @@ MonoBehaviour:
       type: 3}
     spawnPosition: {x: 4, y: 5, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
   - gameObject: {fileID: 3633484148615044617, guid: 085eff2d127a7ae45a97d03708505d91,
       type: 3}
     spawnPosition: {x: -4, y: 5, z: 0}
     spawnAngles: 0
+    atPlayerPosition: 0
 --- !u!114 &-6027099161857084584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnerModifier:
-    _additiveWaveCountMultiplier: 0.8
-    _additiveWeightMultiplier: 0.8
+    _additiveWaveCountMultiplier: 1
+    _additiveWeightMultiplier: 1
     _additiveEnemyBuffer: 0
     _enemySpawnReloadMultiplier: 1
     _flatBonusEnemiesBonus: 0

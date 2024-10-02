@@ -49,4 +49,15 @@ public class GlobalSaveHandler : MonoBehaviour
     {
         SavingAll?.Invoke();
     }
+
+    public static void SaveCopy(int id)
+    {
+        _storage.SaveCopy(_save, id);
+    }
+
+    public static void LoadCopy(int id)
+    {
+        _save = (GlobalSave)_storage.LoadCopy(new GlobalSave(), id);
+        _storage.Save(_save);
+    }
 }

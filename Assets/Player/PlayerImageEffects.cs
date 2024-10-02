@@ -13,10 +13,6 @@ public class PlayerImageEffects : MonoBehaviour
         _playerTrailAnimator = GetComponent<Animator>();
 
         _playerTrailPS.textureSheetAnimation.SetSprite(0, GetComponent<SpriteRenderer>().sprite);
-        // var rendererPS = _playerTrailPS.GetComponent<ParticleSystemRenderer>();
-        // rendererPS.material.mainTexture = GetComponent<SpriteRenderer>().sprite.texture;
-
-        //GameObject.FindWithTag("Sensor").GetComponent<PlayerController>().SetPlayerImageEffector(this);
     }
 
     private void OnEnable() {

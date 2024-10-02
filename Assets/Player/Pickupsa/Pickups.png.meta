@@ -35,6 +35,9 @@ TextureImporter:
   - first:
       213: 384700277192883564
     second: Pickups_2
+  - first:
+      213: 1294334034469808618
+    second: Pickups_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -350,7 +353,7 @@ TextureImporter:
         width: 20
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -358,6 +361,27 @@ TextureImporter:
       bones: []
       spriteID: c6d73172ddab65500800000000000000
       internalID: 384700277192883564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickups_3
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 2
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9654952f566f110800000000000000
+      internalID: 1294334034469808618
       vertices: []
       indices: 
       edges: []

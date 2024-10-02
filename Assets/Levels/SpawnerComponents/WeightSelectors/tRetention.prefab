@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2891289184826753112}
   - component: {fileID: 2891289184826753115}
   - component: {fileID: 4685253803871965895}
+  - component: {fileID: 7583543935497986206}
   m_Layer: 0
   m_Name: tRetention
   m_TagString: Untagged
@@ -129,3 +130,24 @@ MonoBehaviour:
     _missionWeightAdditiveFinalMultiplier: 1
     _additiveBonusEnemies: 0
   _statsModifiers: []
+--- !u!114 &7583543935497986206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891289184826753114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e341d092828c148921bb42406c44cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 0}
+  _selfLoadOnStart: 0
+  _operators:
+  - _statName: EnemyFlatArmor
+    _typeOperation: 2
+    _operationValue: 1
+    _negativeSetsToZero: 0
+  _healthOperators: []
+  _negativeOnDisable: 0

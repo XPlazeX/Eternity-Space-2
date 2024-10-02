@@ -52,6 +52,8 @@ public class PPSettingPanel : MonoBehaviour
         PlayerPrefs.SetFloat(_settingName, _buttons[id].SettingValue);
         PlayerPrefs.Save();
 
+        Debug.Log($"PlayerPrefs Set {_settingName} to {_buttons[id].SettingValue}");
+
         ReloadButtons();
         //GameObject.FindWithTag("SceneCore").GetComponent<MainSettings>().SetLogState(0);
     }

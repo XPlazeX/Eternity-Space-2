@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stepTime: 0.5
+  _minMaxWindRotation: {x: 0, y: 360}
 --- !u!114 &5093997617761098299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,12 +146,12 @@ MonoBehaviour:
     _missionWeightAdditiveFinalMultiplier: 1
     _additiveBonusEnemies: 0
   _statsModifiers:
-  - _statName: StalkerChance
+  - _statName: StalkerChanceMultiplier
     _value: 3
   - _statName: PlayerShotSpeedMultiplier
-    _value: 0.85
+    _value: 0.7
   - _statName: EnemyBulletSpeedMultiplier
-    _value: 0.85
+    _value: 0.7
 --- !u!114 &8125167912793707774
 MonoBehaviour:
   m_ObjectHideFlags: 0

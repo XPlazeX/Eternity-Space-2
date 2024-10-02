@@ -40,7 +40,7 @@ public struct SpawnObject
     public void Spawn()
     {
         DamageBody db = MonoBehaviour.Instantiate(gameObject, atPlayerPosition ? Player.PlayerTransform.position : spawnPosition, Quaternion.Euler(0,0, spawnAngles)).GetComponent<DamageBody>();
-        if (db != null)
+        if (db != null && db.GetType() != typeof(AsteroidBody))
         {
             Spawner.InitializeHPBar(db);
         }

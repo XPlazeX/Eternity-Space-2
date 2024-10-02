@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnerModifier:
     _additiveWaveCountMultiplier: 1.5
-    _additiveWeightMultiplier: 0.7
+    _additiveWeightMultiplier: 1
     _additiveEnemyBuffer: 2
     _enemySpawnReloadMultiplier: 0.5
     _flatBonusEnemiesBonus: 0
@@ -131,3 +131,7 @@ MonoBehaviour:
   _statsModifiers:
   - _statName: EnemyHealthMultiplier
     _value: 0.66
+  - _statName: EnemyAggresionMultiplier
+    _value: 1.25
+  - _statName: EnemyMobilityMultiplier
+    _value: 1.25

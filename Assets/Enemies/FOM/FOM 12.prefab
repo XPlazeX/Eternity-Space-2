@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 50
-  _startShieldPoints: 50
+  _hitPoints: 40
+  _startShieldPoints: 40
   _flatArmor: 1
 --- !u!114 &8077741044969539644
 MonoBehaviour:

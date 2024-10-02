@@ -191,7 +191,7 @@ MonoBehaviour:
   _hasStalkers: 1
   _chance: 0.033
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 9
+  _finalLevelWaveCount: 5
   _startLevelWeight: 2
   _finalLevelWeight: 6
   _missionWeightFinalMultiplier: 1.66

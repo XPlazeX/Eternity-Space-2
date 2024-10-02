@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018917793387868237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.593, y: 1.171, z: 0}
+  m_LocalPosition: {x: 1.262, y: 1.928, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 345f5bdbbd587d546a3387b7a24db769, type: 3}
+  m_Sprite: {fileID: 1335499673870057088, guid: 32d3d9745fe525c43b31f7c787f52903,
+    type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 28
   _startShieldPoints: 0
+  _flatArmor: 0
   _lifetime: 8
   _minMaxSpeed: {x: 1, y: 8}
   _explodeOnTimer: 0
@@ -1513,7 +1515,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 1
     timeMode: 0
     fps: 30
@@ -1632,7 +1634,8 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: a4e4c0c5d983def4f852fa935a877335, type: 3}
+    - sprite: {fileID: 1335499673870057088, guid: 32d3d9745fe525c43b31f7c787f52903,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4909,7 +4912,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.15625, y: 2.15625}
+    oldSize: {x: 2.15625, y: 1.09375}
     newSize: {x: 0.6875, y: 0.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -20,7 +20,7 @@ public class RamAI : EnemyAIRoot
 
     protected virtual void SetTarget()
     {
-        _targetPosition = ((_player.position - transform.position).normalized * _ramDistance * Mobility) + transform.position;
+        _targetPosition = ((GetActualPlayerPosition() - transform.position).normalized * _ramDistance * Mobility) + transform.position;
 
         float secondaryOffset = SceneStatics.MultiplyByChaos(SceneStatics.ChaosMultiplier) * 5f;
         _targetPosition += new Vector3(Random.Range(-secondaryOffset, secondaryOffset), Random.Range(-secondaryOffset, secondaryOffset), 0f);
@@ -41,5 +41,10 @@ public class RamAI : EnemyAIRoot
             _distance = (_targetPosition - transform.position).magnitude;
             _timer = SceneStatics.MultiplyByChaos(_ramReload / Mobility);
         }
+    }
+
+    protected Vector3 GetActualPlayerPosition()
+    {
+        return Player.GetPlayerPosition(_foresight + MovementForesight);
     }
 }

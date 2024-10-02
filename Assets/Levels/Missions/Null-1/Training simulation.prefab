@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5972983307079532163}
   - component: {fileID: 4671021735225386770}
+  - component: {fileID: 135448791073966362}
   m_Layer: 0
   m_Name: Training simulation
   m_TagString: Untagged
@@ -54,6 +55,9 @@ MonoBehaviour:
   _nameLocalizationID: 0
   _radioID: 0
   _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -73,6 +77,8 @@ MonoBehaviour:
     menuDialogue: 
     gameDialogue: Training-SimT_Final
   _completedMissionLobbyDialogue: Training-Lobby_Entry
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 1
@@ -187,3 +193,15 @@ MonoBehaviour:
   OnNewWaveStarted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &135448791073966362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409399996074538531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69a1e6d699342e43b6fd59f95af5812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

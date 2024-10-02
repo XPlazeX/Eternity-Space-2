@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8846d90141ad7524b84889f75b142202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.5
+  _speed: 0.67
   _lifeTime: 10
   _playingEffectID: 4
   _effectDuration: 1.66

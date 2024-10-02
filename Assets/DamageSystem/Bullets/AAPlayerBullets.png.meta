@@ -398,6 +398,12 @@ TextureImporter:
   - first:
       213: 3348075533390849137
     second: AAPlayerBullets_18
+  - first:
+      213: 7978691638195587105
+    second: AAPlayerBullets_19
+  - first:
+      213: -3557357476106467092
+    second: AAPlayerBullets_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -3281,7 +3287,7 @@ TextureImporter:
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3302,7 +3308,7 @@ TextureImporter:
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3310,6 +3316,48 @@ TextureImporter:
       bones: []
       spriteID: 17420f075f0c67e20800000000000000
       internalID: 3348075533390849137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_19
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 45
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1280703a5c10abe60800000000000000
+      internalID: 7978691638195587105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AAPlayerBullets_20
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 24
+        width: 5
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2885715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce80891293ab1aec0800000000000000
+      internalID: -3557357476106467092
       vertices: []
       indices: 
       edges: []

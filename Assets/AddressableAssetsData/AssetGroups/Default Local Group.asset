@@ -446,6 +446,14 @@ MonoBehaviour:
     m_Address: Assets/Enemies/Stalkers/Stalker 39.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 30d35b9300103744492ea5c49c4350f4
+    m_Address: Assets/Enemies/Stalkers/Stalker 40.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 668e522afd4327d4b8f35baabb0ae89a
+    m_Address: Assets/Enemies/Stalkers/Stalker 41.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 74ab3fcb709e73e4bb51b56c97932f20, type: 2}
   m_SchemaSet:

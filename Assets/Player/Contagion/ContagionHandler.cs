@@ -29,6 +29,7 @@ public class ContagionHandler : MonoBehaviour
     public static void AddContagion(int volume)
     {
         ContagionLevel += volume;
+        Unlocks.ProgressUnlock(935, volume);
         SaveContagion();
 
         ContagionChanged?.Invoke();
@@ -65,6 +66,11 @@ public class ContagionHandler : MonoBehaviour
 
         GameSessionInfoHandler.ReplaceValueInCollection(contagion_collection_key, 0, ContagionLevel);
         Debug.Log($"<color=#6666FF>Сохранён уровень заражения: {ContagionLevel}</color>");
+
+        if (ContagionLevel > Unlocks.ValueOfUnlock(934))
+        {
+            Unlocks.RewriteUnlockProgress(934, ContagionLevel);
+        }
 
         if (ContagionLevel >= 20)
         {

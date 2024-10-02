@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -780182164525201080, guid: aa459018058874249be1d7f51b00444a,
+  m_Sprite: {fileID: -1929366605773643366, guid: 32d3d9745fe525c43b31f7c787f52903,
     type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -105,8 +105,9 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 2300
   _startShieldPoints: 0
+  _flatArmor: 0
   _lifetime: 200
-  _minMaxSpeed: {x: 0.35, y: 0.5}
+  _minMaxSpeed: {x: 0.3, y: 0.4}
   _explodeOnTimer: 0
 --- !u!114 &1526322061428859487
 MonoBehaviour:
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _countParry: 0
+  _bonusArmor: 0
 --- !u!114 &-1651632698975886719
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class EnemyAIRoot : MonoBehaviour
     [SerializeField] protected float _rotationSpeed;
     [SerializeField] protected AnimationCurve _movingProgression;
     [SerializeField] protected float _foresight = 0f;
+    [SerializeField] private float _movementForesight = -15f;
 
     protected float _startSpeed;
     private float _mobility = 1f;
@@ -27,6 +28,7 @@ public class EnemyAIRoot : MonoBehaviour
     public float Speed => _speed;
     public float Mobility => _mobility * _localMobility;
     public bool Active {get; private set;} = false;
+    public float MovementForesight {get; protected set;}
 
     private void OnEnable() 
     {
@@ -38,6 +40,8 @@ public class EnemyAIRoot : MonoBehaviour
 
         ShipStats.StatChanged += ObserveStat;
         _mobility = ShipStats.GetValue("EnemyMobilityMultiplier");
+        MovementForesight = _movementForesight + ShipStats.GetValue("MovementForesightAddition");
+
     }
 
     public void LocalMultiplyMobility(float multiplier)
@@ -55,6 +59,8 @@ public class EnemyAIRoot : MonoBehaviour
     {
         if (name == "EnemyMobilityMultiplier")
             _mobility = ShipStats.GetValue("EnemyMobilityMultiplier");
+        if (name == "MovementForesightAddition")
+            MovementForesight = _movementForesight + ShipStats.GetValue("MovementForesightAddition");
     }
 
     protected virtual void Start() {

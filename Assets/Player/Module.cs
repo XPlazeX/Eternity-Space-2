@@ -196,6 +196,25 @@ public class Core : Gear
 
     public float MaxMegawatts => _maxMegawatts;
     public float StartMegawatts => _startMegawatts;
+    public float Effeciency {get; private set;}
+
+    public override void Load()
+    {
+        Effeciency = ShipStats.GetValue("CoreEffeciency");
+        ShipStats.StatChanged += ObserveStat;
+    }
+
+    protected virtual void OnDisable() {
+        ShipStats.StatChanged -= ObserveStat;
+    }
+
+    protected virtual void ObserveStat(string name, float val)
+    {
+        if (name == "CoreEffeciency")
+        {
+            Effeciency = ShipStats.GetValue("CoreEffeciency");
+        } 
+    }
 }
 
 public class Ability : Gear

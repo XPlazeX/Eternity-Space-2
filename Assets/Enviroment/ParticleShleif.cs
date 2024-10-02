@@ -15,8 +15,9 @@ public class ParticleShleif : PullableObject
         var pSMain = _particleSystem.main;
         pSMain.startRotation = -transform.eulerAngles.z * Mathf.Deg2Rad;
         
-        var rendererPS = _particleSystem.GetComponent<ParticleSystemRenderer>();
-        rendererPS.material.mainTexture = GetComponent<SpriteRenderer>().sprite.texture;
+        _particleSystem.textureSheetAnimation.SetSprite(0, GetComponent<SpriteRenderer>().sprite);
+        // var rendererPS = _particleSystem.GetComponent<ParticleSystemRenderer>();
+        // rendererPS.material.mainTexture = GetComponent<SpriteRenderer>().sprite.texture;
     }
 
     protected override void SetDefaultStats()

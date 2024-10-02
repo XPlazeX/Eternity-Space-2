@@ -80,6 +80,10 @@ public class ModuleCore : MonoBehaviour
     {
         _defaultWeaponPattern = (AttackPattern)SpawnGear(_testWeaponPattern);
 
+        Core core = Instantiate(_coreList.GetCore(GameSessionInfoHandler.GetSessionSave().CoreModel));
+        core.Load();
+        print($"Модель ядра: {GameSessionInfoHandler.GetSessionSave().CoreModel}");
+
         for (int i = 0; i < _testLoadingModules.Length; i++)
         {
             SpawnModule(_testLoadingModules[i]);

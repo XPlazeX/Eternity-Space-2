@@ -68,7 +68,7 @@ public class PlayerShipData : MonoBehaviour
     private static PlayerUI _playerUI;
     private static ShieldComponent _shield;
 
-    public void Initialize(int hp, int arm)
+    public void Initialize(int hp, int arm, int shipID)
     {
         _playerUI = SceneStatics.UICore.GetComponent<PlayerUI>();
         _playerUI.ToggleShield(false);
@@ -86,7 +86,29 @@ public class PlayerShipData : MonoBehaviour
         
         _hpCap = hp;
         _armorCap = arm;
+
+        CheckOtherShip(hp, arm, shipID);
+
         _playerUI.MaxHP = _hpCap;
+
+        ArmorPoints = arm;
+        VictoryHandler.LevelVictored += WriteSaveData;
+    }
+    private void OnDisable() {
+        VictoryHandler.LevelVictored -= WriteSaveData;
+    }
+
+    private void CheckOtherShip(int startHP, int startArm, int shipID)
+    {
+        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+
+        if (save.SessionInitialized && save.ShipModel != shipID)
+        {
+            _hpCap = startHP;
+            HitPoints = _hpCap;
+            WriteSaveData();
+            return;
+        }
 
         if (save.SessionInitialized)
         {
@@ -98,12 +120,6 @@ public class PlayerShipData : MonoBehaviour
             HitPoints = _hpCap;
             WriteSaveData();
         }
-
-        ArmorPoints = arm;
-        VictoryHandler.LevelVictored += WriteSaveData;
-    }
-    private void OnDisable() {
-        VictoryHandler.LevelVictored -= WriteSaveData;
     }
 
     public static void LoadHealth()

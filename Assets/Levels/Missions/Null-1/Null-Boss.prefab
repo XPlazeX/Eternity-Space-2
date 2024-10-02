@@ -53,6 +53,10 @@ MonoBehaviour:
   _minMaxCosmilite: {x: 25, y: 25}
   _nameLocalizationID: 3
   _radioID: 5
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -60,6 +64,8 @@ MonoBehaviour:
     menuDialogue: Null-Boss-M0
     gameDialogue: Null-Boss-G0
   _completedMissionLobbyDialogue: Null-Boss-End
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.8
@@ -148,7 +154,7 @@ MonoBehaviour:
     _objectsToBeaconLevel: 1
   _soundtrack:
     _clip: {fileID: 8300000, guid: 992426f22fc18894fa22912a310a8421, type: 3}
-    _volume: 0.258
+    _volume: 0.7
     _pitchRandomizing: 0
   _force: {x: 0, y: 0}
   _hasBonusSpawn: 1

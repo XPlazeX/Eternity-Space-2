@@ -11,6 +11,7 @@ public class PlayerUI: MonoBehaviour
     //[SerializeField] private Text _healthLabel;
     [SerializeField] private Text _armorLabel;
     [SerializeField] private Text _shieldLabel;
+    [SerializeField] private Text _interventionLabel;
     [Header("Animations")]
     [SerializeField] private Animator[] _damageTakenAnimators; 
     [SerializeField] private Animator _effectAnimator;
@@ -98,6 +99,8 @@ public class PlayerUI: MonoBehaviour
         _abilityAnimator.speed = 1f / durationMultiplier;
         _abilityAnimator.SetTrigger("Use");
     }
+
+    public void ToggleIntervention(bool tog) => _interventionLabel.gameObject.SetActive(tog);
 
     public void SetCriticalState(bool tog) => _stateAnimator.SetBool("CriticalState", tog);
     public void TriggerPreDeath() => _stateAnimator.SetTrigger("PreDeath");

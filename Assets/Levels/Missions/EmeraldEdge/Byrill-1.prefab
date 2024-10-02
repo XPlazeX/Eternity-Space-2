@@ -53,6 +53,10 @@ MonoBehaviour:
   _minMaxCosmilite: {x: 40, y: 50}
   _nameLocalizationID: 4
   _radioID: 7
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -66,6 +70,8 @@ MonoBehaviour:
     menuDialogue: Byrill-0-M3
     gameDialogue: 
   _completedMissionLobbyDialogue: Byrill-0-End
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.6
@@ -159,7 +165,7 @@ MonoBehaviour:
   _hasStalkers: 0
   _chance: 0
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 5
+  _finalLevelWaveCount: 4
   _startLevelWeight: 3
   _finalLevelWeight: 5
   _missionWeightFinalMultiplier: 1.5

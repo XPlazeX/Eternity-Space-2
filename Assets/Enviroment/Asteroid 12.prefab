@@ -33,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018917793387868237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 1.543, z: 0}
+  m_LocalPosition: {x: 2.201, y: 1.412, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b978c1d6ac90cb4b8e1d79a9e7f3a64, type: 3}
+  m_Sprite: {fileID: -5275164243449462585, guid: 32d3d9745fe525c43b31f7c787f52903,
+    type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,8 +105,10 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 48
   _startShieldPoints: 0
+  _flatArmor: 0
   _lifetime: 11
   _minMaxSpeed: {x: 2.5, y: 4}
+  _explodeOnTimer: 0
 --- !u!114 &74206241480872419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +437,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1511,7 +1514,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 1
     timeMode: 0
     fps: 30
@@ -1630,7 +1633,8 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: a4e4c0c5d983def4f852fa935a877335, type: 3}
+    - sprite: {fileID: -5275164243449462585, guid: 32d3d9745fe525c43b31f7c787f52903,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4890,7 +4894,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.59375, y: 0.6875}
     newSize: {x: 0.6875, y: 0.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

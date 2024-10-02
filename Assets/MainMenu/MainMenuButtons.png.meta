@@ -164,6 +164,18 @@ TextureImporter:
   - first:
       213: -4785903483228483806
     second: MainMenuButtons_53
+  - first:
+      213: 5802564455909163020
+    second: MainMenuButtons_54
+  - first:
+      213: 7072444178548939554
+    second: MainMenuButtons_55
+  - first:
+      213: -7678782721054628076
+    second: MainMenuButtons_56
+  - first:
+      213: -5966017476090024604
+    second: MainMenuButtons_57
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -308,27 +320,6 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites:
-    - serializedVersion: 2
-      name: MainMenuButtons_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 77
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24dcd1a86837cc550800000000000000
-      internalID: 6182443410152869186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     - serializedVersion: 2
       name: MainMenuButtons_1
       rect:
@@ -843,7 +834,7 @@ TextureImporter:
         height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 3, z: 6, w: 3}
+      border: {x: 6, y: 5, z: 6, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1438,6 +1429,111 @@ TextureImporter:
       bones: []
       spriteID: 22f8cd8832e059db0800000000000000
       internalID: -4785903483228483806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0006cc11a9d68050800000000000000
+      internalID: 5802564455909163020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 4, z: 11, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dcd1a86837cc550800000000000000
+      internalID: 6182443410152869186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_55
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 73
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 4, z: 6, w: 20}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b503c428e562260800000000000000
+      internalID: 7072444178548939554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_56
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 33
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417a1249ccb7f6590800000000000000
+      internalID: -7678782721054628076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenuButtons_57
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46da1edf6b2743da0800000000000000
+      internalID: -5966017476090024604
       vertices: []
       indices: 
       edges: []

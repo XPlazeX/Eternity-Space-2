@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: -989844970, guid: d2c3478e7f693d341af2f4dfbf2de9bc, type: 3}
+  _selfLoadOnStart: 0
   _bulletSample: {fileID: 6149396609532520741, guid: 4cceac4c989538e4686f818af14ab24e,
     type: 3}
-  _firerate: 1.4
+  _firerate: 1.246
   _spread: 3
   _spreadBulletSpeed: 0
   _soundWork: {fileID: 8300000, guid: 139f13530bfb26d499ce387ed8aa2688, type: 3}
@@ -55,3 +56,4 @@ MonoBehaviour:
   _pitchSpread: 0.04
   _customWeaponRoot: {fileID: 0}
   _barrelIndexes: 00000000
+  _randomBarrel: 0

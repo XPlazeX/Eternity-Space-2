@@ -6,12 +6,13 @@ public class Impact : Core
         PlayerRamsHandler.RamSuccess += OnRamSuccess;
     }
 
-    private void OnDisable() {
+    protected override void OnDisable() {
+        base.OnDisable();
         PlayerRamsHandler.RamSuccess -= OnRamSuccess;
     }
 
     private void OnRamSuccess()
     {
-        PlayerCore.AddEnergy(_megawattsGrowth);
+        PlayerCore.AddEnergy(_megawattsGrowth * Effeciency);
     }
 }

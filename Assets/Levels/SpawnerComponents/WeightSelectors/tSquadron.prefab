@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnerModifier:
     _additiveWaveCountMultiplier: 0.4
-    _additiveWeightMultiplier: 2
+    _additiveWeightMultiplier: 1.5
     _additiveEnemyBuffer: 0
     _enemySpawnReloadMultiplier: 2
     _flatBonusEnemiesBonus: 0
@@ -128,4 +128,6 @@ MonoBehaviour:
     _levelProgression: 0
     _missionWeightAdditiveFinalMultiplier: 1
     _additiveBonusEnemies: 0
-  _statsModifiers: []
+  _statsModifiers:
+  - _statName: EliteChance
+    _value: 3

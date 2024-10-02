@@ -47,7 +47,7 @@ public class AttackModule : MonoBehaviour, IAttackModule
 
     private IEnumerator Firing()
     {
-        yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime / (_aggro * _localAggro)));
+        yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime / (_aggro * _localAggro) * (PlayerPrefs.GetFloat("GameMode") == 1f ? 0.2f : 1f)));
 
         while (true)
         {

@@ -97,6 +97,7 @@ public class TimeHandler : MonoBehaviour
 
     public static void Pause()
     {
+        Debug.Log("PAUSE");
         _timeScaleBeforePause = Time.timeScale;
         if (_timeScaleBeforePause == 0)
             _timeScaleBeforePause = 1f;
@@ -107,6 +108,12 @@ public class TimeHandler : MonoBehaviour
 
     public static void Resume(float forcedMultiplier = -1f)
     {
+        if (Dialogue.ActiveDialog)
+        {
+            Debug.Log("TRY TO RESUME TIME WHILE DIALOG IS ACTIVE");
+            return;
+        }
+        Debug.Log("RESUME");
         if (forcedMultiplier > 0)
         {
             Time.timeScale = forcedMultiplier;

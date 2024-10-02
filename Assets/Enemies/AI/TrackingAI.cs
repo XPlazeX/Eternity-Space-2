@@ -14,9 +14,10 @@ public class TrackingAI : EnemyAIRoot
     private bool _reposition = false;
     private float _timer = 0f;
     private float _secondaryOffset = 0f;
+    protected bool _neverTargetToPlayer = false;
 
     protected override void Start() {
-        if (!_autoTargetPlayer)
+        if (!_autoTargetPlayer && !_neverTargetToPlayer)
         {
             base._player = transform.parent;
             transform.parent = null;
@@ -27,6 +28,12 @@ public class TrackingAI : EnemyAIRoot
 
     protected override void DoMove()
     {
+        if (_player == null)
+        {
+            FindPlayer();
+            return;
+        }
+
         if (!_reposition)
         {
             if (((transform.position - GetActualPlayerPosition()).magnitude < (_closingDistance) && _retreating))
@@ -67,7 +74,7 @@ public class TrackingAI : EnemyAIRoot
             return _player.position;
         } else
         {
-            return Player.GetPlayerPosition(_foresight);
+            return Player.GetPlayerPosition(_foresight + MovementForesight);
         }
     }
 }

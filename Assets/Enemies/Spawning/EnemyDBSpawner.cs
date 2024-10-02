@@ -5,6 +5,8 @@ public class EnemyDBSpawner : SpawnerRoot
 {
     private const float default_spawn_reload = 0.5f;
     public const string weightSelectorID_data_collection = "WS";
+    public const float sledge_minDistance_toCenter = 6f;
+    public const float sledge_minDistance_toBorders = 2f;
 
     public event spawnerAction WaveCompleted;
     public event spawnerAction EnemyKilled;
@@ -13,6 +15,10 @@ public class EnemyDBSpawner : SpawnerRoot
     [SerializeField] private WeightSelectorSelector[] _wsSelectors;
     [Space()]
     [SerializeField] private int _waveWeight;
+    [Header("Башни")]
+    [SerializeField] private bool _testMode;
+    [SerializeField] private int _testSledgeCount;
+    [SerializeField] private GameObject _towerObject;
 
     public LevelEnemyDatabase ActiveLEDB {get; private set;}
     public int ActiveEnemies {get; private set;}
@@ -60,6 +66,8 @@ public class EnemyDBSpawner : SpawnerRoot
 
     public override void StartSpawning()
     {
+        SpawnTowers();
+
         if (_weightSelector != null)
         {
             print("Используется кастомный выборщик веса");
@@ -100,6 +108,37 @@ public class EnemyDBSpawner : SpawnerRoot
         print("СПАУНЕР ВОЛН ЗАПУЩЕН");
 
         base.StartSpawning();
+    }
+
+    private void SpawnTowers()
+    {
+        if (_testMode)
+        {
+            for (int i = 0; i < _testSledgeCount; i++)
+            {
+                Instantiate(_towerObject, CameraController.GetRandomFieldPosition(sledge_minDistance_toCenter, new Vector3(0f, -4f, 0f), sledge_minDistance_toBorders), Quaternion.Euler(0, 0, Random.Range(0, 360f)));
+            }
+            return;
+        }
+
+        if (GameSessionInfoHandler.CurrentLevel < 3)
+            return;
+
+        if (Random.value > 0.25f)
+            return;
+
+        int count = 1;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (Random.value < 0.5f)
+                count ++;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            Instantiate(_towerObject, CameraController.GetRandomFieldPosition(sledge_minDistance_toCenter, new Vector3(0f, -4f, 0f), sledge_minDistance_toBorders), Quaternion.Euler(0, 0, Random.Range(0, 360f)));
+        }
     }
 
     public override void Stop()

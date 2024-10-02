@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
+  _selfLoadOnStart: 0
   _bulletSample: {fileID: 6149396609532520741, guid: d032415fc606a2c4cbe53078e6516235,
     type: 3}
   _firerate: 0.25
@@ -55,7 +56,7 @@ MonoBehaviour:
   _startPitch: 0.86
   _pitchSpread: 0.19
   _customWeaponRoot: {fileID: 0}
-  _topFirerate: 0.075
+  _topFirerate: 0.069
   _firerateGrowth: -0.1
   _bulletsPerFire: 1
   _barrelPool: 0100000002000000
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 0}
+  _selfLoadOnStart: 0
   _bulletSample: {fileID: 6149396609532520741, guid: 489762c8f914c974a89dc85fbaad79bb,
     type: 3}
   _firerate: 2.5

@@ -64,8 +64,8 @@ public class WormAI : EnemyAIRoot
             }
             transform.position += (_useInnerRotation ? _moveDirection : transform.up).normalized * Speed * Time.deltaTime * Mobility;
         } else {
-            RotateMoveDirection(Player.GetPlayerPosition(_foresight));
-            _targetPosition = Player.GetPlayerPosition(_foresight);
+            RotateMoveDirection(GetActualPlayerPosition());
+            _targetPosition = GetActualPlayerPosition();
             _rotationSpeed = _normalRotationSpeed * _rotationSpeedProgression.Evaluate(1f - (_timer / _phaseTime));
             transform.position += (_useInnerRotation ? _moveDirection : transform.up).normalized * (Speed + _agressiveSpeedBoost) * Time.deltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
         }
@@ -106,5 +106,10 @@ public class WormAI : EnemyAIRoot
         // transform.rotation = Quaternion.Euler(0, 0, 180);
 
         //CorrectRotation();
+    }
+
+    protected Vector3 GetActualPlayerPosition()
+    {
+        return Player.GetPlayerPosition(_foresight + MovementForesight);
     }
 }

@@ -25,6 +25,8 @@ public class Dialogue : MonoBehaviour
     private SoundObject _activeVoice;
     private bool _processing = false;
 
+    public static bool ActiveDialog {get; private set;}
+
     private void Update() 
     {
         if (!_isVoicing)
@@ -87,6 +89,7 @@ public class Dialogue : MonoBehaviour
     private IEnumerator ProcessDialogueFrame(int characterID, int voiceID, int repeats, bool isRight)
     {
         _processing = true;
+        ActiveDialog = true;
         if (_characterOperationHandle.IsValid())
             Addressables.Release(_characterOperationHandle);
         if (_voiceOperationHandle.IsValid())
@@ -118,6 +121,7 @@ public class Dialogue : MonoBehaviour
 
     public void EndDialog()
     {
+        ActiveDialog = false;
         TimeHandler.Resume();
         _dialogueSwitcher.CloseDialogue();
     }

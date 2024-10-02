@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018917793387868237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02, y: 1.179, z: 0}
+  m_LocalPosition: {x: 4.628, y: 1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,6 +106,7 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 5
   _startShieldPoints: 0
+  _flatArmor: 0
   _lifetime: 8
   _minMaxSpeed: {x: 1, y: 2}
   _explodeOnTimer: 1
@@ -1514,7 +1515,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 1
     timeMode: 0
     fps: 30
@@ -1633,7 +1634,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: a4e4c0c5d983def4f852fa935a877335, type: 3}
+    - sprite: {fileID: 21300000, guid: 84b27a19876ce204bb7719e2be1e4e11, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4935,6 +4936,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 15
   _randomizeDirection: 1
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!114 &3846034027475355487
 MonoBehaviour:
   m_ObjectHideFlags: 0

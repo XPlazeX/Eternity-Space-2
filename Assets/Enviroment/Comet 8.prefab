@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048538241424775930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.09, y: -1.75, z: 0}
+  m_LocalPosition: {x: 3.18, y: -1.425, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,7 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4bc3931f32b84cd4a8d2f1608f2d0350, type: 3}
+  m_Sprite: {fileID: -999273910119505843, guid: 32d3d9745fe525c43b31f7c787f52903,
+    type: 3}
   m_Color: {r: 0, g: 0.3070115, b: 0.5, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,6 +107,7 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 75
   _startShieldPoints: 0
+  _flatArmor: 0
   _lifetime: 4
   _minMaxSpeed: {x: 6, y: 10}
   _explodeOnTimer: 0
@@ -458,7 +460,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.9
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1535,7 +1537,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 1
     timeMode: 0
     fps: 30
@@ -1654,7 +1656,8 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: a4e4c0c5d983def4f852fa935a877335, type: 3}
+    - sprite: {fileID: -999273910119505843, guid: 32d3d9745fe525c43b31f7c787f52903,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4969,7 +4972,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 0.875, y: 2}
     newSize: {x: 0.75, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5035,7 +5038,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 0.875, y: 2}
     newSize: {x: 0.75, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

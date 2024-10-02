@@ -376,7 +376,7 @@ MonoBehaviour:
   _asteroidDamageMultiplier: 2
   _otherDeathResource: 0
   _lifetime: 5
-  _speed: -5.5
+  _speed: 0
   _acceleration: 4
   _accelerateToZero: 0
   _piercingTargets: 0
@@ -475,6 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 0
   _countParry: 0
+  _bonusArmor: 0
 --- !u!1001 &9115967718846407988
 PrefabInstance:
   m_ObjectHideFlags: 0

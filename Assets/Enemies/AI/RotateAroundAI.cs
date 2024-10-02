@@ -24,7 +24,7 @@ public class RotateAroundAI : EnemyAIRoot
     {
         if (_emptyTarget != null)
         {
-            _emptyTarget.RotateAround(_player.position, Vector3.forward, Speed * _rotationAroundSpeedMultiplier * Time.deltaTime * _rotationDirection * Mobility);
+            _emptyTarget.RotateAround(GetActualPlayerPosition(), Vector3.forward, Speed * _rotationAroundSpeedMultiplier * Time.deltaTime * _rotationDirection * Mobility);
             _targetPosition = _emptyTarget.position;
         }
 
@@ -34,5 +34,10 @@ public class RotateAroundAI : EnemyAIRoot
     private void OnDestroy() {
         if (_emptyTarget != null)
             Destroy(_emptyTarget.gameObject);
+    }
+
+    protected Vector3 GetActualPlayerPosition()
+    {
+        return Player.GetPlayerPosition(_foresight + MovementForesight);
     }
 }

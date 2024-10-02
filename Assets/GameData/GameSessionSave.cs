@@ -41,6 +41,7 @@ public class GameSessionSave
     public int HealsCount {get; set;} = 0;
     public int Money {get; set;} = 50;
     public float RepairAdditivePart {get; set;} = 0f;
+    public float AdditiveHardness {get; set;} = 0f;
 
     public int RecievedCosmilite {get; set;} = 0;
     public int RecievedPositronium {get; set;} = 0;

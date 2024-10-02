@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 30
-  _startShieldPoints: 50
+  _hitPoints: 40
+  _startShieldPoints: 40
   _flatArmor: 1
 --- !u!114 &3711641271569861444
 MonoBehaviour:
@@ -335,8 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 30
-  _startShieldPoints: 50
+  _hitPoints: 40
+  _startShieldPoints: 40
   _flatArmor: 1
 --- !u!114 &8294790800520400466
 MonoBehaviour:
@@ -568,8 +568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 30
-  _startShieldPoints: 50
+  _hitPoints: 40
+  _startShieldPoints: 40
   _flatArmor: 1
 --- !u!114 &5334654033811835857
 MonoBehaviour:
@@ -771,8 +771,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageKey: 1
-  _hitPoints: 30
-  _startShieldPoints: 50
+  _hitPoints: 40
+  _startShieldPoints: 40
   _flatArmor: 1
 --- !u!114 &6492018971744570565
 MonoBehaviour:

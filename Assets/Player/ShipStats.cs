@@ -35,6 +35,8 @@ public class ShipStats
         ["MaxDamageTaken"] = 40f,
         ["InflictingDamageMultiplier"] = 1f,
         ["ForesightAddition"] = 0,
+        ["MovementForesightAddition"] = 0,
+        ["CoreEffeciency"] = 1f,
         // тараны
         ["RamMoneyValue"] = 1f,// округляется до целого вверх
         ["RamMoneyPerEnemy"] = 0f,
@@ -116,12 +118,13 @@ public class ShipStats
         ["TimeBetweenWaves"] = 4f,
         ["EnemySpawnReloadMultiplier"] = 0.45f,
         ["StalkerChanceMultiplier"] = 1f,
-        ["EliteChance"] = 0.01f,
+        ["EliteChance"] = 1f,
         // --- Враги - здоровье --- -----------------------------------
         ["EnemyHealthMultiplier"] = 1f,
         ["AdditiveBlockArmor"] = 0, // округляется до целого вверх
         ["EnemyShieldHealthBoost"] = 0, // округляется до целого вверх
         ["EnemyTakenDamageMultiplier"] = 1f,
+        ["EnemyFlatArmor"] = 0,
         // --- Враги - атака --- --------------------------------------
         ["EnemyAggresionMultiplier"] = 1f,
         ["EnemyMobilityMultiplier"] = 1f,

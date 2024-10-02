@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1259869418890387223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5041719326642508643}
+  m_Layer: 0
+  m_Name: Barrel (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5041719326642508643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259869418890387223}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.251, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9069206062416828812}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5627603926126828714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8732391891020721023}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8732391891020721023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627603926126828714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.251, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9069206062416828812}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9069206062416828815
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +99,8 @@ Transform:
   - {fileID: 1890641391837298520}
   - {fileID: 9176504303031502983}
   - {fileID: 1606566468935623329}
+  - {fileID: 8732391891020721023}
+  - {fileID: 5041719326642508643}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _hitPoints: 45
-  _startShieldPoints: 40
+  _startShieldPoints: 30
   _flatArmor: 0
 --- !u!114 &4479090402614753330
 MonoBehaviour:
@@ -168,18 +230,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 0.66
-  _attackReload: 4
+  _attackReload: 5
   _attackObjects:
   - _cycles: 1
     _timeBetweenCycles: 0
     _timeCooling: 0
     _bulletCode: 14
     _barrels:
-    - {fileID: 9069206062416828812}
+    - {fileID: 8732391891020721023}
+    - {fileID: 5041719326642508643}
     _randomBarrel: 0
-    _bulletsPerFire: 4
-    _fixedAngleStep: 2
-    _randomAngleStep: 10
+    _bulletsPerFire: 2
+    _fixedAngleStep: 0
+    _randomAngleStep: 0
     _randomizingBulletSpeed: 0.255
   _autoStart: 1
 --- !u!114 &9069206062416828808

@@ -23,6 +23,7 @@ public class Intro : MonoBehaviour
     private void Start() 
     {
         TimeHandler.Resume();
+        Time.timeScale = 1f;
         StartCoroutine(PreparingMission());
     }
 
@@ -41,6 +42,15 @@ public class Intro : MonoBehaviour
         MissionsDatabase mdb = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>();
 
         int preparingID = GlobalSaveHandler.GetSave().LastSelectedLocation;
+
+        if (preparingID > 0)
+        {
+            Unlocks.NewUnlock(cryoDream_Training_Unlock_ID);
+        }
+        if (preparingID > 1)
+        {
+            Unlocks.NewUnlock(simulation_Training_Unlock_ID);
+        }
 
         _targetScene = GameSessionInfoHandler.GetSessionSave().SessionInitialized ? "MissionMenu" : "Lobby";
 
@@ -65,14 +75,18 @@ public class Intro : MonoBehaviour
 
         if (!Unlocks.HasUnlock(cryoDream_Training_Unlock_ID))
         {
+            Debug.Log("NO CRYODREM");
             _targetScene = "Game";
         }
         else if (!Unlocks.HasUnlock(simulation_Training_Unlock_ID))
         {
+             Debug.Log("NO SIMULATION");
             _targetScene = "MissionMenu";
         }
 
         yield return mdb.StartCoroutine(mdb.SettingGameSessionData(preparingID, false));
+
+        Debug.Log($"SessionInitialized: {GameSessionInfoHandler.GetSessionSave().SessionInitialized} | TargetScene: {_targetScene} | PreparingMission: {preparingID}");
 
         _startButton.interactable = true;
     }

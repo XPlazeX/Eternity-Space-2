@@ -131,3 +131,5 @@ MonoBehaviour:
   _statsModifiers:
   - _statName: EnemyHealthMultiplier
     _value: 0.85
+  - _statName: StalkerChanceMultiplier
+    _value: 4

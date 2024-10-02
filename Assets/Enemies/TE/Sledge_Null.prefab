@@ -184,7 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _hitPoints: 100
-  _startShieldPoints: 0
+  _startShieldPoints: 100
+  _flatArmor: 2
 --- !u!95 &5172694307298074335
 Animator:
   serializedVersion: 3
@@ -402,6 +403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -40
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &3633484148615044617
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca50651bfb10534428a46a5ed2c63124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paralaxSpeed: 0.15
+  paralaxSpeed: 0.2
   _notChangeScale: 0
 --- !u!114 &8294408879554387988
 MonoBehaviour:
@@ -629,6 +633,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 40
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &3633484149333747520
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +834,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 40
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &3633484150133630800
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +934,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: -40
   _randomizeDirection: 0
+  _randomizeSpeed: 1
+  _pingPongRotation: 0
+  _pingPongSpeed: 0
 --- !u!1 &3633484150174996377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageKey: 1
   _hitPoints: 100
-  _startShieldPoints: 50
+  _startShieldPoints: 100
+  _flatArmor: 2
 --- !u!95 &2062006854164087024
 Animator:
   serializedVersion: 3

@@ -162,9 +162,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _foresight: 0
+  _movementForesight: -15
   _offset: {x: 0, y: 5, z: 0}
   _autoTargetPlayer: 1
   _noiseOffset: 1
+  _copyTargetRotation: 1
   _retreating: 0
   _retreatTime: 0
   _retreatOffsetXY: {x: 0, y: 0}

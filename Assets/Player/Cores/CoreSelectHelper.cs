@@ -16,6 +16,8 @@ public class CoreSelectHelper : MonoBehaviour
     [SerializeField] private Text _rams;
     [SerializeField] private Text _energy;
     [SerializeField] private Text _sigaretes;
+    [SerializeField] private Text _contagionTotal;
+    [SerializeField] private Text _contagionMax;
 
     private void Start() {
         UpdateStatistics();
@@ -40,5 +42,7 @@ public class CoreSelectHelper : MonoBehaviour
         _rams.text = SceneLocalizator.GetLocalizedString("Lobby", 6, 5) + Unlocks.ValueOfUnlock(930, true).ToString();
         _energy.text = SceneLocalizator.GetLocalizedString("Lobby", 6, 6) + SceneStatics.PreferFloatView(0.001f * Unlocks.ValueOfUnlock(931, true)) + SceneLocalizator.GetLocalizedString("Game", 12, 0);
         _sigaretes.text = SceneLocalizator.GetLocalizedString("Lobby", 6, 7) + Unlocks.ValueOfUnlock(933, true).ToString();
+        _contagionTotal.text = SceneLocalizator.GetLocalizedString("Lobby", 6, 8) + Unlocks.ValueOfUnlock(935, true).ToString();
+        _contagionMax.text = SceneLocalizator.GetLocalizedString("Lobby", 6, 9) + Unlocks.ValueOfUnlock(934, true).ToString();
     }
 }

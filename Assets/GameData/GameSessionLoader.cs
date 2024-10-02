@@ -6,6 +6,7 @@ public class GameSessionLoader : MonoBehaviour
     //[SerializeField] private bool _dontLoadPlayer = false;
     [SerializeField] private bool _testMode = false;
     [SerializeField] private int _testLocationID = 0;
+    [SerializeField] private GameObject _arcadeModeModifier;
 
     private void Awake() {
         ShipStats temp = new ShipStats();
@@ -60,6 +61,12 @@ public class GameSessionLoader : MonoBehaviour
 
         SceneStatics.CharacterCore.GetComponent<GameContagionExecutor>().Initialize();
         SceneStatics.UICore.GetComponent<DeathUIHandler>().TrySpawnErrorer();
+
+        if (PlayerPrefs.GetFloat("GameMode", 0) == 1f)
+        {
+            Instantiate(_arcadeModeModifier);
+            Debug.Log("<color=lime>ARCADE MODE</color>");
+        }
 
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         

@@ -7,9 +7,11 @@ public class VectorErrorer : MonoBehaviour
     private float _timer;
     private bool _triggered;
     private bool _stay;
+    private PlayerUI _playerUI;
 
     private void Start() {
         _timer = _timeToError;
+        _playerUI = SceneStatics.UICore.GetComponent<PlayerUI>();
     }
 
     private void Update() {
@@ -31,6 +33,7 @@ public class VectorErrorer : MonoBehaviour
         SceneStatics.UICore.GetComponent<DeathUIHandler>().ErrorVector();
 
         _triggered = true;
+        _playerUI.ToggleIntervention(false);
     }
 
     private void OnTriggerExit2D(Collider2D other) {
@@ -39,6 +42,7 @@ public class VectorErrorer : MonoBehaviour
 
         _timer = _timeToError;
         _stay = false;
+        _playerUI.ToggleIntervention(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -49,5 +53,6 @@ public class VectorErrorer : MonoBehaviour
             return;
 
         _stay = true;
+        _playerUI.ToggleIntervention(true);
     }
 }

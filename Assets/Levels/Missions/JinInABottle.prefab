@@ -155,14 +155,21 @@ MonoBehaviour:
     _pitchRandomizing: 0
   _force: {x: 0, y: 0}
   _hasBonusSpawn: 1
-  _bonusEnemies: []
+  _bonusEnemies:
+  - 5
+  - 6
+  - 4
+  - 8
+  - 17
+  - 9
+  - 14
   _bonusCount: 0
   _bonusLerpBoostOnFinalLevel: 1
   _bonusSpawnReload: 0
   _hasStalkers: 1
   _chance: 0.033
   _firstLevelWaveCount: 3
-  _finalLevelWaveCount: 10
+  _finalLevelWaveCount: 7
   _startLevelWeight: 3
   _finalLevelWeight: 6
   _missionWeightFinalMultiplier: 2.5

@@ -6,12 +6,13 @@ public class Rage : Core
         PlayerShipData.TakeHealthDamage += OnHealthDamaged;
     }
 
-    private void OnDisable() {
+    protected override void OnDisable() {
+        base.OnDisable();
         PlayerShipData.TakeHealthDamage -= OnHealthDamaged;
     }
 
     private void OnHealthDamaged(int amount)
     {
-        PlayerCore.AddEnergy(_megawattsGrowth * amount);
+        PlayerCore.AddEnergy(_megawattsGrowth * amount * Effeciency);
     }
 }

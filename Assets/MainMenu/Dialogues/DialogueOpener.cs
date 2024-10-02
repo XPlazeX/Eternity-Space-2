@@ -40,12 +40,16 @@ public class DialogueOpener : MonoBehaviour
 
     public void TriggerDialogue(string name, bool safety = false)
     {
+        if (PlayerPrefs.GetFloat("DialogMod", 0) == 2)
+            return;
         StartCoroutine(OpenDialogueInternal(name, 0, safety));
         print($"trigger dialogue: {name}");
     }
 
     public void TriggerDialogue(string name, float delay, bool safety = false)
     {
+        if (PlayerPrefs.GetFloat("DialogMod", 0) == 2)
+            return;
         StartCoroutine(OpenDialogueInternal(name, delay, safety));
         print($"trigger dialogue: {name}");
     }

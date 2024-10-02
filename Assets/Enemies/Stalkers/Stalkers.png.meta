@@ -263,6 +263,9 @@ TextureImporter:
   - first:
       213: -7329967452718017615
     second: Stalkers_86
+  - first:
+      213: 5624350078667929186
+    second: Stalkers_87
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -2182,6 +2185,27 @@ TextureImporter:
       bones: []
       spriteID: 1b351950079b64a90800000000000000
       internalID: -7329967452718017615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalkers_87
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 181
+        width: 73
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2663173f894bd0e40800000000000000
+      internalID: 5624350078667929186
       vertices: []
       indices: 
       edges: []

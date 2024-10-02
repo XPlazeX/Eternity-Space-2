@@ -42,6 +42,8 @@ public class ShieldComponent : PullableObject
     protected override void SetDefaultStats() 
     {
         _breaking = false;
+        if (_mySR == null)
+            _mySR = GetComponent<SpriteRenderer>();
         if (_mySR != null)
             _mySR.color = new Color(_mySR.color.r, _mySR.color.g, _mySR.color.b, 1f);
 
@@ -72,6 +74,8 @@ public class ShieldComponent : PullableObject
 
     public void UpdateSP(int newSP)
     {
+        if (_mySR == null)
+            _mySR = GetComponent<SpriteRenderer>();
         _animator.SetTrigger("TakeDamage");
         _mySR.color = new Color(_mySR.color.r, _mySR.color.g, _mySR.color.b, ((float)newSP / _shieldMax) + 0.3f);
 
@@ -101,6 +105,9 @@ public class ShieldComponent : PullableObject
         float timer = 0.5f;
         while (timer > 0)
         {
+            if (_mySR == null)
+                _mySR = GetComponent<SpriteRenderer>();
+
             _mySR.color = new Color(_mySR.color.r, _mySR.color.g, _mySR.color.b, 0.3f * (timer / 0.5f));
             transform.localScale = Vector3.one * (1.1f + (2f * (0.5f - timer)));
 
