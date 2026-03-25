@@ -102,6 +102,11 @@ public class Spawner : MonoBehaviour
         hpBar.Initialize(targetBody.HitPoints, elite);
     }
 
+    public void HideAll()
+    {
+        _waveIndexLabel.color = Color.clear;
+        _enemyCountUI.Clear();
+    }
     public void PrintProgressUI(string text) => _waveIndexLabel.text = text;
     public void PrintCountUI(int count) => _enemyCountUI.SetCount(count);
     public void PrintBonusCountUI(int count) => _enemyCountUI.SetBonusCount(count);

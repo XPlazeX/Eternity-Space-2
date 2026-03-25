@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using DamageSystem;
 
@@ -6,25 +7,41 @@ public class LaserObject : AttackObject
 {
     [SerializeField] private float _warningTime = 0.7f;
     [SerializeField] private float _damageTick = 0.1f;
+    [SerializeField] private float startOffset = 0.3f;
+
+    [Header("Laser behaviour")]
+    [SerializeField] private int _maxPiercedTargets = 1;
+    [SerializeField] private bool _impulse = false;
+
+    [Header("Raycast")]
+    [SerializeField] private int _raycastBufferSize = 16;
+    [SerializeField] private float _laserRadius = 0.2f;
+    [Space()]
+    [SerializeField] private _ExplosionBullet explosionComponent;
+    [Header("Visual")]
+    [SerializeField] private float fadeTime = 0.3f;
 
     private LineRenderer _lineRenderer;
     private Color _startColor;
     private Gradient _fadingGradient = new Gradient();
 
-    private void Awake() 
+    private RaycastHit2D[] _hitsBuffer;
+    private readonly HashSet<DamageBody> _processedBodies = new HashSet<DamageBody>();
+
+    private void Awake()
     {
         _lineRenderer = GetComponent<LineRenderer>();
         _startColor = _lineRenderer.colorGradient.colorKeys[0].color;
-
         _fadingGradient = MakeGradient(_startColor, Color.clear, 1f, 0f);
+
+        _hitsBuffer = new RaycastHit2D[Mathf.Max(4, _raycastBufferSize)];
     }
 
     public void CreateLaser(Transform origin, float maxDistance, LayerMask mask, float lifetime)
     {
-        StartCoroutine(Laser(origin, maxDistance, mask, lifetime));
+        _processedBodies.Clear();
+        StartCoroutine(Laser(origin, maxDistance, mask, Mathf.Max(lifetime, 0.001f)));
     }
-
-
 
     private IEnumerator Laser(Transform origin, float maxDistance, LayerMask mask, float lifetime)
     {
@@ -35,49 +52,75 @@ public class LaserObject : AttackObject
         while (timer < time)
         {
             if (origin == null)
-                break;
+                yield break;
 
-            _lineRenderer.SetPositions(new Vector3[2] {origin.position, origin.position + origin.up * maxDistance});
+            _lineRenderer.SetPositions(new Vector3[2]
+            {
+                origin.position + origin.up * startOffset,
+                origin.position + origin.up * maxDistance
+            });
 
             timer += Time.deltaTime;
-
             yield return new WaitForFixedUpdate();
         }
 
         time = lifetime;
         timer = 0f;
-        _lineRenderer.colorGradient = GetFadingMonoGradient(0);
+        _lineRenderer.colorGradient = GetFadingMonoGradient(0f);
 
-        float timerHurt = _damageTick;
+        bool impulseDone = false;
+        float timerHurt = 0f;
 
         while (timer < time)
         {
             if (origin == null)
-                break;
+                yield break;
 
-            RaycastHit2D hit = Physics2D.Raycast(SceneStatics.FlatVector(origin.position), SceneStatics.FlatVector(origin.up), maxDistance, mask);
+            Vector2 rayOrigin = SceneStatics.FlatVector(origin.position + origin.up * startOffset);
+            Vector2 rayDirection = SceneStatics.FlatVector(origin.up);
 
-            Vector3 pos = new Vector3();
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(
+            rayOrigin,
+            _laserRadius,
+            rayDirection,
+            maxDistance,
+            mask
+        );
 
-            if (hit.collider == null)
+            float beamLength = maxDistance;
+
+            if (hits.Length > 1)
             {
-                pos = origin.position + origin.up * maxDistance;
+                System.Array.Sort(hits, 0, hits.Length, RaycastHit2DDistanceComparer.Instance);
             }
-            else 
+
+            if (_impulse)
             {
-                pos = hit.point;
-                if (timerHurt <= 0)
+                if (!impulseDone)
                 {
-                    DamageBody db = hit.collider.GetComponent<DamageBody>();
-                    if (db != null)
-                    {
-                        db.TakeDamage(Damage);
-                        timerHurt = _damageTick;
-                    }
+                    ProcessHits(hits, hits.Length, maxDistance, out beamLength);
+                    impulseDone = true;
+                }
+                else
+                {
+                    EvaluateBeamLengthOnly(hits, hits.Length, maxDistance, out beamLength);
+                }
+            }
+            else
+            {
+                if (timerHurt <= 0f)
+                {
+                    ProcessHits(hits, hits.Length, maxDistance, out beamLength);
+                    timerHurt = _damageTick;
+                }
+                else
+                {
+                    EvaluateBeamLengthOnly(hits, hits.Length, maxDistance, out beamLength);
                 }
             }
 
-            _lineRenderer.SetPositions(new Vector3[2] {origin.position, pos});
+            Vector3 endPos = origin.position + origin.up * beamLength;
+            _lineRenderer.SetPositions(new Vector3[2] { origin.position + origin.up * startOffset, endPos });
 
             timer += Time.deltaTime;
             timerHurt -= Time.deltaTime;
@@ -88,9 +131,95 @@ public class LaserObject : AttackObject
         StartCoroutine(Fading());
     }
 
+    private void ProcessHits(RaycastHit2D[] hits, int hitCount, float maxDistance, out float beamLength)
+    {
+        beamLength = maxDistance;
+        int piercedTargets = 0;
+        _processedBodies.Clear();
+
+        for (int i = 0; i < hitCount; i++)
+        {
+            RaycastHit2D hit = hits[i];
+
+            if (hit.collider == null)
+                continue;
+
+            if (explosionComponent != null)
+            {
+                explosionComponent.SpawnExplosion(hit.point);
+            }
+
+            DamageBody damageBody = hit.collider.GetComponentInParent<DamageBody>();
+
+            // Не цель — твердая преграда.
+            if (damageBody == null)
+            {
+                beamLength = hit.distance;
+                return;
+            }
+
+            // Если у цели несколько коллайдеров — обрабатываем ее один раз.
+            if (!_processedBodies.Add(damageBody))
+                continue;
+
+            // Сначала всегда наносим урон этой цели.
+            InflictDamage(damageBody);
+            // damageBody.TakeDamage(Damage);
+
+            // Если пробитий больше не осталось — останавливаемся на этой цели.
+            if (piercedTargets >= _maxPiercedTargets)
+            {
+                beamLength = hit.distance;
+                return;
+            }
+
+            // Иначе считаем, что эту цель мы пробили и летим дальше.
+            piercedTargets++;
+        }
+
+        beamLength = maxDistance;
+    }
+
+    private void EvaluateBeamLengthOnly(RaycastHit2D[] hits, int hitCount, float maxDistance, out float beamLength)
+    {
+        beamLength = maxDistance;
+        int piercedTargets = 0;
+        _processedBodies.Clear();
+
+        for (int i = 0; i < hitCount; i++)
+        {
+            RaycastHit2D hit = hits[i];
+
+            if (hit.collider == null)
+                continue;
+
+            DamageBody damageBody = hit.collider.GetComponentInParent<DamageBody>();
+
+            if (damageBody == null)
+            {
+                beamLength = hit.distance;
+                return;
+            }
+
+            if (!_processedBodies.Add(damageBody))
+                continue;
+
+            // Визуально логика должна совпадать с боевой:
+            // эта цель входит в допустимую цепочку попаданий,
+            // но если пробивать ее уже нельзя — луч заканчивается на ней.
+            if (piercedTargets >= _maxPiercedTargets)
+            {
+                beamLength = hit.distance;
+                return;
+            }
+
+            piercedTargets++;
+        }
+    }
+
     private IEnumerator Fading()
     {
-        float time = 0.3f;
+        float time = fadeTime;
         float timer = 0f;
 
         while (timer < time)
@@ -98,7 +227,6 @@ public class LaserObject : AttackObject
             _lineRenderer.colorGradient = GetFadingMonoGradient(timer / time);
 
             timer += Time.deltaTime;
-
             yield return new WaitForFixedUpdate();
         }
 
@@ -107,8 +235,6 @@ public class LaserObject : AttackObject
 
     private Gradient GetFadingMonoGradient(float time = 0f)
     {
-        Gradient gradient = new Gradient();
-
         Color fadingColor = _fadingGradient.Evaluate(time);
         float fadingAlpha = fadingColor.a;
 
@@ -120,9 +246,8 @@ public class LaserObject : AttackObject
         Gradient gradient = new Gradient();
 
         GradientColorKey[] colorKey = new GradientColorKey[2];
-
         colorKey[0].color = startColor;
-        colorKey[0].time = 0f; 
+        colorKey[0].time = 0f;
         colorKey[1].color = endColor;
         colorKey[1].time = 1f;
 
@@ -135,5 +260,15 @@ public class LaserObject : AttackObject
         gradient.SetKeys(colorKey, alphaKey);
 
         return gradient;
+    }
+
+    private sealed class RaycastHit2DDistanceComparer : IComparer<RaycastHit2D>
+    {
+        public static readonly RaycastHit2DDistanceComparer Instance = new RaycastHit2DDistanceComparer();
+
+        public int Compare(RaycastHit2D a, RaycastHit2D b)
+        {
+            return a.distance.CompareTo(b.distance);
+        }
     }
 }

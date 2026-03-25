@@ -23,9 +23,12 @@ public class PlayerRamsHandler : MonoBehaviour
     public static int CosmiliteMoneyValue {get; set;} = 3;
     public static int HealValue {get; set;} = 0;
     public static int DecadesBlockForRam {get; private set;} = 1;
+    public static int RamDamage {get; private set;} = 30;
     private static RamShield _ramShield;
     private static VictoryHandler _victoryHandler;
     private static SoundObject _ramSound;
+
+    public static int BaseHPtoRam => DecadesBlockForRam * 10;
 
     public void Initialize() 
     {

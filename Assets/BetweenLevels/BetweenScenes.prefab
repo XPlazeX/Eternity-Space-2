@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8935836533348991973}
   - component: {fileID: 8935836533348991972}
+  - component: {fileID: 5457504310656473486}
   - component: {fileID: 1018233890261899236}
   - component: {fileID: 7411437360554547532}
   - component: {fileID: 5218350414598348006}
@@ -48,6 +49,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db53117afa2e52d43a7fb8ea2bc7dd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5457504310656473486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8935836533348991771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a9e163953b82e4f8f5a1d37c276c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1018233890261899236
@@ -139,6 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecd71cc822b6db49b615ab42bad0bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _specialMissions:
+  - m_AssetGUID: 8e5b11b4b37005449bff4d753f9e4229
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   _missions:
   - m_AssetGUID: fdd1685e38b18ec44a64024fe4d75aec
     m_SubObjectName: 

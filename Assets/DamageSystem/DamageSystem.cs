@@ -62,6 +62,7 @@ namespace DamageSystem
                 return false;
 
             damageBody.TakeDamage(Mathf.CeilToInt(dmg));
+            damageBody.TakeStun(100f);
             DamageBodyInflicted?.Invoke(damageBody, Mathf.CeilToInt(dmg));
             return true;
         }

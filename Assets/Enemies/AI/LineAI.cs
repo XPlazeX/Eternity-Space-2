@@ -28,16 +28,17 @@ public class LineAI : EnemyAIRoot
         _circleSize = (CameraController.Size * 2f) + (_circleAroundPlayerSizeBoost / Mobility);
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
-        transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
 
         if (_distance - _passedWay <= 0.1f)
         {
             ReloadTarget();
         }
+
+        return ((_targetPosition - transform.position).normalized) * currentMoving;
     }
 
     private void ReloadTarget()
@@ -52,7 +53,7 @@ public class LineAI : EnemyAIRoot
         if (_callerOnDestroy != null)
             _callerOnDestroy.DeathExplosion();
 
-        transform.position = _startPosition;
+        // transform.position = _startPosition;
 
         if (_callerOnSpawn != null)
             _callerOnSpawn.DeathExplosion();
@@ -60,7 +61,7 @@ public class LineAI : EnemyAIRoot
         if (_handRunValue)
             _distance = SceneStatics.MultiplyByChaos(_run_Distance);
         else
-            _distance = (_targetPosition - transform.position).magnitude;
+            _distance = (_targetPosition - _startPosition).magnitude;
 
         _passedWay = 0f;
     }

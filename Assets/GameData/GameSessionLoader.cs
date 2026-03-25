@@ -6,9 +6,16 @@ public class GameSessionLoader : MonoBehaviour
     //[SerializeField] private bool _dontLoadPlayer = false;
     [SerializeField] private bool _testMode = false;
     [SerializeField] private int _testLocationID = 0;
+    [SerializeField] private bool _specialMission;
     [SerializeField] private GameObject _arcadeModeModifier;
 
+    public static bool MissionLoaded {get; private set;} = false;
+    public static bool CharacterLoaded {get; private set;} = false;
+
     private void Awake() {
+        MissionLoaded = false;
+        CharacterLoaded = false;
+
         ShipStats temp = new ShipStats();
         temp.Initialize();
 
@@ -36,11 +43,13 @@ public class GameSessionLoader : MonoBehaviour
         int locID = _testMode ? _testLocationID : GameSessionInfoHandler.GetSessionSave().LocationID;
         
         MissionsDatabase mdb = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>();
-        yield return mdb.StartCoroutine(mdb.EnforcingLevelCore(locID));
+        yield return mdb.StartCoroutine(mdb.EnforcingLevelCore(locID, _specialMission));
+        MissionLoaded = true;
 
         CharacterLoader cl = SceneStatics.CharacterCore.GetComponent<CharacterLoader>();
 
         yield return cl.StartCoroutine(cl.LoadingPlayerShip()); // >> Player >> PlayerShipData 
+        CharacterLoaded = true;
         print("Character loader >> loaded player ship!");
 
         PlayerCore.LoadMegawatts();
@@ -53,6 +62,7 @@ public class GameSessionLoader : MonoBehaviour
 
         SceneStatics.CharacterCore.GetComponent<PlayerRamsHandler>().Initialize();
         SceneStatics.CharacterCore.GetComponent<DeviceHandler>().Initialize();
+        SceneStatics.CharacterCore.GetComponentInChildren<MainWeaponHandler>().Initialize();
         SceneStatics.UICore.GetComponent<CurrencyUI>().Initialize();
         GameObject.FindWithTag("Level core").GetComponent<EnvironmentSpawner>().Initialize();
         TimeHandler.Initialize();

@@ -40,11 +40,10 @@ public class PlaneAI : EnemyAIRoot
             Random.Range(_YBorders.x + level_borders_moving_offset, _YBorders.y - level_borders_moving_offset), 0f);
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
-        transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
 
         _timer -= Time.deltaTime;
 
@@ -55,5 +54,7 @@ public class PlaneAI : EnemyAIRoot
             _distance = (_targetPosition - transform.position).magnitude;
             _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
         }
+
+        return ((_targetPosition - transform.position).normalized) * currentMoving;
     }
 }

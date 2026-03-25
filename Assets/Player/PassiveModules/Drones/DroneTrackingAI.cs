@@ -18,12 +18,10 @@ public class DroneTrackingAI : TrackingAI
         // _trueOffset = _offset;
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
-        base.DoMove();
-
         if (!_targetRefreshing)
-            return;
+            return base.GetMoveDelta();
             
         _timerRefresh -= Time.deltaTime;
 
@@ -32,6 +30,8 @@ public class DroneTrackingAI : TrackingAI
             _timerRefresh = _targetReload;
             FindPlayer();
         }
+
+        return base.GetMoveDelta();
     }
 
     public override void FindPlayer()
@@ -47,7 +47,7 @@ public class DroneTrackingAI : TrackingAI
             return;
         }
 
-        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.fixedDeltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }

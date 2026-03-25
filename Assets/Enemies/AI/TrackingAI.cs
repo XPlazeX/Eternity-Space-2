@@ -26,13 +26,15 @@ public class TrackingAI : EnemyAIRoot
         base.Start();
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if (_player == null)
         {
             FindPlayer();
-            return;
+            return Vector2.zero;
         }
+
+        _timer -= Time.fixedDeltaTime;
 
         if (!_reposition)
         {
@@ -44,27 +46,25 @@ public class TrackingAI : EnemyAIRoot
 
                 _targetPosition = GetActualPlayerPosition() + ((transform.position - GetActualPlayerPosition()).normalized * (_closingDistance / Mobility) * _retreatPower);
                 _targetPosition += new Vector3(Random.Range(-_secondaryOffset, _secondaryOffset), Random.Range(-_secondaryOffset, _secondaryOffset), 0f);
-                return;
+                return Vector2.zero;
             }
 
             _targetPosition = GetActualPlayerPosition() + ((transform.position - GetActualPlayerPosition()).normalized * (_closingDistance / Mobility));
 
             if (_linearMove && ((_targetPosition - transform.position).magnitude > _closingDistance + 0.2f))
-                transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
+                return (_targetPosition - transform.position).normalized * Speed * Time.fixedDeltaTime * Mobility;
             else
-                transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
+                return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
         } else 
         {
             if (_timer <= 0)
             {
                 _reposition = false;
-                return;
+                return Vector2.zero;
             }
 
-            transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
-        }
-        
-        _timer -= Time.deltaTime;
+            return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
+        } 
     }
 
     protected Vector3 GetActualPlayerPosition()

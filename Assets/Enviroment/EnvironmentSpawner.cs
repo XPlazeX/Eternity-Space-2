@@ -17,6 +17,7 @@ public class EnvironmentSpawner : MonoBehaviour
     private List<PullForObjects> EnvironmentsPools = new List<PullForObjects>();
     private Dictionary<int, int> Codes = new Dictionary<int, int>();
     private float _maxTime = 0f;
+    private bool _stopped = false;
 
     public float AverageReload {get; private set;}
     public float WindAngle {get; set;} = 0f;
@@ -61,10 +62,15 @@ public class EnvironmentSpawner : MonoBehaviour
         print("Success mod Environment Spawner!");
     }
 
+    public void Stop()
+    {
+        _stopped = true;
+    }
+
     private IEnumerator Spawning()
     {
         yield return new WaitForSeconds(_waitTime);
-        while (true)
+        while (!_stopped)
         {
             SpawnObject(Mathf.CeilToInt(_selectionCurve.Evaluate(Random.Range(0f, _maxTime))));
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(AverageReload * ReloadMultiplier));

@@ -20,15 +20,15 @@ public class OnePointAI : EnemyAIRoot
         base.Start();
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if ((_targetPosition - transform.position).magnitude < 0.05f)
         {
-            return;
+            return Vector2.zero;
         }
 
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _jumpPower) * Speed * Time.deltaTime * Mobility;
-        transform.position += _selectedDirection * currentMoving;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _jumpPower) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
+        return _selectedDirection * currentMoving;
     }
 }

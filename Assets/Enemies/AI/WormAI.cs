@@ -51,26 +51,9 @@ public class WormAI : EnemyAIRoot
             StartMoving();
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
-        if (!_aggresive)
-        {
-            RotateMoveDirection(_targetPosition);
-            _targetingTimer -= Time.deltaTime;
-            if (_targetingTimer <= 0)
-            {
-                SetTarget();
-                _targetingTimer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
-            }
-            transform.position += (_useInnerRotation ? _moveDirection : transform.up).normalized * Speed * Time.deltaTime * Mobility;
-        } else {
-            RotateMoveDirection(GetActualPlayerPosition());
-            _targetPosition = GetActualPlayerPosition();
-            _rotationSpeed = _normalRotationSpeed * _rotationSpeedProgression.Evaluate(1f - (_timer / _phaseTime));
-            transform.position += (_useInnerRotation ? _moveDirection : transform.up).normalized * (Speed + _agressiveSpeedBoost) * Time.deltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
-        }
-
-        _timer -= Time.deltaTime;
+        _timer -= Time.fixedDeltaTime;
 
         if (_timer < 0f)
         {
@@ -87,6 +70,23 @@ public class WormAI : EnemyAIRoot
                 _targetingTimer = _timeToReloadTarget;
             }
         }
+
+        if (!_aggresive)
+        {
+            RotateMoveDirection(_targetPosition);
+            _targetingTimer -= Time.fixedDeltaTime;
+            if (_targetingTimer <= 0)
+            {
+                SetTarget();
+                _targetingTimer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
+            }
+            return (_useInnerRotation ? _moveDirection : transform.up).normalized * Speed * Time.fixedDeltaTime * Mobility;
+        } else {
+            RotateMoveDirection(GetActualPlayerPosition());
+            _targetPosition = GetActualPlayerPosition();
+            _rotationSpeed = _normalRotationSpeed * _rotationSpeedProgression.Evaluate(1f - (_timer / _phaseTime));
+            return (_useInnerRotation ? _moveDirection : transform.up).normalized * (Speed + _agressiveSpeedBoost) * Time.fixedDeltaTime * _movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
+        }
     }
 
     private void SetTarget()
@@ -98,7 +98,7 @@ public class WormAI : EnemyAIRoot
     private void RotateMoveDirection(Vector3 toPosition)
     {
         if (_player != null)
-            _moveDirection = SceneStatics.FlatVector(Vector3.RotateTowards(_moveDirection, (toPosition - transform.position), _rotationSpeed * Time.deltaTime * (Speed) * _innerSpeedMultiplier * Mobility, 0f));
+            _moveDirection = SceneStatics.FlatVector(Vector3.RotateTowards(_moveDirection, (toPosition - transform.position), _rotationSpeed * Time.fixedDeltaTime * (Speed) * _innerSpeedMultiplier * Mobility, 0f));
 
         // if (transform.rotation.eulerAngles.y != 180 && transform.rotation .eulerAngles.y != -180)
         //     return;

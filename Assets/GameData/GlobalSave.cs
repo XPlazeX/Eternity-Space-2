@@ -22,6 +22,7 @@ public class GlobalSave
     public float EternityMinute {get; set;} = -1f;
     public float EternityHour {get; set;} = -1f;
     public bool EternityParse {get; set;} = false;
+    public float VectorErrorRate {get; set;} = 1f;
 
     public Dictionary<int, int> Unlocks {get; private set;} = new Dictionary<int, int>();
 

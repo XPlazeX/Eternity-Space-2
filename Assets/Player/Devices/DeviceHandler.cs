@@ -53,8 +53,8 @@ public class DeviceHandler : MonoBehaviour
     {
         if (!Workable)
             return;
-        deviceAttack = device.Fire;
-        ChargeTime = device.FireReload;
+        // deviceAttack = device.Fire;
+        // ChargeTime = device.FireReload;
     }
 
     private void OnBeginDrag()
@@ -123,11 +123,11 @@ public class DeviceHandler : MonoBehaviour
 
     private void FindNewDeviceUI()
     {
-        _deviceUI = GameObject.FindWithTag("DeviceCharge").GetComponent<DeviceUI>();
-        if (!Workable)
-        {
-            _deviceUI.Hide();
-        }
-        _chargingFloat = 0;
+        // _deviceUI = GameObject.FindWithTag("DeviceCharge").GetComponent<DeviceUI>();
+        // if (!Workable)
+        // {
+        //     _deviceUI.Hide();
+        // }
+        // _chargingFloat = 0;
     }
 }

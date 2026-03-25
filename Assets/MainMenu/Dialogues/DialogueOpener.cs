@@ -40,6 +40,7 @@ public class DialogueOpener : MonoBehaviour
 
     public void TriggerDialogue(string name, bool safety = false)
     {
+        return;
         if (PlayerPrefs.GetFloat("DialogMod", 0) == 2)
             return;
         StartCoroutine(OpenDialogueInternal(name, 0, safety));
@@ -48,6 +49,7 @@ public class DialogueOpener : MonoBehaviour
 
     public void TriggerDialogue(string name, float delay, bool safety = false)
     {
+        return;
         if (PlayerPrefs.GetFloat("DialogMod", 0) == 2)
             return;
         StartCoroutine(OpenDialogueInternal(name, delay, safety));

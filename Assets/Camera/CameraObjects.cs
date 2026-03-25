@@ -16,16 +16,29 @@ public class CameraObjects : MonoBehaviour
         lastCameraX = cameraTransform.position.x;
         lastCameraY = cameraTransform.position.y;
 
-        if (Camera.main.GetComponent<CameraController>())
-            Camera.main.GetComponent<CameraController>().ChangingScale += ChangeScale;
+        
     }
 
-    void LateUpdate(){
+    private void OnEnable() {
+        CameraController.CameraMoved += OnCameraMoved;
+    }
+
+    void OnDisable()
+    {
+        CameraController.CameraMoved -= OnCameraMoved;
+    }
+
+    // void LateUpdate(){
+                
+    // }
+
+    private void OnCameraMoved()
+    {
         float deltaX = cameraTransform.position.x - lastCameraX;
         float deltaY = cameraTransform.position.y - lastCameraY;
         transform.position += new Vector3 (deltaX * paralaxSpeed, deltaY * paralaxSpeed, 0);
         lastCameraX = cameraTransform.position.x;
-        lastCameraY = cameraTransform.position.y;        
+        lastCameraY = cameraTransform.position.y;
     }
 
     private void ChangeScale(float addingValue)

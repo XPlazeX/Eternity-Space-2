@@ -12,10 +12,10 @@ public class ShieldGetter : Device
         _moddedGettingValue = _gettingValue * ShipStats.GetIntValue("ShieldCapacityMultiplier");
     }
 
-    public override void Fire()
-    {
-        GetShield();
-    }
+    // public override void Fire()
+    // {
+    //     GetShield();
+    // }
 
     protected virtual void GetShield()
     {

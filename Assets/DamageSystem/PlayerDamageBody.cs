@@ -24,10 +24,10 @@ public class PlayerDamageBody : DamageBody
 
         int otherHP = damageBody.HitPoints;
 
-        if ((otherHP <= PlayerRamsHandler.DecadesBlockForRam * 10) && (damageBody.GetType() != typeof(AsteroidBody)))
+        if (damageBody.RamReady && (damageBody.GetType() != typeof(AsteroidBody)))
         {
             PlayerRamsHandler.TryRam();
-            damageBody.TakeDamage((PlayerRamsHandler.DecadesBlockForRam * 10));
+            damageBody.TakeDamage(PlayerRamsHandler.RamDamage);
             return;
         }
 

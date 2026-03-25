@@ -34,16 +34,16 @@ public class AssaultAI : EnemyAIRoot
         _offset = new Vector3(temp.x, temp.y, 0f) * (_offsetDistance / Mobility);
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if (_player == null)
         {
             _autoTargetPlayer = true;
             base.FindPlayer();
-            return;
+            return Vector2.zero;
         }
 
-        _timer -= Time.deltaTime;
+        _timer -= Time.fixedDeltaTime;
 
         if (_timer <= 0f)
         {
@@ -53,8 +53,9 @@ public class AssaultAI : EnemyAIRoot
 
         _targetPosition = GetActualPlayerPosition() + _offset;
 
-        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
+        return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
     }
+
 
     protected Vector3 GetActualPlayerPosition()
     {

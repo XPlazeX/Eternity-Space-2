@@ -55,7 +55,7 @@ public class EnemyHealthBar : PullableObject
         _startHP = newMaxHealth;
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (_parent != null)
             transform.position = _parent.position + Vector3.up * _offsetY;
         

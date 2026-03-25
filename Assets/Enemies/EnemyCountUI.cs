@@ -8,6 +8,14 @@ public class EnemyCountUI : MonoBehaviour
     [SerializeField] private Text _reinforcementsTextLabel;
     [SerializeField] private GameObject _headLabel;
 
+    public void Clear()
+    {
+        _textLabel.color = Color.clear;
+        _bonusTextLabel.color = Color.clear;
+        _reinforcementsTextLabel.color = Color.clear;
+        _headLabel.GetComponent<Text>().color = Color.clear;
+    }
+
     public void SetCount(int val) => _textLabel.text = val.ToString();
     public void SetBonusCount(int val) => _bonusTextLabel.text = "+" + val.ToString();
     public void HideHead() => _headLabel.SetActive(false);

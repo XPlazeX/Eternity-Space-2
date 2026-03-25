@@ -5,6 +5,7 @@ public class PlayerUI: MonoBehaviour
 {
     public const int lowDamageAnimation = 5; 
 
+    [SerializeField] private CanvasGroup _passiveUIGroup;
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _armorBar;
     [SerializeField] private GameObject _shieldObject;
@@ -42,6 +43,8 @@ public class PlayerUI: MonoBehaviour
         _healthBar.fillAmount = partMax;
         //_healthLabel.text = nowHP.ToString() + " / " + MaxHP.ToString();
     }
+
+    public void TogglePassiveUI(bool tog) => _passiveUIGroup.alpha = tog ? 1f : 0f;
 
     public void ChangeARM(int nowArm, float partHP)
     {

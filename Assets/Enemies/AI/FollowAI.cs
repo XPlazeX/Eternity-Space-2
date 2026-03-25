@@ -23,32 +23,33 @@ public class FollowAI : EnemyAIRoot
         base.Start();
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if (_player == null)
-            return;
-        if (!_retargeting)
-        {
-            _targetPosition = GetActualPlayerPosition();
-            if ((transform.position - _targetPosition).magnitude > 0.3f)
-                transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
-            else
-            {
-                transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
-            }
-        } else 
-        {
-            transform.position += (_targetPosition - transform.position).normalized * Speed * Time.deltaTime * Mobility;
-        }
+            return Vector2.zero;
 
-        _timer -= Time.deltaTime;
+        _timer -= Time.fixedDeltaTime;
 
         if (_timer < 0f && _useRetargeting)
         {
             _retargeting = !_retargeting;
-            _timer = SceneStatics.MultiplyByChaos((_retargetDelay / Mobility));
+            _timer = SceneStatics.MultiplyByChaos(_retargetDelay / Mobility);
             if (_retargeting)
                 _targetPosition = new Vector3 (Random.Range(_XBorders.x, _XBorders.y), Random.Range(_YBorders.x, _YBorders.y), 0f);
+        }
+
+        if (!_retargeting)
+        {
+            _targetPosition = GetActualPlayerPosition();
+            if ((transform.position - _targetPosition).magnitude > 0.3f)
+                return (_targetPosition - transform.position).normalized * Speed * Time.fixedDeltaTime * Mobility;
+            else
+            {
+                return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
+            }
+        } else 
+        {
+            return (_targetPosition - transform.position).normalized * Speed * Time.fixedDeltaTime * Mobility;
         }
     }
 

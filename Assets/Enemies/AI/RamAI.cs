@@ -26,13 +26,12 @@ public class RamAI : EnemyAIRoot
         _targetPosition += new Vector3(Random.Range(-secondaryOffset, secondaryOffset), Random.Range(-secondaryOffset, secondaryOffset), 0f);
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
+        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
-        transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
 
-        _timer -= Time.deltaTime;
+        _timer -= Time.fixedDeltaTime;
 
         if (_timer <= 0f)
         {
@@ -41,6 +40,8 @@ public class RamAI : EnemyAIRoot
             _distance = (_targetPosition - transform.position).magnitude;
             _timer = SceneStatics.MultiplyByChaos(_ramReload / Mobility);
         }
+
+        return ((_targetPosition - transform.position).normalized) * currentMoving;
     }
 
     protected Vector3 GetActualPlayerPosition()

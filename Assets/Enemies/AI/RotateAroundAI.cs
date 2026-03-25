@@ -20,15 +20,15 @@ public class RotateAroundAI : EnemyAIRoot
         base.Start();
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if (_emptyTarget != null)
         {
-            _emptyTarget.RotateAround(GetActualPlayerPosition(), Vector3.forward, Speed * _rotationAroundSpeedMultiplier * Time.deltaTime * _rotationDirection * Mobility);
+            _emptyTarget.RotateAround(GetActualPlayerPosition(), Vector3.forward, Speed * _rotationAroundSpeedMultiplier * Time.fixedDeltaTime * _rotationDirection * Mobility);
             _targetPosition = _emptyTarget.position;
         }
 
-        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
+        return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
     }
 
     private void OnDestroy() {

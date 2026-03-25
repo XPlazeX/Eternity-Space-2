@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public const float SCREEN_OUTSIDE_OFFSET = 0.25f;
     public const float sound_overborders = 4f;
     public const float defaultSize = 8.2f;
 
     public delegate void scaleOperation(float val);
     public event scaleOperation ChangingScale;
     public event scaleOperation BordersChange;
+    public static System.Action CameraMoved;
 
     [SerializeField] private float dumping;
     [SerializeField] private float _speed;
@@ -48,10 +50,14 @@ public class CameraController : MonoBehaviour
         Player.PlayerChanged += FindPlayer;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (!CanMoving)
+        {
+            CameraMoved?.Invoke();
             return;
+        }
+            
 
         if (_player != null && !CustomTarget)
             transform.position = Vector3.Lerp(transform.position, new Vector3 (_player.position.x + CameraOffset.x, _player.position.y + 2f + CameraOffset.y, transform.position.z), dumping * Time.deltaTime);
@@ -66,6 +72,8 @@ public class CameraController : MonoBehaviour
                 Mathf.Clamp(transform.position.y, _bordersY.x, _bordersY.y),
                 transform.position.z
             );
+
+        CameraMoved?.Invoke();
     }
 
     public static void ToggleCustomDumping(bool tog, float newDumping = 0)
@@ -146,10 +154,11 @@ public class CameraController : MonoBehaviour
     private void SetBorders()
     {
         Size = _camera.orthographicSize;
+        float widthRatio = (float)Screen.width / Screen.height;
 
         Borders_xXyY = new Quaternion(
-            _bordersX.x - (Size / 1.78f) + 0.25f, _bordersX.y + (Size / 1.78f) - 0.25f,
-            _bordersY.x - Size, _bordersY.y + Size);
+            _bordersX.x - (Size * widthRatio) - SCREEN_OUTSIDE_OFFSET, _bordersX.y + (Size * widthRatio) + SCREEN_OUTSIDE_OFFSET,
+            _bordersY.x - Size - SCREEN_OUTSIDE_OFFSET, _bordersY.y + Size + SCREEN_OUTSIDE_OFFSET);
 
         BordersChange?.Invoke(0);
     }

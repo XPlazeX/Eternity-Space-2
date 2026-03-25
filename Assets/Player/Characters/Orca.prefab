@@ -436,6 +436,7 @@ MonoBehaviour:
   _damageKey: 0
   _hitPoints: 0
   _startShieldPoints: 0
+  _flatArmor: 0
 --- !u!114 &1119136753178448440
 MonoBehaviour:
   m_ObjectHideFlags: 0

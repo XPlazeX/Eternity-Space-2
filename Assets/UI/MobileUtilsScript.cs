@@ -18,8 +18,8 @@ public class MobileUtilsScript : MonoBehaviour {
  
     void Awake()
     {
-        Application.targetFrameRate = Mathf.RoundToInt(PlayerPrefs.GetFloat("TargetFPS", 60));
-        Time.fixedDeltaTime = PlayerPrefs.GetFloat("FixedUpdateStep", 1f / 60f);
+        // Application.targetFrameRate = Mathf.RoundToInt(PlayerPrefs.GetFloat("TargetFPS", 60));
+        // Time.fixedDeltaTime = PlayerPrefs.GetFloat("FixedUpdateStep", 1f / 60f);
         
         if (PlayerPrefs.GetFloat("FPSmeter", 0) == 0)
             return;

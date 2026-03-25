@@ -35,7 +35,7 @@ public class SupermovingAI : EnemyAIRoot
         base.Start();
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if (!_rotatingAround)
         {
@@ -49,24 +49,31 @@ public class SupermovingAI : EnemyAIRoot
                     _rotationDirection = 1f;
 
                 _rotationDirection = SceneStatics.MultiplyByChaos(_rotationDirection);
-                return;
+                return Vector2.zero;
             }
 
-            float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.deltaTime * Mobility;
+            float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
             _passedWay += currentMoving;
-            transform.position += ((_targetPosition - transform.position).normalized) * currentMoving;
-        } else 
+            return ((Vector2)(_targetPosition - transform.position).normalized) * currentMoving;
+        }
+        else
         {
-            if (_timer <= 0)
+            if (_timer <= 0f)
             {
                 _rotatingAround = false;
                 SetTarget();
-                return;
+                return Vector2.zero;
             }
 
-            transform.RotateAround(_targetPosition, Vector3.forward, _rotationAroundSpeedMultiplier * Time.deltaTime * Speed * _rotationDirection * Mobility);
-            transform.Rotate(0, 0, _rotationAroundSpeedMultiplier * Time.deltaTime * Speed * -_rotationDirection * Mobility);
-            _timer -= Time.deltaTime;
+            float angleDelta = _rotationAroundSpeedMultiplier * Time.fixedDeltaTime * Speed * _rotationDirection * Mobility;
+
+            Vector2 currentPos = transform.position;
+            Vector2 offsetFromTarget = currentPos - (Vector2)_targetPosition;
+            Vector2 rotatedOffset = Quaternion.Euler(0f, 0f, angleDelta) * offsetFromTarget;
+            Vector2 nextPos = (Vector2)_targetPosition + rotatedOffset;
+
+            _timer -= Time.fixedDeltaTime;
+            return nextPos - currentPos;
         }
     }
 }

@@ -11,8 +11,8 @@ public class BackgroundLoader
 
     [Header("Нормальный размер 8.75 на 5")]
     [SerializeField] private bool _beaconBG = false;
-    [SerializeField][Range(0f, 5f)] private float _cameraBordersSizeXMultiplier = 1f;
-    [SerializeField][Range(0f, 7f)] private float _cameraBordersSizeYMultiplier = 1f;
+    [SerializeField][Range(0f, 20f)] private float _cameraBordersSizeXMultiplier = 1f;
+    [SerializeField][Range(0f, 20f)] private float _cameraBordersSizeYMultiplier = 1f;
     [Space()]
     [SerializeField] private BackgroundObject[] _backgroundObjects;
     [Space()]
@@ -196,8 +196,8 @@ public class BackgroundLoader
         // GameObject.FindWithTag("Fog").GetComponent<Transform>().localScale = new Vector3(
         //     (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX,
         //     (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY, 1f);
-        float sizeMultX = (4.6f + (8.75f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX;
-        float sizeMultY = (8.2f + (5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY;
+        float sizeMultX = (4.6f + (4f * _cameraBordersSizeXMultiplier)) / normalCameraSizeX;
+        float sizeMultY = (8.2f + (3.5f * _cameraBordersSizeYMultiplier)) / normalCameraSizeY;
 
         ParticleSystem ps = GameObject.FindWithTag("Dust").GetComponent<ParticleSystem>();
         var col = ps.colorOverLifetime;

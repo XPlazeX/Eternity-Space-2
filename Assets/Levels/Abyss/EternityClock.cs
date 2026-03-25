@@ -13,6 +13,8 @@ public class EternityClock : MonoBehaviour
     [SerializeField] private EternityClockTrigger _endTrigger;
     [Space()]
     [SerializeField] private EternityClockCondition[] _eternityConditions;
+    [Space()]
+    // [SerializeField] private GameObject _criticalErrorer;
 
     private float _minute;
     private float _hour;
@@ -30,6 +32,7 @@ public class EternityClock : MonoBehaviour
         if (gsave.EternityParse)
         {
             StartSpan();
+            // Instantiate(_criticalErrorer, transform.position, Quaternion.identity);
             return;   
         }
 

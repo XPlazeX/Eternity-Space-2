@@ -636,6 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiImage: 0
+  _uiText: 0
   _gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0.4002924, a: 1}
@@ -1129,6 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiImage: 0
+  _uiText: 0
   _gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0.4002924, a: 1}

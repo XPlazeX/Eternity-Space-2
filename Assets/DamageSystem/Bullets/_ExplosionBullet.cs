@@ -26,12 +26,12 @@ public class _ExplosionBullet : MonoBehaviour
             GetComponent<Bullet>().Deathed += SpawnExplosion;
     }
 
-    public void SpawnExplosion()
+    public void SpawnExplosion(Vector3 position)
     {
-        if (_explosionHandler == null || !CameraController.InsideSoundArea(transform.position))
+        if (_explosionHandler == null || !CameraController.InsideSoundArea(position))
             return;
 
-        GameObject explosion = _explosionHandler.InstantiateExplosion(transform.position, _explosionCode);
+        GameObject explosion = _explosionHandler.InstantiateExplosion(position, _explosionCode);
 
         if (_mute)
             explosion.GetComponent<Explosion>().Mute();
@@ -50,5 +50,8 @@ public class _ExplosionBullet : MonoBehaviour
             CameraController.Shake(_shakePower);
     }
 
-
+    public void SpawnExplosion()
+    {
+        SpawnExplosion(transform.position);
+    }
 }

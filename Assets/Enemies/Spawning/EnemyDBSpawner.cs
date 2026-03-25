@@ -66,7 +66,7 @@ public class EnemyDBSpawner : SpawnerRoot
 
     public override void StartSpawning()
     {
-        SpawnTowers();
+        //SpawnTowers();
 
         if (_weightSelector != null)
         {

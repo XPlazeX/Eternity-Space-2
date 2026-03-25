@@ -5,6 +5,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class MissionsDatabase : MonoBehaviour
 {
+    [SerializeField] private AssetReference[] _specialMissions;
     [SerializeField] private AssetReference[] _missions;
 
     private AsyncOperationHandle _missionOperationHandle;
@@ -13,32 +14,32 @@ public class MissionsDatabase : MonoBehaviour
     public Mission _lastMissionReference {get; private set;} = null;
     // Start is called before the first frame update
 
-    public void SetSessionData(int missionID, bool rewriteAll = true)
+    public void SetSessionData(int missionID, bool rewriteAll = true, bool special = false)
     {
-        StartCoroutine(SettingGameSessionData(missionID, rewriteAll));
+        StartCoroutine(SettingGameSessionData(missionID, rewriteAll, special));
         print($"MISSION DATABASE: set mission data: {missionID}");
     }
 
-    public void EnforceLevelCore(int missionID)
+    public void EnforceLevelCore(int missionID, bool special = false)
     {
-        StartCoroutine(EnforcingLevelCore(missionID));
+        StartCoroutine(EnforcingLevelCore(missionID, special));
         print($"MISSION DATABASE: enforcing level core: {missionID}");
     }
 
-    public void LoadMenuDialogue(int missionID)
+    public void LoadMenuDialogue(int missionID, bool special = false)
     {
-        StartCoroutine(LoadingMenuDialogue(missionID));
+        StartCoroutine(LoadingMenuDialogue(missionID, special));
         print($"MISSION DATABASE: loading menu dialogue: {missionID}");
     }
     
-    public IEnumerator SettingGameSessionData(int missionID, bool rewriteAll)
+    public IEnumerator SettingGameSessionData(int missionID, bool rewriteAll, bool special = false)
     {
         if (_missionOperationHandle.IsValid())
         {
             Addressables.Release(_missionOperationHandle);
         }
 
-        var missionReference = _missions[missionID];
+        var missionReference = special ? _specialMissions[missionID] : _missions[missionID];
 
         _missionOperationHandle = Addressables.LoadAssetAsync<GameObject>(missionReference);
         yield return _missionOperationHandle;
@@ -51,14 +52,14 @@ public class MissionsDatabase : MonoBehaviour
         //((Mission)_missionOperationHandle.Result).SetDataForSessionSave(missionID);
     }
 
-    public IEnumerator EnforcingLevelCore(int missionID)
+    public IEnumerator EnforcingLevelCore(int missionID, bool special = false)
     {
         if (_missionOperationHandle.IsValid())
         {
             Addressables.Release(_missionOperationHandle);
         }
 
-        var missionReference = _missions[missionID];
+        var missionReference = special ? _specialMissions[missionID] : _missions[missionID];
 
         _missionOperationHandle = Addressables.LoadAssetAsync<GameObject>(missionReference);
         yield return _missionOperationHandle;
@@ -81,14 +82,14 @@ public class MissionsDatabase : MonoBehaviour
         }
     }
 
-    private IEnumerator LoadingMenuDialogue(int missionID)
+    private IEnumerator LoadingMenuDialogue(int missionID, bool special = false)
     {
         if (_missionOperationHandle.IsValid())
         {
             Addressables.Release(_missionOperationHandle);
         }
 
-        var missionReference = _missions[missionID];
+        var missionReference = special ? _specialMissions[missionID] : _missions[missionID];
 
         _missionOperationHandle = Addressables.LoadAssetAsync<GameObject>(missionReference);
         yield return _missionOperationHandle;

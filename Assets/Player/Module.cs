@@ -4,9 +4,12 @@ using DamageSystem;
 
 public class Module : MonoBehaviour
 {
+    [SerializeField] private string moduleID;
     [SerializeField] private Sprite _icon;
     [SerializeField] private bool _selfLoadOnStart = false;
+
     public Sprite Icon => _icon;
+    public string ID => moduleID;
     
     private void Start() 
     {
@@ -29,8 +32,10 @@ public class Gear : Module
 public class AttackPattern : Gear
 {
     public CommonAction Fired;
+    public CommonAction Prepared;
 
     [SerializeField] protected AttackObject _bulletSample;
+    [SerializeField] protected float prepareTime = 0.5f;
     [SerializeField] protected float _firerate = 1f;
     [SerializeField] private float _spread = 0;
     [Range(0, 1f)][SerializeField] protected float _spreadBulletSpeed = 0;
@@ -38,6 +43,8 @@ public class AttackPattern : Gear
     [SerializeField][Range(0, 1f)] private float _volume = 1f;
     [SerializeField][Range(0, 2f)] private float _startPitch = 1f;
     [SerializeField][Range(0, 3f)] private float _pitchSpread = 0f;
+    [Space()]
+    [SerializeField] private _ExplosionBullet muzzleExplosion;
     [Space()]
     [SerializeField] private WeaponRoot _customWeaponRoot;
 
@@ -47,12 +54,17 @@ public class AttackPattern : Gear
     protected Transform[] _barrels => _bindedWR.PlayerBarrels; // нужен, для ссылок на Barrels
     protected WeaponRoot _bindedWR;
     //private SoundPlayer _soundPlayer;
+    protected bool _prepared;
     protected int _bulletIndex;
     protected int _normalDamage;
     private float _firerateMultiplier = 1f;
+    private float _prepareTimeMiltiplier = 1f;
     private float _fireReloading = 0f;
+    private float _prepareTimer = 0f;
     private float _firerateRandomizing = 1f;
+
     public float Spread {get; private set;} = 0f;
+    public float PrepareNormalized => Mathf.Clamp01(1f - (_prepareTimer / prepareTime));
 
     public float FireReload
     {
@@ -60,7 +72,9 @@ public class AttackPattern : Gear
         set { _firerate = value; }
     }
 
-    public bool Active => _bindedWR.Prepared;
+    public bool Workable => _bindedWR == null ? false : _bindedWR.CanAttack;
+    public bool Active => MainWeaponHandler.ActiveWeaponID == ID;
+    public bool Ready => _prepareTimer <= 0;
 
     public override void Load()
     {
@@ -68,16 +82,17 @@ public class AttackPattern : Gear
         {
             _bindedWR = _customWeaponRoot;
         } else
-            _bindedWR = Player.PlayerObject.GetComponent<WeaponRoot>();
+            _bindedWR = MainWeaponHandler.MainWeaponRoot;
 
         _bulletIndex = CharacterBulletDatabase.InitializeAttackSample(_bulletSample);
 
         _normalDamage = Mathf.CeilToInt(CharacterBulletDatabase.GetForChangeAttackObject(_bulletIndex).Damage);
 
-        ShipStats.StatChanged += ObserveStat;
+        // ShipStats.StatChanged += ObserveStat;
         _firerateMultiplier = ShipStats.GetValue("MainWeaponFirerateMultiplier");
         Spread = _spread + ShipStats.GetValue("FlatSpread");
         _firerateRandomizing = ShipStats.GetValue("MainWeaponFirerateRandomizing");
+        _prepareTimeMiltiplier = ShipStats.GetValue("PrepareTimeMultiplier");
     }
 
     protected virtual void ObserveStat(string name, float val)
@@ -92,21 +107,45 @@ public class AttackPattern : Gear
         {
             _firerateRandomizing = ShipStats.GetValue("MainWeaponFirerateRandomizing");
         }
+        else if (name == "PrepareTimeMultiplier")
+        {
+            _prepareTimeMiltiplier = ShipStats.GetValue("MainWeaponFirerateRandomizing");
+        }
         
     }
 
     protected virtual void Update()
     {
+        if (!Workable) return;
+
         _fireReloading -= Time.deltaTime;
+
+        if (PlayerInput.MainFirePressed)
+        {
+            _prepareTimer -= Time.deltaTime * _prepareTimeMiltiplier;
+            if (_prepareTimer <= 0f && !_prepared)
+            {
+                Prepared?.Invoke();
+                _prepared = true;
+            }
+        } else
+        {
+            _prepareTimer = prepareTime;
+            _prepared = false;
+        } 
         
-        if (!Active)
+        if (!Ready || !Active)
             return;
 
-        if ((Input.GetMouseButton(0) || (Input.touchCount > 0)) && _fireReloading <= 0)
+        if (_fireReloading <= 0)
         {
             Fire();
             _fireReloading = FireReload * (1f / _firerateMultiplier) * Random.Range(1f / _firerateRandomizing, 1f * _firerateRandomizing);
         }
+    }
+
+    private void OnEnable() {
+        ShipStats.StatChanged += ObserveStat;
     }
 
     private void OnDisable() {
@@ -130,61 +169,145 @@ public class AttackPattern : Gear
             ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
     }
 
+    protected void MuzzleFlash(Vector3 position)
+    {
+        muzzleExplosion.SpawnExplosion(position);
+    }
+
     public AttackObject SpawnBullet()
     {
         return CharacterBulletDatabase.GetAttackObject(_bulletIndex);
     }
 }
 
-public class Device : AttackPattern 
+public class Device : Gear 
 {
-    // firerate shows charge time
+    public CommonAction Charged;
+    public CommonAction StartedRelease;
+    public CommonAction EndedRelease;
 
-    protected override void Update()
+    [SerializeField] protected AttackObject _bulletSample;
+    [SerializeField] private float _spread = 0;
+    [Range(0, 1f)][SerializeField] protected float _spreadBulletSpeed = 0;
+    [SerializeField] protected AudioClip _soundWork;
+    [SerializeField][Range(0, 1f)] private float _volume = 1f;
+    [SerializeField][Range(0, 2f)] private float _startPitch = 1f;
+    [SerializeField][Range(0, 3f)] private float _pitchSpread = 0f;
+    [Space()]
+    [SerializeField] private _ExplosionBullet muzzleExplosion;
+    [Space()]
+    [SerializeField] private WeaponRoot _customWeaponRoot;
+
+    public AttackObject BulletSample => _bulletSample;
+    public int CharacterBulletIndex => _bulletIndex;
+
+    protected Transform[] _barrels => _bindedWR.PlayerBarrels; // нужен, для ссылок на Barrels
+    protected WeaponRoot _bindedWR;
+    public float Spread {get; private set;} = 0f;
+
+    public bool Workable => _bindedWR == null ? false : _bindedWR.CanAttack;
+    public bool Active => MainWeaponHandler.ActiveSecondaryID == ID;
+
+    protected int _bulletIndex;
+    protected int _normalDamage;
+    protected float _chargeTimer;
+    private bool _released = false;
+    // firerate shows charge time
+    
+
+    protected virtual void Update()
     {
-        
+        if (!Workable) return;
+
+    }
+
+    public virtual float GetChargeNormalized()
+    {
+        return 0f;
     }
 
     public override void Load()
     {
-        _bindedWR = Player.PlayerObject.GetComponent<WeaponRoot>();
-
-        Player.StartPlayerReturn += OnStartPlayerReturned;
-        OnStartPlayerReturned();
-
-        SceneStatics.SceneCore.GetComponent<DeviceHandler>().SetDevice(this);
+        if (_customWeaponRoot != null)
+        {
+            _bindedWR = _customWeaponRoot;
+        } else
+            _bindedWR = Player.PlayerObject.GetComponent<WeaponRoot>();
 
         _bulletIndex = CharacterBulletDatabase.InitializeAttackSample(_bulletSample);
-
-        print($"device setted with bullet id : {_bulletIndex}");
+        _bindedWR = MainWeaponHandler.MainWeaponRoot;
 
         _normalDamage = Mathf.CeilToInt(CharacterBulletDatabase.GetForChangeAttackObject(_bulletIndex).Damage);
-        if (Dev.IsLogging) print($"Load device ---------- normal damage : {_normalDamage}");
 
-        ShipStats.StatChanged += SetDamage;
-        SetDamage("DeviceDamageMultiplier", ShipStats.GetValue("DeviceDamageMultiplier"));
+        Spread = _spread + ShipStats.GetValue("FlatSpread");
     }
 
-    private void OnStartPlayerReturned()
+    public virtual void StartRelease()
     {
-        WeaponRoot weaponRoot = Player.PlayerObject.GetComponent<WeaponRoot>();
+        StartedRelease?.Invoke();
     }
-
-    private void SetDamage(string input, float newVal)
+    public virtual void Releasing()
     {
-        if (input != "DeviceDamageMultiplier")
-            return;
         
-        AttackObject bullet = CharacterBulletDatabase.GetForChangeAttackObject(_bulletIndex);
-        bullet.Damage = Mathf.CeilToInt(_normalDamage * newVal);
-
-        if (Dev.IsLogging) print($"Mod device damage---- current damage : {bullet.Damage}");
+    }
+    public virtual void EndRelease()
+    {
+        EndedRelease?.Invoke();
     }
 
-    public override void Fire()
+    protected void PlaySound() => SoundPlayer.PlaySound(_soundWork, _volume, Random.Range(_startPitch - _pitchSpread, _startPitch + _pitchSpread));
+
+    protected void SpawnBullet(Vector3 position, float startRotation)
     {
-        Fired?.Invoke();
-        print("Empty Device attack fired!");
+        AttackObject bulletSample = CharacterBulletDatabase.GetAttackObject(_bulletIndex);
+
+        bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
+        bulletSample.transform.position = position;
+
+        if (_spreadBulletSpeed != 0)
+            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
+    }
+
+    public AttackObject SpawnBullet()
+    {
+        return CharacterBulletDatabase.GetAttackObject(_bulletIndex);
+    }
+
+    protected void MuzzleFlash(Vector3 position)
+    {
+        muzzleExplosion.SpawnExplosion(position);
+    }
+
+    protected virtual void ObserveStat(string name, float val)
+    {
+        if (name == "FlatSpread")
+        {
+            Spread = _spread + ShipStats.GetValue("FlatSpread");
+        }
+        
+    }
+
+    private void OnEnable() {
+        ShipStats.StatChanged += ObserveStat;
+    }
+
+    private void OnDisable() {
+        ShipStats.StatChanged -= ObserveStat;
+    }
+
+    public enum UseCondition
+    {
+        Free = 0,
+        Cooldown = 1,
+        Toggle = 2,
+        MainFiringLoad = 3,
+        SecondaryPress = 4
+    }
+
+    public enum ReleaseFlow
+    {
+        Discrete = 0,
+        Continious = 1
     }
 }
 

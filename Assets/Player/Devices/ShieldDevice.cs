@@ -18,10 +18,10 @@ public class ShieldDevice : Device
         SetParryingArea();
     }
 
-    public override void Fire()
-    {
-        SpawnParryingObject();
-    }
+    // public override void Fire()
+    // {
+    //     SpawnParryingObject();
+    // }
 
     public virtual void SpawnParryingObject()
     {

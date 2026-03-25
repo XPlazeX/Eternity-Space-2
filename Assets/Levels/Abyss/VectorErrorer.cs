@@ -3,6 +3,7 @@
 public class VectorErrorer : MonoBehaviour
 {
     [SerializeField] private float _timeToError;
+    [SerializeField] private bool _critical;
 
     private float _timer;
     private bool _triggered;
@@ -30,7 +31,14 @@ public class VectorErrorer : MonoBehaviour
     public void Error()
     {
         SceneStatics.UICore.GetComponent<PlayerUI>().TriggerPreDeath();
-        SceneStatics.UICore.GetComponent<DeathUIHandler>().ErrorVector();
+
+        if (!_critical)
+        {
+            SceneStatics.UICore.GetComponent<DeathUIHandler>().ErrorVector();
+        } else
+        {
+            
+        }
 
         _triggered = true;
         _playerUI.ToggleIntervention(false);

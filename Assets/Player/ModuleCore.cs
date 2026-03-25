@@ -63,7 +63,7 @@ public class ModuleCore : MonoBehaviour
 
         print($"Корректировка модель оружия: {weaponModel}");
 
-        _defaultWeaponPattern = SpawnGear(GearType.Weapon, weaponModel) as AttackPattern;
+        // _defaultWeaponPattern = SpawnGear(GearType.Weapon, weaponModel) as AttackPattern;
         
         List<LevelEvent> levelEvents = ModulasSaveHandler.GetSave().GetAllLevelEvents();
 
@@ -100,7 +100,7 @@ public class ModuleCore : MonoBehaviour
         for (int i = 0; i < _gearComponents.Length; i++)
         {
             //_gearComponents[i].Initialize(0);
-            _gearComponents[i].Load();
+            // _gearComponents[i].Load();
         }
 
         return gear;

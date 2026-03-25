@@ -2,6 +2,7 @@
 using DamageSystem;
 
 [RequireComponent(typeof(_ExplosionBullet))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : AttackObject
 {
     public const int parryExplosionID = 11;
@@ -16,33 +17,45 @@ public class Bullet : AttackObject
     [SerializeField] protected float _acceleration;
     [SerializeField] private bool _accelerateToZero = false;
     [Space()]
-    [SerializeField] private int _piercingTargets = 0; 
+    [SerializeField] private int _piercingTargets = 0;
     [SerializeField] private bool _explodeOnTimer;
 
     public float Lifetime => _lifetime;
-    public float Lifetimer => _lifeTimer; 
+    public float Lifetimer => _lifeTimer;
 
     public int Pierces
     {
-        get {return _piercingTargets;}
-        set {_piercingTargets = value;}
+        get { return _piercingTargets; }
+        set { _piercingTargets = value; }
     }
+
     public float Acceleration
     {
-        get {return _acceleration;}
-        set {_acceleration = value;}
+        get { return _acceleration; }
+        set { _acceleration = value; }
     }
 
     private TrailRenderer _trailRenderer;
     private ExplosionHandler _explosionHandler;
+    private Rigidbody2D _rb;
+
     private float _lifeTimer;
     private float _startSpeed;
     private float _startAcceleration;
     private float _curPierces = 0;
     protected bool _ignoreForce = false;
 
-    private void Awake() {
+    private void Awake()
+    {
         _trailRenderer = GetComponent<TrailRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
+
+        if (_rb != null)
+        {
+            _rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            _rb.gravityScale = 0f;
+        }
+
         if (!_otherDeathResource)
         {
             _explosionHandler = SceneStatics.CoresFinded ? SceneStatics.SceneCore.GetComponent<ExplosionHandler>() : null;
@@ -53,7 +66,8 @@ public class Bullet : AttackObject
         _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         SceneStatics.CoresLoaded -= Initialize;
     }
 
@@ -67,20 +81,41 @@ public class Bullet : AttackObject
         _speed = _startSpeed;
     }
 
-    private void Update() 
-    {      
-        if (_accelerateToZero && (Mathf.Abs(_speed) < 0.01f * Mathf.Abs(Acceleration)))
-            _speed = 0f;
-        else
-            _speed += Acceleration * Time.deltaTime;
-
-        transform.position += ((transform.up * _speed) + (_ignoreForce ? Vector3.zero : (PlayerController.DefaultForce))) * Time.deltaTime;
+    private void FixedUpdate()
+    {
+        TickSpeed();
+        TickMovement();
 
         if (_otherDeathResource)
             return;
 
-        _lifeTimer -= Time.deltaTime;
-        if (_lifeTimer <= 0)
+        TickLifetime();
+    }
+
+    private void TickSpeed()
+    {
+        if (_accelerateToZero && (Mathf.Abs(_speed) < 0.01f * Mathf.Abs(Acceleration)))
+            _speed = 0f;
+        else
+            _speed += Acceleration * Time.fixedDeltaTime;
+    }
+
+    private void TickMovement()
+    {
+        Vector2 movement =
+            ((Vector2)transform.up * _speed + (_ignoreForce ? Vector2.zero : (Vector2)PlayerController.DefaultForce))
+            * Time.fixedDeltaTime;
+
+        if (_rb != null)
+            _rb.MovePosition(_rb.position + movement);
+        else
+            transform.position += (Vector3)movement;
+    }
+
+    private void TickLifetime()
+    {
+        _lifeTimer -= Time.fixedDeltaTime;
+        if (_lifeTimer <= 0f)
             Deactivate();
     }
 
@@ -89,8 +124,15 @@ public class Bullet : AttackObject
         _speed *= multiplier;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        DamageBody damageBody = other.GetComponent<DamageBody>();
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<__HardShield>() != null)
+        {
+            // Pierce();
+            return;
+        }
+        
+        DamageBody damageBody = other.GetComponentInParent<DamageBody>();
 
         if (damageBody == null || !InflictDamage(damageBody))
             return;
@@ -115,18 +157,19 @@ public class Bullet : AttackObject
             _speed = _startSpeed * ShipStats.GetValue("PlayerShotSpeedMultiplier");
             _acceleration = _startAcceleration + ShipStats.GetValue("FlatPlayerBulletAcceleration");
         }
-        else 
+        else
+        {
             _speed = _startSpeed * ShipStats.GetValue("EnemyBulletSpeedMultiplier");
-
+        }
     }
 
     public virtual void Parrying()
     {
         gameObject.SetActive(false);
+
         if (_explosionHandler == null)
-        {
             _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
-        }
+
         _explosionHandler.SpawnExplosion(transform.position, parryExplosionID);
     }
 
@@ -145,13 +188,15 @@ public class Bullet : AttackObject
     {
         _curPierces -= times;
         Hitted?.Invoke();
-        
+
         if (_curPierces < 0)
             Death();
     }
 
-    protected override void OnDisable() {
+    protected override void OnDisable()
+    {
         base.OnDisable();
+
         if (_trailRenderer != null)
             _trailRenderer.Clear();
     }
@@ -160,7 +205,6 @@ public class Bullet : AttackObject
     {
         if (!_explodeOnTimer)
             gameObject.SetActive(false);
-            
         else
             Death();
     }

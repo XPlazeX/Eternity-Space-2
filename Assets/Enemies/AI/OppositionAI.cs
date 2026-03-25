@@ -53,7 +53,7 @@ public class OppositionAI : EnemyAIRoot
         _trueOffset = _offset + new Vector3(Random.Range(-retreatOffset.x, retreatOffset.x), Random.Range(-retreatOffset.y, retreatOffset.y), 0);
     }
 
-    protected override void DoMove()
+    protected override Vector2 GetMoveDelta()
     {
         if (_player == null)
         {
@@ -63,11 +63,11 @@ public class OppositionAI : EnemyAIRoot
                 _orientation = LookingOrientation.RotateToPlayer;
                 _offset = new Vector3(_offset.x, -_offset.y);
             }
-            print("tfp");
+            // print("tfp");
             FindPlayer();
             
             Start();
-            return;
+            return Vector2.zero;
         }
         if (_retreating && _timer <= 0)
         {
@@ -80,9 +80,9 @@ public class OppositionAI : EnemyAIRoot
         else
             _targetPosition = new Vector3(GetActualPlayerPosition().x, _latitudeY, 0f);
 
-        transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility);
-
         _timer -= Time.deltaTime;
+
+        return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime * Mobility) - transform.position;
     }
 
     protected Vector3 GetActualPlayerPosition()

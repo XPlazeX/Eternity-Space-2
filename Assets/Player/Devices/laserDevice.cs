@@ -9,13 +9,13 @@ public class laserDevice : Device
     [SerializeField] private float _attackDistance;
     [SerializeField] private float _laserLifetime;
 
-    public override void Fire()
-    {
-        for (int i = 0; i < _barrelIndexes.Length; i++)
-        {
-            SpawnLaser(_barrels[_barrelIndexes[i]]);
-        }
-    }
+    // public override void Fire()
+    // {
+    //     for (int i = 0; i < _barrelIndexes.Length; i++)
+    //     {
+    //         SpawnLaser(_barrels[_barrelIndexes[i]]);
+    //     }
+    // }
 
     private void SpawnLaser(Transform barrel)
     {
