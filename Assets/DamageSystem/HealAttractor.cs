@@ -74,7 +74,7 @@ public class HealAttractor : MonoBehaviour
             PlayerShipData.RegenerateHP(_healTank);
         } else if (_healTank < 0)
         {
-            PlayerShipData.TakeDamage(-_healTank);
+            // PlayerShipData.TakeDamage(-_healTank);
         }
 
         _healTank = 0;

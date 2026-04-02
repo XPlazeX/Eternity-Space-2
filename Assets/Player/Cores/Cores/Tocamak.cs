@@ -7,14 +7,14 @@ public class Tocamak : Core
     [SerializeField] private float _perContagionMultiplier;
 
     private void OnEnable() {
-        if (_loseOnDamage)
-            PlayerShipData.TakeAnyDamage += OnDamageTaken;
+        // if (_loseOnDamage)
+        //     PlayerShipData.TakeAnyDamage += OnDamageTaken;
     }
 
     protected override void OnDisable() {
         base.OnDisable();
-        if (_loseOnDamage)
-            PlayerShipData.TakeAnyDamage -= OnDamageTaken;
+        // if (_loseOnDamage)
+        //     PlayerShipData.TakeAnyDamage -= OnDamageTaken;
     }
 
     private void Update()

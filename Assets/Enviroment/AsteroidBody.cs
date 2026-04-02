@@ -28,7 +28,7 @@ public class AsteroidBody : DamageBody
 
     private void OnEnable()
     {
-        _lifeTimer = _lifetime * ((Mathf.Abs(CameraController.Borders_xXyY.z) + CameraController.Borders_xXyY.w + (CameraController.Size * 2f)) / (CameraController.Size * 2f));
+        _lifeTimer = _lifetime * ((Mathf.Abs(ArenaLocal.WNegY) + ArenaLocal.WPosY + ArenaLocal.Height) / ArenaLocal.Height);
         _selectedSpeed = Random.Range(_minMaxSpeed.x, _minMaxSpeed.y);
         HitPoints = _startHP;
         _direction = transform.up;
@@ -49,7 +49,8 @@ public class AsteroidBody : DamageBody
             if (_lifeTimer <= 0f)
             {
                 if (_explodeOnTimer)
-                    TakeDamage(999);
+                    Death();
+                    // TakeDamage(999);
 
                 gameObject.SetActive(false);
             }
@@ -66,11 +67,11 @@ public class AsteroidBody : DamageBody
         if (damageBody == null)
             return;
 
-        if (damageBody.KeyDamage == DamageSystem.DamageKey.Enemy || damageBody.KeyDamage == DamageSystem.DamageKey.Everything)
-        {
-            int otherHP = damageBody.HitPoints;
-            damageBody.TakeDamage(HitPoints);
-            TakeDamage(otherHP);
-        }
+        // if (damageBody.KeyDamage == DamageSystem.DamageKey.Enemy || damageBody.KeyDamage == DamageSystem.DamageKey.Everything)
+        // {
+        //     int otherHP = damageBody.HitPoints;
+        //     damageBody.TakeDamage(HitPoints);
+        //     TakeDamage(otherHP);
+        // }
     }
 }

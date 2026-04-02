@@ -10,7 +10,7 @@ public class CameraTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Camera.main.GetComponent<CameraController>().SetScale(_newCameraScale, _changingSpeed);
+            // Camera.main.GetComponent<CameraController>().SetScale(_newCameraScale, _changingSpeed);
 
             if (_destroyObject != null)
             {

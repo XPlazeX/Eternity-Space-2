@@ -99,8 +99,8 @@ public class MobileUtilsScript : MonoBehaviour {
             _canvas.SetActive(_freeCam ? false : true);
             CameraController cc = Camera.main.GetComponent<CameraController>();
 
-            if (cc != null)
-                cc.CanMoving = _freeCam ? false : true;
+            // if (cc != null)
+            //     cc.CanMoving = _freeCam ? false : true;
         }
         if (_freeCam)
         {

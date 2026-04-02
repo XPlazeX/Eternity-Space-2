@@ -22,10 +22,10 @@ public class Teleporter : MonoBehaviour
 
         Vector3 newPosition = GetNewTeleportPosition();
         
-        while (!CameraController.InsideGameField(newPosition))
-        {
-            newPosition = GetNewTeleportPosition();
-        }
+        // while (!CameraController.InsideGameField(newPosition))
+        // {
+        //     newPosition = GetNewTeleportPosition();
+        // }
 
         if (_customTeleportTransform != null)
             _customTeleportTransform.position = newPosition;
@@ -37,7 +37,7 @@ public class Teleporter : MonoBehaviour
     private Vector3 GetNewTeleportPosition()
     {
         if (_useFullGameField)
-            return CameraController.GetRandomFieldPosition();
+            return ArenaLocal.GetRandomFieldPosition();
         
         return _customTeleportTransform == null ? GetTeleportPosition(transform.parent.position, _teleportDistance) : GetTeleportPosition(_customTeleportTransform.position, _teleportDistance);
     }

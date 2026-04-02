@@ -55,8 +55,12 @@ public class HeartAttack : Module
         {
             if (hitPoints < minimumHP)
             {
-                _bindedDB.TakeDamage(_bindedDB.HitPoints);
-                _bindedDB.TakeDamage(_bindedDB.HitPoints);
+                _bindedDB.TakeDamage(new DamageSystem.DamageBundle()
+                {
+                    damageKey = DamageSystem.DamageKey.Everything,
+                    damageValue = _bindedDB.HitPoints,
+                    ignoreOneShotProtection = true
+                });
                 Attacked?.Invoke(this);
             }
         }

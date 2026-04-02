@@ -77,10 +77,10 @@ public class PlayerRamsHandler : MonoBehaviour
         if (!CanRam)
             return;
 
-        if (GameSessionInfoHandler.FinalLevel)
-            _victoryHandler.AddCosmilite(CosmiliteMoneyValue);
-        else
-            _victoryHandler.AddAurite(MoneyValue + MoneyPerEnemy * Spawner.EnemyCount);
+        // if (GameSessionInfoHandler.FinalLevel)
+        //     _victoryHandler.AddCosmilite(CosmiliteMoneyValue);
+        // else
+        //     _victoryHandler.AddAurite(MoneyValue + MoneyPerEnemy * Spawner.EnemyCount);
 
         
         if (HealValue > 0)

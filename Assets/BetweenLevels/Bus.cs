@@ -74,7 +74,7 @@ public class Bus : MonoBehaviour
     {
         SceneTransition.BlockUI();
 
-        Camera.main.GetComponent<CameraController>().CanMoving = false;
+        // Camera.main.GetComponent<CameraController>().CanMoving = false;
         PlayerController.CanControl = false;
         _target.gameObject.SetActive(false);
 
@@ -116,9 +116,9 @@ public class Bus : MonoBehaviour
     private IEnumerator Entering()
     {
         Vector3 toPosition = transform.position;
-        Vector3 fromPosition = new Vector3(toPosition.x, CameraController.Borders_xXyY.z - 7f, 0f);
+        // Vector3 fromPosition = new Vector3(toPosition.x, CameraController.Borders_xXyY.z - 7f, 0f);
 
-        transform.position = fromPosition;
+        // transform.position = fromPosition;
         while ((transform.position - toPosition).magnitude > 0.1f)
         {
             transform.position = Vector3.Lerp(transform.position, toPosition, _flySpeed * Time.deltaTime);

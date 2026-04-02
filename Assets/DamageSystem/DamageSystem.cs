@@ -18,69 +18,75 @@ namespace DamageSystem
 
     public class AttackObject : PullableObject
     {
-        public const float defaultDamageToAsteroid = 1f;
-
         public event bodyInflicting DamageBodyInflicted;
 
-        [SerializeField] private DamageKey _damageKey;
-        [SerializeField] private int _damageValue;
-        [SerializeField] private float _shieldDamageMultiplier = 1f;
-        [SerializeField] private float _asteroidDamageMultiplier = 1f;
+        [SerializeField] private DamageBundle damageBundle;
 
-        public DamageKey KeyDamage => _damageKey;
+        public DamageKey KeyDamage => damageBundle.damageKey;
+        public DamageBundle DMGBundle => damageBundle;
 
         public int Damage 
         {
-            get {return _damageValue;}
-            set {_damageValue = value;}
+            get {return damageBundle.damageValue;}
+            set {damageBundle.damageValue = value;}
         }
 
         protected virtual bool InflictDamage(DamageBody damageBody, float moddedDamage = -1f)
         {
-            if (damageBody.KeyDamage == DamageKey.Unvulnerable)
+            if (damageBody.KeyDamage == DamageKey.Unvulnerable || !damageBundle.Legitime)
                 return false;
-
-            float dmg = _damageValue;
 
             if (moddedDamage > 0)
-                dmg = moddedDamage;
+                damageBundle.damageValue = Mathf.CeilToInt(moddedDamage);
 
-            if (_shieldDamageMultiplier != 1f && damageBody.ShieldPoints > 0)
-                dmg *= _shieldDamageMultiplier;
+            bool result = damageBody.TakeDamage(damageBundle);
 
-            if (_asteroidDamageMultiplier != 1f && damageBody is AsteroidBody)
-                dmg *= _asteroidDamageMultiplier;
-
-            if (_damageKey == DamageKey.ToAsteroids && (damageBody is AsteroidBody))
-            {
-                damageBody.TakeDamage(Mathf.CeilToInt(dmg));
-                DamageBodyInflicted?.Invoke(damageBody, Mathf.CeilToInt(dmg));
-                return true;
-            }
-
-            if (_damageKey != damageBody.KeyDamage && _damageKey != DamageKey.Everything)
-                return false;
-
-            damageBody.TakeDamage(Mathf.CeilToInt(dmg));
-            damageBody.TakeStun(100f);
-            DamageBodyInflicted?.Invoke(damageBody, Mathf.CeilToInt(dmg));
-            return true;
+            if (result)
+                DamageBodyInflicted?.Invoke(damageBody, damageBundle.damageValue);
+            return result;
         }
 
-        public void ChangeDamageKey(DamageKey newKey) => _damageKey = newKey;
+        public void ChangeDamageKey(DamageKey newKey) => damageBundle.damageKey = newKey;
 
-        public static bool InflictDamage(DamageBody targetBody, DamageKey key, int damageValue)
+        public static bool InflictDamage(DamageBody targetBody, DamageBundle damageBundle)
         {
             //print("static inflict");
-            if (targetBody.KeyDamage != DamageKey.Unvulnerable && ((key == targetBody.KeyDamage) || key == DamageKey.Everything))
+            if (targetBody.KeyDamage == DamageKey.Unvulnerable || !damageBundle.Legitime)
             {
-                targetBody.TakeDamage(damageValue);
-                return true;
-            }
-            else
                 return false;
+            }
 
+            return targetBody.TakeDamage(damageBundle);
         }
+    }
+
+    [System.Serializable]
+    public record DamageBundle
+    {
+        [Header("Main Damage")]
+        [Tooltip("Unvulnerable никогда не получают урон, Everything наносит урон всем, ToAsteroids делает проверку is AsteroidBody, Player и Enemy должны совпадать у наносителя и получателя.")]
+        public DamageKey damageKey = DamageKey.Everything;
+        [Tooltip("Базовый урон с которым всё считается. Если <= 0 - урон считаться НЕ БУДЕТ, даже если эффекты дают прибавку.")]
+        public int damageValue = 0;
+        [Tooltip("Множитель урона по ShieldPoints. Щит заблокирует удар перед нанесением урона телу.")]
+        public float shieldDamageMultiplier = 1f;
+        [Tooltip("Множитель урона по AsteroidBody")]
+        public float asteroidDamageMultiplier = 1f;
+        [Tooltip("Пробитие FlatArmor. Не суммируется с основным уроном, просто вычитает из FlatArmor")]
+        public int armorPenetration = 0;
+        [Header("Effects")]
+        [Tooltip("Количество стана. Базовое количество стана на врагов = 60, восстанавливают 10 в секунду. Стан оглушает противника и делает его доступным для тарана на 2 сек")]
+        public float stunAmount = 0f;
+        [Tooltip("Структурный урон. Увеличивает получаемый урон на это значение.")]
+        public int structuralDamage = 0;
+        [Tooltip("Если true - попадание игнорирует отсечку в 10 хп и получение урона может сразу убить врага.")]
+        public bool ignoreOneShotProtection = false;
+        [Tooltip("Считается после всего урона или если damageValue <= 0. Это восстановление здоровья, не скейлится от баффов урона.")]
+        public int regeneratingValue = 0;
+        [Tooltip("Сколько раз будет прогонятся данный DamageBundle")]
+        public int cycles = 1;
+
+        public bool Legitime => (damageValue > 0 || regeneratingValue > 0 || structuralDamage > 0 || stunAmount > 0f) && cycles > 0;
     }
 }
 

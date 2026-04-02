@@ -18,8 +18,8 @@ public class SpawnObjects : Module
 
             if (_onPlayerPosition)
                 obj.position = Player.PlayerTransform.position;
-            else if (_randomPosition)
-                obj.position = CameraController.GetRandomFieldPosition(_randomMinDistanceToPlayer);
+            // else if (_randomPosition)
+            //     obj.position = CameraController.GetRandomFieldPosition(_randomMinDistanceToPlayer);
             else
             {
                 obj.position = _spawnPosition;

@@ -10,15 +10,17 @@ public class PlayerController : MonoBehaviour
     public static event drag Dragging;
 
     [SerializeField] private float _sensivity = 1f;
-    [SerializeField] private Vector3 _offset_XyY;
     [SerializeField] private float _forceDecelerration = 1f;
     [SerializeField] private TrailRenderer _trailForce;
     [SerializeField] private float _trailTimeMultiplier = 1f;
     [SerializeField] private float _trailFadeSpeed = 1f;
+    [Header("Arena")]
+    [SerializeField] private float offsetOut = 10f;
+    [SerializeField] private AnimationCurve relativityGrowth;
 
     private static Transform _player;
     private static Rigidbody2D _playerRb;
-    private static Quaternion _cameraBorders;
+    // private static Quaternion _cameraBorders;
 
     private Vector2 _pendingDragDelta;
     private bool _pendingBeginDrag;
@@ -28,15 +30,27 @@ public class PlayerController : MonoBehaviour
     public static Vector3 DefaultForce { get; set; } = Vector3.zero;
     public static Vector3 AdditiveForce { get; private set; } = Vector3.zero;
     public static bool IsControlling { get; private set; } = false;
+    public static float VisionOffset {get; private set;}
+    public static float RelativityX { get; private set; }
+    public static float RelativityY { get; private set; }
+    public static float AbsRelativity => Mathf.Max(Mathf.Abs(RelativityX), Mathf.Abs(RelativityY));
+
+    private static PlayerController instance;
 
     public static void Initialize()
     {
         CanControl = true;
 
-        Camera.main.GetComponent<CameraController>().BordersChange += SetBorders;
-        SetBorders();
+        // Camera.main.GetComponent<CameraController>().BordersChange += SetBorders;
+        // SetBorders();
 
         ReplacePlayer(Player.PlayerTransform);
+    }
+
+    void OnEnable()
+    {
+        VisionOffset = offsetOut;
+        instance = this;
     }
 
     private void Update()
@@ -69,6 +83,7 @@ public class PlayerController : MonoBehaviour
         if (_player == null || _playerRb == null || !Player.Alive)
             return;
 
+        CalculateRelativity();
         HandleControlState();
         TickAdditiveForce();
         TickMovement();
@@ -82,6 +97,152 @@ public class PlayerController : MonoBehaviour
             return;
 
         UpdateTrailVisual();
+    }
+
+    private void CalculateRelativity()
+    {
+        RelativityX = 0f;
+        RelativityY = 0f;
+
+        if (_playerRb.position.x > ArenaLocal.WPosX)
+            RelativityX = relativityGrowth.Evaluate((_playerRb.position.x - ArenaLocal.WPosX) / offsetOut);
+        else if (_playerRb.position.x < ArenaLocal.WNegX)
+            RelativityX = -relativityGrowth.Evaluate((-_playerRb.position.x + ArenaLocal.WNegX) / offsetOut);
+
+        if (_playerRb.position.y > ArenaLocal.WPosY)
+            RelativityY = relativityGrowth.Evaluate((_playerRb.position.y - ArenaLocal.WPosY) / offsetOut);
+        else if (_playerRb.position.y < ArenaLocal.WNegY)
+            RelativityY = -relativityGrowth.Evaluate((-_playerRb.position.y + ArenaLocal.WNegY) / offsetOut);
+    }
+
+    public static Vector3 RelativeVectorAtPoint(Vector3 moveDelta, Vector3 point, float relativeFactor)
+    {
+        float xMult = 1f;
+        float yMult = 1f;
+
+        // X+
+        float rightBarrier = ArenaLocal.WPosX + instance.offsetOut;
+        xMult *= GetSideMultiplier(
+            point.x,
+            moveDelta.x,
+            rightBarrier,
+            rightBarrier - instance.offsetOut,
+            rightBarrier + instance.offsetOut,
+            relativeFactor,
+            instance.relativityGrowth
+        );
+
+        // X-
+        float leftBarrier = ArenaLocal.WNegX - instance.offsetOut;
+        xMult *= GetSideMultiplier(
+            point.x,
+            moveDelta.x,
+            leftBarrier,
+            leftBarrier - instance.offsetOut,
+            leftBarrier + instance.offsetOut,
+            relativeFactor,
+            instance.relativityGrowth
+        );
+
+        // Y+
+        float topBarrier = ArenaLocal.WPosY + instance.offsetOut;
+        yMult *= GetSideMultiplier(
+            point.y,
+            moveDelta.y,
+            topBarrier,
+            topBarrier - instance.offsetOut,
+            topBarrier + instance.offsetOut,
+            relativeFactor,
+            instance.relativityGrowth
+        );
+
+        // Y-
+        float bottomBarrier = ArenaLocal.WNegY - instance.offsetOut;
+        yMult *= GetSideMultiplier(
+            point.y,
+            moveDelta.y,
+            bottomBarrier,
+            bottomBarrier - instance.offsetOut,
+            bottomBarrier + instance.offsetOut,
+            relativeFactor,
+            instance.relativityGrowth
+        );
+
+        Vector3 result = new Vector3(
+            moveDelta.x * xMult,
+            moveDelta.y * yMult,
+            moveDelta.z
+        );
+
+        // Жесткий запрет на пересечение только при полной "непроходимости"
+        if (relativeFactor >= 1f)
+        {
+            const float epsilon = 0.0001f;
+
+            result.x = ClampDeltaAgainstBarrier(point.x, result.x, rightBarrier, epsilon);
+            result.x = ClampDeltaAgainstBarrier(point.x, result.x, leftBarrier, epsilon);
+
+            result.y = ClampDeltaAgainstBarrier(point.y, result.y, topBarrier, epsilon);
+            result.y = ClampDeltaAgainstBarrier(point.y, result.y, bottomBarrier, epsilon);
+        }
+
+        return result;
+    }
+
+    private static float GetSideMultiplier(
+        float pos,
+        float delta,
+        float barrier,
+        float zoneMin,
+        float zoneMax,
+        float relativeFactor,
+        AnimationCurve curve)
+    {
+        if (Mathf.Approximately(delta, 0f))
+            return 1f;
+
+        if (pos < zoneMin || pos > zoneMax)
+            return 1f;
+
+        float currentDistance = Mathf.Abs(barrier - pos);
+        float nextDistance = Mathf.Abs(barrier - (pos + delta));
+
+        // Тормозим только при движении к границе
+        if (nextDistance >= currentDistance)
+            return 1f;
+
+        float halfWidth = (zoneMax - zoneMin) * 0.5f;
+        if (halfWidth <= 0.0001f)
+            return 1f;
+
+        float t = 1f - Mathf.Clamp01(currentDistance / halfWidth);
+
+        float factor = curve.Evaluate(t) * relativeFactor;
+        return Mathf.Clamp01(1f - factor);
+    }
+
+    private static float ClampDeltaAgainstBarrier(float pos, float delta, float barrier, float epsilon)
+    {
+        if (Mathf.Approximately(delta, 0f))
+            return delta;
+
+        float nextPos = pos + delta;
+
+        // Барьер справа/сверху относительно текущей позиции
+        if (barrier > pos)
+        {
+            // Пытаемся пересечь барьер слева направо
+            if (nextPos >= barrier)
+                return Mathf.Max(0f, barrier - pos - epsilon);
+        }
+        else // барьер слева/снизу относительно текущей позиции
+        {
+            // Пытаемся пересечь барьер справа налево
+            if (nextPos <= barrier)
+                return Mathf.Min(0f, barrier - pos + epsilon);
+        }
+
+        return delta;
     }
 
     private void HandleControlState()
@@ -128,8 +289,15 @@ public class PlayerController : MonoBehaviour
 
         Vector2 forceMove = (Vector2)(DefaultForce + AdditiveForce) * Time.fixedDeltaTime;
         Vector2 dragMove = CanControl && Time.timeScale != 0f ? _pendingDragDelta : Vector2.zero;
+        Vector2 move = forceMove + dragMove;
 
-        Vector2 nextPos = currentPos + forceMove + dragMove;
+        if ((move.x < 0f && RelativityX < 0f) || (move.x > 0f && RelativityX > 0f))
+            move = new Vector2(move.x * (1f - Mathf.Abs(RelativityX)), move.y);
+
+        if ((move.y < 0f && RelativityY < 0f) || (move.y > 0f && RelativityY > 0f))
+            move = new Vector2(move.x, move.y * (1f - Mathf.Abs(RelativityY)));
+
+        Vector2 nextPos = currentPos + move;
         nextPos = ClampPosition(nextPos);
 
         _playerRb.MovePosition(nextPos);
@@ -159,18 +327,18 @@ public class PlayerController : MonoBehaviour
         AdditiveForce += new Vector3(direction.x, direction.y, 0f) * forceScale;
     }
 
-    private void OnDisable()
-    {
-        BeginDrag -= TimeHandler.Recover;
-        EndDrag -= TimeHandler.SlowDown;
-    }
+    // private void OnDisable()
+    // {
+    //     BeginDrag -= TimeHandler.Recover;
+    //     EndDrag -= TimeHandler.SlowDown;
+    // }
 
     public void ChangeSensivity(float val) => _sensivity = val;
 
-    private static void SetBorders(float empty = 0)
-    {
-        _cameraBorders = CameraController.Borders_xXyY;
-    }
+    // private static void SetBorders(float empty = 0)
+    // {
+    //     _cameraBorders = CameraController.Borders_xXyY;
+    // }
 
     public static void ReplacePlayer(Transform newPlayer)
     {
@@ -186,8 +354,18 @@ public class PlayerController : MonoBehaviour
     private Vector2 ClampPosition(Vector2 pos)
     {
         return new Vector2(
-            Mathf.Clamp(pos.x, _cameraBorders.x, _cameraBorders.y),
-            Mathf.Clamp(pos.y, _cameraBorders.z, _cameraBorders.w)
+            Mathf.Clamp(pos.x, ArenaLocal.WNegX - offsetOut, ArenaLocal.WPosX + offsetOut),
+            Mathf.Clamp(pos.y, ArenaLocal.WNegY - offsetOut, ArenaLocal.WPosY + offsetOut)
         );
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (ArenaLocal.Pivot == null) return;
+        Gizmos.color = Color.orange;
+        Gizmos.DrawLine(new Vector3(ArenaLocal.WNegX - offsetOut, ArenaLocal.WPosY + offsetOut, 0f), new Vector3(ArenaLocal.WPosX + offsetOut, ArenaLocal.WPosY + offsetOut, 0f));
+        Gizmos.DrawLine(new Vector3(ArenaLocal.WNegX - offsetOut, ArenaLocal.WNegY - offsetOut, 0f), new Vector3(ArenaLocal.WPosX + offsetOut, ArenaLocal.WNegY - offsetOut, 0f));
+        Gizmos.DrawLine(new Vector3(ArenaLocal.WNegX - offsetOut, ArenaLocal.WNegY - offsetOut, 0f), new Vector3(ArenaLocal.WNegX - offsetOut, ArenaLocal.WPosY + offsetOut, 0f));
+        Gizmos.DrawLine(new Vector3(ArenaLocal.WPosX + offsetOut, ArenaLocal.WNegY - offsetOut, 0f), new Vector3(ArenaLocal.WPosX + offsetOut, ArenaLocal.WPosY + offsetOut, 0f));
     }
 }

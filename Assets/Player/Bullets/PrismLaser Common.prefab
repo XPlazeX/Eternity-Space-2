@@ -46,10 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb39cd24de0f354eb0a06acfaa3439a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageKey: 1
-  _damageValue: 10
-  _shieldDamageMultiplier: 0.5
-  _asteroidDamageMultiplier: 2
+  damageBundle:
+    damageKey: 1
+    damageValue: 10
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 100
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
   _warningTime: 0
   _damageTick: 0.045
   startOffset: 0.1
@@ -58,6 +65,7 @@ MonoBehaviour:
   _raycastBufferSize: 16
   _laserRadius: 0.2
   explosionComponent: {fileID: 9195040558285290192}
+  fadeTime: 0.3
 --- !u!120 &6748709974024960279
 LineRenderer:
   serializedVersion: 2

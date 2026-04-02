@@ -1,244 +1,359 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
 
 public class CameraController : MonoBehaviour
 {
-    public const float SCREEN_OUTSIDE_OFFSET = 0.25f;
-    public const float sound_overborders = 4f;
-    public const float defaultSize = 8.2f;
+    public const float CAMERA_Z_POSITION = -10f;
+    public event Action<float> ScaleChanged;
+    public static event Action Moved;
 
-    public delegate void scaleOperation(float val);
-    public event scaleOperation ChangingScale;
-    public event scaleOperation BordersChange;
-    public static System.Action CameraMoved;
+    [Header("Main")]
+    [SerializeField] private Transform movingParentTransform;
+    [SerializeField] private Camera controllingCamera;
+    [SerializeField] private bool unscaledTime;
+    [SerializeField] private UpdateMode updateMode = UpdateMode.Update;
+    [SerializeField] private bool debugFeatures = true;
+    // [Header("2D Audio")]
 
-    [SerializeField] private float dumping;
-    [SerializeField] private float _speed;
-    //[SerializeField] private Quaternion _borders_xXyY;
-    [Header("Информация только для просмотра, изменения не будут учтены.")]
-    [SerializeField] private Vector2 _bordersX;
-    [SerializeField] private Vector2 _bordersY;
+    private float _defaultSize;
 
-    public static Quaternion Borders_xXyY {get; private set;}
-    //public static Vector2 BorderSize {get; private set;}
-    public static float Size {get; private set;}
-    public static float ShakePower {get; set;} = 1f;
-    private static CameraController instance;
+    private bool _moveTowards;
+    private Vector3 _movePosition;
+    private float _moveLerpSpeed;
+    private float _maxMoveSpeed;
+    private float _moveDeltaComplete;
 
-    public bool CanMoving {get; set;} = true;
-    public bool CustomTarget {get; private set;} = false;
-    public Vector2 CameraOffset {get; private set;} = new Vector2(0, 2f);
+    private bool _follow;
+    private Transform _followTarget;
+    private float _followSpeed;
+    private Vector3 _followOffset;
+    private float _predicationFactor;
+    private Vector3 _oldFollowTargetPosition;
 
-    private static readonly Vector2 _defaultOffset = new Vector2(0, 2f);
-    private Transform _customTarget;
-    private Transform _player;
-    private Camera _camera;
-    private float _startDumping;
+    private bool _scaling;
+    private float _startScale;
+    private float _targetScale;
+    private float _scaleTime;
+    private float _scaleTimer;
+    private AnimationCurve _scaleCurve;
 
+    private bool _shaking;
 
-    public void Initialize(Vector2 x_borders, Vector2 y_borders) // from BackgroundLoader
+    private float _amplitude;
+    private float _frequency;
+    private float _duration;
+    private float _elapsed;
+
+    private float _positionWeight;
+    private float _rotationWeight;
+    private float _dampingPower;
+    private float _rotationScaleDeg; // multiplier from amplitude to degrees
+
+    private Vector3 _baseLocalPos;
+    private float _baseLocalZRot;
+
+    // Smooth noise state
+    private Vector2 _nPosX, _nPosY, _nRot;
+    private Vector2 _nPosXVel, _nPosYVel, _nRotVel;
+
+    public Camera ControllingCamera => controllingCamera;
+
+    public static CameraController instance;
+
+    // private float _dumping = 6f;
+
+    private void OnEnable()
     {
+        _defaultSize = controllingCamera.orthographicSize;
         instance = this;
-        _startDumping = dumping;
-
-        _bordersX = x_borders;
-        _bordersY = y_borders;
-
-        _camera = Camera.main;
-
-        SetBorders();
-        Player.PlayerChanged += FindPlayer;
+        StopMotion();
     }
 
-    void LateUpdate()
+    public void SetPosition(Vector3 position)
     {
-        if (!CanMoving)
+        transform.position = position;
+    }
+
+    void Update()
+    {
+        if (updateMode == UpdateMode.Update) DoMove(DeltaTime());
+
+        #if UNITY_EDITOR
+        if (!debugFeatures) return;
+
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            CameraMoved?.Invoke();
+            StartShaking(0.25f, 10f, 0.35f);
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            StartMoveTowards(controllingCamera.ScreenToWorldPoint(Input.mousePosition), 1f, 1f);
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartScaling(1000f, 4f);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ResetScale(4f);
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            StopMotion();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            // StartFollowing(State.PlayerTransform, 5f, Vector3.zero, 0f);
+        }
+        #endif
+    }
+
+    private void LateUpdate() 
+    {
+        if (updateMode == UpdateMode.LateUpdate) DoMove(DeltaTime());
+    }
+
+    void FixedUpdate()
+    {
+        if (updateMode == UpdateMode.FixedUpdate) DoMove(FixedDeltaTime());
+    }
+
+    private void DoMove(float deltaTime)
+    {
+        if (_moveTowards) MovingTowards(deltaTime);
+        if (_follow) Following(deltaTime);
+        if (_scaling) Scaling(deltaTime);
+        if (_shaking) Shaking(deltaTime);
+
+        Moved?.Invoke();
+    }
+
+    public void ToggleCamera(bool tog)
+    {
+        controllingCamera.enabled = tog;
+    }
+
+    public void StopMotion()
+    {
+        StopMoveTowards();
+        StopFollowing();
+        StopScaling();
+        StopShaking();
+    }
+
+    public void StartMoveTowards(Vector3 targetPosition, float lerpSpeed, float maxSpeed, float deltaComplete = 0.001f)
+    {
+        _movePosition = targetPosition;
+        _moveLerpSpeed = lerpSpeed;
+        _maxMoveSpeed = maxSpeed;
+        _moveDeltaComplete = deltaComplete;
+        _moveTowards = true;
+    }
+
+    public void StopMoveTowards()
+    {
+        _moveTowards = false;
+    }
+
+    private void MovingTowards(float deltaTime)
+    {
+        Vector3 lerpPosition = Vector3.Lerp(movingParentTransform.position, _movePosition, _moveLerpSpeed * deltaTime);
+        Vector3 lerpDif = lerpPosition - movingParentTransform.position;
+        if (lerpDif.magnitude <= _moveDeltaComplete)
+        {
+            StopMoveTowards();
             return;
         }
-            
-
-        if (_player != null && !CustomTarget)
-            transform.position = Vector3.Lerp(transform.position, new Vector3 (_player.position.x + CameraOffset.x, _player.position.y + 2f + CameraOffset.y, transform.position.z), dumping * Time.deltaTime);
-        else if (CustomTarget && _customTarget != null)
-            transform.position = Vector3.Lerp(transform.position, new Vector3 (_customTarget.position.x + CameraOffset.x, _customTarget.position.y + 2f + CameraOffset.y, transform.position.z), dumping * Time.deltaTime);
-        //transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * Time.deltaTime * _speed;
-
-        if (!CustomTarget)
-            transform.position = new Vector3 
-            (
-                Mathf.Clamp(transform.position.x, _bordersX.x, _bordersX.y),
-                Mathf.Clamp(transform.position.y, _bordersY.x, _bordersY.y),
-                transform.position.z
-            );
-
-        CameraMoved?.Invoke();
+        if (lerpDif.magnitude > _maxMoveSpeed)
+        {
+            lerpDif = lerpDif.normalized * _maxMoveSpeed;
+        }
+        
+        movingParentTransform.position = FlatVector(movingParentTransform.position + lerpDif);
     }
 
-    public static void ToggleCustomDumping(bool tog, float newDumping = 0)
+    public void StartFollowing(Transform followTransform, float followSpeed, Vector3 offset, float predication = 0f)
     {
-        if (tog)
+        _followTarget = followTransform;
+        _followSpeed = followSpeed;
+        _followOffset = offset;
+        _predicationFactor = predication;
+        _oldFollowTargetPosition = followTransform.position;
+        _follow = true;
+    }
+
+    public void StopFollowing()
+    {
+        _follow = false;
+    }
+
+    private void Following(float deltaTime)
+    {
+        if (_followTarget == null)
         {
-            instance.dumping = newDumping;
-        } else
+            StopFollowing();
+            return;
+        }
+
+        Vector3 prediction = (_followTarget.position - _oldFollowTargetPosition) * _predicationFactor;
+
+        movingParentTransform.position = FlatVector(Vector3.Lerp(movingParentTransform.position, _followTarget.position + _followOffset + prediction, _followSpeed * deltaTime));
+        _oldFollowTargetPosition = movingParentTransform.position;
+    }
+
+    public void StartScaling(float targetScale, float scaleTime) => StartScaling(targetScale, scaleTime, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f));
+
+    public void StartScaling(float targetScale, float scaleTime, AnimationCurve scaleCurve)
+    {
+        _startScale = controllingCamera.orthographicSize;
+        _targetScale = targetScale;
+        _scaleTime = scaleTime;
+        _scaleCurve = scaleCurve;
+        _scaleTimer = 0f;
+        _scaling = true;
+    }
+
+    public void ResetScale(float scaleTime)
+    {
+        ResetScale(scaleTime, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f));
+    }
+
+    public void ResetScale(float scaleTime, AnimationCurve animationCurve)
+    {
+        StartScaling(_defaultSize, scaleTime, animationCurve);
+    }
+
+    public void StopScaling()
+    {
+        _scaling = false;
+    }
+
+    private void Scaling(float deltaTime)
+    {
+        float elapsed = _scaleTimer / _scaleTime;
+
+        if (elapsed > 1f) elapsed = 1f;
+
+        controllingCamera.orthographicSize = Mathf.Lerp(_startScale, _targetScale, _scaleCurve.Evaluate(elapsed));
+
+        _scaleTimer += deltaTime;
+        if (elapsed >= 1f)
         {
-            instance.dumping = instance._startDumping;
+            StopScaling();
         }
     }
 
-    public static void ToggleCustomTarget(bool tog, Transform target = null)
+    public static void Shake(float power)
     {
-        instance.CustomTarget = tog;
-        if (tog)
+        instance.StartShaking(power, 10f, 0.35f);
+    }
+
+    public void StartShaking(
+        float amplitude,
+        float frequency,
+        float duration,
+        float positionWeight = 1.0f,
+        float rotationWeight = 0f,
+        float dampingPower = 2.0f,
+        float rotationScaleDeg = 0f)
+    {
+        amplitude = Mathf.Max(0f, amplitude);
+        frequency = Mathf.Max(0.01f, frequency);
+        duration  = Mathf.Max(0f, duration);
+
+        // If we're not currently shaking, capture baseline + init noise
+        if (!_shaking)
         {
-            instance._customTarget = target;
-            if (target == null)
-                Debug.Log("Устанавливается цель null для customTarget камеры. Камера перестанет двигаться.");
-        } else
-        {
-            instance.FindPlayer();
+            _baseLocalPos = controllingCamera.transform.localPosition;
+            _baseLocalZRot = controllingCamera.transform.localEulerAngles.z;
+
+            _nPosX = new Vector2(UnityEngine.Random.value * 1000f, UnityEngine.Random.value * 1000f);
+            _nPosY = new Vector2(UnityEngine.Random.value * 1000f, UnityEngine.Random.value * 1000f);
+            _nRot  = new Vector2(UnityEngine.Random.value * 1000f, UnityEngine.Random.value * 1000f);
+            _nPosXVel = _nPosYVel = _nRotVel = Vector2.zero;
+
+            _elapsed = 0f;
+            _amplitude = 0f;
+            _frequency = 0f;
+            _duration  = 0f;
         }
+
+        // Store current tuning (last call wins). Usually what you want.
+        _positionWeight = positionWeight;
+        _rotationWeight = rotationWeight;
+        _dampingPower = Mathf.Max(0.01f, dampingPower);
+        _rotationScaleDeg = Mathf.Max(0f, rotationScaleDeg);
+
+        // === STACKING RULES ===
+        _amplitude = Mathf.Max(_amplitude, amplitude);
+        _frequency = Mathf.Max(_frequency, frequency);
+
+        float remaining = Mathf.Max(0f, _duration - _elapsed);
+        _duration = Mathf.Max(remaining, duration);
+        _elapsed = 0f;
+
+        _shaking = _duration > 0f && _amplitude > 0f;
     }
 
-    public static void SetCustomOffset(Vector2 offset)
+    public void StopShaking()
     {
-        instance.CameraOffset = offset;
+        if (!_shaking) return;
+
+        _shaking = false;
+        _amplitude = _frequency = _duration = _elapsed = 0f;
+
+        controllingCamera.transform.localPosition = FlatPosition(_baseLocalPos);
+        controllingCamera.transform.localRotation = Quaternion.Euler(0f, 0f, _baseLocalZRot);
     }
 
-    public static void DisableCustomOffset()
+    private void Shaking(float dt)
     {
-        instance.CameraOffset = _defaultOffset;
+        _elapsed += dt;
+
+        float t = (_duration <= 0f) ? 1f : Mathf.Clamp01(_elapsed / _duration);
+        float damper = Mathf.Pow(1f - t, _dampingPower);
+
+        float step = _frequency * dt;
+
+        float nx = SmoothNoise01(ref _nPosX, ref _nPosXVel, step) * 2f - 1f;
+        float ny = SmoothNoise01(ref _nPosY, ref _nPosYVel, step) * 2f - 1f;
+        float nr = SmoothNoise01(ref _nRot,  ref _nRotVel,  step) * 2f - 1f;
+
+        float posAmp = _amplitude * _positionWeight * damper;
+        Vector3 offset = new Vector3(nx, ny, 0f) * posAmp;
+
+        float rotAmpDeg = _amplitude * _rotationWeight * _rotationScaleDeg * damper;
+        float zRot = _baseLocalZRot + nr * rotAmpDeg;
+
+        controllingCamera.transform.localPosition = FlatPosition(_baseLocalPos + offset);
+        controllingCamera.transform.localRotation = Quaternion.Euler(0f, 0f, zRot);
+
+        if (_elapsed >= _duration)
+            StopShaking();
     }
 
-    public static void Shake(float power, float tactMult = 1f) => instance.StartCoroutine(instance.Shaking(power, tactMult));
-
-    private IEnumerator Shaking(float power, float timeMultult)
+    // Returns smooth 0..1 noise that evolves pleasantly over time.
+    private static float SmoothNoise01(ref Vector2 seed, ref Vector2 seedVel, float step)
     {
-        int tacts = Mathf.RoundToInt(16 * timeMultult);
-        float totalPower = 0.1f * power * ShakePower;
-        while (tacts > 0)
-        {
-            transform.position += new Vector3(Random.Range(-totalPower, totalPower), Random.Range(-totalPower, totalPower), 0f);
+        Vector2 target = seed + new Vector2(step, step * 0.73f);
 
-            tacts --;
-            yield return null;
-        }
-    }
+        // Keeps it smooth across frame rates & frequencies
+        float smoothTime = Mathf.Max(0.02f, 0.12f / Mathf.Max(0.0001f, step * 60f));
 
-    public void FindPlayer() => _player = Player.PlayerTransform;
-
-    public void SetScale(float newScale, float speed = 1f)
-    {
-        StartCoroutine(ScaleChanging(newScale, speed));
+        seed = Vector2.SmoothDamp(seed, target, ref seedVel, smoothTime);
+        return Mathf.PerlinNoise(seed.x, seed.y);
     }
     
-    private IEnumerator ScaleChanging(float newScale, float speed = 1f)
-    {
-        float settingScale = newScale * _camera.orthographicSize;
-        float oldScale = 0;
+    private Vector3 FlatPosition(Vector3 v3) => new Vector3(v3.x, v3.y, CAMERA_Z_POSITION);
+    private Vector3 FlatVector(Vector3 v3) => new Vector3(v3.x, v3.y, 0f);
+    private float DeltaTime() => unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+    private float FixedDeltaTime() => unscaledTime ? Time.fixedUnscaledDeltaTime : Time.fixedDeltaTime;
+}
 
-        while (Mathf.Abs(_camera.orthographicSize - settingScale) > 0.05f)
-        {
-            oldScale = _camera.orthographicSize;
-            _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, settingScale, speed * Time.deltaTime);
-
-
-            ChangingScale?.Invoke(_camera.orthographicSize / oldScale);
-            SetBorders();
-
-            yield return null;
-        }
-    }
-
-    private void SetBorders()
-    {
-        Size = _camera.orthographicSize;
-        float widthRatio = (float)Screen.width / Screen.height;
-
-        Borders_xXyY = new Quaternion(
-            _bordersX.x - (Size * widthRatio) - SCREEN_OUTSIDE_OFFSET, _bordersX.y + (Size * widthRatio) + SCREEN_OUTSIDE_OFFSET,
-            _bordersY.x - Size - SCREEN_OUTSIDE_OFFSET, _bordersY.y + Size + SCREEN_OUTSIDE_OFFSET);
-
-        BordersChange?.Invoke(0);
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(new Vector2 (Borders_xXyY.x, Borders_xXyY.w), new Vector2 (Borders_xXyY.y, Borders_xXyY.w));
-        Gizmos.DrawLine(new Vector2 (Borders_xXyY.x, Borders_xXyY.z), new Vector2 (Borders_xXyY.y, Borders_xXyY.z));
-        Gizmos.DrawLine(new Vector2 (Borders_xXyY.x, Borders_xXyY.w), new Vector2 (Borders_xXyY.x, Borders_xXyY.z));
-        Gizmos.DrawLine(new Vector2 (Borders_xXyY.y, Borders_xXyY.w), new Vector2 (Borders_xXyY.y, Borders_xXyY.z));
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector2 (_bordersX.x, _bordersY.y), new Vector2 (_bordersX.y, _bordersY.y));
-        Gizmos.DrawLine(new Vector2 (_bordersX.x, _bordersY.x), new Vector2 (_bordersX.y, _bordersY.x));
-        Gizmos.DrawLine(new Vector2 (_bordersX.x, _bordersY.y), new Vector2 (_bordersX.x, _bordersY.x));
-        Gizmos.DrawLine(new Vector2 (_bordersX.y, _bordersY.y), new Vector2 (_bordersX.y, _bordersY.x));
-    }
-
-    public static bool InsideSoundArea(Vector3 position)
-    {
-        return (position.x > Borders_xXyY.x - sound_overborders) && (position.x < Borders_xXyY.y + sound_overborders) 
-            && (position.y > Borders_xXyY.z - sound_overborders) && (position.y < Borders_xXyY.w + sound_overborders);
-    }
-
-    public static bool InsideGameField(Vector3 position)
-    {
-        return (position.x > Borders_xXyY.x) && (position.x < Borders_xXyY.y) 
-            && (position.y > Borders_xXyY.z) && (position.y < Borders_xXyY.w);
-    }
-
-    public static Vector3 GetRandomFieldPosition()
-    {
-        return new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
-    }
-
-    private const int random_field_max_iterations = 64;
-
-    public static Vector3 GetRandomFieldPosition(float minDistanceToPlayer)
-    {
-        Vector3 output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
-
-        int iterations = 0;
-
-        while (((output - Player.PlayerTransform.position).magnitude < minDistanceToPlayer) && (iterations < random_field_max_iterations))
-        {
-            output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
-            iterations ++;
-        }
-
-        return output;
-    }
-
-    public static Vector3 GetRandomFieldPosition(float minDistanceToOrigin, Vector3 origin)
-    {
-        Vector3 output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
-
-        int iterations = 0;
-
-        while (((output - origin).magnitude < minDistanceToOrigin) && (iterations < random_field_max_iterations))
-        {
-            output = new Vector3(Random.Range(Borders_xXyY.x, Borders_xXyY.y), Random.Range(Borders_xXyY.z, Borders_xXyY.w), 0f);
-            iterations ++;
-        }
-
-        return output;
-    }
-
-    public static Vector3 GetRandomFieldPosition(float minDistanceToOrigin, Vector3 origin, float borderOffset)
-    {
-        Vector3 output = new Vector3(Random.Range(Borders_xXyY.x + borderOffset, Borders_xXyY.y - borderOffset), Random.Range(Borders_xXyY.z + borderOffset, Borders_xXyY.w - borderOffset), 0f);
-
-        int iterations = 0;
-
-        while (((output - origin).magnitude < minDistanceToOrigin) && (iterations < random_field_max_iterations))
-        {
-            output = new Vector3(Random.Range(Borders_xXyY.x + borderOffset, Borders_xXyY.y - borderOffset), Random.Range(Borders_xXyY.z + borderOffset, Borders_xXyY.w - borderOffset), 0f);
-            iterations ++;
-        }
-
-        return output;
-    }
+public enum UpdateMode
+{
+    Update = 0,
+    LateUpdate = 1,
+    FixedUpdate = 2
 }

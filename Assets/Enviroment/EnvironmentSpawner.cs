@@ -82,8 +82,8 @@ public class EnvironmentSpawner : MonoBehaviour
         var environmentObject = GetEnvironmentObject(selectedIndex);
 
         environmentObject.transform.position =  Quaternion.Euler(0, 0, WindAngle) * (new Vector3(
-            Random.Range(CameraController.Borders_xXyY.x - 2.5f, CameraController.Borders_xXyY.y + 4f),
-            (CameraController.Borders_xXyY.w + 5f), 0f));
+            Random.Range(ArenaLocal.WNegX - 2.5f, ArenaLocal.WPosX + 4f),
+            (ArenaLocal.WPosY + 5f), 0f));
 
         environmentObject.transform.eulerAngles = new Vector3(0, 0, Random.Range(_minSpawnAngle, _maxSpawnAngle) + WindAngle);
         environmentObject.SetActive(true);

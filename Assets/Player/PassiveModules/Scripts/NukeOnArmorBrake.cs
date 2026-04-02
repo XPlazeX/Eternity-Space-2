@@ -14,7 +14,7 @@ public class NukeOnArmorBrake : Module
         PlayerShipData.ChangeArmor += OnArmorChanged;
         _loaded = true;
 
-        OnArmorChanged(PlayerShipData.ArmorPoints);
+        // OnArmorChanged(PlayerShipData.ArmorPoints);
     }
 
     private void OnDisable() {
@@ -46,8 +46,12 @@ public class NukeOnArmorBrake : Module
             if (dbs[i].GetType() == typeof(PlayerDamageBody))
                 return;
 
-            dbs[i].TakeDamage(_damageDeal / 2);
-            dbs[i].TakeDamage(_damageDeal / 2);
+            dbs[i].TakeDamage(new DamageSystem.DamageBundle()
+            {
+                damageKey = DamageSystem.DamageKey.Everything,
+                damageValue = _damageDeal,
+                ignoreOneShotProtection = true
+            });
         }
 
         Nuke.TriggerExplodeEvent();

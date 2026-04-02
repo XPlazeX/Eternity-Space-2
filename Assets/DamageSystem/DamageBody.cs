@@ -15,6 +15,7 @@ public class DamageBody : MonoBehaviour
     [SerializeField] protected DamageKey _damageKey;
     [SerializeField] private int _hitPoints = 1;
     [SerializeField] protected int _startShieldPoints = 0;
+    [SerializeField] protected int _startDamageBuffers = 0;
     [SerializeField] protected int _flatArmor = 0;
     [SerializeField] [Range(0, 1f)] protected float damageReduction = 0f;
     [Header("Stuns & Rams")]
@@ -26,7 +27,9 @@ public class DamageBody : MonoBehaviour
     private DeathCaller _deathCaller;
     // private Animator _damageTakingAnimator;
     private int _shieldPoints;
+    private int _damageBuffers;
     protected ShieldComponent _shield;
+    protected DamageBufferComponent _damageBuffer;
     protected int _startHP;
     protected int _startFlatArmor;
     private bool _deathed;
@@ -39,12 +42,17 @@ public class DamageBody : MonoBehaviour
     public DamageKey KeyDamage => _damageKey;
     public int StartHP => _startHP;
     public int StartShield => _startShieldPoints;
+    public int StartDamageBuffers => _startDamageBuffers;
     public virtual int HitPoints 
     {
         get {return _hitPoints;}
 
         protected set {
             _hitPoints = value;
+            if (_hitPoints <= PlayerRamsHandler.DecadesBlockForRam * 10)
+            {
+                RamReady = true;
+            }
             if (_hitPoints <= 0)
             {
                 _hitPoints = 0;
@@ -57,11 +65,26 @@ public class DamageBody : MonoBehaviour
         set {
             if (value == 0 && _shieldPoints > 0)
                 BreakShield();
+            else
+                _shield.UpdateSP(value);
 
             _shieldPoints = value;
         }
     }
+    public virtual int DamageBuffers
+    {
+        get {return _damageBuffers;}
+        set {
+            if (value == 0 && _damageBuffers > 0)
+                BreakDamageBuffer();
+            else
+                _damageBuffer.UpdateDB();
+
+            _damageBuffers = value;
+        }
+    }
     public int FlatArmor {get; private set;}
+    public int StructuralDamage {get; private set;}
     public float DamageReduction {get; set;}
     public bool OneShotProtection {get; set;} = true;
     public bool IsStunned {get; private set;} = false;
@@ -88,6 +111,7 @@ public class DamageBody : MonoBehaviour
         //_decadesBlockForRam = ShipStats.GetIntValue("DecadesBlockForRam");
 
         GetShield(_startShieldPoints);
+        GetDamageBuffer(_startDamageBuffers);
     }
 
     public virtual void MultiplyHP(float multiplier)
@@ -134,63 +158,89 @@ public class DamageBody : MonoBehaviour
 
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual bool TakeDamage(DamageBundle damageBundle)
     {
-        if (KeyDamage == DamageKey.Unvulnerable || !Player.Alive || damage == 0)
-            return;
+        if (KeyDamage == DamageKey.Unvulnerable || !Player.Alive || !damageBundle.Legitime)
+            return false;
+
+        bool iAsteroid = this is AsteroidBody;
+
+        if (((damageBundle.damageKey == DamageKey.ToAsteroids && !iAsteroid) || damageBundle.damageKey != KeyDamage) && damageBundle.damageKey != DamageKey.Everything)
+            return false;
         
-        int tempDmg = Mathf.CeilToInt(ShipStats.GetValue("InflictingDamageMultiplier") * damage);
-        
-        if (ShieldPoints != 0)
+        for (int i = 0; i < damageBundle.cycles; i++)      
         {
-            tempDmg = damage - ShieldPoints;
-
-            if (tempDmg >= 0)
-                ShieldPoints = 0;
-
-            else
+            if (damageBundle.damageValue > 0)
             {
-                ShieldPoints = -tempDmg;
-                _shield.UpdateSP(ShieldPoints);
-                return;
+                if (DamageBuffers > 0)
+                {
+                    DamageBuffers --;
+                    
+                    continue;
+                }
+
+                int tempDmg = damageBundle.damageValue;
+
+                if (ShieldPoints > 0)
+                {
+                    tempDmg = Mathf.CeilToInt(damageBundle.shieldDamageMultiplier * tempDmg) - ShieldPoints;
+
+                    if (tempDmg >= 0)
+                    {
+                        ShieldPoints = 0;
+                        continue;
+                    } else
+                    {
+                        ShieldPoints = -tempDmg;
+                        
+                        continue;
+                    }
+                }
+
+                if (iAsteroid)
+                    tempDmg = Mathf.CeilToInt(damageBundle.asteroidDamageMultiplier * tempDmg);
+
+                tempDmg = Mathf.CeilToInt(tempDmg - Mathf.Max(0, FlatArmor - damageBundle.armorPenetration) * Mathf.Max(0f, 1f - DamageReduction)) + StructuralDamage;
+
+                if (tempDmg <= 0)
+                {
+                    tempDmg = 1;
+                }
+
+                if (OneShotProtection && !damageBundle.ignoreOneShotProtection && HitPoints > (PlayerRamsHandler.DecadesBlockForRam * 10) && tempDmg > (HitPoints - (PlayerRamsHandler.DecadesBlockForRam * 10)))
+                {
+                    HitPoints = PlayerRamsHandler.DecadesBlockForRam * 10;
+                }
+                else
+                {
+                    HitPoints -= tempDmg;
+                }
+
+                if (HitPoints <= 0)
+                {
+                    Death();
+                    return true;
+                }
+
+                DamageTaking?.Invoke(HitPoints);
+            }
+
+            StructuralDamage += damageBundle.structuralDamage;
+
+            if (damageBundle.stunAmount > 0f)
+            {
+                TakeStun(damageBundle.stunAmount);
+            }
+
+            if (damageBundle.regeneratingValue > 0)
+            {
+                HitPoints = Mathf.Clamp(HitPoints + damageBundle.regeneratingValue, 0, _startHP);
+                Regenerated?.Invoke(damageBundle.regeneratingValue);
             }
         }
-        int takingValue = Mathf.CeilToInt((tempDmg - FlatArmor) * (1f - DamageReduction));
-
-        if (takingValue <= 0)
-            takingValue = 1;
-
-        if (OneShotProtection && HitPoints > (PlayerRamsHandler.DecadesBlockForRam * 10) && takingValue > (HitPoints - (PlayerRamsHandler.DecadesBlockForRam * 10)))
-        {
-            HitPoints = PlayerRamsHandler.DecadesBlockForRam * 10;
-        }
-        else
-            HitPoints -= takingValue;
-
-        if (HitPoints <= PlayerRamsHandler.DecadesBlockForRam * 10)
-        {
-            RamReady = true;
-        }
-        
-        if (HitPoints <= 0)
-        {
-            Death();
-            return;
-        }
-
-        // if (_damageTakingAnimator)
-        // {
-        //     if (FlatArmor > 0)
-        //     {
-        //         _damageTakingAnimator.SetTrigger("ArmoredTakeDamage");
-        //     }
-        //     else{
-        //         _damageTakingAnimator.SetTrigger("TakeDamage");
-        //     }
-        // }
 
         FightSoundHelper.PlaySound(0, transform.position);
-        DamageTaking?.Invoke(HitPoints);
+        return true;
     }
 
     public virtual void TakeStun(float amount)
@@ -222,6 +272,24 @@ public class DamageBody : MonoBehaviour
     {
         _shield.BreakShield();
         _shield = null;
+    }
+
+    public virtual void GetDamageBuffer(int buffers)
+    {
+        if (buffers == 0)
+            return;
+            
+        if (_damageBuffer != null)
+            BreakDamageBuffer();
+
+        _damageBuffer = ShieldDistributor.SpawnDamageBuffer(transform);
+        DamageBuffers += buffers;
+    }
+
+    protected virtual void BreakDamageBuffer()
+    {
+        _damageBuffer.BreakShield();
+        _damageBuffer = null;
     }
 
     protected virtual void Stun()

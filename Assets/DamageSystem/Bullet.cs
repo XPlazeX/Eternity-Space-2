@@ -19,6 +19,8 @@ public class Bullet : AttackObject
     [Space()]
     [SerializeField] private int _piercingTargets = 0;
     [SerializeField] private bool _explodeOnTimer;
+    [Space()]
+    [SerializeField][Range(0, 1f)] private float relativeFactor = 0.66f;
 
     public float Lifetime => _lifetime;
     public float Lifetimer => _lifeTimer;
@@ -105,6 +107,8 @@ public class Bullet : AttackObject
         Vector2 movement =
             ((Vector2)transform.up * _speed + (_ignoreForce ? Vector2.zero : (Vector2)PlayerController.DefaultForce))
             * Time.fixedDeltaTime;
+
+        movement = PlayerController.RelativeVectorAtPoint(movement, _rb.position, relativeFactor);
 
         if (_rb != null)
             _rb.MovePosition(_rb.position + movement);

@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3409399996074538531}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4671021735225386770
 MonoBehaviour:
@@ -53,6 +54,10 @@ MonoBehaviour:
   _minMaxCosmilite: {x: 10, y: 30}
   _nameLocalizationID: 3
   _radioID: 1
+  _isSignal: 0
+  _autoExitToLobby: 0
+  _introByExit: 0
+  _clearDataOnExit: 0
   _customShip: -1
   _customWeaponModel: 
   _levelDialogueTriggers:
@@ -63,30 +68,30 @@ MonoBehaviour:
     menuDialogue: Null-0-M1
     gameDialogue: 
   _completedMissionLobbyDialogue: Null-0-End
+  _defeatMissionLobbyDialogue: 
+  _uniqueDefeatDialog: 0
   _background:
     _beaconBG: 0
     _cameraBordersSizeXMultiplier: 0.5
     _cameraBordersSizeYMultiplier: 0.5
     _backgroundObjects:
-    - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a,
-        type: 3}
-      _color: {r: 0, g: 0.6117647, b: 1, a: 0.67058825}
-      _position: {x: -3.65, y: 4.52, z: 0}
-      _rotation: -125
+    - _object: {fileID: 5927994595184685046, guid: 5d4f05b275d1717468252936d0c6707a, type: 3}
+      _color: {r: 0, g: 0.6507368, b: 1, a: 1}
+      _position: {x: -12.4233, y: -5.7033944, z: 0}
+      _rotation: 333
       _rotationSpread: 0
-    - _object: {fileID: 3945150267831715264, guid: 05ef7f2c94d23e64d8a14f293f353914,
-        type: 3}
+    - _object: {fileID: 3945150267831715264, guid: 05ef7f2c94d23e64d8a14f293f353914, type: 3}
       _color: {r: 1, g: 1, b: 1, a: 1}
       _position: {x: 0, y: 0, z: 0}
       _rotation: -31
       _rotationSpread: 0
     _backgroundSpriteFilename: Levels/BG/Null-1
-    _backgroundColor: {r: 0, g: 0.53333336, b: 1, a: 1}
+    _backgroundColor: {r: 0, g: 0.1980393, b: 0.5, a: 1}
     _flipX: 0
     _flipY: 0
     _hasStation: 1
     _stationSpriteFilename: Levels/BG/GunAlpha
-    _upperColorMult: {r: 0, g: 0.43137258, b: 1, a: 0.07058824}
+    _upperColorMult: {r: 0, g: 0.3960786, b: 1, a: 0.05882353}
     _dustGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
@@ -114,6 +119,7 @@ MonoBehaviour:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     _dustEmissionMultiplier: 1
@@ -144,6 +150,7 @@ MonoBehaviour:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     _fogEmissionMultiplier: 1
@@ -171,8 +178,7 @@ MonoBehaviour:
   _levelEnemyDatabase:
     _levelPacks:
     - _neededMissionProgress: 0
-      _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85,
-        type: 2}
+      _enemyPackObject: {fileID: 11400000, guid: a600cec923785e840907e47d6f312c85, type: 2}
     _weightMultiplier: 6
   OnNewWaveStarted:
     m_PersistentCalls:

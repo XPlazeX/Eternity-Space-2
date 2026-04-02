@@ -51,9 +51,9 @@ public class BackgroundLoader
     {
         _bgTransform = GameObject.FindWithTag("Level core").transform;
 
-        Camera.main.GetComponent<CameraController>().Initialize(
-            new Vector2(-normalCameraBorderX * _cameraBordersSizeXMultiplier, normalCameraBorderX * _cameraBordersSizeXMultiplier),
-            new Vector2(-normalCameraBorderY * _cameraBordersSizeYMultiplier, normalCameraBorderY * _cameraBordersSizeYMultiplier));
+        // Camera.main.GetComponent<CameraController>().Initialize(
+        //     new Vector2(-normalCameraBorderX * _cameraBordersSizeXMultiplier, normalCameraBorderX * _cameraBordersSizeXMultiplier),
+        //     new Vector2(-normalCameraBorderY * _cameraBordersSizeYMultiplier, normalCameraBorderY * _cameraBordersSizeYMultiplier));
     }
 
     private void Initialize()

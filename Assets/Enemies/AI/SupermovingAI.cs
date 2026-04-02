@@ -9,8 +9,8 @@ public class SupermovingAI : EnemyAIRoot
     [SerializeField] private float _rotationAroundSpeedMultiplier = 1f;
     [SerializeField] private float _timeToReloadTarget;
 
-    private Vector2 _XBorders;
-    private Vector2 _YBorders;
+    private Vector2 XBorders => new Vector2(ArenaLocal.WNegX, ArenaLocal.WPosX);
+    private Vector2 YBorders => new Vector2(ArenaLocal.WNegY + ArenaLocal.Height * _downBorderPercent, ArenaLocal.WNegY + ArenaLocal.Height * _upperBorderPercent);
     private float _passedWay = 0f;
     private float _distance = 0f;
     private bool _rotatingAround = false;
@@ -19,16 +19,16 @@ public class SupermovingAI : EnemyAIRoot
 
     private void SetTarget()
     {
-        _targetPosition = new Vector3 (Random.Range(_XBorders.x + level_borders_moving_offset, _XBorders.y - level_borders_moving_offset),
-            Random.Range(_YBorders.x + level_borders_moving_offset, _YBorders.y - level_borders_moving_offset), 0f);
+        _targetPosition = new Vector3 (Random.Range(XBorders.x + level_borders_moving_offset, XBorders.y - level_borders_moving_offset),
+            Random.Range(YBorders.x + level_borders_moving_offset, YBorders.y - level_borders_moving_offset), 0f);
         _passedWay = 0f;
         _distance = (_targetPosition - transform.position).magnitude;
     }
 
     protected override void Start() {
-        _XBorders = new Vector2 (CameraController.Borders_xXyY.x, CameraController.Borders_xXyY.y);
-        float ySize = -CameraController.Borders_xXyY.z + CameraController.Borders_xXyY.w;
-        _YBorders = new Vector2 ( (ySize * _downBorderPercent - (ySize / 2f)),  (ySize * _upperBorderPercent - (ySize / 2f)));
+        // _XBorders = new Vector2 (ArenaLocal.W, CameraController.Borders_xXyY.y);
+        // float ySize = -CameraController.Borders_xXyY.z + CameraController.Borders_xXyY.w;
+        // _YBorders = new Vector2 ( (ySize * _downBorderPercent - (ySize / 2f)),  (ySize * _upperBorderPercent - (ySize / 2f)));
 
         SetTarget();
 

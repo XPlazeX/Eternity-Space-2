@@ -25,7 +25,7 @@ public class SensivitySlider : MonoBehaviour
 
         PlayerPrefs.SetFloat("Sensivity", val);
         //print($"set sensivity : {val}");
-        GameObject.FindWithTag("Sensor").GetComponent<PlayerController>().ChangeSensivity(val * _multiplier);
+        // GameObject.FindWithTag("Sensor").GetComponent<PlayerController>().ChangeSensivity(val * _multiplier);
         _label.text = val.ToString(System.Globalization.CultureInfo.InvariantCulture);
     }
 }

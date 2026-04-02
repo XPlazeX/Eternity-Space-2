@@ -19,6 +19,7 @@ public class EnemyAIRoot : MonoBehaviour
     [SerializeField] protected float _foresight = 0f;
     [SerializeField] private float _movementForesight = -15f;
     [SerializeField] private bool stunnable = true;
+    [SerializeField][Range(0, 1f)] private float relativityFactor = 1f; 
 
     protected float _startSpeed;
     private float _mobility = 1f;
@@ -129,6 +130,14 @@ public class EnemyAIRoot : MonoBehaviour
     {
         if (moveDelta.sqrMagnitude <= 0f)
             return;
+
+        // if ((moveDelta.x < 0f && PlayerController.RelativityX < 0f) || (moveDelta.x > 0f && PlayerController.RelativityX > 0f))
+        //     moveDelta = new Vector2(moveDelta.x * (1f - Mathf.Abs(PlayerController.RelativityX) * relativityFactor), moveDelta.y);
+
+        // if ((moveDelta.y < 0f && PlayerController.RelativityY < 0f) || (moveDelta.y > 0f && PlayerController.RelativityY > 0f))
+        //     moveDelta = new Vector2(moveDelta.x, moveDelta.y * (1f - Mathf.Abs(PlayerController.RelativityY * relativityFactor)));
+
+        moveDelta = PlayerController.RelativeVectorAtPoint(moveDelta, _rb.position, relativityFactor);
 
         if (_rb != null)
         {

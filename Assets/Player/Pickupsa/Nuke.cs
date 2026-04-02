@@ -42,7 +42,11 @@ public class Nuke : MonoBehaviour
         SoundPlayer.PlayUISound(_explosionSound);
 
         if (!_playerIn && _trackPlayer)
-            PlayerShipData.TakeDamage(60);
+            PlayerShipData.TakeDamage(new DamageSystem.DamageBundle()
+            {
+                damageKey = DamageSystem.DamageKey.Everything,
+                damageValue = 80
+            });
         else
             ParryingHandler.ConstParry();
 
@@ -52,8 +56,12 @@ public class Nuke : MonoBehaviour
             if (dbs[i].GetType() == typeof(PlayerDamageBody))
                 return;
 
-            dbs[i].TakeDamage(_damageDeal / 2);
-            dbs[i].TakeDamage(_damageDeal / 2);
+            dbs[i].TakeDamage(new DamageSystem.DamageBundle()
+            {
+                damageKey = DamageSystem.DamageKey.Everything,
+                damageValue = _damageDeal,
+                ignoreOneShotProtection = true
+            });
         }
 
         TriggerExplodeEvent();

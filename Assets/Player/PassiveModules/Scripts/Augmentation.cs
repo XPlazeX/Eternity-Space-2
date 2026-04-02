@@ -52,7 +52,7 @@ public class Augmentation : Module
             }
         }
 
-        if (_armorUpgradePerRecycling != 0)
-            PlayerShipData.UpgradeArmor(_armorUpgradePerRecycling * recycles, _armorUpgradePerRecycling * recycles);
+        // if (_armorUpgradePerRecycling != 0)
+        //     PlayerShipData.UpgradeArmor(_armorUpgradePerRecycling * recycles, _armorUpgradePerRecycling * recycles);
     }
 }

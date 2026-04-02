@@ -635,9 +635,9 @@ TextureImporter:
       name: NullFraction_16
       rect:
         serializedVersion: 2
-        x: 173
+        x: 172
         y: 48
-        width: 57
+        width: 59
         height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

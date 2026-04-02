@@ -4996,6 +4996,7 @@ MonoBehaviour:
   _damageKey: 1
   _hitPoints: 32
   _startShieldPoints: 0
+  _startDamageBuffers: 2
   _flatArmor: 0
   damageReduction: 0
   stunPoints: 60

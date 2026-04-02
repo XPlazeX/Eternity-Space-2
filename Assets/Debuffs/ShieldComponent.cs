@@ -114,5 +114,8 @@ public class ShieldComponent : PullableObject
             timer -= Time.deltaTime;
             yield return null;
         }
+
+        _breaking = false;
+        Death();
     }
 }

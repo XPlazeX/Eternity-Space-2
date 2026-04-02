@@ -13,7 +13,7 @@ public class OnArmorStatModder : Module
         PlayerShipData.ChangeArmor += OnArmorChanged;
         _loaded = true;
 
-        OnArmorChanged(PlayerShipData.ArmorPoints);
+        // OnArmorChanged(PlayerShipData.ArmorPoints);
     }
 
     private void OnDisable() {

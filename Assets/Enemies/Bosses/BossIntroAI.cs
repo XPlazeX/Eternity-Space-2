@@ -120,17 +120,17 @@ public class BossIntroAI : MonoBehaviour
         PlayerShipData.TryToggleInvulnerability(true);
         TimeHandler.Workable = false;
 
-        CameraController.ToggleCustomTarget(true, transform);
-        CameraController.SetCustomOffset(_cameraOffset);
-        CameraController.ToggleCustomDumping(true, _customDumping);
+        // CameraController.ToggleCustomTarget(true, transform);
+        // CameraController.SetCustomOffset(_cameraOffset);
+        // CameraController.ToggleCustomDumping(true, _customDumping);
 
         while (timer > 0)
         {
             if (!camBackTrigger && timer < _introDuration / 3f)
             {
-                CameraController.ToggleCustomTarget(true, Player.PlayerTransform);
-                CameraController.DisableCustomOffset();
-                CameraController.ToggleCustomDumping(true, _customDumping * 2);
+                // CameraController.ToggleCustomTarget(true, Player.PlayerTransform);
+                // CameraController.DisableCustomOffset();
+                // CameraController.ToggleCustomDumping(true, _customDumping * 2);
                 camBackTrigger = true;
             }
 
@@ -138,8 +138,8 @@ public class BossIntroAI : MonoBehaviour
             yield return null;
         }
 
-        CameraController.ToggleCustomTarget(false);
-        CameraController.ToggleCustomDumping(false);
+        // CameraController.ToggleCustomTarget(false);
+        // CameraController.ToggleCustomDumping(false);
         PlayerShipData.TryToggleInvulnerability(false);
         Player.CanAttack = true;
         PlayerController.CanControl = true;

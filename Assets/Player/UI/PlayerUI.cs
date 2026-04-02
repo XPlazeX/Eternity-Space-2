@@ -58,7 +58,7 @@ public class PlayerUI: MonoBehaviour
         {
             _damageTakenAnimators[0].SetTrigger("ManyDamage");
             SoundPlayer.PlayUISound(_manyDamageTaken);
-            CameraController.Shake(1f, 2);
+            CameraController.Shake(1f);
             PSEmitter.Emit(20);
             return;
         }

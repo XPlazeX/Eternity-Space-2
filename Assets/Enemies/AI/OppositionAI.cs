@@ -16,7 +16,7 @@ public class OppositionAI : EnemyAIRoot
 
     protected Vector3 _trueOffset;
     private float _timer = 0f;
-    private float _latitudeY;
+    private float LatitudeY => ArenaLocal.WPosY - _offset.y;
     protected bool _neverTargetToPlayer = false;
 
     protected override void Start() 
@@ -30,7 +30,6 @@ public class OppositionAI : EnemyAIRoot
         if (_useLatitude)
         {
             _retreating = false;
-            _latitudeY = CameraController.Borders_xXyY.w - _offset.y;
         }
         
         if ((!_retreating) && (Random.Range(0, 2) == 1) && (_autoTargetPlayer))
@@ -78,7 +77,7 @@ public class OppositionAI : EnemyAIRoot
         if (!_useLatitude)
             _targetPosition = GetActualPlayerPosition() + ((_copyTargetRotation ? _player.rotation : Quaternion.identity) * _trueOffset);
         else
-            _targetPosition = new Vector3(GetActualPlayerPosition().x, _latitudeY, 0f);
+            _targetPosition = new Vector3(GetActualPlayerPosition().x, LatitudeY, 0f);
 
         _timer -= Time.deltaTime;
 

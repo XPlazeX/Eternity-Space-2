@@ -12,7 +12,7 @@ public class ShakeOnFire : MonoBehaviour
 
     private void OnFire()
     {
-        CameraController.Shake(_shakePower, _shakeDurationMultiplier);
+        // CameraController.Shake(_shakePower, _shakeDurationMultiplier);
     }
 
 }

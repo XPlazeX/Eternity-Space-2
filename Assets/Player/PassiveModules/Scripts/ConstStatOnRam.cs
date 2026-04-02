@@ -26,7 +26,7 @@ public class ConstStatOnRam : Module
 
         int lastUpgrades = GameSessionInfoHandler.GetDataCollection(_saveCollectionName)[0];
         EnforceOperators(lastUpgrades);
-        PlayerShipData.UpgradeArmor(_armorUpgrade * lastUpgrades, _armorUpgrade * lastUpgrades);
+        // PlayerShipData.UpgradeArmor(_armorUpgrade * lastUpgrades, _armorUpgrade * lastUpgrades);
 
         PlayerRamsHandler.RamSuccess += OnRamSuccess;
         VictoryHandler.LevelVictored += OnLevelVictored;
@@ -47,8 +47,8 @@ public class ConstStatOnRam : Module
         }
 
         _scalesByLevel ++;
-        if (_armorUpgrade > 0)
-            PlayerShipData.RegenerateArmor(_armorUpgrade);
+        // if (_armorUpgrade > 0)
+        //     PlayerShipData.RegenerateArmor(_armorUpgrade);
 
         EnforceOperators(1);
 

@@ -100,9 +100,9 @@ namespace StatsManipulating
                     PlayerShipData.MultiplyHP(_multiplier);
                     break;
 
-                case StatName.Armor:
-                    PlayerShipData.MultiplyARM(_multiplier);
-                    break;
+                // case StatName.Armor:
+                //     PlayerShipData.MultiplyARM(_multiplier);
+                //     break;
 
                 default:
                     return;

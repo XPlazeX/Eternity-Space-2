@@ -3,8 +3,7 @@ using DamageSystem;
 
 public class StaticBullet : MonoBehaviour
 {
-    [SerializeField] private DamageKey _damageKey;
-    [SerializeField] private int _damageValue;
+    [SerializeField] private DamageBundle damageBundle;
     [SerializeField] private bool _hoverable = false;
 
     public int ModdedDamage {get; set;} = -1;
@@ -16,7 +15,7 @@ public class StaticBullet : MonoBehaviour
 
     public void MultiplyDamage(float multiplier)
     {
-        ModdedDamage = Mathf.RoundToInt(_damageValue * multiplier);
+        ModdedDamage = Mathf.RoundToInt(damageBundle.damageValue * multiplier);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -26,9 +25,9 @@ public class StaticBullet : MonoBehaviour
             return;
 
         if (ModdedDamage == -1)
-            AttackObject.InflictDamage(damageBody, _damageKey, _damageValue);
+            AttackObject.InflictDamage(damageBody, damageBundle);
         else
-            AttackObject.InflictDamage(damageBody, _damageKey, ModdedDamage);
+            AttackObject.InflictDamage(damageBody, damageBundle);
 
         //print("inf");
     }

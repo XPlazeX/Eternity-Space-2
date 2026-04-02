@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/Tint"
+Shader "Custom/Doom"
 {
 Properties
     {
@@ -59,7 +59,7 @@ Properties
 			v2f OUT;
 			OUT.vertex = UnityObjectToClipPos(IN.vertex);
 			OUT.texcoord = IN.texcoord;
-			OUT.color = _Color;
+			OUT.color = IN.color + _Color;
 			OUT.uv = IN.uv;
 			#ifdef PIXELSNAP_ON
 			OUT.vertex = UnityPixelSnap (OUT.vertex);
@@ -78,13 +78,6 @@ Properties
 			float spread = sin(( _Time.xy) * _ChangeSpeed) * _OutLineSpread;
 			c += (tex2D(_MainTex, IN.texcoord+float2(spread,0)) + tex2D(_MainTex, IN.texcoord-float2(spread,0)));
 			c *=  IN.color;
-
-			//fixed4 addcolor = tex2D(_MainTex, IN.texcoord);
-
-			// if(addcolor.a > 0.1f)
-			// {
-			// 	mainColor = addcolor;
-			// }
 
 			return c;
 		}

@@ -9,9 +9,10 @@ public class DefenceBody : DamageBody
 
     }
 
-    public override void TakeDamage(int damage)
+    public override bool TakeDamage(DamageBundle damageBundle)
     {
         //base.TakeDamage(damage);
+        return false;
     }
 
 

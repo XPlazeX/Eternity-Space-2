@@ -44,8 +44,8 @@ public class Spawner : MonoBehaviour
         if (spawnPosition == default(Vector3))
         {
             spawningPosition = new Vector3(
-                Random.Range(CameraController.Borders_xXyY.x + 2f, CameraController.Borders_xXyY.y - 2f),
-                (CameraController.Borders_xXyY.w + 3f), 0f);
+                Random.Range(ArenaLocal.WNegX + 2f, ArenaLocal.WPosX - 2f),
+                ArenaLocal.WPosY + 3f, 0f);
         }
 
         DamageBody db = Instantiate(dbSample, spawningPosition, Quaternion.Euler(0, 0, 180f)).GetComponent<DamageBody>();

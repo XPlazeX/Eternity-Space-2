@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using DamageSystem;
+using UnityEngine;
 
 public class PlayerDamageBody : DamageBody
 {
-    public override void TakeDamage(int damage)
+    public override bool TakeDamage(DamageBundle damageBundle)
     {
-        PlayerShipData.TakeDamage(damage);
+        PlayerShipData.TakeDamage(damageBundle);
+        return true;
     }
 
     public override void GetShield(int shieldPoints)
@@ -12,7 +14,12 @@ public class PlayerDamageBody : DamageBody
         PlayerShipData.GetShield(shieldPoints);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    public override void GetDamageBuffer(int db)
+    {
+        PlayerShipData.AddDamageBuffer(db);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other) 
     {
         if (PlayerShipData.Hover || other.GetComponent<Hover>() != null)
             return;
@@ -27,15 +34,29 @@ public class PlayerDamageBody : DamageBody
         if (damageBody.RamReady && (damageBody.GetType() != typeof(AsteroidBody)))
         {
             PlayerRamsHandler.TryRam();
-            damageBody.TakeDamage(PlayerRamsHandler.RamDamage);
+            damageBody.TakeDamage(new DamageBundle()
+            {
+                damageKey = DamageKey.Everything,
+                damageValue = PlayerRamsHandler.RamDamage,
+                ignoreOneShotProtection = true
+            });
             return;
         }
 
-        if (PlayerShipData.Invulnerable)
+        if (PlayerShipData.Unvulnerable)
             return;
 
-        damageBody.TakeDamage(ShipStats.GetIntValue("MaxDamageTaken"));
-        TakeDamage(otherHP);
+        damageBody.TakeDamage(new DamageBundle()
+        {
+            damageKey = DamageKey.Everything,
+            damageValue = ShipStats.GetIntValue("MaxDamageTaken"),
+            ignoreOneShotProtection = true
+        });
+        TakeDamage(new DamageBundle()
+        {
+            damageKey = DamageKey.Player,
+            damageValue = otherHP
+        });
     }
 
 }

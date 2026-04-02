@@ -114,10 +114,10 @@ public class EnemyDBSpawner : SpawnerRoot
     {
         if (_testMode)
         {
-            for (int i = 0; i < _testSledgeCount; i++)
-            {
-                Instantiate(_towerObject, CameraController.GetRandomFieldPosition(sledge_minDistance_toCenter, new Vector3(0f, -4f, 0f), sledge_minDistance_toBorders), Quaternion.Euler(0, 0, Random.Range(0, 360f)));
-            }
+            // for (int i = 0; i < _testSledgeCount; i++)
+            // {
+            //     Instantiate(_towerObject, CameraController.GetRandomFieldPosition(sledge_minDistance_toCenter, new Vector3(0f, -4f, 0f), sledge_minDistance_toBorders), Quaternion.Euler(0, 0, Random.Range(0, 360f)));
+            // }
             return;
         }
 
@@ -137,7 +137,7 @@ public class EnemyDBSpawner : SpawnerRoot
 
         for (int i = 0; i < count; i++)
         {
-            Instantiate(_towerObject, CameraController.GetRandomFieldPosition(sledge_minDistance_toCenter, new Vector3(0f, -4f, 0f), sledge_minDistance_toBorders), Quaternion.Euler(0, 0, Random.Range(0, 360f)));
+            // Instantiate(_towerObject, CameraController.GetRandomFieldPosition(sledge_minDistance_toCenter, new Vector3(0f, -4f, 0f), sledge_minDistance_toBorders), Quaternion.Euler(0, 0, Random.Range(0, 360f)));
         }
     }
 

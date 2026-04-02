@@ -32,7 +32,7 @@ public class DeathUIHandler : MonoBehaviour
 
         for (int i = 0; i < errorSpawns; i++)
         {
-            Instantiate(_vectorErrorer, CameraController.GetRandomFieldPosition(6f, Vector3.zero, 1f), Quaternion.identity);
+            // Instantiate(_vectorErrorer, CameraController.GetRandomFieldPosition(6f, Vector3.zero, 1f), Quaternion.identity);
             print("<color=magenta>Spawn Vector errorer!</color>");
         }
     }

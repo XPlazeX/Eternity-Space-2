@@ -9,18 +9,19 @@ public class SegmentBody : DamageBody
     [SerializeField] private DamageBody _mainDamageBody;
     [SerializeField] private bool _individuallyHP;
 
-    public override void TakeDamage(int damage)
+    public override bool TakeDamage(DamageBundle damageBundle)
     {
         if (HitPoints <= 0)
-            return;
+            return false;
 
         if (_individuallyHP)
         {
-            base.TakeDamage(damage);
-            return;
+            base.TakeDamage(damageBundle);
+            return true;
         }
 
-        _mainDamageBody.TakeDamage(damage);
+        _mainDamageBody.TakeDamage(damageBundle);
+        return true;
     }
 
     protected override void Death()

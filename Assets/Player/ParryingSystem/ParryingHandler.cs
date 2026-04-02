@@ -37,7 +37,7 @@ public class ParryingHandler : MonoBehaviour
     {
         ParrySuccess?.Invoke();
 
-        PlayerShipData.RegenerateArmor(ArmorRegen + additieArmor);
+        // PlayerShipData.RegenerateArmor(ArmorRegen + additieArmor);
     }
 
     public static void BuffedParry()

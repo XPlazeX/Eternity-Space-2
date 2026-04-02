@@ -63,12 +63,12 @@ public class NovelMission : Mission
 
         for (int i = 0; i < activeNode.novelChocesRowCols.Length; i++)
         {
-            NovelGate gate = Instantiate(_gateSample, CameraController.GetRandomFieldPosition(_gateRadius + 1f, Player.PlayerTransform.position, _gateRadius + 1f), Quaternion.identity);
+            // NovelGate gate = Instantiate(_gateSample, CameraController.GetRandomFieldPosition(_gateRadius + 1f, Player.PlayerTransform.position, _gateRadius + 1f), Quaternion.identity);
 
-            gate.SetCallbackID(ActiveGates.Count, this);
-            ActiveGates.Add(gate);
+            // gate.SetCallbackID(ActiveGates.Count, this);
+            // ActiveGates.Add(gate);
             
-            gate.SetText(SceneLocalizator.GetLocalizedString(novel_filename, activeNode.novelChocesRowCols[i].x, activeNode.novelChocesRowCols[i].y));
+            // gate.SetText(SceneLocalizator.GetLocalizedString(novel_filename, activeNode.novelChocesRowCols[i].x, activeNode.novelChocesRowCols[i].y));
         }
     }
 

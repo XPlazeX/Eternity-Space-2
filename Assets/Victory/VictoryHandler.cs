@@ -256,7 +256,11 @@ public class VictoryHandler : MonoBehaviour
             DamageBody[] dbs = GameObject.FindObjectsOfType<DamageBody>();
             for (int i = 0; i < dbs.Length; i++)
             {
-                dbs[i].TakeDamage(20);
+                dbs[i].TakeDamage(new DamageSystem.DamageBundle()
+                {
+                    damageKey = DamageSystem.DamageKey.Everything,
+                    damageValue = 20
+                });
             }
         }
     }

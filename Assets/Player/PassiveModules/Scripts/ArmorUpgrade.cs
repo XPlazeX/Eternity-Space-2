@@ -8,11 +8,11 @@ public class ArmorUpgrade : Module
 
     public override void Load()
     {
-        if (_breakArmoring)
-        {
-            PlayerShipData.BreakArmoring();
-            return;
-        }
-        PlayerShipData.UpgradeArmor(_armorCapBuff, _addingArmorPoints);
+        // if (_breakArmoring)
+        // {
+        //     PlayerShipData.BreakArmoring();
+        //     return;
+        // }
+        // PlayerShipData.UpgradeArmor(_armorCapBuff, _addingArmorPoints);
     }
 }

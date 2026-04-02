@@ -1,10 +1,11 @@
+using DamageSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(DamageBody))]
 public class DamageOverTime : MonoBehaviour
 {
     [SerializeField] private float _timeDelay;
-    [SerializeField] private int _damageValue;
+    [SerializeField] private DamageBundle damageBundle;
 
     private float _timer;
 
@@ -19,7 +20,7 @@ public class DamageOverTime : MonoBehaviour
 
         if (_timer < 0f)
         {
-            GetComponent<DamageBody>().TakeDamage(_damageValue);
+            GetComponent<DamageBody>().TakeDamage(damageBundle);
             _timer = _timeDelay;
         }
     }

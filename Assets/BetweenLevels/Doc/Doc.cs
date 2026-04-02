@@ -99,7 +99,7 @@ public class Doc : MonoBehaviour
         Transform player = Player.PlayerTransform;
         SpriteRenderer spriteRenderer = Player.PlayerObject.GetComponent<SpriteRenderer>();
 
-        Camera.main.GetComponent<CameraController>().SetScale(1f / 1.3f, 0.4f);
+        // Camera.main.GetComponent<CameraController>().SetScale(1f / 1.3f, 0.4f);
         TimeHandler.Resume(1f);
 
         while ((_targetUncatch.position - player.position).magnitude > 0.03f)
@@ -135,9 +135,9 @@ public class Doc : MonoBehaviour
     private IEnumerator Entering()
     {
         Vector3 toPosition = transform.position;
-        Vector3 fromPosition = new Vector3(toPosition.x, CameraController.Borders_xXyY.z - 7f, 0f);
+        // Vector3 fromPosition = new Vector3(toPosition.x, CameraController.Borders_xXyY.z - 7f, 0f);
 
-        transform.position = fromPosition;
+        // transform.position = fromPosition;
         while ((transform.position - toPosition).magnitude > 0.1f)
         {
             transform.position = Vector3.Lerp(transform.position, toPosition, _flySpeed * Time.deltaTime);

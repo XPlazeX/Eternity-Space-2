@@ -10,23 +10,23 @@ public class LineAI : EnemyAIRoot
     [SerializeField] private bool _handRunValue;
     [SerializeField] private float _run_Distance;
 
-    private float _circleSize;
+    private float CircleSize => ArenaLocal.Height + (_circleAroundPlayerSizeBoost / Mobility);
     private float _passedWay = 0f;
     private float _distance = 0f;
 
     protected override void Start() {
-        Camera.main.GetComponent<CameraController>().BordersChange += OnCameraSizeChange;
-        OnCameraSizeChange(0);
+        // Camera.main.GetComponent<CameraController>().BordersChange += OnCameraSizeChange;
+        // OnCameraSizeChange(0);
 
         ReloadTarget();
 
         base.Start();
     }
 
-    private void OnCameraSizeChange(float nul)
-    {
-        _circleSize = (CameraController.Size * 2f) + (_circleAroundPlayerSizeBoost / Mobility);
-    }
+    // private void OnCameraSizeChange(float nul)
+    // {
+    //     _circleSize = ArenaLocal.Height + (_circleAroundPlayerSizeBoost / Mobility);
+    // }
 
     protected override Vector2 GetMoveDelta()
     {
@@ -43,7 +43,7 @@ public class LineAI : EnemyAIRoot
 
     private void ReloadTarget()
     {
-        Vector3 _startPosition = (((Vector3)Random.insideUnitCircle.normalized) * Random.Range(_circleSize * _randomCircleSizeMultiplierBorders.x, _circleSize * _randomCircleSizeMultiplierBorders.y));
+        Vector3 _startPosition = (((Vector3)Random.insideUnitCircle.normalized) * Random.Range(CircleSize * _randomCircleSizeMultiplierBorders.x, CircleSize * _randomCircleSizeMultiplierBorders.y));
 
         _targetPosition = new Vector3(-_startPosition.x, -_startPosition.y, 0f);
 

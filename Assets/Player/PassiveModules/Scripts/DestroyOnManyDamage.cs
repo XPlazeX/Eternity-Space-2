@@ -6,11 +6,11 @@ public class DestroyOnManyDamage : MonoBehaviour
     [SerializeField] private int _damageValue;
 
     private void OnEnable() {
-        PlayerShipData.TakeAnyDamage += CheckDetonate;
+        // PlayerShipData.TakeAnyDamage += CheckDetonate;
     }
 
     private void OnDisable() {
-        PlayerShipData.TakeAnyDamage -= CheckDetonate;
+        // PlayerShipData.TakeAnyDamage -= CheckDetonate;
     }
 
     private void CheckDetonate(int val)

@@ -28,7 +28,7 @@ public class _ExplosionBullet : MonoBehaviour
 
     public void SpawnExplosion(Vector3 position)
     {
-        if (_explosionHandler == null || !CameraController.InsideSoundArea(position))
+        if (_explosionHandler == null )//|| !CameraController.InsideSoundArea(position)
             return;
 
         GameObject explosion = _explosionHandler.InstantiateExplosion(position, _explosionCode);
