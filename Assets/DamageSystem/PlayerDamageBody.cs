@@ -19,6 +19,24 @@ public class PlayerDamageBody : DamageBody
         PlayerShipData.AddDamageBuffer(db);
     }
 
+    public void RamDamageBody(DamageBody damageBody)
+    {
+        if ((damageBody == null) || (damageBody.KeyDamage == _damageKey) || (damageBody.KeyDamage == DamageSystem.DamageKey.Unvulnerable))
+            return;
+
+        if (damageBody.RamReady && (damageBody.GetType() != typeof(AsteroidBody)))
+        {
+            PlayerRamsHandler.TryRam();
+            damageBody.TakeDamage(new DamageBundle()
+            {
+                damageKey = DamageKey.Everything,
+                damageValue = PlayerRamsHandler.RamDamage,
+                ignoreOneShotProtection = true
+            });
+            return;
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D other) 
     {
         if (PlayerShipData.Hover || other.GetComponent<Hover>() != null)
@@ -33,13 +51,13 @@ public class PlayerDamageBody : DamageBody
 
         if (damageBody.RamReady && (damageBody.GetType() != typeof(AsteroidBody)))
         {
-            PlayerRamsHandler.TryRam();
-            damageBody.TakeDamage(new DamageBundle()
-            {
-                damageKey = DamageKey.Everything,
-                damageValue = PlayerRamsHandler.RamDamage,
-                ignoreOneShotProtection = true
-            });
+            // PlayerRamsHandler.TryRam();
+            // damageBody.TakeDamage(new DamageBundle()
+            // {
+            //     damageKey = DamageKey.Everything,
+            //     damageValue = PlayerRamsHandler.RamDamage,
+            //     ignoreOneShotProtection = true
+            // });
             return;
         }
 

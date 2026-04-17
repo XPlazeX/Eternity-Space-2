@@ -38,6 +38,21 @@ public class PlayerUI: MonoBehaviour
 
     public int MaxHP {get; set;}
 
+    private void OnEnable() {
+        SledgeCore.RepairChanged += OnRepairChargeChanged;
+    }
+
+    void OnDisable()
+    {
+        SledgeCore.RepairChanged -= OnRepairChargeChanged;
+    }
+
+    private void OnRepairChargeChanged(int rc)
+    {
+        _armorBar.fillAmount = (float)rc / PlayerShipData.MaxHP;
+        _armorLabel.text = rc.ToString();
+    }
+
     public void ChangeHP(int nowHP, float partMax)
     {
         _healthBar.fillAmount = partMax;
@@ -45,12 +60,6 @@ public class PlayerUI: MonoBehaviour
     }
 
     public void TogglePassiveUI(bool tog) => _passiveUIGroup.alpha = tog ? 1f : 0f;
-
-    public void ChangeARM(int nowArm, float partHP)
-    {
-        _armorBar.fillAmount = partHP;
-        _armorLabel.text = nowArm.ToString();
-    }
 
     public void PlayTakingDamage(int value = 0, int flatBlock = 0)
     {

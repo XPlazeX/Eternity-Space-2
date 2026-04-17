@@ -20,7 +20,7 @@ public class RamCollider : MonoBehaviour
 
         if (damageBody.RamReady && (damageBody.GetType() != typeof(AsteroidBody)))
         {
-            _playerDamageBody.OnTriggerEnter2D(other);
+            _playerDamageBody.RamDamageBody(damageBody);
         }
     }
 }

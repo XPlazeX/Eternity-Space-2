@@ -90,7 +90,7 @@ public class PlayerShipData : MonoBehaviour
 
     private static int _hitPoints;
     private static int _criticalStateBorder = 15;
-    private static int _armorPoints;
+    // private static int _armorPoints;
     private static int _shieldPoints;
     private static int _structuralDamage;
     private static int _damageBuffers;

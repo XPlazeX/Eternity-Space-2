@@ -4,6 +4,7 @@ public class SledgeCore : MonoBehaviour
 {
     public static event System.Action RepairCharged;
     public static event System.Action RepairReleased;
+    public static event System.Action FullRepairReleased;
     public static event System.Action<int> RepairChanged; // UI сам подпишется
 
     [SerializeField] private int baseRepairCharge;
@@ -23,6 +24,8 @@ public class SledgeCore : MonoBehaviour
             RepairChanged?.Invoke(instance._repairCharge);
         }
     }
+
+    public static bool HasCharge => RepairCharge > 0;
 
     private void Awake() 
     {
@@ -56,6 +59,11 @@ public class SledgeCore : MonoBehaviour
     public void ReleaseCharge()
     {
         PlayerShipData.RegenerateHP(RepairCharge);
+
+        if (RepairCharge >= PlayerShipData.MaxHP)
+        {
+            FullRepairReleased?.Invoke();
+        }
 
         RepairCharge = 0;
         _chargeStep = 0;

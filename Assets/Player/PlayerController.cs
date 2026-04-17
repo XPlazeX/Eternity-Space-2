@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public static bool CanControl { get; set; } = true;
     public static Vector3 DefaultForce { get; set; } = Vector3.zero;
     public static Vector3 AdditiveForce { get; private set; } = Vector3.zero;
+    public static float RelativityMultiplier {get; private set;} = 1f;
     public static bool IsControlling { get; private set; } = false;
     public static float VisionOffset {get; private set;}
     public static float RelativityX { get; private set; }
@@ -105,14 +106,14 @@ public class PlayerController : MonoBehaviour
         RelativityY = 0f;
 
         if (_playerRb.position.x > ArenaLocal.WPosX)
-            RelativityX = relativityGrowth.Evaluate((_playerRb.position.x - ArenaLocal.WPosX) / offsetOut);
+            RelativityX = relativityGrowth.Evaluate((_playerRb.position.x - ArenaLocal.WPosX) / offsetOut) * RelativityMultiplier;
         else if (_playerRb.position.x < ArenaLocal.WNegX)
-            RelativityX = -relativityGrowth.Evaluate((-_playerRb.position.x + ArenaLocal.WNegX) / offsetOut);
+            RelativityX = -relativityGrowth.Evaluate((-_playerRb.position.x + ArenaLocal.WNegX) / offsetOut) * RelativityMultiplier;
 
         if (_playerRb.position.y > ArenaLocal.WPosY)
-            RelativityY = relativityGrowth.Evaluate((_playerRb.position.y - ArenaLocal.WPosY) / offsetOut);
+            RelativityY = relativityGrowth.Evaluate((_playerRb.position.y - ArenaLocal.WPosY) / offsetOut) * RelativityMultiplier;
         else if (_playerRb.position.y < ArenaLocal.WNegY)
-            RelativityY = -relativityGrowth.Evaluate((-_playerRb.position.y + ArenaLocal.WNegY) / offsetOut);
+            RelativityY = -relativityGrowth.Evaluate((-_playerRb.position.y + ArenaLocal.WNegY) / offsetOut) * RelativityMultiplier;
     }
 
     public static Vector3 RelativeVectorAtPoint(Vector3 moveDelta, Vector3 point, float relativeFactor)
@@ -186,7 +187,7 @@ public class PlayerController : MonoBehaviour
             result.y = ClampDeltaAgainstBarrier(point.y, result.y, bottomBarrier, epsilon);
         }
 
-        return result;
+        return result * RelativityMultiplier;
     }
 
     private static float GetSideMultiplier(
