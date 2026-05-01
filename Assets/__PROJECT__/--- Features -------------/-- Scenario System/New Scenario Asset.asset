@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c35efa076cc924d9153ced8746cbf2, type: 3}
+  m_Name: New Scenario Asset
+  m_EditorClassIdentifier: Assembly-CSharp::ScenarioAsset
+  nodes:
+  - id: dbg_0
+    debugName: starter
+    logic:
+      rid: 6948391906032222377
+    startCondition:
+      rid: 6948391906032222384
+    endCondition:
+      rid: 6948391906032222378
+    transitionToThis:
+      rid: 6948391906032222379
+    nextNodeIndexes: 
+    disposable: 0
+    endIfOtherNodesStarted: 0
+  - id: dbg_1
+    debugName: cycler
+    logic:
+      rid: 6948391906032222377
+    startCondition:
+      rid: 6948391906032222380
+    endCondition:
+      rid: 6948391906032222378
+    transitionToThis:
+      rid: 6948391906032222379
+    nextNodeIndexes: 00000000
+    disposable: 0
+    endIfOtherNodesStarted: 0
+  startNodeIndex: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6948391906032222377
+      type: {class: EmptyNodeLogic, ns: , asm: Assembly-CSharp}
+      data:
+        endRunOnCompleted: 0
+        isCheckpoint: 0
+        scrollingPivotSpeed: {x: 0, y: 0}
+        pivotToPlayerFollowSpeed: 0
+    - rid: 6948391906032222378
+      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
+      data:
+        timedConditionMode: 1
+        requiringTime: 3
+    - rid: 6948391906032222379
+      type: {class: InstantTransition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 6948391906032222380
+      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
+      data:
+        timedConditionMode: 1
+        requiringTime: 5
+    - rid: 6948391906032222384
+      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
+      data:
+        timedConditionMode: 1
+        requiringTime: 3
