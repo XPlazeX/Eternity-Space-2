@@ -27,6 +27,7 @@ public enum RuntimeStat
     EnemyBulletSpeedMultiplier,
     EnemyAggresionMultiplier,
     EnemyMobilityMultiplier,
+    EnemyForesightAddition,
 
     // --- Environment ---
     AsteroidSpawnRateMultiplier,

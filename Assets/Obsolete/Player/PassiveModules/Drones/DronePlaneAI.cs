@@ -3,11 +3,11 @@
 public class DronePlaneAI : PlaneAI
 {
     [Space()]
-    [SerializeField] private string _targetTag;
+    [SerializeField] private string targetTag;
 
     public override void FindPlayer()
     {
-        _player = GetNearestTransformWithTag(_targetTag);
+        _player = GetNearestTransformWithTag(targetTag);
     }
 
     protected override void RotateToPlayer()
@@ -18,7 +18,7 @@ public class DronePlaneAI : PlaneAI
             return;
         }
 
-        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }

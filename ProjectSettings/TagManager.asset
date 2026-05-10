@@ -40,16 +40,16 @@ TagManager:
   - UI
   - 
   - 
-  - Explosion1
-  - Explosion2
+  - Explosions
   - 
+  - EnemiesOnly
   - Player
   - Enemies
   - Rams
-  - 
-  - 
-  - 
-  - 
+  - PlayerBullets
+  - PlayerInterception
+  - EnemyBullets
+  - EnemyInterception
   - 
   - 
   - 

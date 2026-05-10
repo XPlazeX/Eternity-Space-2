@@ -3,9 +3,9 @@
 public class DroneTrackingAI : TrackingAI
 {
     [Space()]
-    [SerializeField] private string _targetTag;
-    [SerializeField] private bool _targetRefreshing = false;
-    [SerializeField] private float _targetReload;
+    [SerializeField] private string targetTag;
+    [SerializeField] private bool targetRefreshing = false;
+    [SerializeField] private float targetReload;
 
     private float _timerRefresh;
 
@@ -14,20 +14,20 @@ public class DroneTrackingAI : TrackingAI
         // base.Start();
         StartMoving();
         _neverTargetToPlayer = true;
-        _timerRefresh = _targetReload;
+        _timerRefresh = targetReload;
         // _trueOffset = _offset;
     }
 
     protected override Vector2 GetMoveDelta()
     {
-        if (!_targetRefreshing)
+        if (!targetRefreshing)
             return base.GetMoveDelta();
             
         _timerRefresh -= Time.deltaTime;
 
         if (_timerRefresh <= 0f)
         {
-            _timerRefresh = _targetReload;
+            _timerRefresh = targetReload;
             FindPlayer();
         }
 
@@ -36,7 +36,7 @@ public class DroneTrackingAI : TrackingAI
 
     public override void FindPlayer()
     {
-        _player = GetNearestTransformWithTag(_targetTag);
+        _player = GetNearestTransformWithTag(targetTag);
     }
 
     protected override void RotateToPlayer()
@@ -47,7 +47,7 @@ public class DroneTrackingAI : TrackingAI
             return;
         }
 
-        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.fixedDeltaTime * (Speed / _startSpeed) * Mobility, 0f));
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), rotationSpeed * Time.fixedDeltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }

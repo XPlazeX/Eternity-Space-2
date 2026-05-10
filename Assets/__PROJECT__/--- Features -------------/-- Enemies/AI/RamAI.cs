@@ -12,7 +12,7 @@ public class RamAI : EnemyAIRoot
     protected override void Start() {
         SetTarget();
 
-        _distance = (_targetPosition - transform.position).magnitude;
+        _distance = (_targetPosition - AiPosition).magnitude;
         _timer = 0f;
 
         base.Start();
@@ -20,7 +20,7 @@ public class RamAI : EnemyAIRoot
 
     protected virtual void SetTarget()
     {
-        _targetPosition = ((GetActualPlayerPosition() - transform.position).normalized * _ramDistance * Mobility) + transform.position;
+        _targetPosition = ((GetActualPlayerPosition() - AiPosition).normalized * _ramDistance * Mobility) + AiPosition;
 
         float secondaryOffset = SceneStatics.MultiplyByChaos(SceneStatics.ChaosMultiplier) * 5f;
         _targetPosition += new Vector3(Random.Range(-secondaryOffset, secondaryOffset), Random.Range(-secondaryOffset, secondaryOffset), 0f);
@@ -28,7 +28,7 @@ public class RamAI : EnemyAIRoot
 
     protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
 
         _timer -= Time.fixedDeltaTime;
@@ -37,15 +37,15 @@ public class RamAI : EnemyAIRoot
         {
             SetTarget();
             _passedWay = 0f;
-            _distance = (_targetPosition - transform.position).magnitude;
+            _distance = (_targetPosition - AiPosition).magnitude;
             _timer = SceneStatics.MultiplyByChaos(_ramReload / Mobility);
         }
 
-        return ((_targetPosition - transform.position).normalized) * currentMoving;
+        return (_targetPosition - AiPosition).normalized * currentMoving;
     }
 
     protected Vector3 GetActualPlayerPosition()
     {
-        return Player.GetPlayerPosition(_foresight + MovementForesight);
+        return Player.GetPlayerPosition(MovementForesight);
     }
 }

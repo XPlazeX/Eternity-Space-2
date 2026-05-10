@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 532192773385979439}
   - component: {fileID: 8663073756299317227}
   - component: {fileID: 2386588666118645069}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3822327432860797157}
   - component: {fileID: 5075635723808820931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Debug Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,6 +415,10 @@ MonoBehaviour:
       m_RotationOrder: 4
     animationTime: 0.3
     scaleMultiplier: 5
+  sound:
+    _clip: {fileID: 0}
+    _volume: 0
+    _pitchRandomizing: 0
 --- !u!1 &7971234247983505222
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7563341624792360617}
   - component: {fileID: 4484236608911018945}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112427482016215164}
   - component: {fileID: 198023407300793623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7969757598655641987}
   - component: {fileID: 2790668061199428739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halo_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

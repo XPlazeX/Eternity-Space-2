@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FollowAI : EnemyAIRoot
 {
-    [SerializeField] private bool _useRetargeting = true;
-    [SerializeField] private float _retargetDelay;
-    [SerializeField] private float _retargetTime;
+    [SerializeField] private bool useRetargeting = true;
+    [SerializeField] private float retargetDelay;
+    [SerializeField] private float retargetTime;
 
     private float _timer = 0f;
     private bool _retargeting = false;
 
     protected override void Start()
     {
-        _timer = SceneStatics.MultiplyByChaos((_retargetDelay / Mobility));
+        _timer = SceneStatics.MultiplyByChaos((retargetDelay / Mobility));
 
         base.Start();
     }
@@ -24,10 +23,10 @@ public class FollowAI : EnemyAIRoot
 
         _timer -= Time.fixedDeltaTime;
 
-        if (_timer < 0f && _useRetargeting)
+        if (_timer < 0f && useRetargeting)
         {
             _retargeting = !_retargeting;
-            _timer = SceneStatics.MultiplyByChaos(_retargetDelay / Mobility);
+            _timer = SceneStatics.MultiplyByChaos(retargetDelay / Mobility);
             if (_retargeting)
                 _targetPosition = ArenaLocal.GetRandomFieldPosition();
         }
@@ -35,20 +34,20 @@ public class FollowAI : EnemyAIRoot
         if (!_retargeting)
         {
             _targetPosition = GetActualPlayerPosition();
-            if ((transform.position - _targetPosition).magnitude > 0.3f)
-                return (_targetPosition - transform.position).normalized * Speed * Time.fixedDeltaTime * Mobility;
+            if ((AiPosition - _targetPosition).magnitude > 0.3f)
+                return (_targetPosition - AiPosition).normalized * Speed * Time.fixedDeltaTime * Mobility;
             else
             {
-                return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
+                return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
             }
         } else 
         {
-            return (_targetPosition - transform.position).normalized * Speed * Time.fixedDeltaTime * Mobility;
+            return (_targetPosition - AiPosition).normalized * Speed * Time.fixedDeltaTime * Mobility;
         }
     }
 
     protected Vector3 GetActualPlayerPosition()
     {
-        return Player.GetPlayerPosition(_foresight + MovementForesight);
+        return Player.GetPlayerPosition(MovementForesight);
     }
 }

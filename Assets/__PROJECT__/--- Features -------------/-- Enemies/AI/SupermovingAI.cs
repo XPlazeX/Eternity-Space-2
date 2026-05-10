@@ -2,15 +2,15 @@
 
 public class SupermovingAI : EnemyAIRoot
 {
-    [Range(0, 1f)][SerializeField] private float _upperBorderPercent;
-    [Range(0, 1f)][SerializeField] private float _downBorderPercent;
+    [Range(0, 1f)][SerializeField] private float upperBorderPercent;
+    [Range(0, 1f)][SerializeField] private float downBorderPercent;
     [Space()]
-    [SerializeField] private float _rotationRadius;
-    [SerializeField] private float _rotationAroundSpeedMultiplier = 1f;
-    [SerializeField] private float _timeToReloadTarget;
+    [SerializeField] private float rotationRadius;
+    [SerializeField] private float rotationAroundSpeedMultiplier = 1f;
+    [SerializeField] private float timeToReloadTarget;
 
     private Vector2 XBorders => new Vector2(ArenaLocal.WNegX, ArenaLocal.WPosX);
-    private Vector2 YBorders => new Vector2(ArenaLocal.WNegY + ArenaLocal.Height * _downBorderPercent, ArenaLocal.WNegY + ArenaLocal.Height * _upperBorderPercent);
+    private Vector2 YBorders => new Vector2(ArenaLocal.WNegY + ArenaLocal.Height * downBorderPercent, ArenaLocal.WNegY + ArenaLocal.Height * upperBorderPercent);
     private float _passedWay = 0f;
     private float _distance = 0f;
     private bool _rotatingAround = false;
@@ -19,17 +19,14 @@ public class SupermovingAI : EnemyAIRoot
 
     private void SetTarget()
     {
-        _targetPosition = new Vector3 (Random.Range(XBorders.x + level_borders_moving_offset, XBorders.y - level_borders_moving_offset),
-            Random.Range(YBorders.x + level_borders_moving_offset, YBorders.y - level_borders_moving_offset), 0f);
+        _targetPosition = new Vector3 (Random.Range(XBorders.x + ARENA_BORDERS_MOVING_OFFSET, XBorders.y - ARENA_BORDERS_MOVING_OFFSET),
+            Random.Range(YBorders.x + ARENA_BORDERS_MOVING_OFFSET, YBorders.y - ARENA_BORDERS_MOVING_OFFSET), 0f);
         _passedWay = 0f;
-        _distance = (_targetPosition - transform.position).magnitude;
+        _distance = (_targetPosition - AiPosition).magnitude;
     }
 
-    protected override void Start() {
-        // _XBorders = new Vector2 (ArenaLocal.W, CameraController.Borders_xXyY.y);
-        // float ySize = -CameraController.Borders_xXyY.z + CameraController.Borders_xXyY.w;
-        // _YBorders = new Vector2 ( (ySize * _downBorderPercent - (ySize / 2f)),  (ySize * _upperBorderPercent - (ySize / 2f)));
-
+    protected override void Start() 
+    {
         SetTarget();
 
         base.Start();
@@ -39,10 +36,10 @@ public class SupermovingAI : EnemyAIRoot
     {
         if (!_rotatingAround)
         {
-            if ((transform.position - _targetPosition).magnitude <= _rotationRadius)
+            if ((AiPosition - _targetPosition).magnitude <= rotationRadius)
             {
                 _rotatingAround = true;
-                _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
+                _timer = SceneStatics.MultiplyByChaos(timeToReloadTarget / Mobility);
                 _rotationDirection = -1f;
 
                 if (Random.Range(0, 2) == 1)
@@ -52,9 +49,9 @@ public class SupermovingAI : EnemyAIRoot
                 return Vector2.zero;
             }
 
-            float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+            float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
             _passedWay += currentMoving;
-            return ((Vector2)(_targetPosition - transform.position).normalized) * currentMoving;
+            return ((Vector2)(_targetPosition - AiPosition).normalized) * currentMoving;
         }
         else
         {
@@ -65,9 +62,9 @@ public class SupermovingAI : EnemyAIRoot
                 return Vector2.zero;
             }
 
-            float angleDelta = _rotationAroundSpeedMultiplier * Time.fixedDeltaTime * Speed * _rotationDirection * Mobility;
+            float angleDelta = rotationAroundSpeedMultiplier * Time.fixedDeltaTime * Speed * _rotationDirection * Mobility;
 
-            Vector2 currentPos = transform.position;
+            Vector2 currentPos = AiPosition;
             Vector2 offsetFromTarget = currentPos - (Vector2)_targetPosition;
             Vector2 rotatedOffset = Quaternion.Euler(0f, 0f, angleDelta) * offsetFromTarget;
             Vector2 nextPos = (Vector2)_targetPosition + rotatedOffset;

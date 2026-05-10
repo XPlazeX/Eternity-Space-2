@@ -16,7 +16,7 @@ public class Bullet : AttackObject
     [SerializeField] private float _lifetime;
     [SerializeField] protected float _speed;
     [SerializeField] protected float _acceleration;
-    [SerializeField] private bool _accelerateToZero = false;
+    [SerializeField] private float _topAcceleratedSpeed;
     [Space()]
     [SerializeField] private int _piercingTargets = 0;
     [SerializeField] private bool _explodeOnTimer;
@@ -92,10 +92,16 @@ public class Bullet : AttackObject
 
     private void TickSpeed()
     {
-        if (_accelerateToZero && (Mathf.Abs(_speed) < 0.01f * Mathf.Abs(Acceleration)))
-            _speed = 0f;
-        else
-            _speed += Acceleration * Time.fixedDeltaTime;
+        if (Acceleration == 0) return;
+
+        if (_speed < _topAcceleratedSpeed)
+        {
+            _speed = Mathf.Clamp(_speed + Acceleration * Time.fixedDeltaTime, _speed, _topAcceleratedSpeed);
+        }
+        else if (_speed > _topAcceleratedSpeed)
+        {
+            _speed = Mathf.Clamp(_speed + Acceleration * Time.fixedDeltaTime, _topAcceleratedSpeed, _speed); // здесь в инспекторе отрицательное ускорение
+        }
     }
 
     private void TickMovement()
@@ -126,7 +132,7 @@ public class Bullet : AttackObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<__HardShield>() != null)
+        if (other.GetComponent<__IgnoreBulletsCollisions__>() != null)
         {
             return;
         }

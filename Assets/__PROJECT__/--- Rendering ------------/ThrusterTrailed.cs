@@ -36,6 +36,32 @@ public sealed class ThrusterTrailed : MonoBehaviour
     [Range(0f, 2f)]
     [SerializeField] private float powerMultiplier = 1f;
 
+    [Header("High Power Color")]
+    [SerializeField] private bool useHighPowerColor = true;
+
+    [Tooltip("Color that thruster starts blending to at high movement delta.")]
+    [SerializeField] private Color highPowerColor = new Color(0.4f, 0.8f, 1f, 1f);
+
+    [Tooltip("Movement delta where high power color starts appearing.")]
+    [Min(0f)]
+    [SerializeField] private float highPowerDeltaMin = 0.08f;
+
+    [Tooltip("Movement delta where high power color reaches full strength.")]
+    [Min(0f)]
+    [SerializeField] private float highPowerDeltaMax = 0.25f;
+
+    [Tooltip("Angle power needed before high power color can appear. 1 = only when thruster works exactly in its full-power sector.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float highPowerMinAnglePower = 0.85f;
+
+    [Tooltip("How strongly high power color overrides normal gradient color.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float highPowerColorStrength = 1f;
+
+    [Tooltip("How quickly high power color follows target. 0 = instant.")]
+    [Min(0f)]
+    [SerializeField] private float highPowerColorSmoothingSpeed = 25f;
+
     [Header("Sprite Renderer")]
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -66,10 +92,14 @@ public sealed class ThrusterTrailed : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float debugPower;
     [SerializeField] private bool drawGizmos = true;
     [SerializeField] private float gizmoLength = 1.5f;
+    [SerializeField, Range(0f, 1f)] private float debugHighPowerColorPower;
+    [SerializeField] private float debugMovementDelta;
+    [SerializeField, Range(0f, 1f)] private float debugAnglePower;
 
     private Vector3 previousPosition;
     private float currentPower;
     private bool hadPreviousPosition;
+    private float currentHighPowerColorPower;
 
     public float CurrentPower => currentPower;
 
@@ -103,8 +133,15 @@ public sealed class ThrusterTrailed : MonoBehaviour
         Vector3 delta = currentPosition - previousPosition;
         previousPosition = currentPosition;
 
-        float targetPower = CalculateTargetPower(delta);
-        targetPower = Mathf.Clamp01(targetPower * powerMultiplier);
+        float movementDelta = delta.magnitude;
+
+        float anglePower = CalculateTargetPower(delta);
+        float targetPower = Mathf.Clamp01(anglePower * powerMultiplier);
+
+        float targetHighPowerColorPower = CalculateHighPowerColorPower(
+            movementDelta,
+            anglePower
+        );
 
         if (smoothingSpeed <= 0f)
         {
@@ -116,7 +153,47 @@ public sealed class ThrusterTrailed : MonoBehaviour
             currentPower = Mathf.Lerp(currentPower, targetPower, t);
         }
 
+        if (highPowerColorSmoothingSpeed <= 0f)
+        {
+            currentHighPowerColorPower = targetHighPowerColorPower;
+        }
+        else
+        {
+            float t = 1f - Mathf.Exp(-highPowerColorSmoothingSpeed * Time.deltaTime);
+            currentHighPowerColorPower = Mathf.Lerp(currentHighPowerColorPower, targetHighPowerColorPower, t);
+        }
+
+        debugMovementDelta = movementDelta;
+        debugAnglePower = anglePower;
+        debugHighPowerColorPower = currentHighPowerColorPower;
+
         ApplyPower(currentPower, forceClearTrail: false);
+    }
+
+    private float CalculateHighPowerColorPower(float movementDelta, float anglePower)
+    {
+        if (!useHighPowerColor)
+            return 0f;
+
+        if (highPowerDeltaMax <= highPowerDeltaMin)
+            return 0f;
+
+        // Насколько большая дельта перемещения.
+        float speedPower = Mathf.InverseLerp(
+            highPowerDeltaMin,
+            highPowerDeltaMax,
+            movementDelta
+        );
+
+        // Насколько этот конкретный ускоритель работает "в свою сторону".
+        // Если anglePower низкий, цвет мощности не включается.
+        float angleGate = Mathf.InverseLerp(
+            highPowerMinAnglePower,
+            1f,
+            anglePower
+        );
+
+        return Mathf.Clamp01(speedPower * angleGate * highPowerColorStrength);
     }
 
     private void CacheInitialPosition()
@@ -217,7 +294,26 @@ public sealed class ThrusterTrailed : MonoBehaviour
         if (spriteRenderer == null)
             return;
 
-        spriteRenderer.color = spriteColorByPower.Evaluate(power);
+        Color baseColor = spriteColorByPower.Evaluate(power);
+        Color finalColor = ApplyHighPowerColor(baseColor);
+
+        spriteRenderer.color = finalColor;
+    }
+
+    private Color ApplyHighPowerColor(Color baseColor)
+    {
+        float t = currentHighPowerColorPower;
+
+        if (t <= 0f)
+            return baseColor;
+
+        Color targetColor = highPowerColor;
+
+        // Альфу лучше оставить от базового градиента, чтобы highPowerColor
+        // не ломал прозрачность ускорителя.
+        targetColor.a = baseColor.a;
+
+        return Color.Lerp(baseColor, targetColor, t);
     }
 
     private void ApplyTrail(float power, bool forceClearTrail)
@@ -240,10 +336,10 @@ public sealed class ThrusterTrailed : MonoBehaviour
             };
         }
 
-        Color headColor = trailHeadColorByPower.Evaluate(power);
+        Color trailHeadColor = trailHeadColorByPower.Evaluate(power);
+        trailHeadColor = ApplyHighPowerColor(trailHeadColor);
 
-        // Меняем только первый color key, как ты и описал.
-        colorKeys[0].color = headColor;
+        colorKeys[0].color = trailHeadColor;
 
         gradient.SetKeys(colorKeys, alphaKeys);
         trailRenderer.colorGradient = gradient;

@@ -88,7 +88,7 @@ public class DamageBody : MonoBehaviour, IDamagable
     public float DamageReduction {get; set;}
     public bool OneShotProtection {get; set;} = true;
     public bool IsStunned {get; private set;} = false;
-    public bool RamReady {get; private set;} = false;
+    public virtual bool RamReady {get; private set;} = false;
 
     protected virtual void Awake() 
     {

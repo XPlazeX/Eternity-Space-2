@@ -296,6 +296,162 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &331488183917448698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5236666507488170270}
+  - component: {fileID: 6163196478804694401}
+  - component: {fileID: 7461500332866806951}
+  - component: {fileID: 3209360035075677871}
+  - component: {fileID: 244768061569290754}
+  m_Layer: 10
+  m_Name: Perimetral Finishing Block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5236666507488170270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331488183917448698}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9159284558408251924}
+  m_Father: {fileID: 1260780666538092921}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6163196478804694401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331488183917448698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7e54af69d709b44a05e026b2dc135a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PerimetralFinishing
+  triggerCollider: {fileID: 7461500332866806951}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  targetDamageKey: 1
+  targetDamageBundle:
+    damageKey: 1
+    damageValue: 30
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 100
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0
+  visualExplosion: {fileID: 3819990787268084760}
+  reloadTime: 0.5
+  triggerCondition: 0
+  hpThreshold: 10
+  othersDamageBundle:
+    damageKey: 1
+    damageValue: 0
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 100
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0
+--- !u!58 &7461500332866806951
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331488183917448698}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2.5
+--- !u!50 &3209360035075677871
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331488183917448698}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &244768061569290754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331488183917448698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01594391e3654e041990492c138d21ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__IgnoreBulletsCollisions__
 --- !u!1 &548715242553156226
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,19 +565,26 @@ MonoBehaviour:
   fadeAngle: 30
   smoothingSpeed: 20
   powerMultiplier: 1
+  useHighPowerColor: 1
+  highPowerColor: {r: 0.2028302, g: 0.8801679, b: 1, a: 1}
+  highPowerDeltaMin: 0.075
+  highPowerDeltaMax: 0.1
+  highPowerMinAnglePower: 0.766
+  highPowerColorStrength: 1
+  highPowerColorSmoothingSpeed: 25
   spriteRenderer: {fileID: 6882380795780805790}
   spriteColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -444,15 +607,15 @@ MonoBehaviour:
   trailHeadColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -478,6 +641,9 @@ MonoBehaviour:
   debugPower: 0
   drawGizmos: 1
   gizmoLength: 1.5
+  debugHighPowerColorPower: 0
+  debugMovementDelta: 0
+  debugAnglePower: 0
 --- !u!96 &2887723888989915339
 TrailRenderer:
   serializedVersion: 3
@@ -588,6 +754,58 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &830859966976073287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9159284558408251924}
+  - component: {fileID: 3819990787268084760}
+  m_Layer: 0
+  m_Name: Visual Exploder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9159284558408251924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830859966976073287}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5236666507488170270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3819990787268084760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830859966976073287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc33cee29999d8147bc11c8f7d5e57b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExplosionRepeater
+  autoStart: 0
+  explosionObject: {fileID: 5075635723808820931, guid: e5fbfbdb8ecf5a94a804fc2419aab1be, type: 3}
+  scale: 5
+  overrideColor: 0
+  color: {r: 0.9607844, g: 0.8705883, b: 0.7019608, a: 1}
+  repeatTime: 2
+  loop: 0
+  cycles: 1
 --- !u!1 &1260780666147496286
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +891,8 @@ Transform:
   - {fileID: 3037753853296275749}
   - {fileID: 2962083747420276804}
   - {fileID: 6198333997301137978}
+  - {fileID: 1721943422117381846}
+  - {fileID: 5236666507488170270}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1260780666538092814
@@ -5949,19 +6169,26 @@ MonoBehaviour:
   fadeAngle: 20
   smoothingSpeed: 20
   powerMultiplier: 1
+  useHighPowerColor: 1
+  highPowerColor: {r: 0.2028302, g: 0.8801679, b: 1, a: 1}
+  highPowerDeltaMin: 0.075
+  highPowerDeltaMax: 0.1
+  highPowerMinAnglePower: 0.85
+  highPowerColorStrength: 1
+  highPowerColorSmoothingSpeed: 25
   spriteRenderer: {fileID: 8566064193810077829}
   spriteColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -5984,15 +6211,15 @@ MonoBehaviour:
   trailHeadColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -6018,6 +6245,9 @@ MonoBehaviour:
   debugPower: 0
   drawGizmos: 1
   gizmoLength: 1.5
+  debugHighPowerColorPower: 0
+  debugMovementDelta: 0
+  debugAnglePower: 0
 --- !u!96 &5002809078829047361
 TrailRenderer:
   serializedVersion: 3
@@ -6128,6 +6358,142 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &3605203312130206733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721943422117381846}
+  - component: {fileID: 2428313777319854185}
+  - component: {fileID: 2787603636884072792}
+  - component: {fileID: 8713900442711046666}
+  - component: {fileID: 7138376689591997219}
+  m_Layer: 15
+  m_Name: Interceptor Block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721943422117381846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605203312130206733}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7535236083893216074}
+  m_Father: {fileID: 1260780666538092921}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2428313777319854185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605203312130206733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320772928af2fb943bef08958b22d149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InterceptionBlock
+  parryCollider: {fileID: 0}
+  parryOrigin: {fileID: 1721943422117381846}
+  radius: 2.5
+  arcHalfAngle: 60
+  lookingTransforms:
+  - {fileID: 7535236083893216074}
+  rotationSpeed: 850
+  attackingModules:
+  - {fileID: 5088733572496939937}
+  turretReloadTime: 0.5
+  explosionRepeaters: []
+  explosionsReloadTime: 10
+  active: 1
+--- !u!50 &2787603636884072792
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605203312130206733}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &8713900442711046666
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605203312130206733}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2.5
+--- !u!114 &7138376689591997219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605203312130206733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01594391e3654e041990492c138d21ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__IgnoreBulletsCollisions__
 --- !u!1 &3683363204896759614
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,19 +6607,26 @@ MonoBehaviour:
   fadeAngle: 20
   smoothingSpeed: 20
   powerMultiplier: 1
+  useHighPowerColor: 1
+  highPowerColor: {r: 0.2028302, g: 0.8801679, b: 1, a: 1}
+  highPowerDeltaMin: 0.075
+  highPowerDeltaMax: 0.1
+  highPowerMinAnglePower: 0.85
+  highPowerColorStrength: 1
+  highPowerColorSmoothingSpeed: 25
   spriteRenderer: {fileID: 6095918323682188456}
   spriteColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -6276,15 +6649,15 @@ MonoBehaviour:
   trailHeadColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -6310,6 +6683,9 @@ MonoBehaviour:
   debugPower: 0
   drawGizmos: 1
   gizmoLength: 1.5
+  debugHighPowerColorPower: 0
+  debugMovementDelta: 0
+  debugAnglePower: 0
 --- !u!96 &6470070499324867355
 TrailRenderer:
   serializedVersion: 3
@@ -6999,19 +7375,26 @@ MonoBehaviour:
   fadeAngle: 20
   smoothingSpeed: 20
   powerMultiplier: 1
+  useHighPowerColor: 1
+  highPowerColor: {r: 0.2028302, g: 0.8801679, b: 1, a: 1}
+  highPowerDeltaMin: 0.075
+  highPowerDeltaMax: 0.1
+  highPowerMinAnglePower: 0.85
+  highPowerColorStrength: 1
+  highPowerColorSmoothingSpeed: 25
   spriteRenderer: {fileID: 4348702796645107743}
   spriteColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -7034,15 +7417,15 @@ MonoBehaviour:
   trailHeadColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -7068,6 +7451,9 @@ MonoBehaviour:
   debugPower: 0
   drawGizmos: 1
   gizmoLength: 1.5
+  debugHighPowerColorPower: 0
+  debugMovementDelta: 0
+  debugAnglePower: 0
 --- !u!96 &726647215495830132
 TrailRenderer:
   serializedVersion: 3
@@ -7340,6 +7726,65 @@ Transform:
   - {fileID: 3936665320774861415}
   m_Father: {fileID: 1260780666538092921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8504754971458056703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7535236083893216074}
+  - component: {fileID: 5088733572496939937}
+  m_Layer: 15
+  m_Name: ITR-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7535236083893216074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504754971458056703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1721943422117381846}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5088733572496939937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504754971458056703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackModule
+  _waitTime: 0.1
+  _attackReload: 0
+  _attackObjects:
+  - _cycles: 3
+    _timeBetweenCycles: 0.05
+    _timeCooling: 0
+    _bulletSample: {fileID: 6149396609532520741, guid: c982b143269f2be459b8d84af9ee2e91, type: 3}
+    _barrels:
+    - {fileID: 7535236083893216074}
+    _randomBarrel: 0
+    _bulletsPerFire: 1
+    _fixedAngleStep: 0
+    _randomAngleStep: 0
+    _randomizingBulletSpeed: 0
+  _autoStart: 0
 --- !u!1 &8536084025202545848
 GameObject:
   m_ObjectHideFlags: 0
@@ -7453,19 +7898,26 @@ MonoBehaviour:
   fadeAngle: 20
   smoothingSpeed: 20
   powerMultiplier: 1
+  useHighPowerColor: 1
+  highPowerColor: {r: 0.2028302, g: 0.8801679, b: 1, a: 1}
+  highPowerDeltaMin: 0.075
+  highPowerDeltaMax: 0.1
+  highPowerMinAnglePower: 0.85
+  highPowerColorStrength: 1
+  highPowerColorSmoothingSpeed: 25
   spriteRenderer: {fileID: 6867460425660625370}
   spriteColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -7488,15 +7940,15 @@ MonoBehaviour:
   trailHeadColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -7522,6 +7974,9 @@ MonoBehaviour:
   debugPower: 0
   drawGizmos: 1
   gizmoLength: 1.5
+  debugHighPowerColorPower: 0
+  debugMovementDelta: 0
+  debugAnglePower: 0
 --- !u!96 &8786801986729201695
 TrailRenderer:
   serializedVersion: 3
@@ -7745,19 +8200,26 @@ MonoBehaviour:
   fadeAngle: 30
   smoothingSpeed: 20
   powerMultiplier: 1
+  useHighPowerColor: 1
+  highPowerColor: {r: 0.2028302, g: 0.8801679, b: 1, a: 1}
+  highPowerDeltaMin: 0.075
+  highPowerDeltaMax: 0.1
+  highPowerMinAnglePower: 0.766
+  highPowerColorStrength: 1
+  highPowerColorSmoothingSpeed: 25
   spriteRenderer: {fileID: 3660919871353994580}
   spriteColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -7780,15 +8242,15 @@ MonoBehaviour:
   trailHeadColorByPower:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.3944354, b: 1, a: 1}
-    key2: {r: 0.2028302, g: 0.8801679, b: 1, a: 0}
+    key1: {r: 0, g: 0.11251116, b: 1, a: 1}
+    key2: {r: 0, g: 0.3944354, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 32959
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -7814,6 +8276,9 @@ MonoBehaviour:
   debugPower: 0
   drawGizmos: 1
   gizmoLength: 1.5
+  debugHighPowerColorPower: 0
+  debugMovementDelta: 0
+  debugAnglePower: 0
 --- !u!96 &1220463045138360440
 TrailRenderer:
   serializedVersion: 3

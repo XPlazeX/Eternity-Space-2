@@ -1,5 +1,7 @@
-﻿public interface IAttackModule 
+﻿using UnityEngine;
+
+public abstract class AttackingModule : MonoBehaviour
 {
-    void LocalMultiplyAggro(float multiplier);
-    void HandFire();
+    public abstract void LocalMultiplyAggro(float multiplier);
+    public abstract void HandFire(bool volley = false);
 }

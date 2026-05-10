@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LaserAttackModule : MonoBehaviour, IAttackModule
+public class LaserAttackModule : AttackingModule
 {
     [SerializeField] private float _waitTime;
     [SerializeField] private float _attackReload;
@@ -13,29 +13,24 @@ public class LaserAttackModule : MonoBehaviour, IAttackModule
 
     private void OnEnable() {
         if (_autoStart)
-            StartCoroutine(Firing());
+            StartCoroutine(Firing(false));
     }
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
-
-        for (int i = 0; i < _attackObjects.Length; i++)
-        {
-            _attackObjects[i].Preload();
-        }
     }
 
-    public void LocalMultiplyAggro(float multiplier)
+    public override void LocalMultiplyAggro(float multiplier)
     {
         _localAggro *= multiplier;
     }
 
-    public void HandFire()
+    public override void HandFire(bool volley = false)
     {
-        StartCoroutine(Firing());
+        StartCoroutine(Firing(volley));
     }
 
-    private IEnumerator Firing()
+    private IEnumerator Firing(bool volley)
     {
         yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime));
 
@@ -53,6 +48,8 @@ public class LaserAttackModule : MonoBehaviour, IAttackModule
                 yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeCooling / (_aggro * _localAggro)));
             }
 
+            if (volley) yield break;
+
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackReload));
         }
     }
@@ -67,7 +64,6 @@ public class EnemyLaserAttackObject
     [SerializeField] private float _timeBetweenCycles;
     [SerializeField] private float _timeCooling = 0;
     [Space()]
-    // [SerializeField] private int _laserCode;
     [SerializeField] private LaserObject _laserSample;
     [SerializeField] private Transform[] _barrels;
     [SerializeField] private bool _randomBarrel = false;
@@ -79,11 +75,6 @@ public class EnemyLaserAttackObject
     public int Cycles => _cycles;
     public float TimeBetweenCycles => _timeBetweenCycles;
     public float TimeCooling => _timeCooling;
-
-    public void Preload()
-    {
-        // GenericBulletDatabase.Preloadlaser(_laserCode);
-    }
 
     public void Fire()
     {
@@ -99,7 +90,7 @@ public class EnemyLaserAttackObject
 
     private void SpawnLaser(Transform barrel)
     {
-        LaserObject laserObject = Pool.Spawn(_laserSample);//GenericBulletDatabase.GetLaser(_laserCode);
+        LaserObject laserObject = Pool.Spawn(_laserSample);
 
         laserObject.CreateLaser(barrel, _attackDistance, _mask, _laserLifetime);
     }

@@ -3,34 +3,27 @@
 public class LineAI : EnemyAIRoot
 {
     [Header("Default orientation on camera size")]
-    [SerializeField] private float _circleAroundPlayerSizeBoost;
-    [SerializeField] private Vector2 _randomCircleSizeMultiplierBorders = Vector2.one;
-    [SerializeField] private DeathCaller _callerOnSpawn;
-    [SerializeField] private DeathCaller _callerOnDestroy;
-    [SerializeField] private bool _handRunValue;
-    [SerializeField] private float _run_Distance;
+    [SerializeField] private float circleAroundPlayerSizeBoost;
+    [SerializeField] private Vector2 randomCircleSizeMultiplierBorders = Vector2.one;
+    [SerializeField] private DeathCaller callerOnSpawn;
+    [SerializeField] private DeathCaller callerOnDestroy;
+    [SerializeField] private bool handRunValue;
+    [SerializeField] private float runDistance;
 
-    private float CircleSize => ArenaLocal.Height + (_circleAroundPlayerSizeBoost / Mobility);
+    private float CircleSize => ArenaLocal.Height + (circleAroundPlayerSizeBoost / Mobility);
     private float _passedWay = 0f;
     private float _distance = 0f;
 
-    protected override void Start() {
-        // Camera.main.GetComponent<CameraController>().BordersChange += OnCameraSizeChange;
-        // OnCameraSizeChange(0);
-
+    protected override void Start() 
+    {
         ReloadTarget();
 
         base.Start();
     }
 
-    // private void OnCameraSizeChange(float nul)
-    // {
-    //     _circleSize = ArenaLocal.Height + (_circleAroundPlayerSizeBoost / Mobility);
-    // }
-
     protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
 
         if (_distance - _passedWay <= 0.1f)
@@ -38,28 +31,26 @@ public class LineAI : EnemyAIRoot
             ReloadTarget();
         }
 
-        return ((_targetPosition - transform.position).normalized) * currentMoving;
+        return (_targetPosition - AiPosition).normalized * currentMoving;
     }
 
     private void ReloadTarget()
     {
-        Vector3 _startPosition = (((Vector3)Random.insideUnitCircle.normalized) * Random.Range(CircleSize * _randomCircleSizeMultiplierBorders.x, CircleSize * _randomCircleSizeMultiplierBorders.y));
+        Vector3 _startPosition = ((Vector3)Random.insideUnitCircle.normalized) * Random.Range(CircleSize * randomCircleSizeMultiplierBorders.x, CircleSize * randomCircleSizeMultiplierBorders.y);
 
         _targetPosition = new Vector3(-_startPosition.x, -_startPosition.y, 0f);
 
         _startPosition += Player.PlayerTransform.position;
         _targetPosition += Player.PlayerTransform.position;
 
-        if (_callerOnDestroy != null)
-            _callerOnDestroy.DeathExplosion();
+        if (callerOnDestroy != null)
+            callerOnDestroy.DeathExplosion();
 
-        // transform.position = _startPosition;
+        if (callerOnSpawn != null)
+            callerOnSpawn.DeathExplosion();
 
-        if (_callerOnSpawn != null)
-            _callerOnSpawn.DeathExplosion();
-
-        if (_handRunValue)
-            _distance = SceneStatics.MultiplyByChaos(_run_Distance);
+        if (handRunValue)
+            _distance = SceneStatics.MultiplyByChaos(runDistance);
         else
             _distance = (_targetPosition - _startPosition).magnitude;
 

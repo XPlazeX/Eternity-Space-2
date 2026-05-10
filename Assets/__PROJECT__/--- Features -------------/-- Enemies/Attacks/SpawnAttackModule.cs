@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SpawnAttackModule : MonoBehaviour, IAttackModule
+public class SpawnAttackModule : AttackingModule
 {
     [SerializeField] private float _waitTime;
     [SerializeField] private float _attackReload;
@@ -17,24 +17,24 @@ public class SpawnAttackModule : MonoBehaviour, IAttackModule
         _edbSpawner = SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>();
 
         if (_autoStart)
-            StartCoroutine(Firing());
+            StartCoroutine(Firing(false));
     }
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier");
     }
 
-    public void LocalMultiplyAggro(float multiplier)
+    public override void LocalMultiplyAggro(float multiplier)
     {
         _localAggro *= multiplier;
     }
 
-    public void HandFire()
+    public override void HandFire(bool volley = false)
     {
-        StartCoroutine(Firing());
+        StartCoroutine(Firing(volley));
     }
 
-    private IEnumerator Firing()
+    private IEnumerator Firing(bool volley)
     {
         yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime / (_aggro * _localAggro)));
 
@@ -54,6 +54,8 @@ public class SpawnAttackModule : MonoBehaviour, IAttackModule
                     yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeCooling / (_aggro * _localAggro)));
                 }
             }
+
+            if (volley) yield break;
 
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackReload / (_aggro * _localAggro)));
         }
@@ -96,7 +98,6 @@ public class SpawnEnemyAttackObject
         for (int i = 0; i < _enemyPerFire; i++)
         {
             Spawner.SpawnDamageBody(_enemy, barrel.position);
-            //Spawner.InitializeHPBar(Spawner.SpawnDamageBody(_enemy, barrel.position));
         }
     }
 }

@@ -3,19 +3,19 @@
 public class DroneOppositionAI : OppositionAI
 {
     [Space()]
-    [SerializeField] private string _targetTag;
+    [SerializeField] private string targetTag;
 
     protected override void Start()
     {
         // base.Start();
         StartMoving();
         _neverTargetToPlayer = true;
-        _trueOffset = _offset;
+        _trueOffset = offset;
     }
 
     public override void FindPlayer()
     {
-        _player = GetNearestTransformWithTag(_targetTag);
+        _player = GetNearestTransformWithTag(targetTag);
     }
 
     protected override void RotateToPlayer()
@@ -26,7 +26,7 @@ public class DroneOppositionAI : OppositionAI
             return;
         }
 
-        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), _rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
+        transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, (_player.position - transform.position), rotationSpeed * Time.deltaTime * (Speed / _startSpeed) * Mobility, 0f));
 
         CorrectRotation();
     }

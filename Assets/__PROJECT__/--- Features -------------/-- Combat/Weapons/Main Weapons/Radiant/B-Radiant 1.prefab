@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369023766849010391}
   - component: {fileID: 6489520924512503110}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Halo_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
   - component: {fileID: -7579853108204948340}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: B-Radiant 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ MonoBehaviour:
   _lifetime: 1.6
   _speed: 15
   _acceleration: 0
-  _accelerateToZero: 0
+  _topAcceleratedSpeed: 0
   _piercingTargets: 0
   _explodeOnTimer: 1
   relativeFactor: 0.66

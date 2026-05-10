@@ -54,7 +54,7 @@ public class _ExplosionBullet : MonoBehaviour
 
         // if (explosion.GetComponent<SpriteRenderer>() != null)
         //     explosion.GetComponent<SpriteRenderer>().color = _color;
-        explosion.transform.localScale = Vector3.one * _scale;// * (1f / ShipStats.GetValue("Pressure"));
+        explosion.SetScale(_scale);// * (1f / ShipStats.GetValue("Pressure"));
 
         if (_shakePower > 0)
             CameraController.Shake(_shakePower);

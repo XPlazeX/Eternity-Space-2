@@ -54,6 +54,15 @@ public class ExplosionObject : PooledObject
         }
     }
 
+    public void SetScale(float scale)
+    {
+        transform.localScale = Vector3.one * scale;
+        for (int i = 0; i < particleSystems.Length; i++)
+        {
+            particleSystems[i].transform.localScale = Vector3.one * scale;
+        }
+    }
+
     public void Mute() => _sounded = true;
 
     void Update()
@@ -123,6 +132,7 @@ public class ExplosionAnimatedLayer
     [SerializeField] private AnimationCurve scaleProgression;
     [SerializeField] private float scaleMultiplier = 1f;
     [SerializeField] private float animationTime = 0.5f;
+    [SerializeField] private bool hideAfterTimer = false;
 
     private Gradient _targetGradient;
     private SpriteRenderer _sr;
@@ -152,6 +162,11 @@ public class ExplosionAnimatedLayer
     public void Evaluate(float t)
     {
         if (t < waitTime) return;
+        if (hideAfterTimer && t > waitTime + animationTime)
+        {
+            animatingObject.transform.localScale = Vector3.zero;
+            return;
+        }
 
         if (!_activated)
         {
@@ -176,6 +191,7 @@ public class ExplosionAnimatedMask
     [SerializeField] private AnimationCurve scaleProgression;
     [SerializeField] private float animationTime;
     [SerializeField] private float scaleMultiplier;
+    [SerializeField] private bool hideAfterTimer = true;
 
     public float Duration => waitTime + animationTime;
 
@@ -189,6 +205,11 @@ public class ExplosionAnimatedMask
     public void Evaluate(float t)
     {
         if (t < waitTime || maskTransform == null) return;
+        if (hideAfterTimer && t > waitTime + animationTime)
+        {
+            maskTransform.localScale = Vector3.zero;
+            return;
+        }
 
         float elapse = Mathf.Clamp01((t - waitTime) / animationTime);
 

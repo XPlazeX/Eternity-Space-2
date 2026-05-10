@@ -3,31 +3,31 @@
 public class OnePointAI : EnemyAIRoot
 {
     [Space()]
-    [Range(0f, 40f)][SerializeField] private float _startAngleDeviation;
-    [SerializeField] private float _jumpPower;
-    [SerializeField] private bool _noSpreadJumpPower = false;
+    [Range(0f, 40f)][SerializeField] private float startAngleDeviation;
+    [SerializeField] private float jumpPower;
+    [SerializeField] private bool noSpreadJumpPower = false;
 
     private Vector3 _selectedDirection;
     private float _passedWay = 0f;
 
     protected override void Start() 
     {
-        _selectedDirection = Quaternion.Euler(0, 0, Random.Range(-_startAngleDeviation, _startAngleDeviation)) * transform.up;
-        if (!_noSpreadJumpPower)
-            _jumpPower = SceneStatics.MultiplyByChaos(_jumpPower);
-        _targetPosition = transform.position + (_selectedDirection.normalized * _jumpPower);
+        _selectedDirection = Quaternion.Euler(0, 0, Random.Range(-startAngleDeviation, startAngleDeviation)) * transform.up;
+        if (!noSpreadJumpPower)
+            jumpPower = SceneStatics.MultiplyByChaos(jumpPower);
+        _targetPosition = AiPosition + (_selectedDirection.normalized * jumpPower);
 
         base.Start();
     }
 
     protected override Vector2 GetMoveDelta()
     {
-        if ((_targetPosition - transform.position).magnitude < 0.05f)
+        if ((_targetPosition - AiPosition).magnitude < 0.05f)
         {
             return Vector2.zero;
         }
 
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _jumpPower) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / jumpPower) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
         return _selectedDirection * currentMoving;
     }

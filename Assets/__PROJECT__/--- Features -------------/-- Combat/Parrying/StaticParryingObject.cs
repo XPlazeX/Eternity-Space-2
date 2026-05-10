@@ -41,11 +41,5 @@ public class StaticParryingObject : MonoBehaviour
             ParryingHandler.BuffedParry();
             _sendedMsg = true;
         }
-        //canHeal = false;
     }
-
-    // protected override void SetDefaultStats()
-    // {
-    //     canHeal = true;
-    // }
 }

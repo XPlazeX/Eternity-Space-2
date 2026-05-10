@@ -2,27 +2,24 @@
 
 public class PlaneAI : EnemyAIRoot
 {
-    [Range(0, 1f)][SerializeField] private float _upperBorderPercent;
-    [Range(0, 1f)][SerializeField] private float _downBorderPercent;
+    [Range(0, 1f)][SerializeField] private float upperBorderPercent;
+    [Range(0, 1f)][SerializeField] private float downBorderPercent;
     [Space()]
-    [SerializeField] private float _timeToReloadTarget;
+    [SerializeField] private float timeToReloadTarget;
 
     private Vector2 XBorders => new Vector2(ArenaLocal.WNegX, ArenaLocal.WPosX);
-    private Vector2 YBorders => new Vector2(ArenaLocal.WNegY + ArenaLocal.Height * _downBorderPercent, ArenaLocal.WNegY + ArenaLocal.Height * _upperBorderPercent);
+    private Vector2 YBorders => new Vector2(ArenaLocal.WNegY + ArenaLocal.Height * downBorderPercent, ArenaLocal.WNegY + ArenaLocal.Height * upperBorderPercent);
     private float _passedWay = 0f;
     private float _distance = 0f;
     private float _timer = 0f;
 
-    protected override void Start() {
-        // _XBorders = new Vector2 (CameraController.Borders_xXyY.x, CameraController.Borders_xXyY.y);
-        // float ySize = -CameraController.Borders_xXyY.z + CameraController.Borders_xXyY.w;
-        // _YBorders = new Vector2 ( (ySize * _downBorderPercent - (ySize / 2f)),  (ySize * _upperBorderPercent - (ySize / 2f)));
-
+    protected override void Start() 
+    {
         SetTarget();
 
         _passedWay = 0f;
-        _distance = (_targetPosition - transform.position).magnitude;
-        _timer = _timeToReloadTarget;
+        _distance = (_targetPosition - AiPosition).magnitude;
+        _timer = timeToReloadTarget;
 
         base.Start();
     }
@@ -30,19 +27,19 @@ public class PlaneAI : EnemyAIRoot
     public override void StartMoving()
     {
         base.StartMoving();
-        if (!_autoStart)
+        if (!autoStart)
             Start();
     }
 
     private void SetTarget()
     {
-        _targetPosition = new Vector3 (Random.Range(XBorders.x + level_borders_moving_offset, XBorders.y - level_borders_moving_offset),
-            Random.Range(YBorders.x + level_borders_moving_offset, YBorders.y - level_borders_moving_offset), 0f);
+        _targetPosition = new Vector3 (Random.Range(XBorders.x + ARENA_BORDERS_MOVING_OFFSET, XBorders.y - ARENA_BORDERS_MOVING_OFFSET),
+            Random.Range(YBorders.x + ARENA_BORDERS_MOVING_OFFSET, YBorders.y - ARENA_BORDERS_MOVING_OFFSET), 0f);
     }
 
     protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = _movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
         _passedWay += currentMoving;
 
         _timer -= Time.deltaTime;
@@ -51,10 +48,10 @@ public class PlaneAI : EnemyAIRoot
         {
             SetTarget();
             _passedWay = 0f;
-            _distance = (_targetPosition - transform.position).magnitude;
-            _timer = SceneStatics.MultiplyByChaos(_timeToReloadTarget / Mobility);
+            _distance = (_targetPosition - AiPosition).magnitude;
+            _timer = SceneStatics.MultiplyByChaos(timeToReloadTarget / Mobility);
         }
 
-        return ((_targetPosition - transform.position).normalized) * currentMoving;
+        return (_targetPosition - AiPosition).normalized * currentMoving;
     }
 }

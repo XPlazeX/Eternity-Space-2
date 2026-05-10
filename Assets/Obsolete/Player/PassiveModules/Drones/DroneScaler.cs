@@ -27,7 +27,7 @@ public class DroneScaler : MonoBehaviour
 
         if (_scaleLocalAggro)
         {
-            GetComponent<IAttackModule>().LocalMultiplyAggro(1f + (_aggroBoostPerStep * boostMultiplier));
+            GetComponent<AttackingModule>().LocalMultiplyAggro(1f + (_aggroBoostPerStep * boostMultiplier));
         }    
 
         if (_scaleHP)

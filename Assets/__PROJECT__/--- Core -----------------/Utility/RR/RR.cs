@@ -112,6 +112,7 @@ public static class RR
         SetFallback(RuntimeStat.EnemyBulletSpeedMultiplier, 1f, RuntimeStatGroup.Enemy);
         SetFallback(RuntimeStat.EnemyAggresionMultiplier, 1f, RuntimeStatGroup.Enemy);
         SetFallback(RuntimeStat.EnemyMobilityMultiplier, 1f, RuntimeStatGroup.Enemy);
+        SetFallback(RuntimeStat.EnemyForesightAddition, 0f, RuntimeStatGroup.Enemy);
 
         SetFallback(RuntimeStat.AsteroidSpawnRateMultiplier, 1f, RuntimeStatGroup.Environment);
         SetFallback(RuntimeStat.AsteroidSpeedMultiplier, 1f, RuntimeStatGroup.Environment);
@@ -419,6 +420,7 @@ public static class RR
         public float EnemyBulletSpeedMultiplier => Get(RuntimeStat.EnemyBulletSpeedMultiplier);
         public float EnemyAggresionMultiplier => Get(RuntimeStat.EnemyAggresionMultiplier);
         public float EnemyMobilityMultiplier => Get(RuntimeStat.EnemyMobilityMultiplier);
+        public float EnemyForesightAddition => Get(RuntimeStat.EnemyForesightAddition);
 
         public float AsteroidSpawnRateMultiplier => Get(RuntimeStat.AsteroidSpawnRateMultiplier);
         public float AsteroidSpeedMultiplier => Get(RuntimeStat.AsteroidSpeedMultiplier);

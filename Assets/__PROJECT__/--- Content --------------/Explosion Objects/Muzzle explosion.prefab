@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 532192773385979439}
   - component: {fileID: 8663073756299317227}
   - component: {fileID: 2386588666118645069}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3822327432860797157}
   - component: {fileID: 5075635723808820931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Muzzle explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112427482016215164}
   - component: {fileID: 198023407300793623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

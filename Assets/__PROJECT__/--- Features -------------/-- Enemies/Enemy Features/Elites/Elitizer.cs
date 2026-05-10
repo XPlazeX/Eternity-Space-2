@@ -36,7 +36,7 @@ public class Elitizer : MonoBehaviour
             eair.LocalMultiplyMobility(_mobilityMultiplier);
         }
 
-        IAttackModule[] attackModules = _bindedDB.GetComponents<IAttackModule>();
+        AttackingModule[] attackModules = _bindedDB.GetComponents<AttackingModule>();
 
         for (int i = 0; i < attackModules.Length; i++)
         {

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5182018961617003048}
   - component: {fileID: 8389996248171070227}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Halo_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
   - component: {fileID: -5441174016827092469}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   _lifetime: 5
   _speed: 10
   _acceleration: 0
-  _accelerateToZero: 0
+  _topAcceleratedSpeed: 0
   _piercingTargets: 0
   _explodeOnTimer: 1
   relativeFactor: 0.66

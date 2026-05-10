@@ -22081,7 +22081,7 @@ MonoBehaviour:
   spawn: 1
   spawnCards: []
   enemyEncounterSpawnRequests:
-  - enemy: {fileID: 9069206062416828823, guid: 1b4b812d45f04b74c8d87d4e6267a621, type: 3}
+  - enemy: {fileID: 9069206062416828823, guid: ca60e849e6cef19448da9c1897c489ff, type: 3}
     enemyWeight: 1
     count: 40
     spawnPositionMode: 0
@@ -33479,11 +33479,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionCode: 1
-  _explosionObject: {fileID: 0}
+  _explosionObject: {fileID: 5075635723808820931, guid: f11c8fadbddc2fa4ca46636e8571ec95, type: 3}
   _mute: 0
   _modParams: 1
   _color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
-  _scale: 1
+  _scale: 0.4
   _shakePower: 0
   _damage: 0
 --- !u!850595691 &1045099230
@@ -68529,8 +68529,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc33cee29999d8147bc11c8f7d5e57b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionRepeater
-  explosionObject: {fileID: 5075635723808820931, guid: 03c66066cd48c38468e3e2c6d46f4a9f, type: 3}
-  repeatTime: 0.5
+  autoStart: 1
+  explosionObject: {fileID: 5075635723808820931, guid: e5fbfbdb8ecf5a94a804fc2419aab1be, type: 3}
+  scale: 5
+  overrideColor: 0
+  color: {r: 0.9607844, g: 0.8705883, b: 0.7019608, a: 1}
+  repeatTime: 1
   loop: 1
   cycles: 3
 --- !u!1 &2030821149
@@ -79782,7 +79786,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -30
+  m_SortingOrder: -31
   m_Sprite: {fileID: 21300000, guid: d7dac4aea4270414997a13f8d6b6b2b0, type: 3}
   m_Color: {r: 0.2798871, g: 0.18876824, b: 0.3962264, a: 1}
   m_FlipX: 0

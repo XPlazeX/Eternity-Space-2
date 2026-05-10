@@ -3,9 +3,9 @@
 public class AssaultAI : EnemyAIRoot
 {
     [Header("This AI always use Lerp function to closing the Player (Moving Progression will not using)")]
-    [SerializeField] private float _offsetDistance;
-    [SerializeField] private float _timeToReloadCirclePoint;
-    [SerializeField] private bool _autoTargetPlayer = true;
+    [SerializeField] private float offsetDistance;
+    [SerializeField] private float timeToReloadCirclePoint;
+    [SerializeField] private bool autoTargetPlayer = true;
 
     private Vector3 _offset;
     private float _secondaryOffset = 0f;
@@ -13,7 +13,7 @@ public class AssaultAI : EnemyAIRoot
 
     protected override void Start() 
     {
-        if (!_autoTargetPlayer)
+        if (!autoTargetPlayer)
         {
             base._player = transform.parent;
             transform.parent = null;
@@ -22,7 +22,7 @@ public class AssaultAI : EnemyAIRoot
         SetOffset();
         
         _secondaryOffset = SceneStatics.MultiplyByChaos(SceneStatics.ChaosMultiplier);
-        _timer = _timeToReloadCirclePoint;
+        _timer = timeToReloadCirclePoint;
         _offset += new Vector3(Random.Range(-_secondaryOffset, _secondaryOffset), Random.Range(-_secondaryOffset, _secondaryOffset), 0f);
 
         base.Start();
@@ -31,14 +31,14 @@ public class AssaultAI : EnemyAIRoot
     private void SetOffset()
     {
         Vector2 temp = Random.insideUnitCircle.normalized;
-        _offset = new Vector3(temp.x, temp.y, 0f) * (_offsetDistance / Mobility);
+        _offset = new Vector3(temp.x, temp.y, 0f) * (offsetDistance / Mobility);
     }
 
     protected override Vector2 GetMoveDelta()
     {
         if (_player == null)
         {
-            _autoTargetPlayer = true;
+            autoTargetPlayer = true;
             base.FindPlayer();
             return Vector2.zero;
         }
@@ -48,23 +48,23 @@ public class AssaultAI : EnemyAIRoot
         if (_timer <= 0f)
         {
             SetOffset();
-            _timer = SceneStatics.MultiplyByChaos((_timeToReloadCirclePoint / Mobility));
+            _timer = SceneStatics.MultiplyByChaos((timeToReloadCirclePoint / Mobility));
         }
 
         _targetPosition = GetActualPlayerPosition() + _offset;
 
-        return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
+        return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
     }
 
 
     protected Vector3 GetActualPlayerPosition()
     {
-        if (!_autoTargetPlayer)
+        if (!autoTargetPlayer)
         {
             return _player.position;
         } else
         {
-            return Player.GetPlayerPosition(_foresight + MovementForesight);
+            return Player.GetPlayerPosition(MovementForesight);
         }
     }
 }

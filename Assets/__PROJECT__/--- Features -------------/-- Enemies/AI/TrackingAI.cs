@@ -3,21 +3,22 @@
 public class TrackingAI : EnemyAIRoot
 {
     [Header("This AI always use Lerp function to closing the Player (Moving Progression will not using)")]
-    [SerializeField] private float _closingDistance;
-    [SerializeField] private bool _autoTargetPlayer = true;
-    [SerializeField] private bool _linearMove = false;
+    [SerializeField] private float closingDistance;
+    [SerializeField] private bool autoTargetPlayer = true;
+    [SerializeField] private bool linearMove = false;
     [Space()]
-    [SerializeField] private bool _retreating = false;
-    [SerializeField] private float _repositionTime = 1f;
-    [SerializeField] private float _retreatPower = 2.5f;
+    [SerializeField] private bool retreating = false;
+    [SerializeField] private float repositionTime = 1f;
+    [SerializeField] private float retreatPower = 2.5f;
 
     private bool _reposition = false;
     private float _timer = 0f;
     private float _secondaryOffset = 0f;
     protected bool _neverTargetToPlayer = false;
 
-    protected override void Start() {
-        if (!_autoTargetPlayer && !_neverTargetToPlayer)
+    protected override void Start() 
+    {
+        if (!autoTargetPlayer && !_neverTargetToPlayer)
         {
             base._player = transform.parent;
             transform.parent = null;
@@ -38,23 +39,23 @@ public class TrackingAI : EnemyAIRoot
 
         if (!_reposition)
         {
-            if (((transform.position - GetActualPlayerPosition()).magnitude < (_closingDistance) && _retreating))
+            if ((AiPosition - GetActualPlayerPosition()).magnitude < (closingDistance) && retreating)
             {
                 _reposition = true;
-                _timer = SceneStatics.MultiplyByChaos(_repositionTime / Mobility);
+                _timer = SceneStatics.MultiplyByChaos(repositionTime / Mobility);
                 _secondaryOffset = SceneStatics.MultiplyByChaos(SceneStatics.ChaosMultiplier) * 2f;
 
-                _targetPosition = GetActualPlayerPosition() + ((transform.position - GetActualPlayerPosition()).normalized * (_closingDistance / Mobility) * _retreatPower);
+                _targetPosition = GetActualPlayerPosition() + ((AiPosition - GetActualPlayerPosition()).normalized * (closingDistance / Mobility) * retreatPower);
                 _targetPosition += new Vector3(Random.Range(-_secondaryOffset, _secondaryOffset), Random.Range(-_secondaryOffset, _secondaryOffset), 0f);
                 return Vector2.zero;
             }
 
-            _targetPosition = GetActualPlayerPosition() + ((transform.position - GetActualPlayerPosition()).normalized * (_closingDistance / Mobility));
+            _targetPosition = GetActualPlayerPosition() + ((AiPosition - GetActualPlayerPosition()).normalized * (closingDistance / Mobility));
 
-            if (_linearMove && ((_targetPosition - transform.position).magnitude > _closingDistance + 0.2f))
-                return (_targetPosition - transform.position).normalized * Speed * Time.fixedDeltaTime * Mobility;
+            if (linearMove && ((_targetPosition - AiPosition).magnitude > closingDistance + 0.2f))
+                return (_targetPosition - AiPosition).normalized * Speed * Time.fixedDeltaTime * Mobility;
             else
-                return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
+                return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
         } else 
         {
             if (_timer <= 0)
@@ -63,18 +64,18 @@ public class TrackingAI : EnemyAIRoot
                 return Vector2.zero;
             }
 
-            return Vector3.Lerp(transform.position, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - transform.position;
+            return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
         } 
     }
 
     protected Vector3 GetActualPlayerPosition()
     {
-        if (!_autoTargetPlayer)
+        if (!autoTargetPlayer)
         {
             return _player.position;
         } else
         {
-            return Player.GetPlayerPosition(_foresight + MovementForesight);
+            return Player.GetPlayerPosition(MovementForesight);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class AttackModule : MonoBehaviour, IAttackModule
+public class AttackModule : AttackingModule
 {
     public delegate void attackAction();
     public event attackAction Fired;
@@ -18,26 +18,21 @@ public class AttackModule : MonoBehaviour, IAttackModule
     private void OnEnable() 
     {
         if (_autoStart)
-            StartCoroutine(Firing());
+            StartCoroutine(Firing(false));
     }
 
     private void Start() {
         _aggro = ShipStats.GetValue("EnemyAggresionMultiplier") * Mathf.Sqrt(GameSessionInfoHandler.HardnessMultiplier);
-
-        // for (int i = 0; i < _attackObjects.Length; i++)
-        // {
-        //     _attackObjects[i].Preload();
-        // }
     }
 
-    public void LocalMultiplyAggro(float multiplier)
+    public override void LocalMultiplyAggro(float multiplier)
     {
         _localAggro *= multiplier;
     }
 
-    public void HandFire()
+    public override void HandFire(bool volley = false)
     {
-        StartCoroutine(Firing());
+        StartCoroutine(Firing(volley));
     }
 
     public void HandFireSeries(int seriesID, float waitTime = 0f)
@@ -45,7 +40,7 @@ public class AttackModule : MonoBehaviour, IAttackModule
         StartCoroutine(FiringSeries(seriesID, waitTime));
     }
 
-    private IEnumerator Firing()
+    private IEnumerator Firing(bool volley)
     {
         yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_waitTime / (_aggro * _localAggro) * (PlayerPrefs.GetFloat("GameMode") == 1f ? 0.2f : 1f)));
 
@@ -65,6 +60,11 @@ public class AttackModule : MonoBehaviour, IAttackModule
             }
 
             Reloaded?.Invoke();
+
+            if (volley)
+            {
+                yield break;
+            }
             
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackReload / (_aggro * _localAggro)));
         }
@@ -95,7 +95,6 @@ public class EnemyAttackObject
     [SerializeField] private float _timeBetweenCycles;
     [SerializeField] private float _timeCooling = 0;
     [Space()]
-    // [SerializeField] private int _bulletCode;
     [SerializeField] private Bullet _bulletSample;
     [SerializeField] private Transform[] _barrels;
     [SerializeField] private bool _randomBarrel = false;
@@ -104,17 +103,10 @@ public class EnemyAttackObject
     [SerializeField] private float _fixedAngleStep;
     [SerializeField] private float _randomAngleStep;
     [SerializeField][Range(0, 1f)] private float _randomizingBulletSpeed = 0f;
-    //[Space()]
-    //[SerializeField] private int _soundOnFireID = default_attack_sound_id;
 
     public int Cycles => _cycles;
     public float TimeBetweenCycles => _timeBetweenCycles;
     public float TimeCooling => _timeCooling;
-
-    // public void Preload()
-    // {
-    //     // GenericBulletDatabase.PreloadBullet(_bulletCode);
-    // }
 
     public void Fire()
     {
@@ -126,9 +118,6 @@ public class EnemyAttackObject
             {
                 SpawnBullets(_barrels[i]);
             }
-
-        //FightSoundHelper.PlaySound(_soundOnFireID, _barrels[0].position);
-        // FightSoundHelper.PlayBulletSound(_bulletCode, _bulletsPerFire, _barrels[0].position);
     }
 
     private void SpawnBullets(Transform barrel)
@@ -140,7 +129,7 @@ public class EnemyAttackObject
 
         for (int i = 0; i < _bulletsPerFire; i++)
         {
-            Bullet bullet = Pool.Spawn(_bulletSample); //GenericBulletDatabase.GetBullet(_bulletCode);
+            Bullet bullet = Pool.Spawn(_bulletSample);
             bullet.transform.position = barrel.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, startAngle + Random.Range(-_randomAngleStep, _randomAngleStep));
 

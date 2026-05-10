@@ -13,6 +13,8 @@ public class AsteroidBody : DamageBody
     private Vector3 _direction;
     private Rigidbody2D _rb;
 
+    public override bool RamReady => false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -56,6 +58,8 @@ public class AsteroidBody : DamageBody
             }
         }
     }
+
+    protected override void Stun(){}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
