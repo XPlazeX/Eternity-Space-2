@@ -61,26 +61,32 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AngularNoiseScale: 20.37
+    - _AngularNoiseScale: 30
     - _AngularNoiseStrength: 0.113
+    - _AngularNoiseStrengthPixels: 3.43
     - _AshDarkness: 0.15
-    - _BreachRadius: 0.094
+    - _BreachRadius: 0.206
+    - _BreachRadiusPixels: 5.09
     - _BumpScale: 1
     - _BurnAmount: 0.75
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EdgeWidth: 0.04
+    - _EdgeWidthPixels: 1.5
     - _GlobalAlpha: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HeatAmount: 1.2
     - _Metallic: 0
+    - _MinVisibleRadiusPixels: 2
     - _Mode: 0
     - _NoiseScale: 12
+    - _NoiseScalePixels: 8
     - _NoiseSeed: 0
     - _NoiseStrength: 0.247
+    - _NoiseStrengthPixels: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -88,12 +94,15 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _WarpScale: 10
+    - _WarpScalePixels: 1
     - _WarpStrength: 0.0314
+    - _WarpStrengthPixels: 0
     - _ZWrite: 1
     m_Colors:
     - _BreachCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpriteSizePixels: {r: 20, g: 20, b: 0, a: 0}
     - _SpriteUVRect: {r: 0, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

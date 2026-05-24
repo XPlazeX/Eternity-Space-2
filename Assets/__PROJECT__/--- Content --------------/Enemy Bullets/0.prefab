@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 5500839470369327556}
   - component: {fileID: 6301609241194541591}
   - component: {fileID: 6149396609532520741}
+  - component: {fileID: 3059168067117665675}
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
   - component: {fileID: -5441174016827092469}
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 571974552004612012, guid: d393de212b6e36d428fe29708de66cca, type: 3}
-  m_Color: {r: 1, g: 0.5379277, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5882353, b: 0.050980397, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -210,13 +211,88 @@ MonoBehaviour:
     cycles: 1
     damageTag: 0
   _otherDeathResource: 0
-  _lifetime: 5
-  _speed: 10
+  _lifetime: 8
+  _speed: 13
   _acceleration: 0
   _topAcceleratedSpeed: 0
   _piercingTargets: 0
   _explodeOnTimer: 1
   relativeFactor: 0.66
+--- !u!114 &3059168067117665675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644595582373362196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b6b76077bd9b24e9e899b63863a1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorByBulletLifetime
+  bulletColorings:
+  - spriteRenderer: {fileID: 6301609241194541591}
+    colorProgression:
+      serializedVersion: 2
+      key0: {r: 1, g: 0.5372549, b: 0, a: 1}
+      key1: {r: 0.9732849, g: 0.51397836, b: 0, a: 1}
+      key2: {r: 0.6039216, g: 0.19215688, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 35450
+      ctime2: 65343
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+  - spriteRenderer: {fileID: 8389996248171070227}
+    colorProgression:
+      serializedVersion: 2
+      key0: {r: 1, g: 0.5882353, b: 0.050980397, a: 1}
+      key1: {r: 1, g: 0.18266678, b: 0.05098039, a: 0.5882353}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
 --- !u!50 &965381140312984591
 Rigidbody2D:
   serializedVersion: 5
@@ -306,7 +382,7 @@ MonoBehaviour:
   _explosionObject: {fileID: 5075635723808820931, guid: 03c66066cd48c38468e3e2c6d46f4a9f, type: 3}
   _mute: 0
   _modParams: 1
-  _color: {r: 1, g: 0.986928, b: 0, a: 1}
-  _scale: 0.4
+  _color: {r: 1, g: 0.45921358, b: 0, a: 1}
+  _scale: 0.3
   _shakePower: 0
   _damage: 0

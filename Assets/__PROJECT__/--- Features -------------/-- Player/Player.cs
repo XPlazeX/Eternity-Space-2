@@ -33,17 +33,6 @@ public class Player : MonoBehaviour
         _firstPlayerExample.SetActive(false);
     }
 
-    private void OnEnable() {
-        ShipStats.StatChanged += ObserveStat;
-        _foresightAddition = ShipStats.GetValue("ForesightAddition");
-    }
-
-    private void OnDisable() {
-        ShipStats.StatChanged -= ObserveStat;
-
-        //Application.targetFrameRate
-    }
-
     private void FixedUpdate() 
     {
         if (TargetPlayerTransform == null)
@@ -53,14 +42,14 @@ public class Player : MonoBehaviour
         _oldPlayerPosition = TargetPlayerTransform.position;
     }
 
-    private void ObserveStat(string name, float val)
-    {
-        if (name == "ForesightAddition")
-        {
-            _foresightAddition = ShipStats.GetValue("ForesightAddition");
-        }
+    // private void ObserveStat(string name, float val)
+    // {
+    //     if (name == "ForesightAddition")
+    //     {
+    //         _foresightAddition = ShipStats.GetValue("ForesightAddition");
+    //     }
 
-    }
+    // }
 
     public static Vector3 GetPlayerPosition(float foresight = 0f)
     {

@@ -9,6 +9,7 @@ public enum RuntimeStat
     TimeSlowMultiplier,
     CriticalTimeSlowMultiplier,
     PrepareTimeMultiplier,
+    UnvulnerableTimeAfterDamageMultiplier,
 
     // --- Ram ---
     RamHealValue,

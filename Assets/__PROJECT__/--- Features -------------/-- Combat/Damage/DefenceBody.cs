@@ -4,7 +4,7 @@ using DamageSystem;
 public class DefenceBody : DamageBody
 {
 
-    protected override void Death()
+    protected override void Death(DamageBundle damageBundle, int overdmg)
     {
 
     }

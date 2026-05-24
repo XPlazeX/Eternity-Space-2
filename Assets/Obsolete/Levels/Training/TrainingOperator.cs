@@ -28,7 +28,7 @@ public class TrainingOperator : MonoBehaviour
         SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>().WaveCompleted += NextTip;
         SceneStatics.SceneCore.GetComponent<EnemyDBSpawner>().Modify(0.1f * _tipCount, 1f, 0, 1f);
 
-        PlayerShipData.PlayerDeath += RestartTraining;
+        // PlayerShipData.PlayerDeath += RestartTraining;
         VictoryHandler.MissionVictored += EndTraining;
         VictoryHandler.CustomSceneOnVictory = "MissionMenu";
         VictoryHandler.CustomSceneOnExit = "Intro";
@@ -71,7 +71,7 @@ public class TrainingOperator : MonoBehaviour
 
     private void OnDisable() 
     {
-        PlayerShipData.PlayerDeath -= RestartTraining;
+        // PlayerShipData.PlayerDeath -= RestartTraining;
         VictoryHandler.MissionVictored -= EndTraining;
     }
 }

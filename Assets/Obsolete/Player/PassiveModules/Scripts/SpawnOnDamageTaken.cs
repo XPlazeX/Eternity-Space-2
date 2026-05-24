@@ -26,19 +26,19 @@ public class SpawnOnDamageTaken : Module
 
     public override void Load()
     {
-        if ((_condition & SpawnCondition.DamageTaken) == SpawnCondition.DamageTaken)
-            PlayerShipData.TakeHealthDamage += Spawn;
+        // if ((_condition & SpawnCondition.DamageTaken) == SpawnCondition.DamageTaken)
+        //     PlayerShipData.TakeHealthDamage += Spawn;
 
-        if ((_condition & SpawnCondition.Ram) == SpawnCondition.Ram)
-            PlayerRamsHandler.RamSuccess += Spawn;
+        // if ((_condition & SpawnCondition.Ram) == SpawnCondition.Ram)
+        //     PlayerRamsHandler.RamSuccess += Spawn;
     }
 
     private void OnDisable() {
-        if ((_condition & SpawnCondition.DamageTaken) == SpawnCondition.DamageTaken)
-            PlayerShipData.TakeHealthDamage -= Spawn;
+        // if ((_condition & SpawnCondition.DamageTaken) == SpawnCondition.DamageTaken)
+        //     PlayerShipData.TakeHealthDamage -= Spawn;
 
-        if ((_condition & SpawnCondition.Ram) == SpawnCondition.Ram)
-            PlayerRamsHandler.RamSuccess -= Spawn;
+        // if ((_condition & SpawnCondition.Ram) == SpawnCondition.Ram)
+        //     PlayerRamsHandler.RamSuccess -= Spawn;
     }
 
     public void Spawn()

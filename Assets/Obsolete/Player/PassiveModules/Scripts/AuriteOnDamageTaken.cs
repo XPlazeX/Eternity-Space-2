@@ -9,12 +9,12 @@ public class AuriteOnDamageTaken : Module
 
     public override void Load()
     {
-        PlayerShipData.TakeHealthDamage += OnDamageTaken;
+        // PlayerShipData.TakeHealthDamage += OnDamageTaken;
         _victoryHandler = SceneStatics.CharacterCore.GetComponent<VictoryHandler>();
     }
 
     private void OnDisable() {
-        PlayerShipData.TakeHealthDamage -= OnDamageTaken;
+        // PlayerShipData.TakeHealthDamage -= OnDamageTaken;
     }
 
     public void OnDamageTaken(int dmg)

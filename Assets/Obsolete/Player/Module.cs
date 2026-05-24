@@ -129,6 +129,17 @@ public class AttackPattern : Gear
             ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
     }
 
+    protected void SpawnBullet(AttackObject customSample, Vector3 position, float startRotation)
+    {
+        AttackObject bulletSample = Pool.Spawn(customSample);//CharacterBulletDatabase.GetAttackObject(_bulletIndex);
+
+        bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
+        bulletSample.transform.position = position;
+
+        if (_spreadBulletSpeed != 0)
+            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
+    }
+
     protected void MuzzleFlash(Vector3 position)
     {
         muzzleExplosion.SpawnExplosion(position);

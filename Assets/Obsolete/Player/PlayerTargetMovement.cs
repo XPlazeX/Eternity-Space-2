@@ -19,13 +19,13 @@ public class PlayerTargetMovement : MonoBehaviour
     }
 
     private void OnEnable() {
-        if (_fearing)
-            PlayerShipData.TakeHealthDamage += OnHealthDamageTaken;
+        // if (_fearing)
+        //     PlayerShipData.TakeHealthDamage += OnHealthDamageTaken;
     }
 
     private void OnDisable() {
-        if (_fearing)
-            PlayerShipData.TakeHealthDamage -= OnHealthDamageTaken;
+        // if (_fearing)
+        //     PlayerShipData.TakeHealthDamage -= OnHealthDamageTaken;
     }
 
     private void Update() {

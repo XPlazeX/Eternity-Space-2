@@ -6,7 +6,9 @@ public class MainWeaponHandler : MonoBehaviour
     public static Action WeaponChanged;
     // Задача - держать наши виды оружия и их вариации, включать необходимое
     [SerializeField] private WeaponSlot[] weaponSlots;
+    [SerializeField] private bool simpleSystem = true;
     [SerializeField] private Device simpleUseDevice;
+    [SerializeField] private AttackPattern[] radiantProgression;
 
     public static WeaponRoot MainWeaponRoot {get; private set;}
 
@@ -17,12 +19,23 @@ public class MainWeaponHandler : MonoBehaviour
     public static int ActiveSlot {get; private set;}
     public static int ActiveSecondary {get; private set;}
     public static bool UsedSimpleDevice {get; private set;}
+    public static int RadiantSimpleLevel {get; private set;} = -1;
 
     public void Initialize() {
         Player.PlayerChanged += OnPlayerChanged;
         OnPlayerChanged();
-        SelectWeapon(0, 0);
-        SetupSimpleUseDevice();
+
+        if (simpleSystem)
+        {
+            SelectWeapon(0, 0);
+            SetupSimpleUseDevice();
+            SetRadiantLevel(0);
+        }
+
+        else
+        {
+            SelectWeapon(0, 0);
+        }
     }
 
     private void OnDisable() {
@@ -43,6 +56,50 @@ public class MainWeaponHandler : MonoBehaviour
     //     SelectWeapon(0, 0);
     // }
 
+    public void RadiantUpgrade(out bool overcharged)
+    {
+        overcharged = false;
+
+        if (!simpleSystem) return;
+
+        if (RadiantSimpleLevel == radiantProgression.Length - 1)
+        {
+            overcharged = true;
+            return;
+        }
+
+        SetRadiantLevel(RadiantSimpleLevel + 1);
+    }
+
+    public void RadiantDowngrade(out bool overzero)
+    {
+        overzero = false;
+
+        if (!simpleSystem) return;
+
+        if (RadiantSimpleLevel <= 0)
+        {
+            overzero = true;
+            return;
+        }
+
+        SetRadiantLevel(RadiantSimpleLevel - 1);
+    }
+
+    private void SetRadiantLevel(int lvl)
+    {
+        lvl = Mathf.Clamp(lvl, 0, radiantProgression.Length - 1);
+
+        ActiveWeaponID = radiantProgression[lvl].ID;
+
+        ActiveMainWeapon = radiantProgression[lvl];
+
+        MainWeaponRoot.BindTargetAttackPattern(ActiveMainWeapon);
+        RadiantSimpleLevel = lvl;
+
+        WeaponChanged?.Invoke();
+    }
+
     private void UpdateMainWeaponRoot()
     {
         MainWeaponRoot = Player.PlayerObject.GetComponent<WeaponRoot>();
@@ -57,6 +114,11 @@ public class MainWeaponHandler : MonoBehaviour
             {
                 weaponSlots[i].Secondaries[j].Load();
             }
+        }
+
+        for (int i = 0; i < radiantProgression.Length; i++)
+        {
+            radiantProgression[i].Load();
         }
     }
 

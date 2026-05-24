@@ -12,11 +12,11 @@ public class FinwhalAlt : MonoBehaviour
     }
 
     private void OnEnable() {
-        PlayerShipData.ChangeArmor += OnArmorChanged;
+        // PlayerShipData.ChangeArmor += OnArmorChanged;
     }
 
     private void OnDisable() {
-        PlayerShipData.ChangeArmor -= OnArmorChanged;
+        // PlayerShipData.ChangeArmor -= OnArmorChanged;
     }
 
     private void OnArmorChanged(int newArm)

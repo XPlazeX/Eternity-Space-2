@@ -43,11 +43,11 @@ public class LineAI : EnemyAIRoot
         _startPosition += Player.PlayerTransform.position;
         _targetPosition += Player.PlayerTransform.position;
 
-        if (callerOnDestroy != null)
-            callerOnDestroy.DeathExplosion();
+        // if (callerOnDestroy != null)
+        //     callerOnDestroy.DeathExplosion();
 
-        if (callerOnSpawn != null)
-            callerOnSpawn.DeathExplosion();
+        // if (callerOnSpawn != null)
+        //     callerOnSpawn.DeathExplosion();
 
         if (handRunValue)
             _distance = SceneStatics.MultiplyByChaos(runDistance);

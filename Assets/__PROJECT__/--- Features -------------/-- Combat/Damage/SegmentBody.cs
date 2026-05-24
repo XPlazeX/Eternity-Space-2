@@ -27,7 +27,7 @@ public class SegmentBody : DamageBody
         return true;
     }
 
-    protected override void Death()
+    protected override void Death(DamageBundle damageBundle, int overdmg)
     {
         SegmentZeroHP?.Invoke();
     }

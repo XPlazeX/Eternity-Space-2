@@ -27,12 +27,12 @@ public class UltratechRoot : MonoBehaviour
         
         _UTexplosions = new PullForObjects(_explosion as PullableObject);
         PlayerRamsHandler.RamSuccess += RamSuccess;
-        PlayerShipData.PlayerDeath += Deactivate;
+        // PlayerShipData.PlayerDeath += Deactivate;
     }
 
     private void OnDisable() {
         PlayerRamsHandler.RamSuccess -= RamSuccess;
-        PlayerShipData.PlayerDeath -= Deactivate;
+        // PlayerShipData.PlayerDeath -= Deactivate;
     }
 
     public void Initialize(Ultratech ultratech)

@@ -25,13 +25,13 @@ public class EmissionHandler : MonoBehaviour
             _emissionUI.Hide();
             return;
         }
-        PlayerShipData.PlayerDeath += StopWork;
+        // PlayerShipData.PlayerDeath += StopWork;
         Player.PlayerChanged += BindVisualizer;
         _emissionVisualizer = Instantiate(_emissionVisualizerSample);
         BindVisualizer();
 
         PlayerDamageBody playerDamageBody = GameObject.FindWithTag("Player").GetComponent<PlayerDamageBody>();
-        PlayerShipData.TakeHealthDamage += ResetEmission;
+        // PlayerShipData.TakeHealthDamage += ResetEmission;
         // PlayerShipData.TakeArmorDamage += ResetEmission;
 
         _chargeTime = ShipStats.GetValue("EmissionFillTime");
@@ -44,9 +44,9 @@ public class EmissionHandler : MonoBehaviour
     private void OnDisable() {
         if (!Workable)
             return;
-        PlayerShipData.TakeHealthDamage -= ResetEmission;
+        // PlayerShipData.TakeHealthDamage -= ResetEmission;
         // PlayerShipData.TakeArmorDamage -= ResetEmission;
-        PlayerShipData.PlayerDeath -= StopWork;
+        // PlayerShipData.PlayerDeath -= StopWork;
         Player.PlayerChanged -= BindVisualizer;
     }
 

@@ -85,7 +85,7 @@ public class Doc : MonoBehaviour
         RectTransform docPanel = SceneStatics.UICore.GetComponent<UIPlacer>().PlaceInteractiveUI(((GameObject)_docPanelOperation.Result).GetComponent<RectTransform>(), Vector2.zero, true);
 
         docPanel.GetComponent<DocModuleChoice>().BindDoc(this);
-        PlayerShipData.LoadHealth();
+        // PlayerShipData.LoadHealth();
     }
 
     public void ChoiceMade()

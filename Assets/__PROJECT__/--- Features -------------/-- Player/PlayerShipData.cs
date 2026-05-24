@@ -5,15 +5,24 @@ public class PlayerShipData : MonoBehaviour
 {
     public delegate void playerAction();
 
-    public static event playerAction PlayerDeath;
+    public static event playerAction PlayerDeathed;
+    public static event playerAction ShieldCreated;
+    public static event playerAction DamageBufferGetted;
     public static event playerAction ShieldBreaked;
-    public static event healthOperation TakeShieldDamage;
-    public static event healthOperation TakeHealthDamage;
-    public static event healthOperation LoseDamageBuffer;
+    public static event System.Action AnyDamageTaked;
+    public static event System.Action<bool> CriticalStateChanged;
+    public static event healthOperation StructuralDamageChanged;
+    public static event healthOperation ShieldDamageTaked;
+    public static event healthOperation HealthDamageTaked;
+    public static event playerAction DamageBuffer1Losed;
     public static event healthOperation Regenerated;
 
-    public static event healthOperation ChangeHealth;
-    public static event healthOperation ChangeArmor;
+    public static event healthOperation HealthChanged;
+    // public static event healthOperation ArmorChanged;
+    /// <summary>
+    /// Не затрагивает неуязвимость после получения урона.
+    /// </summary>
+    public static event System.Action<bool> UnvulnerabilityToggled;
 
     public static int HitPoints 
     {
@@ -23,8 +32,8 @@ public class PlayerShipData : MonoBehaviour
         {
             _hitPoints = value;
             CheckState();
-            _playerUI.ChangeHP(_hitPoints, (float)_hitPoints / _hpCap);
-            ChangeHealth?.Invoke(value);
+            // _playerUI.ChangeHP(_hitPoints, (float)_hitPoints / _hpCap);
+            HealthChanged?.Invoke(value);
         }
     }
     public static int StructuralDamage 
@@ -34,6 +43,7 @@ public class PlayerShipData : MonoBehaviour
         private set 
         {
             _structuralDamage = value;
+            StructuralDamageChanged?.Invoke(value);
         }
     }
     public static int FlatArmor 
@@ -80,7 +90,7 @@ public class PlayerShipData : MonoBehaviour
     }
 
     public static bool Unvulnerable {get; private set;} = false;
-    public static bool Hover {get; set;} = false;
+    public static bool Hover {get; set;} = false; // невосприимчивость к контактному урону и невозможность таранов
     public static bool Active {get; private set;} = false;
     public static bool CriticalState {get; private set;} = false;
     public static int CriticalStateBorder => _criticalStateBorder;
@@ -90,22 +100,21 @@ public class PlayerShipData : MonoBehaviour
 
     private static int _hitPoints;
     private static int _criticalStateBorder = 15;
-    // private static int _armorPoints;
     private static int _shieldPoints;
     private static int _structuralDamage;
     private static int _damageBuffers;
     private static int _hpCap;
-    // private static int _armorCap;
+    private static float _unvulnerableTimeAfterDamage = 0.1f;
     private static int _flatArmor;
     private static float _damageReduction;
-    private static PlayerUI _playerUI;
+    // private static PlayerUI _playerUI;
     private static ShieldComponent _shield;
     private static DamageBufferComponent _damageBuffer;
 
     public void Initialize(int hp, int arm, int shipID)
     {
-        _playerUI = SceneStatics.UICore.GetComponent<PlayerUI>();
-        _playerUI.ToggleShield(false);
+        // _playerUI = SceneStatics.UICore.GetComponent<PlayerUI>();
+        // _playerUI.ToggleShield(false);
 
         Unvulnerable = false;
         Active = true;
@@ -117,12 +126,10 @@ public class PlayerShipData : MonoBehaviour
         GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
         
         _hpCap = 100;
-        // _armorCap = arm;
 
-        // CheckOtherShip(hp, arm, shipID);
         SetHitPoints(100);
 
-        _playerUI.MaxHP = _hpCap;
+        // _playerUI.MaxHP = _hpCap;
 
         VictoryHandler.LevelVictored += WriteSaveData;
     }
@@ -130,35 +137,35 @@ public class PlayerShipData : MonoBehaviour
         VictoryHandler.LevelVictored -= WriteSaveData;
     }
 
-    private void CheckOtherShip(int startHP, int startArm, int shipID)
-    {
-        // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+    // private void CheckOtherShip(int startHP, int startArm, int shipID)
+    // {
+    //     // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
 
-        // if (save.SessionInitialized && save.ShipModel != shipID)
-        // {
-        //     _hpCap = startHP;
-        //     HitPoints = _hpCap;
-        //     WriteSaveData();
-        //     return;
-        // }
+    //     // if (save.SessionInitialized && save.ShipModel != shipID)
+    //     // {
+    //     //     _hpCap = startHP;
+    //     //     HitPoints = _hpCap;
+    //     //     WriteSaveData();
+    //     //     return;
+    //     // }
 
-        // if (save.SessionInitialized)
-        // {
-        //     _hpCap = save.MaxHealth;
-        //     HitPoints = save.HealthPoints;
-        // } 
-        // else 
-        // {
-        //     HitPoints = _hpCap;
-        //     WriteSaveData();
-        // }
-    }
+    //     // if (save.SessionInitialized)
+    //     // {
+    //     //     _hpCap = save.MaxHealth;
+    //     //     HitPoints = save.HealthPoints;
+    //     // } 
+    //     // else 
+    //     // {
+    //     //     HitPoints = _hpCap;
+    //     //     WriteSaveData();
+    //     // }
+    // }
 
-    public static void LoadHealth()
-    {
-        // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-        // HitPoints = save.HealthPoints;
-    }
+    // public static void LoadHealth()
+    // {
+    //     // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+    //     // HitPoints = save.HealthPoints;
+    // }
 
     public static bool TakeDamage(DamageBundle damageBundle, out bool killed)
     {
@@ -167,18 +174,24 @@ public class PlayerShipData : MonoBehaviour
         if (Unvulnerable || !Player.Alive || !damageBundle.Legitime || (damageBundle.damageKey != DamageKey.Player && damageBundle.damageKey != DamageKey.Everything))
             return false;
 
-        // (SceneStatics.GameTimer - GameTimerBuffer < ShipStats.GetValue("UnvulnerableTimeAfterDamage"))
+        if (SceneStatics.GameTimer - GameTimerBuffer < _unvulnerableTimeAfterDamage * RR.Get(RuntimeStat.UnvulnerableTimeAfterDamageMultiplier))
+        {
+            return false;
+        }
+        GameTimerBuffer = SceneStatics.GameTimer;
 
         for (int i = 0; i < damageBundle.cycles; i++)      
         {
             if (!Active) break;
+
+            AnyDamageTaked?.Invoke();
 
             if (damageBundle.damageValue > 0)
             {
                 if (DamageBuffers > 0)
                 {
                     DamageBuffers --;
-                    LoseDamageBuffer?.Invoke(1);
+                    DamageBuffer1Losed?.Invoke();
                     continue;
                 }
 
@@ -191,12 +204,11 @@ public class PlayerShipData : MonoBehaviour
                     if (tempDmg >= 0)
                     {
                         ShieldPoints = 0;
-                        ShieldBreaked?.Invoke();
                         continue;
                     } else
                     {
                         ShieldPoints = -tempDmg;
-                        TakeShieldDamage?.Invoke(tempDmg);
+                        ShieldDamageTaked?.Invoke(tempDmg);
                         continue;
                     }
                 }
@@ -208,15 +220,19 @@ public class PlayerShipData : MonoBehaviour
                     tempDmg = 1;
                 }
 
-                _playerUI.PlayTakingDamage(tempDmg, FlatArmor);
+                // _playerUI.PlayTakingDamage(tempDmg, FlatArmor);
 
+                // ONE SHOT PROTECTION
                 if (OneShotProtection && !damageBundle.ignoreOneShotProtection && HitPoints > CriticalStateBorder && tempDmg > (HitPoints - CriticalStateBorder))
                 {
                     ParryingHandler.ConstParry();
+                    HealthDamageTaked?.Invoke(HitPoints - CriticalStateBorder);
                     SetHitPoints(CriticalStateBorder);
                 }
+                // -------------------
                 else
                 {
+                    HealthDamageTaked?.Invoke(tempDmg);
                     SetHitPoints(HitPoints - tempDmg);
                 }
             }
@@ -234,71 +250,8 @@ public class PlayerShipData : MonoBehaviour
             }
         }
 
-        // FightSoundHelper.PlaySound(0, transform.position);
         CheckState();
         return true;
-
-        // damage = Mathf.CeilToInt(ShipStats.GetValue("TakingDamageMultiplier") * damage);
-        // if (damage > ShipStats.GetIntValue("MaxDamageTaken"))
-        // {
-        //     damage = ShipStats.GetIntValue("MaxDamageTaken");
-        // }
-
-        // GameTimerBuffer = SceneStatics.GameTimer;
-
-        // int tempDmg = damage - ShipStats.GetIntValue("BlockArmor");
-
-        // if (tempDmg < 1)
-        //     tempDmg = 1;
-        // else if (tempDmg >= 100)
-        // {
-        //     Unlocks.NewUnlock(923);
-        // }
-
-        // TakeAnyDamage?.Invoke(tempDmg);
-
-        // if (ShieldPoints != 0)
-        // {
-        //     tempDmg = damage - ShieldPoints;
-
-        //     if (tempDmg >= 0)
-        //         ShieldPoints = 0;
-
-        //     else
-        //     {
-        //         ShieldPoints = -tempDmg;
-                
-
-        //         _playerUI.SetShieldPoints(ShieldPoints);
-        //         return;
-        //     }
-        // }
-
-        // if (tempDmg == 0)
-        //     return;
-
-        // _playerUI.PlayTakingDamage(tempDmg, damage - tempDmg);
-
-        // int lastARM = ArmorPoints - Mathf.CeilToInt((tempDmg));
-
-        // if (lastARM >= 0) // урон по ХП не прошёл
-        // {
-        //     TakeArmorDamage?.Invoke(ArmorPoints - lastARM);
-        //     SetArmorPoints(lastARM);
-        // }
-        // else // урон по ХП прошёл
-        // {
-        //     if (ArmorPoints > 0)
-        //     {
-        //         TakeArmorDamage?.Invoke(ArmorPoints);
-        //         SetArmorPoints(0);
-        //         // armor break
-        //     }
-
-        //     TakeHealthDamage?.Invoke(-lastARM);
-
-        //     SetHitPoints(HitPoints + lastARM);
-        // }
     }
 
     public static void SetCriticalBorder(int newValue)
@@ -322,33 +275,22 @@ public class PlayerShipData : MonoBehaviour
 
         else if (newValue < 0)
             newValue = 0;
-        // if ((OneShotProtection && (HitPoints >= _criticalStateBorder) && (newValue <= 0)) || newValue == 0)
-        // {
-        //     ParryingHandler.ConstParry();
-        //     HitPoints = 0;
-        // }
-        // else
+
         HitPoints = newValue;
 
         if (HitPoints <= 0)
         {
-            // HitPoints = -1;
             Death();
         }
     }
 
     public static void RegenerateHP(int addingValue)
     {
-        if (_playerUI != null)
-            _playerUI.PlayRecuperation();
+        // if (_playerUI != null)
+        //     _playerUI.PlayRecuperation();
 
         SetHitPoints(HitPoints + addingValue);
         Regenerated?.Invoke(addingValue);
-
-        // if (VictoryHandler.LevelVictoried)
-        // {
-        //     WriteSaveData();
-        // }
     }
 
     public static void RepairStructureDamage(int amount)
@@ -361,8 +303,6 @@ public class PlayerShipData : MonoBehaviour
 
     public static void ConsumeHP(int takingValue)
     {
-        //_playerUI.PlayTakingDamage(1, 0);
-
         SetHitPoints(HitPoints - takingValue);
     }
 
@@ -376,15 +316,15 @@ public class PlayerShipData : MonoBehaviour
 
         if (shieldPoints == 0)
         {
-            //print("noneShield");
             return;
         }
         
         _shield = ShieldDistributor.SpawnShield(Player.PlayerTransform, shieldPoints);
         ShieldPoints = shieldPoints;
+        ShieldCreated?.Invoke();
 
-        _playerUI.ToggleShield(true);
-        _playerUI.SetShieldPoints(ShieldPoints);
+        // _playerUI.ToggleShield(true);
+        // _playerUI.SetShieldPoints(ShieldPoints);
     }
 
     private static void BreakShield()
@@ -392,7 +332,8 @@ public class PlayerShipData : MonoBehaviour
         if (_shield != null)
             _shield.BreakShield();
         _shield = null;
-        _playerUI.ToggleShield(false);
+        ShieldBreaked?.Invoke();
+        // _playerUI.ToggleShield(false);
     }
 
     public static void AddDamageBuffer(int db)
@@ -402,7 +343,6 @@ public class PlayerShipData : MonoBehaviour
 
         if (db == 0)
         {
-            //print("noneShield");
             return;
         }
         
@@ -412,6 +352,7 @@ public class PlayerShipData : MonoBehaviour
         }
         
         DamageBuffers += db;
+        DamageBufferGetted?.Invoke();
     }
 
     private static void BreakDamageBuffer()
@@ -420,7 +361,6 @@ public class PlayerShipData : MonoBehaviour
             _damageBuffer.BreakShield();
         
         _damageBuffer = null;
-        // _playerUI.ToggleShield(false);
     }
 
     private static void CheckState()
@@ -429,7 +369,8 @@ public class PlayerShipData : MonoBehaviour
         {
             TimeHandler.CriticalState = true;
             CriticalState = true;
-            _playerUI.SetCriticalState(true);
+            CriticalStateChanged?.Invoke(true);
+            // _playerUI.SetCriticalState(true);
 
             if (!OneShotProtection || !ParryingHandler.Initialized)
                 return;
@@ -441,7 +382,8 @@ public class PlayerShipData : MonoBehaviour
         {
             TimeHandler.CriticalState = false;
             CriticalState = false;
-            _playerUI.SetCriticalState(false);
+            CriticalStateChanged?.Invoke(false);
+            // _playerUI.SetCriticalState(false);
         }
     }
 
@@ -451,12 +393,13 @@ public class PlayerShipData : MonoBehaviour
         _hpCap = Mathf.CeilToInt(_hpCap * multiplier);
         HitPoints = Mathf.CeilToInt(HitPoints * multiplier);
 
-        _playerUI.MaxHP = _hpCap;
+        // _playerUI.MaxHP = _hpCap;
     }
 
     private static void ToggleInvulnerability(bool tog)
     {
         Unvulnerable = tog;
+        UnvulnerabilityToggled?.Invoke(tog);
     }
 
     public static void TryToggleInvulnerability(bool tog)
@@ -471,7 +414,7 @@ public class PlayerShipData : MonoBehaviour
         PlayerController.CanControl = false;
         ToggleInvulnerability(true);
 
-        //PlayerDeath?.Invoke();
+        //PlayerDeathed?.Invoke();
     }
 
     private static void Death()
@@ -479,7 +422,7 @@ public class PlayerShipData : MonoBehaviour
         ReviveManager.TryRevive();
 
         DeactivateAllBindedSystems();
-        PlayerDeath?.Invoke();
+        PlayerDeathed?.Invoke();
         SceneStatics.UICore.GetComponent<DeathUIHandler>().Death();
     }
 

@@ -21,7 +21,7 @@ public class ExplosionTrigger : MonoBehaviour
         {
             if (_timer < 0f)
             {
-                _explosionCaller.DeathExplosion();
+                // _explosionCaller.DeathExplosion();
                 _timer = _triggerReload;
             }
         }
@@ -30,7 +30,7 @@ public class ExplosionTrigger : MonoBehaviour
         {
             if (_timer < 0f)
             {
-                _explosionCaller.DeathExplosion();
+                // _explosionCaller.DeathExplosion();
                 _timer = _triggerReload;
             }
         }

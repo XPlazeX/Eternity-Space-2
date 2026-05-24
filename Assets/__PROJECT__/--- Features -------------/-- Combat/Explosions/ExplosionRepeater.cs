@@ -10,10 +10,12 @@ public class ExplosionRepeater : MonoBehaviour
     [SerializeField] private float repeatTime = 2f;
     [SerializeField] private bool loop = true;
     [SerializeField] private int cycles = 3;
+    [SerializeField] private float randomOffset;
 
     private int _cycled;
     private float _timer = 0f;
     private bool _started;
+    private Vector3 _offset;
 
     void OnEnable()
     {
@@ -35,7 +37,7 @@ public class ExplosionRepeater : MonoBehaviour
 
         if (_timer < 0f)
         {
-            Explode();
+            Explode(transform.position + _offset + new Vector3(Random.Range(-randomOffset, randomOffset), Random.Range(-randomOffset, randomOffset), 0f));
             _cycled ++;
             _timer = repeatTime;
 
@@ -46,9 +48,9 @@ public class ExplosionRepeater : MonoBehaviour
         }
     }
 
-    private void Explode()
+    private void Explode(Vector3 position)
     {
-        ExplosionObject explosion = Pool.Spawn(explosionObject, transform.position, transform.rotation);
+        ExplosionObject explosion = Pool.Spawn(explosionObject, position, transform.rotation);
         explosion.SetScale(scale);
         if (overrideColor)
             explosion.SetColor(color);
@@ -58,5 +60,11 @@ public class ExplosionRepeater : MonoBehaviour
     {
         gameObject.SetActive(true);
         _started = true;
+    }
+
+    public void Activate(Vector3 worldPosition)
+    {
+        _offset = transform.position - worldPosition;
+        Activate();
     }
 }

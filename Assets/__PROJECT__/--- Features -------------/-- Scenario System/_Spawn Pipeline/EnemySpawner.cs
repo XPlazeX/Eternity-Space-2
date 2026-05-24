@@ -8,6 +8,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyHealthBar enemyHealthBar;
     [SerializeField] private Vector2 arenaSpawnOutsideOffsetMinMax = new Vector2(20f, 30f);
 
+    private static EnemySpawner instance;
+
+    private void Awake() {
+        instance = this;
+    }
+
     public List<EnemyHandle> Spawn(EnemyEncounterSpawnRequest enemyEncounterSpawnRequest)
     {
         List<EnemyHandle> spawnedHandles = new List<EnemyHandle>();
@@ -53,6 +59,16 @@ public class EnemySpawner : MonoBehaviour
         DamageBodySpawned?.Invoke(db);
 
         return db;
+    }
+
+    public static DamageBody Spawn(DamageBody dbSample, Vector3 spawnPosition, bool eliteSpawn = false)
+    {
+        if (instance == null)
+        {
+            Debug.Log("EnemySpawner instance is null!");
+            return null;
+        }
+        return instance.SpawnDamageBody(dbSample, spawnPosition, eliteSpawn);
     }
 
     private Vector3 GetSpawnPosition(EnemyEncounterSpawnRequest enemyEncounterSpawnRequest)

@@ -22,7 +22,7 @@ public class NanomachinesLabel : MonoBehaviour
         if (_inGame)
         {
             CheckGameValue(0);
-            PlayerShipData.ChangeHealth += CheckGameValue;
+            // PlayerShipData.ChangeHealth += CheckGameValue;
             return;
         }
 
@@ -34,7 +34,7 @@ public class NanomachinesLabel : MonoBehaviour
     {
         if (_inGame) 
         {
-            PlayerShipData.ChangeHealth -= CheckGameValue;
+            // PlayerShipData.ChangeHealth -= CheckGameValue;
             return;
         }
         

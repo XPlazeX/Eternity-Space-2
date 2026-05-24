@@ -45,6 +45,7 @@ public class EnemyAIRoot : MonoBehaviour
     public Vector3 AiPosition => _aiPosition;
     public Vector3 FloatingOffset => _floatingOffset;
     public Vector3 RealPosition => _aiPosition + _floatingOffset;
+    public Vector3 Inertion => _inertion;
     public float Speed => speed;
     public float Mobility => RR.Get(RuntimeStat.EnemyMobilityMultiplier) * _localMobility;
     public bool Active { get; private set; } = false;
@@ -278,7 +279,7 @@ public class EnemyAIRoot : MonoBehaviour
     {
         if (moveDelta.sqrMagnitude > 0f)
         {
-            moveDelta = PlayerController.RelativeVectorAtPoint(
+            moveDelta = ArenaLocal.RelativeVectorAtPoint(
                 moveDelta,
                 _aiPosition,
                 relativityFactor

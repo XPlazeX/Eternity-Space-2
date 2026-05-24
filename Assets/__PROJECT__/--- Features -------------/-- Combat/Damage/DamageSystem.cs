@@ -103,10 +103,12 @@ namespace DamageSystem
     public enum DamageTag
     {
         None,
+        LifetimeEnd,
         Contact,
         Ram,
         Cumulative,
-        Destructive
+        Destructive,
+        Charged
     }
 }
 

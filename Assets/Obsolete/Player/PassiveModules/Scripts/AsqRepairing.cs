@@ -33,7 +33,7 @@ public class AsqRepairing : Module
 
         if (Player.Alive)
         {
-            PlayerShipData.LoadHealth();
+            // PlayerShipData.LoadHealth();
         }
 
         RepairService rs = GameObject.FindObjectOfType<RepairService>();

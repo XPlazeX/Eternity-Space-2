@@ -360,7 +360,7 @@ MonoBehaviour:
     ignoreOneShotProtection: 0
     regeneratingValue: 0
     cycles: 1
-    damageTag: 0
+    damageTag: 6
   visualExplosion: {fileID: 3819990787268084760}
   reloadTime: 0.5
   triggerCondition: 0
@@ -806,6 +806,7 @@ MonoBehaviour:
   repeatTime: 2
   loop: 0
   cycles: 1
+  randomOffset: 0
 --- !u!1 &1260780666147496286
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +975,7 @@ MonoBehaviour:
   stunPoints: 60
   stunRecovering: 10
   stunAdaptationStep: 0.15
+  rammable: 1
   ramFromStunTime: 2
 --- !u!114 &8490616892635810526
 MonoBehaviour:
@@ -5866,7 +5868,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 0
+  hasWreck: 1
+  wreck: {fileID: 0}
+  wreckVelocityMultiplier: 0.66
+  hasExplosion: 0
+  explosionObject: {fileID: 0}
+  scale: 1
+  overrideColor: 0
+  color: {r: 0.9607844, g: 0.8705883, b: 0.7019608, a: 1}
+  hasShuttles: 0
+  shuttleMines: []
 --- !u!50 &1260780666538092913
 Rigidbody2D:
   serializedVersion: 5
@@ -6409,7 +6420,7 @@ MonoBehaviour:
   parryCollider: {fileID: 0}
   parryOrigin: {fileID: 1721943422117381846}
   radius: 2.5
-  arcHalfAngle: 60
+  arcHalfAngle: 90
   lookingTransforms:
   - {fileID: 7535236083893216074}
   rotationSpeed: 850

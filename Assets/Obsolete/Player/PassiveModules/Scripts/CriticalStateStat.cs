@@ -9,11 +9,11 @@ public class CriticalStateStat : Module
 
     public override void Load()
     {
-        PlayerShipData.ChangeHealth += CheckConditions;
+        // PlayerShipData.ChangeHealth += CheckConditions;
     }
 
     private void OnDisable() {
-        PlayerShipData.ChangeHealth -= CheckConditions;
+        // PlayerShipData.ChangeHealth -= CheckConditions;
     }
 
     public void CheckConditions(int v)

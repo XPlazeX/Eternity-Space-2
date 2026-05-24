@@ -22,6 +22,7 @@ public class DamageBody : MonoBehaviour, IDamagable
     [SerializeField] protected float stunPoints = 60f;
     [SerializeField] protected float stunRecovering = 10f;
     [SerializeField] protected float stunAdaptationStep = 0.15f;
+    [SerializeField] protected bool rammable = true;
     [SerializeField] protected float ramFromStunTime = 2f;
 
     private DeathCaller _deathCaller;
@@ -51,7 +52,7 @@ public class DamageBody : MonoBehaviour, IDamagable
             _hitPoints = value;
             if (_hitPoints <= PlayerRamsHandler.DecadesBlockForRam * 10)
             {
-                RamReady = true;
+                RamReady = rammable ? true : false;
             }
             if (_hitPoints <= 0)
             {
@@ -220,7 +221,7 @@ public class DamageBody : MonoBehaviour, IDamagable
 
                 if (HitPoints <= 0)
                 {
-                    Death();
+                    Death(damageBundle, Mathf.Abs(0 - HitPoints));
                     killed = true;
                     return true;
                 }
@@ -298,13 +299,13 @@ public class DamageBody : MonoBehaviour, IDamagable
     protected virtual void Stun()
     {
         _ramTimer = ramFromStunTime;
-        RamReady = true;
+        RamReady = rammable ? true : false;
         IsStunned = true;
         _stunCount ++;
         Stunned?.Invoke();
     }
 
-    protected virtual void Death()
+    protected virtual void Death(DamageBundle sourceBundle, int overdmg)
     {
         if (_deathed)
             return;
@@ -320,7 +321,14 @@ public class DamageBody : MonoBehaviour, IDamagable
             _deathed = true;
         }
 
-        _deathCaller.DeathExplosion();
+        // _deathCaller.DeathExplosion();
+        _deathCaller.Call(new DeathContext()
+        {
+            velocity = GetComponent<EnemyAIRoot>() == null ? Vector3.zero : GetComponent<EnemyAIRoot>().Inertion,
+            damageTag = sourceBundle.damageTag,
+            overdamage = overdmg,
+            wasStunned = IsStunned
+        });
 
         DamageTaking = null;
     }

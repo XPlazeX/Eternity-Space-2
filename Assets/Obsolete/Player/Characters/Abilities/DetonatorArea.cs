@@ -21,7 +21,7 @@ public class DetonatorArea : MonoBehaviour
 
         if (_timer <= 0f)
         {
-            _deathCaller.DeathExplosion();
+            // _deathCaller.DeathExplosion();
             Destroy(gameObject);
         }
     }

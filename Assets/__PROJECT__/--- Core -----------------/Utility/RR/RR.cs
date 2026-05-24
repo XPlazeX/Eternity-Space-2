@@ -97,6 +97,7 @@ public static class RR
         SetFallback(RuntimeStat.TimeSlowMultiplier, 1f, RuntimeStatGroup.Player);
         SetFallback(RuntimeStat.CriticalTimeSlowMultiplier, 0.33f, RuntimeStatGroup.Player);
         SetFallback(RuntimeStat.PrepareTimeMultiplier, 1f, RuntimeStatGroup.Player);
+        SetFallback(RuntimeStat.UnvulnerableTimeAfterDamageMultiplier, 1f, RuntimeStatGroup.Player);
 
         SetFallback(RuntimeStat.RamHealValue, 0f, RuntimeStatGroup.Ram);
         SetFallback(RuntimeStat.RamFirerateBoost, 0.5f, RuntimeStatGroup.Ram);
@@ -405,6 +406,7 @@ public static class RR
         public float TimeSlowMultiplier => Get(RuntimeStat.TimeSlowMultiplier);
         public float CriticalTimeSlowMultiplier => Get(RuntimeStat.CriticalTimeSlowMultiplier);
         public float PrepareTimeMultiplier => Get(RuntimeStat.PrepareTimeMultiplier);
+        public float UnvulnerableTimeAfterDamageMultiplier => Get(RuntimeStat.UnvulnerableTimeAfterDamageMultiplier);
 
         public float RamHealValue => Get(RuntimeStat.RamHealValue);
         public float RamFirerateBoost => Get(RuntimeStat.RamFirerateBoost);

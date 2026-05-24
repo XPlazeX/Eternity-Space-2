@@ -34,7 +34,7 @@ public class WarpDriveFieldControllerByDelta : MonoBehaviour
 
         float targetWarp = 0f;
         if (deltaPerSecond > minDeltaPerSecond)
-            targetWarp = Mathf.InverseLerp(minDeltaPerSecond, fullDeltaPerSecond, deltaPerSecond) * PlayerController.AbsRelativity;
+            targetWarp = Mathf.InverseLerp(minDeltaPerSecond, fullDeltaPerSecond, deltaPerSecond) * PlayerController.RelativeRelativity;
 
         float speed = targetWarp > _currentWarp ? appearSpeed : disappearSpeed;
         _currentWarp = Mathf.MoveTowards(_currentWarp, targetWarp, speed * Time.deltaTime);

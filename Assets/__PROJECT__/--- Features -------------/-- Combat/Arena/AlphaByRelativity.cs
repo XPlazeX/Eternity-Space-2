@@ -12,6 +12,6 @@ public class AlphaByRelativity : MonoBehaviour
     }
 
     private void LateUpdate() {
-        _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, alphaByRelativity.Evaluate(PlayerController.AbsRelativity));
+        _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, alphaByRelativity.Evaluate(PlayerController.RelativeRelativity));
     }
 }

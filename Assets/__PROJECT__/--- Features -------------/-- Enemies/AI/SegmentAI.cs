@@ -50,7 +50,7 @@ public class SegmentAI : MonoBehaviour
     {
         if (_destroyWithTarget)
         {
-            _deathCaller.DeathExplosion();
+            // _deathCaller.DeathExplosion();
             Destroy(gameObject);
         }
     }

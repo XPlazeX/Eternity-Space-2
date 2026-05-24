@@ -11,15 +11,15 @@ public class NukeOnArmorBrake : Module
 
     public override void Load()
     {
-        PlayerShipData.ChangeArmor += OnArmorChanged;
+        // PlayerShipData.ChangeArmor += OnArmorChanged;
         _loaded = true;
 
         // OnArmorChanged(PlayerShipData.ArmorPoints);
     }
 
     private void OnDisable() {
-        if (_loaded)
-         PlayerShipData.ChangeArmor -= OnArmorChanged;
+        // if (_loaded)
+        //  PlayerShipData.ChangeArmor -= OnArmorChanged;
     }
 
     public void OnArmorChanged(int arm)

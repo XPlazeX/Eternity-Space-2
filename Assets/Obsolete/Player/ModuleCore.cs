@@ -38,7 +38,7 @@ public class ModuleCore : MonoBehaviour
         else
             LoadAllSaveModules(save);
 
-        PlayerShipData.PlayerDeath += NeverReloadMainWeapon;
+        // PlayerShipData.PlayerDeath += NeverReloadMainWeapon;
         Player.StartPlayerReturn += ReloadMainWeapon;
 
         moduleCoreInitialized?.Invoke();

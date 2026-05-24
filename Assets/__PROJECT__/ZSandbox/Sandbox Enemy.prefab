@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3371637326310254657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4777329524109710103}
+  m_Layer: 0
+  m_Name: Shuttle Mine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4777329524109710103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371637326310254657}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9069206062416828812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4825661603243589860
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,6 +5093,7 @@ Transform:
   - {fileID: 1059181904888606653}
   - {fileID: 6729038400229710482}
   - {fileID: 7767031567650560036}
+  - {fileID: 4777329524109710103}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9069206062416828813
@@ -5244,7 +5276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770d77a473cb174aae096f62cbe336b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathExplosionType: 7
+  hasWreck: 1
+  wreck: {fileID: 8101007104695084331, guid: 484ac238ad963ec45a4d346336a864cd, type: 3}
+  wreckVelocityMultiplier: 0.66
+  hasShuttles: 1
+  shuttleMines:
+  - shuttle: {fileID: 8919796651077209128, guid: c7049a40e1d75684d823871ef955985a, type: 3}
+    pivot: {fileID: 4777329524109710103}
 --- !u!50 &9069206062416828809
 Rigidbody2D:
   serializedVersion: 5

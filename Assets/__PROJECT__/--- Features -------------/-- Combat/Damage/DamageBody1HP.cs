@@ -10,7 +10,7 @@ public class DamageBody1HP : DamageBody
     [SerializeField] private MonoBehaviour[] _destroyingBehavioursOnDeath;
     [SerializeField] private GameObject[] _togglingObjectssOnDeath;
 
-    protected override void Death()
+    protected override void Death(DamageBundle sourceBundle, int overdmg)
     {
         _damageKey = DamageSystem.DamageKey.Unvulnerable;
         HitPoints = 1;

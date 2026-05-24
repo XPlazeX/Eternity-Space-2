@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 2642166268693553109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.149, z: 0}
-  m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
+  m_LocalPosition: {x: 0, y: 0.089, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5500839470369327556}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 2a2c2192e0aeeef40864adcacc824be7, type: 3}
-  m_Color: {r: 1, g: 0.5861887, b: 0.05098039, a: 1}
+  m_Color: {r: 0.42777178, g: 0.05098039, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,11 +102,12 @@ GameObject:
   - component: {fileID: 6301609241194541591}
   - component: {fileID: 7386805318676688194}
   - component: {fileID: 6149396609532520741}
+  - component: {fileID: 4752275018252955053}
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
   - component: {fileID: -7579853108204948340}
   m_Layer: 14
-  m_Name: B-Radiant 1
+  m_Name: SB-Radiant 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,8 +176,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -7016535320670112604, guid: d393de212b6e36d428fe29708de66cca, type: 3}
-  m_Color: {r: 1, g: 0.4783347, b: 0, a: 1}
+  m_Sprite: {fileID: 5270420570821549803, guid: d393de212b6e36d428fe29708de66cca, type: 3}
+  m_Color: {r: 0.41270512, g: 0.21960782, b: 0.81960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageBundle:
     damageKey: 1
-    damageValue: 3
+    damageValue: 4
     shieldDamageMultiplier: 1
     asteroidDamageMultiplier: 1
     armorPenetration: 0
@@ -230,6 +231,81 @@ MonoBehaviour:
   _piercingTargets: 0
   _explodeOnTimer: 1
   relativeFactor: 0.66
+--- !u!114 &4752275018252955053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644595582373362196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b6b76077bd9b24e9e899b63863a1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorByBulletLifetime
+  bulletColorings:
+  - spriteRenderer: {fileID: 6489520924512503110}
+    colorProgression:
+      serializedVersion: 2
+      key0: {r: 0.42777178, g: 0.05098039, b: 1, a: 1}
+      key1: {r: 0.42777178, g: 0.05098039, b: 1, a: 0.5882353}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+  - spriteRenderer: {fileID: 6301609241194541591}
+    colorProgression:
+      serializedVersion: 2
+      key0: {r: 0.41176474, g: 0.21960786, b: 0.8196079, a: 1}
+      key1: {r: 0.3816822, g: 0.20362815, b: 0.7598212, a: 1}
+      key2: {r: 0.10000003, g: 0.053999998, b: 0.2, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 32576
+      ctime2: 65535
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
 --- !u!50 &965381140312984591
 Rigidbody2D:
   serializedVersion: 5
@@ -295,7 +371,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15625, y: 0.4375}
+    oldSize: {x: 0.15625, y: 0.3125}
     newSize: {x: 0.28125, y: 0.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -319,7 +395,7 @@ MonoBehaviour:
   _explosionObject: {fileID: 5075635723808820931, guid: 03c66066cd48c38468e3e2c6d46f4a9f, type: 3}
   _mute: 0
   _modParams: 1
-  _color: {r: 1, g: 0.46619305, b: 0, a: 1}
-  _scale: 0.35
+  _color: {r: 0.31248903, g: 0, b: 1, a: 1}
+  _scale: 0.3
   _shakePower: 0
   _damage: 0

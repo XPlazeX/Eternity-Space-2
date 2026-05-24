@@ -51,7 +51,7 @@ public class AsteroidBody : DamageBody
             if (_lifeTimer <= 0f)
             {
                 if (_explodeOnTimer)
-                    Death();
+                    Death(new DamageSystem.DamageBundle() {damageTag = DamageSystem.DamageTag.LifetimeEnd}, 0);
                     // TakeDamage(999);
 
                 gameObject.SetActive(false);

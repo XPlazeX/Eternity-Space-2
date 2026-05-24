@@ -37,8 +37,8 @@ public class OrbitalProjectile : MonoBehaviour
     {
         DeathCaller deathCaller = GetComponent<DeathCaller>();
         
-        if (deathCaller != null)
-            deathCaller.DeathExplosion();
+        // if (deathCaller != null)
+        //     deathCaller.DeathExplosion();
 
         Destroy(gameObject);
     }

@@ -25,6 +25,7 @@ public class Bullet : AttackObject
 
     public float Lifetime => _lifetime;
     public float Lifetimer => _lifeTimer;
+    public float LifetimeLeftNormalized => Mathf.Clamp01(_lifeTimer / _lifetime);
 
     public int Pierces
     {
@@ -110,7 +111,7 @@ public class Bullet : AttackObject
             ((Vector2)transform.up * _speed + (_ignoreForce ? Vector2.zero : (Vector2)PlayerController.DefaultForce))
             * Time.fixedDeltaTime;
 
-        movement = PlayerController.RelativeVectorAtPoint(movement, _rb.position, relativeFactor);
+        movement = ArenaLocal.RelativeVectorAtPoint(movement, _rb.position, relativeFactor);
 
         if (_rb != null)
             _rb.MovePosition(_rb.position + movement);

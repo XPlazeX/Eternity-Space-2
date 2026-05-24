@@ -1,16 +1,21 @@
-Shader "Custom/SpriteProceduralWreck"
+Shader "Custom/SpriteProceduralWreck_PixelBreach"
 {
     Properties
     {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
 
+        // Центр всё ещё в локальных UV спрайта: 0..1
         _BreachCenter ("Breach Center UV", Vector) = (0.5, 0.5, 0, 0)
-        _BreachRadius ("Breach Radius", Range(0, 1)) = 0.2
-        _EdgeWidth ("Edge Width", Range(0.001, 0.25)) = 0.04
 
-        _NoiseScale ("Noise Scale", Float) = 12.0
-        _NoiseStrength ("Noise Strength", Range(0, 0.5)) = 0.08
+        // Теперь это ПИКСЕЛИ СПРАЙТА, а не UV
+        _BreachRadiusPixels ("Breach Radius Pixels", Float) = 6.0
+        _EdgeWidthPixels ("Edge Width Pixels", Float) = 1.5
+        _MinVisibleRadiusPixels ("Min Visible Radius Pixels", Float) = 2.0
+
+        // Шум теперь тоже удобнее мыслить в пикселях
+        _NoiseScalePixels ("Noise Scale Pixels", Float) = 8.0
+        _NoiseStrengthPixels ("Noise Strength Pixels", Float) = 2.0
         _NoiseSeed ("Noise Seed", Float) = 0.0
 
         _BurnAmount ("Burn Amount", Range(0, 1)) = 0.75
@@ -21,10 +26,15 @@ Shader "Custom/SpriteProceduralWreck"
         // x,y = min uv в атласе; z,w = size uv в атласе
         _SpriteUVRect ("Sprite UV Rect", Vector) = (0,0,1,1)
 
-        _AngularNoiseStrength ("Angular Noise Strength", Range(0, 0.5)) = 0.16
+        // x,y = ширина/высота текущего нарезанного спрайта в пикселях
+        _SpriteSizePixels ("Sprite Size Pixels", Vector) = (32,32,0,0)
+
+        _AngularNoiseStrengthPixels ("Angular Noise Strength Pixels", Float) = 3.0
         _AngularNoiseScale ("Angular Noise Scale", Float) = 6.0
-        _WarpStrength ("Warp Strength", Range(0, 0.25)) = 0.04
-        _WarpScale ("Warp Scale", Float) = 10.0
+
+        // Warp тоже в пикселях
+        _WarpStrengthPixels ("Warp Strength Pixels", Float) = 1.0
+        _WarpScalePixels ("Warp Scale Pixels", Float) = 10.0
     }
 
     SubShader
@@ -69,11 +79,11 @@ Shader "Custom/SpriteProceduralWreck"
             fixed4 _Color;
 
             float4 _BreachCenter;
-            float _BreachRadius;
-            float _EdgeWidth;
+            float _BreachRadiusPixels;
+            float _EdgeWidthPixels;
 
-            float _NoiseScale;
-            float _NoiseStrength;
+            float _NoiseScalePixels;
+            float _NoiseStrengthPixels;
             float _NoiseSeed;
 
             float _BurnAmount;
@@ -82,11 +92,13 @@ Shader "Custom/SpriteProceduralWreck"
             float _GlobalAlpha;
 
             float4 _SpriteUVRect;
+            float4 _SpriteSizePixels;
+            float _MinVisibleRadiusPixels;
 
-            float _AngularNoiseStrength;
+            float _AngularNoiseStrengthPixels;
             float _AngularNoiseScale;
-            float _WarpStrength;
-            float _WarpScale;
+            float _WarpStrengthPixels;
+            float _WarpScalePixels;
 
             float hash21(float2 p)
             {
@@ -123,22 +135,20 @@ Shader "Custom/SpriteProceduralWreck"
                 return v;
             }
 
-            float2 hash22(float2 p)
+            float2 domainWarpPixels(float2 pixelPos, float scalePixels, float strengthPixels)
             {
-                float n1 = hash21(p);
-                float n2 = hash21(p + 17.13);
-                return float2(n1, n2);
-            }
+                float safeScale = max(scalePixels, 0.0001);
 
-            float2 domainWarp(float2 uv, float scale, float strength)
-            {
+                float2 noiseUV = pixelPos / safeScale;
+
                 float2 q = float2(
-                    fbm(uv * scale + float2(3.1, 7.2)),
-                    fbm(uv * scale + float2(8.3, 2.8))
+                    fbm(noiseUV + float2(3.1, 7.2)),
+                    fbm(noiseUV + float2(8.3, 2.8))
                 );
 
                 q = q * 2.0 - 1.0;
-                return uv + q * strength;
+
+                return pixelPos + q * strengthPixels;
             }
 
             v2f vert(appdata_t IN)
@@ -158,44 +168,58 @@ Shader "Custom/SpriteProceduralWreck"
             fixed4 frag(v2f IN) : SV_Target
             {
                 fixed4 baseCol = tex2D(_MainTex, IN.uv) * IN.color;
+
                 if (baseCol.a <= 0.001)
                     discard;
 
-                // Переводим UV всей текстуры в локальные UV текущего спрайта [0..1]
+                // UV атласа -> локальный UV текущего нарезанного спрайта
                 float2 localUV = (IN.uv - _SpriteUVRect.xy) / max(_SpriteUVRect.zw, float2(1e-5, 1e-5));
 
-                // На всякий случай
                 if (localUV.x < 0.0 || localUV.x > 1.0 || localUV.y < 0.0 || localUV.y > 1.0)
                     discard;
 
-                float2 warpedUV = domainWarp(localUV, _WarpScale, _WarpStrength);
+                float2 spriteSize = max(_SpriteSizePixels.xy, float2(1.0, 1.0));
 
-                float2 toCenter = warpedUV - _BreachCenter.xy;
-                float dist = length(toCenter);
+                // Главное место:
+                // переводим UV в пиксели спрайта и привязываем расчёт к центрам пикселей.
+                float2 spritePixel = floor(localUV * spriteSize) + 0.5;
 
-                // Угол вокруг центра
-                float angle = atan2(toCenter.y, toCenter.x);   // [-pi, pi]
-                float angle01 = angle / 6.2831853 + 0.5;       // [0, 1]
+                float2 centerPixel = _BreachCenter.xy * spriteSize;
 
-                // Шум по углу: именно он ломает круговую идеальность
+                float2 warpedPixel = domainWarpPixels(
+                    spritePixel,
+                    _WarpScalePixels,
+                    _WarpStrengthPixels
+                );
+
+                float2 toCenter = warpedPixel - centerPixel;
+                float distPixels = length(toCenter);
+
+                float angle = atan2(toCenter.y, toCenter.x);
+                float angle01 = angle / 6.2831853 + 0.5;
+
                 float angularNoise = fbm(float2(angle01 * _AngularNoiseScale, _NoiseSeed * 0.017));
                 angularNoise = angularNoise * 2.0 - 1.0;
 
-                // Обычный локальный шум тоже оставляем, но как вторичный
-                float localNoise = fbm(warpedUV * _NoiseScale + _NoiseSeed * 0.013);
+                float safeNoiseScale = max(_NoiseScalePixels, 0.0001);
+
+                float localNoise = fbm(spritePixel / safeNoiseScale + _NoiseSeed * 0.013);
                 localNoise = localNoise * 2.0 - 1.0;
 
-                // Комбинируем оба
-                float noisyRadius = _BreachRadius
-                                + angularNoise * _AngularNoiseStrength
-                                + localNoise * _NoiseStrength;
+                float noisyRadiusPixels =
+                    _BreachRadiusPixels
+                    + angularNoise * _AngularNoiseStrengthPixels
+                    + localNoise * _NoiseStrengthPixels;
 
-                float sdf = dist - noisyRadius;
+                // защита от исчезающей бреши
+                noisyRadiusPixels = max(noisyRadiusPixels, _MinVisibleRadiusPixels);
 
-                if (sdf < 0.0)
+                float sdfPixels = distPixels - noisyRadiusPixels;
+
+                if (sdfPixels < 0.0)
                     discard;
 
-                float edgeMask = 1.0 - saturate(sdf / max(_EdgeWidth, 0.0001));
+                float edgeMask = 1.0 - saturate(sdfPixels / max(_EdgeWidthPixels, 0.0001));
                 edgeMask = smoothstep(0.0, 1.0, edgeMask);
 
                 float luminance = dot(baseCol.rgb, float3(0.299, 0.587, 0.114));
@@ -209,6 +233,7 @@ Shader "Custom/SpriteProceduralWreck"
                 fixed4 finalCol;
                 finalCol.rgb = finalRgb;
                 finalCol.a = baseCol.a * _GlobalAlpha;
+
                 return finalCol;
             }
             ENDCG

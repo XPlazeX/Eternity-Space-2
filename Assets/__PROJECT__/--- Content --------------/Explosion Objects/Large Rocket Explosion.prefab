@@ -259,6 +259,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     scaleMultiplier: 0.8
     animationTime: 0.3
+    hideAfterTimer: 0
   - waitTime: 0
     animatingObject: {fileID: 7971234247983505222}
     mayChangeColor: 1
@@ -318,6 +319,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     scaleMultiplier: 1
     animationTime: 0.5
+    hideAfterTimer: 0
   - waitTime: 0
     animatingObject: {fileID: 8860050859829622201}
     mayChangeColor: 0
@@ -386,6 +388,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     scaleMultiplier: 0.6
     animationTime: 0.2
+    hideAfterTimer: 0
   explosionAnimatedMask:
     waitTime: 0.2
     maskTransform: {fileID: 532192773385979439}
@@ -415,10 +418,11 @@ MonoBehaviour:
       m_RotationOrder: 4
     animationTime: 0.3
     scaleMultiplier: 1
+    hideAfterTimer: 1
   sound:
-    _clip: {fileID: 0}
-    _volume: 0
-    _pitchRandomizing: 0
+    _clip: {fileID: 8300000, guid: cecbe59d1e4c5b34b8d4ff23daa7596f, type: 3}
+    _volume: 1
+    _pitchRandomizing: 0.027
 --- !u!1 &7971234247983505222
 GameObject:
   m_ObjectHideFlags: 0

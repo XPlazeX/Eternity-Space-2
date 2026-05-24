@@ -91,7 +91,7 @@ public class CharacterLoader : MonoBehaviour
         // if (Dev.RuStoreVersionSprites)
         //     id = 1;
         Player.Initialize(character.GetSkinnedShip(Skins.SOCurrentSkin()), character.Class);
-        SceneStatics.SceneCore.GetComponent<PlayerShipData>().Initialize(character.HP, character.ARM, id);
+        FindAnyObjectByType<PlayerShipData>().Initialize(character.HP, character.ARM, id);
 
         for (int i = 0; i < character.HandingModules.Length; i++)
         {
