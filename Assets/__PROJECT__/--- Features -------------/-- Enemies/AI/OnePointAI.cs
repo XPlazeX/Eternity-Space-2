@@ -12,7 +12,7 @@ public class OnePointAI : EnemyAIRoot
 
     protected override void Start() 
     {
-        _selectedDirection = Quaternion.Euler(0, 0, Random.Range(-startAngleDeviation, startAngleDeviation)) * transform.up;
+        _selectedDirection = Quaternion.Euler(0, 0, Random.Range(-startAngleDeviation, startAngleDeviation)) * (ArenaLocal.Pivot.position - transform.position);
         if (!noSpreadJumpPower)
             jumpPower = SceneStatics.MultiplyByChaos(jumpPower);
         _targetPosition = AiPosition + (_selectedDirection.normalized * jumpPower);

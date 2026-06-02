@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TimedCondition : Condition
 {
-    [Header("Требует, чтобы прошло X времени в секундах.")]
+    [Tooltip("Требует, чтобы прошло X времени в секундах.")]
     [SerializeField] TimedConditionMode timedConditionMode;
     [SerializeField] private float requiringTime;
 

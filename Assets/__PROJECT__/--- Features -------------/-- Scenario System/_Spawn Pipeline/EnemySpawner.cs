@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        return new List<EnemyHandle>();
+        return spawnedHandles;
     }
 
     public DamageBody SpawnDamageBody(DamageBody dbSample, Vector3 spawnPosition, bool eliteSpawn = false)
@@ -83,27 +83,27 @@ public class EnemySpawner : MonoBehaviour
                     throw new System.Exception("Пока не реализован full level, нужен ArenaWorld");
                 case SpawnAreaMode.FullRing:
                     spawnPosition = ArenaLocal.Center 
-                        + (Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f)) * Vector3.up) 
+                        + Player.Orientation * (Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f)) * Vector3.up) 
                         * (ArenaLocal.VisibleRadius + Random.Range(arenaSpawnOutsideOffsetMinMax.x, arenaSpawnOutsideOffsetMinMax.y));
                     break;
                 case SpawnAreaMode.TopArc:
                     spawnPosition = ArenaLocal.Center
-                        + (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.up)
+                        + Player.Orientation * (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.up)
                         * (ArenaLocal.VisibleRadius + Random.Range(arenaSpawnOutsideOffsetMinMax.x, arenaSpawnOutsideOffsetMinMax.y));
                     break;
                 case SpawnAreaMode.BottomArc:
                     spawnPosition = ArenaLocal.Center
-                        + (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.down)
+                        + Player.Orientation * (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.down)
                         * (ArenaLocal.VisibleRadius + Random.Range(arenaSpawnOutsideOffsetMinMax.x, arenaSpawnOutsideOffsetMinMax.y));
                     break;
                 case SpawnAreaMode.RightArc:
                     spawnPosition = ArenaLocal.Center
-                        + (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.right)
+                        + Player.Orientation * (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.right)
                         * (ArenaLocal.VisibleRadius + Random.Range(arenaSpawnOutsideOffsetMinMax.x, arenaSpawnOutsideOffsetMinMax.y));
                     break;
                 case SpawnAreaMode.LeftArc:
                     spawnPosition = ArenaLocal.Center
-                        + (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.left)
+                        + Player.Orientation * (Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)) * Vector3.left)
                         * (ArenaLocal.VisibleRadius + Random.Range(arenaSpawnOutsideOffsetMinMax.x, arenaSpawnOutsideOffsetMinMax.y));
                     break;
                 default:

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public static GameObject PlayerObject {get; private set;}
     public static Transform PlayerTransform {get; private set;}
+    public static Quaternion Orientation => PlayerTransform == null ? Quaternion.identity : PlayerTransform.rotation;
     public static Vector3 Position => PlayerTransform == null ? Vector3.zero : PlayerTransform.position;
     public static Transform TargetPlayerTransform {get; private set;}
     public static bool Alive => PlayerShipData.Active;
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour
 
         _firstPlayerExample = Instantiate(PlayerObject);
         _firstPlayerExample.SetActive(false);
+
+        UpdatePlayer();
     }
 
     private void FixedUpdate() 

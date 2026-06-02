@@ -22,10 +22,13 @@ namespace ScenarioSystem
         public string debugName = "debug_node";
 
         [SerializeReference][SubclassSelector] public NodeLogicData logic;
+        [Space()]
         [Tooltip("Условие для начала ноды, т.е. Что должно произойти в предыдущих нодах, чтобы началась эта.")]
         [SerializeReference][SubclassSelector] public Condition startCondition;
+        [Space()]
         [Tooltip("Условие конца ноды, т.е. Что должно произойти в текущих нодах, чтобы остановилась эта.")]
         [SerializeReference][SubclassSelector] public Condition endCondition;
+        [Space()]
         [SerializeReference][SubclassSelector] public TransitionData transitionToThis;
 
         [Header("Развилки и мульти-ноды")]
@@ -109,6 +112,7 @@ namespace ScenarioSystem
 
         public bool IsStartNode; // с этой ли ноды начался уровень
         public bool IsEndingNode; // можно ли в этой ноде закончить уровень
+        public bool IsEncounterRunningValide; // запущен ли сейчас энкаунтер (для условий, которые зависят от этого)
         public bool AnyEnemyAlive; // если есть враги
         public bool IsParsing; // перемещается ли игрок на салазках
 
@@ -126,7 +130,7 @@ namespace ScenarioSystem
         public Dictionary<string, EncounterSnapshot> ActiveEncounterSnapshots = new(); // для проверок Condition, доступ по runtime-ключу Encounter
 
         // === СИСТЕМЫ
-        // public EnemyDirector EnemyDirector;
+        public EncounterDirector EncounterDirector;
         // public SledgeController SledController;
         // public DialogueController DialogueController;
         // PlayerShipData - статик, доступ к здоровью, урону игроку

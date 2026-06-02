@@ -50,7 +50,7 @@ public class AttackModule : AttackingModule
             {
                 for (int j = 0; j < ((float)_attackObjects[i].Cycles * (_aggro * _localAggro) < 1f ? 1f : Mathf.Floor((float)_attackObjects[i].Cycles * (_aggro * _localAggro))); j++)
                 {
-                    _attackObjects[i].Fire();
+                    _attackObjects[i].Fire(FixedDeltaPosition);
                     Fired?.Invoke();
 
                     yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[i].TimeBetweenCycles / (_aggro * _localAggro)));
@@ -76,7 +76,7 @@ public class AttackModule : AttackingModule
 
         for (int j = 0; j < ((float)_attackObjects[id].Cycles * (_aggro * _localAggro) < 1f ? 1f : Mathf.Floor((float)_attackObjects[id].Cycles * (_aggro * _localAggro))); j++)
         {
-            _attackObjects[id].Fire();
+            _attackObjects[id].Fire(FixedDeltaPosition);
             Fired?.Invoke();
 
             yield return new WaitForSeconds(SceneStatics.MultiplyByChaos(_attackObjects[id].TimeBetweenCycles / (_aggro * _localAggro)));
@@ -96,6 +96,7 @@ public class EnemyAttackObject
     [SerializeField] private float _timeCooling = 0;
     [Space()]
     [SerializeField] private Bullet _bulletSample;
+    [SerializeField] private _ExplosionBullet _muzzleExplosion;
     [SerializeField] private Transform[] _barrels;
     [SerializeField] private bool _randomBarrel = false;
     [Space()]
@@ -108,19 +109,19 @@ public class EnemyAttackObject
     public float TimeBetweenCycles => _timeBetweenCycles;
     public float TimeCooling => _timeCooling;
 
-    public void Fire()
+    public void Fire(Vector3 fixedDeltaPosition = default(Vector3))
     {
         if (_randomBarrel)
-            SpawnBullets(_barrels[Random.Range(0, _barrels.Length)]);
+            SpawnBullets(_barrels[Random.Range(0, _barrels.Length)], fixedDeltaPosition);
         
         else
             for (int i = 0; i < _barrels.Length; i++)
             {
-                SpawnBullets(_barrels[i]);
+                SpawnBullets(_barrels[i], fixedDeltaPosition);
             }
     }
 
-    private void SpawnBullets(Transform barrel)
+    private void SpawnBullets(Transform barrel, Vector3 fixedDeltaPosition = default(Vector3))
     {
         float startAngle = barrel.eulerAngles.z;
 
@@ -133,11 +134,13 @@ public class EnemyAttackObject
             bullet.transform.position = barrel.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, startAngle + Random.Range(-_randomAngleStep, _randomAngleStep));
 
-            if (_randomizingBulletSpeed > 0)
-                bullet.MultiplySpeedParams(Random.Range(1f - _randomizingBulletSpeed, 1f + _randomizingBulletSpeed));
+            bullet.MultiplySpeedParams(Random.Range(1f - _randomizingBulletSpeed, 1f + _randomizingBulletSpeed), fixedDeltaPosition);
 
             startAngle += _fixedAngleStep;
 
-        }   
+        }
+
+        if (_muzzleExplosion != null)
+            _muzzleExplosion.SpawnExplosion(barrel.position);   
     }
 }

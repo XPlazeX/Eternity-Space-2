@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: ce38b1fc4d4ff024982c30f5c92528b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6762218698738230937
+    second: true_bigPlanets_2TEST_0
+  - first:
+      213: 1412943280133217245
+    second: true_bigPlanets_2TEST_1
+  - first:
+      213: -3198296437227427526
+    second: true_bigPlanets_2TEST_2
+  - first:
+      213: 4331584895925044998
+    second: true_bigPlanets_2TEST_3
+  - first:
+      213: -1848385862693533148
+    second: true_bigPlanets_2TEST_4
+  - first:
+      213: 8328337010753228483
+    second: true_bigPlanets_2TEST_5
+  - first:
+      213: -1177100290058376304
+    second: true_bigPlanets_2TEST_6
+  - first:
+      213: -191820467680809731
+    second: true_bigPlanets_2TEST_7
+  - first:
+      213: -4079966915133196923
+    second: true_bigPlanets_2TEST_8
+  - first:
+      213: 4284518326986630117
+    second: true_bigPlanets_2TEST_9
+  - first:
+      213: 1616314430553544668
+    second: true_bigPlanets_2TEST_10
+  - first:
+      213: 2202990914982631253
+    second: true_bigPlanets_2TEST_11
+  - first:
+      213: 3982909795534692163
+    second: true_bigPlanets_2TEST_12
+  - first:
+      213: -5245150753856270498
+    second: true_bigPlanets_2TEST_13
+  - first:
+      213: 1417610264056358328
+    second: true_bigPlanets_2TEST_14
+  - first:
+      213: 1494386673933043410
+    second: true_bigPlanets_2TEST_15
+  - first:
+      213: 5522009216617665224
+    second: true_bigPlanets_2TEST_16
+  - first:
+      213: 1327433031229422477
+    second: true_bigPlanets_2TEST_17
+  - first:
+      213: -843246297955115164
+    second: true_bigPlanets_2TEST_18
+  - first:
+      213: -4928657764240416085
+    second: true_bigPlanets_2TEST_19
+  - first:
+      213: -2187744209878247086
+    second: true_bigPlanets_2TEST_20
+  - first:
+      213: 6558478238406504793
+    second: true_bigPlanets_2TEST_21
+  - first:
+      213: -5755518044417848132
+    second: true_bigPlanets_2TEST_22
+  - first:
+      213: -2760367930874626699
+    second: true_bigPlanets_2TEST_23
+  - first:
+      213: -8540831890940501031
+    second: true_bigPlanets_2TEST_24
+  - first:
+      213: -5398690699488663831
+    second: true_bigPlanets_2TEST_25
+  - first:
+      213: 3331667367906159354
+    second: true_bigPlanets_2TEST_26
+  - first:
+      213: 5266281103231745724
+    second: true_bigPlanets_2TEST_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1023
+        width: 585
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996ebc7241a38dd50800000000000000
+      internalID: 6762218698738230937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_1
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1236
+        width: 217
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb9d1c5d68cb9310800000000000000
+      internalID: 1412943280133217245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_2
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 1274
+        width: 171
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3969ace55e5d93d0800000000000000
+      internalID: -3198296437227427526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_3
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 1177
+        width: 278
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6074f0c5381ec1c30800000000000000
+      internalID: 4331584895925044998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_4
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 1097
+        width: 502
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a4c4ed9d63956e0800000000000000
+      internalID: -1848385862693533148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_5
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 1075
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce4fa7c262349370800000000000000
+      internalID: 8328337010753228483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_6
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 924
+        width: 197
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09baf02d5891aafe0800000000000000
+      internalID: -1177100290058376304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_7
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 862
+        width: 189
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc6c3b0d44865df0800000000000000
+      internalID: -191820467680809731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_8
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 859
+        width: 158
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585b32015bb0167c0800000000000000
+      internalID: -4079966915133196923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_9
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 852
+        width: 235
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e360b1d7baa57b30800000000000000
+      internalID: 4284518326986630117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_10
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 855
+        width: 248
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd75b76396d4e6610800000000000000
+      internalID: 1616314430553544668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_11
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 733
+        width: 190
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557d3f2b098929e10800000000000000
+      internalID: 2202990914982631253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_12
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 398
+        width: 453
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34fd44f4b53264730800000000000000
+      internalID: 3982909795534692163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_13
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 779
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f460bed2b7537b0800000000000000
+      internalID: -5245150753856270498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_14
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 661
+        width: 185
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5e60b360d5ca310800000000000000
+      internalID: 1417610264056358328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_15
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 447
+        width: 161
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d64bd823c02db410800000000000000
+      internalID: 1494386673933043410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_16
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 717
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2ddea202e12ac40800000000000000
+      internalID: 5522009216617665224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_17
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 703
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8bbc811f4dfb6210800000000000000
+      internalID: 1327433031229422477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_18
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 676
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46fd830b5ff2c44f0800000000000000
+      internalID: -843246297955115164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_19
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 683
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2aaf660e3e99bb0800000000000000
+      internalID: -4928657764240416085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_20
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 395
+        width: 157
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2591ac67b3293a1e0800000000000000
+      internalID: -2187744209878247086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_21
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 398
+        width: 81
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9517953a535640b50800000000000000
+      internalID: 6558478238406504793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_22
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 446
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc8f1825da4020b0800000000000000
+      internalID: -5755518044417848132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_23
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 428
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d76deedf331b9d0800000000000000
+      internalID: -2760367930874626699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_24
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 395
+        width: 268
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3e92e75aed87980800000000000000
+      internalID: -8540831890940501031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_25
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 42
+        width: 308
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6e5cc896ff315b0800000000000000
+      internalID: -5398690699488663831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_26
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 42
+        width: 346
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afaaec5b1d57c3e20800000000000000
+      internalID: 3331667367906159354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: true_bigPlanets_2TEST_27
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 8
+        width: 403
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbefa7de2c6951940800000000000000
+      internalID: 5266281103231745724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      true_bigPlanets_2TEST_0: 6762218698738230937
+      true_bigPlanets_2TEST_1: 1412943280133217245
+      true_bigPlanets_2TEST_10: 1616314430553544668
+      true_bigPlanets_2TEST_11: 2202990914982631253
+      true_bigPlanets_2TEST_12: 3982909795534692163
+      true_bigPlanets_2TEST_13: -5245150753856270498
+      true_bigPlanets_2TEST_14: 1417610264056358328
+      true_bigPlanets_2TEST_15: 1494386673933043410
+      true_bigPlanets_2TEST_16: 5522009216617665224
+      true_bigPlanets_2TEST_17: 1327433031229422477
+      true_bigPlanets_2TEST_18: -843246297955115164
+      true_bigPlanets_2TEST_19: -4928657764240416085
+      true_bigPlanets_2TEST_2: -3198296437227427526
+      true_bigPlanets_2TEST_20: -2187744209878247086
+      true_bigPlanets_2TEST_21: 6558478238406504793
+      true_bigPlanets_2TEST_22: -5755518044417848132
+      true_bigPlanets_2TEST_23: -2760367930874626699
+      true_bigPlanets_2TEST_24: -8540831890940501031
+      true_bigPlanets_2TEST_25: -5398690699488663831
+      true_bigPlanets_2TEST_26: 3331667367906159354
+      true_bigPlanets_2TEST_27: 5266281103231745724
+      true_bigPlanets_2TEST_3: 4331584895925044998
+      true_bigPlanets_2TEST_4: -1848385862693533148
+      true_bigPlanets_2TEST_5: 8328337010753228483
+      true_bigPlanets_2TEST_6: -1177100290058376304
+      true_bigPlanets_2TEST_7: -191820467680809731
+      true_bigPlanets_2TEST_8: -4079966915133196923
+      true_bigPlanets_2TEST_9: 4284518326986630117
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

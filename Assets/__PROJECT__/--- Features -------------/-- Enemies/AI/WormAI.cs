@@ -89,8 +89,8 @@ public class WormAI : EnemyAIRoot
 
     private void SetTarget()
     {
-        _targetPosition = new Vector3 (Random.Range(XBorders.x + ARENA_BORDERS_MOVING_OFFSET, XBorders.y - ARENA_BORDERS_MOVING_OFFSET),
-            Random.Range(YBorders.x + ARENA_BORDERS_MOVING_OFFSET, YBorders.y - ARENA_BORDERS_MOVING_OFFSET), 0f);
+        _targetPosition = ArenaLocal.ArenaOrientation(new Vector3 (Random.Range(XBorders.x + ARENA_BORDERS_MOVING_OFFSET, XBorders.y - ARENA_BORDERS_MOVING_OFFSET),
+            Random.Range(YBorders.x + ARENA_BORDERS_MOVING_OFFSET, YBorders.y - ARENA_BORDERS_MOVING_OFFSET), 0f));
     }
 
     private void RotateMoveDirection(Vector3 toPosition)

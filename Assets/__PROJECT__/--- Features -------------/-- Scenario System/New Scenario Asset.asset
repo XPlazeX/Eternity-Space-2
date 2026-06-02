@@ -13,14 +13,27 @@ MonoBehaviour:
   m_Name: New Scenario Asset
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioAsset
   nodes:
+  - id: initialization_node
+    debugName: Init Node
+    logic:
+      rid: 6291079640820220004
+    startCondition:
+      rid: 6291079640820220005
+    endCondition:
+      rid: 6291079640820220009
+    transitionToThis:
+      rid: 6291079640820220007
+    nextNodeIndexes: 
+    disposable: 1
+    endIfOtherNodesStarted: 0
   - id: dbg_0
     debugName: starter
     logic:
-      rid: 6948391906032222377
+      rid: 6291079595664867399
     startCondition:
-      rid: 6948391906032222384
+      rid: 6291079595664867403
     endCondition:
-      rid: 6948391906032222378
+      rid: 6291079595664867400
     transitionToThis:
       rid: 6948391906032222379
     nextNodeIndexes: 
@@ -31,11 +44,24 @@ MonoBehaviour:
     logic:
       rid: 6948391906032222377
     startCondition:
+      rid: 6291079595664867414
+    endCondition:
+      rid: 6948391906032222378
+    transitionToThis:
+      rid: 6291079550425104683
+    nextNodeIndexes: 
+    disposable: 0
+    endIfOtherNodesStarted: 0
+  - id: dbg_2
+    debugName: cycler2
+    logic:
+      rid: 6948391906032222377
+    startCondition:
       rid: 6948391906032222380
     endCondition:
       rid: 6948391906032222378
     transitionToThis:
-      rid: 6948391906032222379
+      rid: 6291079550425104688
     nextNodeIndexes: 00000000
     disposable: 0
     endIfOtherNodesStarted: 0
@@ -43,6 +69,87 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 6291079550425104683
+      type: {class: ParsingCoordinateTransition, ns: , asm: Assembly-CSharp}
+      data:
+        targetCoordinates: {x: 2000, y: 5000, z: 0}
+    - rid: 6291079550425104688
+      type: {class: ParsingCoordinateTransition, ns: , asm: Assembly-CSharp}
+      data:
+        targetCoordinates: {x: 0, y: 0, z: 0}
+    - rid: 6291079595664867399
+      type: {class: EncounterNodeLogics, ns: , asm: Assembly-CSharp}
+      data:
+        endRunOnCompleted: 0
+        isCheckpoint: 0
+        scrollingPivotSpeed: {x: 0, y: 0}
+        pivotToPlayerFollowSpeed: 0
+        waitSledgeEndTransition: 1
+        waitTime: 0
+        encounterDef:
+          runtimeId: c70584e48dc023643a90368d0761b5d4
+          rareCardProbability: 0.05
+          uncommonCardProbability: 0.2
+          plannedWaitTime: 3
+          plannedBudget: 1
+          plannedCostWeights:
+            cost_1: 1
+            cost_2: 0.5
+            cost_3: 0.15
+            cost_4andMore: 0.06
+          spawnCardsPool:
+            spawnCards:
+            - {fileID: 11400000, guid: eabfd96fb6a246c47a601d964fc5be43, type: 2}
+          plannedMaxWeight: 10
+          plannedThresholdWeight: 1.5
+          plannedPlayCooldown: 0.5
+          bonusWaitTime: 20
+          bonusCostWeights:
+            cost_1: 1
+            cost_2: 0.5
+            cost_3: 0.15
+            cost_4andMore: 0.06
+          bonusCardsPool:
+            spawnCards: []
+          bonusMaxWeight: 2
+          bonusThresholdWeight: 0.5
+          bonusPlayCooldown: 10
+          bonusStopWeightThreshold: 0
+          playFinalCards: 1
+          sortedFinalCardsPool:
+            spawnCards: []
+          finalPlayCooldown: 5
+    - rid: 6291079595664867400
+      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
+      data:
+        checkValidenceOfRunningEncounter: 1
+        encounterClearConditionMode: 0
+    - rid: 6291079595664867403
+      type: {class: SledgeWaitCondition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 6291079595664867414
+      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
+      data:
+        checkValidenceOfRunningEncounter: 1
+        encounterClearConditionMode: 0
+    - rid: 6291079640820220004
+      type: {class: EmptyNodeLogic, ns: , asm: Assembly-CSharp}
+      data:
+        endRunOnCompleted: 0
+        isCheckpoint: 0
+        scrollingPivotSpeed: {x: 0, y: 0}
+        pivotToPlayerFollowSpeed: 0
+    - rid: 6291079640820220005
+      type: {class: InstantCondition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 6291079640820220007
+      type: {class: InstantTransition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 6291079640820220009
+      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
+      data:
+        timedConditionMode: 0
+        requiringTime: 3
     - rid: 6948391906032222377
       type: {class: EmptyNodeLogic, ns: , asm: Assembly-CSharp}
       data:
@@ -62,9 +169,4 @@ MonoBehaviour:
       type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
       data:
         timedConditionMode: 1
-        requiringTime: 5
-    - rid: 6948391906032222384
-      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
-      data:
-        timedConditionMode: 1
-        requiringTime: 3
+        requiringTime: 15

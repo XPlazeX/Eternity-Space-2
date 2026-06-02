@@ -38,6 +38,8 @@ public class Encounter: ISerializationCallbackReceiver
     [SerializeField] private float bonusThresholdWeight = 0.5f;
     [Tooltip("Базовый кулдаун разыгрывания карты, начинает отсчёт после того, как все враги из карты заспаунены")]
     [SerializeField] private float bonusPlayCooldown = 10f;
+    [Tooltip("Когда остановлен плановый и финальный спауны, при каком весе ВСЕХ врагов на арене остановится бонусный спаун?")]
+    [SerializeField] private float bonusStopWeightThreshold = 5f;
 
     [Header("Final Cards")]
     [Tooltip("Использовать финальные карты? Будут разыгрываться, когда плановый бюджет иссякнет, а плановый вес достигнет threshold. Бонусный спаун не останавливается.")]
@@ -65,6 +67,7 @@ public class Encounter: ISerializationCallbackReceiver
     public float BonusMaxWeight { get => bonusMaxWeight; private set => bonusMaxWeight = value; }
     public float BonusThresholdWeight { get => bonusThresholdWeight; private set => bonusThresholdWeight = value; }
     public float BonusPlayCooldown { get => bonusPlayCooldown; private set => bonusPlayCooldown = value; }
+    public float BonusStopWeightThreshold { get => bonusStopWeightThreshold; private set => bonusStopWeightThreshold = value; }
 
     public bool PlayFinalCards { get => playFinalCards; private set => playFinalCards = value; }
     public SpawnCardsPool SortedFinalCardsPool { get => sortedFinalCardsPool; private set => sortedFinalCardsPool = value; }

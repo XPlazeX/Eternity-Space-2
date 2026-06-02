@@ -59,7 +59,10 @@ public class EnemyHealthBar : PooledObject
 
     private void Update() {
         if (_parent != null)
-            transform.position = _parent.position + Vector3.up * _offsetY;
+        {
+            transform.position = _parent.position + (Player.Orientation * Vector3.up) * _offsetY;
+            transform.rotation = Player.Orientation;
+        }
         
         else
             gameObject.SetActive(false);

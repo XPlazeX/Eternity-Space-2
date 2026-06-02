@@ -7,6 +7,7 @@ public class SledgeCore : MonoBehaviour
     public static event System.Action FullRepairReleased;
     public static event System.Action<int> RepairChanged; // UI сам подпишется
 
+    [SerializeField] private bool disableRepair;
     [SerializeField] private int baseRepairCharge;
     [SerializeField] private float repairStepMultiplier = 1.15f;
 
@@ -34,21 +35,26 @@ public class SledgeCore : MonoBehaviour
 
     private void OnEnable() 
     {
-        PlayerRamsHandler.RamSuccess += OnRamSuccess;
+        if (!disableRepair)
+            PlayerRamsHandler.RamSuccess += OnRamSuccess;
     }
 
     void OnDisable()
     {
-        PlayerRamsHandler.RamSuccess -= OnRamSuccess;
+        if (!disableRepair)
+            PlayerRamsHandler.RamSuccess -= OnRamSuccess;
     }
 
     private void OnRamSuccess()
     {
-        Charge();
+        if (!disableRepair)
+            Charge();
     }
 
     public void Charge()
     {
+        if (disableRepair) return;
+        
         RepairCharge += Mathf.CeilToInt((float)baseRepairCharge * Mathf.Pow(repairStepMultiplier, _chargeStep));
 
         _chargeStep ++;

@@ -10,6 +10,7 @@ public class ArenaLocal : MonoBehaviour
     [Header("Arena")]
     [SerializeField] private float arenaRadius = 20f;
     [SerializeField] private CircleLineRenderer borderCircleRenderer;
+    [SerializeField] private bool useOuterRadius;
     [Header("Relativity")]
     [SerializeField] private float relativityOffsetOut = 10f;
     [SerializeField] private AnimationCurve relativityGrowth;
@@ -43,8 +44,6 @@ public class ArenaLocal : MonoBehaviour
     {
         instance = this;
         SetBallionCore(pivotTransform, arenaRadius);
-        // SetPivot(pivotTransform);
-        // SetBorders(positiveXBorder, negativeXBorder, positiveYBorder, negativeYBorder);
     }
 
     private static float CalculateRadius()
@@ -54,8 +53,6 @@ public class ArenaLocal : MonoBehaviour
             _cahchedRadius = Mathf.Sqrt(
                 Mathf.Max(LPosX, LNegX) * Mathf.Max(LPosX, LNegX) 
                 + Mathf.Max(LPosY, LNegY) * Mathf.Max(LPosY, LNegY)); // описаная окружность
-
-            // Debug.Log($"{Mathf.Max(LPosX, LNegX)}^2 + {Mathf.Max(LPosY, LNegY)}^2 sqrt = {_cahchedRadius}");
         }
 
         return _cahchedRadius;
@@ -81,7 +78,7 @@ public class ArenaLocal : MonoBehaviour
         float a = Mathf.Sqrt(arenaRadius * arenaRadius / 2f);
         SetBorders(a, a, a, a);
 
-        borderCircleRenderer.SetRadius(Radius);
+        borderCircleRenderer.SetRadius(useOuterRadius ? RelativityRadius : Radius);
     }
 
     private void SetPivot(Transform transform)
@@ -101,7 +98,7 @@ public class ArenaLocal : MonoBehaviour
         _cahchedVisibleRadius = -1f;
     }
 
-    public static Vector3 RelativeVectorAtPoint(Vector3 moveDelta, Vector3 point, float relativeFactor)
+    public static Vector3 RelativeVectorAtPoint(Vector3 moveDelta, Vector3 point, float relativeFactor, bool useDisableRelativity = true)
     {
         if (instance == null)
             return moveDelta;
@@ -109,7 +106,7 @@ public class ArenaLocal : MonoBehaviour
         if (Pivot == null)
             return moveDelta;
 
-        if (instance.disableRelativity)
+        if (useDisableRelativity && instance.disableRelativity)
             return moveDelta;
 
         if (moveDelta.sqrMagnitude <= Mathf.Epsilon)
@@ -235,9 +232,25 @@ public class ArenaLocal : MonoBehaviour
         return Pivot.position + (normalized * RelativityRadius);
     }
 
-    public static float GetRelativityAtPoint(Vector3 point)
+    public static Vector3 ArenaOrientation(Vector3 worldPoint)
     {
-        if (instance.disableRelativity) return 0f;
+        if (Pivot == null)
+            return worldPoint;
+
+        return Pivot.position + Player.Orientation * (worldPoint - Pivot.position);
+    }
+
+    public static Vector3 ArenaBorderOrientation(Vector3 localVector)
+    {
+        if (Pivot == null)
+            return localVector;
+
+        return Pivot.position + Player.Orientation * localVector;
+    }
+
+    public static float GetRelativityAtPoint(Vector3 point, bool useDisableRelativity = true)
+    {
+        if (useDisableRelativity && instance.disableRelativity) return 0f;
 
         float mag = (Pivot.position - point).magnitude;
 
@@ -265,10 +278,10 @@ public class ArenaLocal : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(pivotTransform.position, arenaRadius);
         Gizmos.color = Color.orange;
-        Gizmos.DrawLine(new Vector3(WNegX, WPosY, 0f), new Vector3(WPosX, WPosY, 0f));
-        Gizmos.DrawLine(new Vector3(WNegX, WNegY, 0f), new Vector3(WPosX, WNegY, 0f));
-        Gizmos.DrawLine(new Vector3(WNegX, WNegY, 0f), new Vector3(WNegX, WPosY, 0f));
-        Gizmos.DrawLine(new Vector3(WPosX, WNegY, 0f), new Vector3(WPosX, WPosY, 0f));
+        Gizmos.DrawLine(ArenaBorderOrientation(new Vector3(-LNegX, LPosY, 0f)), ArenaBorderOrientation(new Vector3(LPosX, LPosY, 0f)));
+        Gizmos.DrawLine(ArenaBorderOrientation(new Vector3(-LNegX, -LNegY, 0f)), ArenaBorderOrientation(new Vector3(LPosX, -LNegY, 0f)));
+        Gizmos.DrawLine(ArenaBorderOrientation(new Vector3(-LNegX, -LNegY, 0f)), ArenaBorderOrientation(new Vector3(-LNegX, LPosY, 0f)));
+        Gizmos.DrawLine(ArenaBorderOrientation(new Vector3(LPosX, -LNegY, 0f)), ArenaBorderOrientation(new Vector3(LPosX, LPosY, 0f)));
         Gizmos.DrawWireSphere(pivotTransform.position, RelativityRadius);
     }
 }

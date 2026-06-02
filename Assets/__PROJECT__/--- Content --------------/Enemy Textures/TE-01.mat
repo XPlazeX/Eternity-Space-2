@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerShip-01
+  m_Name: TE-01
   m_Shader: {fileID: 4800000, guid: 4c08c14e9e2450e489e7c39ee252b785, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _DirTex:
-        m_Texture: {fileID: 2800000, guid: 7e17d371cc579814fb4a60de44ffc99a, type: 3}
+        m_Texture: {fileID: 2800000, guid: f6ee13a7930f78345b270f0701085288, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -35,7 +35,7 @@ Material:
     m_Floats:
     - _ES_AwayMul: 0.25
     - _ES_CavityDarkness: 0.5
-    - _ES_Flash: 1
+    - _ES_Flash: 0
     - _ES_FlashAdd: 0
     - _ES_FlashLift: 0.225
     - _ES_FlatMul: 0.788

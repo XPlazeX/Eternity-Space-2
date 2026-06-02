@@ -5,6 +5,8 @@ using DamageSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : AttackObject
 {
+    public const float MAX_INERTION_ADDITIVE_SPEED_MULTIPLIER = 1.33f;
+    public const float MIN_INERTION_ADDITIVE_SPEED_MULTIPLIER = 1f;
     public const int parryExplosionID = 11;
 
     public delegate void stateLife();
@@ -126,9 +128,27 @@ public class Bullet : AttackObject
             Death();
     }
 
-    public virtual void MultiplySpeedParams(float multiplier = 1f)
+    public virtual void MultiplySpeedParams(float multiplier = 1f, Vector3 inertionFixedDelta = default(Vector3))
     {
-        _speed *= multiplier;
+        if (_speed == 0f)
+            return;
+
+        float inertionMultiplier = MIN_INERTION_ADDITIVE_SPEED_MULTIPLIER;
+
+        if (inertionFixedDelta.sqrMagnitude > 0.000001f)
+        {
+            Vector3 inertionVelocity = inertionFixedDelta / Time.fixedDeltaTime;
+            float forwardInertionSpeed = Mathf.Max(0f, Vector3.Dot(transform.up, inertionVelocity));
+            float speedRatio = forwardInertionSpeed / Mathf.Abs(_speed);
+
+            inertionMultiplier = Mathf.Clamp(
+                MIN_INERTION_ADDITIVE_SPEED_MULTIPLIER + speedRatio,
+                MIN_INERTION_ADDITIVE_SPEED_MULTIPLIER,
+                MAX_INERTION_ADDITIVE_SPEED_MULTIPLIER
+            );
+        }
+
+        _speed *= multiplier * inertionMultiplier;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

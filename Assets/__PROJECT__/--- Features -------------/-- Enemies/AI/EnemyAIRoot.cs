@@ -8,6 +8,8 @@ public class EnemyAIRoot : MonoBehaviour
     [SerializeField] protected bool autoStart = true;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float inertionSurmount = 10f;
+    [SerializeField] private float startSpeedBoost = 0f;
+    [SerializeField] private float startSpeedBoostTime;
     [Tooltip("How fast current movement inertia rotates toward desired movement direction, degrees per second.")]
     [SerializeField] private float inertionRotateSpeed = 360f;
     [SerializeField] protected LookingOrientation lookingOrientation = LookingOrientation.Fixed;
@@ -25,6 +27,8 @@ public class EnemyAIRoot : MonoBehaviour
     [SerializeField] private float externalAccelerationStopThreshold = 0.05f;
 
     protected float _startSpeed;
+    private float _speedBoost = 0f;
+    private float _speedBoostTimer = 0f;
     private float _localMobility = 1f;
     private Vector3 _inertion = Vector3.zero;
     private Vector3 _floatingOffset = Vector3.zero;
@@ -46,7 +50,7 @@ public class EnemyAIRoot : MonoBehaviour
     public Vector3 FloatingOffset => _floatingOffset;
     public Vector3 RealPosition => _aiPosition + _floatingOffset;
     public Vector3 Inertion => _inertion;
-    public float Speed => speed;
+    public float Speed => speed + _speedBoost;
     public float Mobility => RR.Get(RuntimeStat.EnemyMobilityMultiplier) * _localMobility;
     public bool Active { get; private set; } = false;
     public bool Stunned { get; private set; } = false;
@@ -96,10 +100,23 @@ public class EnemyAIRoot : MonoBehaviour
     {
         if (autoStart)
             StartMoving();
+
+        _speedBoostTimer = startSpeedBoostTime;
+        _speedBoost = startSpeedBoost;
     }
 
     protected virtual void FixedUpdate()
     {
+        if (_speedBoostTimer > 0f)
+        {
+            _speedBoostTimer -= Time.fixedDeltaTime;
+
+            if (_speedBoostTimer <= 0f)
+            {
+                _speedBoost = 0f;
+            }
+        }
+
         if (!Active)
         {
             return;

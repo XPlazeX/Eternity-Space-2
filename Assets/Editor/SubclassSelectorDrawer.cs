@@ -97,25 +97,39 @@ public class SubclassSelectorDrawer : PropertyDrawer
     {
         GenericMenu menu = new GenericMenu();
 
+        UnityEngine.Object targetObject = property.serializedObject.targetObject;
+        string propertyPath = property.propertyPath;
+
         menu.AddItem(new GUIContent("Null"), property.managedReferenceValue == null, () =>
         {
-            property.serializedObject.Update();
-            property.managedReferenceValue = null;
-            property.serializedObject.ApplyModifiedProperties();
+            SerializedObject so = new SerializedObject(targetObject);
+            so.Update();
+
+            SerializedProperty p = so.FindProperty(propertyPath);
+            p.managedReferenceValue = null;
+
+            so.ApplyModifiedProperties();
         });
 
         foreach (Type type in GetConcreteTypes(baseType))
         {
-            string path = type.Name;
-            bool isCurrent = property.managedReferenceValue != null &&
-                             property.managedReferenceValue.GetType() == type;
+            Type concreteType = type;
 
-            menu.AddItem(new GUIContent(path), isCurrent, () =>
+            bool isCurrent = property.managedReferenceValue != null &&
+                            property.managedReferenceValue.GetType() == concreteType;
+
+            menu.AddItem(new GUIContent(concreteType.Name), isCurrent, () =>
             {
-                property.serializedObject.Update();
-                property.managedReferenceValue = Activator.CreateInstance(type);
-                property.isExpanded = true;
-                property.serializedObject.ApplyModifiedProperties();
+                SerializedObject so = new SerializedObject(targetObject);
+                so.Update();
+
+                SerializedProperty p = so.FindProperty(propertyPath);
+
+                object instance = Activator.CreateInstance(concreteType);
+                p.managedReferenceValue = instance;
+                p.isExpanded = true;
+
+                so.ApplyModifiedProperties();
             });
         }
 

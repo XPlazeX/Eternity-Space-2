@@ -3,11 +3,20 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PowerupFabricDrone : MonoBehaviour
 {
+    public enum DroneMode
+    {
+        Working,
+        Parking,
+        Parked
+    }
+
     [Header("Fabric")]
     [SerializeField] private float wreckPriceToPowerup = 100f;
     [SerializeField] private float drillSpeed = 1f;
     [SerializeField] private GameObject[] fabricatingObjects;
+    [SerializeField] private GameObject rawFabricatingObject;
     [SerializeField] private Transform powerupPivot;
+    [SerializeField] private float maxFindingRadius = 100f;
     [SerializeField] private float findingUpdateTime = 1f;
 
     [Header("Engine")]
@@ -25,6 +34,9 @@ public class PowerupFabricDrone : MonoBehaviour
     [SerializeField] private float playerFollowDistance = 3f;
     [SerializeField] private Vector2 playerFollowOffset = new Vector2(0f, -2f);
 
+    [Header("Parking")]
+    [SerializeField] private float parkingArriveTolerance = 0.05f;
+
     [Header("Wreck approach")]
     [SerializeField] private float targetDistance = 1.5f;
     [SerializeField] private float wreckArriveTolerance = 0.15f;
@@ -36,12 +48,15 @@ public class PowerupFabricDrone : MonoBehaviour
 
     [Header("Visual")]
     [SerializeField] private float visualRotationSpeedDegrees = 360f;
+    [SerializeField] private Transform movementTransform;
+    [SerializeField] private Transform turretTransform;
     [SerializeField] private LineRenderer drillBeam;
     [SerializeField] private Transform beamPivot;
     [SerializeField] private ExplosionObject fabricatingExplosion;
     [SerializeField] private float scale = 1f;
     [SerializeField] private bool overrideColor = false;
     [SerializeField] private Color color = Color.wheat;
+    [SerializeField] private GameObject[] disabledOnParkedObjects = new GameObject[0];
 
     [Tooltip("Объект на конце луча бурения: искры, маленькая вспышка, сверло и т.п.")]
     [SerializeField] private GameObject drillObject;
@@ -59,11 +74,15 @@ public class PowerupFabricDrone : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Vector2 _inertia;
+    private DroneMode _mode = DroneMode.Working;
+    private Transform _parkingTransform;
 
     private Wreck _targetWreck;
 
     private float _currentBudget = 0f;
     private bool _hasPowerup = false;
+    private bool _rawFabricateRequested = false;
+    private bool _deliveringRawFabricatedObject = false;
     private float _findingTimer;
 
     private GameObject _fabricatedObject;
@@ -85,6 +104,13 @@ public class PowerupFabricDrone : MonoBehaviour
     private Vector2 _fixedStepParallaxDelta;
 
     private bool _motionAppliedThisFixedStep;
+
+    public DroneMode Mode => _mode;
+    public bool HasPowerup => _hasPowerup;
+    public bool Finding => (_mode == DroneMode.Working) && _targetWreck == null && !_hasPowerup;
+    public bool RawSynthesis => _rawFabricateRequested;
+    public float BudgetProgress01 => Mathf.Clamp01(_currentBudget / wreckPriceToPowerup);
+    public float DrillProgress01 => _targetWreck != null ? (1f - _targetWreck.DrilledAmount01) : 0f;
 
     private void Awake()
     {
@@ -118,12 +144,34 @@ public class PowerupFabricDrone : MonoBehaviour
     {
         float dt = Time.fixedDeltaTime;
 
+        if (_mode == DroneMode.Parked)
+            return;
+
         BeginFixedStep();
+
+        if (_mode == DroneMode.Parking)
+        {
+            TickParking(dt);
+            EndFixedStep();
+            RotateTowardsPoint(_parkingTransform.position, dt);
+            return;
+        }
 
         _findingTimer -= dt;
 
         if (_hasPowerup && _fabricatedObject == null)
+        {
             _hasPowerup = false;
+
+            if (_deliveringRawFabricatedObject)
+            {
+                _deliveringRawFabricatedObject = false;
+                ParkAt(GetPlayerParkingTransform());
+                RotateTowardsPoint(_parkingTransform.position, dt);
+                EndFixedStep();
+                return;
+            }
+        }
 
         if (_targetWreck == null && _findingTimer <= 0f && !_hasPowerup)
         {
@@ -136,6 +184,7 @@ public class PowerupFabricDrone : MonoBehaviour
             ClearDrillVisuals();
             ResetDrillAnchor();
             FollowPlayer(dt);
+            RotateTowardsPoint(movementTransform.position + movementTransform.up * 3f, dt);
             EndFixedStep();
             return;
         }
@@ -149,6 +198,7 @@ public class PowerupFabricDrone : MonoBehaviour
         {
             ClearDrillVisuals();
             FollowWreckAnchor(dt);
+            RotateTowardsPoint(movementTransform.position + movementTransform.up * 3f, dt);
             EndFixedStep();
             return;
         }
@@ -165,6 +215,142 @@ public class PowerupFabricDrone : MonoBehaviour
         _fixedStepParallaxDelta = _pendingParallaxDelta;
         _pendingParallaxDelta = Vector2.zero;
         _motionAppliedThisFixedStep = false;
+    }
+
+    public void StartWorking()
+    {
+        if (_mode == DroneMode.Working)
+            return;
+
+        transform.SetParent(null, true);
+        SyncRigidbodyWithTransform();
+
+        _mode = DroneMode.Working;
+        _pendingParallaxDelta = Vector2.zero;
+        _fixedStepParallaxDelta = Vector2.zero;
+
+        foreach (GameObject obj in disabledOnParkedObjects)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+    }
+
+    public void ParkAt(Transform parkingTransform, bool attachImmediately = false)
+    {
+        if (parkingTransform == null)
+            return;
+
+        _parkingTransform = parkingTransform;
+
+        StopCurrentProcess();
+
+        if (attachImmediately)
+        {
+            AttachToParkingTransform();
+            return;
+        }
+
+        transform.SetParent(null, true);
+        SyncRigidbodyWithTransform();
+        _mode = DroneMode.Parking;
+    }
+
+    public bool RequestRawFabricate()
+    {
+        if (rawFabricatingObject == null)
+            return false;
+
+        if (powerupPivot == null)
+            return false;
+
+        _rawFabricateRequested = true;
+
+        if (_mode == DroneMode.Parked)
+            StartWorking();
+
+        return true;
+    }
+
+    public bool RequestRawFabricate(GameObject prefab)
+    {
+        if (prefab == null)
+            return false;
+
+        rawFabricatingObject = prefab;
+        return RequestRawFabricate();
+    }
+
+    private void TickParking(float dt)
+    {
+        if (_parkingTransform == null)
+        {
+            _mode = DroneMode.Working;
+            return;
+        }
+
+        Vector2 targetPoint = _parkingTransform.position;
+        float distanceToParking = Vector2.Distance(GetSteeringPosition(), targetPoint);
+
+        if (distanceToParking <= parkingArriveTolerance)
+        {
+            AttachToParkingTransform();
+            return;
+        }
+
+        MoveToPoint(
+            targetPoint,
+            0f,
+            dt,
+            rotateToMovement: true
+        );
+    }
+
+    private void StopCurrentProcess()
+    {
+        _targetWreck = null;
+        _rawFabricateRequested = false;
+        _deliveringRawFabricatedObject = false;
+        _findingTimer = findingUpdateTime;
+
+        ClearDrillVisuals();
+        ResetDrillAnchor();
+
+        _inertia = Vector2.zero;
+        _pendingParallaxDelta = Vector2.zero;
+        _fixedStepParallaxDelta = Vector2.zero;
+        _motionAppliedThisFixedStep = false;
+    }
+
+    private void AttachToParkingTransform()
+    {
+        if (_parkingTransform == null)
+            return;
+
+        StopCurrentProcess();
+
+        _mode = DroneMode.Parked;
+
+        transform.SetParent(_parkingTransform, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+
+        foreach (GameObject obj in disabledOnParkedObjects)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        SyncRigidbodyWithTransform();
+    }
+
+    private void SyncRigidbodyWithTransform()
+    {
+        if (_rb == null)
+            return;
+
+        _rb.position = transform.position;
+        _rb.rotation = transform.eulerAngles.z;
     }
 
     private void EndFixedStep()
@@ -247,7 +433,7 @@ public class PowerupFabricDrone : MonoBehaviour
         Vector2 radial = _drillAnchorDirectionFromWreck;
 
         if (radial.sqrMagnitude < 0.0001f)
-            radial = -((Vector2)transform.up);
+            radial = -GetMovementUp();
 
         radial.Normalize();
 
@@ -298,7 +484,7 @@ public class PowerupFabricDrone : MonoBehaviour
         if (_inertia.sqrMagnitude > 0.0001f)
             currentDirection = _inertia.normalized;
         else
-            currentDirection = transform.up;
+            currentDirection = GetMovementUp();
 
         float maxRadiansDelta = turnSpeedDegrees * Mathf.Deg2Rad * dt;
 
@@ -330,7 +516,7 @@ public class PowerupFabricDrone : MonoBehaviour
         ApplyMotion(_inertia * dt);
 
         if (rotateToMovement && _inertia.sqrMagnitude > 0.0001f)
-            RotateTowardsDirection(_inertia.normalized, dt);
+            RotateMovementTowardsDirection(_inertia.normalized);
     }
 
     private void ApplyDragOnly(float dt)
@@ -351,7 +537,7 @@ public class PowerupFabricDrone : MonoBehaviour
         ApplyMotion(_inertia * dt);
 
         if (_inertia.sqrMagnitude > 0.0001f)
-            RotateTowardsDirection(_inertia.normalized, dt);
+            RotateMovementTowardsDirection(_inertia.normalized);
     }
 
     private void Fabricating(float dt)
@@ -376,6 +562,12 @@ public class PowerupFabricDrone : MonoBehaviour
             _currentBudget += price;
             _targetWreck = null;
             ResetDrillAnchor();
+
+            if (_rawFabricateRequested)
+            {
+                FabricateRawObject();
+                return;
+            }
 
             if (_currentBudget >= wreckPriceToPowerup)
                 FabricatePowerup();
@@ -422,13 +614,35 @@ public class PowerupFabricDrone : MonoBehaviour
         if (fabricatingObjects == null || fabricatingObjects.Length == 0)
             return;
 
+        GameObject prefab = fabricatingObjects[Random.Range(0, fabricatingObjects.Length)];
+
+        TryFabricate(prefab, consumeBudget: true);
+    }
+
+    private void FabricateRawObject()
+    {
+        if (TryFabricate(rawFabricatingObject, consumeBudget: true))
+        {
+            _rawFabricateRequested = false;
+            _deliveringRawFabricatedObject = true;
+        }
+    }
+
+    private bool TryFabricate(GameObject prefab, bool consumeBudget)
+    {
+        if (prefab == null)
+            return false;
+
         if (powerupPivot == null)
-            return;
+            return false;
+
+        if (_hasPowerup && _fabricatedObject != null)
+            return false;
+
+        if (consumeBudget)
+            _currentBudget -= wreckPriceToPowerup;
 
         _hasPowerup = true;
-        _currentBudget -= wreckPriceToPowerup;
-
-        GameObject prefab = fabricatingObjects[Random.Range(0, fabricatingObjects.Length)];
 
         _fabricatedObject = Instantiate(
             prefab,
@@ -442,6 +656,8 @@ public class PowerupFabricDrone : MonoBehaviour
         explosion.SetScale(scale);
         if (overrideColor)
             explosion.SetColor(color);
+
+        return true;
     }
 
     private void FindTargetWreck()
@@ -459,6 +675,9 @@ public class PowerupFabricDrone : MonoBehaviour
             Wreck candidate = candidates[i];
 
             if (candidate == null)
+                continue;
+
+            if (((Vector2)(candidate.transform.position) - currentPosition).sqrMagnitude > maxFindingRadius * maxFindingRadius)
                 continue;
 
             if (bestCandidate == null)
@@ -505,7 +724,7 @@ public class PowerupFabricDrone : MonoBehaviour
         Vector2 fromWreckToDrone = GetSteeringPosition() - wreckPosition;
 
         if (fromWreckToDrone.sqrMagnitude < 0.0001f)
-            fromWreckToDrone = -((Vector2)transform.up);
+            fromWreckToDrone = -GetMovementUp();
 
         _drillAnchorDirectionFromWreck = fromWreckToDrone.normalized;
         _hasDrillAnchor = true;
@@ -536,23 +755,60 @@ public class PowerupFabricDrone : MonoBehaviour
         if (direction.sqrMagnitude <= 0.0001f)
             return;
 
-        RotateTowardsDirection(direction.normalized, dt);
+        RotateTurretTowardsDirection(direction.normalized, dt);
     }
 
-    private void RotateTowardsDirection(Vector2 direction, float dt)
+    private void RotateMovementTowardsDirection(Vector2 direction)
     {
         if (direction.sqrMagnitude <= 0.0001f)
             return;
 
-        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        if (movementTransform != null && movementTransform != transform)
+        {
+            movementTransform.up = direction.normalized;
+            return;
+        }
+
+        if (_rb != null)
+            _rb.MoveRotation(DirectionToAngle(direction));
+        else
+            transform.up = direction.normalized;
+    }
+
+    private void RotateTurretTowardsDirection(Vector2 direction, float dt)
+    {
+        if (direction.sqrMagnitude <= 0.0001f)
+            return;
+
+        Transform targetTransform = turretTransform != null ? turretTransform : transform;
+        float targetAngle = DirectionToAngle(direction);
 
         float newAngle = Mathf.MoveTowardsAngle(
-            _rb.rotation,
+            targetTransform.eulerAngles.z,
             targetAngle,
             visualRotationSpeedDegrees * dt
         );
 
-        _rb.MoveRotation(newAngle);
+        targetTransform.rotation = Quaternion.Euler(0f, 0f, newAngle);
+    }
+
+    private float DirectionToAngle(Vector2 direction)
+    {
+        return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+    }
+
+    private Vector2 GetMovementUp()
+    {
+        Transform targetTransform = movementTransform != null ? movementTransform : transform;
+        return targetTransform.up;
+    }
+
+    private Transform GetPlayerParkingTransform()
+    {
+        if (Player.PlayerTransform != null)
+            return Player.PlayerTransform;
+
+        return _parkingTransform;
     }
 
     private void SetupParallax()
@@ -582,6 +838,12 @@ public class PowerupFabricDrone : MonoBehaviour
             return;
 
         Vector3 cameraPosition = _cameraTransform.position;
+
+        if (_mode == DroneMode.Parked)
+        {
+            _lastCameraPosition = cameraPosition;
+            return;
+        }
 
         float deltaX = cameraPosition.x - _lastCameraPosition.x;
         float deltaY = cameraPosition.y - _lastCameraPosition.y;

@@ -59,6 +59,7 @@ public class EncounterDirector : MonoBehaviour
         return e;}}
 
     public bool AnyEnemyAlive => TotalWeight > 0 || AliveEnemies > 0 || AliveBosses > 0;
+    public int ActiveEncountersCount => _activeEncounters.Count;
 
     void Update()
     {

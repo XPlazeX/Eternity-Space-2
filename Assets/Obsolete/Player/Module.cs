@@ -125,8 +125,7 @@ public class AttackPattern : Gear
         bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
         bulletSample.transform.position = position;
 
-        if (_spreadBulletSpeed != 0)
-            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
+        ((Bullet)bulletSample).MultiplySpeedParams(1f + Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed), PlayerController.FixedDeltaPosition);
     }
 
     protected void SpawnBullet(AttackObject customSample, Vector3 position, float startRotation)
@@ -136,8 +135,7 @@ public class AttackPattern : Gear
         bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
         bulletSample.transform.position = position;
 
-        if (_spreadBulletSpeed != 0)
-            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
+        ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)), PlayerController.FixedDeltaPosition);
     }
 
     protected void MuzzleFlash(Vector3 position)
@@ -229,7 +227,7 @@ public class Device : Gear
         bulletSample.transform.position = position;
 
         if (_spreadBulletSpeed != 0)
-            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)));
+            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)), PlayerController.FixedDeltaPosition);
     }
 
     public AttackObject SpawnBullet()

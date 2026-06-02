@@ -21,7 +21,7 @@ public class OrbitalProjectile : MonoBehaviour
         _startOrientation = transform.up; 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (_parent == null)
         {

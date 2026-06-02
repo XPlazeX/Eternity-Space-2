@@ -51,6 +51,8 @@ public class Wreck : MonoBehaviour
     // Градусы/сек.
     private float _angularVelocity;
 
+    public float DrilledAmount01 => _drillCapacity / _startDrillCapacity;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -207,7 +209,6 @@ public class Wreck : MonoBehaviour
         if (_wmc != null)
         {
             float elapsed = _drillCapacity / _startDrillCapacity;
-            Debug.Log(elapsed);
             _wmc.SetBreachRadiusPixels(Mathf.Lerp(_wmcStartBreachRadius, wreckMaskTargetBreachRadius, 1f - elapsed));
         }
 

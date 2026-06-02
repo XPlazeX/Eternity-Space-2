@@ -8,6 +8,7 @@ public class ScenarioRunner : MonoBehaviour
 
     [SerializeField] private ScenarioAsset scenarioAsset;
     [SerializeField] private EncounterDirector encounterDirector;
+    [SerializeField] private SledgeTransitor sledgeTransitor;
     [SerializeField] private bool debugMessages = true;
 
     private ScenarioAsset RunningScenario {get; set;}
@@ -47,7 +48,11 @@ public class ScenarioRunner : MonoBehaviour
         }
 
         _scenarioTimer = 0f;
-        _context = new ScenarioContext();
+        _context = new ScenarioContext
+        {
+            EncounterDirector = encounterDirector
+        };
+
         RebuildContext();
         DebugLog($"Установлен ассет сценария");
     }
@@ -164,12 +169,13 @@ public class ScenarioRunner : MonoBehaviour
         _context.ScenarioTime = _scenarioTimer;
         _context.NodeTime = _lastNodeTimer;
 
+        _context.IsParsing = sledgeTransitor != null && sledgeTransitor.IsTransitioning;
+
+        // Debug.Log($"Обновление контекста: IsEncounterRunningValide = { _context.IsEncounterRunningValide} (Processing = {encounterDirector.Processing}, AnyEnemyAlive = {encounterDirector.AnyEnemyAlive})");
         _context.AnyEnemyAlive = encounterDirector.AnyEnemyAlive;
-        //_context.IsParsing = когда доделаем Transitions
-        // _context.CurrentPivotPosition =
-        // _context.NoDamageTaken = 
 
         _context.ActiveEncounterSnapshots = encounterDirector.GetActiveEncounterSnapshots();
+        _context.IsEncounterRunningValide = _context.ActiveEncounterSnapshots.Count > 0;//encounterDirector.Processing && encounterDirector.AnyEnemyAlive;
     }
 
     private void StartNewNode(NodeData nodeData)

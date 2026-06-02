@@ -25,6 +25,7 @@ public class PlayerImageEffects : MonoBehaviour
 
     public void Flash()
     {
+        if (!PlayerController.CanControl) return;
         _playerTrailAnimator.SetTrigger("Flash");
     }
 }

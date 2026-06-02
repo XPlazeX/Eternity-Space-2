@@ -39,7 +39,7 @@ public class SimpleRocketsDevice : Device
     {
         for (int i = 0; i < barrelIndexesAngles.Length; i++)
         {
-            SpawnBullet(_barrels[barrelIndexesAngles[i].barrelIndex].position, barrelIndexesAngles[i].angle);
+            SpawnBullet(_barrels[barrelIndexesAngles[i].barrelIndex].position, barrelIndexesAngles[i].angle + Player.Orientation.eulerAngles.z);
             MuzzleFlash(_barrels[barrelIndexesAngles[i].barrelIndex].position);
         }
 

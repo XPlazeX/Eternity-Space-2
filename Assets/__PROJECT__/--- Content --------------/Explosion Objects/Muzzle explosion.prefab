@@ -256,7 +256,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     scaleMultiplier: 1
-    animationTime: 0.2
+    animationTime: 0.1
+    hideAfterTimer: 0
   explosionAnimatedMask:
     waitTime: 0
     maskTransform: {fileID: 532192773385979439}
@@ -284,8 +285,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    animationTime: 0.2
+    animationTime: 0.1
     scaleMultiplier: 1
+    hideAfterTimer: 1
   sound:
     _clip: {fileID: 0}
     _volume: 0

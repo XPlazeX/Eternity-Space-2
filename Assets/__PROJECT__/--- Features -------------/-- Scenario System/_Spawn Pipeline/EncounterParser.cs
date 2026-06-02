@@ -89,6 +89,8 @@ public class EncounterParser
             EncounterCleared?.Invoke(EncounterData);
         }
 
+        // Debug.Log($"Tick encounter: {EncounterData.RuntimeID}, planned spawn ended: {IsPlannedSpawnEnded}, bonus spawn ended: {IsBonusSpawnEnded}, final spawn ended: {IsFinalSpawnEnded}, bosses alive: {BossEnemiesAlive.Count}, planned alive: {PlannedEnemiesAlive.Count}, planned weight: {CalculatePlannedWeight()}, bonus alive: {BonusEnemiesAlive.Count}, bonus weight: {CalculateBonusWeight()}, final alive: {FinalEnemiesAlive.Count}, final weight: {CalculateFinalWeight()}");
+
         if (!IsPlannedSpawnEnded)
         {
             PlannedTick(dt);
@@ -103,6 +105,12 @@ public class EncounterParser
             {
                 FinalTick(dt);
             }
+        }
+
+        if (IsPlannedSpawnEnded && IsFinalSpawnEnded && !IsBonusSpawnEnded && TotalWeight <= EncounterData.BonusStopWeightThreshold)
+        {
+            IsBonusSpawnEnded = true;
+            Debug.Log($"Остановлен бонусный спаун, вес всех врагов на арене достиг порога для остановки: {TotalWeight} <= {EncounterData.BonusStopWeightThreshold}");
         }
 
         if (_bonusPlayingSpawnCard == null && ((IsPlannedSpawnEnded && IsFinalSpawnEnded) || IsBonusSpawnEnded))
@@ -209,6 +217,12 @@ public class EncounterParser
 
     private void BonusTick(float dt)
     {
+        if (EncounterData.BonusCardsPool == null || EncounterData.BonusCardsPool.Count == 0)
+        {
+            IsBonusSpawnEnded = true;
+            Debug.Log($"Остановлен бонусный спаун, так как не задан пул карт или развесовка стоимости для бонусного спауна");
+            return;
+        }
         if (_bonusCooldown > 0f)
         {
             _bonusCooldown -= dt;
@@ -278,7 +292,7 @@ public class EncounterParser
         if (newBonusSpawnCard == null)
         {
             IsBonusSpawnEnded = true;
-            Debug.Log($"Остановлен плановый спаун по причине: {selectFailReason}");
+            Debug.Log($"Остановлен бонусный спаун по причине: {selectFailReason}");
             return;
         }
 

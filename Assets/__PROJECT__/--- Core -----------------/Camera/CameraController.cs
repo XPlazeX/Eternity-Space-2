@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private bool unscaledTime;
     [SerializeField] private UpdateMode updateMode = UpdateMode.Update;
     [SerializeField] private bool debugFeatures = true;
+    [SerializeField] private bool copyPlayerRotation = true;
     // [Header("2D Audio")]
 
     private float _defaultSize;
@@ -25,6 +26,7 @@ public class CameraController : MonoBehaviour
     private float _moveDeltaComplete;
 
     private bool _follow;
+    private bool _lockFollow;
     private Transform _followTarget;
     private float _followSpeed;
     private Vector3 _followOffset;
@@ -128,6 +130,10 @@ public class CameraController : MonoBehaviour
         if (_follow) Following(deltaTime);
         if (_scaling) Scaling(deltaTime);
         if (_shaking) Shaking(deltaTime);
+        if (copyPlayerRotation && Player.PlayerTransform != null)
+        {
+            movingParentTransform.up = Player.PlayerTransform.up;
+        }
 
         Moved?.Invoke();
     }
@@ -161,27 +167,37 @@ public class CameraController : MonoBehaviour
 
     private void MovingTowards(float deltaTime)
     {
-        Vector3 lerpPosition = Vector3.Lerp(movingParentTransform.position, _movePosition, _moveLerpSpeed * deltaTime);
+        Vector3 lerpPosition = Vector3.Lerp(
+            movingParentTransform.position,
+            _movePosition,
+            _moveLerpSpeed * deltaTime
+        );
+
         Vector3 lerpDif = lerpPosition - movingParentTransform.position;
+
         if (lerpDif.magnitude <= _moveDeltaComplete)
         {
             StopMoveTowards();
             return;
         }
-        if (lerpDif.magnitude > _maxMoveSpeed)
+
+        float maxStep = _maxMoveSpeed * deltaTime;
+
+        if (lerpDif.magnitude > maxStep)
         {
-            lerpDif = lerpDif.normalized * _maxMoveSpeed;
+            lerpDif = lerpDif.normalized * maxStep;
         }
-        
+
         movingParentTransform.position = FlatVector(movingParentTransform.position + lerpDif);
     }
 
-    public void StartFollowing(Transform followTransform, float followSpeed, Vector3 offset, float predication = 0f)
+    public void StartFollowing(Transform followTransform, float followSpeed, Vector3 offset, float predication = 0f, bool lockFollow = false)
     {
         _followTarget = followTransform;
         _followSpeed = followSpeed;
         _followOffset = offset;
         _predicationFactor = predication;
+        _lockFollow = lockFollow;
         _oldFollowTargetPosition = followTransform.position;
         _follow = true;
     }
@@ -199,10 +215,32 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        Vector3 prediction = (_followTarget.position - _oldFollowTargetPosition) * _predicationFactor;
+        if (_lockFollow)
+        {
+            movingParentTransform.position = FlatVector(_followTarget.position + (Player.Orientation * _followOffset));
+            _oldFollowTargetPosition = movingParentTransform.position;
+            return;
+        }
 
-        movingParentTransform.position = FlatVector(Vector3.Lerp(movingParentTransform.position, _followTarget.position + _followOffset + prediction, _followSpeed * deltaTime));
-        _oldFollowTargetPosition = movingParentTransform.position;
+        Vector3 currentTargetPosition = _followTarget.position;
+
+        Vector3 targetVelocityFrame = currentTargetPosition - _oldFollowTargetPosition;
+        Vector3 prediction = targetVelocityFrame * _predicationFactor;
+
+        Vector3 desiredPosition = currentTargetPosition + (Player.Orientation * _followOffset) + prediction;
+
+        float t = 1f - Mathf.Exp(-_followSpeed * deltaTime);
+        
+
+        movingParentTransform.position = FlatVector(
+            Vector3.Lerp(
+                movingParentTransform.position,
+                desiredPosition,
+                t
+            )
+        );
+
+        _oldFollowTargetPosition = currentTargetPosition;
     }
 
     public void StartScaling(float targetScale, float scaleTime) => StartScaling(targetScale, scaleTime, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f));
@@ -358,5 +396,6 @@ public enum UpdateMode
 {
     Update = 0,
     LateUpdate = 1,
-    FixedUpdate = 2
+    FixedUpdate = 2,
+    CameraMoved = 3
 }

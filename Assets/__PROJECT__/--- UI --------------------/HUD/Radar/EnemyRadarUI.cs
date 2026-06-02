@@ -19,6 +19,8 @@ public class EnemyRadarUI : MonoBehaviour
 
     [Header("Radar Scale")]
     [Tooltip("Сколько world units помещается от центра радара до края внутреннего круга.")]
+    [SerializeField] private float detectionRadius = 150f;
+    [Tooltip("Сколько world units помещается от центра радара до края внутреннего круга.")]
     [SerializeField] private float worldRadius = 30f;
 
     [Tooltip("Отступ от края RectTransform, чтобы иконки не вылезали за круг.")]
@@ -142,6 +144,9 @@ public class EnemyRadarUI : MonoBehaviour
             if (playerTransform != null && body.transform == playerTransform)
                 continue;
 
+            if (!IsWithinDetectionRadius(body.transform))
+                continue;
+
             if (excludeAsteroidBodies && body is AsteroidBody)
                 continue;
 
@@ -162,14 +167,14 @@ public class EnemyRadarUI : MonoBehaviour
         // Твой текущий поиск союзников.
         // Потом можешь расширять этот метод как угодно.
 
-        SledgeRepairer sledge = FindAnyObjectByType<SledgeRepairer>();
+        SledgeTransitor sledge = FindAnyObjectByType<SledgeTransitor>();
 
-        if (sledge != null)
+        if (sledge != null && IsWithinDetectionRadius(sledge.transform))
             _allies.Add(sledge.transform);
 
         PowerupFabricDrone fabricDrone = FindAnyObjectByType<PowerupFabricDrone>();
 
-        if (fabricDrone != null)
+        if (fabricDrone != null && IsWithinDetectionRadius(fabricDrone.transform))
             _allies.Add(fabricDrone.transform);
 
         TrimList(_allies, maxAllies);
@@ -364,7 +369,10 @@ public class EnemyRadarUI : MonoBehaviour
         float radarRadiusPixels,
         float farRingRadiusPixels)
     {
-        Vector2 worldDelta = targetWorldPosition - playerTransform.position;
+        Vector3 playerRelativeDelta =
+            Quaternion.Inverse(Player.Orientation) * (targetWorldPosition - playerTransform.position);
+
+        Vector2 worldDelta = new Vector2(playerRelativeDelta.x, playerRelativeDelta.y);
         float worldDistance = worldDelta.magnitude;
 
         Vector2 direction = worldDistance > 0.0001f
@@ -418,6 +426,19 @@ public class EnemyRadarUI : MonoBehaviour
             return true;
 
         return false;
+    }
+
+    private bool IsWithinDetectionRadius(Transform target)
+    {
+        if (target == null || playerTransform == null)
+            return false;
+
+        float radius = Mathf.Max(0f, detectionRadius);
+        Vector3 playerRelativeDelta =
+            Quaternion.Inverse(Player.Orientation) * (target.position - playerTransform.position);
+
+        Vector2 worldDelta = new Vector2(playerRelativeDelta.x, playerRelativeDelta.y);
+        return worldDelta.sqrMagnitude <= radius * radius;
     }
 
     private RectTransform GetOrCreateIcon(
