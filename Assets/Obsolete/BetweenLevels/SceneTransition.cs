@@ -51,7 +51,7 @@ public class SceneTransition : MonoBehaviour
         Debug.Log("!!!---Сцена загружена---!!!");
         GameObject.FindWithTag("SceneTransitionScreen").GetComponent<LoadingCaller>().OpenMask();
         SceneOpened?.Invoke();
-        TimeHandler.Resume(1f);
+        // TimeHandler.Resume(1f);
         SceneReady = true;
 
         if (_lastSceneName == SceneManager.GetActiveScene().name)
@@ -79,7 +79,7 @@ public class SceneTransition : MonoBehaviour
 
         print($"LoadScene : {name}");
         SceneLocalizator.Reload();
-        TimeHandler.Resume(1f);
+        // TimeHandler.Resume(1f);
         if (SceneManager.GetActiveScene().name == "Game")
         {
             PlayerShipData.DeactivateAllBindedSystems();

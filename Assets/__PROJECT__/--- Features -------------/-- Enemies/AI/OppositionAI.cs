@@ -3,6 +3,7 @@
 public class OppositionAI : EnemyAIRoot
 {
     [Header("This AI always use Lerp function to closing the Player (Moving Progression will not using)")]
+    [SerializeField] private float maxSpeed = 20f;
     [SerializeField] protected Vector3 offset;
     [SerializeField] private bool autoTargetPlayer = true;
     [SerializeField] private bool noiseOffset = true;
@@ -60,7 +61,7 @@ public class OppositionAI : EnemyAIRoot
             {
                 autoTargetPlayer = true;
                 lookingOrientation = LookingOrientation.RotateToPlayer;
-                offset = new Vector3(offset.x, -offset.y);
+                offset = new Vector3(offset.x, offset.y);
             }
             FindPlayer();
             
@@ -80,7 +81,13 @@ public class OppositionAI : EnemyAIRoot
 
         _timer -= Time.deltaTime;
 
-        return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.deltaTime * Mobility) - AiPosition;
+        Vector3 result = (Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.deltaTime * Mobility) - AiPosition);
+        if (result.magnitude > maxSpeed * Time.deltaTime)
+        {
+            result = result.normalized * (maxSpeed * Time.deltaTime);
+        }
+
+        return result;
     }
 
     protected Vector3 GetActualPlayerPosition()

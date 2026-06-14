@@ -76,7 +76,7 @@ public class PlayerInput : MonoBehaviour
         Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         PointerWorldPosition = new Vector3(mousePos.x, mousePos.y, 0f);
 
-        PointerDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        PointerDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         PointerDrag = MainFirePressed ? PointerDelta : Vector2.zero;
 
         _scrollLag -= Time.deltaTime;

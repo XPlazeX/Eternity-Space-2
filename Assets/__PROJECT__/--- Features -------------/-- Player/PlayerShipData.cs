@@ -123,18 +123,22 @@ public class PlayerShipData : MonoBehaviour
         OneShotProtection = true;
         GameTimerBuffer = 0f;
 
-        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-        
-        _hpCap = 100;
+        _hpCap = Mathf.Max(1, hp);
+        _flatArmor = Mathf.Max(0, arm);
+        _damageReduction = 0f;
+        _shieldPoints = 0;
+        _damageBuffers = 0;
+        _structuralDamage = 0;
 
-        SetHitPoints(100);
+        SetHitPoints(_hpCap);
 
         // _playerUI.MaxHP = _hpCap;
 
-        VictoryHandler.LevelVictored += WriteSaveData;
+        // Legacy save writing is disabled for the PC rebuild.
+        // VictoryHandler.LevelVictored += WriteSaveData;
     }
     private void OnDisable() {
-        VictoryHandler.LevelVictored -= WriteSaveData;
+        // VictoryHandler.LevelVictored -= WriteSaveData;
     }
 
     // private void CheckOtherShip(int startHP, int startArm, int shipID)
@@ -428,16 +432,15 @@ public class PlayerShipData : MonoBehaviour
 
     private static void WriteSaveData()
     {
-        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-        save.HealthPoints = HitPoints;
-        save.MaxHealth = _hpCap;
-        //save.ArmorPart = (float)ArmorPoints / _armorCap;
-        print($"---save hp : {HitPoints}");
-
-        GameSessionInfoHandler.RewriteSessionSave(save);
+        // Legacy save writing is intentionally disabled.
+        // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
+        // save.HealthPoints = HitPoints;
+        // save.MaxHealth = _hpCap;
+        // print($"---save hp : {HitPoints}");
+        // GameSessionInfoHandler.RewriteSessionSave(save);
     }
 
-    #if UNITY_EDITOR
+    // #if UNITY_EDITOR
     private void Update() {
         // if (Input.GetKeyDown(KeyCode.Alpha9))
         // {
@@ -455,11 +458,11 @@ public class PlayerShipData : MonoBehaviour
         // {
         //     TakeDamage(20);
         // }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            // RegenerateArmor(10);
+            SetHitPoints(0);
         }
     }
-    #endif
+    // #endif
 
 }

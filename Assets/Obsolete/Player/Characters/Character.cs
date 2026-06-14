@@ -20,7 +20,15 @@ public class Character : ScriptableObject
     [Space()]
     [SerializeField] private Module[] _handingModules;
 
-    public GameObject GetSkinnedShip(int skinID) => _skinnedShips[skinID];
+    public GameObject GetSkinnedShip(int skinID)
+    {
+        if (_skinnedShips == null || _skinnedShips.Length == 0)
+        {
+            return null;
+        }
+
+        return _skinnedShips[Mathf.Clamp(skinID, 0, _skinnedShips.Length - 1)];
+    }
 
     public ShipClass Class => _class; 
 

@@ -109,10 +109,13 @@ public class MainWeaponHandler : MonoBehaviour
     {
         for (int i = 0; i < weaponSlots.Length; i++)
         {
-            weaponSlots[i].MainWeapon.Load();
+            if (weaponSlots[i].MainWeapon != null)
+                weaponSlots[i].MainWeapon.Load();
+
             for (int j = 0; j < weaponSlots[i].ModeCount; j++)
             {
-                weaponSlots[i].Secondaries[j].Load();
+                if (weaponSlots[i].Secondaries[j] != null)
+                    weaponSlots[i].Secondaries[j].Load();
             }
         }
 
@@ -128,10 +131,10 @@ public class MainWeaponHandler : MonoBehaviour
         ActiveSecondary = secodary;
 
         ActiveWeaponID = weaponSlots[slot].MainWeapon.ID;
-        ActiveSecondaryID = weaponSlots[slot].Secondaries[secodary].ID;
+        ActiveSecondaryID = weaponSlots[slot].Secondaries[secodary] == null ? "null" : weaponSlots[slot].Secondaries[secodary].ID;
 
         ActiveMainWeapon = weaponSlots[slot].MainWeapon;
-        ActiveSecondaryDevice = weaponSlots[slot].Secondaries[secodary];
+        ActiveSecondaryDevice = weaponSlots[slot].Secondaries[secodary] == null ? null : weaponSlots[slot].Secondaries[secodary];
 
         MainWeaponRoot.BindTargetAttackPattern(ActiveMainWeapon);
         MainWeaponRoot.BindTargetDevice(ActiveSecondaryDevice);

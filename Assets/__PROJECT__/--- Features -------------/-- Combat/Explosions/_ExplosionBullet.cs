@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DamageSystem;
+using UnityEngine;
 
 public class _ExplosionBullet : MonoBehaviour
 {
@@ -9,13 +10,13 @@ public class _ExplosionBullet : MonoBehaviour
     [SerializeField] private Color _color = Color.yellow;
     [SerializeField] private float _scale = 1f;
     [SerializeField] private float _shakePower = 0f;
-    [Header("Если урон = 0, то урон взрыва по умолчанию не будет изменён")]
-    [SerializeField] private int _damage;
+    [SerializeField] private bool _modDamage = false;
+    [SerializeField] private DamageBundle _damageBundle;
 
     public int ExplosionCode {get {return _explosionCode;} set {_explosionCode = value;}}
     public Color ExplosionColor {get {return _color;} set {_color = value;}}
     public float Scale {get {return _scale;} set {_scale = value;}}
-    public int Damage {get {return _damage;} set {_damage = value;}}
+    public DamageBundle DamageBundle {get {return _damageBundle;} set {_damageBundle = value;}}
 
     // private ExplosionHandler _explosionHandler;
 
@@ -42,6 +43,11 @@ public class _ExplosionBullet : MonoBehaviour
         if (_mute)
             explosion.Mute();
             //explosion.GetComponent<Explosion>().Mute();
+
+        if (_modDamage)
+        {
+            explosion.SetDamageBundle(_damageBundle);
+        }
         
 
         if (!_modParams)

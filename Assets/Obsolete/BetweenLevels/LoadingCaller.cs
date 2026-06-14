@@ -79,7 +79,7 @@ public class LoadingCaller : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1f);
 
-        TimeHandler.Resume();
+        // TimeHandler.Resume();
         SceneTransition.OnTimeResetAnimationOver();
     }
 

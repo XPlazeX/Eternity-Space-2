@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DeathUIHandler : MonoBehaviour
 {
@@ -88,9 +89,11 @@ public class DeathUIHandler : MonoBehaviour
 
         TimeHandler.Resume(1f);
 
-        Instantiate(_timeRift, Player.PlayerTransform.position, Quaternion.Euler(0, 0, Random.Range(-180f, 180f)));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-        StartCoroutine(ChangePlayerMaskInteraction());
+        // Instantiate(_timeRift, Player.PlayerTransform.position, Quaternion.Euler(0, 0, Random.Range(-180f, 180f)));
+
+        // StartCoroutine(ChangePlayerMaskInteraction());
     }
 
     private IEnumerator ChangePlayerMaskInteraction()

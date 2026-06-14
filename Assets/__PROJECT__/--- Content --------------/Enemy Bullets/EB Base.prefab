@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 7018158432618105439}
   - component: {fileID: -5441174016827092469}
   m_Layer: 16
-  m_Name: 0
+  m_Name: EB Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
     cycles: 1
     damageTag: 0
   _otherDeathResource: 0
-  _lifetime: 8
+  _lifetime: 15
   _speed: 13
   _acceleration: 0
   _topAcceleratedSpeed: 0
@@ -385,4 +385,16 @@ MonoBehaviour:
   _color: {r: 1, g: 0.45921358, b: 0, a: 1}
   _scale: 0.3
   _shakePower: 0
-  _damage: 0
+  _modDamage: 0
+  _damageBundle:
+    damageKey: 2
+    damageValue: 0
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 0
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0

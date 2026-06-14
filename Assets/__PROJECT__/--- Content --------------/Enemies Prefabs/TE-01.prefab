@@ -1054,9 +1054,9 @@ MonoBehaviour:
   enemyAI: {fileID: 9069206062416828814}
   reactionCenter: {fileID: 7767031567650560036}
   reactToProjectiles: 1
-  projectileCooldown: 0.8
-  projectileImpulseForce: 30
-  projectileImpulseDuration: 0.2
+  projectileCooldown: 2
+  projectileImpulseForce: 20
+  projectileImpulseDuration: 0.4
   projectileLineDeadZone: 0.15
   projectileIncomingDot: 0.35
   projectileForwardBias: 0.25
@@ -6847,8 +6847,8 @@ MonoBehaviour:
   floatingFrequency: 0.2
   externalAccelerationDamping: 12
   externalAccelerationStopThreshold: 0.05
-  upperBorderPercent: 0.926
-  downBorderPercent: 0.365
+  upperBorderPercent: 0.789
+  downBorderPercent: 0.19
   timeToReloadTarget: 6
 --- !u!114 &1770884239022283663
 MonoBehaviour:
@@ -6862,16 +6862,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4dd5b62374f7046ba89f54067e746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitTime: 3
+  _waitTime: 4
   _attackReload: 6.5
   _attackObjects:
-  - _cycles: 2
+  - _cycles: 3
     _timeBetweenCycles: 0.5
     _timeCooling: 0
     _bulletSample: {fileID: 6149396609532520741, guid: ef2345105751e2b459c10f8fa1f6c1ab, type: 3}
     _muzzleExplosion: {fileID: 4500690307364673755}
     _barrels:
     - {fileID: 5431682919898227746}
+    - {fileID: 5460452857529010773}
+    - {fileID: 2282439868947715556}
     _randomBarrel: 0
     _bulletsPerFire: 1
     _fixedAngleStep: 0
@@ -6994,7 +6996,19 @@ MonoBehaviour:
   _color: {r: 1, g: 0.6269707, b: 0.015686274, a: 1}
   _scale: 0.3
   _shakePower: 0
-  _damage: 0
+  _modDamage: 0
+  _damageBundle:
+    damageKey: 2
+    damageValue: 0
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 0
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0
 --- !u!1 &9136336605452841779
 GameObject:
   m_ObjectHideFlags: 0

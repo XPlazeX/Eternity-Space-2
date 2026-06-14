@@ -92,8 +92,8 @@ public class Storage
     }
 
     public void Save(object saveData){
-        var file = File.Create(filePath);
-        formatter.Serialize(file, saveData);
-        file.Close();
+        // var file = File.Create(filePath);
+        // formatter.Serialize(file, saveData);
+        // file.Close();
     }
 }

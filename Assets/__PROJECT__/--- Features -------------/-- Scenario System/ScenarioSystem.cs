@@ -30,6 +30,8 @@ namespace ScenarioSystem
         [SerializeReference][SubclassSelector] public Condition endCondition;
         [Space()]
         [SerializeReference][SubclassSelector] public TransitionData transitionToThis;
+        [Space()]
+        public RadioMessagesLogicBlock radioMessagesLogicBlock;
 
         [Header("Развилки и мульти-ноды")]
         [Tooltip("Если пусто - смотреть только следующую ноду, иначе смотреть условия указанных нод (для развилок)")]
@@ -48,7 +50,6 @@ namespace ScenarioSystem
         /// EnemySpawnNode - спаунит благодаря EnemySpawner, в т.ч. боссов (можно сделать наследование: wave, boss, timed и т.п.)
         /// DialogueNode - сценарный диалог, после него можно instant transition и т.п.
         /// ScriptedNode - для сложного поведения, катсцены там - если пригодится
-
         [Tooltip("Закончить уровень по завершению этой ноды?")]
         public bool endRunOnCompleted; 
         [Tooltip("При проигрыше, начинать с этой ноды?")]
@@ -124,6 +125,7 @@ namespace ScenarioSystem
 
         public Vector3 NodeStartPivotPosition; // позиция центра арены в момент запуска ноды
         public Vector3 CurrentPivotPosition; // позиция центра арены сейчас
+        public Vector3 CurrentPlayerPosition; // позиция центра арены сейчас
 
         public bool NoDamageTaken = true; // собсна
 
@@ -160,5 +162,16 @@ namespace ScenarioSystem
         public abstract void End(ScenarioContext context);
 
         public abstract float GetProgress01(ScenarioContext ctx); /// для того чтобы понимать состояние перехода
+    }
+
+    [System.Serializable]
+    public class RadioMessagesLogicBlock
+    {
+        [Tooltip("Оставить пустым, если сообщение не требуется.")]
+        public string radioMessageIdOnStart = "";
+        public RadioChannel radioChannelOnStart = RadioChannel.Story;
+        [Tooltip("Оставить пустым, если сообщение не требуется.")]
+        public string radioMessageIdOnEnd = "";
+        public RadioChannel radioChannelOnEnd = RadioChannel.Story;
     }
 }

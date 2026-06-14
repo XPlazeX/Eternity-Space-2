@@ -225,7 +225,7 @@ MonoBehaviour:
     damageTag: 0
   _otherDeathResource: 0
   _lifetime: 1.6
-  _speed: 15
+  _speed: 20
   _acceleration: 0
   _topAcceleratedSpeed: 0
   _piercingTargets: 0
@@ -377,7 +377,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.23807001, y: 0.44566447}
+  m_Size: {x: 0.309491, y: 0.44566447}
   m_EdgeRadius: 0
 --- !u!114 &-7579853108204948340
 MonoBehaviour:
@@ -398,4 +398,16 @@ MonoBehaviour:
   _color: {r: 0.31248903, g: 0, b: 1, a: 1}
   _scale: 0.3
   _shakePower: 0
-  _damage: 0
+  _modDamage: 0
+  _damageBundle:
+    damageKey: 2
+    damageValue: 0
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 0
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0

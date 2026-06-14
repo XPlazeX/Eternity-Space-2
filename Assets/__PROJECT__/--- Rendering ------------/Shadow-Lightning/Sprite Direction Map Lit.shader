@@ -23,6 +23,7 @@ Shader "ES/Sprite Direction Map Lit"
             "RenderType"="Transparent"
             "PreviewType"="Plane"
             "CanUseSpriteAtlas"="True"
+            "DisableBatching"="True"
         }
 
         Cull Off

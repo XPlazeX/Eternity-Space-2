@@ -170,6 +170,8 @@ public class ScenarioRunner : MonoBehaviour
         _context.NodeTime = _lastNodeTimer;
 
         _context.IsParsing = sledgeTransitor != null && sledgeTransitor.IsTransitioning;
+        _context.CurrentPivotPosition = ArenaLocal.Pivot == null ? Vector3.zero : ArenaLocal.Pivot.position;
+        _context.CurrentPlayerPosition = Player.PlayerTransform == null ? Vector3.zero : Player.PlayerTransform.position;
 
         // Debug.Log($"Обновление контекста: IsEncounterRunningValide = { _context.IsEncounterRunningValide} (Processing = {encounterDirector.Processing}, AnyEnemyAlive = {encounterDirector.AnyEnemyAlive})");
         _context.AnyEnemyAlive = encounterDirector.AnyEnemyAlive;
@@ -213,6 +215,15 @@ public class ScenarioRunner : MonoBehaviour
         _context.NodeTime = _lastNodeTimer;
 
         nodeLogicRuntime.Begin(_context);
+
+        if (!string.IsNullOrEmpty(nodeData.radioMessagesLogicBlock.radioMessageIdOnStart))
+        {
+            RadioManager.RequestMessage(new RadioMessageRequest(
+                nodeData.radioMessagesLogicBlock.radioMessageIdOnStart,
+                nodeData.radioMessagesLogicBlock.radioChannelOnStart
+            ));
+        }
+
         DebugLog($"Запущена новая нода: {nodeData.id}");
     }
 
@@ -242,6 +253,15 @@ public class ScenarioRunner : MonoBehaviour
         _context.CompletedNodeCounts[nodeIndex]++;
 
         _context.ElapsedNodeIndexes.Add(nodeIndex);
+
+        if (!string.IsNullOrEmpty(nodeData.radioMessagesLogicBlock.radioMessageIdOnEnd))
+        {
+            RadioManager.RequestMessage(new RadioMessageRequest(
+                nodeData.radioMessagesLogicBlock.radioMessageIdOnEnd,
+                nodeData.radioMessagesLogicBlock.radioChannelOnEnd
+            ));
+        }
+
         DebugLog($"Остановлена и освобождена нода: {nodeData.id}");
     }
 

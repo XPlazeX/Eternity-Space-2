@@ -64,7 +64,7 @@ public class GameSessionLoader : MonoBehaviour
         SceneStatics.CharacterCore.GetComponent<DeviceHandler>().Initialize();
         SceneStatics.CharacterCore.GetComponentInChildren<MainWeaponHandler>().Initialize();
         SceneStatics.UICore.GetComponent<CurrencyUI>().Initialize();
-        GameObject.FindWithTag("Level core").GetComponent<EnvironmentSpawner>().Initialize();
+        // GameObject.FindWithTag("Level core").GetComponent<EnvironmentSpawner>().Initialize();
         TimeHandler.Initialize();
 
         PlayerController.Initialize();

@@ -11,6 +11,8 @@ public class FabricDroneController : MonoBehaviour
     [SerializeField] private float wrecksFindingRadiusToStart = 200f;
     [SerializeField] private float findingWrecksUpdateTime = 1f;
     [SerializeField] private bool rawOnEncounterStop = true;
+    [Header("Messages")]
+    [SerializeField] private string startWorkingMessageID = "";
 
     private bool _initFindingWrecks = false;
     private float _findingTimer = 0f;
@@ -94,6 +96,7 @@ public class FabricDroneController : MonoBehaviour
             return;
 
         drone.StartWorking();
+        RadioManager.RequestMessage(new RadioMessageRequest(startWorkingMessageID, RadioChannel.Commentary));
     }
 
     public bool RawFabricate()

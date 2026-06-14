@@ -14,20 +14,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TrailRenderer _trailForce;
     [SerializeField] private float _trailTimeMultiplier = 1f;
     [SerializeField] private float _trailFadeSpeed = 1f;
+    [Header("Joystic control")]
+    [SerializeField] private bool useJoystickControl = true;
+    [SerializeField] private float joystickSensivity = 1f;
+    [SerializeField] private float joystickDeadAmplitude = 0.01f;
+    [SerializeField] private float joystickMaxAmplitude = 2f;
     [Header("Limited Speed")]
     [SerializeField] private bool limitedSpeed;
     [SerializeField] private float speedLimit = 5f;
     [SerializeField] private float maneuverability = 25f;
     [SerializeField] private float stopManeuverability = 35f; // можно сделать отдельную "тормозную" маневренность
+    [SerializeField] private float dragVelocityCacheTime = 0.05f;
 
     private static Transform _player;
     private static Rigidbody2D _playerRb;
     // private static Quaternion _cameraBorders;
 
     private Vector2 _pendingDragDelta;
+    private float _pendingDragTime;
+    private Vector2 _lastDragVelocity;
+    private float _lastDragVelocityTimer;
     private bool _pendingBeginDrag;
     private bool _pendingEndDrag;
     private Vector2 _currentMove;
+    private Vector2 _joystickVector;
 
     private static Vector3 _previousFixedPosition;
 
@@ -39,6 +49,7 @@ public class PlayerController : MonoBehaviour
     public static bool IsControlling { get; private set; } = false;
     // public static float MovingOffset {get; private set;}
     public static float RelativeRelativity => _player == null ? 0f : ArenaLocal.GetRelativityAtPoint(_player.position);
+    public static Vector2 RelativeJoystickPosition {get; private set;} = Vector2.zero;
 
 
     private static PlayerController instance;
@@ -62,10 +73,16 @@ public class PlayerController : MonoBehaviour
             return;
 
         if (PlayerInput.MainFireDown)
+        {
             _pendingBeginDrag = true;
+            _joystickVector = Vector2.zero;
+        }
 
         if (PlayerInput.MainFireUp)
+        {
             _pendingEndDrag = true;
+            _joystickVector = Vector2.zero;   
+        }
 
         if (Time.timeScale != 0f)
         {
@@ -74,9 +91,24 @@ public class PlayerController : MonoBehaviour
             if (frameDrag.sqrMagnitude > 0f)
             {
                 _pendingDragDelta += frameDrag;
+                _pendingDragTime += Time.unscaledDeltaTime;
                 Dragging?.Invoke(frameDrag);
             }
+
+            if (useJoystickControl && IsControlling)
+            {
+                Vector2 joystickDrag = ((Player.PlayerTransform == null ? Quaternion.identity : Player.PlayerTransform.rotation) * PlayerInput.PointerDrag) * joystickSensivity;
+
+                _joystickVector += joystickDrag;
+
+                if (_joystickVector.magnitude > joystickMaxAmplitude)
+                {
+                    _joystickVector = _joystickVector.normalized * joystickMaxAmplitude;
+                }
+            }
         }
+
+        RelativeJoystickPosition = _joystickVector.normalized * (_joystickVector.magnitude / joystickMaxAmplitude);
     }
 
     private void FixedUpdate()
@@ -89,25 +121,29 @@ public class PlayerController : MonoBehaviour
         if (!CanControl)
         {
             _pendingDragDelta = Vector2.zero;
+            _pendingDragTime = 0f;
+            _lastDragVelocity = Vector2.zero;
+            _lastDragVelocityTimer = 0f;
             _pendingBeginDrag = false;
             _pendingEndDrag = false;
             _currentMove = Vector2.zero;
             AdditiveForce = Vector3.zero;
+            _joystickVector = Vector2.zero;
             return;
         }
 
-        // CalculateRelativity();
         HandleControlState();
         TickAdditiveForce();
         if (limitedSpeed)
         {
-            TickLimitedMovement(Time.fixedDeltaTime);
+            TickLimitedMovement(Time.fixedUnscaledDeltaTime);
         } else
         {
             TickMovement();
         }
 
         _pendingDragDelta = Vector2.zero;
+        _pendingDragTime = 0f;
     }
 
     private void LateUpdate()
@@ -138,6 +174,8 @@ public class PlayerController : MonoBehaviour
                 EndDrag?.Invoke();
 
             IsControlling = false;
+            _lastDragVelocity = Vector2.zero;
+            _lastDragVelocityTimer = 0f;
             TimeHandler.SlowDown();
             _pendingEndDrag = false;
         }
@@ -176,12 +214,59 @@ public class PlayerController : MonoBehaviour
     private void TickLimitedMovement(float fdt)
     {
         Vector2 currentPos = _playerRb.position;
-
+        Vector2 targetMove = Vector2.zero;
         Vector2 forceMove = (Vector2)(DefaultForce + AdditiveForce) * Time.fixedDeltaTime;
-        Vector2 dragMove = CanControl && Time.timeScale != 0f ? _pendingDragDelta : Vector2.zero;
 
-        Vector2 targetMove = forceMove + dragMove;
+        if (!useJoystickControl)
+        {
+            Vector2 dragVelocity = Vector2.zero;
 
+            if (CanControl && Time.timeScale != 0f)
+            {
+                if (_pendingDragTime > 0f)
+                {
+                    dragVelocity = _pendingDragDelta / _pendingDragTime;
+                    _lastDragVelocity = dragVelocity;
+                    _lastDragVelocityTimer = dragVelocityCacheTime;
+                }
+                else if (PlayerInput.MainFirePressed && _lastDragVelocityTimer > 0f)
+                {
+                    dragVelocity = _lastDragVelocity;
+                    _lastDragVelocityTimer -= fdt;
+                }
+                else
+                {
+                    _lastDragVelocity = Vector2.zero;
+                    _lastDragVelocityTimer = 0f;
+                }
+            }
+
+            Vector2 dragMove = dragVelocity * fdt;
+            targetMove = forceMove + dragMove;
+        }
+
+        else
+        {
+            Vector2 joystickVelocity = Vector2.zero;
+
+            if (CanControl && Time.timeScale != 0f)
+            {
+                joystickVelocity = _joystickVector;
+            }
+            if (joystickVelocity.magnitude < joystickDeadAmplitude)
+            {
+                joystickVelocity = Vector2.zero;
+            }
+
+            Vector2 joystickMove = joystickVelocity / Mathf.Max(joystickMaxAmplitude, 0.0001f) * speedLimit * fdt;
+            targetMove = forceMove + joystickMove;
+        }
+
+        
+
+        // if (_pendingDragDelta.magnitude > 0f)
+        // Debug.Log($"[LIMITED MOVEMENT]: dragVelocity={dragVelocity}, pendingDragDelta={_pendingDragDelta}, pendingTime={_pendingDragTime}, dragMove={dragMove}, targetMove={targetMove}, magnittude={targetMove.magnitude}, limit={speedLimit * fdt}");
+        
         if (targetMove.magnitude > speedLimit * fdt)
         {
             targetMove = targetMove.normalized * speedLimit * fdt;
@@ -196,7 +281,7 @@ public class PlayerController : MonoBehaviour
         _currentMove = Vector2.MoveTowards(
             _currentMove,
             targetMove,
-            currentManeuverability * Time.fixedDeltaTime
+            currentManeuverability * fdt
         );
 
         Vector2 nextPos = currentPos + _currentMove;
@@ -235,7 +320,7 @@ public class PlayerController : MonoBehaviour
     //     EndDrag -= TimeHandler.SlowDown;
     // }
 
-    public void ChangeSensivity(float val) => _sensivity = val;
+    public void ChangeSensivity(float val) => _sensivity = 1f;
 
     // private static void SetBorders(float empty = 0)
     // {

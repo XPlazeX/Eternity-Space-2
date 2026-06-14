@@ -1,3 +1,4 @@
+using DamageSystem;
 using UnityEngine;
 
 public class ExplosionObject : PooledObject
@@ -5,6 +6,8 @@ public class ExplosionObject : PooledObject
     public event System.Action Detonated;
 
     [SerializeField] private float waitTime;
+    [Header("Damage")]
+    [SerializeField] private StaticBullet explosionDamageObject;
     [Header("Particle Systems")]
     [SerializeField] private ParticleSystem[] particleSystems;
     [Header("Shockwaves")]
@@ -51,6 +54,14 @@ public class ExplosionObject : PooledObject
         {
             SoundPlayer.PlaySound(sound, transform.position);
             _sounded = true;
+        }
+    }
+
+    public void SetDamageBundle(DamageBundle damageBundle)
+    {
+        if (explosionDamageObject != null)
+        {
+            explosionDamageObject.ModDamageBundle(damageBundle);
         }
     }
 

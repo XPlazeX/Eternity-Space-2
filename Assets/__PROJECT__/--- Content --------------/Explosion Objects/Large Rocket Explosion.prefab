@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionObject
   waitTime: 0
+  explosionDamageObject: {fileID: 8572338390572327893}
   particleSystems: []
   explosionAnimatedLayers:
   - waitTime: 0
@@ -435,6 +436,7 @@ GameObject:
   - component: {fileID: 4484236608911018945}
   - component: {fileID: 4354536743536775625}
   - component: {fileID: 5429388338589902420}
+  - component: {fileID: 8572338390572327893}
   m_Layer: 8
   m_Name: Circle_0
   m_TagString: Untagged
@@ -566,6 +568,31 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8572338390572327893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971234247983505222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a310dc62293d8f84f90551755d6564df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaticBullet
+  damageBundle:
+    damageKey: 2
+    damageValue: 0
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 0
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0
+  _hoverable: 0
 --- !u!1 &8204017768200987665
 GameObject:
   m_ObjectHideFlags: 0

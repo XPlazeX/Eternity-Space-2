@@ -28,7 +28,7 @@ public class ShieldDevice : Device
         ParringObject parringObject = (ParringObject)CharacterBulletDatabase.GetPullableObject(_bulletIndex);
 
         parringObject.transform.position = Player.PlayerTransform.position;
-        parringObject.GetComponent<StaticBullet>().ModdedDamage = _damage; //* ShipStats.GetValue("PlayerFirerateMultiplier")
+        // parringObject.GetComponent<StaticBullet>().ModdedDamage = _damage; //* ShipStats.GetValue("PlayerFirerateMultiplier")
     }
 
     protected virtual void SetParryingArea()

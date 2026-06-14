@@ -68,6 +68,10 @@ public class CameraController : MonoBehaviour
 
     // private float _dumping = 6f;
 
+    private void Awake() {
+        instance = this;
+    }
+
     private void OnEnable()
     {
         _defaultSize = controllingCamera.orthographicSize;
@@ -87,30 +91,30 @@ public class CameraController : MonoBehaviour
         #if UNITY_EDITOR
         if (!debugFeatures) return;
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartShaking(0.25f, 10f, 0.35f);
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            StartMoveTowards(controllingCamera.ScreenToWorldPoint(Input.mousePosition), 1f, 1f);
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartScaling(1000f, 4f);
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ResetScale(4f);
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            StopMotion();
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            // StartFollowing(State.PlayerTransform, 5f, Vector3.zero, 0f);
-        }
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     StartShaking(0.25f, 10f, 0.35f);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.M))
+        // {
+        //     StartMoveTowards(controllingCamera.ScreenToWorldPoint(Input.mousePosition), 1f, 1f);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.W))
+        // {
+        //     StartScaling(1000f, 4f);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     ResetScale(4f);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     StopMotion();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     // StartFollowing(State.PlayerTransform, 5f, Vector3.zero, 0f);
+        // }
         #endif
     }
 
@@ -132,7 +136,13 @@ public class CameraController : MonoBehaviour
         if (_shaking) Shaking(deltaTime);
         if (copyPlayerRotation && Player.PlayerTransform != null)
         {
-            movingParentTransform.up = Player.PlayerTransform.up;
+            Vector2 playerUp = Player.PlayerTransform.up;
+
+            if (playerUp.sqrMagnitude > 0.0001f)
+            {
+                float zAngle = Mathf.Atan2(playerUp.y, playerUp.x) * Mathf.Rad2Deg - 90f;
+                movingParentTransform.rotation = Quaternion.Euler(0f, 0f, zAngle);
+            }
         }
 
         Moved?.Invoke();

@@ -312,6 +312,8 @@ public class ScenarioAssetEditorWindow : EditorWindow
             EditorGUILayout.PropertyField(node.FindPropertyRelative("transitionToThis"), true);
         });
 
+        DrawRadioMessagesLogicBlock(node.FindPropertyRelative("radioMessagesLogicBlock"));
+
         DrawSection("Branches And Multi-Nodes", () =>
         {
             EditorGUILayout.PropertyField(node.FindPropertyRelative("nextNodeIndexes"), true);
@@ -331,6 +333,35 @@ public class ScenarioAssetEditorWindow : EditorWindow
         EditorGUILayout.Space(2f);
         drawContent?.Invoke();
         EditorGUILayout.EndVertical();
+    }
+
+    private void DrawRadioMessagesLogicBlock(SerializedProperty radioMessagesProperty)
+    {
+        DrawSection("Radio Messages Logic Block", () =>
+        {
+            if (radioMessagesProperty == null)
+            {
+                EditorGUILayout.HelpBox("radioMessagesLogicBlock property was not found.", MessageType.Warning);
+                return;
+            }
+
+            radioMessagesProperty.isExpanded = EditorGUILayout.Foldout(radioMessagesProperty.isExpanded, "RadioMessageLogicBlock", true);
+            if (!radioMessagesProperty.isExpanded)
+                return;
+
+            EditorGUI.indentLevel++;
+            EditorGUILayout.Space(2f);
+
+            DrawSubsection("On Start");
+            EditorGUILayout.PropertyField(radioMessagesProperty.FindPropertyRelative("radioMessageIdOnStart"));
+            EditorGUILayout.PropertyField(radioMessagesProperty.FindPropertyRelative("radioChannelOnStart"));
+
+            DrawSubsection("On End");
+            EditorGUILayout.PropertyField(radioMessagesProperty.FindPropertyRelative("radioMessageIdOnEnd"));
+            EditorGUILayout.PropertyField(radioMessagesProperty.FindPropertyRelative("radioChannelOnEnd"));
+
+            EditorGUI.indentLevel--;
+        });
     }
 
     private void DrawLogicProperty(SerializedProperty logicProperty)

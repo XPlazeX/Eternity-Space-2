@@ -65,8 +65,10 @@ public class WeaponRoot : MonoBehaviour
 
     void Update()
     {
-        mainWeaponUI.Fill(_bindedAttackPattern.PrepareNormalized);
-        secondaryWeaponUI.Fill(_bindedDevice.GetChargeNormalized());
+        if (_bindedAttackPattern != null)
+            mainWeaponUI.Fill(_bindedAttackPattern.PrepareNormalized);
+        if (_bindedDevice != null)
+            secondaryWeaponUI.Fill(_bindedDevice.GetChargeNormalized());
     }
 
     private void DoAttack()

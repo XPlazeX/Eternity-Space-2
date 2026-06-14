@@ -53,8 +53,8 @@ public class SpawnOnDamageTaken : Module
         if (!_modParams)
             return;
 
-        if (_damage > 0)
-            explosion.GetComponent<StaticBullet>().ModdedDamage = _damage;
+        // if (_damage > 0)
+        //     explosion.GetComponent<StaticBullet>().ModdedDamage = _damage;
 
         explosion.GetComponent<SpriteRenderer>().color = _color;
         explosion.transform.localScale = Vector3.one * _scale;

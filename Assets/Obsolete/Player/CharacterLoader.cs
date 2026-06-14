@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Collections;
+using UnityEngine;
 
 public class CharacterLoader : MonoBehaviour
 {
@@ -12,98 +10,105 @@ public class CharacterLoader : MonoBehaviour
         MissionMenuLoad = 2
     }
 
-    [SerializeField] private AssetReference[] _characters;
-    [SerializeField] private bool _testMode;
-    [SerializeField] private int _testID;
+    [SerializeField] private Character _selectedCharacter;
+    [SerializeField] private Character[] _characters;
+    [SerializeField] private int _selectedCharacterID;
+    [SerializeField] private int _selectedSkinID;
+    [SerializeField] private int _startHitPoints = 100;
 
-    private AsyncOperationHandle _characterOperationHandle;
-
-    public Character ActiveCharacterSample {get; set;}
+    public Character ActiveCharacterSample { get; private set; }
 
     public IEnumerator LoadingPlayerShip(CharacterLoadType loadType = CharacterLoadType.GameLoad)
     {
-        int id = GameSessionInfoHandler.GetSessionSave().ShipModel;
-
-        // int missionCustomId = GameObject.FindWithTag("BetweenScenes").GetComponent<MissionsDatabase>()._activeMissionSample.CustomShip;
-
-        // if (missionCustomId != -1)
-        //     id = missionCustomId;
-
-        if (_testMode)
-            id = _testID;
-
-        yield return StartCoroutine(LoadingCharacter(id, loadType));
+        LoadSelectedCharacter(loadType);
+        yield break;
     }
 
     public IEnumerator LoadingPlayerShip(int id, CharacterLoadType loadType = CharacterLoadType.GameLoad)
     {
-        yield return StartCoroutine(LoadingCharacter(id, loadType));
+        LoadSelectedCharacter(loadType, id);
+        yield break;
     }
 
     public IEnumerator WritingShipHPData(int characterID, float hpPart = 1f)
     {
-        if (_characterOperationHandle.IsValid())
-        {
-            Addressables.Release(_characterOperationHandle);
-        }
-
-        var characterReference = _characters[characterID];
-
-        _characterOperationHandle = Addressables.LoadAssetAsync<Character>(characterReference);
-        yield return _characterOperationHandle;
-
-        int hp = ((Character)_characterOperationHandle.Result).HP;
-
-        GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-
-        save.MaxHealth = hp;
-        save.HealthPoints = Mathf.CeilToInt((float)hp * hpPart);
-        Debug.Log($"written character hp: {hp}");
-
-        GameSessionInfoHandler.RewriteSessionSave(save);
+        // Legacy save-writing hook is intentionally disabled for the PC rebuild.
+        yield break;
     }
 
-    private IEnumerator LoadingCharacter(int characterID, CharacterLoadType loadType = CharacterLoadType.GameLoad)
+    public void LoadSelectedCharacter(CharacterLoadType loadType = CharacterLoadType.GameLoad)
     {
-        if (_characterOperationHandle.IsValid())
+        LoadSelectedCharacter(loadType, _selectedCharacterID);
+    }
+
+    private void LoadSelectedCharacter(CharacterLoadType loadType, int characterID)
+    {
+        Character character = ResolveCharacter(characterID);
+
+        if (character == null)
         {
-            Addressables.Release(_characterOperationHandle);
+            Debug.LogError($"{nameof(CharacterLoader)}: no character selected.");
+            return;
         }
 
-        var characterReference = _characters[characterID];
-
-        _characterOperationHandle = Addressables.LoadAssetAsync<Character>(characterReference);
-        yield return _characterOperationHandle;
-
-        ActiveCharacterSample = (Character)_characterOperationHandle.Result;
-        Debug.Log($"Active char sample: {ActiveCharacterSample == null}");
+        ActiveCharacterSample = character;
 
         if (loadType == CharacterLoadType.GameLoad)
-            LoadCharacter(ActiveCharacterSample, characterID);
-
+        {
+            LoadCharacter(character, characterID);
+        }
         else if (loadType == CharacterLoadType.MissionMenuLoad)
-            MissionMenuLoadCharacter(ActiveCharacterSample);
+        {
+            MissionMenuLoadCharacter(character);
+        }
+    }
+
+    private Character ResolveCharacter(int characterID)
+    {
+        if (_selectedCharacter != null)
+        {
+            return _selectedCharacter;
+        }
+
+        if (_characters == null || _characters.Length == 0)
+        {
+            return null;
+        }
+
+        int safeCharacterID = Mathf.Clamp(characterID, 0, _characters.Length - 1);
+        return _characters[safeCharacterID];
     }
 
     private void LoadCharacter(Character character, int id)
     {
-        // int id = 0;
-        // if (Dev.RuStoreVersionSprites)
-        //     id = 1;
-        Player.Initialize(character.GetSkinnedShip(Skins.SOCurrentSkin()), character.Class);
-        FindAnyObjectByType<PlayerShipData>().Initialize(character.HP, character.ARM, id);
-
-        for (int i = 0; i < character.HandingModules.Length; i++)
+        GameObject playerPrefab = character.GetSkinnedShip(_selectedSkinID);
+        if (playerPrefab == null)
         {
-            ModuleCore.SpawnModule(character.HandingModules[i]);
+            Debug.LogError($"{nameof(CharacterLoader)}: selected character has no player prefab.");
+            return;
         }
+
+        Player.Initialize(playerPrefab, character.Class);
+
+        PlayerShipData playerShipData = FindAnyObjectByType<PlayerShipData>();
+        if (playerShipData != null)
+        {
+            playerShipData.Initialize(_startHitPoints, 0, id);
+        }
+
+        // Legacy module auto-spawn is disabled while the project is being rebuilt.
+        // for (int i = 0; i < character.HandingModules.Length; i++)
+        // {
+        //     ModuleCore.SpawnModule(character.HandingModules[i]);
+        // }
     }
 
     private void MissionMenuLoadCharacter(Character character)
     {
-        for (int i = 0; i < character.HandingModules.Length; i++)
-        {
-            character.HandingModules[i].MissionMenuLoad();
-        }
+        // Legacy mission-menu module loading is disabled.
+        // for (int i = 0; i < character.HandingModules.Length; i++)
+        // {
+        //     character.HandingModules[i].MissionMenuLoad();
+        // }
     }
 }

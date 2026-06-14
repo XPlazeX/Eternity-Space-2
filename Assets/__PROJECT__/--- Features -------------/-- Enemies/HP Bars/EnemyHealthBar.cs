@@ -31,9 +31,9 @@ public class EnemyHealthBar : PooledObject
         }
 
         if (_parent.GetComponent<BoxCollider2D>() != null)
-            _offsetY = _parent.GetComponent<BoxCollider2D>().size.y;
+            _offsetY = _parent.GetComponent<BoxCollider2D>().size.y * 1.3f;
         else
-            _offsetY = 2f;
+            _offsetY = 2.6f;
             
         transform.parent = null;
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyRadarUI : MonoBehaviour
@@ -6,6 +7,8 @@ public class EnemyRadarUI : MonoBehaviour
     [Header("References")]
     [SerializeField] private RectTransform radarRect;
     [SerializeField] private Transform iconParent;
+    [SerializeField] private TMP_Text enemyCountLabel;
+    [SerializeField] private TMP_Text allyCountLabel;
 
     [Tooltip("Если не задан, попробует взять Player.PlayerTransform.")]
     [SerializeField] private Transform playerTransform;
@@ -158,6 +161,9 @@ public class EnemyRadarUI : MonoBehaviour
             if (_enemies.Count >= maxEnemies)
                 break;
         }
+
+        if (enemyCountLabel != null)
+            enemyCountLabel.text = _enemies.Count.ToString();
     }
 
     private void RefreshAllies()
@@ -178,6 +184,9 @@ public class EnemyRadarUI : MonoBehaviour
             _allies.Add(fabricDrone.transform);
 
         TrimList(_allies, maxAllies);
+
+        if (allyCountLabel != null)
+            allyCountLabel.text = _allies.Count.ToString();
     }
 
     private void RefreshObstacles()

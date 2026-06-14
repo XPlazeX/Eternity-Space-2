@@ -21,6 +21,4 @@ MonoBehaviour:
   _boostedHitPoints: 120
   _armorPoints: 10
   _boostedArmorPoints: 20
-  _handingModules:
-  - {fileID: 1554671533882739457, guid: 951b08d35e937a54583441ccca4c830c, type: 3}
-  - {fileID: 984292243012110772, guid: 22c187a0fd4e29a4da47dcd0f5b58b0a, type: 3}
+  _handingModules: []

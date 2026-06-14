@@ -75,10 +75,12 @@ public class Encounter: ISerializationCallbackReceiver
 
     public void OnBeforeSerialize()
     {
+        #if UNITY_EDITOR
         if (string.IsNullOrEmpty(runtimeId))
         {
             runtimeId = GUID.Generate().ToString();
         }
+        #endif
     }
 
     public void OnAfterDeserialize() {}

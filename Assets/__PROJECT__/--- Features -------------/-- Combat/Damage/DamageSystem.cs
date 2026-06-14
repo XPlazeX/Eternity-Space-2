@@ -98,6 +98,21 @@ namespace DamageSystem
         public DamageTag damageTag;
 
         public bool Legitime => (damageValue > 0 || regeneratingValue > 0 || structuralDamage > 0 || stunAmount > 0f) && cycles > 0;
+
+        public DamageBundle(DamageBundle copy)
+        {
+            damageKey = copy.damageKey;
+            damageValue = copy.damageValue;
+            shieldDamageMultiplier = copy.shieldDamageMultiplier;
+            asteroidDamageMultiplier = copy.asteroidDamageMultiplier;
+            armorPenetration = copy.armorPenetration;
+            stunAmount = copy.stunAmount;
+            structuralDamage = copy.structuralDamage;
+            ignoreOneShotProtection = copy.ignoreOneShotProtection;
+            regeneratingValue = copy.regeneratingValue;
+            cycles = copy.cycles;
+            damageTag = copy.damageTag;
+        }
     }
 
     public enum DamageTag

@@ -506,18 +506,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageBundle:
     damageKey: 1
-    damageValue: 20
+    damageValue: 40
     shieldDamageMultiplier: 1
     asteroidDamageMultiplier: 1
     armorPenetration: 0
     stunAmount: 0
     structuralDamage: 0
-    ignoreOneShotProtection: 0
+    ignoreOneShotProtection: 1
     regeneratingValue: 0
     cycles: 1
     damageTag: 0
   _otherDeathResource: 0
-  _lifetime: 4
+  _lifetime: 8
   _speed: -2
   _acceleration: 20
   _topAcceleratedSpeed: 20
@@ -616,7 +616,19 @@ MonoBehaviour:
   _color: {r: 0, g: 0.043819427, b: 1, a: 1}
   _scale: 4
   _shakePower: 0
-  _damage: 10
+  _modDamage: 1
+  _damageBundle:
+    damageKey: 2
+    damageValue: 20
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 0
+    structuralDamage: 0
+    ignoreOneShotProtection: 1
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 5
 --- !u!114 &6781304561681230023
 MonoBehaviour:
   m_ObjectHideFlags: 0
