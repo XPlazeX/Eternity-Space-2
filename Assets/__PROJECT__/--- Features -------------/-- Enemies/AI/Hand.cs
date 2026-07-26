@@ -81,7 +81,7 @@ public class Hand : MonoBehaviour
             
             _shoulderTarget = (_shoulderNormal * _shoulderHeight) + _middlePoint;
 
-            _shoulder.position += (_shoulderTarget - _shoulder.position) * _shoulderSpeed * Time.deltaTime;
+            _shoulder.position += (_shoulderTarget - _shoulder.position) * _shoulderSpeed * ESTime.worldDeltaTime;
 
             _armParts[0].position = Vector3.Lerp(_body.position, _shoulder.position, 0.5f);
             _armParts[1].position = Vector3.Lerp(_shoulder.position, _palm.position, 0.5f);

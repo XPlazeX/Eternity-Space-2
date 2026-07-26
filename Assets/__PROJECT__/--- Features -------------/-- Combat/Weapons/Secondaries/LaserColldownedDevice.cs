@@ -16,7 +16,7 @@ public class LaserColldownedDevice : Device
 
     protected override void Update()
     {
-        _cooldown -= Time.deltaTime;
+        _cooldown -= ESTime.worldDeltaTime;
 
         base.Update();
 

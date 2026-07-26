@@ -142,7 +142,7 @@ public class PowerupFabricDrone : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float dt = Time.fixedDeltaTime;
+        float dt = ESTime.worldFixedDeltaTime;
 
         if (_mode == DroneMode.Parked)
             return;

@@ -178,7 +178,7 @@ public class SledgeTransitor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float dt = Time.fixedDeltaTime;
+        float dt = ESTime.worldFixedDeltaTime;
 
         switch (_state)
         {

@@ -23,7 +23,7 @@ public class LineAI : EnemyAIRoot
 
     protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * ESTime.worldFixedDeltaTime * Mobility;
         _passedWay += currentMoving;
 
         if (_distance - _passedWay <= 0.1f)

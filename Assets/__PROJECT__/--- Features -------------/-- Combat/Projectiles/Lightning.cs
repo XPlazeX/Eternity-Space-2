@@ -18,7 +18,7 @@ public class Lightning : MonoBehaviour
 
         while (true)
         {
-            timer -= Time.deltaTime;
+            timer -= ESTime.worldDeltaTime;
             if (timer <= 0)
             {
                 timer = _redirectTime;

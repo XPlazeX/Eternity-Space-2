@@ -26,13 +26,13 @@ public class Rotation : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        _transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime);
+        _transform.Rotate(0, 0, _rotationSpeed * ESTime.worldDeltaTime);
 
         if (_pingPongRotation)
         {
             _rotationSpeed = _targetRotationSpeed * Mathf.Sin(_timer);
 
-            _timer += Time.deltaTime * _pingPongSpeed;
+            _timer += ESTime.worldDeltaTime * _pingPongSpeed;
         }
     }
 }

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 965381140312984591}
   - component: {fileID: 7018158432618105439}
   - component: {fileID: -7579853108204948340}
+  - component: {fileID: -4376319599996608459}
   m_Layer: 14
   m_Name: SB-Radiant 1
   m_TagString: Untagged
@@ -411,3 +412,18 @@ MonoBehaviour:
     regeneratingValue: 0
     cycles: 1
     damageTag: 0
+--- !u!114 &-4376319599996608459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644595582373362196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4d3386a6a630f4487f22e51acef73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletImpactDealer
+  impacts:
+  - Tag: 1
+    Amount: 1

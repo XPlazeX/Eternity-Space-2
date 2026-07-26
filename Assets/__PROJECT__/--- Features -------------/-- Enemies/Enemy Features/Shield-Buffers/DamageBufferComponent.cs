@@ -50,7 +50,7 @@ public class DamageBufferComponent : PullableObject
                 _timer = 0f;
             }
 
-            _timer -= Time.deltaTime;
+            _timer -= ESTime.worldDeltaTime;
         }
 
     }
@@ -85,7 +85,7 @@ public class DamageBufferComponent : PullableObject
             _mySR.color = new Color(_mySR.color.r, _mySR.color.g, _mySR.color.b, 0.3f * (timer / 0.5f));
             transform.localScale = Vector3.one * (1.1f + (2f * (damageAnimationTime - timer)));
 
-            timer -= Time.deltaTime;
+            timer -= ESTime.worldDeltaTime;
             yield return null;
         }
 

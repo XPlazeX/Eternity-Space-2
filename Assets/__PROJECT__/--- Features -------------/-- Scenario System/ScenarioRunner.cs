@@ -9,6 +9,7 @@ public class ScenarioRunner : MonoBehaviour
     [SerializeField] private ScenarioAsset scenarioAsset;
     [SerializeField] private EncounterDirector encounterDirector;
     [SerializeField] private SledgeTransitor sledgeTransitor;
+    [SerializeField] private float conditionsCheckFrequency = 6f;
     [SerializeField] private bool debugMessages = true;
 
     private ScenarioAsset RunningScenario {get; set;}
@@ -25,10 +26,11 @@ public class ScenarioRunner : MonoBehaviour
 
     private int _lastNodeIndex = -1;
     private int _previousNodeIndex = -1;
-    private int _checkpointNodeIndex = -1;
+    // private int _checkpointNodeIndex = -1;
     private float _lastNodeTimer;
     private float _scenarioTimer;
     private Dictionary<string, int> _nodeIndexes;
+    private float _conditionsCheckTimer = 0f;
 
     public void SetScenarioAsset(ScenarioAsset asset)
     {
@@ -48,9 +50,15 @@ public class ScenarioRunner : MonoBehaviour
         }
 
         _scenarioTimer = 0f;
+        if (Map.CurrentSector == null)
+        {
+            Debug.LogError("Невозможно установить сценарий: Map.CurrentSector пуст.");
+        }
         _context = new ScenarioContext
         {
-            EncounterDirector = encounterDirector
+            EncounterDirector = encounterDirector,
+            Sector = Map.CurrentSector,
+            EnemyHq = FindAnyObjectByType<EnemyHQ>()
         };
 
         RebuildContext();
@@ -85,9 +93,9 @@ public class ScenarioRunner : MonoBehaviour
     {
         if (!Running || Paused) return;
 
-        Tick(Time.deltaTime);
-        _lastNodeTimer += Time.deltaTime;
-        _scenarioTimer += Time.deltaTime;
+        Tick(ESTime.worldDeltaTime);
+        _lastNodeTimer += ESTime.worldDeltaTime;
+        _scenarioTimer += ESTime.worldDeltaTime;
     }
 
     private int ScenarioIndexOf(NodeData nodeData)
@@ -103,34 +111,37 @@ public class ScenarioRunner : MonoBehaviour
 
         RebuildContext();
 
-        // проверка условий начала
-        List<int> checkingNodes = new List<int>() {_lastNodeIndex + 1}; // смотрим следующую ноду
+        _conditionsCheckTimer -= dt;
 
-        if (_lastNodeIndex + 1 >= RunningScenario.nodes.Count) // если это последняя нода - следующую не смотрим
+        if (_conditionsCheckTimer <= 0f)
         {
-            checkingNodes.Clear();
+            CheckConditions();
+            _conditionsCheckTimer = 1f / conditionsCheckFrequency;
         }
+    }
 
-        for (int i = 0; i < RunningNodes.Count; i++) // если ноды хотят, чтобы мы проверяли другие ноды - собираем их индексы
+    private void CheckConditions()
+    {
+        // проверка условий начала
+        List<NodeData> checkingNodes = new List<NodeData>(); // смотрим следующую ноду
+
+        for (int i = 0; i < RunningScenario.nodes.Count; i++)
         {
-            int[] toCheck = RunningNodes[i].nextNodeIndexes;
+            NodeData nodeData = RunningScenario.nodes[i];
 
-            for (int j = 0; j < toCheck.Length; j++)
+            if (nodeData.disposable && _context.CompletedNodeSet.Contains(ScenarioIndexOf(nodeData)))
             {
-                if (!checkingNodes.Contains(toCheck[j]))
-                {
-                    checkingNodes.Add(toCheck[j]);
-                }
+                continue; // нода disposable и уже однажды была пройденна.
             }
+
+            checkingNodes.Add(nodeData);
         }
 
         for (int i = 0; i < checkingNodes.Count; i++) // запускаем ноды, если условия старта удовлетворительны
         {
-            NodeData nodeData = RunningScenario.nodes[checkingNodes[i]];
+            NodeData nodeData = checkingNodes[i];
 
-            if (nodeData.disposable && _context.CompletedNodeSet.Contains(checkingNodes[i])) continue;
-
-            if (nodeData.startCondition.Evaluate(_context))
+            if (nodeData.startConditions.Evaluate(_context))
             {
                 RequestTransitionToNode(nodeData);
             }
@@ -140,7 +151,7 @@ public class ScenarioRunner : MonoBehaviour
         for (int i = RunningNodes.Count - 1; i >= 0; i--)
         {
             NodeData nodeData = RunningNodes[i];
-            if (nodeData.endCondition.Evaluate(_context))
+            if (nodeData.endConditions.Evaluate(_context))
             {
                 ReleaseNode(RunningNodes[i]);
             }
@@ -177,6 +188,7 @@ public class ScenarioRunner : MonoBehaviour
         _context.AnyEnemyAlive = encounterDirector.AnyEnemyAlive;
 
         _context.ActiveEncounterSnapshots = encounterDirector.GetActiveEncounterSnapshots();
+        _context.SectorStateSnapshot = Map.CurrentSector.GetSectorStateSnapshot();
         _context.IsEncounterRunningValide = _context.ActiveEncounterSnapshots.Count > 0;//encounterDirector.Processing && encounterDirector.AnyEnemyAlive;
     }
 
@@ -203,14 +215,6 @@ public class ScenarioRunner : MonoBehaviour
         _lastNodeIndex = ScenarioIndexOf(nodeData);
         _context.LastNodeIndex = _lastNodeIndex;
 
-        if (nodeData.logic.isCheckpoint)
-        {
-            _context.CheckpointNodeIndex = _lastNodeIndex;
-        }
-
-        _context.IsEndingNode = nodeData.logic.endRunOnCompleted;
-        
-        // _context.NodeStartPivotPosition = Vector3.zero;
         _lastNodeTimer = 0f;
         _context.NodeTime = _lastNodeTimer;
 

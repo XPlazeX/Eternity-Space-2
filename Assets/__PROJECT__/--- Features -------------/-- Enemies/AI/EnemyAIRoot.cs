@@ -109,7 +109,7 @@ public class EnemyAIRoot : MonoBehaviour
     {
         if (_speedBoostTimer > 0f)
         {
-            _speedBoostTimer -= Time.fixedDeltaTime;
+            _speedBoostTimer -= ESTime.worldFixedDeltaTime;
 
             if (_speedBoostTimer <= 0f)
             {
@@ -128,7 +128,7 @@ public class EnemyAIRoot : MonoBehaviour
         {
             ClearExternalAcceleration();
 
-            Vector2 stunMoveDelta = _bufferDirection * (1f - Time.fixedDeltaTime);
+            Vector2 stunMoveDelta = _bufferDirection * (1f - ESTime.worldFixedDeltaTime);
             ApplyMovement(stunMoveDelta);
             return;
         }
@@ -200,7 +200,7 @@ public class EnemyAIRoot : MonoBehaviour
 
     private bool TryApplyExternalAcceleration()
     {
-        float dt = Time.fixedDeltaTime;
+        float dt = ESTime.worldFixedDeltaTime;
 
         if (_externalForceTimer > 0f)
         {
@@ -262,7 +262,7 @@ public class EnemyAIRoot : MonoBehaviour
             Vector3.RotateTowards(
                 transform.up,
                 _targetPosition - RealPosition,
-                rotationSpeed * Time.fixedDeltaTime * (Speed / _startSpeed) * Mobility,
+                rotationSpeed * ESTime.worldFixedDeltaTime * (Speed / _startSpeed) * Mobility,
                 0f));
 
         CorrectRotation();
@@ -274,7 +274,7 @@ public class EnemyAIRoot : MonoBehaviour
             Vector3.RotateTowards(
                 transform.up,
                 Player.GetPlayerPosition(MovementForesight) - RealPosition,
-                rotationSpeed * Time.fixedDeltaTime * (Speed / _startSpeed) * Mobility,
+                rotationSpeed * ESTime.worldFixedDeltaTime * (Speed / _startSpeed) * Mobility,
                 0f));
 
         CorrectRotation();
@@ -311,7 +311,7 @@ public class EnemyAIRoot : MonoBehaviour
 
     private Vector2 UpdateInertionTowards(Vector2 targetMoveDelta)
     {
-        float dt = Time.fixedDeltaTime;
+        float dt = ESTime.worldFixedDeltaTime;
 
         Vector2 current = _inertion;
         float currentMagnitude = current.magnitude;
@@ -377,7 +377,7 @@ public class EnemyAIRoot : MonoBehaviour
             return;
         }
 
-        float time = Time.time * floatingFrequency * Mathf.PI * 2f + _floatingPhase;
+        float time = ESTime.worldTime * floatingFrequency * Mathf.PI * 2f + _floatingPhase;
 
         Vector2 offset =
             _floatingDirectionA * Mathf.Sin(time) +
@@ -419,7 +419,7 @@ public class EnemyAIRoot : MonoBehaviour
 
     protected float GetStepSpeed()
     {
-        return Speed * Mobility * Time.fixedDeltaTime;
+        return Speed * Mobility * ESTime.worldFixedDeltaTime;
     }
 
     public virtual void FindPlayer() => _player = Player.PlayerTransform;

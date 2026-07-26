@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         if (TargetPlayerTransform == null)
             return;
 
-        _playerMoveDirection = Vector3.Lerp(_playerMoveDirection, (TargetPlayerTransform.position - _oldPlayerPosition), 4f * Time.deltaTime);
+        _playerMoveDirection = Vector3.Lerp(_playerMoveDirection, (TargetPlayerTransform.position - _oldPlayerPosition), 4f * ESTime.worldDeltaTime);
         _oldPlayerPosition = TargetPlayerTransform.position;
     }
 

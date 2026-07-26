@@ -30,7 +30,7 @@ public class PerimetralFinishing : MonoBehaviour
 
     void FixedUpdate()
     {
-        _reloadTimer -= Time.fixedDeltaTime;
+        _reloadTimer -= ESTime.worldFixedDeltaTime;
     }
 
     private void OnTriggerStay2D(Collider2D other)

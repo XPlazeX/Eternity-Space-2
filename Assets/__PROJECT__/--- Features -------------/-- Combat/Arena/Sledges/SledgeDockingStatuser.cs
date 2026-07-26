@@ -6,6 +6,7 @@ public class SledgeDockingStatuser : MonoBehaviour
     [SerializeField] private GameObject notReadyDroneDockingPointer;
     [Header("Drone Pointer")]
     [SerializeField] private Transform dronePointer;
+    [SerializeField] private Transform pivotTransform;
     [SerializeField] private float dronePointerOffset = 4f;
     [SerializeField] private float dronePointerHideDistance = 6f;
 
@@ -15,18 +16,18 @@ public class SledgeDockingStatuser : MonoBehaviour
 
         bool droneReady = drone == null || drone.Mode == PowerupFabricDrone.DroneMode.Parked;
 
-        if (drone == null)
+        if (droneReady)
         {
             dronePointer.gameObject.SetActive(false);
         } 
         else
         {
-            Vector3 fromPlayerToDrone = drone.transform.position - Player.PlayerTransform.position;
+            Vector3 fromPlayerToDrone = drone.transform.position - pivotTransform.position;
 
             dronePointer.gameObject.SetActive(fromPlayerToDrone.magnitude >= dronePointerHideDistance);
 
             Vector3 directionFromPlayer = fromPlayerToDrone.normalized;
-            dronePointer.position = Player.PlayerTransform.position + directionFromPlayer * dronePointerOffset;
+            dronePointer.position = pivotTransform.position + directionFromPlayer * dronePointerOffset;
             dronePointer.up = directionFromPlayer;
             
         }

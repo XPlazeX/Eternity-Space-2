@@ -207,13 +207,13 @@ public class WreckMaskController : MonoBehaviour
 
         if (animateHeatFade && heatAmount > 0f)
         {
-            heatAmount = Mathf.Max(0f, heatAmount - heatFadeSpeed * Time.deltaTime);
+            heatAmount = Mathf.Max(0f, heatAmount - heatFadeSpeed * ESTime.worldDeltaTime);
             changed = true;
         }
 
         if (animateBurnIncrease && burnAmount < 1f)
         {
-            burnAmount = Mathf.Min(1f, burnAmount + burnIncreaseSpeed * Time.deltaTime);
+            burnAmount = Mathf.Min(1f, burnAmount + burnIncreaseSpeed * ESTime.worldDeltaTime);
             changed = true;
         }
 

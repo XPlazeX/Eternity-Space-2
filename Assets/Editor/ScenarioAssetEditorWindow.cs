@@ -297,14 +297,14 @@ public class ScenarioAssetEditorWindow : EditorWindow
             DrawLogicProperty(node.FindPropertyRelative("logic"));
         });
 
-        DrawSection("Start Condition", () =>
+        DrawSection("Start Conditions", () =>
         {
-            EditorGUILayout.PropertyField(node.FindPropertyRelative("startCondition"), true);
+            DrawConditionBlockProperty(node.FindPropertyRelative("startConditions"), "Start Conditions");
         });
 
-        DrawSection("End Condition", () =>
+        DrawSection("End Conditions", () =>
         {
-            EditorGUILayout.PropertyField(node.FindPropertyRelative("endCondition"), true);
+            DrawConditionBlockProperty(node.FindPropertyRelative("endConditions"), "End Conditions");
         });
 
         DrawSection("Transition To This Node", () =>
@@ -316,9 +316,8 @@ public class ScenarioAssetEditorWindow : EditorWindow
 
         DrawSection("Branches And Multi-Nodes", () =>
         {
-            EditorGUILayout.PropertyField(node.FindPropertyRelative("nextNodeIndexes"), true);
-            EditorGUILayout.PropertyField(node.FindPropertyRelative("disposable"));
-            EditorGUILayout.PropertyField(node.FindPropertyRelative("endIfOtherNodesStarted"));
+            DrawPropertyIfExists(node.FindPropertyRelative("disposable"));
+            DrawPropertyIfExists(node.FindPropertyRelative("endIfOtherNodesStarted"));
         });
 
         EditorGUILayout.EndScrollView();
@@ -364,6 +363,52 @@ public class ScenarioAssetEditorWindow : EditorWindow
         });
     }
 
+    private void DrawConditionBlockProperty(SerializedProperty conditionBlockProperty, string label)
+    {
+        if (conditionBlockProperty == null)
+        {
+            EditorGUILayout.HelpBox($"{label} property was not found.", MessageType.Warning);
+            return;
+        }
+
+        EditorGUILayout.BeginHorizontal();
+        conditionBlockProperty.isExpanded = EditorGUILayout.Foldout(conditionBlockProperty.isExpanded, label, true);
+
+        string state = conditionBlockProperty.managedReferenceValue == null ? "Null" : "ConditionBlock";
+        EditorGUILayout.LabelField(state, EditorStyles.miniLabel);
+
+        if (conditionBlockProperty.managedReferenceValue == null)
+        {
+            if (GUILayout.Button("Create", GUILayout.Width(72f)))
+            {
+                conditionBlockProperty.managedReferenceValue = new ConditionBlock();
+                conditionBlockProperty.isExpanded = true;
+            }
+        }
+        else if (GUILayout.Button("Clear", GUILayout.Width(72f)))
+        {
+            conditionBlockProperty.managedReferenceValue = null;
+        }
+
+        EditorGUILayout.EndHorizontal();
+
+        if (!conditionBlockProperty.isExpanded || conditionBlockProperty.managedReferenceValue == null)
+            return;
+
+        EditorGUI.indentLevel++;
+        SerializedProperty conditionsProperty = conditionBlockProperty.FindPropertyRelative("conditions");
+        if (conditionsProperty == null)
+        {
+            EditorGUILayout.HelpBox("conditions array was not found.", MessageType.Warning);
+        }
+        else
+        {
+            EditorGUILayout.PropertyField(conditionsProperty, true);
+        }
+
+        EditorGUI.indentLevel--;
+    }
+
     private void DrawLogicProperty(SerializedProperty logicProperty)
     {
         if (logicProperty.managedReferenceValue is EncounterNodeLogics)
@@ -390,13 +435,8 @@ public class ScenarioAssetEditorWindow : EditorWindow
             : new Color(0.62f, 0.67f, 0.68f, 1f));
 
         EditorGUILayout.LabelField("Encounter Node Logic", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(logicProperty.FindPropertyRelative("endRunOnCompleted"));
-        EditorGUILayout.PropertyField(logicProperty.FindPropertyRelative("isCheckpoint"));
-        EditorGUILayout.PropertyField(logicProperty.FindPropertyRelative("scrollingPivotSpeed"));
-        EditorGUILayout.PropertyField(logicProperty.FindPropertyRelative("pivotToPlayerFollowSpeed"));
-        EditorGUILayout.Space(4f);
-        EditorGUILayout.PropertyField(logicProperty.FindPropertyRelative("waitSledgeEndTransition"));
-        EditorGUILayout.PropertyField(logicProperty.FindPropertyRelative("waitTime"));
+        DrawPropertyIfExists(logicProperty.FindPropertyRelative("waitSledgeEndTransition"));
+        DrawPropertyIfExists(logicProperty.FindPropertyRelative("waitTime"));
 
         SerializedProperty encounterProperty = logicProperty.FindPropertyRelative("encounterDef");
         DrawEncounterProperty(encounterProperty);
@@ -406,6 +446,12 @@ public class ScenarioAssetEditorWindow : EditorWindow
 
     private void DrawEncounterProperty(SerializedProperty encounterProperty)
     {
+        if (encounterProperty == null)
+        {
+            EditorGUILayout.HelpBox("encounterDef property was not found.", MessageType.Warning);
+            return;
+        }
+
         EditorGUILayout.Space(8f);
 
         Rect backgroundRect = EditorGUILayout.BeginVertical(EditorStyles.helpBox);
@@ -432,41 +478,41 @@ public class ScenarioAssetEditorWindow : EditorWindow
     private void DrawEncounterGeneral(SerializedProperty encounterProperty)
     {
         DrawSubsection("General");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("runtimeId"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("rareCardProbability"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("uncommonCardProbability"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("runtimeId"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("rareCardProbability"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("uncommonCardProbability"));
     }
 
     private void DrawEncounterPlanned(SerializedProperty encounterProperty)
     {
         DrawSubsection("Planned");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("plannedWaitTime"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("plannedBudget"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("plannedCostWeights"), true);
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("plannedWaitTime"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("plannedBudget"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("plannedCostWeights"), true);
         DrawSpawnCardsPool(encounterProperty.FindPropertyRelative("spawnCardsPool"), "Spawn Cards Pool");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("plannedMaxWeight"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("plannedThresholdWeight"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("plannedPlayCooldown"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("plannedMaxWeight"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("plannedThresholdWeight"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("plannedPlayCooldown"));
     }
 
     private void DrawEncounterBonus(SerializedProperty encounterProperty)
     {
         DrawSubsection("Bonus");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("bonusWaitTime"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("bonusCostWeights"), true);
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("bonusWaitTime"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("bonusCostWeights"), true);
         DrawSpawnCardsPool(encounterProperty.FindPropertyRelative("bonusCardsPool"), "Bonus Cards Pool");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("bonusMaxWeight"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("bonusThresholdWeight"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("bonusPlayCooldown"));
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("bonusStopWeightThreshold"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("bonusMaxWeight"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("bonusThresholdWeight"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("bonusPlayCooldown"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("bonusStopWeightThreshold"));
     }
 
     private void DrawEncounterFinalCards(SerializedProperty encounterProperty)
     {
         DrawSubsection("Final Cards");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("playFinalCards"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("playFinalCards"));
         DrawSpawnCardsPool(encounterProperty.FindPropertyRelative("sortedFinalCardsPool"), "Sorted Final Cards Pool");
-        EditorGUILayout.PropertyField(encounterProperty.FindPropertyRelative("finalPlayCooldown"));
+        DrawPropertyIfExists(encounterProperty.FindPropertyRelative("finalPlayCooldown"));
     }
 
     private void DrawSubsection(string title)
@@ -477,6 +523,12 @@ public class ScenarioAssetEditorWindow : EditorWindow
 
     private void DrawSpawnCardsPool(SerializedProperty poolProperty, string label)
     {
+        if (poolProperty == null)
+        {
+            EditorGUILayout.HelpBox($"{label} property was not found.", MessageType.Warning);
+            return;
+        }
+
         SerializedProperty cardsProperty = poolProperty.FindPropertyRelative("spawnCards");
         if (cardsProperty == null)
         {
@@ -610,6 +662,12 @@ public class ScenarioAssetEditorWindow : EditorWindow
             arrayProperty.DeleteArrayElementAtIndex(index);
     }
 
+    private void DrawPropertyIfExists(SerializedProperty property, bool includeChildren = false)
+    {
+        if (property != null)
+            EditorGUILayout.PropertyField(property, includeChildren);
+    }
+
     private void DrawManagedReferenceHeader(SerializedProperty property, GUIContent label, Type baseType)
     {
         EditorGUILayout.BeginHorizontal();
@@ -696,15 +754,26 @@ public class ScenarioAssetEditorWindow : EditorWindow
         node.FindPropertyRelative("id").stringValue = System.Guid.NewGuid().ToString("N");
         node.FindPropertyRelative("debugName").stringValue = $"Node {newIndex:00}";
         node.FindPropertyRelative("logic").managedReferenceValue = null;
-        node.FindPropertyRelative("startCondition").managedReferenceValue = null;
-        node.FindPropertyRelative("endCondition").managedReferenceValue = null;
+        SetManagedReferenceIfExists(node.FindPropertyRelative("startConditions"), new ConditionBlock());
+        SetManagedReferenceIfExists(node.FindPropertyRelative("endConditions"), new ConditionBlock());
         node.FindPropertyRelative("transitionToThis").managedReferenceValue = null;
-        node.FindPropertyRelative("nextNodeIndexes").arraySize = 0;
-        node.FindPropertyRelative("disposable").boolValue = false;
-        node.FindPropertyRelative("endIfOtherNodesStarted").boolValue = false;
+        SetBoolIfExists(node.FindPropertyRelative("disposable"), false);
+        SetBoolIfExists(node.FindPropertyRelative("endIfOtherNodesStarted"), false);
 
         _selectedNodeIndex = newIndex;
         GUI.FocusControl(null);
+    }
+
+    private void SetManagedReferenceIfExists(SerializedProperty property, object value)
+    {
+        if (property != null)
+            property.managedReferenceValue = value;
+    }
+
+    private void SetBoolIfExists(SerializedProperty property, bool value)
+    {
+        if (property != null)
+            property.boolValue = value;
     }
 
     private void RemoveNode(int index)

@@ -39,10 +39,10 @@ public class PlaneAI : EnemyAIRoot
 
     protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * ESTime.worldFixedDeltaTime * Mobility;
         _passedWay += currentMoving;
 
-        _timer -= Time.deltaTime;
+        _timer -= ESTime.worldDeltaTime;
 
         if (_timer <= 0f)
         {

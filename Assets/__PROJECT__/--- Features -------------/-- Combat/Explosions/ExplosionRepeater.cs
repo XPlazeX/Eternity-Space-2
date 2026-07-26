@@ -33,7 +33,7 @@ public class ExplosionRepeater : MonoBehaviour
     {
         if (!_started) return;
 
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
 
         if (_timer < 0f)
         {

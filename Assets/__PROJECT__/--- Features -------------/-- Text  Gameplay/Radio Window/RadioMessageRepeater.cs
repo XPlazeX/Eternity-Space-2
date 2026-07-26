@@ -11,15 +11,15 @@ public class RadioMessageRepeater : MonoBehaviour
 
     void Start()
     {
-        lastMessageTime = Time.time - ( repeatInterval - initialDelay );
+        lastMessageTime = ESTime.worldTime - ( repeatInterval - initialDelay );
     }
 
     void Update()
     {
-        if (Time.time - lastMessageTime >= repeatInterval)
+        if (ESTime.worldTime - lastMessageTime >= repeatInterval)
         {
             RadioManager.RequestMessage(new RadioMessageRequest(messageId, channel));
-            lastMessageTime = Time.time;
+            lastMessageTime = ESTime.worldTime;
         }
     }
 }

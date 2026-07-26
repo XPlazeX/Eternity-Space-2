@@ -35,11 +35,11 @@ public class SegmentAI : MonoBehaviour
 
         if (_offsetBinding)
         {
-            transform.position = Vector3.Lerp(transform.position, _target.position + (_target.rotation * _targetOffset), _followSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _target.position + (_target.rotation * _targetOffset), _followSpeed * ESTime.worldDeltaTime);
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, _target.position + (transform.position - _target.position).normalized * _closingDistance, _followSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _target.position + (transform.position - _target.position).normalized * _closingDistance, _followSpeed * ESTime.worldDeltaTime);
         }
 
         if (_rotateToTarget)

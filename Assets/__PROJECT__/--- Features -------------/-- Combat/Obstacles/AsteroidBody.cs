@@ -38,7 +38,7 @@ public class AsteroidBody : DamageBody
 
     private void FixedUpdate()
     {
-        Vector2 moveDelta = (Vector2)(_direction * _selectedSpeed * Time.fixedDeltaTime);
+        Vector2 moveDelta = (Vector2)(_direction * _selectedSpeed * ESTime.worldFixedDeltaTime);
 
         if (_rb != null)
             _rb.MovePosition(_rb.position + moveDelta);
@@ -47,7 +47,7 @@ public class AsteroidBody : DamageBody
 
         if (_lifetime >= 0f)
         {
-            _lifeTimer -= Time.fixedDeltaTime;
+            _lifeTimer -= ESTime.worldFixedDeltaTime;
             if (_lifeTimer <= 0f)
             {
                 if (_explodeOnTimer)

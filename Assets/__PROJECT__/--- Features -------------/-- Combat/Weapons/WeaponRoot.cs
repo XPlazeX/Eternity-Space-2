@@ -10,7 +10,9 @@ public class WeaponRoot : MonoBehaviour
 
     [SerializeField] private AttackPattern _autoLoadWeaponPattern;
     [SerializeField] private Transform[] _barrels;
+    [SerializeField] private bool useDefaultUI = false;
     [SerializeField] private DeviceUI mainWeaponUI;
+    [SerializeField] private DeviceUI[] mainWeaponEnergyUIs;
     [SerializeField] private DeviceUI secondaryWeaponUI;
     [SerializeField] private bool _noWeaponUI;
 
@@ -21,8 +23,6 @@ public class WeaponRoot : MonoBehaviour
 
     private AttackPattern _bindedAttackPattern;
     private Device _bindedDevice;
-    // public bool Prepared => (_preparing >= _prepareTime) && Active;
-    // public float PrepareSpeed {get; private set;} = 1f;
 
     private float _preparing = 0f;
 
@@ -36,12 +36,6 @@ public class WeaponRoot : MonoBehaviour
 
     private void Start()
     {      
-        // if (_customWeaponUI != null)
-        // {
-        //     _weaponUI = _customWeaponUI;
-        // } else if (!_noWeaponUI)
-        //     _weaponUI = GameObject.FindWithTag("WeaponCharge").GetComponent<DeviceUI>();
-
         if (_autoLoadWeaponPattern != null)
         {
             _autoLoadWeaponPattern.Load();
@@ -65,9 +59,16 @@ public class WeaponRoot : MonoBehaviour
 
     void Update()
     {
-        if (_bindedAttackPattern != null)
+        if (useDefaultUI && _bindedAttackPattern != null)
+        {
             mainWeaponUI.Fill(_bindedAttackPattern.PrepareNormalized);
-        if (_bindedDevice != null)
+            for (int i = 0; i < mainWeaponEnergyUIs.Length; i++)
+            {
+                mainWeaponEnergyUIs[i].Fill(_bindedAttackPattern.EnergyNormalized + 0.1f * (1f - _bindedAttackPattern.EnergyNormalized));
+            }
+        }
+            
+        if (useDefaultUI && _bindedDevice != null)
             secondaryWeaponUI.Fill(_bindedDevice.GetChargeNormalized());
     }
 
@@ -78,9 +79,6 @@ public class WeaponRoot : MonoBehaviour
 
     private void SetPreparing(float val)
     {
-        // _preparing = val;
-        // if (!_noWeaponUI)
-        //     _weaponUI.Fill(_preparing / _prepareTime);
     }
 
     protected virtual void ObserveStat(string name, float val)
@@ -88,6 +86,4 @@ public class WeaponRoot : MonoBehaviour
 
 
     }
-
-    //private void Deactivate() => Active = false;
 }

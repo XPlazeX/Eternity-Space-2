@@ -64,7 +64,7 @@ public class EncounterDirector : MonoBehaviour
     void Update()
     {
         if (!Processing) return;
-        TickAll(Time.deltaTime);
+        TickAll(ESTime.worldDeltaTime);
     }
 
     public void StartEncounter(Encounter encounter)

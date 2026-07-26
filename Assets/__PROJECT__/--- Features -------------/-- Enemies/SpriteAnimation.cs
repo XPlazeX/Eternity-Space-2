@@ -14,7 +14,7 @@ public class SpriteAnimation : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        _timer -= Time.deltaTime;
+        _timer -= ESTime.worldDeltaTime;
 
         if (_timer < 0f)
         {

@@ -100,7 +100,7 @@ public class EnemyRadarUI : MonoBehaviour
     {
         ResolvePlayer();
 
-        _findTimer -= Time.deltaTime;
+        _findTimer -= ESTime.worldDeltaTime;
 
         if (_findTimer <= 0f)
         {
@@ -173,7 +173,7 @@ public class EnemyRadarUI : MonoBehaviour
         // Твой текущий поиск союзников.
         // Потом можешь расширять этот метод как угодно.
 
-        SledgeTransitor sledge = FindAnyObjectByType<SledgeTransitor>();
+        SledgeDirector sledge = FindAnyObjectByType<SledgeDirector>();
 
         if (sledge != null && IsWithinDetectionRadius(sledge.transform))
             _allies.Add(sledge.transform);

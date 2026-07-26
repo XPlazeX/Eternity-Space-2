@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class SledgeBody : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool EngineAvailable {get; private set;} = true;
+    public bool LeftThrustersAvailable {get; private set;} = true;
+    public bool RightThrustersAvailable {get; private set;} = true;
+    public bool ForwardThrustersAvailable {get; private set;} = true;
+    public bool BackingThrustersAvailable {get; private set;} = true;
+    public bool CatcherAvailable {get; private set;} = true;
+    public bool JumperAvailable {get; private set;} = true;
 }

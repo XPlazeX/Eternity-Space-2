@@ -113,7 +113,7 @@ public class SoundPlayer : MonoBehaviour
             quiterSource.volume = Mathf.Lerp(_oldVolume, 0f, transitionTimer / transitionTime);
             louderSource.volume = Mathf.Lerp(0f, newSoundtrack.Volume * MusicVolume, transitionTimer / transitionTime);
 
-            transitionTimer += Time.unscaledDeltaTime;
+            transitionTimer += ESTime.unscaledDeltaTime;
             yield return null;
         }
         

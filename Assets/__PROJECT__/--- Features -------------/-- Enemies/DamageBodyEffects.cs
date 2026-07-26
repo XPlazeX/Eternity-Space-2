@@ -186,7 +186,7 @@ public class DamageBodyEffects : MonoBehaviour
         if (!_hasOneShot)
             return;
 
-        _oneShotTimer -= Time.deltaTime;
+        _oneShotTimer -= ESTime.worldDeltaTime;
         if (_oneShotTimer <= 0f)
         {
             _oneShotTimer = 0f;
@@ -200,9 +200,9 @@ public class DamageBodyEffects : MonoBehaviour
 
         float targetBlend = ramReady ? 1f : 0f;
         float speed = ramReady ? ramFadeInSpeed : ramFadeOutSpeed;
-        _ramBlend = Mathf.MoveTowards(_ramBlend, targetBlend, speed * Time.deltaTime);
+        _ramBlend = Mathf.MoveTowards(_ramBlend, targetBlend, speed * ESTime.worldDeltaTime);
 
-        _ramTime += Time.deltaTime;
+        _ramTime += ESTime.worldDeltaTime;
     }
 
     private void UpdateFinalColor()

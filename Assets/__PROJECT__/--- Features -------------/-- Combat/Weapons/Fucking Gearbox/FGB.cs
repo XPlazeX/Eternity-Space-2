@@ -9,6 +9,7 @@ public enum GearSlot
     Third = 2,
     Fourth = 3,
     Fifth = 4,
+    Sixth = 5
 }
 
 [Serializable]
@@ -28,6 +29,8 @@ public class GearLane
 
 public class FGB : MonoBehaviour
 {
+    public static event Action<GearSlot> GearChanged;
+
     private enum State
     {
         Neutral,
@@ -57,6 +60,10 @@ public class FGB : MonoBehaviour
     [SerializeField] private float minVerticalIntent = 0.2f;    // минимальное вертикальное намерение
     [SerializeField] private float minHorizontalIntent = 0.2f;  // минимальное горизонтальное намерение
 
+    [Header("Visual")]
+    [SerializeField] private ParticleSystem leverEffectsPS;
+    [SerializeField] private GameObject gearboxVisualObject;
+
     private bool _open;
     private State _state = State.Neutral;
 
@@ -74,6 +81,8 @@ public class FGB : MonoBehaviour
     public bool IsOpen => _open;
     public GearSlot HoveredGear => _hoveredGear;
     public GearSlot CurrentGear => _committedGear;
+    public Vector2 LeverPosition => _open ? _leverPos : _restingPos;
+    public Vector2 NormalizedLeverPosition => GetNormalizedLeverPosition(LeverPosition);
 
     private void Start()
     {
@@ -81,6 +90,7 @@ public class FGB : MonoBehaviour
         _restingPos = _leverPos;
         _hasRestingPos = true;
         UpdateVisual();
+        gearboxVisualObject.SetActive(false);
     }
 
     private void Update()
@@ -127,6 +137,12 @@ public class FGB : MonoBehaviour
             _leverPos.y = neutralY;
         }
 
+        gearboxVisualObject.SetActive(true);
+        if (leverEffectsPS != null)
+        {
+            leverEffectsPS.Play();
+        }
+
         _hoveredGear = DetectGear();
         UpdateVisual();
     }
@@ -163,6 +179,14 @@ public class FGB : MonoBehaviour
                 Mathf.Clamp(_leverPos.x, neutralMinX, neutralMaxX),
                 neutralY
             );
+        }
+
+        GearChanged?.Invoke(_committedGear);
+
+        gearboxVisualObject.SetActive(false);
+        if (leverEffectsPS != null)
+        {
+            leverEffectsPS.Stop();
         }
 
         _hasRestingPos = true;
@@ -292,7 +316,7 @@ private void TickVertical(Vector2 delta)
             return current;
 
         float t = 1f - dist / radius;
-        return Vector2.Lerp(current, target, t * speed * Time.unscaledDeltaTime);
+        return Vector2.Lerp(current, target, t * speed * ESTime.unscaledDeltaTime);
     }
 
     private Vector2 SnapToNearestEndpoint(Vector2 pos)
@@ -368,6 +392,31 @@ private GearSlot DetectGear()
         }
 
         return best;
+    }
+
+    private Vector2 GetNormalizedLeverPosition(Vector2 position)
+    {
+        float normalizedX = Mathf.InverseLerp(neutralMinX, neutralMaxX, position.x) * 2f - 1f;
+        float normalizedY = 0f;
+
+        if (lanes != null && lanes.Length > 0 && !Mathf.Approximately(position.y, neutralY))
+        {
+            int laneIndex = FindNearestLaneByX(position.x, float.MaxValue);
+            if (laneIndex >= 0)
+            {
+                GearLane lane = lanes[laneIndex];
+
+                if (position.y > neutralY && lane.hasUpper)
+                    normalizedY = Mathf.InverseLerp(neutralY, lane.upY, position.y);
+                else if (position.y < neutralY && lane.hasLower)
+                    normalizedY = -Mathf.InverseLerp(neutralY, lane.downY, position.y);
+            }
+        }
+
+        return new Vector2(
+            Mathf.Clamp(normalizedX, -1f, 1f),
+            Mathf.Clamp(normalizedY, -1f, 1f)
+        );
     }
 
 

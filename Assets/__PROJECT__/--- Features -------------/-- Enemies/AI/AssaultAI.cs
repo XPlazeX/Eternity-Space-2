@@ -43,7 +43,7 @@ public class AssaultAI : EnemyAIRoot
             return Vector2.zero;
         }
 
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
 
         if (_timer <= 0f)
         {
@@ -53,7 +53,7 @@ public class AssaultAI : EnemyAIRoot
 
         _targetPosition = GetActualPlayerPosition() + _offset;
 
-        return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
+        return Vector3.Lerp(AiPosition, _targetPosition, Speed * ESTime.worldFixedDeltaTime * Mobility) - AiPosition;
     }
 
 

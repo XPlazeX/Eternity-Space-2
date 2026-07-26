@@ -57,7 +57,7 @@ public class ParringObject : PullableObject
             _sounded = true;
         }
 
-        _lifeTimer -= Time.deltaTime;
+        _lifeTimer -= ESTime.worldDeltaTime;
         if (_lifeTimer < 0)
         {
             Death();

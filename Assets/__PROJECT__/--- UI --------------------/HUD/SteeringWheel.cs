@@ -37,7 +37,7 @@ public class SteeringWheel : MonoBehaviour
 
     private void UpdateSteeringVisual(Vector2 pointerDelta)
     {
-        float deltaTime = Time.unscaledDeltaTime;
+        float deltaTime = ESTime.unscaledDeltaTime;
 
         float rawInputX = Mathf.Abs(pointerDelta.x) > deadZone 
             ? pointerDelta.x 

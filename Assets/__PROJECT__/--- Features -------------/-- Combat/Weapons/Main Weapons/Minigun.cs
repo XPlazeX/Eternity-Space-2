@@ -49,7 +49,7 @@ public class Minigun : AttackPattern
         {
             if (FireReload > _topFirerate)
             {
-                FireReload += _firerateGrowth * Time.deltaTime;
+                FireReload += _firerateGrowth * ESTime.worldDeltaTime;
                 //_weaponRoot.FireReload = FireReload;
             }
 

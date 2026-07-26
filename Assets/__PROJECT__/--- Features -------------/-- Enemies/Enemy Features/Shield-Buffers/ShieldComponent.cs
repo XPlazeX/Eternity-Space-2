@@ -30,7 +30,7 @@ public class ShieldComponent : PullableObject
 
         if (_recoverable)
         {
-            _waitRecover -= Time.deltaTime;
+            _waitRecover -= ESTime.worldDeltaTime;
             if ((_currentShield < _shieldMax) && _waitRecover <= 0)
             {
                 UpdateSP(_shieldMax);
@@ -111,7 +111,7 @@ public class ShieldComponent : PullableObject
             _mySR.color = new Color(_mySR.color.r, _mySR.color.g, _mySR.color.b, 0.3f * (timer / 0.5f));
             transform.localScale = Vector3.one * (1.1f + (2f * (0.5f - timer)));
 
-            timer -= Time.deltaTime;
+            timer -= ESTime.worldDeltaTime;
             yield return null;
         }
 

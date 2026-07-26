@@ -48,7 +48,7 @@ public class ApporachingHoming : MonoBehaviour
     {
         while (target != null)
         {
-            _rotatingTransform.up = SceneStatics.FlatVector(Vector3.RotateTowards(_rotatingTransform.up, target.position - _rotatingTransform.position, _powerHoming * Time.deltaTime * _homingMultiplier, 0f));
+            _rotatingTransform.up = SceneStatics.FlatVector(Vector3.RotateTowards(_rotatingTransform.up, target.position - _rotatingTransform.position, _powerHoming * ESTime.worldDeltaTime * _homingMultiplier, 0f));
 
             yield return new WaitForFixedUpdate();
         }

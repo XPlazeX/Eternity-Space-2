@@ -17,7 +17,7 @@ public class BurstGun : AttackPattern
 
         if (_bursting)
         {
-            _burstTimer -= Time.deltaTime;
+            _burstTimer -= ESTime.worldDeltaTime;
 
             if (_burstTimer <= 0f)
             {

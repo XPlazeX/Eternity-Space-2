@@ -28,10 +28,10 @@ public class RamAI : EnemyAIRoot
 
     protected override Vector2 GetMoveDelta()
     {
-        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+        float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * ESTime.worldFixedDeltaTime * Mobility;
         _passedWay += currentMoving;
 
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
 
         if (_timer <= 0f)
         {

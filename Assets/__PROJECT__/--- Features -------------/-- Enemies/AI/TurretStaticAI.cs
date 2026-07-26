@@ -12,7 +12,7 @@ public class TurretStaticAI : MonoBehaviour
     private void Update() {
         if (_player != null)
         {
-            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, ((_useForesight ? Player.GetPlayerPosition(_foresight) : _player.position) - transform.position), _rotationSpeed * Time.deltaTime * _mobility, 0f));
+            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, ((_useForesight ? Player.GetPlayerPosition(_foresight) : _player.position) - transform.position), _rotationSpeed * ESTime.worldDeltaTime * _mobility, 0f));
             transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z);
         }
 

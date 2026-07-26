@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MainWeaponHandler : MonoBehaviour
 {
+    public const string NEUTRAL_WEAPON_ID = "neutral_weapon";
+
     public static Action WeaponChanged;
     // Задача - держать наши виды оружия и их вариации, включать необходимое
     [SerializeField] private WeaponSlot[] weaponSlots;
@@ -12,6 +14,7 @@ public class MainWeaponHandler : MonoBehaviour
 
     public static WeaponRoot MainWeaponRoot {get; private set;}
 
+    public static bool CanUseWeapons => !SledgeDirector.IsPlayerLosedControl;
     public static AttackPattern ActiveMainWeapon {get; private set;}
     public static Device ActiveSecondaryDevice {get; private set;}
     public static string ActiveWeaponID {get; private set;}
@@ -20,6 +23,7 @@ public class MainWeaponHandler : MonoBehaviour
     public static int ActiveSecondary {get; private set;}
     public static bool UsedSimpleDevice {get; private set;}
     public static int RadiantSimpleLevel {get; private set;} = -1;
+    public static bool NeutralWeapon {get; private set;} = false;
 
     public void Initialize() {
         Player.PlayerChanged += OnPlayerChanged;
@@ -34,7 +38,7 @@ public class MainWeaponHandler : MonoBehaviour
 
         else
         {
-            SelectWeapon(0, 0);
+            SetNeutral();
         }
     }
 
@@ -125,8 +129,10 @@ public class MainWeaponHandler : MonoBehaviour
         }
     }
 
-    private void SelectWeapon(int slot, int secodary)
+    public void SelectWeapon(int slot, int secodary)
     {
+        NeutralWeapon = false;
+
         ActiveSlot = slot;
         ActiveSecondary = secodary;
 
@@ -135,6 +141,25 @@ public class MainWeaponHandler : MonoBehaviour
 
         ActiveMainWeapon = weaponSlots[slot].MainWeapon;
         ActiveSecondaryDevice = weaponSlots[slot].Secondaries[secodary] == null ? null : weaponSlots[slot].Secondaries[secodary];
+
+        MainWeaponRoot.BindTargetAttackPattern(ActiveMainWeapon);
+        MainWeaponRoot.BindTargetDevice(ActiveSecondaryDevice);
+
+        WeaponChanged?.Invoke();
+    }
+
+    public void SetNeutral()
+    {
+        NeutralWeapon = true;
+
+        ActiveSlot = -1;
+        ActiveSecondary = -1;
+
+        ActiveWeaponID = NEUTRAL_WEAPON_ID;
+        ActiveSecondaryID = NEUTRAL_WEAPON_ID;
+
+        ActiveMainWeapon = null;
+        ActiveSecondaryDevice = null;
 
         MainWeaponRoot.BindTargetAttackPattern(ActiveMainWeapon);
         MainWeaponRoot.BindTargetDevice(ActiveSecondaryDevice);

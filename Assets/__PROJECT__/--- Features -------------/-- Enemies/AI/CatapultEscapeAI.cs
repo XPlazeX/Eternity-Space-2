@@ -64,7 +64,7 @@ public class CatapultEscapeAI : MonoBehaviour
         if (!_catapulted)
             return;
 
-        float dt = Time.fixedDeltaTime;
+        float dt = ESTime.worldFixedDeltaTime;
 
         _activationTimer -= dt;
 

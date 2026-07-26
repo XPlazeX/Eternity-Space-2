@@ -212,7 +212,7 @@ MonoBehaviour:
     damageTag: 0
   _otherDeathResource: 0
   _lifetime: 15
-  _speed: 20
+  _speed: 13
   _acceleration: 0
   _topAcceleratedSpeed: 0
   _piercingTargets: 0

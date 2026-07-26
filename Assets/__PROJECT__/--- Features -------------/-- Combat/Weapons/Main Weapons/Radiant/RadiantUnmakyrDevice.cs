@@ -33,7 +33,7 @@ public class RadiantUnmakyrDevice : Device
 
     protected override void Update()
     {
-        _reloadTimer -= Time.deltaTime;
+        _reloadTimer -= ESTime.worldDeltaTime;
 
         base.Update();
 

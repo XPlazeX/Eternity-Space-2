@@ -5,7 +5,7 @@ using System;
 public class CameraController : MonoBehaviour
 {
     public const float CAMERA_Z_POSITION = -10f;
-    public event Action<float> ScaleChanged;
+    public static event Action<float, float> ScaleChanged;
     public static event Action Moved;
 
     [Header("Main")]
@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private UpdateMode updateMode = UpdateMode.Update;
     [SerializeField] private bool debugFeatures = true;
     [SerializeField] private bool copyPlayerRotation = true;
+    [SerializeField, Min(0f)] private float playerRotationFollowSpeed = 12f;
     // [Header("2D Audio")]
 
     private float _defaultSize;
@@ -65,6 +66,8 @@ public class CameraController : MonoBehaviour
 
     public static float Height => instance == null ? 0f : instance.controllingCamera.orthographicSize;
     public static float Width => Height * (Screen.width / Screen.height);
+    public static Vector3 Up => instance == null ? Vector3.up : instance.controllingCamera.transform.up;
+    public static Vector3 CameraPosition => instance == null ? Vector3.zero : (instance.ControllingCamera == null ? Vector3.zero : instance.ControllingCamera.transform.position);
 
     // private float _dumping = 6f;
 
@@ -141,7 +144,16 @@ public class CameraController : MonoBehaviour
             if (playerUp.sqrMagnitude > 0.0001f)
             {
                 float zAngle = Mathf.Atan2(playerUp.y, playerUp.x) * Mathf.Rad2Deg - 90f;
-                movingParentTransform.rotation = Quaternion.Euler(0f, 0f, zAngle);
+                float currentZAngle = movingParentTransform.eulerAngles.z;
+                float t = playerRotationFollowSpeed <= 0f 
+                    ? 1f 
+                    : 1f - Mathf.Exp(-playerRotationFollowSpeed * deltaTime);
+
+                movingParentTransform.rotation = Quaternion.Euler(
+                    0f,
+                    0f,
+                    Mathf.LerpAngle(currentZAngle, zAngle, t)
+                );
             }
         }
 
@@ -286,7 +298,10 @@ public class CameraController : MonoBehaviour
 
         if (elapsed > 1f) elapsed = 1f;
 
+        float previousScale = controllingCamera.orthographicSize;
         controllingCamera.orthographicSize = Mathf.Lerp(_startScale, _targetScale, _scaleCurve.Evaluate(elapsed));
+
+        ScaleChanged?.Invoke(previousScale, controllingCamera.orthographicSize);
 
         _scaleTimer += deltaTime;
         if (elapsed >= 1f)
@@ -398,8 +413,8 @@ public class CameraController : MonoBehaviour
     
     private Vector3 FlatPosition(Vector3 v3) => new Vector3(v3.x, v3.y, CAMERA_Z_POSITION);
     private Vector3 FlatVector(Vector3 v3) => new Vector3(v3.x, v3.y, 0f);
-    private float DeltaTime() => unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
-    private float FixedDeltaTime() => unscaledTime ? Time.fixedUnscaledDeltaTime : Time.fixedDeltaTime;
+    private float DeltaTime() => unscaledTime ? ESTime.unscaledDeltaTime : ESTime.worldDeltaTime;
+    private float FixedDeltaTime() => unscaledTime ? Time.fixedUnscaledDeltaTime : ESTime.worldFixedDeltaTime;
 }
 
 public enum UpdateMode

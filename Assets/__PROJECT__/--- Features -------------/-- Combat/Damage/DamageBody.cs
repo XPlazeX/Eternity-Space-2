@@ -93,9 +93,9 @@ public class DamageBody : MonoBehaviour, IDamagable
 
     protected virtual void Awake() 
     {
-        _hitPoints = Mathf.CeilToInt(_hitPoints * ShipStats.GetValue("EnemyHealthMultiplier") * GameSessionInfoHandler.HardnessMultiplier);
+        // _hitPoints = _hitPoints;//Mathf.CeilToInt(_hitPoints * ShipStats.GetValue("EnemyHealthMultiplier") * GameSessionInfoHandler.HardnessMultiplier);
         _startHP = _hitPoints;
-        _startFlatArmor = _flatArmor + ShipStats.GetIntValue("EnemyFlatArmor");
+        _startFlatArmor = _flatArmor;// + ShipStats.GetIntValue("EnemyFlatArmor");
         // _damageTakingAnimator = GetComponent<Animator>();
     }
 
@@ -135,7 +135,7 @@ public class DamageBody : MonoBehaviour, IDamagable
     {
         if (IsStunned)
         {
-            _ramTimer -= Time.deltaTime;
+            _ramTimer -= ESTime.worldDeltaTime;
             if (_ramTimer <= 0f)
             {
                 IsStunned = false;
@@ -151,7 +151,7 @@ public class DamageBody : MonoBehaviour, IDamagable
         {
             if (_stunPoints > 0f)
             {
-                _stunPoints = Mathf.Max(_stunPoints - Time.deltaTime * (1f + (_stunCount * stunAdaptationStep)) * stunRecovering, 0f);
+                _stunPoints = Mathf.Max(_stunPoints - ESTime.worldDeltaTime * (1f + (_stunCount * stunAdaptationStep)) * stunRecovering, 0f);
                 
             }
             

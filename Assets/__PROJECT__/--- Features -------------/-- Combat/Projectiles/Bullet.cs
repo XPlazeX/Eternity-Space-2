@@ -10,8 +10,10 @@ public class Bullet : AttackObject
     public const int parryExplosionID = 11;
 
     public delegate void stateLife();
+    public delegate void interaction(GameObject other);
     public event stateLife Deathed;
     public event stateLife Hitted;
+    public event interaction Collided;
     public event System.Action<IDamagable> Killed;
 
     [SerializeField] private bool _otherDeathResource = false; // если истинно - подразумевается другой источник смерти, lifetime не применяется
@@ -99,11 +101,11 @@ public class Bullet : AttackObject
 
         if (_speed < _topAcceleratedSpeed)
         {
-            _speed = Mathf.Clamp(_speed + Acceleration * Time.fixedDeltaTime, _speed, _topAcceleratedSpeed);
+            _speed = Mathf.Clamp(_speed + Acceleration * ESTime.worldFixedDeltaTime, _speed, _topAcceleratedSpeed);
         }
         else if (_speed > _topAcceleratedSpeed)
         {
-            _speed = Mathf.Clamp(_speed + Acceleration * Time.fixedDeltaTime, _topAcceleratedSpeed, _speed); // здесь в инспекторе отрицательное ускорение
+            _speed = Mathf.Clamp(_speed + Acceleration * ESTime.worldFixedDeltaTime, _topAcceleratedSpeed, _speed); // здесь в инспекторе отрицательное ускорение
         }
     }
 
@@ -111,7 +113,7 @@ public class Bullet : AttackObject
     {
         Vector2 movement =
             ((Vector2)transform.up * _speed + (_ignoreForce ? Vector2.zero : (Vector2)PlayerController.DefaultForce))
-            * Time.fixedDeltaTime;
+            * ESTime.worldFixedDeltaTime;
 
         movement = ArenaLocal.RelativeVectorAtPoint(movement, _rb.position, relativeFactor);
 
@@ -123,7 +125,7 @@ public class Bullet : AttackObject
 
     private void TickLifetime()
     {
-        _lifeTimer -= Time.fixedDeltaTime;
+        _lifeTimer -= ESTime.worldFixedDeltaTime;
         if (_lifeTimer <= 0f)
             Death();
     }
@@ -135,9 +137,9 @@ public class Bullet : AttackObject
 
         float inertionMultiplier = MIN_INERTION_ADDITIVE_SPEED_MULTIPLIER;
 
-        if (inertionFixedDelta.sqrMagnitude > 0.000001f)
+        if (inertionFixedDelta.sqrMagnitude > 0.000001f && ESTime.worldFixedDeltaTime > Mathf.Epsilon)
         {
-            Vector3 inertionVelocity = inertionFixedDelta / Time.fixedDeltaTime;
+            Vector3 inertionVelocity = inertionFixedDelta / ESTime.worldFixedDeltaTime;
             float forwardInertionSpeed = Mathf.Max(0f, Vector3.Dot(transform.up, inertionVelocity));
             float speedRatio = forwardInertionSpeed / Mathf.Abs(_speed);
 
@@ -167,7 +169,7 @@ public class Bullet : AttackObject
         {
             Killed?.Invoke(damagable);
         }
-        Pierce();
+        Pierce(other.gameObject);
     }
 
     protected override void ResetState()
@@ -212,10 +214,11 @@ public class Bullet : AttackObject
         Death();
     }
 
-    public virtual void Pierce(int times = 1)
+    public virtual void Pierce(GameObject gameObject, int times = 1)
     {
         _curPierces -= times;
         Hitted?.Invoke();
+        Collided?.Invoke(gameObject);
 
         if (_curPierces < 0)
             Death();

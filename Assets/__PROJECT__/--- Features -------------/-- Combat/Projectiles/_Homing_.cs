@@ -33,24 +33,24 @@ public class _Homing_ : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        _waitTimer -= Time.deltaTime;
+        _waitTimer -= ESTime.worldDeltaTime;
 
         if (_waitTimer > 0f)
             return;
 
-        _homingBoost = Mathf.Clamp(_homingBoost + _homingBoostOverTime * Time.fixedDeltaTime, 0f, _maxHomingPower);
+        _homingBoost = Mathf.Clamp(_homingBoost + _homingBoostOverTime * ESTime.worldFixedDeltaTime, 0f, _maxHomingPower);
             
-        _checkReloadTimer -= Time.deltaTime;
+        _checkReloadTimer -= ESTime.worldDeltaTime;
         if (_checkReloadTimer <= 0)
         {
             _target = GetNearestTransformWithTag(_targetTag);
             _checkReloadTimer = _checkReloadTime;
         }
         if (_target)
-            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, _target.position - transform.position, HomingPower * Time.deltaTime * _homingMultiplier, 0f));
+            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, _target.position - transform.position, HomingPower * ESTime.worldDeltaTime * _homingMultiplier, 0f));
         else if (_playerIfNullTarget)
         {
-            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, Player.PlayerTransform.position - transform.position, HomingPower * Time.deltaTime * _homingMultiplier, 0f));
+            transform.up = SceneStatics.FlatVector(Vector3.RotateTowards(transform.up, Player.PlayerTransform.position - transform.position, HomingPower * ESTime.worldDeltaTime * _homingMultiplier, 0f));
         }
     }
 

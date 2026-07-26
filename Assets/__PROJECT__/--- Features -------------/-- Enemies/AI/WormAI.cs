@@ -51,7 +51,7 @@ public class WormAI : EnemyAIRoot
 
     protected override Vector2 GetMoveDelta()
     {
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
 
         if (_timer < 0f)
         {
@@ -72,18 +72,18 @@ public class WormAI : EnemyAIRoot
         if (!_aggresive)
         {
             RotateMoveDirection(_targetPosition);
-            _targetingTimer -= Time.fixedDeltaTime;
+            _targetingTimer -= ESTime.worldFixedDeltaTime;
             if (_targetingTimer <= 0)
             {
                 SetTarget();
                 _targetingTimer = SceneStatics.MultiplyByChaos(timeToReloadTarget / Mobility);
             }
-            return (useInnerRotation ? _moveDirection : transform.up).normalized * Speed * Time.fixedDeltaTime * Mobility;
+            return (useInnerRotation ? _moveDirection : transform.up).normalized * Speed * ESTime.worldFixedDeltaTime * Mobility;
         } else {
             RotateMoveDirection(GetActualPlayerPosition());
             _targetPosition = GetActualPlayerPosition();
             rotationSpeed = _normalRotationSpeed * rotationSpeedProgression.Evaluate(1f - (_timer / _phaseTime));
-            return (useInnerRotation ? _moveDirection : transform.up).normalized * (Speed + agressiveSpeedBoost) * Time.fixedDeltaTime * movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
+            return (useInnerRotation ? _moveDirection : transform.up).normalized * (Speed + agressiveSpeedBoost) * ESTime.worldFixedDeltaTime * movingProgression.Evaluate(1f - (_timer / _phaseTime)) * Mobility;
         }
     }
 
@@ -96,7 +96,7 @@ public class WormAI : EnemyAIRoot
     private void RotateMoveDirection(Vector3 toPosition)
     {
         if (_player != null)
-            _moveDirection = SceneStatics.FlatVector(Vector3.RotateTowards(_moveDirection, toPosition - AiPosition, rotationSpeed * Time.fixedDeltaTime * (Speed) * innerSpeedMultiplier * Mobility, 0f));
+            _moveDirection = SceneStatics.FlatVector(Vector3.RotateTowards(_moveDirection, toPosition - AiPosition, rotationSpeed * ESTime.worldFixedDeltaTime * (Speed) * innerSpeedMultiplier * Mobility, 0f));
     }
 
     protected Vector3 GetActualPlayerPosition()

@@ -7,9 +7,141 @@ using UnityEngine;
 [CustomPropertyDrawer(typeof(SubclassSelectorAttribute))]
 public class SubclassSelectorDrawer : PropertyDrawer
 {
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        return SubclassSelectorGUI.GetHeight(property);
+    }
+
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        Type fieldType = GetManagedReferenceFieldType();
+        SubclassSelectorGUI.Draw(position, property, label, fieldType);
+    }
+
+    private Type GetManagedReferenceFieldType()
+    {
+        return fieldInfo?.FieldType;
+    }
+}
+
+[CustomPropertyDrawer(typeof(SubclassSelectorListedAttribute))]
+public class SubclassSelectorListedDrawer : PropertyDrawer
+{
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        if (IsManagedReferenceElementProperty(property))
+            return SubclassSelectorGUI.GetHeight(property);
+
+        if (!IsSupportedListProperty(property))
+            return EditorGUIUtility.singleLineHeight;
+
+        float height = EditorGUIUtility.singleLineHeight;
+        if (!property.isExpanded)
+            return height;
+
+        SerializedProperty sizeProperty = property.FindPropertyRelative("Array.size");
+        height += EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(sizeProperty);
+
+        for (int i = 0; i < property.arraySize; i++)
+        {
+            SerializedProperty element = property.GetArrayElementAtIndex(i);
+            height += EditorGUIUtility.standardVerticalSpacing + SubclassSelectorGUI.GetHeight(element);
+        }
+
+        return height;
+    }
+
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        if (IsManagedReferenceElementProperty(property))
+        {
+            SubclassSelectorGUI.Draw(position, property, label, GetElementType());
+            return;
+        }
+
+        EditorGUI.BeginProperty(position, label, property);
+
+        Rect headerRect = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
+        if (!IsSupportedListProperty(property))
+        {
+            EditorGUI.LabelField(headerRect, label.text, "Use on SerializeReference lists or arrays");
+            EditorGUI.EndProperty();
+            return;
+        }
+
+        Type elementType = GetElementType();
+        if (elementType == null)
+        {
+            EditorGUI.LabelField(headerRect, label.text, "Element type not found");
+            EditorGUI.EndProperty();
+            return;
+        }
+
+        property.isExpanded = EditorGUI.Foldout(headerRect, property.isExpanded, label, true);
+        if (!property.isExpanded)
+        {
+            EditorGUI.EndProperty();
+            return;
+        }
+
+        EditorGUI.indentLevel++;
+
+        float y = headerRect.yMax + EditorGUIUtility.standardVerticalSpacing;
+        SerializedProperty sizeProperty = property.FindPropertyRelative("Array.size");
+        float sizeHeight = EditorGUI.GetPropertyHeight(sizeProperty);
+        Rect sizeRect = new Rect(position.x, y, position.width, sizeHeight);
+        EditorGUI.PropertyField(sizeRect, sizeProperty);
+        y += sizeHeight + EditorGUIUtility.standardVerticalSpacing;
+
+        for (int i = 0; i < property.arraySize; i++)
+        {
+            SerializedProperty element = property.GetArrayElementAtIndex(i);
+            float elementHeight = SubclassSelectorGUI.GetHeight(element);
+            Rect elementRect = new Rect(position.x, y, position.width, elementHeight);
+            SubclassSelectorGUI.Draw(elementRect, element, new GUIContent($"Element {i}"), elementType);
+            y += elementHeight + EditorGUIUtility.standardVerticalSpacing;
+        }
+
+        EditorGUI.indentLevel--;
+        EditorGUI.EndProperty();
+    }
+
+    private bool IsSupportedListProperty(SerializedProperty property)
+    {
+        return fieldInfo != null &&
+               property.isArray &&
+               property.propertyType == SerializedPropertyType.Generic &&
+               GetElementType() != null;
+    }
+
+    private bool IsManagedReferenceElementProperty(SerializedProperty property)
+    {
+        return fieldInfo != null &&
+               property.propertyType == SerializedPropertyType.ManagedReference &&
+               GetElementType() != null;
+    }
+
+    private Type GetElementType()
+    {
+        if (fieldInfo == null)
+            return null;
+
+        Type fieldType = fieldInfo.FieldType;
+        if (fieldType.IsArray)
+            return fieldType.GetElementType();
+
+        if (fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(List<>))
+            return fieldType.GetGenericArguments()[0];
+
+        return null;
+    }
+}
+
+internal static class SubclassSelectorGUI
+{
     private static readonly Dictionary<Type, Type[]> CachedTypes = new();
 
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    public static float GetHeight(SerializedProperty property)
     {
         float height = EditorGUIUtility.singleLineHeight;
 
@@ -30,14 +162,13 @@ public class SubclassSelectorDrawer : PropertyDrawer
         return height;
     }
 
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    public static void Draw(Rect position, SerializedProperty property, GUIContent label, Type baseType)
     {
         EditorGUI.BeginProperty(position, label, property);
 
         Rect headerRect = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
 
-        Type fieldType = GetManagedReferenceFieldType();
-        if (fieldType == null)
+        if (baseType == null)
         {
             EditorGUI.LabelField(headerRect, label.text, "Field type not found");
             EditorGUI.EndProperty();
@@ -57,7 +188,7 @@ public class SubclassSelectorDrawer : PropertyDrawer
 
         if (GUI.Button(buttonRect, "Set Type"))
         {
-            ShowTypeMenu(property, fieldType);
+            ShowTypeMenu(property, baseType);
         }
 
         if (property.isExpanded && property.managedReferenceValue != null)
@@ -85,15 +216,7 @@ public class SubclassSelectorDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
 
-    private Type GetManagedReferenceFieldType()
-    {
-        if (fieldInfo == null)
-            return null;
-
-        return fieldInfo.FieldType;
-    }
-
-    private void ShowTypeMenu(SerializedProperty property, Type baseType)
+    private static void ShowTypeMenu(SerializedProperty property, Type baseType)
     {
         GenericMenu menu = new GenericMenu();
 

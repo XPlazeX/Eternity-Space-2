@@ -25,7 +25,7 @@ public class StaticGravityApporaching : MonoBehaviour
         }
 
         if (_regularUpdateTarget)
-            _updateTimer -= Time.deltaTime;
+            _updateTimer -= ESTime.worldDeltaTime;
         
         if (_target == null)
             return;
@@ -34,7 +34,7 @@ public class StaticGravityApporaching : MonoBehaviour
 
         if ((_target.position - transform.position).magnitude <= _deadZone)
         {
-            transform.position = Vector3.Lerp(transform.position, _target.position, _deadZoneSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _target.position, _deadZoneSpeed * ESTime.worldDeltaTime);
         }
         else
         {

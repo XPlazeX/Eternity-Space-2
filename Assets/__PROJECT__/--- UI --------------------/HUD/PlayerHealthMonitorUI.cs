@@ -109,7 +109,7 @@ public class PlayerHealthMonitorUI : MonoBehaviour
     {
         // HEALTH
 
-        _currentAnimatedHealth = Mathf.Lerp(_currentAnimatedHealth, _targetAnimatedHealth, visualChangeSpeed * Time.unscaledDeltaTime);
+        _currentAnimatedHealth = Mathf.Lerp(_currentAnimatedHealth, _targetAnimatedHealth, visualChangeSpeed * ESTime.unscaledDeltaTime);
 
         if (Mathf.Abs(_currentAnimatedHealth - _targetAnimatedHealth) < 0.01f)
         {
@@ -129,7 +129,7 @@ public class PlayerHealthMonitorUI : MonoBehaviour
 
         if (_criticalTransitionTimer > 0f)
         {
-            _criticalTransitionTimer -= Time.unscaledDeltaTime;
+            _criticalTransitionTimer -= ESTime.unscaledDeltaTime;
 
             for (int i = 0; i < criticalColoringGraphics.Length; i++)
             {

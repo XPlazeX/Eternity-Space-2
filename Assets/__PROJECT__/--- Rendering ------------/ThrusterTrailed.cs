@@ -149,7 +149,7 @@ public sealed class ThrusterTrailed : MonoBehaviour
         }
         else
         {
-            float t = 1f - Mathf.Exp(-smoothingSpeed * Time.deltaTime);
+            float t = 1f - Mathf.Exp(-smoothingSpeed * ESTime.worldDeltaTime);
             currentPower = Mathf.Lerp(currentPower, targetPower, t);
         }
 
@@ -159,7 +159,7 @@ public sealed class ThrusterTrailed : MonoBehaviour
         }
         else
         {
-            float t = 1f - Mathf.Exp(-highPowerColorSmoothingSpeed * Time.deltaTime);
+            float t = 1f - Mathf.Exp(-highPowerColorSmoothingSpeed * ESTime.worldDeltaTime);
             currentHighPowerColorPower = Mathf.Lerp(currentHighPowerColorPower, targetHighPowerColorPower, t);
         }
 

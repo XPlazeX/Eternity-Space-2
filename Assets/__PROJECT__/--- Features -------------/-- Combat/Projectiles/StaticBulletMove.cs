@@ -25,14 +25,14 @@ public class StaticBulletMove : MonoBehaviour
     private void Update() 
     {      
         if (!(_accelerateToZero && (Mathf.Abs(_speed) < 0.1f)))
-            _speed += _acceleration * Time.deltaTime;
+            _speed += _acceleration * ESTime.worldDeltaTime;
 
-        transform.position += ((transform.up * _speed) + (PlayerController.DefaultForce)) * Time.deltaTime;
+        transform.position += ((transform.up * _speed) + (PlayerController.DefaultForce)) * ESTime.worldDeltaTime;
 
         if (!_explodeOnTimer)
             return;
 
-        _lifeTimer -= Time.deltaTime;
+        _lifeTimer -= ESTime.worldDeltaTime;
         if (_lifeTimer <= 0)
             Death();
     }

@@ -39,10 +39,10 @@ public class InterceptionBlock : MonoBehaviour
     private void FixedUpdate()
     {
         if (_turretsTimer > 0f)
-            _turretsTimer -= Time.fixedDeltaTime;
+            _turretsTimer -= ESTime.worldFixedDeltaTime;
 
         if (_explosionsTimer > 0f)
-            _explosionsTimer -= Time.fixedDeltaTime;
+            _explosionsTimer -= ESTime.worldFixedDeltaTime;
     }
 
     public void SetActive(bool value)
@@ -122,7 +122,7 @@ public class InterceptionBlock : MonoBehaviour
             Vector3 newUp = Vector3.RotateTowards(
                 lookingTransform.up,
                 targetDirection,
-                rotationSpeed * Mathf.Deg2Rad * Time.fixedDeltaTime,
+                rotationSpeed * Mathf.Deg2Rad * ESTime.worldFixedDeltaTime,
                 0f
             );
 

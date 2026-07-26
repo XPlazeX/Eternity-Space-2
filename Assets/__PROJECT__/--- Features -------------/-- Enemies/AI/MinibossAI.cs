@@ -26,7 +26,7 @@ public class MinibossAI : MonoBehaviour
         if (!_active)
             return;
 
-        _timer -= Time.deltaTime;
+        _timer -= ESTime.worldDeltaTime;
 
         if (_timer > 0f)
             return;

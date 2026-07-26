@@ -40,11 +40,11 @@ public class DebugStatsOverlay : MonoBehaviour
             visible = !visible;
 
         // Плавный FPS
-        float currentFps = 1f / Mathf.Max(Time.unscaledDeltaTime, 0.0001f);
+        float currentFps = 1f / Mathf.Max(ESTime.unscaledDeltaTime, 0.0001f);
         fps = Mathf.SmoothDamp(fps, currentFps, ref fpsSmoothVelocity, 0.15f);
 
         // FixedUpdate в секунду
-        fixedSecondTimer += Time.unscaledDeltaTime;
+        fixedSecondTimer += ESTime.unscaledDeltaTime;
         if (fixedSecondTimer >= 1f)
         {
             fixedUpdatesPerSecond = fixedUpdatesThisSecond;
@@ -59,7 +59,7 @@ public class DebugStatsOverlay : MonoBehaviour
 
         // Примерная длительность одного fixed-тика в миллисекундах.
         // Это не "CPU time метода", а длительность шага симуляции.
-        float durationMs = Time.fixedDeltaTime * 1000f;
+        float durationMs = ESTime.worldFixedDeltaTime * 1000f;
 
         fixedDurationsMs[fixedDurationIndex] = durationMs;
         fixedDurationIndex = (fixedDurationIndex + 1) % fixedDurationsMs.Length;

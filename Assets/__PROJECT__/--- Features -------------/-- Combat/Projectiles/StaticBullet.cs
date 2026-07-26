@@ -3,6 +3,8 @@ using DamageSystem;
 
 public class StaticBullet : MonoBehaviour
 {
+    public event System.Action<GameObject> Collided;
+
     [SerializeField] private DamageBundle damageBundle;
     [SerializeField] private bool _hoverable = false;
 
@@ -33,16 +35,18 @@ public class StaticBullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        DamageBody damageBody = other.GetComponent<DamageBody>();
+        IDamagable idamagable = other.GetComponent<IDamagable>();
 
-        if (damageBody == null || (damageBody.KeyDamage == DamageKey.Player && (_hoverable && PlayerShipData.Hover)))
+        if (idamagable == null || (idamagable.KeyDamage == DamageKey.Player && (_hoverable && PlayerShipData.Hover)))
             return;
 
+        Collided?.Invoke(other.gameObject);
+
         if (!IsModdedDamage)
-            AttackObject.InflictDamage(damageBody, damageBundle, out bool killed);
+            AttackObject.InflictDamage(idamagable, damageBundle, out bool killed);
         else
         {
-            AttackObject.InflictDamage(damageBody, _moddedDamageBundle, out bool killed);
+            AttackObject.InflictDamage(idamagable, _moddedDamageBundle, out bool killed);
         }
             
 

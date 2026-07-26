@@ -49,7 +49,7 @@ public class SupermovingAI : EnemyAIRoot
                 return Vector2.zero;
             }
 
-            float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * Time.fixedDeltaTime * Mobility;
+            float currentMoving = movingProgression.Evaluate(_passedWay / _distance) * Speed * ESTime.worldFixedDeltaTime * Mobility;
             _passedWay += currentMoving;
             return ((Vector2)(_targetPosition - AiPosition).normalized) * currentMoving;
         }
@@ -62,14 +62,14 @@ public class SupermovingAI : EnemyAIRoot
                 return Vector2.zero;
             }
 
-            float angleDelta = rotationAroundSpeedMultiplier * Time.fixedDeltaTime * Speed * _rotationDirection * Mobility;
+            float angleDelta = rotationAroundSpeedMultiplier * ESTime.worldFixedDeltaTime * Speed * _rotationDirection * Mobility;
 
             Vector2 currentPos = AiPosition;
             Vector2 offsetFromTarget = currentPos - (Vector2)_targetPosition;
             Vector2 rotatedOffset = Quaternion.Euler(0f, 0f, angleDelta) * offsetFromTarget;
             Vector2 nextPos = (Vector2)_targetPosition + rotatedOffset;
 
-            _timer -= Time.fixedDeltaTime;
+            _timer -= ESTime.worldFixedDeltaTime;
             return nextPos - currentPos;
         }
     }

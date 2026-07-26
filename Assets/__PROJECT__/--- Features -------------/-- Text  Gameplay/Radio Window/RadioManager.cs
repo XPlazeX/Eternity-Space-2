@@ -38,7 +38,7 @@ public class RadioManager : MonoBehaviour
 
     void Update()
     {
-        Tick(Time.deltaTime, Time.time);
+        Tick(ESTime.worldDeltaTime, ESTime.worldTime);
     }
 
     public static void RequestMessage(RadioMessageRequest request)
@@ -210,7 +210,7 @@ public class RadioManager : MonoBehaviour
         {
             localizedSpeakerName = message.localizedSpeakerName,
             localizedMessagePhrases = message.localizedMessagePhrases,
-            createdAt = Time.time,
+            createdAt = ESTime.worldTime,
             printSpeed = charactersPerSecond * message.printSpeedMultiplier,
             priority = message.priority,
             expiryTime = message.expiryTime,

@@ -146,6 +146,22 @@ public class EnemySpawner : MonoBehaviour
         hpBar.Initialize(targetBody.HitPoints, elite);
     }
 
+    public static void ValidatePrespawnedDamageBody(DamageBody db)
+    {
+        if (db.GetComponent<Boss>() == null)
+        {
+            instance.InitializeHPBar(db, false);
+        }
+
+        EnemyHandle handle = db.gameObject.AddComponent<EnemyHandle>();
+
+        handle.weight = 0f;
+        // handle.isBoss = enemyEncounterSpawnRequest.isBoss;
+        // handle.isElite = enemyEncounterSpawnRequest.elitize;
+
+        handle.Bind(db);
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

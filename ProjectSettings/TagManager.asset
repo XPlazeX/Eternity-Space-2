@@ -31,6 +31,7 @@ TagManager:
   - BG-Station
   - BetweenScenes
   - MenuNavigation
+  - WeaponHandler
   layers:
   - Default
   - TransparentFX
@@ -53,10 +54,10 @@ TagManager:
   - Wrecks
   - World Canvas
   - Player Canvas
+  - Sledge
   - 
   - 
-  - 
-  - 
+  - Ark
   - 
   - 
   - 
@@ -73,6 +74,9 @@ TagManager:
     locked: 0
   - name: Mist
     uniqueID: 765259765
+    locked: 0
+  - name: Ark Base
+    uniqueID: 1947613541
     locked: 0
   m_RenderingLayers:
   - Default

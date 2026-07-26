@@ -21,7 +21,7 @@ public class FollowAI : EnemyAIRoot
         if (_player == null)
             return Vector2.zero;
 
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
 
         if (_timer < 0f && useRetargeting)
         {
@@ -35,14 +35,14 @@ public class FollowAI : EnemyAIRoot
         {
             _targetPosition = GetActualPlayerPosition();
             if ((AiPosition - _targetPosition).magnitude > 0.3f)
-                return (_targetPosition - AiPosition).normalized * Speed * Time.fixedDeltaTime * Mobility;
+                return (_targetPosition - AiPosition).normalized * Speed * ESTime.worldFixedDeltaTime * Mobility;
             else
             {
-                return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
+                return Vector3.Lerp(AiPosition, _targetPosition, Speed * ESTime.worldFixedDeltaTime * Mobility) - AiPosition;
             }
         } else 
         {
-            return (_targetPosition - AiPosition).normalized * Speed * Time.fixedDeltaTime * Mobility;
+            return (_targetPosition - AiPosition).normalized * Speed * ESTime.worldFixedDeltaTime * Mobility;
         }
     }
 

@@ -29,7 +29,7 @@ public class OrbitalProjectile : MonoBehaviour
             return;
         }
 
-        _nextRotation += _rotationSpeed * Time.deltaTime;
+        _nextRotation += _rotationSpeed * ESTime.worldDeltaTime;
         transform.position = _parent.position + (Quaternion.Euler(0, 0, _nextRotation) * (_startOrientation * _parentDistance));
     }
 

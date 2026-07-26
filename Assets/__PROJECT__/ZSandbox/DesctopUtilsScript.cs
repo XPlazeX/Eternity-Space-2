@@ -44,6 +44,12 @@ public class DesctopUtilsScript : MonoBehaviour
             _showStats = !_showStats;
         }
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Cursor.visible = !Cursor.visible;
+            Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+        }
+
         UpdateStats();
     }
 
@@ -61,13 +67,13 @@ public class DesctopUtilsScript : MonoBehaviour
 
         GUI.Label(
             new Rect(16f, 16f, 320f, 80f),
-            $"FPS: {_fps:F1}\nFixedUpdate/s: {_fixedUpdatesPerSecond:F1}\nfixedDeltaTime: {Time.fixedDeltaTime:F5}");
+            $"FPS: {_fps:F1}\nFixedUpdate/s: {_fixedUpdatesPerSecond:F1}\nfixedDeltaTime: {ESTime.worldFixedDeltaTime:F5}");
     }
 
     private void UpdateStats()
     {
         _frameCounter++;
-        _statsTimer += Time.unscaledDeltaTime;
+        _statsTimer += ESTime.unscaledDeltaTime;
 
         if (_statsTimer < 1f)
         {

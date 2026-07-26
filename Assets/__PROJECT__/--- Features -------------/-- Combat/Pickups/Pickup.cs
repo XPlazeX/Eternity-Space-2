@@ -44,7 +44,7 @@ public class Pickup : MonoBehaviour
     {
         if (moving)
         {
-            Vector2 moveDelta = _moveDirection * _speed * Time.fixedDeltaTime;
+            Vector2 moveDelta = _moveDirection * _speed * ESTime.worldFixedDeltaTime;
 
             if (_rb != null)
                 _rb.MovePosition(_rb.position + moveDelta);
@@ -55,7 +55,7 @@ public class Pickup : MonoBehaviour
         
         if (hasLifetime)
         {
-            _lifeTimer += Time.fixedDeltaTime;
+            _lifeTimer += ESTime.worldFixedDeltaTime;
 
             if (_lifeTimer > _lifeTime)
                 Destroying();

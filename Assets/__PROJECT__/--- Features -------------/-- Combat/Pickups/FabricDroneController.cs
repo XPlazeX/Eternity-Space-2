@@ -30,8 +30,8 @@ public class FabricDroneController : MonoBehaviour
 
         if (_encounterDirector != null)
         {
-            _encounterDirector.EncounterStarted += OnEncounterStart;
-            _encounterDirector.EncounterStopped += OnEncounterStop;
+            // _encounterDirector.EncounterStarted += OnEncounterStart;
+            // _encounterDirector.EncounterStopped += OnEncounterStop;
         }       
     }
 
@@ -39,8 +39,8 @@ public class FabricDroneController : MonoBehaviour
     {
         if (_encounterDirector != null)
         {
-            _encounterDirector.EncounterStarted -= OnEncounterStart;
-            _encounterDirector.EncounterStopped -= OnEncounterStop;
+            // _encounterDirector.EncounterStarted -= OnEncounterStart;
+            // _encounterDirector.EncounterStopped -= OnEncounterStop;
         }
     }
 
@@ -54,7 +54,7 @@ public class FabricDroneController : MonoBehaviour
     {
         if (_initFindingWrecks)
         {
-            _findingTimer += Time.fixedDeltaTime;
+            _findingTimer += ESTime.worldFixedDeltaTime;
 
             if (_findingTimer >= findingWrecksUpdateTime)
             {

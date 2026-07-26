@@ -101,7 +101,7 @@ public class RamShield : MonoBehaviour
             modColor.a = Mathf.Lerp(1f, 0, 1f - (timer / _ramDuration));
             _shieldSpriteRenderer.color = modColor;
 
-            timer -= Time.deltaTime;
+            timer -= ESTime.worldDeltaTime;
             yield return null;
         }
 

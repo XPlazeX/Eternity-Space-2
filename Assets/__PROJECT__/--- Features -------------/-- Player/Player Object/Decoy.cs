@@ -13,7 +13,7 @@ public class Decoy : MonoBehaviour
     }
 
     private void Update() {
-        _timer -= Time.deltaTime;
+        _timer -= ESTime.worldDeltaTime;
 
         if (_timer <= 0f && !_used)
         {

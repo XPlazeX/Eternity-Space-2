@@ -78,7 +78,7 @@ public class ExplosionObject : PooledObject
 
     void Update()
     {
-        _timer += Time.deltaTime;
+        _timer += ESTime.worldDeltaTime;
 
         if (_timer < waitTime) return;
 

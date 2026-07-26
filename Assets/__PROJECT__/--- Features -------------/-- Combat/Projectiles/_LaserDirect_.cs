@@ -32,6 +32,6 @@ public class _LaserDirect_ : MonoBehaviour
             targetPosition = new Vector3(transform.position.x, targetPosition.y, 0f);
         }
 
-        transform.position += (targetPosition - transform.position) * _directionFollowSpeed * _homingMultiplier * Time.deltaTime;
+        transform.position += (targetPosition - transform.position) * _directionFollowSpeed * _homingMultiplier * ESTime.worldDeltaTime;
     }
 }

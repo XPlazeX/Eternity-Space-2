@@ -203,7 +203,7 @@ public class RadioMonitorUI : MonoBehaviour
             yield break;
         }
 
-        for (float time = 0f; time < duration; time += Time.deltaTime)
+        for (float time = 0f; time < duration; time += ESTime.worldDeltaTime)
         {
             float progress = Mathf.SmoothStep(startProgress, targetProgress, time / duration);
             SetMaskOpenProgress(progress);

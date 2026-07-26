@@ -10,7 +10,7 @@ public struct RadioMessageRequest
     {
         this.messageId = messageId;
         this.channel = channel;
-        this.createdAt = Time.time;
+        this.createdAt = ESTime.worldTime;
     }
 }
 

@@ -12,7 +12,7 @@ public class ExplosionTrigger : MonoBehaviour
     private float _timer;
 
     private void FixedUpdate() {
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

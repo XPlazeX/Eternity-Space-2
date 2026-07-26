@@ -21,7 +21,7 @@ public class ReflectOscilator : MonoBehaviour
             SpawnProjectile();
             _timer = _reloadTime;
         }
-        _timer -= Time.deltaTime;
+        _timer -= ESTime.worldDeltaTime;
     }
 
     public void ChangeTriggeringObject(PullableObject newObject)

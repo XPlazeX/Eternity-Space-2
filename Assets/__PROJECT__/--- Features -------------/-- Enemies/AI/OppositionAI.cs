@@ -79,12 +79,12 @@ public class OppositionAI : EnemyAIRoot
         else
             _targetPosition = new Vector3(GetActualPlayerPosition().x, LatitudeY, 0f);
 
-        _timer -= Time.deltaTime;
+        _timer -= ESTime.worldDeltaTime;
 
-        Vector3 result = (Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.deltaTime * Mobility) - AiPosition);
-        if (result.magnitude > maxSpeed * Time.deltaTime)
+        Vector3 result = (Vector3.Lerp(AiPosition, _targetPosition, Speed * ESTime.worldDeltaTime * Mobility) - AiPosition);
+        if (result.magnitude > maxSpeed * ESTime.worldDeltaTime)
         {
-            result = result.normalized * (maxSpeed * Time.deltaTime);
+            result = result.normalized * (maxSpeed * ESTime.worldDeltaTime);
         }
 
         return result;

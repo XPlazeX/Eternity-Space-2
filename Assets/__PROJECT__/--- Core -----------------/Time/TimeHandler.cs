@@ -30,7 +30,7 @@ public class TimeHandler : MonoBehaviour
     private static TimeHandler instance;
 
     private void Awake() {
-        //_normalFixedDeltaTime = Time.fixedDeltaTime;
+        //_normalFixedDeltaTime = ESTime.worldFixedDeltaTime;
         instance = this;
         // Workable = true;
         normalFixedDeltaTime = Time.fixedUnscaledDeltaTime;
@@ -39,8 +39,8 @@ public class TimeHandler : MonoBehaviour
 
     private void Update() 
     {
-        if (Time.timeScale > 0)
-            LevelTime += Time.unscaledDeltaTime;
+        if (ESTime.worldTimeScale > 0)
+            LevelTime += ESTime.unscaledDeltaTime;
     }
 
     public static void Initialize() 
@@ -85,25 +85,25 @@ public class TimeHandler : MonoBehaviour
         if (!Workable)
             return;
 
-        if (Time.timeScale == 0)
+        if (ESTime.worldTimeScale == 0)
             return;
         
         if (value == 0)
             throw new System.Exception("Устанавливайте время равное 0 через метод Pause()");
 
-        Time.timeScale = value;
-        Time.fixedDeltaTime = normalFixedDeltaTime * value;
+        ESTime.worldTimeScale = value;
+        ESTime.worldFixedDeltaTime = normalFixedDeltaTime * value;
         //print("time custom set");
     }
 
     public static void Pause()
     {
         Debug.Log("PAUSE");
-        _timeScaleBeforePause = Time.timeScale;
+        _timeScaleBeforePause = ESTime.worldTimeScale;
         if (_timeScaleBeforePause == 0)
             _timeScaleBeforePause = 1f;
             
-        Time.timeScale = 0;
+        ESTime.worldTimeScale = 0;
         TimePaused?.Invoke();
     }
 
@@ -117,13 +117,13 @@ public class TimeHandler : MonoBehaviour
         Debug.Log("RESUME");
         if (forcedMultiplier > 0)
         {
-            Time.timeScale = forcedMultiplier;
-            Time.fixedDeltaTime = normalFixedDeltaTime * forcedMultiplier;
+            ESTime.worldTimeScale = forcedMultiplier;
+            ESTime.worldFixedDeltaTime = normalFixedDeltaTime * forcedMultiplier;
             return;
         }
 
-        Time.timeScale = _timeScaleBeforePause;
-        Time.fixedDeltaTime = normalFixedDeltaTime * _timeScaleBeforePause;
+        ESTime.worldTimeScale = _timeScaleBeforePause;
+        ESTime.worldFixedDeltaTime = normalFixedDeltaTime * _timeScaleBeforePause;
         TimeNormalized?.Invoke();
     }
 }

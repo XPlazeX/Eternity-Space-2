@@ -57,7 +57,7 @@ public class SledgeRepairer : MonoBehaviour
 
         if (_connected && SledgeCore.HasCharge && !_released)
         {
-            ProgressConnection(Time.deltaTime);
+            ProgressConnection(ESTime.worldDeltaTime);
         }
 
         tower.up = player.position - tower.position;

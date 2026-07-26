@@ -73,7 +73,7 @@ public class Wreck : MonoBehaviour
 
     private void Update()
     {
-        float dt = Time.deltaTime;
+        float dt = ESTime.worldDeltaTime;
 
         UpdateMovement(dt);
         UpdateRotation(dt);
@@ -85,7 +85,7 @@ public class Wreck : MonoBehaviour
 
         if (setVelocityReceivesFixedStepDelta)
         {
-            float fixedDt = Time.fixedDeltaTime;
+            float fixedDt = ESTime.worldFixedDeltaTime;
 
             if (fixedDt > 0f)
                 value /= fixedDt;
@@ -101,7 +101,7 @@ public class Wreck : MonoBehaviour
 
     public void SetFixedStepDelta(Vector3 fixedStepDelta)
     {
-        float fixedDt = Time.fixedDeltaTime;
+        float fixedDt = ESTime.worldFixedDeltaTime;
 
         if (fixedDt <= 0f)
         {

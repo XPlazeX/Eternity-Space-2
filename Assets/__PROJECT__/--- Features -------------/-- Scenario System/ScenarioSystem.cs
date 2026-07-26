@@ -24,18 +24,18 @@ namespace ScenarioSystem
         [SerializeReference][SubclassSelector] public NodeLogicData logic;
         [Space()]
         [Tooltip("Условие для начала ноды, т.е. Что должно произойти в предыдущих нодах, чтобы началась эта.")]
-        [SerializeReference][SubclassSelector] public Condition startCondition;
+        [SerializeReference] public ConditionBlock startConditions;
         [Space()]
         [Tooltip("Условие конца ноды, т.е. Что должно произойти в текущих нодах, чтобы остановилась эта.")]
-        [SerializeReference][SubclassSelector] public Condition endCondition;
+        [SerializeReference] public ConditionBlock endConditions;
         [Space()]
         [SerializeReference][SubclassSelector] public TransitionData transitionToThis;
         [Space()]
         public RadioMessagesLogicBlock radioMessagesLogicBlock;
 
-        [Header("Развилки и мульти-ноды")]
-        [Tooltip("Если пусто - смотреть только следующую ноду, иначе смотреть условия указанных нод (для развилок)")]
-        public int[] nextNodeIndexes; 
+        [Space()]
+        // [Tooltip("Если пусто - смотреть только следующую ноду, иначе смотреть условия указанных нод (для развилок)")]
+        // public int[] nextNodeIndexes; 
         [Tooltip("Если включено - нода может запуститься только 1 раз.")]
         public bool disposable;
         [Tooltip("Автоматически завершать ноду, если началась другая (для развилок)")]
@@ -50,14 +50,14 @@ namespace ScenarioSystem
         /// EnemySpawnNode - спаунит благодаря EnemySpawner, в т.ч. боссов (можно сделать наследование: wave, boss, timed и т.п.)
         /// DialogueNode - сценарный диалог, после него можно instant transition и т.п.
         /// ScriptedNode - для сложного поведения, катсцены там - если пригодится
-        [Tooltip("Закончить уровень по завершению этой ноды?")]
-        public bool endRunOnCompleted; 
-        [Tooltip("При проигрыше, начинать с этой ноды?")]
-        public bool isCheckpoint; 
-        [Tooltip("Скорость перемещения арены (и салазок). ВНИМАНИЕ: ничем не ограничено!")] // скролл-шутер, ага?
-        public Vector2 scrollingPivotSpeed = new Vector2(0f, 0f);
-        [Tooltip("Скорость перемещения арены (и салазок) за игроком. ВНИМАНИЕ: ничем не ограничено!")] // для ощущения и эксплоринга на уровне(некоторых)
-        public float pivotToPlayerFollowSpeed = 0f;
+        // [Tooltip("Закончить уровень по завершению этой ноды?")]
+        // public bool endRunOnCompleted; 
+        // [Tooltip("При проигрыше, начинать с этой ноды?")]
+        // public bool isCheckpoint; 
+        // [Tooltip("Скорость перемещения арены (и салазок). ВНИМАНИЕ: ничем не ограничено!")] // скролл-шутер, ага?
+        // public Vector2 scrollingPivotSpeed = new Vector2(0f, 0f);
+        // [Tooltip("Скорость перемещения арены (и салазок) за игроком. ВНИМАНИЕ: ничем не ограничено!")] // для ощущения и эксплоринга на уровне(некоторых)
+        // public float pivotToPlayerFollowSpeed = 0f;
 
         public abstract ActiveNodeLogicRuntime CreateRuntime();
     }
@@ -71,6 +71,25 @@ namespace ScenarioSystem
         /// SledgeParsingTransition - нужно состыковаться с салазками, потом к позиции
 
         public abstract ActiveTransitionRuntime CreateRuntime();
+    }
+
+    [System.Serializable]
+    public class ConditionBlock
+    {
+        [SerializeReference][SubclassSelectorListed] private Condition[] conditions = new Condition[0];
+
+        public bool Evaluate(ScenarioContext ctx)
+        {
+            if (conditions == null)
+                return true;
+
+            for (int i = 0; i < conditions.Length; i++)
+            {
+                if (conditions[i] != null && !conditions[i].Evaluate(ctx)) return false;
+            }
+
+            return true;
+        }
     }
 
     [System.Serializable]
@@ -105,14 +124,14 @@ namespace ScenarioSystem
         public float NodeTime; // с момента запуска ноды
         public int LastNodeIndex; // индекс ноды в сценарии
         public int PreviousNodeIndex = -1; // индекс предыдущей ноды в сценарии, для старта -1
-        public int CheckpointNodeIndex = -1; // индекс последней чекпоинт-ноды, по умолчанию -1
+        // public int CheckpointNodeIndex = -1; // индекс последней чекпоинт-ноды, по умолчанию -1
 
         public HashSet<int> CompletedNodeSet = new(); // уникально пройденные ноды // быстрый доступ
         public Dictionary<int, int> CompletedNodeCounts = new(); // сколько раз какие ноды были пройдены
         public List<int> ElapsedNodeIndexes = new(); // порядок прохождения нод, в т.ч. повторения
 
         public bool IsStartNode; // с этой ли ноды начался уровень
-        public bool IsEndingNode; // можно ли в этой ноде закончить уровень
+        // public bool IsEndingNode; // можно ли в этой ноде закончить уровень
         public bool IsEncounterRunningValide; // запущен ли сейчас энкаунтер (для условий, которые зависят от этого)
         public bool AnyEnemyAlive; // если есть враги
         public bool IsParsing; // перемещается ли игрок на салазках
@@ -130,9 +149,12 @@ namespace ScenarioSystem
         public bool NoDamageTaken = true; // собсна
 
         public Dictionary<string, EncounterSnapshot> ActiveEncounterSnapshots = new(); // для проверок Condition, доступ по runtime-ключу Encounter
+        public SectorStateSnapshot SectorStateSnapshot;
 
         // === СИСТЕМЫ
         public EncounterDirector EncounterDirector;
+        public SectorRoot Sector;
+        public EnemyHQ EnemyHq;
         // public SledgeController SledController;
         // public DialogueController DialogueController;
         // PlayerShipData - статик, доступ к здоровью, урону игроку

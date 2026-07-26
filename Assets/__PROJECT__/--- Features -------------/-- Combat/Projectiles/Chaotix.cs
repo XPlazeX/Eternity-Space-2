@@ -33,7 +33,7 @@ public class Chaotix : MonoBehaviour
 
         while (Vector3.Angle(transform.up, selectedDirection) > 1f)
         {
-            transform.up = Vector3.RotateTowards(transform.up, selectedDirection, _rotationSpeed * Time.deltaTime, 0f);
+            transform.up = Vector3.RotateTowards(transform.up, selectedDirection, _rotationSpeed * ESTime.worldDeltaTime, 0f);
             yield return new WaitForFixedUpdate();
         }
     }

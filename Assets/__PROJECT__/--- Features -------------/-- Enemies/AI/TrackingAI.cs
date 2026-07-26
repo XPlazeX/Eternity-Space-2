@@ -35,7 +35,7 @@ public class TrackingAI : EnemyAIRoot
             return Vector2.zero;
         }
 
-        _timer -= Time.fixedDeltaTime;
+        _timer -= ESTime.worldFixedDeltaTime;
 
         if (!_reposition)
         {
@@ -53,9 +53,9 @@ public class TrackingAI : EnemyAIRoot
             _targetPosition = GetActualPlayerPosition() + ((AiPosition - GetActualPlayerPosition()).normalized * (closingDistance / Mobility));
 
             if (linearMove && ((_targetPosition - AiPosition).magnitude > closingDistance + 0.2f))
-                return (_targetPosition - AiPosition).normalized * Speed * Time.fixedDeltaTime * Mobility;
+                return (_targetPosition - AiPosition).normalized * Speed * ESTime.worldFixedDeltaTime * Mobility;
             else
-                return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
+                return Vector3.Lerp(AiPosition, _targetPosition, Speed * ESTime.worldFixedDeltaTime * Mobility) - AiPosition;
         } else 
         {
             if (_timer <= 0)
@@ -64,7 +64,7 @@ public class TrackingAI : EnemyAIRoot
                 return Vector2.zero;
             }
 
-            return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
+            return Vector3.Lerp(AiPosition, _targetPosition, Speed * ESTime.worldFixedDeltaTime * Mobility) - AiPosition;
         } 
     }
 

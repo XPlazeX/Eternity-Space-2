@@ -77,7 +77,7 @@ public sealed class CountermeasuresAIBlock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float dt = Time.fixedDeltaTime;
+        float dt = ESTime.worldFixedDeltaTime;
 
         if (_projectileTimer > 0f)
             _projectileTimer -= dt;

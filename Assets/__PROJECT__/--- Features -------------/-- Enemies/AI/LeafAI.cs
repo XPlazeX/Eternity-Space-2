@@ -30,7 +30,7 @@ public class LeafAI : MonoBehaviour
 
     private void RotateToTarget()
     {
-        transform.up = SceneStatics.FlatVector(Vector3.Lerp(transform.up, _targetTransform.rotation * _targetLocalUp, _rotationSpeed * Time.deltaTime));
+        transform.up = SceneStatics.FlatVector(Vector3.Lerp(transform.up, _targetTransform.rotation * _targetLocalUp, _rotationSpeed * ESTime.worldDeltaTime));
 
         CorrectRotation();
     }

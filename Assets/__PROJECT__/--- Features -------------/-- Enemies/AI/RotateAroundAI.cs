@@ -25,11 +25,11 @@ public class RotateAroundAI : EnemyAIRoot
     {
         if (_emptyTarget != null)
         {
-            _emptyTarget.RotateAround(GetActualPlayerPosition(), Vector3.forward, Speed * rotationAroundSpeedMultiplier * Time.fixedDeltaTime * _rotationDirection * Mobility);
+            _emptyTarget.RotateAround(GetActualPlayerPosition(), Vector3.forward, Speed * rotationAroundSpeedMultiplier * ESTime.worldFixedDeltaTime * _rotationDirection * Mobility);
             _targetPosition = _emptyTarget.position;
         }
 
-        return Vector3.Lerp(AiPosition, _targetPosition, Speed * Time.fixedDeltaTime * Mobility) - AiPosition;
+        return Vector3.Lerp(AiPosition, _targetPosition, Speed * ESTime.worldFixedDeltaTime * Mobility) - AiPosition;
     }
 
     private void OnDestroy() {

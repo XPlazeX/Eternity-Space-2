@@ -6,7 +6,7 @@ public class RRTicker : MonoBehaviour
 
     private void Update()
     {
-        float dt = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+        float dt = useUnscaledTime ? ESTime.unscaledDeltaTime : ESTime.worldDeltaTime;
         RR.Tick(dt);
     }
 }

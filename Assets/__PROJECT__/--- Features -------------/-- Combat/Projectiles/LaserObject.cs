@@ -60,7 +60,7 @@ public class LaserObject : AttackObject
                 origin.position + origin.up * maxDistance
             });
 
-            timer += Time.deltaTime;
+            timer += ESTime.worldDeltaTime;
             yield return new WaitForFixedUpdate();
         }
 
@@ -122,8 +122,8 @@ public class LaserObject : AttackObject
             Vector3 endPos = origin.position + origin.up * beamLength;
             _lineRenderer.SetPositions(new Vector3[2] { origin.position + origin.up * startOffset, endPos });
 
-            timer += Time.deltaTime;
-            timerHurt -= Time.deltaTime;
+            timer += ESTime.worldDeltaTime;
+            timerHurt -= ESTime.worldDeltaTime;
 
             yield return new WaitForFixedUpdate();
         }
@@ -226,7 +226,7 @@ public class LaserObject : AttackObject
         {
             _lineRenderer.colorGradient = GetFadingMonoGradient(timer / time);
 
-            timer += Time.deltaTime;
+            timer += ESTime.worldDeltaTime;
             yield return new WaitForFixedUpdate();
         }
 

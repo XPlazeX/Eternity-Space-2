@@ -80,7 +80,7 @@ public class DeviceHandler : MonoBehaviour
     {
         while (true)
         {
-            _chargingFloat += Time.deltaTime;
+            _chargingFloat += ESTime.worldDeltaTime;
 
             CheckCharge();
             yield return null;
@@ -91,7 +91,7 @@ public class DeviceHandler : MonoBehaviour
     {
         while (true)
         {
-            //_chargingFloat -= Time.deltaTime * 4f;
+            //_chargingFloat -= ESTime.worldDeltaTime * 4f;
             _chargingFloat = Mathf.Lerp(_chargingFloat, 0, _dischargingSpeed);
 
             CheckCharge();

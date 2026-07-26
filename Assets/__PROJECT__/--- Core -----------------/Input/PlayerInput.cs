@@ -79,6 +79,6 @@ public class PlayerInput : MonoBehaviour
         PointerDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         PointerDrag = MainFirePressed ? PointerDelta : Vector2.zero;
 
-        _scrollLag -= Time.deltaTime;
+        _scrollLag -= ESTime.worldDeltaTime;
     }
 }

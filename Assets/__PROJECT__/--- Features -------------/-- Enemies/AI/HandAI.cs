@@ -29,11 +29,11 @@ public class HandAI : MonoBehaviour
                 while (timer > 0)
                 {
                     if (worldPosition)
-                        _handPalm.position = Vector3.Lerp(_handPalm.position, fixedPosition, speed * Time.deltaTime);
+                        _handPalm.position = Vector3.Lerp(_handPalm.position, fixedPosition, speed * ESTime.worldDeltaTime);
                     else
-                        _handPalm.position = Vector3.Lerp(_handPalm.position, _moveObjects[i].GetMovePoint(_body.position), speed * Time.deltaTime);
+                        _handPalm.position = Vector3.Lerp(_handPalm.position, _moveObjects[i].GetMovePoint(_body.position), speed * ESTime.worldDeltaTime);
 
-                    timer -= Time.deltaTime;
+                    timer -= ESTime.worldDeltaTime;
                     yield return new WaitForFixedUpdate();
                 }
             }

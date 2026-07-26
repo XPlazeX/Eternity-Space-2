@@ -15,7 +15,7 @@ MonoBehaviour:
   id: debug_level
   actIndex: 0
   levelIndex: 0
-  levelVisualPrefab: {fileID: 3087150756411344450, guid: e858be4a62e8de44aa4668ee1d8f7e72, type: 3}
+  levelVisualPrefab: {fileID: 3087150756411344450, guid: 05ce12fb174f63f478b7de0458174fe1, type: 3}
   scenarioAsset: {fileID: 11400000, guid: 66823a768a326fc4cb99453e056a47f1, type: 2}
   soundtrack:
     _clip: {fileID: 8300000, guid: b80b4c7115015714ab5f3705a385b210, type: 3}

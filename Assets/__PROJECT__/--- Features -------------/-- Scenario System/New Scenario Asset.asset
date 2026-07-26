@@ -13,32 +13,14 @@ MonoBehaviour:
   m_Name: New Scenario Asset
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioAsset
   nodes:
-  - id: initialization_node
-    debugName: Init Node
-    logic:
-      rid: 6291079640820220004
-    startCondition:
-      rid: 6291079640820220005
-    endCondition:
-      rid: 6291079640820220009
-    transitionToThis:
-      rid: 6291079640820220007
-    radioMessagesLogicBlock:
-      radioMessageIdOnStart: 
-      radioChannelOnStart: 0
-      radioMessageIdOnEnd: 
-      radioChannelOnEnd: 0
-    nextNodeIndexes: 
-    disposable: 1
-    endIfOtherNodesStarted: 0
   - id: dbg_0
     debugName: encounter_1
     logic:
       rid: 6291079595664867399
-    startCondition:
-      rid: 5545110997370404955
-    endCondition:
-      rid: 6291079595664867400
+    startConditions:
+      rid: 5545111443742392497
+    endConditions:
+      rid: 5545111443742392489
     transitionToThis:
       rid: 6948391906032222379
     radioMessagesLogicBlock:
@@ -46,145 +28,61 @@ MonoBehaviour:
       radioChannelOnStart: 0
       radioMessageIdOnEnd: mvp.xplazex.01_end
       radioChannelOnEnd: 0
-    nextNodeIndexes: 0200000005000000
-    disposable: 0
+    disposable: 1
     endIfOtherNodesStarted: 0
-  - id: dbg_1
-    debugName: encounter_2
+  - id: reinforcements_10s
+    debugName: reinforcements_10s
     logic:
-      rid: 5545110997370404948
-    startCondition:
-      rid: 6291079595664867414
-    endCondition:
-      rid: 5545110989353255260
+      rid: 5545111466213376174
+    startConditions:
+      rid: 5545111466213376175
+    endConditions:
+      rid: 5545111466213376173
     transitionToThis:
-      rid: 6291079550425104683
-    radioMessagesLogicBlock:
-      radioMessageIdOnStart: mvp.xplazex.02_brief
-      radioChannelOnStart: 0
-      radioMessageIdOnEnd: mvp.xplazex.02_end
-      radioChannelOnEnd: 0
-    nextNodeIndexes: 
-    disposable: 0
-    endIfOtherNodesStarted: 0
-  - id: dbg_2
-    debugName: encounter_3
-    logic:
-      rid: 5545110997370404949
-    startCondition:
-      rid: 5545110989353255261
-    endCondition:
-      rid: 5545110989353255262
-    transitionToThis:
-      rid: 6291079550425104688
-    radioMessagesLogicBlock:
-      radioMessageIdOnStart: mvp.xplazex.03_brief
-      radioChannelOnStart: 0
-      radioMessageIdOnEnd: mvp.xplazex.03_end
-      radioChannelOnEnd: 0
-    nextNodeIndexes: 00000000
-    disposable: 0
-    endIfOtherNodesStarted: 0
-  - id: 02be2611de9b4ce1bce58dbd4e3fedd7
-    debugName: cycler
-    logic:
-      rid: 5545110989353255256
-    startCondition:
-      rid: 5545110989353255257
-    endCondition:
-      rid: 5545110997370405012
-    transitionToThis:
-      rid: 5545110989353255259
+      rid: 5545111466213376179
     radioMessagesLogicBlock:
       radioMessageIdOnStart: 
       radioChannelOnStart: 0
       radioMessageIdOnEnd: 
       radioChannelOnEnd: 0
-    nextNodeIndexes: 01000000
-    disposable: 0
-    endIfOtherNodesStarted: 0
-  - id: 9e57b74155124de0bac6fcb3b1dab8d1
-    debugName: Parrallel text
-    logic:
-      rid: 5545110989353255263
-    startCondition:
-      rid: 5545110989353255264
-    endCondition:
-      rid: 5545110989353255265
-    transitionToThis:
-      rid: 5545110989353255266
-    radioMessagesLogicBlock:
-      radioMessageIdOnStart: mvp.xplazex.timed_01
-      radioChannelOnStart: 0
-      radioMessageIdOnEnd: 
-      radioChannelOnEnd: 0
-    nextNodeIndexes: 
     disposable: 1
     endIfOtherNodesStarted: 0
   startNodeIndex: 0
   references:
     version: 2
     RefIds:
-    - rid: 5545110989353255256
-      type: {class: EmptyNodeLogic, ns: , asm: Assembly-CSharp}
+    - rid: 5545111443742392489
+      type: {class: ConditionBlock, ns: ScenarioSystem, asm: Assembly-CSharp}
       data:
-        endRunOnCompleted: 0
-        isCheckpoint: 0
-        scrollingPivotSpeed: {x: 0, y: 0}
-        pivotToPlayerFollowSpeed: 0
-    - rid: 5545110989353255257
+        conditions:
+        - rid: 5545111443742392490
+    - rid: 5545111443742392490
       type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
       data:
         nodeTimeJitter: 5
         encounterClearConditionMode: 0
-    - rid: 5545110989353255259
-      type: {class: ParsingCoordinateTransition, ns: , asm: Assembly-CSharp}
+    - rid: 5545111443742392497
+      type: {class: ConditionBlock, ns: ScenarioSystem, asm: Assembly-CSharp}
       data:
-        targetCoordinates: {x: 0, y: 0, z: 0}
-    - rid: 5545110989353255260
-      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
+        conditions:
+        - rid: 5545111443742392498
+    - rid: 5545111443742392498
+      type: {class: ZoneArriveCondition, ns: , asm: Assembly-CSharp}
       data:
-        nodeTimeJitter: 5
-        encounterClearConditionMode: 0
-    - rid: 5545110989353255261
-      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
+        targetZoneId: zone_debug1
+        targetZoneTime: 3
+    - rid: 5545111466213376173
+      type: {class: ConditionBlock, ns: ScenarioSystem, asm: Assembly-CSharp}
       data:
-        nodeTimeJitter: 5
-        encounterClearConditionMode: 0
-    - rid: 5545110989353255262
-      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
-      data:
-        nodeTimeJitter: 5
-        encounterClearConditionMode: 0
-    - rid: 5545110989353255263
-      type: {class: EmptyNodeLogic, ns: , asm: Assembly-CSharp}
-      data:
-        endRunOnCompleted: 0
-        isCheckpoint: 0
-        scrollingPivotSpeed: {x: 0, y: 0}
-        pivotToPlayerFollowSpeed: 0
-    - rid: 5545110989353255264
-      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
-      data:
-        timedConditionMode: 0
-        requiringTime: 60
-    - rid: 5545110989353255265
-      type: {class: InstantCondition, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5545110989353255266
-      type: {class: InstantTransition, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5545110997370404948
+        conditions:
+        - rid: 5545111466213376177
+    - rid: 5545111466213376174
       type: {class: EncounterNodeLogics, ns: , asm: Assembly-CSharp}
       data:
-        endRunOnCompleted: 0
-        isCheckpoint: 0
-        scrollingPivotSpeed: {x: 0, y: 0}
-        pivotToPlayerFollowSpeed: 0
-        waitSledgeEndTransition: 0
-        waitTime: 8
+        waitSledgeEndTransition: 1
+        waitTime: 5
         encounterDef:
-          runtimeId: 607381a45b8cafc4f95e81aa61da3e57
+          runtimeId: 0b4fb5534f375524d80a07f37abb5ce6
           rareCardProbability: 0.05
           uncommonCardProbability: 0.2
           plannedWaitTime: 3
@@ -196,9 +94,9 @@ MonoBehaviour:
             cost_4andMore: 0.06
           spawnCardsPool:
             spawnCards:
-            - {fileID: 11400000, guid: eabfd96fb6a246c47a601d964fc5be43, type: 2}
-          plannedMaxWeight: 15
-          plannedThresholdWeight: 1.5
+            - {fileID: 11400000, guid: f104ce7a2e2876343bf23817e58c4659, type: 2}
+          plannedMaxWeight: 30
+          plannedThresholdWeight: 30
           plannedPlayCooldown: 0.5
           bonusWaitTime: 20
           bonusCostWeights:
@@ -216,76 +114,26 @@ MonoBehaviour:
           sortedFinalCardsPool:
             spawnCards: []
           finalPlayCooldown: 5
-    - rid: 5545110997370404949
-      type: {class: EncounterNodeLogics, ns: , asm: Assembly-CSharp}
+    - rid: 5545111466213376175
+      type: {class: ConditionBlock, ns: ScenarioSystem, asm: Assembly-CSharp}
       data:
-        endRunOnCompleted: 0
-        isCheckpoint: 0
-        scrollingPivotSpeed: {x: 0, y: 0}
-        pivotToPlayerFollowSpeed: 0
-        waitSledgeEndTransition: 0
-        waitTime: 8
-        encounterDef:
-          runtimeId: 2e681294098166940b8394a889e36fc6
-          rareCardProbability: 0.05
-          uncommonCardProbability: 0.2
-          plannedWaitTime: 3
-          plannedBudget: 15
-          plannedCostWeights:
-            cost_1: 1
-            cost_2: 0.5
-            cost_3: 0.15
-            cost_4andMore: 0.06
-          spawnCardsPool:
-            spawnCards:
-            - {fileID: 11400000, guid: eabfd96fb6a246c47a601d964fc5be43, type: 2}
-            - {fileID: 11400000, guid: f104ce7a2e2876343bf23817e58c4659, type: 2}
-          plannedMaxWeight: 16
-          plannedThresholdWeight: 1.5
-          plannedPlayCooldown: 0.5
-          bonusWaitTime: 20
-          bonusCostWeights:
-            cost_1: 1
-            cost_2: 0.5
-            cost_3: 0.15
-            cost_4andMore: 0.06
-          bonusCardsPool:
-            spawnCards: []
-          bonusMaxWeight: 2
-          bonusThresholdWeight: 0.5
-          bonusPlayCooldown: 10
-          bonusStopWeightThreshold: 5
-          playFinalCards: 1
-          sortedFinalCardsPool:
-            spawnCards:
-            - {fileID: 11400000, guid: f104ce7a2e2876343bf23817e58c4659, type: 2}
-            - {fileID: 11400000, guid: f104ce7a2e2876343bf23817e58c4659, type: 2}
-          finalPlayCooldown: 5
-    - rid: 5545110997370404955
-      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
+        conditions:
+        - rid: 5545111466213376176
+    - rid: 5545111466213376176
+      type: {class: AlarmCondition, ns: , asm: Assembly-CSharp}
       data:
-        timedConditionMode: 1
-        requiringTime: 7
-    - rid: 5545110997370405012
-      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
+        timeSinceAlarmRequirement: 10
+    - rid: 5545111466213376177
+      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
       data:
-        timedConditionMode: 1
-        requiringTime: 10
-    - rid: 6291079550425104683
-      type: {class: ParsingCoordinateTransition, ns: , asm: Assembly-CSharp}
-      data:
-        targetCoordinates: {x: 1000, y: 3000, z: 0}
-    - rid: 6291079550425104688
-      type: {class: ParsingCoordinateTransition, ns: , asm: Assembly-CSharp}
-      data:
-        targetCoordinates: {x: -2900, y: -600, z: 0}
+        nodeTimeJitter: 5
+        encounterClearConditionMode: 0
+    - rid: 5545111466213376179
+      type: {class: InstantTransition, ns: , asm: Assembly-CSharp}
+      data: 
     - rid: 6291079595664867399
       type: {class: EncounterNodeLogics, ns: , asm: Assembly-CSharp}
       data:
-        endRunOnCompleted: 0
-        isCheckpoint: 0
-        scrollingPivotSpeed: {x: 0, y: 0}
-        pivotToPlayerFollowSpeed: 0
         waitSledgeEndTransition: 0
         waitTime: 6
         encounterDef:
@@ -321,34 +169,6 @@ MonoBehaviour:
           sortedFinalCardsPool:
             spawnCards: []
           finalPlayCooldown: 5
-    - rid: 6291079595664867400
-      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
-      data:
-        nodeTimeJitter: 5
-        encounterClearConditionMode: 0
-    - rid: 6291079595664867414
-      type: {class: EncounterClearCondition, ns: , asm: Assembly-CSharp}
-      data:
-        nodeTimeJitter: 5
-        encounterClearConditionMode: 0
-    - rid: 6291079640820220004
-      type: {class: EmptyNodeLogic, ns: , asm: Assembly-CSharp}
-      data:
-        endRunOnCompleted: 0
-        isCheckpoint: 0
-        scrollingPivotSpeed: {x: 0, y: 0}
-        pivotToPlayerFollowSpeed: 0
-    - rid: 6291079640820220005
-      type: {class: InstantCondition, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 6291079640820220007
-      type: {class: InstantTransition, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 6291079640820220009
-      type: {class: TimedCondition, ns: , asm: Assembly-CSharp}
-      data:
-        timedConditionMode: 0
-        requiringTime: 3
     - rid: 6948391906032222379
       type: {class: InstantTransition, ns: , asm: Assembly-CSharp}
       data: 
