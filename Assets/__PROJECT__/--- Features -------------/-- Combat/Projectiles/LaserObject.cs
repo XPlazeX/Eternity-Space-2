@@ -5,6 +5,9 @@ using DamageSystem;
 
 public class LaserObject : AttackObject
 {
+    public event System.Action<GameObject> Collided;
+    public event System.Action<IDamagable> Hitted;
+
     [SerializeField] private float _warningTime = 0.7f;
     [SerializeField] private float _damageTick = 0.1f;
     [SerializeField] private float startOffset = 0.3f;
@@ -27,6 +30,9 @@ public class LaserObject : AttackObject
 
     private RaycastHit2D[] _hitsBuffer;
     private readonly HashSet<IDamagable> _processedDamagables = new HashSet<IDamagable>();
+    private Coroutine _laserCoroutine;
+    private Coroutine _fadingCoroutine;
+    private bool _laserEnabled;
 
     private void Awake()
     {
@@ -39,20 +45,52 @@ public class LaserObject : AttackObject
 
     public void CreateLaser(Transform origin, float maxDistance, LayerMask mask, float lifetime)
     {
-        _processedDamagables.Clear();
-        StartCoroutine(Laser(origin, maxDistance, mask, Mathf.Max(lifetime, 0.001f)));
+        StartLaser(origin, maxDistance, mask, Mathf.Max(lifetime, 0.001f));
     }
 
-    private IEnumerator Laser(Transform origin, float maxDistance, LayerMask mask, float lifetime)
+    public void LaserOn(Transform origin, float maxDistance, LayerMask mask)
+    {
+        StartLaser(origin, maxDistance, mask, null);
+    }
+
+    public void LaserOff()
+    {
+        if (!_laserEnabled && _laserCoroutine == null)
+            return;
+
+        _laserEnabled = false;
+
+        if (_laserCoroutine != null)
+        {
+            StopCoroutine(_laserCoroutine);
+            _laserCoroutine = null;
+        }
+
+        StartFading();
+    }
+
+    private void StartLaser(Transform origin, float maxDistance, LayerMask mask, float? lifetime)
+    {
+        StopActiveCoroutines();
+
+        _processedDamagables.Clear();
+        _laserEnabled = true;
+        _laserCoroutine = StartCoroutine(Laser(origin, maxDistance, mask, lifetime));
+    }
+
+    private IEnumerator Laser(Transform origin, float maxDistance, LayerMask mask, float? lifetime)
     {
         float time = _warningTime;
         float timer = 0f;
         _lineRenderer.colorGradient = GetFadingMonoGradient(0.9f);
 
-        while (timer < time)
+        while (_laserEnabled && timer < time)
         {
             if (origin == null)
+            {
+                StopLaserImmediately();
                 yield break;
+            }
 
             _lineRenderer.SetPositions(new Vector3[2]
             {
@@ -61,20 +99,22 @@ public class LaserObject : AttackObject
             });
 
             timer += ESTime.worldDeltaTime;
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
 
-        time = lifetime;
         timer = 0f;
         _lineRenderer.colorGradient = GetFadingMonoGradient(0f);
 
         bool impulseDone = false;
         float timerHurt = 0f;
 
-        while (timer < time)
+        while (_laserEnabled && (!lifetime.HasValue || timer < lifetime.Value))
         {
             if (origin == null)
+            {
+                StopLaserImmediately();
                 yield break;
+            }
 
             Vector2 rayOrigin = SceneStatics.FlatVector(origin.position + origin.up * startOffset);
             Vector2 rayDirection = SceneStatics.FlatVector(origin.up);
@@ -125,10 +165,12 @@ public class LaserObject : AttackObject
             timer += ESTime.worldDeltaTime;
             timerHurt -= ESTime.worldDeltaTime;
 
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
 
-        StartCoroutine(Fading());
+        _laserEnabled = false;
+        _laserCoroutine = null;
+        StartFading();
     }
 
     private void ProcessHits(RaycastHit2D[] hits, int hitCount, float maxDistance, out float beamLength)
@@ -143,6 +185,8 @@ public class LaserObject : AttackObject
 
             if (hit.collider == null)
                 continue;
+
+            Collided?.Invoke(hit.collider.gameObject);
 
             if (explosionComponent != null)
             {
@@ -163,7 +207,12 @@ public class LaserObject : AttackObject
                 continue;
 
             // Сначала всегда наносим урон этой цели.
-            InflictDamage(damagable, out bool killed);
+            bool inflicted = InflictDamage(damagable, out bool killed);
+
+            if (inflicted)
+            {
+                Hitted?.Invoke(damagable);
+            }
             // damageBody.TakeDamage(Damage);
 
             // Если пробитий больше не осталось — останавливаемся на этой цели.
@@ -192,6 +241,8 @@ public class LaserObject : AttackObject
 
             if (hit.collider == null)
                 continue;
+
+            Collided?.Invoke(hit.collider.gameObject);
 
             IDamagable damagable = hit.collider.GetComponentInParent<IDamagable>();
 
@@ -222,15 +273,53 @@ public class LaserObject : AttackObject
         float time = fadeTime;
         float timer = 0f;
 
-        while (timer < time)
+        while (timer < time && time > 0f)
         {
             _lineRenderer.colorGradient = GetFadingMonoGradient(timer / time);
 
             timer += ESTime.worldDeltaTime;
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
 
+        _fadingCoroutine = null;
         gameObject.SetActive(false);
+    }
+
+    private void StartFading()
+    {
+        if (_fadingCoroutine != null)
+            StopCoroutine(_fadingCoroutine);
+
+        _fadingCoroutine = StartCoroutine(Fading());
+    }
+
+    private void StopActiveCoroutines()
+    {
+        if (_laserCoroutine != null)
+        {
+            StopCoroutine(_laserCoroutine);
+            _laserCoroutine = null;
+        }
+
+        if (_fadingCoroutine != null)
+        {
+            StopCoroutine(_fadingCoroutine);
+            _fadingCoroutine = null;
+        }
+    }
+
+    private void StopLaserImmediately()
+    {
+        _laserEnabled = false;
+        _laserCoroutine = null;
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        _laserEnabled = false;
+        _laserCoroutine = null;
+        _fadingCoroutine = null;
     }
 
     private Gradient GetFadingMonoGradient(float time = 0f)

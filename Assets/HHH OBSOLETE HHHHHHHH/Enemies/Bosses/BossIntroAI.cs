@@ -117,7 +117,7 @@ public class BossIntroAI : MonoBehaviour
 
         Player.CanAttack = false;
         PlayerController.CanControl = false;
-        PlayerShipData.TryToggleInvulnerability(true);
+        // PlayerShipData.TryToggleInvulnerability(true);
         TimeHandler.Workable = false;
 
         // CameraController.ToggleCustomTarget(true, transform);
@@ -140,7 +140,7 @@ public class BossIntroAI : MonoBehaviour
 
         // CameraController.ToggleCustomTarget(false);
         // CameraController.ToggleCustomDumping(false);
-        PlayerShipData.TryToggleInvulnerability(false);
+        // PlayerShipData.TryToggleInvulnerability(false);
         Player.CanAttack = true;
         PlayerController.CanControl = true;
         TimeHandler.Workable = true;

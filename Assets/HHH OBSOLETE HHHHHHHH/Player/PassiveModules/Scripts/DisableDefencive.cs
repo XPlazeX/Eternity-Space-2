@@ -2,7 +2,7 @@
 {
     public override void Load()
     {
-        PlayerShipData.SetCriticalBorder(0);
-        PlayerShipData.ToggleOneShotProtection(false);
+        // PlayerShipData.SetCriticalBorder(0);
+        // PlayerShipData.ToggleOneShotProtection(false);
     }
 }

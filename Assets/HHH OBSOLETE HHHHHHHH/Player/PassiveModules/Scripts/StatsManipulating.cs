@@ -96,9 +96,9 @@ namespace StatsManipulating
         {
             switch (_statType)
             {
-                case StatName.Health:
-                    PlayerShipData.MultiplyHP(_multiplier);
-                    break;
+                // case StatName.Health:
+                //     PlayerShipData.MultiplyHP(_multiplier);
+                //     break;
 
                 // case StatName.Armor:
                 //     PlayerShipData.MultiplyARM(_multiplier);

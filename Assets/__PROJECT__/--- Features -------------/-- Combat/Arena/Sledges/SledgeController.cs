@@ -16,6 +16,7 @@ public class SledgeController : MonoBehaviour
     [SerializeField] private float rotationDrag = 1f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float maxRotationSpeed = 50f;
+    [SerializeField] private float notFullEnginePowerMultiplier = 0.4f;
     [Header("Visual")]
     [SerializeField] private GameObject sledgeCanvas;
     [SerializeField] private GameObject sledgeNavigator;
@@ -68,6 +69,19 @@ public class SledgeController : MonoBehaviour
 
     void Update()
     {
+        if (sledgeDirector.AutoDeployPlayer && CanDeployPlayer)
+        {
+            if (sledgeDirector.TryDeployPlayer())
+            {
+                _pendingRotationInput = 0f;
+                _pendingThrustInput = 0f;
+                _pendingBreakingInput = false;
+                sledgeCanvas.SetActive(false);
+                sledgeNavigator.SetActive(false);
+                return;
+            }
+        }
+
         if (PlayerInput.NextReleased && CanDeployPlayer)
         {
             StopRotation();
@@ -142,46 +156,46 @@ public class SledgeController : MonoBehaviour
 
     private void ApplyThrust(float input)
     {
-        if (input == 0f || sledgeBody.EngineAvailable == false)
+        if (input == 0f || !sledgeBody.EngineAvailiable)
             return;
 
         bool forward = input > 0f;
-        if (forward && sledgeBody.ForwardThrustersAvailable == false)
-            return;
+        // if (forward && sledgeBody.ForwardThrustersAvailable == false)
+        //     return;
 
-        if (!forward && sledgeBody.BackingThrustersAvailable == false)
-            return;
+        // if (!forward && sledgeBody.BackingThrustersAvailable == false)
+        //     return;
 
         Vector2 direction = forward ? transform.up : -transform.up;
         float speedInDirection = Vector2.Dot(_velocity, direction);
         if (speedInDirection >= maxSpeed)
             return;
 
+        bool isFullPower = sledgeBody.FullEnginePowerAvailiable;
+
         float thrust = forward ? forwardThrust : backingThrust;
+        if (!isFullPower) thrust *= notFullEnginePowerMultiplier;
         _velocity += direction * thrust * ESTime.worldFixedDeltaTime;
     }
 
     private void ApplyBreaking()
     {
-        if (breakingThrust <= 0f || sledgeBody.EngineAvailable == false)
-            return;
-
-        if (sledgeBody.ForwardThrustersAvailable == false || sledgeBody.BackingThrustersAvailable == false)
+        if (breakingThrust <= 0f || !sledgeBody.EngineAvailiable)
             return;
 
         _velocity = Vector2.MoveTowards(
             _velocity,
             Vector2.zero,
-            breakingThrust * ESTime.worldFixedDeltaTime
+            breakingThrust * ESTime.worldFixedDeltaTime * (sledgeBody.FullEnginePowerAvailiable ? 1f : notFullEnginePowerMultiplier)
         );
     }
 
     private void ApplyRotation(float input)
     {
-        if (input == 0f || sledgeBody.EngineAvailable == false)
+        if (input == 0f || !sledgeBody.EngineAvailiable)
             return;
 
-        _angularVelocity += -input * rotationSpeed;
+        _angularVelocity += -input * (rotationSpeed * (sledgeBody.FullEnginePowerAvailiable ? 1f : notFullEnginePowerMultiplier));
     }
 
     private void StabilizeMovement()

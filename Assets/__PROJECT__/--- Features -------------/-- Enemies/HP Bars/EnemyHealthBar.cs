@@ -24,7 +24,7 @@ public class EnemyHealthBar : PooledObject
 
         if (_parent.GetComponent<_Invisible>() != null)
         {
-            _parent.GetComponent<DamageBody>().DamageTaking -= SetHP;
+            _parent.GetComponent<DamageBody>().HealthChanged -= SetHP;
             _parent.GetComponent<DamageBody>().HealthModified -= OnHealthModified;
             gameObject.SetActive(false);
             return;
@@ -36,6 +36,7 @@ public class EnemyHealthBar : PooledObject
             _offsetY = 2.6f;
             
         transform.parent = null;
+        _spriteRenderer.color = Color.clear;
     }
 
     protected override void ResetState()

@@ -9,6 +9,12 @@ public class FGBWeaponMonitor : MonoBehaviour
         public GearSlot gear;
         public RectTransform rect;
         public RectTransform deviceIcon;
+        public CanvasGroup shipHUDgroup;
+
+        [NonSerialized] public float hudStartAlpha;
+        [NonSerialized] public float hudTargetAlpha;
+        [NonSerialized] public float hudTransitionTime;
+        [NonSerialized] public bool hudTransitioning;
     }
 
     [Header("Gearbox")]
@@ -21,6 +27,14 @@ public class FGBWeaponMonitor : MonoBehaviour
     [SerializeField] private RectTransform visiblePivot;
     [SerializeField] private RectTransform hiddenPivot;
     [SerializeField, Min(0f)] private float deviceAnimationSpeed = 10f;
+
+    [Header("Weapon HUD")]
+    [SerializeField, Min(0f)] private float hudShowDuration = 0.25f;
+    [SerializeField, Min(0f)] private float hudHideDuration = 0.2f;
+    [SerializeField] private AnimationCurve hudShowCurve =
+        AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+    [SerializeField] private AnimationCurve hudHideCurve =
+        AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
 
     [Header("Movement")]
     [Tooltip("Ход полотна от центра до крайней передачи в пикселях.")]
@@ -55,12 +69,24 @@ public class FGBWeaponMonitor : MonoBehaviour
         _gearRestScales = new Vector3[gearIcons != null ? gearIcons.Length : 0];
         for (int i = 0; i < _gearRestScales.Length; i++)
         {
-            if (gearIcons[i] != null && gearIcons[i].rect != null)
+            GearIcon icon = gearIcons[i];
+            if (icon == null)
+                continue;
+
+            if (icon.rect != null)
             {
-                _gearRestScales[i] = gearIcons[i].rect.localScale;
-                gearIcons[i].deviceIcon.gameObject.SetActive(true);
+                _gearRestScales[i] = icon.rect.localScale;
+
+                if (icon.deviceIcon != null)
+                    icon.deviceIcon.gameObject.SetActive(true);
             }
-                
+
+            if (icon.shipHUDgroup != null)
+            {
+                icon.shipHUDgroup.alpha = 0f;
+                icon.hudStartAlpha = 0f;
+                icon.hudTargetAlpha = 0f;
+            }
         }
 
         SetDevicePositionsImmediately();
@@ -149,6 +175,64 @@ public class FGBWeaponMonitor : MonoBehaviour
                     deviceBlend
                 );
             }
+
+            UpdateWeaponHUD(icon, selectedGear);
+        }
+    }
+
+    private void UpdateWeaponHUD(GearIcon icon, GearSlot selectedGear)
+    {
+        CanvasGroup group = icon.shipHUDgroup;
+        if (group == null)
+            return;
+
+        bool shouldBeVisible =
+            selectedGear != GearSlot.Neutral &&
+            icon.gear == selectedGear;
+        float targetAlpha = shouldBeVisible ? 1f : 0f;
+
+        if (!Mathf.Approximately(icon.hudTargetAlpha, targetAlpha))
+        {
+            icon.hudStartAlpha = group.alpha;
+            icon.hudTargetAlpha = targetAlpha;
+            icon.hudTransitionTime = 0f;
+            icon.hudTransitioning = true;
+        }
+
+        if (!icon.hudTransitioning)
+            return;
+
+        float duration = targetAlpha > icon.hudStartAlpha
+            ? hudShowDuration
+            : hudHideDuration;
+
+        if (duration <= 0f)
+        {
+            group.alpha = targetAlpha;
+            icon.hudTransitioning = false;
+            return;
+        }
+
+        icon.hudTransitionTime += ESTime.unscaledDeltaTime;
+        float normalizedTime = Mathf.Clamp01(icon.hudTransitionTime / duration);
+        bool showing = targetAlpha > icon.hudStartAlpha;
+        AnimationCurve curve = showing ? hudShowCurve : hudHideCurve;
+
+        if (showing)
+        {
+            float progress = curve != null ? curve.Evaluate(normalizedTime) : normalizedTime;
+            group.alpha = Mathf.LerpUnclamped(icon.hudStartAlpha, 1f, progress);
+        }
+        else
+        {
+            float opacity = curve != null ? curve.Evaluate(normalizedTime) : 1f - normalizedTime;
+            group.alpha = Mathf.LerpUnclamped(0f, icon.hudStartAlpha, opacity);
+        }
+
+        if (normalizedTime >= 1f)
+        {
+            group.alpha = targetAlpha;
+            icon.hudTransitioning = false;
         }
     }
 

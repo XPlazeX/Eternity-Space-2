@@ -18,20 +18,20 @@ public class CriticalStateStat : Module
 
     public void CheckConditions(int v)
     {
-        if (PlayerShipData.CriticalState && !_enforced)
-        {
-            for (int i = 0; i < _statsOperators.Length; i++)
-            {
-                _statsOperators[i].Enforce();
-            }
-            _enforced = true;
-        } else if (!PlayerShipData.CriticalState && _enforced)
-        {
-            for (int i = 0; i < _statsOperators.Length; i++)
-            {
-                _statsOperators[i].Negative();
-            }
-            _enforced = false;
-        }
+        // if (PlayerShipData.CriticalState && !_enforced)
+        // {
+        //     for (int i = 0; i < _statsOperators.Length; i++)
+        //     {
+        //         _statsOperators[i].Enforce();
+        //     }
+        //     _enforced = true;
+        // } else if (!PlayerShipData.CriticalState && _enforced)
+        // {
+        //     for (int i = 0; i < _statsOperators.Length; i++)
+        //     {
+        //         _statsOperators[i].Negative();
+        //     }
+        //     _enforced = false;
+        // }
     }
 }

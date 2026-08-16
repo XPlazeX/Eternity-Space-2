@@ -57,6 +57,7 @@ MonoBehaviour:
     ignoreOneShotProtection: 0
     regeneratingValue: 0
     cycles: 1
+    damageTag: 0
   _warningTime: 0
   _damageTick: 0.045
   startOffset: 0.1
@@ -189,9 +190,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionCode: 0
+  _explodeOnEveryHit: 0
+  _explosionObject: {fileID: 5075635723808820931, guid: 03c66066cd48c38468e3e2c6d46f4a9f, type: 3}
   _mute: 0
   _modParams: 1
   _color: {r: 1, g: 0, b: 0.0094127655, a: 1}
   _scale: 1
   _shakePower: 0
-  _damage: 0
+  _modDamage: 0
+  _damageBundle:
+    damageKey: 2
+    damageValue: 0
+    shieldDamageMultiplier: 1
+    asteroidDamageMultiplier: 1
+    armorPenetration: 0
+    stunAmount: 0
+    structuralDamage: 0
+    ignoreOneShotProtection: 0
+    regeneratingValue: 0
+    cycles: 1
+    damageTag: 0

@@ -37,7 +37,7 @@ public class StaticBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         IDamagable idamagable = other.GetComponent<IDamagable>();
 
-        if (idamagable == null || (idamagable.KeyDamage == DamageKey.Player && (_hoverable && PlayerShipData.Hover)))
+        if (idamagable == null || (idamagable.KeyDamage == DamageKey.Player))
             return;
 
         Collided?.Invoke(other.gameObject);

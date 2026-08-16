@@ -1,10 +1,14 @@
 using UnityEngine;
 
-public class BaseImpactReceiver : MonoBehaviour, IImpactReceiver
+public class BaseImpactReceiver : MonoBehaviour, IImpactReceiver, IRuntimeImapctResistorsHandler
 {
     [SerializeField] private ImpactResistor[] resistors;
 
     private RuntimeImpactResistor[] _runtimeResistors;
+    private bool _toleranted = false;
+
+    public RuntimeImpactResistor[] Resistors {get {return _runtimeResistors;}}
+    public bool Toleranted {get {return _toleranted;}}
 
     public void Awake()
     {
@@ -13,6 +17,11 @@ public class BaseImpactReceiver : MonoBehaviour, IImpactReceiver
         {
             _runtimeResistors[i] = resistors[i].CreateRuntimeResistor();
         }
+    }
+
+    public void SetToleranted(bool toleranted)
+    {
+        _toleranted = toleranted;
     }
 
     public float GetResistance01(int index)
@@ -25,6 +34,8 @@ public class BaseImpactReceiver : MonoBehaviour, IImpactReceiver
 
     public ImpactResult ReceiveImpact(in ImpactContext context)
     {
+        if (_toleranted) return new ImpactResult();
+
         ImpactResult result = new ImpactResult();
         result.Reactions = new System.Collections.Generic.List<ImpactResult.ImpactReaction>();
 

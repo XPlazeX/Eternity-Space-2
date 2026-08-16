@@ -6,6 +6,11 @@ public class SelfDestruct : MonoBehaviour
 
     private float _timer = 0;
 
+    public void SetTimer(float t)
+    {
+        _lifetime = t;
+    }
+
     private void FixedUpdate() {
         _timer += ESTime.worldDeltaTime;
 

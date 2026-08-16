@@ -49,7 +49,7 @@ public class SceneTransition : MonoBehaviour
             //SceneLoaded();
         }
         Debug.Log("!!!---Сцена загружена---!!!");
-        GameObject.FindWithTag("SceneTransitionScreen").GetComponent<LoadingCaller>().OpenMask();
+        // GameObject.FindWithTag("SceneTransitionScreen").GetComponent<LoadingCaller>().OpenMask();
         SceneOpened?.Invoke();
         // TimeHandler.Resume(1f);
         SceneReady = true;
@@ -82,7 +82,7 @@ public class SceneTransition : MonoBehaviour
         // TimeHandler.Resume(1f);
         if (SceneManager.GetActiveScene().name == "Game")
         {
-            PlayerShipData.DeactivateAllBindedSystems();
+            // PlayerShipData.DeactivateAllBindedSystems();
         }
         
         Animator transitionAnimator = GameObject.FindWithTag("SceneTransitionScreen").GetComponent<Animator>();

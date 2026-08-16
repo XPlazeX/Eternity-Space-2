@@ -32,7 +32,7 @@ public class AsteroidBody : DamageBody
     {
         _lifeTimer = _lifetime * ((Mathf.Abs(ArenaLocal.WNegY) + ArenaLocal.WPosY + ArenaLocal.Height) / ArenaLocal.Height);
         _selectedSpeed = Random.Range(_minMaxSpeed.x, _minMaxSpeed.y);
-        HitPoints = _startHP;
+        HitPoints = _maxHP;
         _direction = transform.up;
     }
 

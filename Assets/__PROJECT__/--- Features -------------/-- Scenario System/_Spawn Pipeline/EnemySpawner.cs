@@ -140,7 +140,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         hpBar.transform.position = targetBody.transform.position + offsetBar;
-        targetBody.DamageTaking += hpBar.SetHP;
+        targetBody.HealthChanged += hpBar.SetHP;
         targetBody.HealthModified += hpBar.OnHealthModified;
 
         hpBar.Initialize(targetBody.HitPoints, elite);

@@ -10,7 +10,7 @@ public class StartHealthTaker : MonoBehaviour
         print("started");
         if (_takingValue > 0)
         {
-            PlayerShipData.ConsumeHP(_takingValue);
+            // PlayerShipData.ConsumeHP(_takingValue);
             print("consumed");
         }
 

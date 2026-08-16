@@ -64,19 +64,25 @@ public class AttackPattern : Gear
     private float _prepareTimer = 0f;
 
     public float Spread => _spread + RR.Get(RuntimeStat.MainWeaponFlatSpread);
-    public float PrepareNormalized => Mathf.Clamp01(1f - (_prepareTimer / prepareTime));
+    public float CurrentPrepare => _prepareTimer;
+    public float PrepareNormalized => prepareTime <= 0 ? (Active && PlayerInput.MainFirePressed ? 1f : 0f) : Mathf.Clamp01(1f - (_prepareTimer / prepareTime));
     public float CurrentEnergy => _currentEnergy;
     public float EnergyNormalized => Mathf.Clamp01(_currentEnergy / _energyBank);
+    public float CurrentCooldown => _fireReloading;
+    public float CooldownNormalized => Mathf.Clamp01(_fireReloading / FireReload);
+    protected float EnergyPerFire => _energyPerFire;
 
     public float FireReload
     {
         get { return _firerate; }
         set { _firerate = value; }
     }
+    public bool Firing {get; private set;} = false;
 
     public bool Workable => _bindedWR == null ? false : _bindedWR.CanAttack;
     public bool Active => MainWeaponHandler.ActiveWeaponID == ID;
-    public bool Ready => _prepareTimer <= 0;
+    public bool Ready => prepareTime > 0f ? _prepareTimer <= 0 : true;
+    protected bool LocalLock {get; set;} = false;
 
     public override void Load()
     {
@@ -97,18 +103,25 @@ public class AttackPattern : Gear
 
         _fireReloading -= ESTime.worldDeltaTime;
 
-        if (PlayerInput.MainFirePressed)
+        if (PlayerInput.MainFirePressed && !LocalLock)
         {
             _prepareTimer -= ESTime.worldDeltaTime * RR.Get(RuntimeStat.MainWeaponPrepareTimeMultiplier);
             if (_prepareTimer <= 0f && !_prepared)
             {
-                Prepared?.Invoke();
+                if (prepareTime > 0);
+                    Prepared?.Invoke();
                 _prepared = true;
             }
         } else
         {
             _prepareTimer = prepareTime;
             _prepared = false;
+            if (Firing)
+            {
+                Firing = false;
+                StopFiring();
+            }
+            return;
         } 
         
         if (!Ready || !Active)
@@ -116,11 +129,26 @@ public class AttackPattern : Gear
 
         if (_fireReloading <= 0 && _currentEnergy >= _energyPerFire)
         {
+            if (!Firing)
+            {
+                Firing = true;
+                StartFiring();
+            }
             Fire();
             float fr = RR.Get(RuntimeStat.MainWeaponFirerateRandomizing);
             _fireReloading = FireReload * (1f / RR.Get(RuntimeStat.MainWeaponFirerateMultiplier)) * Random.Range(1f / fr, 1f * fr);
             _currentEnergy -= _energyPerFire;
         }
+    }
+
+    public virtual void StartFiring()
+    {
+        
+    }
+
+    public virtual void StopFiring()
+    {
+        
     }
 
     public virtual void Fire()
@@ -129,24 +157,30 @@ public class AttackPattern : Gear
         SoundPlayer.PlaySound(_soundWork, _volume, Random.Range(_startPitch - _pitchSpread, _startPitch + _pitchSpread));
     }
 
-    protected void SpawnBullet(Vector3 position, float startRotation)
+    protected AttackObject SpawnBullet(Vector3 position, float startRotation)
     {
         AttackObject bulletSample = Pool.Spawn(_bulletSample);//CharacterBulletDatabase.GetAttackObject(_bulletIndex);
 
         bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
         bulletSample.transform.position = position;
 
-        ((Bullet)bulletSample).MultiplySpeedParams(1f + Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed), PlayerController.FixedDeltaPosition);
+        if (bulletSample is Bullet)
+            ((Bullet)bulletSample).MultiplySpeedParams(1f + Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed), PlayerController.FixedDeltaPosition);
+
+        return bulletSample;
     }
 
-    protected void SpawnBullet(AttackObject customSample, Vector3 position, float startRotation)
+    protected AttackObject SpawnBullet(AttackObject customSample, Vector3 position, float startRotation)
     {
         AttackObject bulletSample = Pool.Spawn(customSample);//CharacterBulletDatabase.GetAttackObject(_bulletIndex);
 
         bulletSample.transform.rotation = Quaternion.Euler(0, 0, ShipStats.GetValue("NoSpread") == 1 ? 0 : (startRotation + (Random.Range(-Spread, Spread) * ShipStats.GetValue("SpreadMultiplier"))));
         bulletSample.transform.position = position;
 
-        ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)), PlayerController.FixedDeltaPosition);
+        if (bulletSample is Bullet)
+            ((Bullet)bulletSample).MultiplySpeedParams(1f + (Random.Range(-_spreadBulletSpeed, _spreadBulletSpeed)), PlayerController.FixedDeltaPosition);
+
+        return bulletSample;
     }
 
     protected void MuzzleFlash(Vector3 position)
@@ -156,7 +190,7 @@ public class AttackPattern : Gear
 
     public AttackObject SpawnBullet()
     {
-        return CharacterBulletDatabase.GetAttackObject(_bulletIndex);
+        return Pool.Spawn(_bulletSample);
     }
 }
 
@@ -200,6 +234,11 @@ public class Device : Gear
     }
 
     public virtual float GetChargeNormalized()
+    {
+        return 0f;
+    }
+
+    public virtual float GetChargeRaw()
     {
         return 0f;
     }

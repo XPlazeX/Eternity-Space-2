@@ -6,23 +6,54 @@ public class PlayerShipData : MonoBehaviour
     public delegate void playerAction();
 
     public static event playerAction PlayerDeathed;
+
     public static event playerAction ShieldCreated;
-    public static event playerAction DamageBufferGetted;
     public static event playerAction ShieldBreaked;
-    public static event System.Action AnyDamageTaked;
-    public static event System.Action<bool> CriticalStateChanged;
+    public static event playerAction DamageBufferGetted;
+    public static event playerAction DamageBufferLosed;
+
+    public static event playerAction AnyHurtTaked;
     public static event healthOperation StructuralDamageChanged;
     public static event healthOperation ShieldDamageTaked;
     public static event healthOperation HealthDamageTaked;
-    public static event playerAction DamageBuffer1Losed;
     public static event healthOperation Regenerated;
 
     public static event healthOperation HealthChanged;
-    // public static event healthOperation ArmorChanged;
-    /// <summary>
-    /// Не затрагивает неуязвимость после получения урона.
-    /// </summary>
     public static event System.Action<bool> UnvulnerabilityToggled;
+
+    public static event playerAction SystemsExposed; // 200
+    public static event playerAction CoreExposed; // 100
+    public static event playerAction LastHPExposed; // 1
+    public static event playerAction Stunned;
+
+    public static event playerAction CoreSealed; // 100
+    public static event playerAction SystemsSealed; // 200
+    public static event playerAction ShellSealed; // 300
+
+    public const int MAX_HITPOINTS = 300;
+    public const int SHELL_BORDER = 200;
+    public const int CORE_BORDER = 100;
+    public const float STUN_AMOUNT = 100f;
+    public const float UNVULNERABLE_TIME_BETWEEN_LAYERS = 0.5f;
+    public const int STRUCTURE_REGENERATION_AMOINT = 5;
+
+    private static int _hitPoints;
+    private static int _shieldPoints;
+    private static int _maxGettedShieldPoints;
+    private static int _damageBuffers;
+    private static int _structuralDamage;
+    
+    private static int _flatArmor;
+    private static float _damageReduction;
+    private static ShieldComponent _shield;
+    private static DamageBufferComponent _damageBuffer;
+
+    private static float _lastHurtTimeStamp;
+    private static int _unvulnerabilityRequests = 0;
+    private static bool _isLastChanceReady = false;
+    private static bool _isCoreSealed = false;
+    private static bool _isSystemsSealed = false;
+    private static bool _isShellSealed = false;
 
     public static int HitPoints 
     {
@@ -30,9 +61,7 @@ public class PlayerShipData : MonoBehaviour
         
         private set 
         {
-            _hitPoints = value;
-            CheckState();
-            // _playerUI.ChangeHP(_hitPoints, (float)_hitPoints / _hpCap);
+            _hitPoints = Mathf.Clamp(value, 0, MAX_HITPOINTS);
             HealthChanged?.Invoke(value);
         }
     }
@@ -42,7 +71,7 @@ public class PlayerShipData : MonoBehaviour
         
         private set 
         {
-            _structuralDamage = value;
+            _structuralDamage = Mathf.Clamp(value, 0, MaxStructuralDamage);
             StructuralDamageChanged?.Invoke(value);
         }
     }
@@ -69,11 +98,14 @@ public class PlayerShipData : MonoBehaviour
         get {return _shieldPoints;}
         set {
             if (value == 0 && _shieldPoints > 0)
+            {
                 BreakShield();
-            else
-                _shield.UpdateSP(ShieldPoints);
+                _shieldPoints = 0;
+                return;
+            }
 
-            _shieldPoints = value;
+            _shieldPoints = Mathf.Clamp(value, 0, _maxGettedShieldPoints);
+            _shield?.UpdateSP(ShieldPoints);
         }
     }
     public static int DamageBuffers
@@ -85,117 +117,57 @@ public class PlayerShipData : MonoBehaviour
             else
                 _damageBuffer.UpdateDB();
 
-            _damageBuffers = value;
+            _damageBuffers = Mathf.Clamp(value, 0, MaxDamageBuffers);
         }
     }
 
-    public static bool Unvulnerable {get; private set;} = false;
-    public static bool Hover {get; set;} = false; // невосприимчивость к контактному урону и невозможность таранов
-    public static bool Active {get; private set;} = false;
-    public static bool CriticalState {get; private set;} = false;
-    public static int CriticalStateBorder => _criticalStateBorder;
-    public static int MaxHP => _hpCap;
-    public static bool OneShotProtection {get; private set;} = true;
-    public static float GameTimerBuffer {get; private set;} = 0f;
-
-    private static int _hitPoints;
-    private static int _criticalStateBorder = 15;
-    private static int _shieldPoints;
-    private static int _structuralDamage;
-    private static int _damageBuffers;
-    private static int _hpCap;
-    private static float _unvulnerableTimeAfterDamage = 0.1f;
-    private static int _flatArmor;
-    private static float _damageReduction;
-    // private static PlayerUI _playerUI;
-    private static ShieldComponent _shield;
-    private static DamageBufferComponent _damageBuffer;
+    public static bool Unvulnerable => ESTime.worldTime - _lastHurtTimeStamp < UNVULNERABLE_TIME_BETWEEN_LAYERS * RR.Get(RuntimeStat.UnvulnerableTimeAfterDamageMultiplier) || _unvulnerabilityRequests > 0;
+    public static bool Alive {get; private set;} = false;
+    public static int MaxStructuralDamage => MAX_HITPOINTS - SHELL_BORDER;
+    public static int CurrentMaxHitPoints => MAX_HITPOINTS - StructuralDamage;
+    public static bool HasShield => _shield != null && ShieldPoints > 0;
+    public static int CurrentMaxShieldPoints => _shield != null ? _maxGettedShieldPoints : 0;
+    public static int MaxDamageBuffers => 1;
+    public static bool IsShellSealed => _isShellSealed;
+    public static bool IsSystemsSealed => _isSystemsSealed;
+    public static bool IsCoreSealed => _isCoreSealed;
+    public static bool IsFullHP => HitPoints >= MAX_HITPOINTS;
 
     public void Initialize(int hp, int arm, int shipID)
     {
-        // _playerUI = SceneStatics.UICore.GetComponent<PlayerUI>();
-        // _playerUI.ToggleShield(false);
-
-        Unvulnerable = false;
-        Active = true;
-        Hover = false;
-        _criticalStateBorder = 15;
-        OneShotProtection = true;
-        GameTimerBuffer = 0f;
-
-        _hpCap = Mathf.Max(1, hp);
-        _flatArmor = Mathf.Max(0, arm);
+        _flatArmor = 0;
         _damageReduction = 0f;
         _shieldPoints = 0;
         _damageBuffers = 0;
         _structuralDamage = 0;
 
-        SetHitPoints(_hpCap);
+        _isCoreSealed = true;
+        _isSystemsSealed = true;
+        _isShellSealed = true;
+        _isLastChanceReady = true;
 
-        // _playerUI.MaxHP = _hpCap;
+        Alive = true;
 
-        // Legacy save writing is disabled for the PC rebuild.
-        // VictoryHandler.LevelVictored += WriteSaveData;
+        SetHitPoints(MAX_HITPOINTS);
     }
-    private void OnDisable() {
-        // VictoryHandler.LevelVictored -= WriteSaveData;
-    }
-
-    // private void CheckOtherShip(int startHP, int startArm, int shipID)
-    // {
-    //     // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-
-    //     // if (save.SessionInitialized && save.ShipModel != shipID)
-    //     // {
-    //     //     _hpCap = startHP;
-    //     //     HitPoints = _hpCap;
-    //     //     WriteSaveData();
-    //     //     return;
-    //     // }
-
-    //     // if (save.SessionInitialized)
-    //     // {
-    //     //     _hpCap = save.MaxHealth;
-    //     //     HitPoints = save.HealthPoints;
-    //     // } 
-    //     // else 
-    //     // {
-    //     //     HitPoints = _hpCap;
-    //     //     WriteSaveData();
-    //     // }
-    // }
-
-    // public static void LoadHealth()
-    // {
-    //     // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-    //     // HitPoints = save.HealthPoints;
-    // }
 
     public static bool TakeDamage(DamageBundle damageBundle, out bool killed)
     {
         killed = false;
 
-        if (Unvulnerable || !Player.Alive || !damageBundle.Legitime || (damageBundle.damageKey != DamageKey.Player && damageBundle.damageKey != DamageKey.Everything))
+        if (Unvulnerable || !Alive || !damageBundle.Legitime || (damageBundle.damageKey != DamageKey.Player && damageBundle.damageKey != DamageKey.Everything))
             return false;
-
-        if (SceneStatics.GameTimer - GameTimerBuffer < _unvulnerableTimeAfterDamage * RR.Get(RuntimeStat.UnvulnerableTimeAfterDamageMultiplier))
-        {
-            return false;
-        }
-        GameTimerBuffer = SceneStatics.GameTimer;
 
         for (int i = 0; i < damageBundle.cycles; i++)      
         {
-            if (!Active) break;
-
-            AnyDamageTaked?.Invoke();
+            AnyHurtTaked?.Invoke();
 
             if (damageBundle.damageValue > 0)
             {
                 if (DamageBuffers > 0)
                 {
                     DamageBuffers --;
-                    DamageBuffer1Losed?.Invoke();
+                    DamageBufferLosed?.Invoke();
                     continue;
                 }
 
@@ -208,6 +180,7 @@ public class PlayerShipData : MonoBehaviour
                     if (tempDmg >= 0)
                     {
                         ShieldPoints = 0;
+                        ShieldDamageTaked?.Invoke(tempDmg);
                         continue;
                     } else
                     {
@@ -217,36 +190,64 @@ public class PlayerShipData : MonoBehaviour
                     }
                 }
 
-                tempDmg = Mathf.CeilToInt(tempDmg - Mathf.Max(0, FlatArmor - damageBundle.armorPenetration) * Mathf.Max(0f, 1f - DamageReduction)) + StructuralDamage;
+                tempDmg = Mathf.CeilToInt((tempDmg - Mathf.Max(0, FlatArmor - damageBundle.armorPenetration)) * Mathf.Max(0f, 1f - DamageReduction));
 
                 if (tempDmg <= 0)
                 {
                     tempDmg = 1;
                 }
 
-                // _playerUI.PlayTakingDamage(tempDmg, FlatArmor);
+                int targetHP = HitPoints - tempDmg;
 
-                // ONE SHOT PROTECTION
-                if (OneShotProtection && !damageBundle.ignoreOneShotProtection && HitPoints > CriticalStateBorder && tempDmg > (HitPoints - CriticalStateBorder))
+                if (_isShellSealed && targetHP <= MAX_HITPOINTS)
                 {
-                    ParryingHandler.ConstParry();
-                    HealthDamageTaked?.Invoke(HitPoints - CriticalStateBorder);
-                    SetHitPoints(CriticalStateBorder);
+                    _isShellSealed = false;
                 }
-                // -------------------
-                else
+
+                if (_isSystemsSealed && targetHP <= SHELL_BORDER) // 
                 {
-                    HealthDamageTaked?.Invoke(tempDmg);
-                    SetHitPoints(HitPoints - tempDmg);
+                    _isSystemsSealed = false;
+                    if (HitPoints > SHELL_BORDER)
+                        targetHP = SHELL_BORDER;
+
+                    _lastHurtTimeStamp = ESTime.worldTime;
+
+                    SystemsExposed?.Invoke();
                 }
+                else if (_isCoreSealed && targetHP <= CORE_BORDER) // 
+                {
+                    _isCoreSealed = false;
+                    if (HitPoints > CORE_BORDER)
+                        targetHP = CORE_BORDER;
+
+                    _lastHurtTimeStamp = ESTime.worldTime;
+
+                    CoreExposed?.Invoke();
+                }
+                else if (_isLastChanceReady && targetHP <= 1) // 
+                {
+                    _isLastChanceReady = false;
+                    targetHP = 1;
+
+                    _lastHurtTimeStamp = ESTime.worldTime;
+
+                    LastHPExposed?.Invoke();
+                } else if (!_isLastChanceReady && targetHP <= 0)
+                {
+                    killed = true;
+                }
+                
+                SetHitPoints(targetHP);
+                HealthDamageTaked?.Invoke(tempDmg);
+                
             }
 
             StructuralDamage += damageBundle.structuralDamage;
 
-            // if (damageBundle.stunAmount > 0f)
-            // {
-            //     TakeStun(damageBundle.stunAmount);
-            // }
+            if (damageBundle.stunAmount > STUN_AMOUNT)
+            {
+                Stunned?.Invoke();
+            }
 
             if (damageBundle.regeneratingValue > 0)
             {
@@ -254,33 +255,16 @@ public class PlayerShipData : MonoBehaviour
             }
         }
 
-        CheckState();
+        // CheckState();
         return true;
-    }
-
-    public static void SetCriticalBorder(int newValue)
-    {
-        _criticalStateBorder = newValue;
-        SetHitPoints(HitPoints);
-    }
-
-    public static void ToggleOneShotProtection(bool tog)
-    {
-        OneShotProtection = tog;
     }
 
     private static void SetHitPoints(int newValue)
     {
-        if (!Active)
+        if (!Alive)
             return;
-            
-        if (newValue > _hpCap)
-            newValue = _hpCap;
 
-        else if (newValue < 0)
-            newValue = 0;
-
-        HitPoints = newValue;
+        HitPoints = Mathf.Clamp(newValue, 0, MAX_HITPOINTS);
 
         if (HitPoints <= 0)
         {
@@ -290,29 +274,48 @@ public class PlayerShipData : MonoBehaviour
 
     public static void RegenerateHP(int addingValue)
     {
-        // if (_playerUI != null)
-        //     _playerUI.PlayRecuperation();
-
-        SetHitPoints(HitPoints + addingValue);
-        Regenerated?.Invoke(addingValue);
-    }
-
-    public static void RepairStructureDamage(int amount)
-    {
-        if (amount <= 0)
+        if (addingValue <= 0 || !Alive)
             return;
-        StructuralDamage = Mathf.Max(StructuralDamage - amount, 0);
-        CheckState();
-    }
 
-    public static void ConsumeHP(int takingValue)
-    {
-        SetHitPoints(HitPoints - takingValue);
+        int targetHP = HitPoints + addingValue;
+
+        if (!_isLastChanceReady)
+        {
+            _isLastChanceReady = true;
+        }
+        if (!_isCoreSealed && targetHP >= CORE_BORDER)
+        {
+            _isCoreSealed = true;
+            targetHP = CORE_BORDER;
+            CoreSealed?.Invoke();
+        }
+        else if (!_isSystemsSealed && targetHP >= SHELL_BORDER)
+        {
+            _isSystemsSealed = true;
+            targetHP = SHELL_BORDER;
+            SystemsSealed?.Invoke();
+        }
+        else if (!_isShellSealed && targetHP >= CurrentMaxHitPoints)
+        {
+            targetHP = CurrentMaxHitPoints;
+
+            if (targetHP >= MAX_HITPOINTS)
+            {
+                _isShellSealed = true;
+                ShellSealed?.Invoke();
+            } else
+            {
+                StructuralDamage -= STRUCTURE_REGENERATION_AMOINT;
+            }
+        }
+
+        SetHitPoints(targetHP);
+        Regenerated?.Invoke(addingValue);
     }
 
     public static void GetShield(int shieldPoints)
     {
-        if (!Active)
+        if (!Alive)
             return;
 
         if (_shield != null)
@@ -324,25 +327,24 @@ public class PlayerShipData : MonoBehaviour
         }
         
         _shield = ShieldDistributor.SpawnShield(Player.PlayerTransform, shieldPoints);
+        _maxGettedShieldPoints = shieldPoints;
         ShieldPoints = shieldPoints;
         ShieldCreated?.Invoke();
-
-        // _playerUI.ToggleShield(true);
-        // _playerUI.SetShieldPoints(ShieldPoints);
     }
 
     private static void BreakShield()
     {
         if (_shield != null)
             _shield.BreakShield();
+
         _shield = null;
+        _maxGettedShieldPoints = 0;
         ShieldBreaked?.Invoke();
-        // _playerUI.ToggleShield(false);
     }
 
     public static void AddDamageBuffer(int db)
     {
-        if (!Active)
+        if (!Alive)
             return;
 
         if (db == 0)
@@ -367,77 +369,31 @@ public class PlayerShipData : MonoBehaviour
         _damageBuffer = null;
     }
 
-    private static void CheckState()
+    public static void RequestUnvulnerability()
     {
-        if ((HitPoints - StructuralDamage <= _criticalStateBorder) && !CriticalState)
+        _unvulnerabilityRequests++;
+        UnvulnerabilityToggled?.Invoke(true);
+    }
+
+    public static void ReleaseUnvulnerability()
+    {
+        if (_unvulnerabilityRequests <= 0)
+            return;
+
+        _unvulnerabilityRequests--;
+        if (_unvulnerabilityRequests < 0)
         {
-            TimeHandler.CriticalState = true;
-            CriticalState = true;
-            CriticalStateChanged?.Invoke(true);
-            // _playerUI.SetCriticalState(true);
-
-            if (!OneShotProtection || !ParryingHandler.Initialized)
-                return;
-
-            ParringObject exp = ParryingHandler.GetParringObject(1);
-            exp.transform.position = Player.PlayerTransform.position;
+            UnvulnerabilityToggled?.Invoke(false);
         }
-        else if ((HitPoints - StructuralDamage >= _criticalStateBorder) && CriticalState)
-        {
-            TimeHandler.CriticalState = false;
-            CriticalState = false;
-            CriticalStateChanged?.Invoke(false);
-            // _playerUI.SetCriticalState(false);
-        }
-    }
-
-    public static void MultiplyHP(float multiplier)
-    {
-        print($"multipliying HP ({multiplier}) from {_hpCap} to {Mathf.CeilToInt(_hpCap * multiplier)}");
-        _hpCap = Mathf.CeilToInt(_hpCap * multiplier);
-        HitPoints = Mathf.CeilToInt(HitPoints * multiplier);
-
-        // _playerUI.MaxHP = _hpCap;
-    }
-
-    private static void ToggleInvulnerability(bool tog)
-    {
-        Unvulnerable = tog;
-        UnvulnerabilityToggled?.Invoke(tog);
-    }
-
-    public static void TryToggleInvulnerability(bool tog)
-    {
-        ToggleInvulnerability(tog);
-    }
-
-    public static void DeactivateAllBindedSystems()
-    {
-        print("---Deactivate all binded systems to PlayerShip data");
-        Active = false;
-        PlayerController.CanControl = false;
-        ToggleInvulnerability(true);
-
-        //PlayerDeathed?.Invoke();
     }
 
     private static void Death()
     {
         ReviveManager.TryRevive();
 
-        DeactivateAllBindedSystems();
+        // DeactivateAllBindedSystems();
         PlayerDeathed?.Invoke();
         SceneStatics.UICore.GetComponent<DeathUIHandler>().Death();
-    }
-
-    private static void WriteSaveData()
-    {
-        // Legacy save writing is intentionally disabled.
-        // GameSessionSave save = GameSessionInfoHandler.GetSessionSave();
-        // save.HealthPoints = HitPoints;
-        // save.MaxHealth = _hpCap;
-        // print($"---save hp : {HitPoints}");
-        // GameSessionInfoHandler.RewriteSessionSave(save);
     }
 
     // #if UNITY_EDITOR
@@ -446,14 +402,56 @@ public class PlayerShipData : MonoBehaviour
         // {
         //     TakeDamage(999);
         // }
-        // if (Input.GetKeyDown(KeyCode.H))
-        // {
-        //     RegenerateHP(3);
-        // }
-        // if (Input.GetKeyDown(KeyCode.D))
-        // {
-        //     TakeDamage(10);
-        // }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage(new DamageBundle()
+            {
+                damageKey = DamageKey.Player,
+                damageValue = 0,
+                armorPenetration = 0,
+                shieldDamageMultiplier = 1f,
+                structuralDamage = 0,
+                regeneratingValue = 20,
+                stunAmount = 0f,
+                cycles = 1
+            }, out bool killed);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            TakeDamage(new DamageBundle()
+            {
+                damageKey = DamageKey.Player,
+                damageValue = 30,
+                armorPenetration = 0,
+                shieldDamageMultiplier = 1f,
+                structuralDamage = 0,
+                regeneratingValue = 0,
+                stunAmount = 0f,
+                cycles = 1
+            }, out bool killed);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            TakeDamage(new DamageBundle()
+            {
+                damageKey = DamageKey.Player,
+                damageValue = 13,
+                armorPenetration = 0,
+                shieldDamageMultiplier = 1f,
+                structuralDamage = 13,
+                regeneratingValue = 0,
+                stunAmount = 0f,
+                cycles = 1
+            }, out bool killed);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GetShield(40);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            AddDamageBuffer(1);
+        }
         // if (Input.GetKeyDown(KeyCode.M))
         // {
         //     TakeDamage(20);

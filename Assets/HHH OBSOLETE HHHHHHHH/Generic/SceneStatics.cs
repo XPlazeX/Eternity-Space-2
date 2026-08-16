@@ -26,7 +26,7 @@ public class SceneStatics : MonoBehaviour
     public static Color UniqueColor => new Color(0.53f, 0.11f, 0.35f);
 
     public static float MultiplyByChaos (float input) => Random.Range(input - (input * ChaosMultiplier), input + (input * ChaosMultiplier));
-    public static Vector2 FlatVector(Vector3 vec) => new Vector2(vec.x, vec.y);
+    public static Vector3 FlatVector(Vector3 vec) => new Vector3(vec.x, vec.y, 0f);
 
     [SerializeField] private Gradient _healthGradient;
     public static Gradient HealthGradient = null;

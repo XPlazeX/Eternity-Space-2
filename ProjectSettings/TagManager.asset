@@ -55,11 +55,11 @@ TagManager:
   - World Canvas
   - Player Canvas
   - Sledge
-  - 
-  - 
+  - World Rigids
+  - MRT Scan Colliders
   - Ark
-  - 
-  - 
+  - Gamma Scan Colliders
+  - Healing Bullets
   - 
   - 
   - 

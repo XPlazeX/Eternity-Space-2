@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2101595918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ Transform:
   m_GameObject: {fileID: 1260780666147496286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 0.06, z: 0}
+  m_LocalPosition: {x: -0.28, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5965,6 +5965,7 @@ MonoBehaviour:
   hasWreck: 1
   wreck: {fileID: 0}
   wreckVelocityMultiplier: 0.66
+  wreckRandomImpulse: 0
   hasExplosion: 0
   explosionObject: {fileID: 0}
   scale: 1
@@ -6066,6 +6067,7 @@ MonoBehaviour:
   - {fileID: 1260780668016141902}
   - {fileID: 1260780666147496287}
   - {fileID: 1260780667689757784}
+  useDefaultUI: 0
   mainWeaponUI: {fileID: 8158553981922614609}
   mainWeaponEnergyUIs:
   - {fileID: 1443322690879338240}
@@ -6132,7 +6134,7 @@ Transform:
   m_GameObject: {fileID: 1260780667689757787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0.28, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

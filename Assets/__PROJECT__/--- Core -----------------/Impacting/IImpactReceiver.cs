@@ -4,7 +4,15 @@ using UnityEngine.Events;
 
 public interface IImpactReceiver
 {
+    bool Toleranted {get;}
+
     ImpactResult ReceiveImpact(in ImpactContext context);
+    void SetToleranted(bool toleranted);
+}
+
+public interface IRuntimeImapctResistorsHandler
+{
+    RuntimeImpactResistor[] Resistors {get;}
 }
 
 [System.Serializable]
@@ -22,6 +30,7 @@ public class ImpactResistor
     public UnityEvent OnResistanceRecovered;
     public UnityEvent OnResistanceChanged;
     public UnityEvent OnActiveTimeEnded;
+    public UnityEvent OnActiveTimeChanged;
 
     public RuntimeImpactResistor CreateRuntimeResistor()
     {
@@ -42,6 +51,7 @@ public class RuntimeImpactResistor
     public UnityEvent OnResistanceRecovered {get; private set;}
     public UnityEvent OnResistanceChanged {get; private set;}
     public UnityEvent OnActiveTimeEnded {get; private set;}
+    public UnityEvent OnActiveTimeChanged {get; private set;}
 
     private float _currentResistance;
     private bool _disposed = false;
@@ -49,6 +59,10 @@ public class RuntimeImpactResistor
     private bool _recovered = false;
 
     public float CurrentResistance => _currentResistance;
+    public float CurrentResistanceNormalized => _currentResistance / Resistance;
+    public float ActiveTimer => _activeTimer;
+    public float ActiveTimerNormalized => _activeTimer / ActiveTime;
+    public bool Disposed => _disposed;
 
     public RuntimeImpactResistor(ImpactResistor resistor)
     {
@@ -63,6 +77,7 @@ public class RuntimeImpactResistor
         OnResistanceRecovered = resistor.OnResistanceRecovered;
         OnResistanceChanged = resistor.OnResistanceChanged;
         OnActiveTimeEnded = resistor.OnActiveTimeEnded;
+        OnActiveTimeChanged = resistor.OnActiveTimeChanged;
         _disposed = false;
         _recovered = false;
         _currentResistance = 0f;
@@ -76,6 +91,7 @@ public class RuntimeImpactResistor
         if (_activeTimer > 0f)
         {
             _activeTimer -= deltaTime;
+            OnActiveTimeChanged?.Invoke();
             if (_activeTimer <= 0f)
             {
                 _activeTimer = 0f;
@@ -195,5 +211,6 @@ public enum ImpactTag
     Manipulating,
     Barrier,
     Synchronizing,
-    ReactorPulse
+    ReactorPulse,
+    Reconstructing
 }

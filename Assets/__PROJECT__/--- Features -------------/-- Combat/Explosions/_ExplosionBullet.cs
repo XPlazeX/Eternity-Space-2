@@ -4,6 +4,7 @@ using UnityEngine;
 public class _ExplosionBullet : MonoBehaviour
 {
     [SerializeField] private int _explosionCode = 0;
+    [SerializeField] private bool _explodeOnEveryHit;
     [SerializeField] private ExplosionObject _explosionObject;
     [SerializeField] private bool _mute = false;
     [SerializeField] private bool _modParams = false;
@@ -24,8 +25,21 @@ public class _ExplosionBullet : MonoBehaviour
         // _explosionHandler = SceneStatics.SceneCore.GetComponent<ExplosionHandler>();
         // _explosionHandler.PreloadExplosion(_explosionCode);
 
-        if (GetComponent<Bullet>())
-            GetComponent<Bullet>().Deathed += SpawnExplosion;
+        Bullet b = GetComponent<Bullet>();
+
+        if (b != null)
+        {
+            if (b.ShouldExplodeOnTimer)
+            {
+                b.Deathed += SpawnExplosion;
+            }
+                
+            if (_explodeOnEveryHit)
+            {
+                b.Hitted += SpawnExplosion;
+            }
+        }
+            
     }
 
     public void SpawnExplosion(Vector3 position)

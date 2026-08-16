@@ -12,6 +12,7 @@ public class CameraObjects : MonoBehaviour
     public float paralaxSpeed;
 
     [SerializeField] private bool _notChangeScale = false;
+    [SerializeField] private Camera customCamera;
 
     private Vector3 _defaultPosition;
     private Vector3 _defaultSize;
@@ -62,6 +63,10 @@ public class CameraObjects : MonoBehaviour
     private void CacheDefaultState()
     {
         Camera mainCamera = CameraController.instance.ControllingCamera;
+        if (customCamera != null)
+        {
+            mainCamera = customCamera;
+        } 
 
         if (mainCamera == null)
             return;

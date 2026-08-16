@@ -63,6 +63,19 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
     }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+            ResetMovementState();
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+            ResetMovementState();
+    }
+
     private void Start() {
         _clutch = true;
     }
@@ -75,25 +88,10 @@ public class PlayerController : MonoBehaviour
         if (!CanControl)
             return;
 
-        // if (PlayerInput.SecondaryFireDown)
-        // {
-        //     _clutch = false;
-        //     _joystickVector = Vector2.zero;   
-        // }
-
-        // if (PlayerInput.SecondaryFireUp)
-        // {
-        //     _clutch = true;
-        //     _joystickVector = Vector2.zero;
-        // }
         if (PlayerInput.NextReleased)
         {
             _joystickVector = Vector2.zero;
         }
-        // {
-        //     _clutch = true;
-        //     _joystickVector = Vector2.zero;
-        // }
 
         if (ESTime.worldTimeScale != 0f)
         {
@@ -102,7 +100,7 @@ public class PlayerController : MonoBehaviour
             if (frameDrag.sqrMagnitude > 0f)
             {
                 _pendingDragDelta += frameDrag;
-                _pendingDragTime += ESTime.unscaledDeltaTime;
+                _pendingDragTime += ESTime.worldDeltaTime;
                 Dragging?.Invoke(frameDrag);
             }
 
@@ -135,7 +133,6 @@ public class PlayerController : MonoBehaviour
             _pendingDragTime = 0f;
             _lastDragVelocity = Vector2.zero;
             _lastDragVelocityTimer = 0f;
-            // _clutch = false;
             _currentMove = Vector2.zero;
             AdditiveForce = Vector3.zero;
             _joystickVector = Vector2.zero;
@@ -177,28 +174,6 @@ public class PlayerController : MonoBehaviour
             _lastDragVelocity = Vector2.zero;
             _lastDragVelocityTimer = 0f;
         }
-        // if (_pendingBeginDrag)
-        // {
-        //     TimeHandler.Recover();
-
-        //     if (!IsControlling)
-        //         BeginDrag?.Invoke();
-
-        //     IsControlling = true;
-        //     _pendingBeginDrag = false;
-        // }
-
-        // if (_pendingEndDrag)
-        // {
-        //     if (IsControlling)
-        //         EndDrag?.Invoke();
-
-        //     IsControlling = false;
-        //     _lastDragVelocity = Vector2.zero;
-        //     _lastDragVelocityTimer = 0f;
-        //     TimeHandler.SlowDown();
-        //     _pendingEndDrag = false;
-        // }
     }
 
     private void TickAdditiveForce()
@@ -282,11 +257,6 @@ public class PlayerController : MonoBehaviour
             targetMove = forceMove + joystickMove;
         }
 
-        
-
-        // if (_pendingDragDelta.magnitude > 0f)
-        // Debug.Log($"[LIMITED MOVEMENT]: dragVelocity={dragVelocity}, pendingDragDelta={_pendingDragDelta}, pendingTime={_pendingDragTime}, dragMove={dragMove}, targetMove={targetMove}, magnittude={targetMove.magnitude}, limit={speedLimit * fdt}");
-        
         if (targetMove.magnitude > speedLimit * fdt)
         {
             targetMove = targetMove.normalized * speedLimit * fdt;
@@ -303,6 +273,10 @@ public class PlayerController : MonoBehaviour
             targetMove,
             currentManeuverability * fdt
         );
+
+        // _currentMove stores the actual displacement for this physics tick.
+        // Keep it inside the same limit as targetMove even after a focus/pause hitch.
+        _currentMove = Vector2.ClampMagnitude(_currentMove, speedLimit * fdt);
 
         Vector2 nextPos = currentPos + _currentMove;
         nextPos = ClampPosition(nextPos);
@@ -334,18 +308,23 @@ public class PlayerController : MonoBehaviour
         AdditiveForce += new Vector3(direction.x, direction.y, 0f) * forceScale;
     }
 
-    // private void OnDisable()
-    // {
-    //     BeginDrag -= TimeHandler.Recover;
-    //     EndDrag -= TimeHandler.SlowDown;
-    // }
+    private void ResetMovementState()
+    {
+        _pendingDragDelta = Vector2.zero;
+        _pendingDragTime = 0f;
+        _lastDragVelocity = Vector2.zero;
+        _lastDragVelocityTimer = 0f;
+        _currentMove = Vector2.zero;
+        _joystickVector = Vector2.zero;
+
+        if (_playerRb != null)
+        {
+            _playerRb.linearVelocity = Vector2.zero;
+            _playerRb.angularVelocity = 0f;
+        }
+    }
 
     public void ChangeSensivity(float val) => _sensivity = 1f;
-
-    // private static void SetBorders(float empty = 0)
-    // {
-    //     _cameraBorders = CameraController.Borders_xXyY;
-    // }
 
     public static void ReplacePlayer(Transform newPlayer)
     {
@@ -361,11 +340,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 ClampPosition(Vector2 pos)
     {
         return ArenaLocal.ClampPosition(pos);
-        // if ((pos - ArenaLocal.R))
-        // return new Vector2(
-        //     Mathf.Clamp(pos.x, ArenaLocal.WNegX - offsetOut, ArenaLocal.WPosX + offsetOut),
-        //     Mathf.Clamp(pos.y, ArenaLocal.WNegY - offsetOut, ArenaLocal.WPosY + offsetOut)
-        // );
     }
 
     void OnDrawGizmosSelected()

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public static Quaternion Orientation => PlayerTransform == null ? Quaternion.identity : PlayerTransform.rotation;
     public static Vector3 Position => PlayerTransform == null ? Vector3.zero : PlayerTransform.position;
     public static Transform TargetPlayerTransform {get; private set;}
-    public static bool Alive => PlayerShipData.Active;
+    public static bool Alive => PlayerShipData.Alive;
 
     public static bool CanAttack {get; set;} = true;
     public static ShipClass Class {get; private set;}

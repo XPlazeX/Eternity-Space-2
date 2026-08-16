@@ -15,11 +15,13 @@ public class SledgeDirector : MonoBehaviour
     private PlayerSledgeState _playerSledgeState = PlayerSledgeState.SledgeControl;
     private bool _isPlayerControlling = true;
     private bool _isLocked = false;
+    private bool _isPlayerUnvulnerableRequest = false;
 
     public static bool IsPlayerControlling => instance == null ? true : instance._isPlayerControlling;
     public bool IsSledgeControlling => _playerSledgeState == PlayerSledgeState.SledgeControl && !IsPlayerControlling && !IsLocked;
-    public bool CanCatching => _playerSledgeState == PlayerSledgeState.PlayerFree && sledgeBody.CatcherAvailable && !IsLocked;
+    public bool CanCatching => _playerSledgeState == PlayerSledgeState.PlayerFree && sledgeBody.CatcherAvailable && !IsLocked && !AutoDeployPlayer;
     public bool CanDeployPlayer => _playerSledgeState == PlayerSledgeState.SledgeControl && sledgeController.CanDeployPlayer;
+    public bool AutoDeployPlayer => sledgeBody.IsAutoDeployState;
     public bool IsLocked => _isLocked;
 
     public static bool IsPlayerLosedControl {get; private set;} = false;
@@ -91,6 +93,12 @@ public class SledgeDirector : MonoBehaviour
         _isPlayerControlling = false;
         IsPlayerLosedControl = true;
 
+        if (!_isPlayerUnvulnerableRequest)
+        {
+            PlayerShipData.RequestUnvulnerability();
+            _isPlayerUnvulnerableRequest = true;
+        }
+
         PlayerCatchStarted?.Invoke();
     }
 
@@ -129,6 +137,12 @@ public class SledgeDirector : MonoBehaviour
         _isPlayerControlling = true;
         IsPlayerLosedControl = false;
         _playerSledgeState = PlayerSledgeState.PlayerFree;
+
+        if (_isPlayerUnvulnerableRequest)
+        {
+            PlayerShipData.ReleaseUnvulnerability();
+            _isPlayerUnvulnerableRequest = false;
+        }
 
         PlayerDeployed?.Invoke();
     }

@@ -11,7 +11,7 @@ public class AttackModuleAbility : Ability
     {
         if (_consumeHP)
         {
-            PlayerShipData.ConsumeHP(_hpCost);
+            // PlayerShipData.ConsumeHP(_hpCost);
         }
         _attackModule.HandFireSeries(0, _waitTime);
     }

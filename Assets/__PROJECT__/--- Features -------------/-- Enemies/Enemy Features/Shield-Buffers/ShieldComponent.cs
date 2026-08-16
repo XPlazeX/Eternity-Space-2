@@ -59,6 +59,7 @@ public class ShieldComponent : PullableObject
         _recoverable = false;
         _carrierTransform = carrier;
         _shieldMax = maxSP;
+        SetDefaultStats();
         _currentShield = _shieldMax;
 
         GetComponent<SpriteRenderer>().sprite = carrier.GetComponent<SpriteRenderer>().sprite;
@@ -79,7 +80,7 @@ public class ShieldComponent : PullableObject
         _animator.SetTrigger("TakeDamage");
         _mySR.color = new Color(_mySR.color.r, _mySR.color.g, _mySR.color.b, ((float)newSP / _shieldMax) + 0.3f);
 
-        if (newSP < _shieldMax)
+        if (_recoverable && newSP < _shieldMax)
             StartRecovering();
 
         _currentShield = newSP;

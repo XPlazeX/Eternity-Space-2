@@ -14,7 +14,9 @@ public class PrespawnEnemyValidator : MonoBehaviour
 
         for (int i = 0; i < dbs.Length; i++)
         {
-            if (dbs[i].GetComponent<EnemyHandle>() == null && dbs[i] is not PlayerDamageBody)
+            if (dbs[i] is SledgeBody || dbs[i] is PlayerDamageBody) continue;
+
+            if (dbs[i].GetComponent<EnemyHandle>() == null)
             {
                 EnemySpawner.ValidatePrespawnedDamageBody(dbs[i]);
             }

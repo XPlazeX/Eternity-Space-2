@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ParticleSystemParallaxTiler : MonoBehaviour
 {
+    [SerializeField] private Transform observingTransform;
     [SerializeField] private Transform bottomLeft;
     [SerializeField] private Transform bottomRight;
     [SerializeField] private Transform topLeft;
@@ -19,12 +20,15 @@ public class ParticleSystemParallaxTiler : MonoBehaviour
     private Transform _cameraTransform; // center
 
     private void Start() {
-        _cameraTransform = Camera.main.transform;
+        if (observingTransform == null)
+        {
+            observingTransform = Camera.main.transform;
+        }
     }
 
     private void LateUpdate() 
     {
-        Vector3 delta = _cameraTransform.position - transform.position;
+        Vector3 delta = observingTransform.position - transform.position;
 
         if (delta.x > (tileSize.x * _xStep + tileSize.x / 2f))
         {

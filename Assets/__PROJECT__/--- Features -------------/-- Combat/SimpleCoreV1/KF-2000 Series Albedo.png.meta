@@ -476,6 +476,116 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: KF-2000 Series Albedo_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 64
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0024b00ce0b866c438fa6c3fdce9ff86
+      internalID: -1103931908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KF-2000 Series Albedo_17
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 7
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bf86785a115ac4db24f417ae3d88bf
+      internalID: 1430499748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KF-2000 Series Albedo_18
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 2
+        width: 4
+        height: 14
+      alignment: 9
+      pivot: {x: 0.625, y: 0.035714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f81813f00c0ae4f906a1d7acca6a92
+      internalID: -365373448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KF-2000 Series Albedo_19
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 2
+        width: 4
+        height: 14
+      alignment: 9
+      pivot: {x: 0.375, y: 0.035714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13adc983fb789354a81d67d2e4da1025
+      internalID: -483919138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KF-2000 Series Albedo_20
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 20
+        width: 3
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc0206b988aaa741a3eeee23e7c5d43
+      internalID: -441010832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -498,7 +608,12 @@ TextureImporter:
       KF-2000 Series Albedo_13: 915419948
       KF-2000 Series Albedo_14: -2009343198
       KF-2000 Series Albedo_15: -2059218906
+      KF-2000 Series Albedo_16: -1103931908
+      KF-2000 Series Albedo_17: 1430499748
+      KF-2000 Series Albedo_18: -365373448
+      KF-2000 Series Albedo_19: -483919138
       KF-2000 Series Albedo_2: 7536617246382917126
+      KF-2000 Series Albedo_20: -441010832
       KF-2000 Series Albedo_3: -4989404490374098601
       KF-2000 Series Albedo_4: 4853521231143530897
       KF-2000 Series Albedo_5: -336547800

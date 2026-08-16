@@ -44,6 +44,12 @@ public class DesctopUtilsScript : MonoBehaviour
             _showStats = !_showStats;
         }
 
+        if (Input.GetMouseButtonDown(2))
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             Cursor.visible = !Cursor.visible;

@@ -38,8 +38,8 @@ public class PlayerDamageBody : DamageBody
 
     public void OnTriggerEnter2D(Collider2D other) 
     {
-        if (PlayerShipData.Hover || other.GetComponent<Hover>() != null)
-            return;
+        // if (PlayerShipData.Hover || other.GetComponent<Hover>() != null)
+        //     return;
 
         DamageBody damageBody = other.GetComponent<DamageBody>();
 

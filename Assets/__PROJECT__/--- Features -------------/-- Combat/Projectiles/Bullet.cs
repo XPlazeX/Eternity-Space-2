@@ -30,6 +30,7 @@ public class Bullet : AttackObject
     public float Lifetime => _lifetime;
     public float Lifetimer => _lifeTimer;
     public float LifetimeLeftNormalized => Mathf.Clamp01(_lifeTimer / _lifetime);
+    public bool ShouldExplodeOnTimer => _explodeOnTimer;
 
     public int Pierces
     {

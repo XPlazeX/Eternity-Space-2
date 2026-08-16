@@ -86,8 +86,8 @@ public class PlayerRamsHandler : MonoBehaviour
         if (HealValue > 0)
             PlayerShipData.RegenerateHP(HealValue);
 
-        if (PlayerShipData.CriticalState)
-            PlayerShipData.RegenerateHP(PlayerShipData.CriticalStateBorder - PlayerShipData.HitPoints);
+        // if (PlayerShipData.CriticalState)
+        //     PlayerShipData.RegenerateHP(PlayerShipData.CriticalStateBorder - PlayerShipData.HitPoints);
 
         if (RamShielding && _ramShield != null)
         {

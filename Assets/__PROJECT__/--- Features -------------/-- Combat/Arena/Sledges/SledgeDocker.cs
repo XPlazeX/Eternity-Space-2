@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SledgeDocker : MonoBehaviour
 {
-    private const float PLAYER_CAMERA_SCALE = 13f;
-    private const float SLEDGE_CAMERA_SCALE = 17f;
+    private const float PLAYER_CAMERA_SCALE = 11f;
+    private const float SLEDGE_CAMERA_SCALE = 17.2f;
 
     public event System.Action CatchingStarted;
     public event System.Action PlayerDocked;

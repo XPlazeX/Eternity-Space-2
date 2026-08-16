@@ -1,4 +1,5 @@
-﻿using DamageSystem;
+﻿using System;
+using DamageSystem;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,7 @@ public class DeathCaller : MonoBehaviour
     [SerializeField] private bool hasWreck = true;
     [SerializeField] private Wreck wreck;
     [SerializeField] private float wreckVelocityMultiplier = 0.66f;
+    [SerializeField] private float wreckRandomImpulse = 0f;
     [Space()]
     [SerializeField] private bool hasExplosion;
     [SerializeField] private ExplosionObject explosionObject;
@@ -26,7 +28,8 @@ public class DeathCaller : MonoBehaviour
             // Debug.Log("Call");
             Wreck w = Instantiate(wreck, transform.position, transform.rotation);
 
-            w.SetFixedStepDelta(ctx.velocity * wreckVelocityMultiplier);
+            w.SetFixedStepDelta(ctx.velocity * wreckVelocityMultiplier 
+            + Quaternion.Euler(0,0, UnityEngine.Random.Range(0, 360f)) * Vector3.one * UnityEngine.Random.Range(0, wreckRandomImpulse * ESTime.worldFixedDeltaTime));
             w.Detonate();
 
             if (ctx.damageTag == DamageTag.Charged)

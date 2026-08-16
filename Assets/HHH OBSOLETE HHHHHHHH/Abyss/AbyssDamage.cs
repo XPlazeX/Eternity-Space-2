@@ -23,7 +23,7 @@ public class AbyssDamage : MonoBehaviour
             {
                 yield break;
             }
-            PlayerShipData.ConsumeHP(Random.Range(0, 5)); 
+            // PlayerShipData.ConsumeHP(Random.Range(0, 5)); 
             yield return new WaitForSeconds(Random.Range(0.1f, 2f));
         }
     }

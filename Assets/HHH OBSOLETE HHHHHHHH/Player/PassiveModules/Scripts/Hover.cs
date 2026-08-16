@@ -7,12 +7,12 @@ public class Hover : MonoBehaviour
     private void OnEnable() {
         if (_forEnemyHover)
             return;
-        PlayerShipData.Hover = true;
+        // PlayerShipData.Hover = true;
     }
 
     private void OnDisable() {
         if (_forEnemyHover)
             return;
-        PlayerShipData.Hover = false;
+        // PlayerShipData.Hover = false;
     }
 }

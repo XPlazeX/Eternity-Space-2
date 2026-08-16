@@ -6799,7 +6799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748633ac7b1a90d4f83b1d401dea2178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoStart: 1
+  autoStart: 0
   speed: 10
   inertionSurmount: 0.33
   startSpeedBoost: 20
@@ -6895,6 +6895,7 @@ MonoBehaviour:
   hasWreck: 1
   wreck: {fileID: 8101007104695084331, guid: b9720dab2d0f4834fb37f648c96f9c4f, type: 3}
   wreckVelocityMultiplier: 0.66
+  wreckRandomImpulse: 0
   hasExplosion: 0
   explosionObject: {fileID: 0}
   scale: 1
@@ -6990,6 +6991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_ExplosionBullet
   _explosionCode: 0
+  _explodeOnEveryHit: 0
   _explosionObject: {fileID: 5075635723808820931, guid: 03c66066cd48c38468e3e2c6d46f4a9f, type: 3}
   _mute: 1
   _modParams: 1

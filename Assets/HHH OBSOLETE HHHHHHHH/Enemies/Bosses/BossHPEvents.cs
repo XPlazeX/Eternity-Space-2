@@ -25,7 +25,7 @@ public class BossHPEvents : MonoBehaviour
 
     private void CheckHP(int n)
     {
-        float percentage = (float)_damageBody.HitPoints / (float)_damageBody.StartHP;
+        float percentage = (float)_damageBody.HitPoints / (float)_damageBody.MaxHP;
 
         for (int i = 0; i < _bossHpEvents.Length; i++)
         {

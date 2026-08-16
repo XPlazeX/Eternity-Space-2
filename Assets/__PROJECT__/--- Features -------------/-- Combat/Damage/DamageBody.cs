@@ -4,8 +4,11 @@ using DamageSystem;
 [RequireComponent(typeof(DeathCaller))]
 public class DamageBody : MonoBehaviour, IDamagable
 {
+    private const int STRUCTURAL_MAX_REGENERATING_VALUE = 5;
+
     public virtual event healthOperation DamageTaking;
     public virtual event healthOperation Regenerated;
+    public virtual event healthOperation HealthChanged;
     public virtual event healthOperation HealthModified;
     public virtual event deathHandler Deathed;
     public virtual event bodyPositionHandler PositionDeathed;
@@ -31,32 +34,31 @@ public class DamageBody : MonoBehaviour, IDamagable
     private int _damageBuffers;
     protected ShieldComponent _shield;
     protected DamageBufferComponent _damageBuffer;
-    protected int _startHP;
+    protected int _maxHP;
     protected int _startFlatArmor;
     private bool _deathed;
 
     protected float _stunPoints = 0f;
     protected int _stunCount = 0;
     protected float _ramTimer; 
+    protected virtual bool StackingByStructureDamage {get;} = true;
     //protected int _decadesBlockForRam;
 
     public DamageKey KeyDamage {get => _damageKey;}
-    public int StartHP => _startHP;
+    public int MaxHP => _maxHP;
     public int StartShield => _startShieldPoints;
     public int StartDamageBuffers => _startDamageBuffers;
+    public int CurrentMaxHitPoints => _maxHP - StructuralDamage;
     public virtual int HitPoints 
     {
         get {return _hitPoints;}
 
-        protected set {
-            _hitPoints = value;
+        protected set 
+        {
+            _hitPoints = Mathf.Clamp(value, 0, CurrentMaxHitPoints);
             if (_hitPoints <= PlayerRamsHandler.DecadesBlockForRam * 10)
             {
                 RamReady = rammable ? true : false;
-            }
-            if (_hitPoints <= 0)
-            {
-                _hitPoints = 0;
             }
         }
     }
@@ -93,15 +95,13 @@ public class DamageBody : MonoBehaviour, IDamagable
 
     protected virtual void Awake() 
     {
-        // _hitPoints = _hitPoints;//Mathf.CeilToInt(_hitPoints * ShipStats.GetValue("EnemyHealthMultiplier") * GameSessionInfoHandler.HardnessMultiplier);
-        _startHP = _hitPoints;
+        _maxHP = _hitPoints;
         _startFlatArmor = _flatArmor;// + ShipStats.GetIntValue("EnemyFlatArmor");
-        // _damageTakingAnimator = GetComponent<Animator>();
     }
 
     private void OnEnable() 
     {
-        HitPoints = _startHP;
+        HitPoints = _maxHP;
         FlatArmor = _startFlatArmor;
         DamageReduction = damageReduction;
     }
@@ -109,7 +109,6 @@ public class DamageBody : MonoBehaviour, IDamagable
     void Start()
     {
         _deathCaller = GetComponent<DeathCaller>();
-        //_decadesBlockForRam = ShipStats.GetIntValue("DecadesBlockForRam");
 
         GetShield(_startShieldPoints);
         GetDamageBuffer(_startDamageBuffers);
@@ -117,18 +116,18 @@ public class DamageBody : MonoBehaviour, IDamagable
 
     public virtual void MultiplyHP(float multiplier)
     {
-        _startHP = Mathf.CeilToInt(_startHP * multiplier);
+        _maxHP = Mathf.CeilToInt(_maxHP * multiplier);
         HitPoints = Mathf.CeilToInt(HitPoints * multiplier);
-        HealthModified?.Invoke(_startHP);
-        DamageTaking?.Invoke(HitPoints);
+        HealthModified?.Invoke(_maxHP);
+        HealthChanged?.Invoke(HitPoints);
     }
 
     public virtual void AddMaxHP(int hp)
     {
-        _startHP += hp;
+        _maxHP += hp;
         HitPoints += hp;
-        HealthModified?.Invoke(_startHP);
-        DamageTaking?.Invoke(HitPoints);
+        HealthModified?.Invoke(_maxHP);
+        HealthChanged?.Invoke(HitPoints);
     }
 
     void Update()
@@ -156,7 +155,6 @@ public class DamageBody : MonoBehaviour, IDamagable
             }
             
         }
-
     }
 
     public virtual bool TakeDamage(DamageBundle damageBundle, out bool killed)
@@ -203,7 +201,7 @@ public class DamageBody : MonoBehaviour, IDamagable
                 if (iAsteroid)
                     tempDmg = Mathf.CeilToInt(damageBundle.asteroidDamageMultiplier * tempDmg);
 
-                tempDmg = Mathf.CeilToInt(tempDmg - Mathf.Max(0, FlatArmor - damageBundle.armorPenetration) * Mathf.Max(0f, 1f - DamageReduction)) + StructuralDamage;
+                tempDmg = Mathf.CeilToInt(tempDmg - Mathf.Max(0, FlatArmor - damageBundle.armorPenetration) * Mathf.Max(0f, 1f - DamageReduction)) + (StackingByStructureDamage ? StructuralDamage : 0);
 
                 if (tempDmg <= 0)
                 {
@@ -226,7 +224,8 @@ public class DamageBody : MonoBehaviour, IDamagable
                     return true;
                 }
 
-                DamageTaking?.Invoke(HitPoints);
+                HealthChanged?.Invoke(HitPoints);
+                DamageTaking?.Invoke(tempDmg);
             }
 
             StructuralDamage += damageBundle.structuralDamage;
@@ -238,8 +237,16 @@ public class DamageBody : MonoBehaviour, IDamagable
 
             if (damageBundle.regeneratingValue > 0)
             {
-                HitPoints = Mathf.Clamp(HitPoints + damageBundle.regeneratingValue, 0, _startHP);
+                if (HitPoints >= CurrentMaxHitPoints && StructuralDamage > 0)
+                {
+                    StructuralDamage -= Mathf.Min(damageBundle.regeneratingValue, STRUCTURAL_MAX_REGENERATING_VALUE);
+                } else
+                {
+                    HitPoints = Mathf.Clamp(HitPoints + damageBundle.regeneratingValue, 0, CurrentMaxHitPoints);
+                }
+
                 Regenerated?.Invoke(damageBundle.regeneratingValue);
+                HealthChanged?.Invoke(HitPoints);
             }
         }
 

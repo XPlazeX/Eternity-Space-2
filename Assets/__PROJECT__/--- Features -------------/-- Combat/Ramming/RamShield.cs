@@ -120,7 +120,7 @@ public class RamShield : MonoBehaviour
 
     private void Toggle(bool tog, float frtBoost = 0)
     {
-        PlayerShipData.TryToggleInvulnerability(tog);
+        // PlayerShipData.TryToggleInvulnerability(tog);
         if (tog)
         {
             ShipStats.IncreaseStat("MainWeaponFirerateMultiplier", frtBoost);

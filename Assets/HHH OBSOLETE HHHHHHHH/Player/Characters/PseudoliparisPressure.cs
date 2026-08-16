@@ -41,7 +41,7 @@ public class PseudoliparisPressure : MonoBehaviour
                 }
             }
 
-            PlayerShipData.ConsumeHP(1);
+            // PlayerShipData.ConsumeHP(1);
             _timer = _loseReload;
         }
     }

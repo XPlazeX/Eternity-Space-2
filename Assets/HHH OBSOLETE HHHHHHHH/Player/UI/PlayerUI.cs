@@ -39,17 +39,17 @@ public class PlayerUI: MonoBehaviour
     public int MaxHP {get; set;}
 
     private void OnEnable() {
-        SledgeCore.RepairChanged += OnRepairChargeChanged;
+        // SledgeCore.RepairChanged += OnRepairChargeChanged;
     }
 
     void OnDisable()
     {
-        SledgeCore.RepairChanged -= OnRepairChargeChanged;
+        // SledgeCore.RepairChanged -= OnRepairChargeChanged;
     }
 
     private void OnRepairChargeChanged(int rc)
     {
-        _armorBar.fillAmount = (float)rc / PlayerShipData.MaxHP;
+        // _armorBar.fillAmount = (float)rc / PlayerShipData.MaxHP;
         _armorLabel.text = rc.ToString();
     }
 

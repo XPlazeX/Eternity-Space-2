@@ -3,6 +3,7 @@
 public class _Homing_ : MonoBehaviour
 {
     [SerializeField] private string _targetTag;
+    [SerializeField] private float _maxHomingDistance = 500f;
     [SerializeField] private float _homingPower;
     [SerializeField] private float _homingBoostOverTime = 0f;
     [SerializeField] private float _maxHomingPower;
@@ -59,10 +60,26 @@ public class _Homing_ : MonoBehaviour
         GameObject[] allTargets = GameObject.FindGameObjectsWithTag(targetTag);
         Transform nearestTarget = null;
         float minDistance = 10000f;
+        bool trapped = false;
 
         for (int i = 0; i < allTargets.Length; i++)
         {
             float distance = (allTargets[i].transform.position - transform.position).magnitude;
+            if (distance > _maxHomingDistance) continue;
+
+            HomingTrap trap = allTargets[i].GetComponent<HomingTrap>();
+            if (trap != null && trap.Active)
+            {
+                if (!trapped)
+                {
+                    nearestTarget = allTargets[i].transform;
+                    continue;
+                }
+            } else if (trap == null && trapped)
+            {
+                continue;
+            }
+            
             if (distance < minDistance)
             {
                 minDistance = distance;
